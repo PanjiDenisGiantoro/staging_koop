@@ -1,0 +1,44 @@
+a:link			{ text-decoration: none; color: 0000CC;}
+a:visited		{ text-decoration: none; color: 0000CC; }
+a:active		{ text-decoration: none; color: 0000CC;}
+a:hover			{ text-decoration: underline; color: FF0000;}
+input			{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif;; color: #000000;}
+
+
+.bodyBG 		{ background-color: #E7ECF5}
+.lineBG 		{ background-color: #999999}
+.tableBG 		{ background-color: #E7ECF5}
+.rightBG 		{ background-color: #E7ECF5;}
+.actionBG 		{ background-color: #E7ECF5;}
+.menu			{ font-size: 8pt;  	font-family: Verdana,Poppins,Sans-serif; color: #000000;}
+.menuText		{ font-size: 8pt;  	font-family: Poppins,Helvetica,Sans-serif; color: yellow}
+.menuBold		{ font-size: 8pt;  	font-family: Poppins,Helvetica,Sans-serif; color: #000000; background-color: #FFFFFF; font-weight: bold; }
+.MenuDisable	{ font-size: 8pt;  	font-family: Poppins,Helvetica,Sans-serif; color: #999999; background-color: #0c479d}
+.textFont		{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif;  color: #000033;}
+.dateFont		{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif;  color: #800000;}
+.but 			{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif;  color: #FFFFFF; background-color: #6699FF;}
+.menuButton		{ font-size: 8pt;   font-family: Verdana,Poppins,Sans-serif;  color: #FFFFFF; background-color: #006699; width: 300px; margin-bottom : 5px;}
+.inputDisable	{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif;; color: #000000; font-weight : bold; background-color: #E7ECF5}
+.entry			{ font-size: 8pt; font-family: Verdana,Poppins,Sans-serif;; color: #000000; background-color: #EDEDED;}
+
+.Header			{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #FFFFFF; background-color: #008080; font-weight: bold;}
+.Label 			{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #000033; background-color: #E7ECF5; font-weight: bold;}
+.Data 			{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #000033; background-color: #E7ECF5}
+.DataB			{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #000033; background-color: #E7ECF5; font-weight: bold;}
+.contentH		{ font-size: 10pt; 	font-family: Verdana,Poppins,Sans-serif; color: #FFFFFF; font-weight: bold;}
+.contentD		{ font-size: 8pt;   font-family: Verdana,Poppins,Sans-serif; color: #666666;}
+.Section		{ font-size: 10pt;	font-family: Verdana,Poppins,Sans-serif; color: #000033; background-color: #CCCC99; font-weight: bold;}
+
+.ErrData 		{ font-size: 7.5pt;	font-family: Poppins,Helvetica,Sans-serif; color: #000000; background-color: #FF0000}
+.redText 		{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #FF0000;}
+.blueText 		{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #0000CC}
+.blackText 		{ font-size: 7.5pt; font-family: Verdana,Poppins,Sans-serif; color: #000033}
+.yellowText 	{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #FFCC00}
+.whiteText 		{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #FFFFFF}
+.greenText 		{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #009900}
+.navyText   	{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #000080}
+.maroonText 	{ font-size: 7.5pt;	font-family: Verdana,Poppins,Sans-serif; color: #800000}
+.footer			{ font-size: 7.5pt; font-family: Verdana,Poppins,sans-serif; color:#800000;}
+
+#foldlist		{list-style-image:url(tri.gif)}
+#node			{list-style-image:url(node.gif)}

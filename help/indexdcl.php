@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<title>DCL Online tree</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<frameset rows="140,*" cols="*" frameborder="NO" border="0" framespacing="0">
+  <frame src="banner.php" name="topFrame" scrolling="NO" noresize title="topFrame" >
+  <frameset cols="220,*" frameborder="YES" border="3" framespacing="0">
+    <frame src="left_menu.php" name="leftFrame"  title="leftFrame">
+    <frame src="page.php" name="mainFrame"  title="mainFrame">
+  </frameset>
+</frameset>
+<noframes><body>
+</body></noframes>
+</html>

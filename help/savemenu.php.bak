@@ -1,0 +1,96 @@
+<?
+require_once 'class_file/class_list.php';
+include "common.php"; 
+//$conn->debug = true; 
+
+if ($_GET['add']==1)
+	$saveMode = "insert"; //insert
+else 
+	$saveMode = "update"; //update
+
+if ($_POST['batal']=="Batal") 	print "<script> window.location.href = 'menu.php'; </script>";					 
+
+$id = $_POST['id'];
+
+if ($_POST) {
+	$Menu = $_POST["txtmenu"];
+	$parentMenuID = $_POST["txtparent"];
+	$seqNB = $_POST["txtseqNB"];
+	$httpLink = $_POST["txtlink"];
+	$image = $_POST["txtimage"];
+	$title = $_POST["txttitle"];
+	$text = $_POST["txttext"];
+	if ($_POST['simpan']=="insert") {
+		$query = "INSERT INTO kandungan(Menu,parentMenuID,httpLink,seqNB,title,image,text)".
+			 "VALUES ('$Menu',$parentMenuID,'$httpLink',$seqNB,'$title', '$image','$text')";
+	} else {
+		$query = "UPDATE kandungan SET Menu= '$Menu', parentMenuID = $parentMenuID, seqNB = $seqNB, httpLink = '$httpLink', title ='$title', image = '$image', text='$text' WHERE MenuID= ".$_POST['id'];	
+	}
+	$conn->Execute($query) or die("error :".mysql_error());
+	print "<script> window.location.href = 'menu.php'; </script>";					 
+}
+
+
+if ($_GET['add']<>'' || $_GET['id']<>'') {
+	if ($_GET['id']<>'') {
+		$id = $_GET['id']; 
+		$sql = "SELECT * FROM kandungan WHERE MenuID = ".$_GET['id'];
+		$rs = $conn->Execute($sql);
+		$menuID = $rs->fields(MenuID); 
+		$Menu = $rs->fields(Menu);
+		$parentMenuID = $rs->fields(parentMenuID);
+		$httpLink = $rs->fields(httpLink);
+		$seqNB = $rs->fields(seqNB);
+		$title = $rs->fields(title);
+		$image = $rs->fields(image);
+		$text = $rs->fields(text);
+	//	$tambah = 2; 	
+	}
+}?>
+<form name="form1" method="post" action="savemenu.php">
+<input type="hidden" name="id" value="<?=$id?>">
+<input type="hidden" name="tambah" value="1">
+<p align=center>
+  <table width="80%" height="70" border="0" align=center cellpadding="0" cellspacing="0">
+    <!--DWLayoutTable-->
+    <tr> 
+      <td width="20%" height="33" align="right" valign="top"><b>Menu:</b></td>
+	  <td width="1%"></td>
+      <td width="*" valign="top"> <input name="txtmenu" type="text" id="txtmenu" value="<?=$Menu?>" size="40" maxlength="40"></td>
+      </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>Parent Menu ID :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><input name="txtparent" type="text" id="txtparent" value="<?=$parentMenuID?>" size="10" maxlength="10"></td>
+    </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>Sequence Number :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><input name="txtseqNB" type="text" id="txtseqNB" value="<?=$seqNB?>" size="10" maxlength="10"></td>
+    </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>http Link :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><input name="txtlink" type="text" id="txtlink" value="<?=$link?>" size="40" maxlength="40"></td>
+    </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>Title :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><input name="txttitle" type="text" id="txttitle" value="<?=$title?>" size="80" maxlength="128"></td>
+    </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>image/page :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><input name="txtimage" type="text" id="txtimage" value="<?=$image?>" size="60" maxlength="60"></td>
+    </tr>
+    <tr> 
+      <td width="20%" height="35" align="right" valign="top"><b>content :</b></td>
+ 	  <td width="1%"></td>
+      <td width="*" valign="top"><textarea name="txttext" cols="60" rows="20"><?=$text?> </textarea></td>
+    </tr>
+  </table>
+	  <p align= center>
+        <input name="batal" type="submit" id="batal" value="Batal"></font>
+        <input name="simpan" type="submit" id="simpan" value="<?=$saveMode?>"></font>
+  </p>
+</form>

@@ -1,0 +1,15 @@
+.treeNode {
+	text-decoration: none; color: black; font: 8pt tahoma;
+}
+.link{
+	font: normal normal 11px/normal Verdana, sans-serif;
+	color: #0c479d;
+	text-decoration: none;
+}
+.link:hover{
+	font: normal normal 11px/normal Verdana, sans-serif;
+	color: #df6403;
+	text-decoration: none;
+}
+
+

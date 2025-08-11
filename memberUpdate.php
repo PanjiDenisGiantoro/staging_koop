@@ -1,0 +1,1118 @@
+<?php
+
+/*********************************************************************************
+ *          Project		:	iKOOP.com.my
+ *          Filename		: 	memberEdit.php
+ *          Date 		: 	29/03/2006
+ *********************************************************************************/
+include("header.php");
+include("koperasiList.php");
+include("koperasiQry.php");
+include("forms.php");
+
+if (!isset($mm))	$mm = date("m");
+if (!isset($yy))	$yy = date("Y");
+$yymm = sprintf("%04d%02d", $yy, $mm);
+
+if (@$tabb == '') {
+	$tabb = 1;
+}
+date_default_timezone_set("Asia/Kuala_Lumpur");
+
+$koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
+
+if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $koperasiID) {
+	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
+}
+
+$sFileName        = "?vw=memberUpdate&mn=4";
+$sActionFileName  = "?vw=memberUpdate&mn=4&tabb=3";
+$sActionFileName1  = "?vw=memberUpdate&mn=4&tabb=5";
+$title            = "Kemaskini Profil";
+
+$ID               = $_REQUEST['ID'];
+$code             = $_REQUEST['code'];
+$edit             = $_REQUEST['edit'];
+$pk               = get_session('Cookie_userID');
+
+//--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
+if ($code == 1) {
+	// Deleting nominee record
+	$sSQLdel = "DELETE FROM nominee WHERE ID = " . intval($_REQUEST['IDtype']);
+	$rsdel = $conn->Execute($sSQLdel);
+
+	print '<script>alert("Penama telah berjaya dihapuskan!");</script>';
+	print '<script>window.location.href = "' . $sActionFileName . '";</script>';
+}
+
+if ($code == 2) {
+	$ID = $_REQUEST['pk'];
+	// Retrieving nominee record
+	$sSQL = "SELECT * FROM nominee WHERE userID = " . tosql($pk, "Text");
+	$rs = $conn->Execute($sSQL);
+}
+
+if ($edit) {
+	// Retrieving form data
+	$IDtype = $_POST['IDtype'];
+	$name = $_POST['name'];
+	$newIC = $_POST['newIC'];
+	$mobileNo = $_POST['mobileNo'];
+	$address = $_POST['address'];
+	$percent = $_POST['percent'];
+
+	// Update nominee details (manual single quotes around each variable)
+	$sSQLUpd = "UPDATE nominee SET 
+                    name = '$name', 
+                    newIC = '$newIC', 
+                    mobileNo = '$mobileNo', 
+                    address = '$address',
+					percent = '$percent' 
+                WHERE ID = '$IDtype'";
+
+	$rsUpd = $conn->Execute($sSQLUpd);
+
+	echo '<script>alert("Kemaskini Penama Berjaya!");</script>';
+	echo '<script>window.location.href = "' . $sActionFileName . '";</script>';
+}
+
+if ($code == 3) {
+	// Deleting bank record
+	$sSQLdel = "DELETE FROM bank WHERE ID = " . intval($_REQUEST['IDtype']);
+	$rsdel = $conn->Execute($sSQLdel);
+
+	print '<script>alert("Bank telah berjaya dihapuskan!");</script>';
+	print '<script>window.location.href = "' . $sActionFileName1 . '";</script>';
+}
+
+if ($code == 4) {
+	$ID = $_REQUEST['pk'];
+	// Retrieving bank record
+	$sSQL = "SELECT * FROM bank WHERE userID = " . tosql($pk, "Text");
+	$rs = $conn->Execute($sSQL);
+}
+
+if ($edit1) {
+	// Retrieving form data
+	$IDtype = $_POST['IDtype'];
+	$bankID = $_POST['bankID'];
+	$accTabungan = $_POST['accTabungan'];
+
+	// Update bank details (manual single quotes around each variable)
+	$sSQLUpd = "UPDATE bank SET 
+                    bankID = '$bankID', 
+                    accTabungan = '$accTabungan' 
+                WHERE ID = '$IDtype'";
+
+	$rsUpd = $conn->Execute($sSQLUpd);
+
+	echo '<script>alert("Kemaskini Bank Berjaya!");</script>';
+	echo '<script>window.location.href = "' . $sActionFileName1 . '";</script>';
+}
+
+if ($_POST['action'] == "set_priority") {
+	if (isset($_POST['pk'])) {
+		$selectedID = intval($_POST['pk']);
+
+		// Set priority = 0 untuk semua bank terlebih dahulu
+		$resetSQL = "UPDATE bank SET priority = 0 WHERE priority = 1";
+		$conn->Execute($resetSQL);
+
+		// Set priority = 1 untuk bank yang dipilih sahaja
+		$updateSQL = "UPDATE bank SET priority = 1 WHERE ID = " . tosql($selectedID, "Number") . " AND priority = 0";
+		$conn->Execute($updateSQL);
+
+		$strActivity = $_POST['Submit'] . 'Kemaskini Bank Utama Anggota - ' . get_session('Cookie_userID');
+		activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
+
+		// Paparkan mesej alert dan refresh halaman
+		echo '<script>            
+            location.reload(); // Refresh page
+        </script>';
+	} else {
+		echo '<script>alert("Sila pilih satu bank.");</script>';
+	}
+}
+
+
+//--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
+$strErrMsg = array();
+
+//--- Prepare race type
+$raceList = array();
+$raceVal  = array();
+$GetRace = ctGeneral("", "E");
+if ($GetRace->RowCount() <> 0) {
+	while (!$GetRace->EOF) {
+		array_push($raceList, $GetRace->fields(name));
+		array_push($raceVal, $GetRace->fields(ID));
+		$GetRace->MoveNext();
+	}
+}
+
+//--- Prepare religion type
+$religionList = array();
+$religionVal  = array();
+$GetReligion = ctGeneral("", "F");
+if ($GetReligion->RowCount() <> 0) {
+	while (!$GetReligion->EOF) {
+		array_push($religionList, $GetReligion->fields(name));
+		array_push($religionVal, $GetReligion->fields(ID));
+		$GetReligion->MoveNext();
+	}
+}
+
+//--- Prepare job type
+$jobTypeList = array();
+$jobTypeVal  = array();
+$GetjobType = ctGeneral("", "L");
+if ($GetjobType->RowCount() <> 0) {
+	while (!$GetjobType->EOF) {
+		array_push($jobTypeList, $GetjobType->fields(name));
+		array_push($jobTypeVal, $GetjobType->fields(ID));
+		$GetjobType->MoveNext();
+	}
+}
+
+//--- Prepare state type
+$stateList = array();
+$stateVal  = array();
+$GetState = ctGeneral("", "H");
+if ($GetState->RowCount() <> 0) {
+	while (!$GetState->EOF) {
+		array_push($stateList, $GetState->fields(name));
+		array_push($stateVal, $GetState->fields(ID));
+		$GetState->MoveNext();
+	}
+}
+
+//--- Prepare ptj type
+$ptjList = array();
+$ptjVal  = array();
+$GetPtj = ctGeneral("", "U");
+if ($GetPtj->RowCount() <> 0) {
+	while (!$GetPtj->EOF) {
+		array_push($ptjList, $GetPtj->fields(name));
+		array_push($ptjVal, $GetPtj->fields(ID));
+		$GetPtj->MoveNext();
+	}
+}
+
+//--- Prepare department list
+$deptList = array();
+$deptVal  = array();
+$GetDept = ctGeneral("", "B");
+if ($GetDept->RowCount() <> 0) {
+	while (!$GetDept->EOF) {
+		array_push($deptList, $GetDept->fields(name));
+		array_push($deptVal, $GetDept->fields(ID));
+		$GetDept->MoveNext();
+	}
+}
+
+$bankList = array();
+$bankVal  = array();
+$Getbank = ctGeneral("", "Z");
+if ($Getbank->RowCount() <> 0) {
+	while (!$Getbank->EOF) {
+		array_push($bankList, $Getbank->fields(name));
+		array_push($bankVal, $Getbank->fields(ID));
+		$Getbank->MoveNext();
+	}
+}
+
+//--- Prepare society
+$societyList = array();
+$societyVal  = array();
+$GetSociety = ctGeneral("", "L");
+if ($GetSociety->RowCount() <> 0) {
+	while (!$GetSociety->EOF) {
+		array_push($societyList, $GetSociety->fields(name));
+		array_push($societyVal, $GetSociety->fields(ID));
+		$GetSociety->MoveNext();
+	}
+}
+
+//--- Prepare payment type
+$pymtList = array();
+$pymtVal  = array();
+$GetPymt = ctGeneral("", "K");
+if ($GetPymt->RowCount() <> 0) {
+	while (!$GetPymt->EOF) {
+		array_push($pymtList, $GetPymt->fields(name));
+		array_push($pymtVal, $GetPymt->fields(ID));
+		$GetPymt->MoveNext();
+	}
+}
+
+if (@$tabb == 1) {
+	$a = 1;
+	$FormLabel[$a]   	= "&nbsp;";
+	$FormElement[$a] 	= "test";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "&nbsp;";
+	$FormElement[$a] 	= "test";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Nama Penuh";
+	$FormElement[$a] 	= "name";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "50";
+
+	$a++;
+	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormElement[$a] 	= "memberID";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "20";
+
+	$a++;
+	$FormLabel[$a]   	= "Emel";
+	$FormElement[$a] 	= "email";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "50";
+
+	$a++;
+	$FormLabel[$a]   	= "Id Pengguna";
+	$FormElement[$a] 	= "loginID";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "15";
+	$FormLength[$a]  	= "10";
+
+	$a++;
+	$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+	$FormElement[$a] 	= "approvedDate";
+	$FormType[$a]	  	= "hiddenDate";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "10";
+
+	$a++;
+	$FormLabel[$a]   	= "&nbsp;";
+	$FormElement[$a] 	= "test";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormElement[$a] 	= "newIC";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "12";
+
+	$a++;
+	$FormLabel[$a]   	= "Tarikh Lahir";
+	$FormElement[$a] 	= "dateBirth";
+	$FormType[$a]	  	= "date";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "10";
+
+	$a++;
+	$FormLabel[$a]   	= "Jenis Pekerjaan";
+	$FormElement[$a] 	= "jobType";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= $jobTypeList;
+	$FormDataValue[$a]	= $jobTypeVal;
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Jawatan Pekerjaan";
+	$FormElement[$a] 	= "job";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "50";
+
+	$a++;
+	$FormLabel[$a]   	= "Cawangan / Zon";
+	$FormElement[$a] 	= "departmentIDd";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Alamat Kediaman";
+	$FormElement[$a] 	= "address";
+	$FormType[$a]	  	= "textarea";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "3";
+
+	$a++;
+	$FormLabel[$a]   	= "Alamat Cawangan";
+	$FormElement[$a] 	= "addressSuratd";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "3";
+
+	$a++;
+	$FormLabel[$a]   	= "Poskod Kediaman";
+	$FormElement[$a] 	= "postcode";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "10";
+	$FormLength[$a]  	= "5";
+
+	$a++;
+	$FormLabel[$a]   	= "* Telefon Bimbit<br>Cth: 6011XXXXXXXX";
+	$FormElement[$a] 	= "mobileNo";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "15";
+
+	$a++;
+	$FormLabel[$a]   	= "Bandar Kediaman";
+	$FormElement[$a] 	= "city";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "25";
+
+	$a++;
+	$FormLabel[$a]   	= "Nombor Pekerja";
+	$FormElement[$a] 	= "staftNo";
+	$FormType[$a]	  	= "text";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "10";
+	$FormLength[$a]  	= "10";
+
+	$a++;
+	$FormLabel[$a]   	= "Negeri Kediaman";
+	$FormElement[$a] 	= "stateID";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= $stateList;
+	$FormDataValue[$a]	= $stateVal;
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Bangsa";
+	$FormElement[$a] 	= "raceID";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= $raceList;
+	$FormDataValue[$a]	= $raceVal;
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Agama";
+	$FormElement[$a] 	= "religionID";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= $religionList;
+	$FormDataValue[$a]	= $religionVal;
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Status Perkahwinan";
+	$FormElement[$a] 	= "maritalID";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+	$FormDataValue[$a]	= array('0', '1', '2');
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+
+	$a++;
+	$FormLabel[$a]   	= "Jantina";
+	$FormElement[$a] 	= "sex";
+	$FormType[$a]	  	= "select";
+	$FormData[$a]   	= array('Lelaki', 'Perempuan');
+	$FormDataValue[$a]	= array('0', '1');
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "1";
+	$FormLength[$a]  	= "1";
+}
+
+// if (@$tabb == 2) {
+// 	$a = 1;
+// 	$FormLabel[$a]   	= "Yuran Bulanan (RM)";
+// 	$FormElement[$a] 	= "monthFee";
+// 	$FormType[$a]	  	= "hidden";
+// 	$FormData[$a]   	= "";
+// 	$FormDataValue[$a]	= "";
+// 	$FormCheck[$a]   	= array();
+// 	$FormSize[$a]    	= "10";
+// 	$FormLength[$a]  	= "10";
+
+// 	$a++;
+// 	$FormLabel[$a]   	= "Syer Bulanan (RM)";
+// 	$FormElement[$a] 	= "unitShare";
+// 	$FormType[$a]	  	= "hidden";
+// 	$FormData[$a]   	= "";
+// 	$FormDataValue[$a]	= "";
+// 	$FormCheck[$a]   	= array();
+// 	$FormSize[$a]    	= "10";
+// 	$FormLength[$a]  	= "10";
+
+// 	$a++;
+// 	$FormLabel[$a]   	= "Deposit Khas (RM)";
+// 	$FormElement[$a] 	= "monthDepo";
+// 	$FormType[$a]	  	= "hidden";
+// 	$FormData[$a]   	= "";
+// 	$FormDataValue[$a]	= "";
+// 	$FormCheck[$a]   	= array();
+// 	$FormSize[$a]    	= "10";
+// 	$FormLength[$a]  	= "10";
+// }
+
+if (@$tabb == 4) {
+	$a = 1;
+	$FormLabel[$a]   	= "Nama Pencadang";
+	$FormElement[$a] 	= "saksi1";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "30";
+	$FormLength[$a]  	= "50";
+
+	$a++;
+	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormElement[$a] 	= "saksiIC1";
+	$FormType[$a]	  	= "hidden";
+	$FormData[$a]   	= "";
+	$FormDataValue[$a]	= "";
+	$FormCheck[$a]   	= array();
+	$FormSize[$a]    	= "20";
+	$FormLength[$a]  	= "12";
+}
+
+//--- End   :Set the listing list (you may insert here any new listing) -------------------------->
+$strMember = "SELECT a.*,b.* FROM users a, userdetails b WHERE a.userID = '" . $pk . "' AND a.userID = b.userID";
+$GetMember = &$conn->Execute($strMember);
+
+
+//--- Begin : Form Validation Field / Add / Update ---------------------------------------------->
+if ($SubmitForm <> "") {
+
+	for ($i = 1; $i <= count($FormLabel); $i++) {
+		for ($j = 0; $j < count($FormCheck[$i]); $j++) {
+			FormValidation(
+				$FormLabel[$i],
+				$FormElement[$i],
+				$$FormElement[$i],
+				$FormCheck[$i][$j],
+				$i
+			);
+		}
+	}
+	//--- End   : Call function FormValidation ---  
+	$memberDate = substr($memberDate, 6, 4) . '-' . substr($memberDate, 3, 2) . '-' . substr($memberDate, 0, 2);
+	$dateBirth = substr($dateBirth, 6, 4) . '-' . substr($dateBirth, 3, 2) . '-' . substr($dateBirth, 0, 2);
+	$dateStarted   = substr($dateStarted, 6, 4) . '-' . substr($dateStarted, 3, 2) . '-' . substr($dateStarted, 0, 2);
+
+	if (@$tabb == 1) {
+		$updatedBy 	= get_session("Cookie_userName");
+		$updatedDate = date("Y-m-d H:i:s");
+		$sSQL = "";
+		$sWhere = "";
+		$sWhere = "userID=" . tosql($pk, "Text");
+		$sWhere = " WHERE (" . $sWhere . ")";
+		$sSQL	= "UPDATE users SET " .
+			"email=" 	. tosql($email, "Text") .
+			",updatedDate=" . tosql($updatedDate, "Text") .
+			",updatedBy=" . tosql($updatedBy, "Text");
+		$sSQL = $sSQL . $sWhere;
+		$rs = &$conn->Execute($sSQL);
+
+		$sSQL = "";
+		$sWhere = "";
+		$sWhere = "userID=" . tosql($pk, "Text");
+		$sWhere = " WHERE (" . $sWhere . ")";
+		$sSQL	= "UPDATE userdetails SET " .
+			" sex=" 			. tosql($sex, "Number") .
+			", raceID=" 		. tosql($raceID, "Number") .
+			", staftNo=" 		. tosql($staftNo, "Text") .
+			", religionID=" 	. tosql($religionID, "Number") .
+			", maritalID=" 	. tosql($maritalID, "Number") .
+			", job=" 			. tosql($job, "Text") .
+			", jobType=" 		. tosql($jobType, "Number") .
+			", address=" 		. tosql($address, "Text") .
+			", dateBirth=" 	. tosql($dateBirth, "Text") .
+			", city=" 		. tosql($city, "Text") .
+			", postcode=" 	. tosql($postcode, "Text") .
+			", stateID=" 		. tosql($stateID, "Number") .
+			", mobileNo=" 	. tosql("60" . $mobileNo, "Text") .
+			", departmentID=" . tosql($dept, "Number") .
+			", ptjID="		. tosql($ptjID, "Number") .
+			", updatedDate=" 	. tosql($updatedDate, "Text") .
+			", updatedBy=" 	. tosql($updatedBy, "Text");
+
+		$sSQL = $sSQL . $sWhere;
+		$rs = &$conn->Execute($sSQL);
+		$activity = "Mengemaskini maklumat anggota";
+		$sqlAct = "INSERT INTO activitylog (`report`, `sqlType`, `sql`, `byID`, `activityDate`, `activityBy`, `status`)" .
+			" VALUES ('Mengemaskini Maklumat Peribadi Anggota - $pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
+		$rs = &$conn->Execute($sqlAct);
+
+		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		gopage("?vw=memberUpdate&mn=4&tabb=1", 1000);
+	}
+}
+//--- End   : Form Validation Field / Add / Update ---------------------------------------------->
+//<input type="hidden" name="picture" value="'.$pic.'">
+print '
+<form name="MyForm" action="" method=post>
+<h5 class="card-title"><i class="fas fa-user"></i>&nbsp;' . strtoupper($title) . ' &nbsp;</h5>
+<div class="mb-3 row">';
+//(* Menunjukkan anggota dibenarkan mengubah maklumat.)
+//--- Begin : Looping to display label -------------------------------------------------------------
+
+?>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=1" class="nav-link <?php if (@$tabb == 1) {
+																		print "active";
+																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">MAKLUMAT PENDAFTARAN ID</a>
+	</li>
+	<!--li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">BAYARAN</a>
+	</li-->
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=3" class="nav-link <?php if (@$tabb == 3) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENAMA (18 TAHUN KE ATAS)</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=4" class="nav-link <?php if (@$tabb == 4) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENCADANG</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MAKLUMAT BANK</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">POTONGAN GAJI</a>
+	</li>
+</ul>
+<?php
+for ($i = 1; $i <= count($FormLabel); $i++) {
+	$cnt = $i % 2;
+	if ($i == 1) print '<div>&nbsp;</div>';
+	if ($i == 9) print '<div class="card-header mt-3">BUTIR-BUTIR PERIBADI</div>';
+
+	if ($cnt == 1) print '<div class="m-3 row">';
+	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
+
+	print ' </label>';
+	if (in_array($FormElement[$i], $strErrMsg))
+		print '<div class="col-md-4 bg-danger">';
+	else
+		print '<div class="col-md-4">';
+	//--- Begin : Call function FormEntry ---------------------------------------------------------  
+	$strFormValue = tohtml($GetMember->fields($FormElement[$i]));
+	if ($FormType[$i] == 'textarea') {
+		$strFormValue = str_replace("<pre>", "", $GetMember->fields($FormElement[$i]));
+		$strFormValue = str_replace("</pre>", "", $strFormValue);
+	}
+
+	if ($i == 14) {
+		if (!$dept) {
+			$strFormValue = dlookup("general", "b_Address", "ID=" . tosql($GetMember->fields('departmentID'), "Number"));
+		} else {
+			$strFormValue = dlookup("general", "b_Address", "ID=" . $dept);
+		}
+		$strFormValue = str_replace("<pre>", "", $strFormValue);
+		$strFormValue = str_replace("</pre>", "", $strFormValue);
+	}
+
+	FormEntry(
+		$FormLabel[$i],
+		$FormElement[$i],
+		$FormType[$i],
+		$strFormValue,
+		$FormData[$i],
+		$FormDataValue[$i],
+		$FormSize[$i],
+		$FormLength[$i]
+	);
+
+	if (@$tabb == 1) {
+		if ($i == 1) {
+			if (!isset($picuser)) $picuser = $GetMember->fields('picture');
+			echo '<div style="display: flex; align-items: flex-end; position: relative;">';
+			if ($picuser) {
+				print '<img src="upload_images/' . $picuser . '" alt="User Picture" height="150">';
+			} else {
+				echo '<img src="images/user.png" alt="User Picture" height="150">';
+			}
+
+			print '<div id="edit-icon" style="margin-left: 10px; cursor: pointer; position: relative; bottom: 0;">
+						<i class="fas fa-pencil-alt text-primary" style="font-size: 20px;"></i>
+					</div>';
+
+			print '</div>';
+		}
+	}
+
+	if ($i == 13) {
+		if (!isset($dept)) $dept = $GetMember->fields('departmentID');
+		print '<select name="dept" class="form-select"">
+				<option value="">- Semua -';
+		for ($j = 0; $j < count($deptList); $j++) {
+			print '	<option value="' . $deptVal[$j] . '" ';
+			if ($dept == $deptVal[$j]) print ' selected';
+			print '>' . $deptList[$j];
+		}
+		print '		</select>&nbsp;';
+	}
+
+	// if ($i == 17) {
+	// 	if (!isset($mobileNo)) $mobileNo = $GetMember->fields('mobileNo');
+	// 	if (substr($mobileNo, 0, 2) === "60") {
+	// 		$mobileNo = substr($mobileNo, 2);
+	// 	}
+	// 	print '<input type="text" class="form-controlx" size="3" placeholder="+60" readonly>&nbsp;&nbsp;<input type=text" class="form-controlx" name=mobileNo id=mobileNo maxlength="10" size="20" value="' . $mobileNo . '">';
+	// }
+
+	//--- End   : Call function FormEntry ---------------------------------------------------------  
+	print '</div>';
+	if ($cnt == 0) print '</div>';
+}
+
+if (@$tabb == 2) {
+
+	$sSQL = "select * from potbulan 	 
+				 WHERE  userID = " . tosql($pk, "Text") . "
+				 AND status IN (1)";
+
+	$rs = &$conn->Execute($sSQL);
+
+	$sSQL2 = "SELECT	DISTINCT a.*, b.*
+				  FROM 	users a, userdetails b
+				  WHERE a.UserID =" . tosql($pk, "Text") . "
+				  AND a.UserID = b.UserID";
+
+	$rs1 = &$conn->Execute($sSQL2);
+
+	print '
+			<div class="table-responsive" style="overflow-x: auto;">
+			<table class="table table-striped table-sm mt-3" style="table-layout: auto; width: 100%;">
+				<tr class="table-primary">
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bil</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Mula Potongan<br/>(Tahun/Bulan)</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
+					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kod Potongan</b></td>
+					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RM)</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bond /<br/>Rujukan</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>PTJ</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Status</b></td>	  
+				</tr>';
+
+	$jumlah = array(
+		'aktif' => array(),
+		'tamat' => array(),
+		'standby' => array()
+	);
+
+	if ($rs->RowCount() <> 0) {
+		$count = 1;
+		while (!$rs->EOF) {
+			$sSQL3 = "select * from general
+					WHERE  ID = " . $rs->fields(loanType) . "
+					ORDER BY ID";
+			$rs3 = &$conn->Execute($sSQL3);
+
+			$monthFee 		= $rs1->fields(monthFee);
+			$syerbulan 		= $rs1->fields(unitShare);
+
+			$yearStart = $rs->fields['yearStart'];
+			$monthStart = $rs->fields['monthStart'];
+			$monthStart1 = str_pad($monthStart, 2, '0', STR_PAD_LEFT);
+			$yrmthStart = $yearStart . $monthStart1;
+
+			$lastyrmthPymt = $rs->fields(lastyrmthPymt);
+
+			$category = dlookup("general", "category", "ID=" . tosql($rs->fields(loanType), "Number"));
+
+			//kategori pembiayaan
+			if ($category == "C") {
+				$c_Deduct = dlookup("general", "c_Deduct", "ID=" . tosql($rs->fields(loanType), "Number"));
+				$priority = dlookup("general", "priority", "ID=" . tosql($c_Deduct, "Number"));
+			} else {
+				$priority = dlookup("general", "priority", "ID=" . tosql($rs->fields(loanType), "Number"));
+			}
+
+			// Tambah sebulan
+			$nextMonthTimestamp = strtotime("+1 month", strtotime($yrmthNow . "01")); // Tambah 1 bulan
+			$yrmthNext = date("Ym", $nextMonthTimestamp); // Format kembali ke format Y-m
+
+			//cek kalau dia pembiayaan, dia akan cek pulak yrmth dengan lastyrmthpymt tu 
+			if ($category == "C") {
+				if ($rs->fields(yrmth) == $yrmthNext) {
+					$status = '<div class="text-warning"><b>Standby</b></div>';
+					$jumlah['standby'][] = $rs->fields['jumBlnP'];
+				} else {
+					if ($lastyrmthPymt >= $yymm) {
+						$status = '<div class="text-primary"><b>Aktif</b></div>';
+						$jumlah['aktif'][] = $rs->fields['jumBlnP'];
+					} else {
+						$status = '<div class="text-danger"><b>Tamat</b></div>';
+						$jumlah['tamat'][] = $rs->fields['jumBlnP'];
+					}
+				}
+			} else if ($lastyrmthPymt >= $yymm) {
+				$status = '<div class="text-primary"><b>Aktif</b></div>';
+				$jumlah['aktif'][] = $rs->fields['jumBlnP'];
+			} else {
+				$status = '<div class="text-danger"><b>Tamat</b></div>';
+				$jumlah['tamat'][] = $rs->fields['jumBlnP'];
+			}
+
+			print '
+			<tr>
+			  <td class="Data" align="center">' . $count . '</td>
+			  <td class="Data" align="center">' . $yrmthStart . '</td>
+			  <td class="Data" align="center">' . $rs->fields(lastyrmthPymt) . '</td>
+			  <td class="Data">' . $rs3->fields(name) . ' - ' . $rs3->fields(code) . '</a></td>
+			  <td class="Data" align="right" >' . number_format($rs->fields(jumBlnP), 2) . '</td>
+			  <td class="Data" nowrap align="center">' . $rs->fields(bondNo) . '</td>
+			  <td class="Data" align="center">' . dlookup("general", "name", "ID=" . tosql($rs->fields(ptjID), "Text")) . '</td>	
+			  <td class="Data" nowrap align="center">' . $status . '</td>
+			</tr>';
+			$count++;
+			$rs->MoveNext();
+		}
+	} else {
+		print '
+							<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt;" bgcolor="FFFFFF">
+								<td colspan="8" align="center"><b>- Tiada Rekod </b></td>
+							</tr>';
+	}
+
+	print '
+</table>
+<div><hr class="1px"></div>
+		  <div>Jumlah Potongan Aktif : <b>RM ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
+		  <div>Jumlah Potongan Tamat : <b>RM ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div><hr class="1px"></div>
+		  <div><b>Jumlah Potongan : RM ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
+		  </div>';
+}
+
+// ----------------------------------------- Bahagian penama -----------------------------------------
+if (@$tabb == 3) {
+	$sSQL = "SELECT * FROM nominee WHERE refer = " . tosql($pk, "Text") . " ORDER BY ID";
+	$rs = $conn->Execute($sSQL);
+
+	print '
+        <div style="padding-left: 15px; padding-right: 15px;" class="table-responsive"><br/>
+        <form id="Edittrans" name="Edittrans" method="post" action="' . $sActionFileName . '">
+        <input type="hidden" name="IDtype" value="' . htmlspecialchars($_REQUEST['IDtype']) . '">
+        <input type="hidden" name="ID" value="' . htmlspecialchars($ID) . '">
+        <input type="hidden" name="edit" value="1">
+		<div><input type="button" class="btn btn-primary" value="Tambah Penama" onclick="window.open(\'addNominee.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');"></div> 
+		<div class="mt-3">
+			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
+			<span class="text-info small">Penama mestilah 18 tahun keatas.</span>
+		</div>
+		<div>
+			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
+			<span class="text-info small">Penama adalah pemegang amanah.</span>
+		</div>
+		<div>
+			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
+			<span class="text-info small">Peratusan penama hanya untuk <i>non-muslim</i> sahaja, sekiranya muslim tidak perlu masukkan peratus.</span>
+		</div>
+		<div>
+            <table class="table table-sm table-striped mt-1">
+                <tr class="table-primary">
+                    <td align="center"><b>Bil</b></td>
+                    <td align="left"><b>Nama Penama</b></td>
+					<td align="center"><b>No Kad Pengenalan</b></td>
+                    <td align="center"><b>No Telefon</b></td>
+                    <td align="left" width="35%"><b>Alamat</b></td>
+					<td align="center"><b>Peratus (%)</b></td>
+                    <td align="center" colspan="3"><b>&nbsp;</b></td>
+                </tr>';
+
+	if ($rs && $rs->RecordCount() > 0) {
+		$count = 1;
+		while (!$rs->EOF) {
+			print '
+                    <tr>
+                        <td class="Data" align="center">' . $count . '</td>
+                        <td class="Data" align="left">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input class="form-control-sm" name="name" value="' . htmlspecialchars($rs->fields['name']) . '">';
+			} else {
+				print htmlspecialchars($rs->fields['name']);
+			}
+
+			print '</td>
+	<td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input maxlength="12" class="form-control-sm" name="newIC" value="' . htmlspecialchars($rs->fields['newIC']) . '">';
+			} else {
+				print htmlspecialchars($rs->fields['newIC']);
+			}
+
+			print '</td>
+			<td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input maxlength="12" class="form-control-sm" name="mobileNo" value="' . htmlspecialchars($rs->fields['mobileNo']) . '">';
+			} else {
+				print htmlspecialchars($rs->fields['mobileNo']);
+			}
+			print '</td>
+		<td class="Data" align="left">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<textarea cols="50" rows="4" class="form-control-sm" name="address">' . htmlspecialchars($rs->fields['address']) . '</textarea>';
+			} else {
+				print htmlspecialchars($rs->fields['address']);
+			}
+			print '</td>
+			<td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input maxlength="12" class="form-control-sm" name="percent" value="' . htmlspecialchars($rs->fields['percent']) . '">';
+			} else {
+				print htmlspecialchars($rs->fields['percent']);
+			}
+			print '</td>
+			<td class="Data" align="center">
+				<a href="' . $sFileName . '&tabb=3&IDtype=' . $rs->fields['ID'] . '&code=2" title="kemaskini">
+					<i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i>
+				</a>
+			</td>
+			<td class="Data" align="center">
+				<a href="' . $sFileName . '&tabb=3&IDtype=' . $rs->fields['ID'] . '&code=1" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false;}">
+					<i class="fas fa-trash-alt text-danger" style="font-size: 1.1rem; position: relative; top: 8px;"></i>
+				</a>
+			</td>
+			<td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false;}" name="edit" id="edit" value="edit">';
+			}
+			print '</td>
+		</tr>';
+			$count++;
+			$rs->MoveNext();
+		}
+	} else {
+		print '
+	<tr>
+		<td colspan="7" align="center"><b>- Tiada Rekod -</b></td>
+	</tr>';
+	}
+
+	print '</table>
+</form>
+</div>';
+}
+// ----------------------------------------- Tutup Bahagian penama -----------------------------------------
+
+// ----------------------------------------- Bahagian bank -----------------------------------------
+if (@$tabb == 5) {
+	$sSQL = "SELECT * FROM bank WHERE refer = " . tosql($pk, "Text") . " ORDER BY ID";
+	$rs = $conn->Execute($sSQL);
+
+	print '
+    <div style="padding-left: 15px; padding-right: 15px;" class="table-responsive"><br/>
+    <form id="Edittrans" name="Edittrans" method="post" action="' . $sActionFileName1 . '">
+    <input type="hidden" name="IDtype" value="' . htmlspecialchars($_REQUEST['IDtype']) . '">
+    <input type="hidden" name="ID" value="' . htmlspecialchars($ID) . '">
+    <input type="hidden" name="edit1" value="2">
+    <div>
+        <input type="button" class="btn btn-primary waves-effect waves-light" value="Tambah Bank" onclick="window.open(\'addBank.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">
+        &nbsp;<input type="button" class="btn btn-info waves-effect waves-light" value="Bank Utama" onclick="setBankPriority(); return false;">
+    </div>
+    <div>
+        <table class="table table-sm table-striped mt-3">
+            <tr class="table-primary">
+                <td align="center"><b>Bil</b></td>
+                <td align="left"><b>Nama Bank</b></td>
+                <td align="center"><b>Nombor Akaun Bank</b></td>
+                <td align="center" colspan="3"><b>&nbsp;</b></td>
+            </tr>';
+
+	if ($rs && $rs->RecordCount() > 0) {
+		$count = 1;
+		while (!$rs->EOF) {
+			$isChecked = $rs->fields('priority') == 1 ? 'checked' : '';
+
+			// Reassign the $priority badge for each row
+			$priority = $rs->fields('priority') == 1 ? '<span class="badge bg-success">Primary</span>' : '';
+
+			print '
+            <tr>
+                <td class="Data" align="center">' . $count . '</td>
+                <td class="Data" align="left">';
+			if ($IDtype == $rs->fields['ID']) {
+				print '<select class="form-control-sm" name="bankID" required>';
+				for ($i = 0; $i < count($bankList); $i++) {
+					$selected = ($bankVal[$i] == $rs->fields['bankID']) ? 'selected' : '';
+					print '<option value="' . htmlspecialchars($bankVal[$i]) . '" ' . $selected . '>' . htmlspecialchars($bankList[$i]) . '</option>';
+				}
+				print '</select>';
+			} else {
+				print '<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($rs->fields('ID')) . '" ' . $isChecked . '>&nbsp;' . dlookup("general", "name", "ID=" . tosql($rs->fields['bankID'], "Text")) . '&nbsp;' . $priority;
+			}
+
+			print '</td>
+        <td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input maxlength="12" class="form-control-sm" name="accTabungan" value="' . htmlspecialchars($rs->fields['accTabungan']) . '">';
+			} else {
+				print htmlspecialchars($rs->fields['accTabungan']);
+			}
+
+			print '</td>
+        <td class="Data" align="center">
+            <a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=4" title="kemaskini">
+                <i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i>
+            </a>
+        </td>
+        <td class="Data" align="center">
+            <a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=3" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false;}">
+                <i class="fas fa-trash-alt text-danger" style="font-size: 1.1rem; position: relative; top: 8px;"></i>
+            </a>
+        </td>
+        <td class="Data" align="center">';
+			if ($IDtype == $rs->fields(ID)) {
+				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false;}" id="edit1" name="edit1" value="edit">';
+			}
+			print '</td>
+    </tr>';
+			$count++;
+			$rs->MoveNext();
+		}
+	} else {
+		print '
+    <tr>
+        <td colspan="7" align="center"><b>- Tiada Rekod -</b></td>
+    </tr>';
+	}
+
+	print '</table></form></div>';
+}
+// ----------------------------------------- Tutup Bahagian bank -----------------------------------------
+
+if (@$tabb == 1) {
+	print '<div class="mb-3 mt-3 row">
+                                    <center>
+                                            <input type="hidden" name="pk" value="' . $pk . '">
+			<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Kemaskini Maklumat">
+                                    </center>
+                                </div>';
+}
+
+print '</div></form>';
+include("footer.php");
+
+print '
+<script language="JavaScript">
+	document.getElementById("edit-icon").addEventListener("click", function() {
+	var pk = "' . $pk . '";
+
+	var screenWidth = window.screen.availWidth;
+	var screenHeight = window.screen.availHeight;
+	var windowWidth = 500;
+	var windowHeight = 250; 
+	var leftPosition = (screenWidth - windowWidth) / 2;
+	var topPosition = (screenHeight - windowHeight) / 2;
+		
+	window.open(\'editPic.php?pk=\' + pk, \'status\', \'top=\' + topPosition + \',left=\' + leftPosition + \',width=\' + windowWidth + \',height=\' + windowHeight + \',scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');
+	});
+
+function setBankPriority() {
+    let formElements = document.getElementsByName(\'pk[]\');
+    let selectedID = null;
+    let selectedCount = 0;
+
+    formElements.forEach(function (checkbox) {
+        if (checkbox.checked) {
+            selectedID = checkbox.value;
+            selectedCount++;
+        }
+    });
+
+    if (selectedCount === 1) {
+        if (confirm(\'Adakah anda pasti ingin menetapkan bank ini sebagai bank utama?\')) {
+            let formData = new FormData();
+            formData.append(\'action\', \'set_priority\');
+            formData.append(\'pk\', selectedID);
+
+            fetch(\'\', {
+                method: \'POST\',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.body.innerHTML = data;
+            });
+        }
+    } else {
+        alert(\'Sila pilih satu bank sahaja.\');
+    }
+}
+</script>';
