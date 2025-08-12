@@ -2,3 +2,10 @@
 
 
 diluluskan=disetujui
+berhad = berbadan hukum  
+permohonan = pengajuan  
+dalam = sedang  
+proses = diproses  
+entri = data  
+diluluskan = disetujui  
+mohon = ajukan
