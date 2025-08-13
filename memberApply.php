@@ -373,7 +373,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>Sila pilih Jabatan / Cawangan.</strong> 
+                                                    <strong>Silakan pilih Departemen / Cabang.</strong> 
                                                 </div>';
 	}
 
@@ -384,7 +384,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Sandi mesti sekurang-kurangnya ENAM [6] aksara.</strong> 
+                                                    <strong>* Kata sandi harus minimal enam [6] karakter.</strong> 
                                                 </div>';
 	}
 
@@ -394,7 +394,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Sandi mesti sama dengan kenal pasti Kata Sandi.</strong> 
+                                                    <strong>* Kata sandi harus sama dengan konfirmasi kata sandi.</strong> 
                                                 </div>';
 	}
 	$GetLogin = ctLogin($loginID);
@@ -403,7 +403,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                         </button>
-                                                        <strong>* ID Pengguna sudah wujud. Sila pilih ID pengguna yang lain</strong> 
+                                                        <strong>* ID Pengguna sudah ada. Silakan pilih ID pengguna yang lain</strong> 
                                                     </div>';
 	}
 
@@ -414,7 +414,7 @@ if ($SubmitForm <> "") {
 				print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                                                     </button>
-                                                                                    <strong>* Nombor akaun tersebut telah digunakan.</strong> 
+                                                                                    <strong>* Nomor akun tersebut sudah digunakan.</strong> 
                                                                                 </div>';
 			}
 		}
@@ -426,7 +426,7 @@ if ($SubmitForm <> "") {
 			print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                                                     </button>
-                                                                                    <strong>* IC telah wujud.</strong> 
+                                                                                    <strong>* Nomor KTP sudah terdaftar.</strong> 
                                                                                 </div>';
 		}
 	}
