@@ -500,7 +500,7 @@ if ($SubmitForm <> "") {
              VALUES (" . tosql($userID, "Text") . ", " . tosql($memberID, "Text") . ")";
 		$rs = &$conn->Execute($sSQL);
 		
-		alert("Pendaftaran menjadi anggota telah tercatat di sistem.");
+		alert("Pengajuan menjadi anggota telah tercatat di sistem.");
 		gopage("$sActionFileName", 1000);
 	}
 }

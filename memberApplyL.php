@@ -563,7 +563,7 @@ if ($SubmitForm <> "") {
 			tosql($memberID, "Text") . ")";
 		$rs = &$conn->Execute($sSQL);
 
-		alert("Permohonan menjadi anggota telah didaftarkan ke dalam sistem.");
+		alert("Pengajuan menjadi anggota telah tercatat di sistem.");
 		gopage("$sActionFileName", 1000);
 	}
 }

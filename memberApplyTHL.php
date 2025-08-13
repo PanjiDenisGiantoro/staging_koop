@@ -27,7 +27,7 @@ if (get_session("Cookie_groupID") == 0) {
 
 $sFileName		= "memberApplyT.php";
 $sActionFileName = "memberApplyT.php";
-$title     		= "Permohonan Berhenti/Bersara dari perkhidmatan";
+$title     		= "Permohonan Mengundurkan Diri / Pensiun dari Layanan";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -46,7 +46,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 0;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "50";
 $FormLength[$a]  	= "50";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "No KP Baru";
+$FormLabel[$a]   	= "No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -86,7 +86,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 /*
 $a = $a + 1;
-$FormLabel[$a]   	= "No KP Lama";
+$FormLabel[$a]   	= "No KTP Lama";
 $FormElement[$a] 	= "oldIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -116,7 +116,7 @@ if ($SubmitForm <> "") {
 	if ($memberID <> "") {
 		if (dlookup("userdetails", "userID", "memberID=" . tosql($memberID, "Text")) == "") {
 			array_push($strErrMsg, 'memberID');
-			print '- <font class=redText>Nombor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
+			print '- <font class=redText>Nomor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
 			$userName = "";
 			$newIC = "";
 			$oldIC = "";
@@ -161,7 +161,7 @@ if ($SubmitForm <> "") {
 		<table class="lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
 			<tr>
 				<td class="borderallblue" align="left" valign="middle">
-					<div class="headerblue"><b>BORANG PERMOHONAN BERHENTI/BERSARA DARI PERKHIDMATAN</b></div>
+					<div class="headerblue"><b>FORMULIR PENGAJUAN MENGUNDURKAN DIRI / PENSIUN DARI LAYANAN</b></div>
 				</td>
 			</tr>
 			<tr>
@@ -218,7 +218,7 @@ if ($SubmitForm <> "") {
 		<tr>
 			<td colspan="2" align="center">
 				<div>&nbsp;</div>
-				<input type="Submit" name="SubmitForm" value="Hantar">
+				<input type="Submit" name="SubmitForm" value="Kirim">
 				<div>&nbsp;</div>
 			</td>
 		</tr>

@@ -27,7 +27,7 @@ if (get_session("Cookie_groupID") == 0) {
 
 $sFileName		= "?vw=memberApplyTP&mn=905";
 $sActionFileName = "?vw=memberT&mn=905";
-$title     		= "Permohonan Berhenti Dari Perkhidmatan";
+$title     		= "Pengajuan Mengundurkan Diri dari Layanan";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -56,7 +56,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -76,7 +76,7 @@ $FormSize[$a]    	= "50";
 $FormLength[$a]  	= "50";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Nombor Kad Pengenalan";
+$FormLabel[$a]   	= "Nomor Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -161,7 +161,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Permohonan Berhenti Anggota - $userID', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 		print '<script>
-					alert ("Permohonan Berhenti telah didaftarkan ke dalam sistem.");
+					alert("Pengajuan menjadi anggota telah tercatat di sistem.");
 					window.location.href="' . $sActionFileName . '";
 				</script>';
 	}
@@ -185,8 +185,8 @@ if ($SubmitForm <> "") {
 	//--- Begin : Looping to display label -------------------------------------------------------------
 	for ($i = 0; $i < count($FormLabel); $i++) {
 		//print '<div class="card-header mb-3">DOKUMEN BERHENTI / BERSARA</div>';
-		if ($i == 0) print '<div class="card-header mb-3">DOKUMEN BERHENTI / BERSARA</div>';
-		if ($i == 1) print '<div class="card-header mb-3">MAKLUMAT ANGGOTA</div>';
+		if ($i == 0) print '<div class="card-header mb-3">DOKUMEN PENGUNDURAN / PENSIUN</div>';
+		if ($i == 1) print '<div class="card-header mb-3">INFORMASI ANGGOTA</div>';
 
 		print '<div class="mb-2 row"><label class="col-md-2 col-form-label">' . $FormLabel[$i] . '</label>';
 		if (in_array($FormElement[$i], $strErrMsg))
@@ -239,7 +239,7 @@ if ($SubmitForm <> "") {
 <div class="mb-3 mt-3 row">
 	<label class="col-md-2 col-form-label"></label>
 	<div class="col-md-8">
-		<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Hantar">
+		<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Kirim">
 	</div>
 </div>
 
