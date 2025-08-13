@@ -156,7 +156,7 @@ $FormSize[$a]    	= "";
 $FormLength[$a]  	= "";
 
 $a++;
-$FormLabel[$a]   	= "* Email<br><i class='text-muted'>(Pastikan valid)</i>";
+$FormLabel[$a]   	= "* Email<br><b>(Pastikan valid)</b>";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -176,7 +176,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Kartu Identitas<br><i class='text-muted'>Tidak Ada (-)</i>";
+$FormLabel[$a]   	= "* Kartu Identitas<br><b>Tidak Ada (-)</b>";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -246,7 +246,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "Kode SUK <br><i class='text-muted'>(Satuan Unit Kerja)</i>";
+$FormLabel[$a]   	= "Kode SUK <br><b>(Satuan Unit Kerja)</b>";
 $FormElement[$a] 	= "ptjID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $ptjList;
@@ -266,7 +266,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Nomor Telepon<br><i class='text-muted'>Cth: 6011XXXXXXXX</i>";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -286,7 +286,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nomor Karyawan<br><i class='text-muted'>(Isi Jika Ada)</i>";
+$FormLabel[$a]   	= "Nomor Karyawan<br><b>(Isi Jika Ada)</b>";
 $FormElement[$a] 	= "staftNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -337,7 +337,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Kode Referensi";
+$FormLabel[$a]   	= "Kode Anggota Pencadang";
 $FormElement[$a] 	= "saksi1";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

@@ -15,7 +15,7 @@ $Cookie_userID = get_session('Cookie_userID');
 $Cookie_userName = get_session("Cookie_userName");
 $sFileName		= "memberApplyIC.php";
 $sActionFileName = "mainpage.php";
-$title     		= "Permohonan Anggota";
+$title     		= "Pengajuan Anggota";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -124,7 +124,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -134,7 +134,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* Kata Laluan<br> <b>(MINIMUM 6 AKSARA)</b>";
+$FormLabel[$a]   	= "* Kata Sandi<br> <b>(MINIMUM 6 AKSARA)</b>";
 $FormElement[$a] 	= "password";
 $FormType[$a]	  	= "password";
 $FormData[$a]   	= "";
@@ -154,7 +154,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "* Kenal pastikan Kata Laluan";
+$FormLabel[$a]   	= "* Konfirmasi Kata Sandi";
 $FormElement[$a] 	= "password1";
 $FormType[$a]	  	= "password";
 $FormData[$a]   	= "";
@@ -164,7 +164,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "* Emel<br><b>(PASTIKAN SAH)</b>";
+$FormLabel[$a]   	= "* Email<br><b>(PASTIKAN VALID)</b>";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -184,7 +184,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* No KP Baru<br><b>(XXXXXXXXXXXX)</b>";
+$FormLabel[$a]   	= "* No KTP Baru<br><b>(XXXXXXXXXXXX)</b>";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -194,7 +194,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Lahir <b>(DD/MM/YYYY)</b>";
+$FormLabel[$a]   	= "Tanggal Lahir <b>(DD/MM/YYYY)</b>";
 $FormElement[$a] 	= "dateBirth";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -204,7 +204,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Jabatan Pekerjaan";
 $FormElement[$a] 	= "job";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -214,7 +214,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* Bahagian/Jabatan<br>Cawangan";
+$FormLabel[$a]   	= "* Bagian/Jabatan<br>Cabang";
 $FormElement[$a] 	= "departmentIDd";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -224,7 +224,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Tempat Tinggal";
 $FormElement[$a] 	= "address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -244,7 +244,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Poskod";
+$FormLabel[$a]   	= "Kode Pos";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -254,7 +254,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* Telefon Bimbit<br><b>(601XXXXXXXX)</b>";
+$FormLabel[$a]   	= "* Telepon Seluler<br><b>(601XXXXXXXX)</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -264,7 +264,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Bandar";
+$FormLabel[$a]   	= "Kota";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -284,7 +284,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Negeri";
+$FormLabel[$a]   	= "Provinsi";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -304,17 +304,17 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Jantina";
+$FormLabel[$a]   	= "Jenis Kelamin";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Lelaki', 'Perempuan');
+$FormData[$a]   	= array('Laki-Laki', 'Perempuan');
 $FormDataValue[$a]	= array('0', '1');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Bangsa";
+$FormLabel[$a]   	= "Suku Bangsa";
 $FormElement[$a] 	= "raceID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $raceList;
@@ -324,7 +324,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Status Perkahwinan";
+$FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
@@ -354,7 +354,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";*/
 
 $a++;
-$FormLabel[$a]   	= "Jumlah Bayaran Pendaftaran";
+$FormLabel[$a]   	= "Jumlah Biaya Pendaftaran";
 $FormElement[$a] 	= "totPay";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -364,7 +364,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Yuran Bulanan";
+$FormLabel[$a]   	= "Iuran Bulanan";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -374,7 +374,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota Pencadang (1)";
+$FormLabel[$a]   	= "Nomor Anggota Pengusul (1)";
 $FormElement[$a] 	= "saksi1";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -414,7 +414,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Nombor Akaun Bank<br><b>(XXXXXXXXXXXXXXXX)</b>";
+$FormLabel[$a]   	= "* Nomor Rekening Bank<br><b>(XXXXXXXXXXXXXXXX)</b>";
 $FormElement[$a] 	= "accTabungan";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -447,38 +447,38 @@ if ($SubmitForm <> "") {
 
 	if ($dept == '') {
 		array_push($strErrMsg, "departmentIDd");
-		print '- <font class=redText>Sila pilih Pusat Kos.</font><br />';
+		print '- <font class=redText>Silakan pilih Pusat Biaya.</font><br />';
 	}
 
 
 	if (strlen($password) < 6) {
 		array_push($strErrMsg, "password");
 		array_push($strErrMsg, "password1");
-		print '- <font class=redText>* Kata Laluan mesti sekurang-kurangnya ENAM [6] aksara.</font><br />';
+		print '- <font class=redText>* Kata Sandi harus terdiri dari minimal ENAM [6] karakter.</font><br />';
 	}
 
 	if ($password <> $password1) {
 		array_push($strErrMsg, "password");
 		array_push($strErrMsg, "password1");
-		print '- <font class=redText>* Kata Laluan mesti sama dengan kenal pasti Kata Laluan.</font><br />';
+		print '- <font class=redText>* Kata Sandi harus sama dengan Konfirmasi Kata Sandi.</font><br />';
 	}
 	$GetLogin = ctLogin($loginID);
 	if ($GetLogin->RowCount() == 1) {
 		array_push($strErrMsg, "loginID");
-		print '- <font class=redText>* ID Pengguna sudah wujud. Sila pilih ID pengguna yang lain</font><br />';
+		print '- <font class=redText>* ID Pengguna sudah ada. Silakan pilih ID pengguna yang lain</font><br />';
 	}
 
 	if ($accTabungan) {
 		if (!dlookup("userdetails", "newIC", "newIC=" . tosql($newIC, "Text"))) {
 			if (dlookup("userdetails", "accTabungan", "accTabungan=" . tosql($accTabungan, "Text")) <> '') {
 				array_push($strErrMsg, "accTabungan");
-				print '- <font class=redText>* Nombor akaun tersebut telah digunakan.</font><br />';
+				print '- <font class=redText>* Nomor akun tersebut sudah digunakan.</font><br />';
 			}
 		}
 	}
 
 	if (!$name) {
-		print '- <font class=redText>* Penama mesti dilengkapkan.</font><br />';
+		print '- <font class=redText>* Nama penerima harus diisi.</font><br />';
 		$penama = "errData";
 	}
 	//--- Begin : Call function FormValidation ---  
@@ -638,44 +638,44 @@ if ($SubmitForm <> "") {
 		<tr>
 			<td colspan="4" class="Data" valign="top">
 				<b class="maroonText"><? print strtoupper($title); ?></b><br />
-				<b class="textFont">BORANG MENJADI ANGGOTA (* Mesti diisi untuk permohonan.)</b><br /><br />
-				<b class="redText">SILA MASUKKAN DOKUMEN KAD PENGENALAN DAN PENGESAHAN JAWATAN TERLEBIH DAHULU</b>
+				<b class="textFont">FORMULIR PENDAFTARAN ANGGOTA (* Wajib diisi untuk pengajuan.)</b><br /><br />
+				<b class="redText">SILAKAN MASUKKAN DOKUMEN KARTU IDENTITAS DAN SURAT KETERANGAN JABATAN TERLEBIH DAHULU</b>
 			</td>
 		</tr>
 		<?
 		//--- Begin : Looping to display label -------------------------------------------------------------
 		for ($i = 1; $i <= count($FormLabel); $i++) {
 			$cnt = $i % 2;
-			if ($i == 1) print '<tr><td class="headerteal" colspan="4">MAKLUMAT PENDAFTARAN ID :</td></tr>';
-			if ($i == 9) print '<tr><td class="headerteal" colspan="4">A. BUTIR-BUTIR PERIBADI :</td></tr>';
-			if ($i == 25) print '<tr><td class="headerteal" colspan="4">B. BAYARAN MASUK/YURAN :</td></tr>';
+			if ($i == 1) print '<tr><td class="headerteal" colspan="4">INFORMASI PENDAFTARAN ID :</td></tr>';
+			if ($i == 9) print '<tr><td class="headerteal" colspan="4">A. DETAIL PRIBADI :</td></tr>';
+			if ($i == 25) print '<tr><td class="headerteal" colspan="4">B. BIAYA MASUK/IURAN :</td></tr>';
 			if ($i == 27) {
-				print '<tr><td class="headerteal" colspan="4">C. PENAMA:(18 Tahun Ke atas)</td></tr>';
+				print '<tr><td class="headerteal" colspan="4">C. AHLI WARIS:(18 Tahun Ke atas)</td></tr>';
 				print '<tr class="Data">
 					<td colspan="4">
 						<table width="100%">
 							<tr class="DataB">
 								<td>&nbsp;</td>	
 								<td>Nama</td>
-								<td>No KP</td>
+								<td>No KTP</td>
 								<td>No Tel</td>
 								<td>Hubungan</td>
 								<td>Alamat</td>
 							</tr>
 		       				<tr class="' . $penama . '">
 								<td valign="top">*&nbsp;</td>	
-								<td valign="top"><input type="text" name="w_name1" value="' . $w_name1 . '" size=30 maxlength=50></td>
-								<td valign="top"><input type="text" name="w_ic1" value="' . $w_ic1 . '" size=15 maxlength=14></td>
-								<td valign="top"><input type="text" name="w_contact1" value="' . $w_contact1 . '" size=15 maxlength=14></td>
-								<td valign="top"><input type="text" name="w_relation1" value="' . $w_relation1 . '" size=15 maxlength=15></td>
-								<td valign="top"><textarea cols=30 rows=3 wrap="hard" name="w_address1">' . $w_address1 . '</textarea></td>
+								<td valign="top"><input type="text" name="w_name1" value="' . $w_name1 . '" size=30 maxlength=50 class="form-control"></td>
+								<td valign="top"><input type="text" name="w_ic1" value="' . $w_ic1 . '" size=15 maxlength=14 class="form-control"></td>
+								<td valign="top"><input type="text" name="w_contact1" value="' . $w_contact1 . '" size=15 maxlength=14 class="form-control"></td>
+								<td valign="top"><input type="text" name="w_relation1" value="' . $w_relation1 . '" size=15 maxlength=15 class="form-control"></td>
+								<td valign="top"><textarea cols=30 rows=3 wrap="hard" name="w_address1" class="form-control">' . $w_address1 . '</textarea></td>
 							</tr>';
 				print '				</table>
 					</td>
 			   </tr>
-		       <tr><td class="headerteal" colspan="4">D. PENCADANG : (NOMBOR ANGGOTA YANG TELAH BERDAFTAR BERSAMA KOPERASI)</td></tr>';
+		       <tr><td class="headerteal" colspan="4">D. PENGUSUL: (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</td></tr>';
 			}
-			if ($i == 31) print '<tr><td class="headerteal" colspan="4">E. MAKLUMAT BANK :</td></tr>';
+			if ($i == 31) print '<tr><td class="headerteal" colspan="4">E. INFORMASI BANK :</td></tr>';
 
 			if ($cnt == 1) print '<tr valign=top>';
 			print '<td class=Data align=right>' . $FormLabel[$i];
