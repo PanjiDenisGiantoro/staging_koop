@@ -15,7 +15,7 @@ $Cookie_userID = get_session('Cookie_userID');
 $Cookie_userName = get_session("Cookie_userName");
 $sFileName		= "?vw=memberApply&mn=$mn";
 $sActionFileName = "?vw=member&mn=905";
-$title     		= "Permohonan Anggota";
+$title     		= "Pengajuan Anggota";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -116,7 +116,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 1;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -126,7 +126,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* Kata Laluan";
+$FormLabel[$a]   	= "* Kata Sandi";
 $FormElement[$a] 	= "password";
 $FormType[$a]	  	= "";
 $FormData[$a]   	= "";
@@ -146,7 +146,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "* Kenal Pasti Kata Laluan";
+$FormLabel[$a]   	= "* Identifikasi kata sandi";
 $FormElement[$a] 	= "password1";
 $FormType[$a]	  	= "";
 $FormData[$a]   	= "";
@@ -156,7 +156,7 @@ $FormSize[$a]    	= "";
 $FormLength[$a]  	= "";
 
 $a++;
-$FormLabel[$a]   	= "* Emel<br>(Pastikan Sah)";
+$FormLabel[$a]   	= "* Email<br><i class='text-muted'>(Pastikan valid)</i>";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -176,7 +176,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Kad Pengenalan<br>Tiada (-)";
+$FormLabel[$a]   	= "* Kartu Identitas<br><i class='text-muted'>Tidak Ada (-)</i>";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -186,7 +186,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Lahir";
+$FormLabel[$a]   	= "Tanggal Lahir";
 $FormElement[$a] 	= "dateBirth";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -196,7 +196,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Posisi Pekerjaan";
 $FormElement[$a] 	= "job";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -206,7 +206,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* Cawangan / Zon";
+$FormLabel[$a]   	= "* Cabang / Zona";
 $FormElement[$a] 	= "departmentIDd";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -216,7 +216,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Tempat Tinggal";
 $FormElement[$a] 	= "address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -226,7 +226,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Alamat Cawangan";
+$FormLabel[$a]   	= "Alamat Cabang";
 $FormElement[$a] 	= "addressSuratD";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -236,7 +236,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Poskod Kediaman";
+$FormLabel[$a]   	= "Kode Pos";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -246,7 +246,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "Kod PTJ";
+$FormLabel[$a]   	= "Kode SUK <br><i class='text-muted'>(Satuan Unit Kerja)</i>";
 $FormElement[$a] 	= "ptjID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $ptjList;
@@ -256,7 +256,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Bandar Kediaman";
+$FormLabel[$a]   	= "Kota Tempat Tinggal";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -266,7 +266,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Nombor Telefon<br>Cth: 6011XXXXXXXX";
+$FormLabel[$a]   	= "* Nomor Telepon<br><i class='text-muted'>Cth: 6011XXXXXXXX</i>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -276,7 +276,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Negeri Kediaman";
+$FormLabel[$a]   	= "Provinsi";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -286,7 +286,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Pekerja<br>(Sekiranya Ada)";
+$FormLabel[$a]   	= "Nomor Karyawan<br><i class='text-muted'>(Isi Jika Ada)</i>";
 $FormElement[$a] 	= "staftNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -296,7 +296,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Bangsa";
+$FormLabel[$a]   	= "Suku Bangsa";
 $FormElement[$a] 	= "raceID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $raceList;
@@ -306,11 +306,11 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Status Perkahwinan";
+$FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "select
 ";
-$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 $FormDataValue[$a]	= array('0', '1', '2');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
@@ -327,17 +327,17 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Jantina";
+$FormLabel[$a]   	= "Jenis Kelamin";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Lelaki', 'Perempuan');
+$FormData[$a]   	= array('Laki-Laki', 'Perempuan');
 $FormDataValue[$a]	= array('0', '1');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota Pencadang";
+$FormLabel[$a]   	= "Kode Referensi";
 $FormElement[$a] 	= "saksi1";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -384,7 +384,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Laluan mesti sekurang-kurangnya ENAM [6] aksara.</strong> 
+                                                    <strong>* Kata Sandi mesti sekurang-kurangnya ENAM [6] aksara.</strong> 
                                                 </div>';
 	}
 
@@ -394,7 +394,7 @@ if ($SubmitForm <> "") {
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Laluan mesti sama dengan kenal pasti Kata Laluan.</strong> 
+                                                    <strong>* Kata Sandi mesti sama dengan kenal pasti Kata Sandi.</strong> 
                                                 </div>';
 	}
 	$GetLogin = ctLogin($loginID);
@@ -472,7 +472,7 @@ if ($SubmitForm <> "") {
 		else $uid =  $Cookie_userID;
 		if (!isset($Cookie_userName)) $uname = $loginID;
 		else $uname =  $Cookie_userName;
-		$activity = "Permohonan Anggota - " . $userID;
+		$activity = "PengajuanAnggota - " . $userID;
 		if ($rs) activityLog($sSQL, $activity, $uid, $uname, 1);
 
 		// Insert into userdetails table
@@ -500,7 +500,7 @@ if ($SubmitForm <> "") {
              VALUES (" . tosql($userID, "Text") . ", " . tosql($memberID, "Text") . ")";
 		$rs = &$conn->Execute($sSQL);
 		
-		alert("Permohonan menjadi anggota telah didaftarkan ke dalam sistem.");
+		alert("Pendaftaran menjadi anggota telah tercatat di sistem.");
 		gopage("$sActionFileName", 1000);
 	}
 }
@@ -510,7 +510,7 @@ if ($SubmitForm <> "") {
 	<input type="hidden" name="userID" value="<?php print $userID; ?>">
 	<input type="hidden" name="loanType" value="<?php print $loanType; ?>">
 	<div class="mb-3 row">
-		<h5 class="card-title"><?php echo strtoupper($title); ?><br><small>BORANG MENJADI ANGGOTA (* Mesti diisi untuk permohonan.)</small></h5>
+		<h5 class="card-title"><?php echo strtoupper($title); ?><br><small>FORMULIR MENJADI ANGGOTA ( Harus diisi untuk permohonan.)*</small></h5>
 		<style>
 			input::-ms-reveal,
 			input::-ms-clear {
@@ -521,9 +521,9 @@ if ($SubmitForm <> "") {
 		//--- Begin : Looping to display label -------------------------------------------------------------
 		for ($i = 1; $i <= count($FormLabel); $i++) {
 			$cnt = $i % 2;
-			if ($i == 1) print '<div class="card-header mb-3">MAKLUMAT PENDAFTARAN ID</div>';
-			if ($i == 7) print '<div class="card-header mb-3">A. BUTIR-BUTIR PERIBADI</div>';
-			if ($i == 23) print '<div class="card-header mb-3 mt-3">B. PENCADANG : (NOMBOR ANGGOTA YANG TELAH BERDAFTAR BERSAMA KOPERASI)</div>';
+			if ($i == 1) print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
+			if ($i == 7) print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
+			if ($i == 23) print '<div class="card-header mb-3 mt-3">B. PENCADANG : (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</div>';
 
 			if ($cnt == 1) print '<div class="m-1 row">';
 			print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
@@ -539,7 +539,7 @@ if ($SubmitForm <> "") {
 			<div class="col-md-10">
 			<div class="input-group">
 			<div style="position: relative; display: inline-block;">
-				<input id="password1" type="password" class="form-control" placeholder="Minimum 6 Aksara" name="password" size="20" maxlength="16">
+				<input id="password1" type="password" class="form-control" placeholder="Minimal 6 Karakter" name="password" size="20" maxlength="16">
 				<div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
 					<a id="eyeIcon1" href="#" onclick="togglePassword(1)">
 						<i id="eyeIconInner1" class="mdi mdi-eye-off-outline" aria-hidden="true"></i>
@@ -555,7 +555,7 @@ if ($SubmitForm <> "") {
 			<div class="col-md-10">
 				<div class="input-group">
 				<div style="position: relative; display: inline-block;">
-					<input id="password2" type="password" class="form-control" placeholder="Minimum 6 Aksara" name="password1" size="20" maxlength="16">
+					<input id="password2" type="password" class="form-control" placeholder="Minimal 6 Karakter" name="password1" size="20" maxlength="16">
 					<div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
 						<a id="eyeIcon2" href="#" onclick="togglePassword(2)" >
 							<i id="eyeIconInner2" class="mdi mdi-eye-off-outline" aria-hidden="true"></i>
@@ -607,7 +607,7 @@ if ($SubmitForm <> "") {
 		?>
 		<div class="mb-3 row">
 			<center>
-				<input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Hantar">
+				<input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Kirim">
 				<!-- <input type="Reset" class="btn btn-secondary w-md waves-effect waves-light" name="ResetForm" value="Isi semula"> -->
 			</center>
 		</div>

@@ -107,7 +107,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu905 . '">';
         TitleBarBlue("ANGGOTA", 'mdi mdi-contacts-outline');
         echo '<ul class="sub-menu ' . $mn905 . '" aria-expanded="false">';
-        MenuLink("member.php", "Senarai Permohonan", 905, @$_REQUEST['vw']);
+        MenuLink("member.php", "Daftar Pengajuan", 905, @$_REQUEST['vw']);
         MenuLink("memberProfil.php", "Profil Anggota", 905, @$_REQUEST['vw']);
         MenuLink("memberT.php", "Senarai Berhenti", 905, @$_REQUEST['vw']);
         MenuLink("carumanList.php", "Senarai Pengeluaran Caruman", 905, @$_REQUEST['vw']);
@@ -129,7 +129,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu921 . '">';
         TitleBarBlue("KEBAJIKAN", 'mdi mdi-charity');
         echo '<ul class="sub-menu ' . $mn921 . '" aria-expanded="false">';
-        MenuLink("welfare.php", "Senarai Permohonan", 921, @$_REQUEST['vw']);
+        MenuLink("welfare.php", "Daftar Pengajuan", 921, @$_REQUEST['vw']);
         MenuLink("welfareTableS.php", "Permohonan Selesai", 921, @$_REQUEST['vw']);
         echo '</ul></li>';
 
@@ -143,7 +143,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu906 . '">';
         TitleBarBlue("PEMBIAYAAN", 'mdi mdi-book-clock-outline');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="false">';
-        MenuLink("loan.php", "Senarai Permohonan", 906, @$_REQUEST['vw']);
+        MenuLink("loan.php", "Daftar Pengajuan", 906, @$_REQUEST['vw']);
         MenuLink("penjamin.php", "Senarai Penjamin", 906, @$_REQUEST['vw']);
         MenuLink("loanTable.php", "Diluluskan", 906, @$_REQUEST['vw']);
         MenuLink("loanTableS.php", "Selesai", 906, @$_REQUEST['vw']);
@@ -167,7 +167,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         // TitleBarBlue("HIRE PURCHASE", 'mdi mdi-book-clock-outline');
         // echo '<ul class="sub-menu ' . $mn922 . '" aria-expanded="false">';
         // MenuLink("hpApply.php", "Mohon Baru", 922, @$_REQUEST['vw']);
-        // MenuLink("hirePurchase.php", "Senarai Permohonan", 922, @$_REQUEST['vw']);
+        // MenuLink("hirePurchase.php", "Daftar Pengajuan", 922, @$_REQUEST['vw']);
         // MenuLink("hpTable.php", "Diluluskan", 922, @$_REQUEST['vw']);
         // MenuLink("hpActive.php", "Hire Purchase Aktif", 922, @$_REQUEST['vw']);
         // MenuLink("hpNPL.php", "Senarai NPL", 922, @$_REQUEST['vw']);

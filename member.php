@@ -25,7 +25,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = '?vw=member&mn=905';
 $sFileRef  = '?vw=memberEdit&mn=905';
-$title     = "Status Permohonan Anggota";
+$title     = "Status Pengajuan Anggota";
 
 $IDName = get_session("Cookie_userName");
 //--- Begin : deletion based on checked box -------------------------------------------------------
@@ -60,7 +60,7 @@ if (isset($_GET['action']) && $_GET['action'] == "delete" && isset($_GET['pk']))
 			$rs1 = $conn->Execute($sSQL1);
 
 			// Log activity (deletion)
-			$strActivity = $_POST['Submit'] . ' Hapus Permohonan Anggota - ' . $CheckUser->fields['userID'];
+			$strActivity = $_POST['Submit'] . ' Hapus Pengajuan Anggota - ' . $CheckUser->fields['userID'];
 			activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
 		} else {
 			// If user status is not 0, show an alert that deletion is not allowed
@@ -134,7 +134,7 @@ print '
 <input type="hidden" name="filter" value="' . $filter . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=memberApply&mn=905\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=memberApply&mn=905\'"/>
 </div>';
 
 // Fetch users counts by status
@@ -149,7 +149,7 @@ $totalEntries = $dalam_Proses + $diluluskan + $ditolak + $berhenti;
 // Define the entries array
 $entries = array(
 	'Dalam Proses' => array('amount' => $dalam_Proses, 'count' => $dalam_Proses, 'color' => '#2196F3'),
-	'Diluluskan'   => array('amount' => $diluluskan, 'count' => $diluluskan, 'color' => '#4caf50'),
+	'Disetujui'   => array('amount' => $diluluskan, 'count' => $diluluskan, 'color' => '#4caf50'),
 	'Ditolak'      => array('amount' => $ditolak, 'count' => $ditolak, 'color' => '#ff9800'),
 	'Berhenti'      => array('amount' => $berhenti, 'count' => $berhenti, 'color' => '#f44336')
 );
@@ -267,7 +267,7 @@ $entries = array(
 					<strong><?php echo $key; ?></strong>
 					<hr>
 					<div class="amount" style="color: <?php echo $data['color']; ?>;"><?php echo $data['amount']; ?></div>
-					<div><?php echo $data['count']; ?> entri (<?php echo $totalEntries > 0 ? round(($data['count'] / $totalEntries) * 100) : 0; ?>%)</div>
+					<div><?php echo $data['count']; ?> data (<?php echo $totalEntries > 0 ? round(($data['count'] / $totalEntries) * 100) : 0; ?>%)</div>
 				</div>
 			<?php endforeach; ?>
 		</div>
@@ -276,18 +276,18 @@ $entries = array(
 	<?
 
 	print '<div class="mb-3 row m-1 mt-4">
-<div>Carian Melalui 
+<div>Pencarian Berdasarkan 
 			<select name="by" class="form-select-sm mt-3">';
-	if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-	else print '<option value="1">Nombor Anggota</option>';
+	if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+	else print '<option value="1">Nomor Anggota</option>';
 	if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 	else print '<option value="2">Nama Anggota</option>';
-	if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-	else print '<option value="3">Kad Pengenalan</option>';
+	if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+	else print '<option value="3">Kartu Identitas</option>';
 	print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="20" class="form-control-sm mt-3">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;		
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm mt-3" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 	for ($i = 0; $i < count($deptList); $i++) {
@@ -327,8 +327,8 @@ Jenis
 		<td>
 			<table width="100%">
 				<tr>
-					<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>					
-					<td align="right" class="textFont">Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+					<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>					
+					<td align="right" class="textFont">Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -343,7 +343,7 @@ Jenis
 	else print '<option value="50">50</option>';
 	if ($pg == 100)	print '<option value="100" selected>100</option>';
 	else print '<option value="100">100</option>';
-	print '				</select> setiap mukasurat.
+	print '				</select> setiap halaman.
 					</td>
 				</tr>
 			</table>
@@ -359,11 +359,11 @@ Jenis
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama Anggota</td>
-						<td nowrap align="center">Nombor Anggota</td>
-						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap align="left">Cawangan/Zon</td>
+						<td nowrap align="center">Nomor Anggota</td>
+						<td nowrap align="center">Kartu Identitas</td>
+						<td nowrap align="left">Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
-						<td nowrap align="center">Tarikh Memohon</td>';
+						<td nowrap align="center">Tanggal Pengajuan</td>';
 		if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 			if ($filter == 0) {
 				print '<td colspan="2" nowrap align="center">&nbsp;</td>';
@@ -441,7 +441,7 @@ Jenis
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '&filter=' . $filter . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -454,15 +454,15 @@ Jenis
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian Data "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
 		}
 	}
 	print ' 
@@ -474,7 +474,7 @@ Jenis
 		new Chart(ctx, {
 			type: 'doughnut',
 			data: {
-				labels: ['Dalam Proses', 'Diluluskan', 'Ditolak', 'Berhenti'],
+				labels: ['Dalam Proses', 'Disetujui', 'Ditolak', 'Berhenti'],
 				datasets: [{
 					data: [<?php echo $dalam_Proses; ?>, <?php echo $diluluskan; ?>, <?php echo $ditolak; ?>, <?php echo $berhenti; ?>],
 					backgroundColor: ['#2196F3', '#4caf50', '#ff9800', '#f44336']
@@ -519,9 +519,9 @@ Jenis
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Tolong pilih data yang mau di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
+	          if(confirm(count + \' data dipilih ingin di\' + v + \'kan?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -533,7 +533,7 @@ Jenis
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Tolong pastikan nama form dibuat.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -546,9 +546,9 @@ Jenis
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Tolong pilih data yang mau di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
+	          if(confirm(count + \' data dipilih ingin di\' + v + \'kan?\')) {
 	          //e.submit();
 	          window.location.href ="?vw=memberStatus&pk=" + strStatus;
 			  }
@@ -559,7 +559,7 @@ Jenis
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Tolong pastikan nama form dibuat.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -570,7 +570,7 @@ Jenis
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Tolong pilih satu data saja untuk update status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}
