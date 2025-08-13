@@ -46,3 +46,4 @@ zon = zona
 kediaman = tempat tinggal
 poskod = kode pos
 kod = kode
+pencandang = pengusul

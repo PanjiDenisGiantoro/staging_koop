@@ -337,7 +337,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Kode Anggota Pencadang";
+$FormLabel[$a]   	= "Kode Anggota Pengusul";
 $FormElement[$a] 	= "saksi1";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -523,7 +523,7 @@ if ($SubmitForm <> "") {
 			$cnt = $i % 2;
 			if ($i == 1) print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
 			if ($i == 7) print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
-			if ($i == 23) print '<div class="card-header mb-3 mt-3">B. PENCADANG : (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</div>';
+			if ($i == 23) print '<div class="card-header mb-3 mt-3">B. PENGUSUL : (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</div>';
 
 			if ($cnt == 1) print '<div class="m-1 row">';
 			print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];

@@ -254,7 +254,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* Telepon Seluler<br><b>(601XXXXXXXX)</b>";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>(601XXXXXXXX)</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -327,7 +327,7 @@ $a++;
 $FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 $FormDataValue[$a]	= array('0', '1', '2');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
@@ -394,7 +394,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota Pencadang (2)";
+$FormLabel[$a]   	= "Nomor Anggota Pengusul (2)";
 $FormElement[$a] 	= "saksi2";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
