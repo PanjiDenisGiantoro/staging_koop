@@ -29,7 +29,7 @@ $sActionFileName = "?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=3";
 $sActionFileName1 = "?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=5";
 $sFileRef  = "?vw=Edit_memberStmtPotonganPokok&mn=$mn";
 
-$title     		= "Kemaskini Maklumat Anggota";
+$title     		= "Perbaharui Informasi Anggota";
 
 $ID               = $_REQUEST['ID'];
 $code             = $_REQUEST['code'];
@@ -72,7 +72,7 @@ if ($edit) {
 
 	$rsUpd = $conn->Execute($sSQLUpd);
 
-	echo '<script>alert("Kemaskini Penama Berjaya!");</script>';
+	echo '<script>alert("Perbaruan Penerima Berhasil!");</script>';
 	echo '<script>window.location.href = "' . $sActionFileName . '";</script>';
 }
 
@@ -106,7 +106,7 @@ if ($edit1) {
 
 	$rsUpd = $conn->Execute($sSQLUpd);
 
-	echo '<script>alert("Kemaskini Bank Berjaya!");</script>';
+	echo '<script>alert("Perbaruan Bank Berhasil!");</script>';
 	echo '<script>window.location.href = "' . $sActionFileName1 . '";</script>';
 }
 
@@ -122,7 +122,7 @@ if ($edit1) {
 // 		$updateSQL = "UPDATE bank SET priority = 1 WHERE ID = " . tosql($selectedID, "Number") . " AND priority = 0";
 // 		$conn->Execute($updateSQL);
 
-// 		$strActivity = $_POST['Submit'] . 'Kemaskini Bank Utama Anggota - ' . get_session('Cookie_userID');
+// 		$strActivity = $_POST['Submit'] . 'Perbarui Bank Utama Anggota - ' . get_session('Cookie_userID');
 // 		activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
 
 // 		// Paparkan mesej alert dan refresh halaman
@@ -267,7 +267,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Nama Penuh";
+	$FormLabel[$a]   	= "Nama Lengkap";
 	$FormElement[$a] 	= "name";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -277,7 +277,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "70";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormLabel[$a]   	= "Nomor Anggota";
 	$FormElement[$a] 	= "memberID";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -287,7 +287,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "20";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "email";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -297,7 +297,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Id Pengguna";
+	$FormLabel[$a]   	= "ID Pengguna";
 	$FormElement[$a] 	= "loginID";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -307,7 +307,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+	$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 	$FormElement[$a] 	= "approvedDate";
 	$FormType[$a]	  	= "date";
 	$FormData[$a]   	= "";
@@ -327,7 +327,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormLabel[$a]   	= "Kartu Identitas<br/><b>*Tidak Ada (-)</b>";
 	$FormElement[$a] 	= "newIC";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -337,7 +337,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "12";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Lahir";
+	$FormLabel[$a]   	= "Tanggal Lahir";
 	$FormElement[$a] 	= "dateBirth";
 	$FormType[$a]	  	= "date";
 	$FormData[$a]   	= "";
@@ -357,7 +357,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jawatan Pekerjaan";
+	$FormLabel[$a]   	= "Jabatan Pekerjaan";
 	$FormElement[$a] 	= "job";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -367,7 +367,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Cawangan / Zon";
+	$FormLabel[$a]   	= "Cabang / Zona";
 	$FormElement[$a] 	= "departmentIDd";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -377,7 +377,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Kediaman";
+	$FormLabel[$a]   	= "Alamat Tempat Tinggal";
 	$FormElement[$a] 	= "address";
 	$FormType[$a]	  	= "textarea";
 	$FormData[$a]   	= "";
@@ -387,7 +387,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Cawangan";
+	$FormLabel[$a]   	= "Alamat Cabang";
 	$FormElement[$a] 	= "addressSurat";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -397,7 +397,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Poskod Kediaman";
+	$FormLabel[$a]   	= "Kode Pos";
 	$FormElement[$a] 	= "postcode";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -407,7 +407,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "5";
 
 	$a++;
-	$FormLabel[$a]   	= "* Telefon Bimbit<br>Cth: 6011XXXXXXXX";
+	$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
 	$FormElement[$a] 	= "mobileNo";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -417,7 +417,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "15";
 
 	$a++;
-	$FormLabel[$a]   	= "Bandar Kediaman";
+	$FormLabel[$a]   	= "Kota Tempat Tinggal";
 	$FormElement[$a] 	= "city";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -427,7 +427,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Pekerja";
+	$FormLabel[$a]   	= "Nomor Karyawan";
 	$FormElement[$a] 	= "staftNo";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -437,7 +437,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Negeri Kediaman";
+	$FormLabel[$a]   	= "Provinsi Tempat Tinggal";
 	$FormElement[$a] 	= "stateID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $stateList;
@@ -447,7 +447,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Bangsa";
+	$FormLabel[$a]   	= "Suku Bangsa";
 	$FormElement[$a] 	= "raceID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $raceList;
@@ -467,27 +467,27 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Perkahwinan";
+	$FormLabel[$a]   	= "Status Pernikahan";
 	$FormElement[$a] 	= "maritalID";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+	$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 	$FormDataValue[$a]	= array('0', '1', '2');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jantina";
+	$FormLabel[$a]   	= "Jenis Kelamin";
 	$FormElement[$a] 	= "sex";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Lelaki', 'Perempuan');
+	$FormData[$a]   	= array('Laki-Laki', 'Perempuan');
 	$FormDataValue[$a]	= array('0', '1');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Hutang Lapuk";
+	$FormLabel[$a]   	= "Status Piutang Bermasalah";
 	$FormElement[$a] 	= "statusHL";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -497,7 +497,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Senarai Hitam";
+	$FormLabel[$a]   	= "Status Daftar Hitam";
 	$FormElement[$a] 	= "BlackListID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -507,7 +507,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "BlackList Dividen";
+	$FormLabel[$a]   	= "Daftar Hitam Dividen";
 	$FormElement[$a] 	= "BlackListDIV";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -517,7 +517,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jawatan Dalam Koperasi";
+	$FormLabel[$a]   	= "Jabatan dalam Koperasi";
 	$FormElement[$a] 	= "jawkopID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Biasa', 'Perwakilan');
@@ -571,7 +571,7 @@ if (@$tabb == 1) {
 
 if (@$tabb == 4) {
 	$a = 1;
-	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormLabel[$a]   	= "Nomor Anggota";
 	$FormElement[$a] 	= "saksi1";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -709,12 +709,12 @@ if ($SubmitForm <> "") {
 			}
 		} // end loop update
 
-		$activity = "Mengemaskini Maklumat Anggota";
+		$activity = "Memperbarui Informasi Anggota";
 		$sqlAct = "INSERT INTO activitylog (`report`, `sqlType`, `sql`, `byID`, `activityDate`, `activityBy`, `status`)" .
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota - $pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah diperbarui dalam sistem.");
 		gopage("?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=1", 1000);
 	} else if (@$tabb == 2) {
 		$updatedBy 	= get_session("Cookie_userName");
@@ -800,7 +800,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MAKLUMAT BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -810,7 +810,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=4" class="nav-link <?php if (@$tabb == 4) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENCADANG</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENGUSUL</a>
 	</li>
 
 
@@ -820,7 +820,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
 	if ($i == 1) print '<div>&nbsp;</div>';
 	if ($i == 9) {
-		print '<div class="card-header mb-3">BUTIR-BUTIR PERIBADI';
+		print '<div class="card-header mb-3">DETAIL PERIBADI';
 
 		if ($pic) {
 			print '&nbsp;<input type=button value="Paparan Slip Gaji" class="btn btn-sm btn-outline-danger" onClick=window.open(\'upload_gaji/' . $pic . '\',"pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
@@ -865,7 +865,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom03">Kad Pengenalan</label>
+                                                            <label class="form-label" for="validationCustom03">Kartu Identitas</label>
                                                             <input type="text" class="form-control" name="w_ic1" value="' . tohtml($GetMember->fields('w_ic1')) . '" size=15 maxlength=14 id="validationCustom03" placeholder="Tiada (-)">                                                            
                                                         </div>
                                                     </div>
@@ -883,7 +883,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom06">Alamat Kediaman</label>
+                                                            <label class="form-label" for="validationCustom06">Alamat Tempat Tinggal</label>
                                                             <textarea class="form-control" cols=30 rows=3 wrap="hard" name="w_address1" id="validationCustom06">' . $addr1 . '</textarea>
                                                         </div>
                                                     </div>
@@ -1076,7 +1076,7 @@ if (@$tabb == 2) {
 	} else {
 		print '
 							<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt;" bgcolor="FFFFFF">
-								<td colspan="8" align="center"><b>- Tiada Rekod </b></td>
+								<td colspan="8" align="center"><b>- Tidak Ada Data -</b></td>
 							</tr>';
 	}
 
@@ -1119,7 +1119,7 @@ if (@$tabb == 3) {
                 <tr class="table-primary">
                     <td align="center"><b>Bil</b></td>
                     <td align="left"><b>Nama Penama</b></td>
-					<td align="center"><b>Kad Pengenalan</b></td>
+					<td align="center"><b>Kartu Identitas</b></td>
                     <td align="center"><b>Nombor Telefon</b></td>
                     <td align="left" width="35%"><b>Alamat</b></td>
 					<td align="center"><b>Peratus (%)</b></td>
@@ -1181,7 +1181,7 @@ if (@$tabb == 3) {
 			</td>
 			<td class="Data" align="center">';
 			if ($IDtype == $rs->fields(ID)) {
-				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false;}" name="edit" id="edit" value="edit">';
+				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Apakah Anda yakin ingin memperbarui file ini?\')) {return false;}" name="edit" id="edit" value="edit">';
 			}
 			print '</td>
 		</tr>';
@@ -1221,7 +1221,7 @@ if (@$tabb == 5) {
                 <tr class="table-primary">
                     <td align="center"><b>Bil</b></td>
                     <td align="left"><b>Nama Bank</b></td>
-					<td align="center"><b>Nombor Akaun Bank</b></td>
+					<td align="center"><b>Nomor Akun Bank</b></td>
                     <td align="center" colspan="3"><b>&nbsp;</b></td>
                 </tr>';
 
@@ -1261,13 +1261,13 @@ if (@$tabb == 5) {
 							</a>
 						</td>
 						<td class="Data" align="center">
-							<a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=3" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false;}">
+							<a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=3" title="Hapus" onClick="if(!confirm(\'Apakah Anda yakin ingin menghapus file ini?\')) {return false;}">
 								<i class="fas fa-trash-alt text-danger" style="font-size: 1.1rem; position: relative; top: 8px;"></i>
 							</a>
 						</td>
 						<td class="Data" align="center">';
 			if ($IDtype == $rs->fields['ID']) {
-				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false;}" id="edit1" name="edit1" value="edit">';
+				print '<input type="submit" class="btn btn-sm btn-info" onClick="if(!confirm(\'Apakah Anda yakin ingin memperbarui file ini?\')) {return false;}" id="edit1" name="edit1" value="edit">';
 			}
 			print '</td>
 					</tr>';
@@ -1277,7 +1277,7 @@ if (@$tabb == 5) {
 	} else {
 		print '
 					<tr>
-						<td colspan="7" align="center"><b>- Tiada Rekod -</b></td>
+						<td colspan="7" align="center"><b>- Tidak Ada Data -</b></td>
 					</tr>';
 	}
 
@@ -1303,20 +1303,20 @@ if (@$tabb == 6) {
 	if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 		print '
 	<div class="mt-3">
-		<input value="Kemaskini Gaji" class="btn btn-md btn-primary waves-effect waves-light" onClick="window.location.href=\'?vw=biayaEditA&mn=905&pk=' . $pk . '\'"/>
+		<input value="Perbarui Gaji" class="btn btn-md btn-primary waves-effect waves-light" onClick="window.location.href=\'?vw=biayaEditA&mn=905&pk=' . $pk . '\'"/>
 	</div>';
 	}
 
 	print '
-	<div class="card-header mt-3 mb-3">SILA MUAT NAIK MAKLUMAT YANG BERKAITAN &nbsp;&nbsp;</div>
-	<div class="text-danger"><i class="mdi mdi-information-outline"></i> * Wajib Muat Naik.</div><br/>';
+	<div class="card-header mt-3 mb-3">SILAKAN UNGGAH INFORMASI YANG BERKAITAN &nbsp;&nbsp;</div>
+	<div class="text-danger"><i class="mdi mdi-information-outline"></i> * Wajib Unggah.</div><br/>';
 
 	print '
 		<table class="table table-sm table-striped">
 		<tr class="table-primary">
-			<td><b>Perkara</b></td>
+			<td><b>Tentang</b></td>
 			<!--td><b>Muat Naik Fail</b></td-->
-			<td><b>Nama Fail</b></td>
+			<td><b>Nama Berkas</b></td>
             <!--td align="center"><b>Hapus</b></td-->
 		</tr>
 
@@ -1337,7 +1337,7 @@ if (@$tabb == 6) {
 	print '</tr>
 
 		<tr>
-			<td class="align-middle">* Kad Pengenalan</td>
+			<td class="align-middle">* Kartu Identitas</td>
 			<!--td>
 				<div class="col-md-8 col-form-label"><input type="button" class="btn btn-outline-primary" name="GetPicture" value="Muat Naik"  onclick= "Javascript:(window.location.href=\'?vw=uploadwinicA&mn=' . $mn . '&pk=' . $pk . '\')"></div>
 			</td-->';
@@ -1410,7 +1410,7 @@ if ((get_session("Cookie_groupID") == 2)) {
                 <center>
                         <input type="hidden" name="pk" value="' . $pk . '">
 						<!--input type="button" class="btn btn-secondary btn-md waves-effect waves-light" value="<<"-->
-                        <input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-light waves-effects" value=Kemaskini>
+                        <input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-light waves-effects" value="Perbarui">
                 </center>
             </div>';
 	}

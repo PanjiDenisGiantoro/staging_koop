@@ -578,7 +578,7 @@ if ($SubmitForm <> "") {
 			<font class="text-primary">
 				<img src="images/number1-primary.png" width="17" height="17">&nbsp;ISI PROFIL
 			</font>&nbsp;<i class="mdi mdi-arrow-right-bold-outline"></i>&nbsp;
-			<img src="images/number2.png" width="17" height="17">&nbsp;MUAT NAIK DOKUMEN&nbsp;<i class="mdi mdi-arrow-right-bold-outline"></i>&nbsp;
+			<img src="images/number2.png" width="17" height="17">&nbsp;UNGGAH DOKUMEN&nbsp;<i class="mdi mdi-arrow-right-bold-outline"></i>&nbsp;
 			<img src="images/number3.png" width="17" height="17">&nbsp;PEMBAYARAN&nbsp;<i class="mdi mdi-arrow-right-bold-outline"></i>&nbsp;
 			<img src="images/number4.png" width="17" height="17">&nbsp;SELESAI<br /><br />
 			<div class="progress mb-2">
@@ -598,7 +598,7 @@ if ($SubmitForm <> "") {
 				if ($i == 7) print '<div class="card-header mb-3 mt-3">DETAIL PRIBADI</div>';
 				if ($i == 23) print '<div class="card-header mb-3 mt-3">BIAYA MASUK/IURAN</div>';
 				if ($i == 25) {
-					print '<div class="card-header mt-3">AHLI WARIS:(18 Tahun Ke atas)</div>';
+					print '<div class="card-header mt-3">PENAMA:(18 Tahun Ke atas)</div>';
 
 					print '<div class="row m-1 mt-3">
                                                     <div class="col-md-3">

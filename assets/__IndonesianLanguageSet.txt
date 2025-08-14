@@ -47,3 +47,5 @@ kediaman = tempat tinggal
 poskod = kode pos
 kod = kode
 pencandang = pengusul
+bandar = kota
+negeri = provinsi

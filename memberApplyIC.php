@@ -650,7 +650,7 @@ if ($SubmitForm <> "") {
 			if ($i == 9) print '<tr><td class="headerteal" colspan="4">A. DETAIL PRIBADI :</td></tr>';
 			if ($i == 25) print '<tr><td class="headerteal" colspan="4">B. BIAYA MASUK/IURAN :</td></tr>';
 			if ($i == 27) {
-				print '<tr><td class="headerteal" colspan="4">C. AHLI WARIS:(18 Tahun Ke atas)</td></tr>';
+				print '<tr><td class="headerteal" colspan="4">C. PENAMA:(18 Tahun Ke atas)</td></tr>';
 				print '<tr class="Data">
 					<td colspan="4">
 						<table width="100%">
