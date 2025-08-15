@@ -116,7 +116,7 @@ $title     =  $basicListACC[array_search($cat,$basicValACC)];
 $strErrMsg = Array();
 
 $a = 1;
-$FormLabel[$a]   	= "* Kod";
+$FormLabel[$a]   	= "* Kode";
 $FormElement[$a] 	= "code";
 $FormType[$a]	  	= "text-sm";
 $FormData[$a]   	= "";
@@ -259,7 +259,7 @@ if ($cat == "AA") {
 
 
 	$a++;
-	$FormLabel[$a]   	= "Kod Kumpulan";
+	$FormLabel[$a]   	= "Kode Grup";
 	$FormElement[$a] 	= "a_Kodkump";
 	$FormType[$a]	  	= "selectx";
 	$FormData[$a]   	= $kumpList;
@@ -312,7 +312,7 @@ if ($cat == "AA") {
 		$FormStyle[$a] 	  = 'style="width:465px;"';
 
 		$a++;
-		$FormLabel[$a]     = "Akaun Pembahagian Keuntungan";
+		$FormLabel[$a]     = "Akun Pembagian Keuntungan";
 		$FormElement[$a]   = "a_profitDivision";
 		$FormType[$a]      = "radio";
 		$FormData[$a]      = array("Tidak", "Ya");
@@ -362,7 +362,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "3";	
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Penghantaran";
+	$FormLabel[$a]   	= "Alamat Pengantar";
 	$FormElement[$a] 	= "b_Daddress";
 	$FormType[$a]	  	= "textarea-sm";
 	$FormData[$a]   	= "";
@@ -372,7 +372,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "3";	
 	
 	$a++;
-	$FormLabel[$a]   	= "Nombor Telefon";
+	$FormLabel[$a]   	= "Nomor Telepon";
 	$FormElement[$a] 	= "b_contact";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -382,7 +382,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Faks";
+	$FormLabel[$a]   	= "Nomor Faks";
 	$FormElement[$a] 	= "b_faks";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -402,7 +402,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "b_email";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -445,7 +445,7 @@ if ($cat == "AB") {
 	$FormStyle[$a] 		= 'style="width:465px;"';
 
 	$a++;
-	$FormLabel[$a]   	= "Akaun Bank";
+	$FormLabel[$a]   	= "Akun Bank";
 	$FormElement[$a] 	= "b_accbank";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -550,7 +550,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Kod GL (Carta Akaun)";
+	$FormLabel[$a]   	= "Kode GL (Daftar Akun)";
 	$FormElement[$a] 	= "b_kodGL";
 	$FormType[$a]	  	= "selectx";
 	$FormData[$a]   	= $cartaList;
@@ -599,7 +599,7 @@ $a++;
 	$FormLength[$a]  	= "3";	
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Penghantaran";
+	$FormLabel[$a]   	= "Alamat Pengantar";
 	$FormElement[$a] 	= "b_Daddress";
 	$FormType[$a]	  	= "textarea-sm";
 	$FormData[$a]   	= "";
@@ -609,7 +609,7 @@ $a++;
 	$FormLength[$a]  	= "3";	
 	
 	$a++;
-	$FormLabel[$a]   	= "Nombor Telefon";
+	$FormLabel[$a]   	= "Nomor Telepon";
 	$FormElement[$a] 	= "b_contact";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -619,7 +619,7 @@ $a++;
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Faks";
+	$FormLabel[$a]   	= "Nomor Faks";
 	$FormElement[$a] 	= "b_faks";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -639,7 +639,7 @@ $a++;
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "b_email";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -682,7 +682,7 @@ $a++;
 	$FormStyle[$a] 		= 'style="width:465px;"';
 
 	$a++;
-	$FormLabel[$a]   	= "Akaun Bank";
+	$FormLabel[$a]   	= "Akun Bank";
 	$FormElement[$a] 	= "b_accbank";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -766,7 +766,7 @@ $a++;
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "* Kod GL (Carta Akaun)";
+	$FormLabel[$a]   	= "* Kode GL (Daftar Akun)";
 	$FormElement[$a] 	= "b_kodGL";
 	$FormType[$a]	  	= "selectx";
 	$FormData[$a]   	= $cartaList;
@@ -815,7 +815,7 @@ $a++;
 	$FormLength[$a]  	= "3";	
 
 	$a++;
-	$FormLabel[$a]   	= "Kumpulan Cukai";
+	$FormLabel[$a]   	= "Daftar Pajak";
 	$FormElement[$a] 	= "d_grouptax";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -825,7 +825,7 @@ $a++;
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Kadar (%)";
+	$FormLabel[$a]   	= "Tarif (%)";
 	$FormElement[$a] 	= "d_kadar";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -873,7 +873,7 @@ if ($cat == "AF") {
 	}
 
 $a++;
-	$FormLabel[$a]   	= "No Akaun";
+	$FormLabel[$a]   	= "No Akun";
 	$FormElement[$a] 	= "f_noakaun";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -893,7 +893,7 @@ $a++;
 	$FormLength[$a]  	= "30";
 
 	$a++;
-	$FormLabel[$a]   	= "Baki Pembukaan (Opening Balance)";
+	$FormLabel[$a]   	= "Saldo Awal(Opening Balance)";
 	$FormElement[$a] 	= "f_opbal";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -944,7 +944,7 @@ if ($cat == "AG") {
 	$FormStyle[$a] 		= 'style="width:465px;"';
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Pembukaan Batch";
+	$FormLabel[$a]   	= "Tanggla Mulai Batch";
 	$FormElement[$a] 	= "g_OpenDate";
 	$FormType[$a]	  	= "date3";
 	$FormData[$a]   	= "";
@@ -955,7 +955,7 @@ if ($cat == "AG") {
 	$FormStyle[$a] 		= 'style="width:465px;"';
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Penutupan Batch";
+	$FormLabel[$a]   	= "Tanggal Penutupan Batch";
 	$FormElement[$a] 	= "g_CloseDate";
 	$FormType[$a]	  	= "date3";
 	$FormData[$a]   	= "";
@@ -1004,7 +1004,7 @@ $a++;
 	$FormLength[$a]  	= "3";	
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Penghantaran";
+	$FormLabel[$a]   	= "Alamat Pengantar";
 	$FormElement[$a] 	= "b_Daddress";
 	$FormType[$a]	  	= "textarea-sm";
 	$FormData[$a]   	= "";
@@ -1014,7 +1014,7 @@ $a++;
 	$FormLength[$a]  	= "3";	
 	
 	$a++;
-	$FormLabel[$a]   	= "Nombor Telefon";
+	$FormLabel[$a]   	= "Nomor Telepon";
 	$FormElement[$a] 	= "b_contact";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -1024,7 +1024,7 @@ $a++;
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Faks";
+	$FormLabel[$a]   	= "Nomor Faks";
 	$FormElement[$a] 	= "b_faks";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -1044,7 +1044,7 @@ $a++;
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "b_email";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -1087,7 +1087,7 @@ $a++;
 	$FormStyle[$a] 		= 'style="width:465px;"';
 
 	$a++;
-	$FormLabel[$a]   	= "Akaun Bank";
+	$FormLabel[$a]   	= "Akun Bank";
 	$FormElement[$a] 	= "b_accbank";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -1128,7 +1128,7 @@ $a++;
 	}
 
 	$a++;
-	$FormLabel[$a]   	= "Kod GL (Carta Akaun)";
+	$FormLabel[$a]   	= "Kode GL (Daftar Akun)";
 	$FormElement[$a] 	= "b_kodGL";
 	$FormType[$a]	  	= "selectx";
 	$FormData[$a]   	= $cartaList;
@@ -1154,7 +1154,7 @@ $a++;
 
 if ($action == "kemaskini") {
 	$a++;
-	$FormLabel[$a]  	= "Tarikh Diwujudkan";
+	$FormLabel[$a]  	= "Tanggal Dibuat";
 	$FormElement[$a] 	= "createdDate";
 	$FormType[$a]	  	= "hiddenDate";
 	$FormData[$a]    	= "";
@@ -1164,7 +1164,7 @@ if ($action == "kemaskini") {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]  	= "Diwujudkan Oleh";
+	$FormLabel[$a]  	= "Dibuat Oleh";
 	$FormElement[$a] 	= "createdBy";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]    	= "";
@@ -1174,7 +1174,7 @@ if ($action == "kemaskini") {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]  	= "Tarikh Kemaskini";
+	$FormLabel[$a]  	= "Tanggal Diperbarui";
 	$FormElement[$a] 	= "updatedDate";
 	$FormType[$a]  		= "hiddenDate";
 	$FormData[$a]    	= "";
@@ -1184,7 +1184,7 @@ if ($action == "kemaskini") {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]	  	= "Kemaskini Oleh";
+	$FormLabel[$a]	  	= "Diperbarui Oleh";
 	$FormElement[$a] 	= "updatedBy";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]    	= "";
@@ -1419,7 +1419,7 @@ if ($SubmitForm <> "") {
 				          tosql($createdBy, "Text") . ",".
 						  tosql($updatedDate, "Text") . "," .
 				          tosql($updatedBy, "Text") . ")";
-				$msg = "Rekod berjaya ditambah !";
+				$msg = "Data telah berhasil disimpan !";
 			break;
 			case "kemaskini":
 			    $sWhere = "ID=" . tosql($pk, "Number");
@@ -1507,7 +1507,7 @@ if ($SubmitForm <> "") {
 			$sSQL	.= ",updatedDate=" . tosql($updatedDate, "Text") .
 				          ",updatedBy=" . tosql($updatedBy, "Text") ;
 				$sSQL .= " where " . $sWhere;
-				$msg = "Rekod bejaya dikemaskini !";
+				$msg = "Data telah berhasil diupdate !";
 			break;
 		}
 
@@ -1571,7 +1571,7 @@ print '
 	<tr class="table-primary">
 		<td colspan="2">';
 		
-if ($action == "tambah") print '<h6 class="card-subtitle">Kemasukan '.$title; else print '<h6 class="card-subtitle">Kemaskini '.$title.' : '.tohtml($rs->fields(name));
+if ($action == "tambah") print '<h6 class="card-subtitle">Tambah '.$title; else print '<h6 class="card-subtitle">Kemaskini '.$title.' : '.tohtml($rs->fields(name));
 print '</h6></td></tr>';
 
 //--- Begin : Looping to display label -------------------------------------------------------------
@@ -1670,11 +1670,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	if ($cat == 'O') {
 		if ($i == 2) {
 			print '
-			<tr><td class=Header colspan=2>Pilihan Kod Potongan :</td></tr>
+			<tr><td class=Header colspan=2>Pilihan Kode Potongan :</td></tr>
 			<tr valign=top><td class=Data colspan="2">
 				<table border="0" cellspacing="1" cellpadding="3" width="95%" align="center">
 				    <tr valign="top">
-				    	<td class="data">Senarai Kod Potongan<br>
+				    	<td class="data">Daftar Kode Potongan<br>
 						<select name="nonSection[]" multiple size="15">';
 			if (count($deductList) ==  0) {
 				print 	'	<option value="">-None-</option>';				
@@ -1692,7 +1692,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 			        	<input type="button" value=">>" onClick="document.MyForm.hidMoveFlag.value=1; addSection()" class=textFont><br>
 			        	<input type="button" value="<<" onClick="document.MyForm.hidMoveFlag.value=1; removeSection()" class=textFont>
 				        </td>				
-						<td valign="top" class="data">Kod Potongan Pilihan<br>
+						<td valign="top" class="data">Kode Potongan Pilihan<br>
 				        <select name="Section[]" multiple size="15">';
 			if (count($SectionVal) == 0)	{	
 			   	print 	'	<option value="-1">-None-</option>';
