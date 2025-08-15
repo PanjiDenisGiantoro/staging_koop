@@ -17,7 +17,7 @@ if (!isset($yy))		$yy=date("Y");
 include("header.php");	
 include("koperasiQry.php");	
 include("koperasiList.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -205,7 +205,7 @@ print '  <tr valign="top" >
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 	} else {
 		if ($q == "") {

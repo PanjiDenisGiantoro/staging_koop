@@ -16,7 +16,7 @@ if (!isset($jenis_cari))	$jenis_cari="";
 
 include("header.php");	
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 

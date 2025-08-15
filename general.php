@@ -33,7 +33,7 @@ if (get_session("Cookie_groupID") <> 2) {
 
 if (!(in_array($cat,$basicVal))) {
 	print '	<script>
-				alert ("'.$cat.' - Kategori ini tidak wujud...!");
+				alert ("'.$cat.' - Kategori ini tidak muncul...!");
 				window.location = "index.php";
 			</script>';
 }
@@ -92,7 +92,7 @@ print '
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>'.$RecNum.'</b></td>
+			<td class="textFont">Jumlah Data : <b>'.$RecNum.'</b></td>
 		</tr>';
 	} else {
 		print '
@@ -101,7 +101,7 @@ print '
 				<input type="button" value="tambah" class="btn btn-sm btn-primary" onclick=Javascript:window.open("' . $sFileRef . '?action=tambah&cat='.$cat.'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
 			</td>
 		</tr>		
-		<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod -</b><hr size=1"></td></tr>';
+		<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data -</b><hr size=1"></td></tr>';
 	}
 print ' 
 </table>
@@ -163,7 +163,7 @@ print '
 	        if(count==0) {
 	          alert(\'Select the row(s) to \' + v + \'.\');
 	        } else {
-	          if(confirm(v + \' \' + count + \' rekod ?\')) {
+	          if(confirm(v + \' \' + count + \' Data ?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -258,7 +258,7 @@ function listGeneral($id, $level) {
 
 		if ($level <= $setLevel) {
         // Add a title attribute for nonDeletable items to show the hover message
-        $title = $disableDelete ? ' title="Kod ini mempunyai transaksi"' : '';
+        $title = $disableDelete ? ' title="Kode ini mempunyai transaksi"' : '';
         	print '<input type="checkbox" class="form-check-input" name="pk[]" value="' . $generalID[$i] . '" data-disable-delete="' . ($disableDelete ? 'true' : 'false') . '"' . $title . '>';
 		} else {
 			print '&nbsp;&nbsp;&nbsp;';

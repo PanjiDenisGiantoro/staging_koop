@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if (!isset($strDate))	$strDate = date("d/m/Y");
 if ($action == 'Kemaskini') {
 	$pk = explode(":", $pk);

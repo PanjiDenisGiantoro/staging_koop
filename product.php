@@ -12,7 +12,7 @@
 if (!isset($mm))    $mm="ALL";
 if (!isset($yy))    $yy=date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Kuala_Lumpur"); 
+date_default_timezone_set("Asia/Jakarta"); 
 
 if (!isset($StartRec))	$StartRec= 1; 
 if (!isset($pg))		$pg= 30;
@@ -23,7 +23,7 @@ if (!isset($filter))	$filter="0";
 include("header.php");	
 include("koperasiQry.php");	
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 // if ($SubmitForm <> "") {
 //     echo '<pre>' . print_r($_POST, true) . '</pre>'; // Check all posted data

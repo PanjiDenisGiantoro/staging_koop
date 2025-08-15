@@ -12,7 +12,7 @@ include("header.php");
 include("koperasiQry.php");	
 include("forms.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $sFileName		= "?vw=ACCinvestors_detail&mn=$mn&pk=$pk";
 

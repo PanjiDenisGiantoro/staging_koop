@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 
 session_start();
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $title          = "Pembuka Akaun";
 $sFileName      = "?vw=ACCprofitDivisionListEdit&mn=$mn";

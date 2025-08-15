@@ -7,11 +7,12 @@
  *********************************************************************************/
 session_start();
 include("common.php");
-date_default_timezone_set("Asia/Kuala Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";
+
 $rss = &$conn->Execute($ssSQL);
 
 $coopName = $rss->fields(name);
@@ -224,4 +225,4 @@ print '
 
 </html>
 
-'
+';

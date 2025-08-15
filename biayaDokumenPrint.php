@@ -1,7 +1,7 @@
 <?
 include 'common.php';
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if(isset($pk)){ 
 		$sSQL = "SELECT * FROM loandocs WHERE  loanID='".$pk."'";
 		$rs = &$conn->Execute($sSQL);
