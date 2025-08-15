@@ -12,7 +12,7 @@ if (!isset($dept))		$dept = "ALL";
 include("common.php");
 include("koperasiinfo.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));

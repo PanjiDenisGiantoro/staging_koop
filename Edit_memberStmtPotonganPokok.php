@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Potongan Bulanan ( Pokok & Untung )";
 
 $sFileName = "?vw=Edit_memberStmtPotonganPokok&mn=$mn";

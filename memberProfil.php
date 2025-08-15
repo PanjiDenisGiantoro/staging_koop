@@ -14,7 +14,7 @@ if (!isset($filter))	$filter = "1";
 if (!isset($dept))		$dept = "";
 if (!isset($active))	$active = "1";
 if ($filter == 1)	$active = "1";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 

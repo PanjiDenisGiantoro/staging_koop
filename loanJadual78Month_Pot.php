@@ -12,7 +12,7 @@ if (!isset($q))            $q = "";
 include("common.php");
 //include("setupinfo.php");	
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 include("header.php");
 

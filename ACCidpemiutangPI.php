@@ -7,7 +7,7 @@
 include ("common.php");
 	
 include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec= 1; 
 if (!isset($pg))		$pg= 30;

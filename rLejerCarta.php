@@ -19,7 +19,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 include("header.php");
 include("koperasiQry.php");
 include("AccountQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';

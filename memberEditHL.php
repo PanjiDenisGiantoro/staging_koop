@@ -16,7 +16,7 @@ $yymm = sprintf("%04d%02d", $yy, $mm);
 if (@$tabb == '') {
 	$tabb = 1;
 }
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 

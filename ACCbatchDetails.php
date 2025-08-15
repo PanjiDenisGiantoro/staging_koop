@@ -15,8 +15,8 @@ if (!isset($mm))		$mm=date("m");
 if (!isset($yy))		$yy=date("Y");
 
 include("header.php");	
-include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+include("koperasiQry.php");
+date_default_timezone_set("Asia/Jakarta");
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
 if (get_session("Cookie_groupID") <> 0 AND get_session("Cookie_groupID") <> 1 
@@ -235,7 +235,7 @@ print '  <tr valign="top" >
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 	} else {
 		if ($q == "") {

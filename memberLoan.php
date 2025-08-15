@@ -13,7 +13,7 @@ include("common.php");
 include("koperasiinfo.php");
 include("koperasiQry.php");
 include("koperasiList.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 

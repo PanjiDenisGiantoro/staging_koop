@@ -12,7 +12,7 @@ session_start();
 include("header.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");
 $updatedID = get_session("Cookie_groupID");

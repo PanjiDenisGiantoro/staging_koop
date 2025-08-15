@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Potongan Pembiayaan Bulanan";
 
 $sFileName = "?vw=Edit_memberStmtPotongan&mn=$mn";

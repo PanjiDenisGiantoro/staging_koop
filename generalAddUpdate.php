@@ -11,7 +11,7 @@ if (!isset($cat))    $cat = "";
 
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -116,7 +116,7 @@ $title     =  $basicList[array_search($cat, $basicVal)];
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]       = "* Kod";
+$FormLabel[$a]       = "* Kode";
 $FormElement[$a]     = "code";
 //if ($cat == 'O') 
 //	$FormType[$a]	  	= "hiddentext";
@@ -187,7 +187,7 @@ if ($cat == "B") {
     $FormLength[$a]      = "25";
 
     $a++;
-    $FormLabel[$a]       = " Nombor Telefon";
+    $FormLabel[$a]       = " Nomor Telepon";
     $FormElement[$a]     = "b_ContactNo";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -236,7 +236,7 @@ if ($cat == "C") {
     }
 
     $a++;
-    $FormLabel[$a]       = "Kod Potongan";
+    $FormLabel[$a]       = "Kode Potongan";
     $FormElement[$a]     = "c_Deduct";
     $FormType[$a]          = "selectx";
     $FormData[$a]       = $deductList;
@@ -247,7 +247,7 @@ if ($cat == "C") {
     $FormStyle[$a]         = 'style="width:465px;"';
 
     $a++;
-    $FormLabel[$a]       = "Caj (%)";
+    $FormLabel[$a]       = "Biaya (%)";
     $FormElement[$a]     = "c_Caj";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -257,7 +257,7 @@ if ($cat == "C") {
     $FormLength[$a]      = "4";
 
     $a++;
-    $FormLabel[$a]       = "Tempoh Maksima";
+    $FormLabel[$a]       = "Periode  Maksimum";
     $FormElement[$a]     = "c_Period";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -267,7 +267,7 @@ if ($cat == "C") {
     $FormLength[$a]      = "3";
 
     $a++;
-    $FormLabel[$a]       = "Jumlah Maksima";
+    $FormLabel[$a]       = "Jumlah Maksimum";
     $FormElement[$a]     = "c_Maksimum";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -352,7 +352,7 @@ if ($cat == "D") {
     $FormLength[$a]      = "25";
 
     $a++;
-    $FormLabel[$a]       = " Nombor Telefon";
+    $FormLabel[$a]       = " Nomor Telepon";
     $FormElement[$a]     = "d_Phone";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -364,7 +364,7 @@ if ($cat == "D") {
 
 if ($cat == "G") {
     $a++;
-    $FormLabel[$a]       = "Harga Syer";
+    $FormLabel[$a]       = "Harga Pokok";
     $FormElement[$a]     = "g_Price";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -374,7 +374,7 @@ if ($cat == "G") {
     $FormLength[$a]      = "5";
 
     $a++;
-    $FormLabel[$a]       = "Minimum Unit";
+    $FormLabel[$a]       = "Unit Minimum";
     $FormElement[$a]     = "g_Minimum";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -384,7 +384,7 @@ if ($cat == "G") {
     $FormLength[$a]      = "10";
 
     $a++;
-    $FormLabel[$a]       = "Jumlah Unit Syer";
+    $FormLabel[$a]       = "Jumlah Unit Pokok";
     $FormElement[$a]     = "g_Maksimum";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -409,7 +409,7 @@ if ($cat == "J") {
 
 
     $a++;
-    $FormLabel[$a]       = "Kod Akaun";
+    $FormLabel[$a]       = "Kode Akun";
     $FormElement[$a]     = "c_Panel";
     $FormType[$a]          = "text-sm";
     $FormData[$a]       = "";
@@ -419,7 +419,7 @@ if ($cat == "J") {
     $FormLength[$a]      = "20";
 
     $a++;
-    $FormLabel[$a]       = "* Kod Master (GL)";
+    $FormLabel[$a]       = "* Kode Master (GL)";
     $FormElement[$a]     = "c_master";
     $FormType[$a]          = "selectx";
     $FormData[$a]       = $classList;
@@ -451,7 +451,7 @@ if ($cat == "J") {
     $FormLength[$a]    = "1";
 
     $a++;
-    $FormLabel[$a]     = "Status Caj Penjelasan Awal";
+    $FormLabel[$a]     = "Status Biaya Penjelasan Awal";
     $FormElement[$a]   = "j_EarlyDeduct";
     $FormType[$a]      = "radio";
     $FormData[$a]      = array("Tidak", "Ya");
@@ -461,7 +461,7 @@ if ($cat == "J") {
     $FormLength[$a]    = "1";
 
     $a++;
-    $FormLabel[$a]     = "Peratus Caj";
+    $FormLabel[$a]     = "Persentase  Biaya";
     $FormElement[$a]   = "j_Percentage";
     $FormType[$a]      = "textx";
     $FormData[$a]       = "";
@@ -537,7 +537,7 @@ if ($cat == "N") {
 /*
 if ($cat == "P") {
 	$a++;
-	$FormLabel[$a]   	= "Kod";
+	$FormLabel[$a]   	= "Kode";
 	$FormElement[$a] 	= "kod";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -559,7 +559,7 @@ if ($cat == "P") {
 
 if ($cat == "Q") {
 	$a++;
-	$FormLabel[$a]   	= "Kod";
+	$FormLabel[$a]   	= "Kode";
 	$FormElement[$a] 	= "kod";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -771,7 +771,7 @@ if ($SubmitForm <> "") {
                     tosql($createdBy, "Text") . "," .
                     tosql($updatedDate, "Text") . "," .
                     tosql($updatedBy, "Text") . ")";
-                $msg = "Rekod berjaya ditambah !";
+                $msg = "Data telah berhasil disimpan !";
                 break;
             case "kemaskini":
                 $sWhere = "ID=" . tosql($pk, "Number");
@@ -826,7 +826,7 @@ if ($SubmitForm <> "") {
                 $sSQL    .= ",updatedDate=" . tosql($updatedDate, "Text") .
                     ",updatedBy=" . tosql($updatedBy, "Text");
                 $sSQL .= " where " . $sWhere;
-                $msg = "Rekod bejaya dikemaskini !";
+                $msg = "Data telah berhasil diupdate !";
                 break;
         }
 
@@ -915,8 +915,8 @@ print '
 	<tr class="table-primary">
 		<td colspan="2">';
 
-if ($action == "simpan") print '<h6 class="card-subtitle">Kemasukan ' . $title;
-else print '<h6 class="card-subtitle">Kemaskini ' . $title . ' : ' . tohtml($rs->fields(name));
+if ($action == "simpan") print '<h6 class="card-subtitle">Input ' . $title;
+else print '<h6 class="card-subtitle">Data ' . $title . ' : ' . tohtml($rs->fields(name));
 print '</h6></td></tr>';
 
 //--- Begin : Looping to display label -------------------------------------------------------------
@@ -996,11 +996,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
     if ($cat == 'O') {
         if ($i == 2) {
             print '
-    		<tr><td class=Header colspan=2>Pilihan Kod Potongan :</td></tr>
+    		<tr><td class=Header colspan=2>Pilihan Kode Potongan :</td></tr>
     		<tr valign=top><td class=Data colspan="2">
     			<table class="table table-bordered table-striped table-sm" style="font-size: 8pt;" border="0" cellspacing="1" cellpadding="3" width="95%" align="center">
     			    <tr valign="top">
-    			    	<td class="data">Senarai Kod Potongan<br>
+    			    	<td class="data">Daftar Kode Potongan<br>
     					<select name="nonSection[]" multiple size="15">';
             if (count($deductList) ==  0) {
                 print     '	<option value="">-None-</option>';
@@ -1018,7 +1018,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
     		        	<input type="button" value=">>" onClick="document.MyForm.hidMoveFlag.value=1; addSection()" class=textFont><br>
     		        	<input type="button" value="<<" onClick="document.MyForm.hidMoveFlag.value=1; removeSection()" class=textFont>
     			        </td>				
-    					<td valign="top" class="data">Kod Potongan Pilihan<br>
+    					<td valign="top" class="data">Kode Potongan Pilihan<br>
     			        <select name="Section[]" multiple size="15">';
             if (count($SectionVal) == 0) {
                 print     '	<option value="-1">-None-</option>';
