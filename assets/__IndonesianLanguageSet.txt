@@ -1,6 +1,3 @@
-
-
-
 diluluskan=disetujui
 berhad = berbadan hukum  
 permohonan = pengajuan  
@@ -49,3 +46,31 @@ kod = kode
 pencandang = pengusul
 bandar = kota
 negeri = provinsi
+Kod Klasifikasi = Kode Klasifikasi
+Kod Carta Akaun = Kode Bagan Akun
+Kod Pemiutang = Kode Kreditur
+Kod Penghutang = Kode Debitur
+Kod Kumpulan = Kode Kelompok
+Kod Bank = Kode Bank
+Kod Batch = Kode Batch
+Kod Jabatan = Kode Departemen
+Kod Projek = Kode Proyek
+Kod Syarikat Pelaburan = Kode Perusahaan Investasi
+Kod Terma Bayaran = Kode Syarat Pembayaran
+Kod Aliran Tunai = Kode Arus Kas
+Kod Negara = Kode Negara
+Kod Cawangan/Zon = Kode Cabang/Zona
+Kod Majikan PTJ = Kode Majikan PTJ
+Jenis Pembiayaan = Jenis Pembiayaan
+Kod Objek & Akaun = Kode Objek & Akun
+Kod Bangsa = Kode Suku Bangsa
+Kod Agama = Kode Agama
+Kod Pekerjaan = Kode Pekerjaan
+Kod Negeri = Kode Provinsi
+Kod Bank Anggota = Kode Bank Anggota
+Kod Kebajikan = Kode Kesejahteraan
+Kod Komoditi = Kode Komoditas
+Kod Pendapatan = Kode Pendapatan
+Kod Perbelanjaan = Kode Pengeluaran
+Skala Gaji = Skala Gaji
+Skala Umur = Skala Usia
