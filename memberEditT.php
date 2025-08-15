@@ -26,7 +26,7 @@ $title     		= "Status Keanggotaan";
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -36,7 +36,7 @@ $FormSize[$a]    	= "50";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "No KP Baru/Lama";
+$FormLabel[$a]   	= "No KTP Baru/Lama";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 */
 $a++;
-$FormLabel[$a]  	= "Tarikh Memohon";
+$FormLabel[$a]  	= "Tanggal Pengajuan";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -86,7 +86,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Diluluskan";
+$FormLabel[$a]  	= "Tanggal Disetujui";
 $FormElement[$a] 	= "approvedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -96,7 +96,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Ditolak";
+$FormLabel[$a]  	= "Tanggal Ditolak";
 $FormElement[$a] 	= "rejectedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -106,7 +106,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Kemaskini";
+$FormLabel[$a]  	= "Tanggal Diperbarui";
 $FormElement[$a] 	= "updatedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -116,7 +116,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]	  	= "Kemaskini Oleh";
+$FormLabel[$a]	  	= "Diperbarui Oleh";
 $FormElement[$a] 	= "updatedBy";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]    	= "";

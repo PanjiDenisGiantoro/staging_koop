@@ -598,7 +598,7 @@ if ($SubmitForm <> "") {
 				if ($i == 7) print '<div class="card-header mb-3 mt-3">DETAIL PRIBADI</div>';
 				if ($i == 23) print '<div class="card-header mb-3 mt-3">BIAYA MASUK/IURAN</div>';
 				if ($i == 25) {
-					print '<div class="card-header mt-3">PENAMA:(18 Tahun Ke atas)</div>';
+					print '<div class="card-header mt-3">AHLI WARIS:(18 Tahun Ke atas)</div>';
 
 					print '<div class="row m-1 mt-3">
                                                     <div class="col-md-3">

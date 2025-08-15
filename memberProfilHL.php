@@ -36,7 +36,7 @@ $IDGroup = $rs2->fields(groupID);
 
 $sFileName = "?vw=memberProfilHL&mn=$mn";
 $sFileRef  = "?vw=memberEditHL&mn=$mn";
-$title     = "Profil Anggota Hutang Lapuk";
+$title     = "Profil Anggota Hutang Macet";
 
 
 
@@ -114,7 +114,7 @@ carianheader($by, $opt);
 /*
  print '<div clas="row" style="background-color: #d7eee7;padding:7px;border-radius: 0.25rem;">Carian melalui 
     <select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>'; 	else print '<option value="1">Nombor Anggota</option>';				
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
 			if ($by == 3)	print '<option value="3" selected>No KP Baru</option>'; 	else print '<option value="3">No KP Baru</option>';	
 			if ($by == 4)	print '<option value="4" selected>Peringkat</option>'; 		else print '<option value="4">Peringkat</option>';
@@ -128,7 +128,7 @@ print '<table border="0" cellspacing="1" cellpadding="3" width="100%" align="cen
 	   	.'<td align="left" >'
 			.'Carian melalui '
 			.'<select name="by" class="form-controlx form-select-sm">'; 
-			if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>'; 	else print '<option value="1">Nombor Anggota</option>';				
+			if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
 			if ($by == 3)	print '<option value="3" selected>No KP Baru</option>'; 	else print '<option value="3">No KP Baru</option>';	
 			if ($by == 4)	print '<option value="4" selected>Peringkat</option>'; 		else print '<option value="4">Peringkat</option>';						
@@ -168,11 +168,11 @@ if ($GetMember->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama Anggota</td>
-						<td nowrap align="center">Nombor Anggota</td>						
+						<td nowrap align="center">Nomor Anggota</td>						
 						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap>Cawangan/Zon</td>
+						<td nowrap>Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
-						<td nowrap align="center">Tarikh Keanggotaan</td>
+						<td nowrap align="center">Tanggal Keanggotaan</td>
 					</tr>';
 	while (!$GetMember->EOF && $cnt <= $pg) {
 		$status = dlookup("userdetails", "status", "userID=" . tosql($GetMember->fields(userID), "Text"));
@@ -225,13 +225,13 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == '') {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
 	} else {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak temukan  -</b><hr size="1"></td></tr>';
 	}
 }
 print ' 
@@ -256,7 +256,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama formulir dibuat.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -266,9 +266,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data yang ingin di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di \' + v + \'?\')) {
+	          if(confirm(count + \' data yang ingin di \' + v + \'?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -281,7 +281,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama formulir dibuat.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -294,9 +294,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data yang ingin di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
+	          if(confirm(count + \' data yang ingin di\' + v + \'kan?\')) {
 	          //e.submit();
 	          window.location.href ="?vw=memberAktif&mn=910&pk=" + strStatus;
 			  }
@@ -308,7 +308,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama formulir dibuat.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -319,7 +319,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "?vw=memberAktif&pk=" + pk;
 			}
@@ -335,7 +335,7 @@ print '
     function ITRActionButtonReset() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama formulir dibuat.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -346,9 +346,9 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk reset kala laluan\');
+				alert(\'Silakan pilih satu data saja untuk mereset kata sandi\');
 			} else {
-	          if(confirm(\' Rekod ini akan diresetkan kata laluan?\')) {
+	          if(confirm(\' Data ini akan direset kata sandinya?\')) {
 	            e.action.value = \'reset\';
 				e.dept.value = "' . $dept . '";
 				e.by.value = "' . $by . '";

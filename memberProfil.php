@@ -122,19 +122,19 @@ print
 print
 	'<tr valign="top" class="Header">'
 	. '<td align="left" >'
-	. 'Carian Melalui '
+	. 'Pencarian Berdasarkan '
 	. '<select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 print
 	'</select>
 			<input type="text" name="q" value="" maxlength="50" size="20" class="form-control-sm">
  			<input type="submit" class="btn btn-secondary btn-sm" value="Cari">&nbsp;&nbsp;&nbsp;		
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -205,16 +205,16 @@ if ($GetMember->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama</td>
-						<td nowrap align="center">Nombor anggota</td>
-						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap align="left">Cawangan/Zon</td>
+						<td nowrap align="center">Nomor Anggota</td>
+						<td nowrap align="center">Kartu Identitas</td>
+						<td nowrap align="left">Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
 						<!--td nowrap align="center">Tarikh Memohon</td-->
-						<td nowrap align="center">Tarikh Keanggotaan</td>';
+						<td nowrap align="center">Tanggal Keanggotaan</td>';
 	if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 		print '<td nowrap colspan="2" align="center">&nbsp;</td>';
 	}
-	print '<!--td nowrap align="center">Tempoh Permohonan (Hari)</td-->
+	print '<!--td nowrap align="center">Priode Pengajuan (Hari)</td-->
 					</tr>';
 	while (!$GetMember->EOF && $cnt <= $pg) {
 		$status = dlookup("userdetails", "status", "userID=" . tosql($GetMember->fields(userID), "Text"));
@@ -294,7 +294,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -307,13 +307,13 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == '') {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
 	} else {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size="1"></td></tr>';
 	}
 }
 print ' 

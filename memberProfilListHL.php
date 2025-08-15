@@ -38,7 +38,7 @@ $IDGroup = $rs2->fields(groupID);
 
 $sFileName = 'memberProfilListHL.php';
 $sFileRef  = 'accountHL2.php';
-$title     = "Profil Anggota Hutang Lapuk";
+$title     = "Profil Anggota Hutang Macet";
 
 
 
@@ -114,7 +114,7 @@ print
 print
 	'<tr valign="top" class="Header">'
 	. '<td align="left" >'
-	. 'Carian melalui'
+	. 'Cari Berdasarkan'
 	. '<select name="by" class="Data">';
 if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
 else print '<option value="1">Nombor Anggota</option>';
@@ -231,13 +231,13 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == '') {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
 	} else {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size="1"></td></tr>';
 	}
 }
 print ' 
@@ -262,7 +262,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Pastikan nama formulir sudah dibuat.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -272,9 +272,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data yang ingin di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di \' + v + \'?\')) {
+	          if(confirm(count + \' data yang ingin di \' + v + \'?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -287,7 +287,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Pastikan nama formulir sudah dibuat.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -300,9 +300,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data yang ingin di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
+	          if(confirm(count + \' data yang ingin di\' + v + \'kan?\')) {
 	          //e.submit();
 	          window.location.href ="memberAktif.php?pk=" + strStatus;
 			  }
@@ -314,7 +314,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Pastikan nama formulir sudah dibuat.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -325,7 +325,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Pilih hanya satu data untuk update status\');
 			} else {
 				window.location.href = "memberAktif.php?pk=" + pk;
 			}
@@ -341,7 +341,7 @@ print '
     function ITRActionButtonReset() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Pastikan nama formulir sudah dibuat.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -354,7 +354,7 @@ print '
 			if(count != 1) {
 				alert(\'Sila pilih satu rekod sahaja untuk reset kala laluan\');
 			} else {
-	          if(confirm(\' Rekod ini akan diresetkan kata laluan?\')) {
+	          if(confirm(\' Kata sandi untuk akun ini akan direset?\')) {
 	            e.action.value = \'reset\';
 				e.dept.value = "' . $dept . '";
 				e.by.value = "' . $by . '";
