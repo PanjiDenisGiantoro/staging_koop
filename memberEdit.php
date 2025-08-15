@@ -41,7 +41,7 @@ if ($code == 1) {
 	$sSQLdel = "DELETE FROM nominee WHERE ID = " . intval($_REQUEST['IDtype']);
 	$rsdel = $conn->Execute($sSQLdel);
 
-	print '<script>alert("Penama telah berjaya dihapuskan!");</script>';
+	print '<script>alert("Ahli Waris telah berjaya dihapuskan!");</script>';
 	print '<script>window.location.href = "' . $sActionFileName . '";</script>';
 }
 
@@ -795,7 +795,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=3" class="nav-link <?php if (@$tabb == 3) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENAMA</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">AHLI WARIS</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
@@ -854,12 +854,12 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	$addr1 = str_replace("</pre>", "", $addr);
 
 	if ($i == 33) {
-		print '<div class="card-header mb-3">PENAMA (18 TAHUN KE ATAS)</div>';
+		print '<div class="card-header mb-3">AHLI WARIS (18 TAHUN KE ATAS)</div>';
 
 		print '<div class="row m-1 mt-3">
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom032">*Nama Penama</label>
+                                                            <label class="form-label" for="validationCustom032">*Nama Ahli Waris</label>
                                                             <input type="text" class="form-control" name="w_name1" value="' . tohtml($GetMember->fields('w_name1')) . '" size=30 maxlength=50 id="validationCustom032">                                                            
                                                         </div>
                                                     </div>
@@ -871,13 +871,13 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom04">Nombor Telefon</label>
+                                                            <label class="form-label" for="validationCustom04">Nomor Telepon</label>
                                                             <input type="text" class="form-control" name="w_contact1" value="' . tohtml($GetMember->fields('w_contact1')) . '" size=15 maxlength=15 id="validationCustom04" placeholder="(6XXXXXXXXXX)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom05">Hubungan Penama</label>      
+                                                            <label class="form-label" for="validationCustom05">Hubungan Ahli Waris</label>      
                                                             <input type="text" class="form-control" name="w_relation1" value="' . tohtml($GetMember->fields('w_relation1')) . '" size=15 maxlength=15 id="validationCustom05">         
                                                         </div>
                                                     </div>
@@ -984,10 +984,10 @@ if (@$tabb == 2) {
 			<div class="table-responsive" style="overflow-x: auto;">
 			<table class="table table-striped table-sm mt-3" style="table-layout: auto; width: 100%;">
 				<tr class="table-primary">
-					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bil</b></td>
-					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Mula Potongan<br/>(Tahun/Bulan)</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>No</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Awal Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
-					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kod Potongan</b></td>
+					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kode Potongan</b></td>
 					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RM)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bond /<br/>Rujukan</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>PTJ</b></td>
@@ -1101,28 +1101,28 @@ if (@$tabb == 3) {
         <input type="hidden" name="IDtype" value="' . htmlspecialchars($_REQUEST['IDtype']) . '">
         <input type="hidden" name="ID" value="' . htmlspecialchars($ID) . '">
         <input type="hidden" name="edit" value="1">
-		<div><input type="button" class="btn btn-primary" value="Tambah Penama" onclick="window.open(\'addNominee.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');"></div> 
+		<div><input type="button" class="btn btn-primary" value="Tambah Ahli Waris" onclick="window.open(\'addNominee.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');"></div> 
 		<div class="mt-3">
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Penama mestilah 18 tahun keatas.</span>
+			<span class="text-info small">Ahli waris harus berusia 18 tahun ke atas.</span>
 		</div>
 		<div>
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Penama adalah pemegang amanah.</span>
+			<span class="text-info small">Ahli waris adalah pemegang amanah.</span>
 		</div>
 		<div>
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Peratusan penama hanya untuk <i>non-muslim</i> sahaja, sekiranya orang islam tidak diambil kira.</span>
+			<span class="text-info small">Persentase ahli waris hanya untuk <i>non-muslim</i> saja, jika orang Islam tidak diperhitungkan.</span>
 		</div>
 		<div>
             <table class="table table-sm table-striped mt-1">
                 <tr class="table-primary">
-                    <td align="center"><b>Bil</b></td>
-                    <td align="left"><b>Nama Penama</b></td>
+                    <td align="center"><b>No</b></td>
+                    <td align="left"><b>Nama Ahli Waris</b></td>
 					<td align="center"><b>Kartu Identitas</b></td>
-                    <td align="center"><b>Nombor Telefon</b></td>
+                    <td align="center"><b>Nomor Telepon</b></td>
                     <td align="left" width="35%"><b>Alamat</b></td>
-					<td align="center"><b>Peratus (%)</b></td>
+					<td align="center"><b>Persentase (%)</b></td>
                     <td align="center" colspan="3"><b>&nbsp;</b></td>
                 </tr>';
 
@@ -1191,7 +1191,7 @@ if (@$tabb == 3) {
 	} else {
 		print '
 	<tr>
-		<td colspan="7" align="center"><b>- Tiada Rekod -</b></td>
+		<td colspan="7" align="center"><b>- Tidak Ada Data -</b></td>
 	</tr>';
 	}
 
@@ -1219,7 +1219,7 @@ if (@$tabb == 5) {
 		<div>
             <table class="table table-sm table-striped mt-3">
                 <tr class="table-primary">
-                    <td align="center"><b>Bil</b></td>
+                    <td align="center"><b>No</b></td>
                     <td align="left"><b>Nama Bank</b></td>
 					<td align="center"><b>Nomor Akun Bank</b></td>
                     <td align="center" colspan="3"><b>&nbsp;</b></td>

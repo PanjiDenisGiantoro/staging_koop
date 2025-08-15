@@ -29,7 +29,7 @@ $sActionFileName = "?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=3";
 $sActionFileName1 = "?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=5";
 $sFileRef  = "?vw=Edit_memberStmtPotonganPokok&mn=$mn";
 
-$title     		= "Kemaskini Maklumat Anggota Hutang Lapuk";
+$title     		= "Perbarui Data Anggota Hutang Macet";
 
 $ID               = $_REQUEST['ID'];
 $code             = $_REQUEST['code'];
@@ -41,7 +41,7 @@ if ($code == 1) {
 	$sSQLdel = "DELETE FROM nominee WHERE ID = " . intval($_REQUEST['IDtype']);
 	$rsdel = $conn->Execute($sSQLdel);
 
-	print '<script>alert("Penama telah berjaya dihapuskan!");</script>';
+	print '<script>alert("Ahli Waris telah berjaya dihapuskan!");</script>';
 	print '<script>window.location.href = "' . $sActionFileName . '";</script>';
 }
 
@@ -72,7 +72,7 @@ if ($edit) {
 
 	$rsUpd = $conn->Execute($sSQLUpd);
 
-	echo '<script>alert("Kemaskini Penama Berjaya!");</script>';
+	echo '<script>alert("Kemaskini Ahli Waris Berjaya!");</script>';
 	echo '<script>window.location.href = "' . $sActionFileName . '";</script>';
 }
 
@@ -267,7 +267,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Nama Penuh";
+	$FormLabel[$a]   	= "Nama Lengkap";
 	$FormElement[$a] 	= "name";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -277,7 +277,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "70";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormLabel[$a]   	= "Nomor Anggota";
 	$FormElement[$a] 	= "memberID";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -287,7 +287,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "20";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "email";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -307,7 +307,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+	$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 	$FormElement[$a] 	= "approvedDate";
 	$FormType[$a]	  	= "date";
 	$FormData[$a]   	= "";
@@ -327,7 +327,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormLabel[$a]   	= "Kartu Identitas<br/><b>Tidak Ada (-)</b>";
 	$FormElement[$a] 	= "newIC";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -337,7 +337,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "12";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Lahir";
+	$FormLabel[$a]   	= "Tanggal Lahir";
 	$FormElement[$a] 	= "dateBirth";
 	$FormType[$a]	  	= "date";
 	$FormData[$a]   	= "";
@@ -357,7 +357,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jawatan Pekerjaan";
+	$FormLabel[$a]   	= "Jabatan Pekerjaan";
 	$FormElement[$a] 	= "job";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -367,7 +367,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Cawangan / Zon";
+	$FormLabel[$a]   	= "Cabang / Zona";
 	$FormElement[$a] 	= "departmentIDd";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -377,7 +377,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Kediaman";
+	$FormLabel[$a]   	= "Alamat Tempat Tinggal";
 	$FormElement[$a] 	= "address";
 	$FormType[$a]	  	= "textarea";
 	$FormData[$a]   	= "";
@@ -387,7 +387,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Cawangan";
+	$FormLabel[$a]   	= "Alamat Cabang";
 	$FormElement[$a] 	= "addressSurat";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -397,7 +397,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Poskod Kediaman";
+	$FormLabel[$a]   	= "Kode Pos";
 	$FormElement[$a] 	= "postcode";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -407,7 +407,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "5";
 
 	$a++;
-	$FormLabel[$a]   	= "* Telefon Bimbit<br>Cth: 6011XXXXXXXX";
+	$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
 	$FormElement[$a] 	= "mobileNo";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -417,7 +417,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "15";
 
 	$a++;
-	$FormLabel[$a]   	= "Bandar Kediaman";
+	$FormLabel[$a]   	= "Kota Tempat Tinggal";
 	$FormElement[$a] 	= "city";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -437,7 +437,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Negeri Kediaman";
+	$FormLabel[$a]   	= "Provinsi Tempat Tinggal";
 	$FormElement[$a] 	= "stateID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $stateList;
@@ -447,7 +447,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Bangsa";
+	$FormLabel[$a]   	= "Suku Bangsa";
 	$FormElement[$a] 	= "raceID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $raceList;
@@ -467,27 +467,27 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Perkahwinan";
+	$FormLabel[$a]   	= "Status Pernikahan";
 	$FormElement[$a] 	= "maritalID";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+	$FormData[$a]   	= array('Belum Menikah', 'Menikah', 'Janda/Duda');
 	$FormDataValue[$a]	= array('0', '1', '2');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jantina";
+	$FormLabel[$a]   	= "Jenis Kelamin";
 	$FormElement[$a] 	= "sex";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Lelaki', 'Perempuan');
+	$FormData[$a]   	= array('Laki-Laki', 'Perempuan');
 	$FormDataValue[$a]	= array('0', '1');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Hutang Lapuk";
+	$FormLabel[$a]   	= "Status Piutang Bermasalah";
 	$FormElement[$a] 	= "statusHL";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -497,7 +497,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Senarai Hitam";
+	$FormLabel[$a]   	= "Status Daftar Hitam";
 	$FormElement[$a] 	= "BlackListID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -507,7 +507,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "BlackList Dividen";
+	$FormLabel[$a]   	= "Daftar Hitam Dividen";
 	$FormElement[$a] 	= "BlackListDIV";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -529,7 +529,7 @@ if (@$tabb == 1) {
 
 if (@$tabb == 4) {
 	$a = 1;
-	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormLabel[$a]   	= "Nomor Anggota";
 	$FormElement[$a] 	= "saksi1";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -551,7 +551,7 @@ if (@$tabb == 7) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Mahkamah Tribunal";
+	$FormLabel[$a]   	= "Pengadilan Tribunal";
 	$FormElement[$a] 	= "mhkmh";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -561,7 +561,7 @@ if (@$tabb == 7) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Mahkamah Sesyen";
+	$FormLabel[$a]   	= "Pengadilan Negeri";
 	$FormElement[$a] 	= "sesyen";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -581,7 +581,7 @@ if (@$tabb == 7) {
 	$FormLength[$a]  	= "20";
 
 	$a++;
-	$FormLabel[$a]   	= "Mahkamah Tinggi";
+	$FormLabel[$a]   	= "Pengadilan Tinggi";
 	$FormElement[$a] 	= "Tinggi";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -591,7 +591,7 @@ if (@$tabb == 7) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Akuan Hapus Kira";
+	$FormLabel[$a]   	= "Pernyataan Penghapusan Piutang";
 	$FormElement[$a] 	= "AKHP";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -846,12 +846,12 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=3" class="nav-link <?php if (@$tabb == 3) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENAMA</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">AHLI WARIS</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MAKLUMAT BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -861,12 +861,12 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=7" class="nav-link <?php if (@$tabb == 7) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">HUTANG LAPUK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">HUTANG MACET</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=4" class="nav-link <?php if (@$tabb == 4) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENCADANG</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENGUSUL</a>
 	</li>
 
 
@@ -876,7 +876,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
 	if ($i == 1) print '<div>&nbsp;</div>';
 	if ($i == 9) {
-		print '<div class="card-header mb-3">BUTIR-BUTIR PERIBADI';
+		print '<div class="card-header mb-3">DETAIL PRIBADI';
 
 		print '<a class="data" href="?vw=biayaEditA&mn=905&pk=' . $pk . '">&nbsp;[MENGUBAH]</a></font>';
 
@@ -912,36 +912,36 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	$addr1 = str_replace("</pre>", "", $addr);
 
 	if ($i == 33) {
-		print '<div class="card-header mb-3">PENAMA (18 TAHUN KE ATAS)</div>';
+		print '<div class="card-header mb-3">AHLI WARIS (18 TAHUN KE ATAS)</div>';
 
 		print '<div class="row m-1 mt-3">
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom032">*Nama Penama</label>
+                                                            <label class="form-label" for="validationCustom032">*Nama Ahli Waris</label>
                                                             <input type="text" class="form-control" name="w_name1" value="' . tohtml($GetMember->fields('w_name1')) . '" size=30 maxlength=50 id="validationCustom032">                                                            
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom03">Kad Pengenalan</label>
-                                                            <input type="text" class="form-control" name="w_ic1" value="' . tohtml($GetMember->fields('w_ic1')) . '" size=15 maxlength=14 id="validationCustom03" placeholder="Tiada (-)">                                                            
+                                                            <label class="form-label" for="validationCustom03">Kartu Identitas</label>
+                                                            <input type="text" class="form-control" name="w_ic1" value="' . tohtml($GetMember->fields('w_ic1')) . '" size=15 maxlength=14 id="validationCustom03" placeholder="Tidak Ada (-)">                                                            
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom04">Nombor Telefon</label>
+                                                            <label class="form-label" for="validationCustom04">Nomor Telepon</label>
                                                             <input type="text" class="form-control" name="w_contact1" value="' . tohtml($GetMember->fields('w_contact1')) . '" size=15 maxlength=15 id="validationCustom04" placeholder="(6XXXXXXXXXX)">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom05">Hubungan Penama</label>      
+                                                            <label class="form-label" for="validationCustom05">Hubungan Ahli Waris</label>      
                                                             <input type="text" class="form-control" name="w_relation1" value="' . tohtml($GetMember->fields('w_relation1')) . '" size=15 maxlength=15 id="validationCustom05">         
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom06">Alamat Kediaman</label>
+                                                            <label class="form-label" for="validationCustom06">Alamat Tempat Tinggal</label>
                                                             <textarea class="form-control" cols=30 rows=3 wrap="hard" name="w_address1" id="validationCustom06">' . $addr1 . '</textarea>
                                                         </div>
                                                     </div>
@@ -951,11 +951,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 		print	'			</table>
 					</td>
 			   </tr>
-		       <div class="card-header mt-3">PENCADANG (NOMBOR ANGGOTA YANG TELAH BERDAFTAR BERSAMA KOPERASI)</div>';
+		       <div class="card-header mt-3">PENGUSUL (NOMBOR ANGGOTA YANG TELAH BERDAFTAR BERSAMA KOPERASI)</div>';
 	}
 
 
-	if ($i == 35) print '<div class="card-header mt-3">MAKLUMAT BANK</div>';
+	if ($i == 35) print '<div class="card-header mt-3">INFORMASI BANK</div>';
 
 	if ($cnt == 1) print '<div class="m-1 row">';
 	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
@@ -1042,10 +1042,10 @@ if (@$tabb == 2) {
 			<div class="table-responsive" style="overflow-x: auto;">
 			<table class="table table-striped table-sm mt-3" style="table-layout: auto; width: 100%;">
 				<tr class="table-primary">
-					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bil</b></td>
-					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Mula Potongan<br/>(Tahun/Bulan)</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>No</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Awal Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
-					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kod Potongan</b></td>
+					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kode Potongan</b></td>
 					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RM)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bond /<br/>Rujukan</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>PTJ</b></td>
@@ -1134,7 +1134,7 @@ if (@$tabb == 2) {
 	} else {
 		print '
 							<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt;" bgcolor="FFFFFF">
-								<td colspan="8" align="center"><b>- Tiada Rekod </b></td>
+								<td colspan="8" align="center"><b>- Tidak Ada Data -</b></td>
 							</tr>';
 	}
 
@@ -1159,28 +1159,28 @@ if (@$tabb == 3) {
         <input type="hidden" name="IDtype" value="' . htmlspecialchars($_REQUEST['IDtype']) . '">
         <input type="hidden" name="ID" value="' . htmlspecialchars($ID) . '">
         <input type="hidden" name="edit" value="1">
-		<div><input type="button" class="btn btn-primary" value="Tambah Penama" onclick="window.open(\'addNominee.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');"></div> 
+		<div><input type="button" class="btn btn-primary" value="Tambah Ahli Waris" onclick="window.open(\'addNominee.php?userID=' . $pk . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');"></div> 
 		<div class="mt-3">
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Penama mestilah 18 tahun keatas.</span>
+			<span class="text-info small">Ahli waris harus berusia 18 tahun ke atas.</span>
 		</div>
 		<div>
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Penama adalah pemegang amanah.</span>
+			<span class="text-info small">Ahli waris adalah pemegang amanah.</span>
 		</div>
 		<div>
 			<i class="text-info mdi mdi-information-outline"></i>&nbsp;
-			<span class="text-info small">Peratusan penama hanya untuk <i>non-muslim</i> sahaja, sekiranya orang islam tidak diambil kira.</span>
+			<span class="text-info small">Persentase ahli waris hanya untuk <i>non-muslim</i> saja, jika orang Islam tidak diperhitungkan.</span>
 		</div>
 		<div>
             <table class="table table-sm table-striped mt-1">
                 <tr class="table-primary">
-                    <td align="center"><b>Bil</b></td>
-                    <td align="left"><b>Nama Penama</b></td>
-					<td align="center"><b>Kad Pengenalan</b></td>
-                    <td align="center"><b>Nombor Telefon</b></td>
+                    <td align="center"><b>No</b></td>
+                    <td align="left"><b>Nama Ahli Waris</b></td>
+					<td align="center"><b>Kartu Identitas</b></td>
+                    <td align="center"><b>Nomor Telepon</b></td>
                     <td align="left" width="35%"><b>Alamat</b></td>
-					<td align="center"><b>Peratus (%)</b></td>
+					<td align="center"><b>Persentase (%)</b></td>
                     <td align="center" colspan="3"><b>&nbsp;</b></td>
                 </tr>';
 
@@ -1277,7 +1277,7 @@ if (@$tabb == 5) {
 		<div>
             <table class="table table-sm table-striped mt-3">
                 <tr class="table-primary">
-                    <td align="center"><b>Bil</b></td>
+                    <td align="center"><b>No</b></td>
                     <td align="left"><b>Nama Bank</b></td>
 					<td align="center"><b>Nombor Akaun Bank</b></td>
                     <td align="center" colspan="3"><b>&nbsp;</b></td>
@@ -1351,7 +1351,7 @@ if ((get_session("Cookie_groupID") == 2)) {
                 <center>
                         <input type="hidden" name="pk" value="' . $pk . '">
 						<!--input type="button" class="btn btn-secondary btn-md waves-effect waves-light" value="<<"-->
-                        <input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-light waves-effects" value=Kemaskini>
+                        <input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-light waves-effects" value=Perbaharui>
                 </center>
             </div>';
 	}
