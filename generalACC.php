@@ -31,7 +31,7 @@ if (get_session("Cookie_groupID") <> 2) {
 }
 if (!(in_array($cat,$basicValACC))) {
 	print '	<script>
-				alert ("'.$cat.' - Kategori ini tidak wujud...!");
+				alert ("'.$cat.' - Kategori ini tidak tersedia...!");
 				window.location = "index.php";
 			</script>';
 }
@@ -64,11 +64,11 @@ print '
 <input type="hidden" name="cat" value="'.$cat.'">
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">';
 
-if ($basicListACC[array_search($cat, $basicValACC)] <> 'Kod Penghutang' && $basicListACC[array_search($cat, $basicValACC)] <> 'Kod Pemiutang') {
+if ($basicListACC[array_search($cat, $basicValACC)] <> 'Kode Penghutang' && $basicListACC[array_search($cat, $basicValACC)] <> 'Kod Pemiutang') {
 	print '<h5 class="card-title">' . strtoupper($title) . '</h5>';
-} else if ($basicListACC[array_search($cat, $basicValACC)] == 'Kod Penghutang') {
+} else if ($basicListACC[array_search($cat, $basicValACC)] == 'Kode Debitur') {
     print '<h5 class="card-title">' . strtoupper($title . ' (Orang Yang Berhutang Dengan Koperasi/Pelanggan(Client))') . '</h5>';
-} else if ($basicListACC[array_search($cat, $basicValACC)] == 'Kod Pemiutang'){
+} else if ($basicListACC[array_search($cat, $basicValACC)] == 'Kode Kreditur'){
 	print '<h5 class="card-title">' . strtoupper($title . ' (Pemberi Hutang Kepada Koperasi/Pembekal(Supplier))') . '</h5>';
 }
 
@@ -107,7 +107,7 @@ if ($basicListACC[array_search($cat, $basicValACC)] <> 'Kod Penghutang' && $basi
 				<input type="button" value="tambah" class="btn btn-sm btn-primary" onclick=Javascript:window.open("' . $sFileRef . '?action=tambah&selCodeACC='.$cat.'&cat='.$cat.'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
 			</td>
 		</tr>		
-		<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod -</b><hr size=1"></td></tr>';
+		<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data -</b><hr size=1"></td></tr>';
 	}
 print ' 
 </table>
@@ -272,9 +272,9 @@ function listGeneral($id, $level) {
 
 		// Set hover message based on condition
 		if ($isPermanentlyDisabled) {
-			$title = ' title="Kod ini tidak boleh dihapuskan"';
+			$title = ' title="Kode ini tidak boleh dihapuskan"';
 		} elseif ($hasTransactions) {
-			$title = ' title="Kod ini mempunyai transaksi"';
+			$title = ' title="Kode ini mempunyai transaksi"';
 		} else {
 			$title = ''; // No hover message if deletable
 		}
