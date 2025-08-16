@@ -101,7 +101,7 @@ for ($i = 0; $i < count($strTypeNameList); $i++) {
 $strMonthNameList	= array('- Semua -', 'Jan', 'Feb', 'Mac', 'April', 'Mei', 'Jun', 'Julai', 'Ogos', 'Sept', 'Okt', 'Nov', 'Dis');
 $strMonthValueList	= array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
-$strTitle = 'Senarai Surat/Email';
+$strTitle = 'Daftar Surat/Email';
 $currPage = "?vw=memberLetter&mn=$mn";
 
 if ($page == 'main') {
@@ -110,7 +110,7 @@ if ($page == 'main') {
 	$strTitle = $strTitle;
 	$strHeaderTitle =
 		'<a class="maroon" href="' . $currPage . '">' . strtoupper($strTitle) . '</a>&nbsp;>&nbsp;'
-		. strtoupper('Senarai ' . $strTitle);
+		. strtoupper('Daftar ' . $strTitle);
 } else if ($page == 'add' or $page == 'edit' or $page == 'view') {
 	$strTitle = $strTitle;
 	$strHeaderTitle =
@@ -343,7 +343,7 @@ if ($page <> 'list') {
 
 				$arrSyntax = array('[no_rujukan]', '[alamat]', '[alamat_perjanjian]', '[alamat_majikan]', '[tuan/puan]', '[title]', '[no_anggota]', '[nama]', '[kp_baru]', '[kp_lama]', '[jab/caw]', '[tarikh]', '[hari]', '[bulan]', '[tahun]', '[sesi]', '[tarikh_diterima]', '[tarikh_lulus]', '[tarikh_ditolak]', '[tarikh_diterimaT]', '[tarikh_lulusT]', '[tarikh_ditolakT]', '[no_akaun_tabungan]', '[no_pekerja]', '[yuran_bulan]', '[jum_yuran_terkumpul]', '[jum_yuran_terkumpul_akhir]', '[jum_dividen]', '[dividen_bonus]', '[peratus_dividen]', '[TarikhTamatInsuran]', '[NoKenderaan]', '[no_sijil]', '[kadar_u]', '[itemType]');
 
-				$arrSyntaxName = array('Nombor Rujukan', 'Alamat', 'Alamat Perjanjian', 'Alamat Surat', 'Tuan/Puan', 'Title', 'Nombor Anggota', 'Nama', 'Kp. Baru', 'Kp. Lama', 'Jab/Caw', 'Tarikh', 'Hari', 'Bulan', 'Tahun', 'Sesi', 'Tarikh. Diterima', 'Tarikh. Lulus', 'Tarikh. Ditolak', 'Tkh. Diterima Berhenti', 'Tkh. Lulus Berhenti', 'Tkh. Ditolak Berhenti', 'Nombor Akaun. Tabungan', 'Nombor Pekerja', 'Yuran Bulan', 'Jum. Yuran Terkumpul', 'Jum. Yuran Tkumpul Bakhir', 'Jum. Dividen', 'Dividen Bonus', 'Peratus Dividen', 'Tarikh Tamat Insuran', 'No Plat Kenderaan', 'No Sijil', 'Untung Loan', 'Barang Komoditi');
+				$arrSyntaxName = array('Nombor Rujukan', 'Alamat', 'Alamat Perjanjian', 'Alamat Surat', 'Tuan/Puan', 'Title', 'Nomor Anggota', 'Nama', 'Kp. Baru', 'Kp. Lama', 'Jab/Caw', 'Tarikh', 'Hari', 'Bulan', 'Tahun', 'Sesi', 'Tarikh. Diterima', 'Tarikh. Lulus', 'Tarikh. Ditolak', 'Tkh. Diterima Berhenti', 'Tkh. Lulus Berhenti', 'Tkh. Ditolak Berhenti', 'Nombor Akaun. Tabungan', 'Nombor Pekerja', 'Yuran Bulan', 'Jum. Yuran Terkumpul', 'Jum. Yuran Tkumpul Bakhir', 'Jum. Dividen', 'Dividen Bonus', 'Peratus Dividen', 'Tarikh Tamat Insuran', 'No Plat Kenderaan', 'No Sijil', 'Untung Loan', 'Barang Komoditi');
 
 				$arrLoanSyntax = array('[tarikh_diterimaL]', '[tarikh_lulusL]', '[tarikh_ditolakL]', '[no_rujukan]', '[no_bon_biaya]', '[nama_biaya]', '[tempoh_biaya]', '[tempoh_bulan_biaya]', '[tempoh_bulan_biaya-1]', '[jum_biaya]', '[kadar_untung]', '[jum_biayauntung]', '[jum_biaya_kata]', '[jum_jualan_kata]', '[bayar_bulan]', '[bayar_bulan_akhir]', '[bayar_faedah]', '[bayar_faedah_akhir]', '[jumlah_bayarbln]', '[jumlah_bayarbln_akhir]', '[bayar_bulanStr]', '[bayar_bulan_akhirStr]', '[bayar_faedah_akhirStr]', '[jum_bayar_balik]', '[baki_biaya]', '[baki_biaya_akhir]', '[bertindih_caj]', '[nama_penjamin1]', '[kp_penjamin1]', '[no_anggota_penjamin1]', '[nama_penjamin2]', '[kp_penjamin2]', '[no_anggota_penjamin2]', '[nama_penjamin3]', '[kp_penjamin3]', '[no_anggota_penjamin3]', '[no_sijil]', '[kadar_u]', '[itemType]');
 
@@ -558,7 +558,7 @@ if ($page <> 'list') {
 					</td>
 				</tr>
 				<tr>
-					<td align="right">Cawangan/Zon&nbsp;</td>
+					<td align="right">Cabang/Zona&nbsp;</td>
 					<td>' . SelectForm('dept', $dept, $strDeptNameList, $strDeptValueList, 'onchange="PageRefresh();"') . '</td>
 				</tr>';
 
@@ -773,7 +773,7 @@ if ($page <> 'list') {
 
 		$strHtml .= '
 		<tr>
-			<td class="textFont">Jumlah Rekod : <font class="redText">' . $GetData->RowCount() . '</font></td>
+			<td class="textFont">Jumlah Data : <font class="redText">' . $GetData->RowCount() . '</font></td>
 		</tr>
 		';
 	} else {
@@ -953,7 +953,7 @@ if ($page == 'list') {
 	function SendData(v) {'
 		. 'frm = document.MyForm;'
 		. 'if (frm==null) {'
-		. 'alert(\'Sila pastikan nama form diwujudkan.!\');'
+		. 'alert(\'Silakan pastikan nama form dibuat/tersedia.!\');'
 		. 'return false;'
 		. '} else {'
 		. 'count=0;'
@@ -970,7 +970,7 @@ if ($page == 'list') {
 		. '}'
 		. '}'
 		. 'if (count==0) {'
-		. 'alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');'
+		. 'alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');'
 		. 'return false;'
 		. '} else {'
 		. 'if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {'
@@ -1012,7 +1012,7 @@ function GenerateVarList()
 	switch ($group) {
 		case 0:
 		case 4:
-			$strTypeNameList[] = 'Nombor Anggota';
+			$strTypeNameList[] = 'Nomor Anggota';
 			$strTypeNameList[] = 'Nama Anggota';
 			$strTypeNameList[] = 'No KP Baru';
 			$strTypeValueList[]	= 1;
@@ -1027,7 +1027,7 @@ function GenerateVarList()
 			break;
 		case 1:
 		case 2:
-			$strTypeNameList[] = 'Nombor Anggota';
+			$strTypeNameList[] = 'Nomor Anggota';
 			$strTypeNameList[] = 'Nama Anggota';
 			$strTypeNameList[] = 'No KP Baru';
 			$strTypeValueList[]	= 1;
@@ -1043,7 +1043,7 @@ function GenerateVarList()
 			$strStatusValueList[] = $biayaVal[3];
 			break;
 		case 6:
-			$strTypeNameList[] = 'Nombor Anggota';
+			$strTypeNameList[] = 'Nomor Anggota';
 			$strTypeNameList[] = 'Nama Anggota';
 			$strTypeNameList[] = 'No KP Baru';
 			$strTypeValueList[]	= 1;
@@ -1059,7 +1059,7 @@ function GenerateVarList()
 			$strStatusValueList[] = $biayaVal[3];
 			break;
 		case 7:
-			$strTypeNameList[] = 'Nombor Anggota';
+			$strTypeNameList[] = 'Nomor Anggota';
 			$strTypeNameList[] = 'Nama Anggota';
 			$strTypeNameList[] = 'No KP Baru';
 			$strTypeValueList[]	= 1;
@@ -1075,7 +1075,7 @@ function GenerateVarList()
 			$strStatusValueList[] = $biayaVal[3];
 			break;
 		default:
-			$strTypeNameList[] = 'Nombor Anggota';
+			$strTypeNameList[] = 'Nomor Anggota';
 			$strTypeNameList[] = 'Nama Anggota';
 			$strTypeNameList[] = 'No KP Baru';
 			$strTypeValueList[]	= 1;
@@ -1292,37 +1292,37 @@ function BeginDataField($bIsDataAvalaible_)
 		case 0:
 		case 1:
 		case 4:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 2:
-			$strNameList_ = array($strCheckboxTemp_, '<b>NomborRujukan/Pembiayaan</b>', '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>NomborRujukan/Pembiayaan</b>', '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 3:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 5:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 7:
-			$strNameList_ = array($strCheckboxTemp_, '<b>NomborRujukan/Pembiayaan</b>', '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>NomborRujukan/Pembiayaan</b>', '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 6:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Tamat Insuran</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Tamat Insuran</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center', 'center');
 			break;
 		default:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nombor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kad Pengenalan</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;

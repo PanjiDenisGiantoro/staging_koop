@@ -32,7 +32,7 @@ if (!(in_array($code, $suratVal))) {
 			</script>';
 }
 
-$title     = 'Senarai Anggota';
+$title     = 'Daftar Anggota';
 
 //--- Begin : Surat & Email
 if ($action == 'surat' or $action == 'email') {
@@ -81,12 +81,12 @@ $TotalPage =  ($TotalRec / $pg);
 				<td>
 					<table cellpadding="0" cellspacing="6">
 						<tr>
-							<td align="right" width="150"><b>Carian melalui</b></td>
+							<td align="right" width="150"><b>Cari Berdasarkan</b></td>
 							<td>
 								<select name="by">
 									<?
-									if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-									else print '<option value="1">Nombor Anggota</option>';
+									if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+									else print '<option value="1">Nomor Anggota</option>';
 									if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 									else print '<option value="2">Nama Anggota</option>';
 									if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
@@ -98,7 +98,7 @@ $TotalPage =  ($TotalRec / $pg);
 							</td>
 						</tr>
 						<tr>
-							<td align="right"><b>Jabatan/Cawangan</b></td>
+							<td align="right"><b>Jabatan/Cabang</b></td>
 							<td>
 								<select name="dept" onchange="document.MyForm.submit();">
 									<option value="">- Semua -</option>
@@ -165,7 +165,7 @@ $TotalPage =  ($TotalRec / $pg);
 									?>
 								</select>
 								<input type="button" value="Cetak Surat" onClick="ITRActionButtonClick('surat');">
-								<input type="button" value="Hantar Email" onClick="ITRActionButtonClick('email');">
+								<input type="button" value="Kirim Email" onClick="ITRActionButtonClick('email');">
 							</td>
 						</tr>
 						<? if ($filter == 0) { ?>
@@ -191,11 +191,11 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<table width="100%">'
 					. '<tr>'
 					. '<td  class="textFont">'
-					. '<input type="checkbox" class="form-check-input" onClick="ITRViewSelectAll()">&nbsp;Select All&nbsp;'
-					. '<input type="checkbox" class="form-check-input" name="letterhead" checked="checked">&nbsp;With Letterhead&nbsp;'
+					. '<input type="checkbox" class="form-check-input" onClick="ITRViewSelectAll()">&nbsp;Pilih Semua&nbsp;'
+					. '<input type="checkbox" class="form-check-input" name="letterhead" checked="checked">&nbsp;Dengan Kop Surat&nbsp;'
 					. '</td>'
 					. '<td align="right" class="textFont">'
-					. 'Paparan&nbsp;<SELECT name="pg" onchange="doListAll();">';
+					. 'Tampil&nbsp;<SELECT name="pg" onchange="doListAll();">';
 				print $temp;
 				if ($pg == 5)	print '<option value="5" selected>5</option>';
 				else print '<option value="5">5</option>';
@@ -212,7 +212,7 @@ $TotalPage =  ($TotalRec / $pg);
 				if ($pg == 100)	print '<option value="100" selected>100</option>';
 				else print '<option value="100">100</option>';
 
-				$temp =				'</select>&nbsp;setiap mukasurat.'
+				$temp =				'</select>&nbsp;setiap halaman.'
 					. '</td>'
 					. '</tr>'
 					. '</table>'
@@ -223,13 +223,13 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">'
 					. '<tr class="header">'
 					. '<td nowrap>&nbsp;</td>'
-					. '<td nowrap>&nbsp;Nombor Anggota/Nama Anggota&nbsp;</td>'
-					. '<td nowrap align="center">&nbsp;Nombor KP Baru&nbsp;</td>'
-					. '<td nowrap align="center">&nbsp;Jabatan/Cawangan&nbsp;</td>'
+					. '<td nowrap>&nbsp;Nomor Anggota/Nama Anggota&nbsp;</td>'
+					. '<td nowrap align="center">&nbsp;Nomor KTP Baru&nbsp;</td>'
+					. '<td nowrap align="center">&nbsp;Jabatan/Cabang&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Status&nbsp;</td>'
-					. '<td nowrap align="center">Tarikh Memohon&nbsp;</td>';
+					. '<td nowrap align="center">Tanggal Pengajuan&nbsp;</td>';
 				if ($filter == 1) {
-					$temp .=	'<td nowrap align="center">Tarikh Kelulusan&nbsp;</td>';
+					$temp .=	'<td nowrap align="center">Tanggal Kelulusan&nbsp;</td>';
 				}
 				$temp .=	'</tr>';
 
@@ -285,15 +285,15 @@ $TotalPage =  ($TotalRec / $pg);
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 			} else {
 				if ($q == "") {
 					print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 				} else {
 					print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 				}
 			}
 			?>
@@ -317,7 +317,7 @@ $TotalPage =  ($TotalRec / $pg);
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if (e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for (c=0; c<e.elements.length; c++) {
@@ -334,7 +334,7 @@ $TotalPage =  ($TotalRec / $pg);
 	        }
 	        
 	        if (count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -348,7 +348,7 @@ $TotalPage =  ($TotalRec / $pg);
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -359,7 +359,7 @@ $TotalPage =  ($TotalRec / $pg);
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}

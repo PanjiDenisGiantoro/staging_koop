@@ -49,11 +49,11 @@ if (isset($_GET['action']) && $_GET['action'] == "reset" && isset($_GET['pk'])) 
 	$sSQL	= " UPDATE users SET password= " . tosql(strtoupper(md5("koperasi123")), "Text") . " WHERE " . $sWhere;
 	$rs = &$conn->Execute($sSQL);
 
-	$strActivity = $_POST['Submit'] . ' Kata Laluan Anggota Telah Di Set Semula - ' . $pk;
+	$strActivity = $_POST['Submit'] . ' Kata Sandi Anggota Telah Direset - ' . $pk;
 	activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
 
 	$codeSuratReset = 72;
-	print '<script>alert("Katalaluan anggota ini telah direset kepada \"koperasi123\"\nSila maklumkan kepada anggota ini supaya menukar kata laluan.");
+	print '<script>alert("Kata sandi anggota ini telah direset menjadi \"koperasi123\"\nSilakan informasikan kepada anggota tersebut agar mengganti kata sandinya.");
 			</script>';
 }
 //--- End   : reser based on checked box -------------------------------------------------------
@@ -338,7 +338,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -348,9 +348,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak di \' + v + \'?\')) {
+	          if(confirm(count + \' data yang ingin di \' + v + \'?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -363,7 +363,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -376,7 +376,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -390,7 +390,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -401,7 +401,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "?vw=memberAktif&mn=905&pk=" + pk;
 			}
@@ -417,7 +417,7 @@ print '
     function ITRActionButtonReset() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -428,9 +428,9 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk reset kala laluan\');
+				alert(\'Silakan pilih satu data saja untuk reset kata sandi\');
 			} else {
-	          if(confirm(\' Rekod ini akan diresetkan kata laluan?\')) {
+	          if(confirm(\' Data ini akan direset kata sandinya?\')) {
 	            e.action.value = \'reset\';
 				e.dept.value = "' . $dept . '";
 				e.by.value = "' . $by . '";

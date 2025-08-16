@@ -49,7 +49,7 @@ if ($action == "reset") {
 		' password=' . tosql(strtoupper(md5("koperasi123")), "Text");
 	$sSQL .= ' WHERE ' . $sWhere;
 	$rs = &$conn->Execute($sSQL);
-	print '<script>alert("Katalaluan anggota ini telah direset kepada \"koperasi123\"\nSila maklumkan kepada anggota ini supaya menukar kata laluan.");</script>';
+	print '<script>alert("Kata sandi anggota ini telah direset menjadi \"koperasi123\"\nSilakan informasikan kepada anggota tersebut agar mengganti kata sandinya.");</script>';
 }
 //--- End   : reser based on checked box -------------------------------------------------------
 

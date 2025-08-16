@@ -51,7 +51,7 @@ if ($action == "reset") {
 		' password=' . tosql(strtoupper(md5("koperasi123")), "Text");
 	$sSQL .= ' WHERE ' . $sWhere;
 	$rs = &$conn->Execute($sSQL);
-	print '<script>alert("Katalaluan anggota ini telah direset kepada \"koperasi123\"\nSila maklumkan kepada anggota ini supaya menukar kata laluan.");</script>';
+	print '<script>alert("Kata sandi anggota ini telah direset menjadi \"koperasi123\"\nSilakan informasikan kepada anggota tersebut agar mengganti kata sandinya.");</script>';
 }
 //--- End   : reser based on checked box -------------------------------------------------------
 
@@ -116,8 +116,8 @@ print
 	. '<td align="left" >'
 	. 'Cari Berdasarkan'
 	. '<select name="by" class="Data">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
 if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
@@ -352,7 +352,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk reset kala laluan\');
+				alert(\'Silakan pilih satu data saja untuk reset kata sandi\');
 			} else {
 	          if(confirm(\' Kata sandi untuk akun ini akan direset?\')) {
 	            e.action.value = \'reset\';
