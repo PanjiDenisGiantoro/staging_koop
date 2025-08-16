@@ -9,7 +9,7 @@ include("common.php");
 include("koperasiQry.php");
 include("letter.inc.php");
 
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $letterID = $code;
 

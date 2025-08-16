@@ -13,7 +13,7 @@ if (!isset($dept))		$dept="";
 
 include("header.php");
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -142,7 +142,7 @@ print '		</div></div>
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Data : <b>' . $GetInvest->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Rekod : <b>' . $GetInvest->RowCount() . '</b></td>
 		</tr>';
 	} else {
 		if ($q == "") {

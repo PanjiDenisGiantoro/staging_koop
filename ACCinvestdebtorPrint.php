@@ -8,7 +8,7 @@ session_start();
 include("common.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";

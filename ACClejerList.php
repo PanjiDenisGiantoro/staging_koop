@@ -20,7 +20,7 @@ $yrmth = sprintf("%04d%02d", $yy, $mm);
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -257,7 +257,7 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>
 		<tr>
 			<td><input type="button" class="btn btn-sm btn-secondary" value="Cetak" onclick="window.print();"></td>

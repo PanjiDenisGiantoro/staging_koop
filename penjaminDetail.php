@@ -6,7 +6,7 @@
  *          Date 		: 	
  *********************************************************************************/
 include("header.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 include("koperasiQry.php");
 include("forms.php");
 

@@ -11,7 +11,7 @@ if (!isset($page))	$page="";
 
 include ("common.php");
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Jakarta");	
+date_default_timezone_set("Asia/Kuala_Lumpur");	
 include ("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -1211,7 +1211,7 @@ if ($SubmitForm <> "") {
 		//if ($d_Address <> "") $d_Address = '<pre>'.$d_Address.'</pre>';
 		if ($parentID == "") $parentID = "0";
 		if ($coreID == "") $coreID = "0";
-		date_default_timezone_set('Asia/Jakarta');
+		date_default_timezone_set('Asia/Kuala_Lumpur');
 		$createdBy 	= get_session("Cookie_userName");
 		$createdDate = date("Y-m-d H:i:s");             
 		$updatedBy 	= get_session("Cookie_userName");

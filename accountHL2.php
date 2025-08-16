@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 if (!isset($strDate))	$strDate = date("d/m/Y");
 $sFileName = "?vw=accountHL2&mn=$mn";
 

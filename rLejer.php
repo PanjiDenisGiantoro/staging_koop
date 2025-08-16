@@ -14,7 +14,7 @@ if (!isset($dept))      $dept = "";
 include("header.php");
 include("koperasiQry.php");
 include("AccountQry.php");	
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';

@@ -684,39 +684,39 @@ function thousand($val)
 //************************************ BASIC LIST  *****************************************************
 
 $basicList  = array(
-    'Kode Negara',
-    'Kode Cabang/Zona',
-    'Kode Majikan PTJ',
+    'Kod Negara',
+    'Kod Cawangan/Zon',
+    'Kod Majikan PTJ',
     'Jenis Pembiayaan',
-    'Kode Objek & Akun',
-    'Kode Suku Bangsa',
-    'Kode Agama',
-    'Kode Pekerjaan',
-    'Kode Provinsi',
-    'Kode Bank Anggota',
-    'Kode Kebajikan',
-    'Kode Komoditas',
-    'Kode Pendapatan',
-    'Kode Pengeluaran',
+    'Kod Objek & Akaun',
+    'Kod Bangsa',
+    'Kod Agama',
+    'Kod Pekerjaan',
+    'Kod Negeri',
+    'Kod Bank Anggota',
+    'Kod Kebajikan',
+    'Kod Komoditi',
+    'Kod Pendapatan',
+    'Kod Perbelanjaan',
     'Skala Gaji',
-    'Skala Usia'
+    'Skala Umur'
 );
 
 $basicVal = array('A', 'B', 'U', 'C', 'J', 'E', 'F', 'L', 'H', 'Z', 'S', 'X', 'P', 'Q', 'M', 'N');
 
 $basicListACC    = array(
-    'Kode Klasifikasi',
-    'Kode Bagan Akun',
-    'Kode Kreditur',
-    'Kode Debitur',
-    'Kode Kelompok',
-    'Kode Bank',
-    'Kode Batch',
-    'Kode Departemen',
-    'Kode Projek',
-    'Kode Perusahaan Investasi',
-    'Kode Syarat Pembayaran',
-    'Kode Arus Kas'
+    'Kod Klasifikasi',
+    'Kod Carta Akaun',
+    'Kod Pemiutang',
+    'Kod Penghutang',
+    'Kod Kumpulan',
+    'Kod Bank',
+    'Kod Batch',
+    'Kod Jabatan',
+    'Kod Projek',
+    'Kod Syarikat Pelaburan',
+    'Kod Terma Bayaran',
+    'Kod Aliran Tunai'
 );
 
 $basicValACC    = array('AJ', 'AA', 'AB', 'AC', 'AE', 'AF', 'AG', 'AH', 'AI', 'AK', 'AL', 'AM');

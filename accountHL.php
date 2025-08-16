@@ -7,7 +7,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 if (get_session('Cookie_userID') == "") {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';

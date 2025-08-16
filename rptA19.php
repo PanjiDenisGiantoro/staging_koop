@@ -11,7 +11,7 @@ if (!isset($dept))		$dept = "ALL";
 
 include("common.php");
 
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 $today = date("F j, Y, g:i a");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));

@@ -10,7 +10,7 @@ include("koperasiQry.php");
 include("forms.php");
 
 $IDName = get_session("Cookie_userName");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $sFileName				= "?vw=ACCinvestors_info&mn=920&pk=$pk&ID=$ID";
 $sActionFileName		= "?vw=ACCinvestors_info&mn=920&pk=$pk&ID=$ID";

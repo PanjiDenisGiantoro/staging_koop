@@ -15,7 +15,7 @@ if (!isset($yy)) $yy	= date("Y");
 if (!isset($mm)) $mm	= date("m");
 include("header.php");	
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Jakarta");	
+date_default_timezone_set("Asia/Kuala_Lumpur");	
 
 
 if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR get_session("Cookie_koperasiID") <> 0) {

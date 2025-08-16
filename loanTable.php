@@ -17,7 +17,7 @@ if (!isset($mm)) $mm	= date("m");
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 $IDName = get_session("Cookie_userName");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));

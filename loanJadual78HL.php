@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");

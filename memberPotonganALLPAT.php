@@ -20,7 +20,7 @@ if (!isset($filter))	$filter = "(1,4)";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));

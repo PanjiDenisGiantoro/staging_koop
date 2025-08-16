@@ -16,7 +16,7 @@ $yymm = substr($yrmth,0,4).substr($yrmth,4,2);
 
 include("header.php");	
 include("sekataQry.php"); 
-date_default_timezone_set("Asia/Jakarta");	
+date_default_timezone_set("Asia/Kuala_Lumpur");	
 
 if (get_session("Cookie_groupID") <> 1 
 AND get_session("Cookie_groupID") <> 2 ) {

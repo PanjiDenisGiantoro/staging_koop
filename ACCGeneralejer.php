@@ -5,7 +5,7 @@
  *          Filename		: 	ACCGeneralejer.php
  *          Date 		: 	04/8/2006
  *********************************************************************************/
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 if (!isset($mm))    $mm = "ALL"; //date("m");
 if (!isset($yy))    $yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);

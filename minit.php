@@ -10,7 +10,7 @@ if (!isset($pg))		$pg = 50;
 if (!isset($q))			$q = "";
 if (!isset($by))		$by = "1";
 if (!isset($filter))	$filter = "0";
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 include("header.php");
 include("koperasiQry.php");

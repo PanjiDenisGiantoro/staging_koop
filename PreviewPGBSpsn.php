@@ -18,7 +18,7 @@ if (!isset($yymm))	$yymm; //"ALL";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 

@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");	
 include("forms.php");
 
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $sFileName				= "?vw=ACCinvestors_infoAdd&mn=920&pk=$pk";
 $sActionFileName		= "?vw=ACCinvestors_detail&mn=920&pk=$pk";

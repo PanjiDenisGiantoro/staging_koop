@@ -9,7 +9,7 @@
  *********************************************************************************/
 //include("common.php");	
 session_start();
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 include("koperasiQry.php");
 include("header.php");
 

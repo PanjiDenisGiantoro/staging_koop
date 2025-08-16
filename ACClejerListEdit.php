@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 
 session_start();
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 
 $title          = "Pembuka Akaun";
 $sFileName      = "?vw=ACClejerListEdit&mn=$mn";

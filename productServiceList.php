@@ -8,7 +8,7 @@
 if (!isset($mm))    $mm="ALL";
 if (!isset($yy))    $yy=date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Jakarta"); 
+date_default_timezone_set("Asia/Kuala_Lumpur"); 
 
 if (!isset($StartRec))	$StartRec= 1; 
 if (!isset($pg))		$pg= 30;

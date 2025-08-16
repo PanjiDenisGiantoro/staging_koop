@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Jakarta");
+date_default_timezone_set("Asia/Kuala_Lumpur");
 $title     = "Kemaskini Potongan Akaun Tabungan (PAT)";
 
 $sFileName = 'Edit_memberStmtPotonganPAT.php';
