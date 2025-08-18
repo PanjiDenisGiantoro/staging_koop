@@ -28,7 +28,7 @@ $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=memberT&mn=905';
 $sFileRef  = '?vw=memberEditT&mn=905';
-$title     = "Senarai Permohonan Berhenti/Bersara";
+$title     = "Daftar Pengajuan Berhenti/Pensiun";
 
 //--- Begin : deletion based on checked box -------------------------------------------------------
 if (isset($_GET['action']) && $_GET['action'] == "delete" && isset($_GET['pk'])) {

@@ -107,11 +107,11 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu905 . '">';
         TitleBarBlue("ANGGOTA", 'mdi mdi-contacts-outline');
         echo '<ul class="sub-menu ' . $mn905 . '" aria-expanded="false">';
-        MenuLink("member.php", "Senarai Permohonan", 905, @$_REQUEST['vw']);
+        MenuLink("member.php", "Daftar Pengajuan", 905, @$_REQUEST['vw']);
         MenuLink("memberProfil.php", "Profil Anggota", 905, @$_REQUEST['vw']);
-        MenuLink("memberT.php", "Senarai Berhenti", 905, @$_REQUEST['vw']);
-        MenuLink("carumanList.php", "Senarai Pengeluaran Caruman", 905, @$_REQUEST['vw']);
-        MenuLink("memberStmtA.php", "Penyata", 905, @$_REQUEST['vw']);
+        MenuLink("memberT.php", "Daftar Berhenti", 905, @$_REQUEST['vw']);
+        MenuLink("carumanList.php", "Daftar Pengeluaran Iuran", 905, @$_REQUEST['vw']);
+        MenuLink("memberStmtA.php", "Pernyataan", 905, @$_REQUEST['vw']);
         echo '<li>';
         TitleBarBlue("Laporan", 'mdi mdi-file');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="true">';
