@@ -125,7 +125,7 @@ if ($SubmitForm <> "") {
 	if ($memberID <> "") {
 		if (dlookup("userdetails", "userID", "memberID=" . tosql($memberID, "Text")) == "") {
 			array_push($strErrMsg, 'memberID');
-			print '- <font class=redText>Nombor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
+			print '- <font class=redText>Nomor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
 			$userName = "";
 			$newIC = "";
 			$oldIC = "";

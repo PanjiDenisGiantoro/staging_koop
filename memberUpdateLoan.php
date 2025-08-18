@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiList.php");
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -111,7 +111,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 1;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -121,7 +121,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* No KP Baru";
+$FormLabel[$a]   	= "* No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -191,7 +191,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -212,7 +212,7 @@ $FormLength[$a]  	= "50";
 
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 $FormElement[$a] 	= "approvedDate";
 $FormType[$a]	  	= "hiddenDate";
 $FormData[$a]   	= "";
@@ -1181,7 +1181,7 @@ $FormLength[$a]  	= "15";
 
 //
 $a++;
-$FormLabel[$a]  	= "Tarikh Memohon";
+$FormLabel[$a]  	= "Tanggal Pengajuan";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";

@@ -209,7 +209,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap align="left">Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
-						<!--td nowrap align="center">Tarikh Memohon</td-->
+						<!--td nowrap align="center">Tanggal Pengajuan</td-->
 						<td nowrap align="center">Tanggal Keanggotaan</td>';
 	if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 		print '<td nowrap colspan="2" align="center">&nbsp;</td>';

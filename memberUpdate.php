@@ -17,7 +17,7 @@ $yymm = sprintf("%04d%02d", $yy, $mm);
 if (@$tabb == '') {
 	$tabb = 1;
 }
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -277,7 +277,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Anggota";
+	$FormLabel[$a]   	= "Nomor Anggota";
 	$FormElement[$a] 	= "memberID";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -307,7 +307,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+	$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 	$FormElement[$a] 	= "approvedDate";
 	$FormType[$a]	  	= "hiddenDate";
 	$FormData[$a]   	= "";
@@ -327,7 +327,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormLabel[$a]   	= "Kartu Identitas<br/>Tiada (-)";
 	$FormElement[$a] 	= "newIC";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -337,7 +337,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "12";
 
 	$a++;
-	$FormLabel[$a]   	= "Tarikh Lahir";
+	$FormLabel[$a]   	= "Tanggal Lahir";
 	$FormElement[$a] 	= "dateBirth";
 	$FormType[$a]	  	= "date";
 	$FormData[$a]   	= "";
@@ -357,7 +357,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jawatan Pekerjaan";
+	$FormLabel[$a]   	= "Jabatan Pekerjaan";
 	$FormElement[$a] 	= "job";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -377,7 +377,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Kediaman";
+	$FormLabel[$a]   	= "Alamat Rumah";
 	$FormElement[$a] 	= "address";
 	$FormType[$a]	  	= "textarea";
 	$FormData[$a]   	= "";
@@ -387,7 +387,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Alamat Cawangan";
+	$FormLabel[$a]   	= "Alamat Cabang";
 	$FormElement[$a] 	= "addressSuratd";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -397,7 +397,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "3";
 
 	$a++;
-	$FormLabel[$a]   	= "Poskod Kediaman";
+	$FormLabel[$a]   	= "Kode Pos Rumah";
 	$FormElement[$a] 	= "postcode";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -407,7 +407,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "5";
 
 	$a++;
-	$FormLabel[$a]   	= "* Telefon Bimbit<br>Cth: 6011XXXXXXXX";
+	$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
 	$FormElement[$a] 	= "mobileNo";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -417,7 +417,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "15";
 
 	$a++;
-	$FormLabel[$a]   	= "Bandar Kediaman";
+	$FormLabel[$a]   	= "Kota Rumah";
 	$FormElement[$a] 	= "city";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -427,7 +427,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Pekerja";
+	$FormLabel[$a]   	= "Nomor Karyawan";
 	$FormElement[$a] 	= "staftNo";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -437,7 +437,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "10";
 
 	$a++;
-	$FormLabel[$a]   	= "Negeri Kediaman";
+	$FormLabel[$a]   	= "Provinsi Rumah";
 	$FormElement[$a] 	= "stateID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $stateList;
@@ -447,7 +447,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Bangsa";
+	$FormLabel[$a]   	= "Suku Bangsa";
 	$FormElement[$a] 	= "raceID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $raceList;
@@ -467,10 +467,10 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Status Perkahwinan";
+	$FormLabel[$a]   	= "Status Pernikahan";
 	$FormElement[$a] 	= "maritalID";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+	$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 	$FormDataValue[$a]	= array('0', '1', '2');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
@@ -480,7 +480,7 @@ if (@$tabb == 1) {
 	$FormLabel[$a]   	= "Jantina";
 	$FormElement[$a] 	= "sex";
 	$FormType[$a]	  	= "select";
-	$FormData[$a]   	= array('Lelaki', 'Perempuan');
+	$FormData[$a]   	= array('Laki-laki', 'Perempuan');
 	$FormDataValue[$a]	= array('0', '1');
 	$FormCheck[$a]   	= array();
 	$FormSize[$a]    	= "1";
@@ -531,7 +531,7 @@ if (@$tabb == 4) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Kad Pengenalan<br/>Tiada (-)";
+	$FormLabel[$a]   	= "Kartu Identitas<br/>Tiada (-)";
 	$FormElement[$a] 	= "saksiIC1";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";
@@ -627,7 +627,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=1" class="nav-link <?php if (@$tabb == 1) {
 																		print "active";
-																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">MAKLUMAT PENDAFTARAN ID</a>
+																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">INFORMASI PENDAFTARAN ID</a>
 	</li>
 	<!--li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -647,7 +647,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MAKLUMAT BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -659,7 +659,7 @@ print '
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
 	if ($i == 1) print '<div>&nbsp;</div>';
-	if ($i == 9) print '<div class="card-header mt-3">BUTIR-BUTIR PERIBADI</div>';
+	if ($i == 9) print '<div class="card-header mt-3">DETAIL PRIBADI</div>';
 
 	if ($cnt == 1) print '<div class="m-3 row">';
 	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
@@ -889,7 +889,7 @@ if (@$tabb == 3) {
                 <tr class="table-primary">
                     <td align="center"><b>Bil</b></td>
                     <td align="left"><b>Nama Penama</b></td>
-					<td align="center"><b>No Kad Pengenalan</b></td>
+					<td align="center"><b>No Kartu Identitas</b></td>
                     <td align="center"><b>No Telefon</b></td>
                     <td align="left" width="35%"><b>Alamat</b></td>
 					<td align="center"><b>Peratus (%)</b></td>

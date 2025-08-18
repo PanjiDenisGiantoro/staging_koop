@@ -64,7 +64,7 @@ print '
 		<td>:&nbsp;' . dlookup("userdetails", "newIC", "userID=" . tosql($id, "Text")) . '</td>
 	</tr>
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt; font-weight: bold;" bgcolor="FFFFFF">
-		<td width="20%">&nbsp;Cawangan/Zon</td>
+		<td width="20%">&nbsp;Cabang/Zona</td>
 		<td>:&nbsp;' . dlookup("general", "name", "ID=" . tosql($jabatan, "Text")) . '</td>
 	</tr>
 	<tr>

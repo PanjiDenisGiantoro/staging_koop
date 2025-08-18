@@ -42,10 +42,10 @@ if ($GetSaksi->RowCount() <> 0 || $GetSaksi2->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="header table-primary">
 						<td nowrap></td>
-						<td nowrap align="center">Nombor Anggota</td>
+						<td nowrap align="center">Nomor Anggota</td>
 						<td nowrap>Nama</td>
-						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap>Cawangan/Zon</td>
+						<td nowrap align="center">Kartu Identitas</td>
+						<td nowrap>Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="left">Sahkan Saksi</td>
 					</tr>';
@@ -138,7 +138,7 @@ if ($GetSaksi->RowCount() <> 0 || $GetSaksi2->RowCount() <> 0) {
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian Rekod "' . $q . '" Tidak Jumpa  -</b><hr size=1"></td></tr>';

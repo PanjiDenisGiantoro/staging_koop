@@ -8,7 +8,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -28,7 +28,7 @@ $title 	= "Permohonan Tukar Penama";
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();
 $a = 1;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "saksi1";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -137,7 +137,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom03">Kad Pengenalan</label>
+                                                            <label class="form-label" for="validationCustom03">Kartu Identitas</label>
                                                             <input type="text" name="w_ic1" value="' . tohtml($GetMember->fields('w_ic1')) . '" class="form-control" size=15 maxlength=14 id="validationCustom03" placeholder="Tiada (-)">
                                                         </div>
                                                     </div>
@@ -155,7 +155,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom06">Alamat Kediaman</label>
+                                                            <label class="form-label" for="validationCustom06">Alamat Rumah</label>
                                                             <textarea class="form-control" cols=30 rows=3 id="validationCustom06" wrap="hard" name="w_address1" >' . $addr1 . '</textarea>                                                            
                                                         </div>
                                                     </div>                                                   

@@ -427,7 +427,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Nombor Pekerja";
+	$FormLabel[$a]   	= "Nomor Karyawan";
 	$FormElement[$a] 	= "staftNo";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -447,7 +447,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Suku Bangsa";
+	$FormLabel[$a]   	= "Suku Suku Bangsa";
 	$FormElement[$a] 	= "raceID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $raceList;

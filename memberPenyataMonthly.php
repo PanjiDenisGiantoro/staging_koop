@@ -8,7 +8,7 @@
 
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 if (!isset($mth)) $mth  = date("n");
 if (!isset($yr)) $yr  = date("Y");
@@ -137,7 +137,7 @@ print '
   <tr><td colspan="2">&nbsp;</td></tr>
   
   <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" bgcolor="FFFFFF">
-    <td width="20%">&nbsp;Nombor Anggota</td>
+    <td width="20%">&nbsp;Nomor Anggota</td>
     <td>:&nbsp;' . dlookup("userdetails", "memberID", "userID=" . tosql($id, "Text")) . '</td>
   </tr>
 
@@ -147,7 +147,7 @@ print '
   </tr>
 
   <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" bgcolor="FFFFFF">
-    <td width="20%">&nbsp;Nombor Kad Pengenalan</td>
+    <td width="20%">&nbsp;Nombor Kartu Identitas</td>
     <td>:&nbsp;' . dlookup("userdetails", "newIC", "userID=" . tosql($id, "Text")) . '</td>
   </tr>
 

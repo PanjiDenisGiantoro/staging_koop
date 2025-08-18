@@ -104,7 +104,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 1;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -184,7 +184,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 // $a++;
-// $FormLabel[$a]   	= "Jawatan Pekerjaan";
+// $FormLabel[$a]   	= "Jabatan Pekerjaan";
 // $FormElement[$a] 	= "job";
 // $FormType[$a]	  	= "text";
 // $FormData[$a]   	= "";
@@ -204,7 +204,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 // $a++;
-// $FormLabel[$a]   	= "Alamat Kediaman";
+// $FormLabel[$a]   	= "Alamat Rumah";
 // $FormElement[$a] 	= "address";
 // $FormType[$a]	  	= "textarea";
 // $FormData[$a]   	= "";
@@ -224,7 +224,7 @@ $FormLength[$a]  	= "1";
 // $FormLength[$a]  	= "3";	
 
 // $a++;
-// $FormLabel[$a]   	= "Poskod Kediaman";
+// $FormLabel[$a]   	= "Kode Pos Rumah";
 // $FormElement[$a] 	= "postcode";
 // $FormType[$a]	  	= "text";
 // $FormData[$a]   	= "";
@@ -244,7 +244,7 @@ $FormLength[$a]  	= "1";
 // $FormLength[$a]  	= "1";
 
 // $a++;
-// $FormLabel[$a]   	= "Bandar Kediaman";
+// $FormLabel[$a]   	= "Kota Rumah";
 // $FormElement[$a] 	= "city";
 // $FormType[$a]	  	= "text";
 // $FormData[$a]   	= "";
@@ -264,7 +264,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 // $a++;
-// $FormLabel[$a]   	= "Negeri Kediaman";
+// $FormLabel[$a]   	= "Provinsi Rumah";
 // $FormElement[$a] 	= "stateID";
 // $FormType[$a]	  	= "select";
 // $FormData[$a]   	= $stateList;
@@ -274,7 +274,7 @@ $FormLength[$a]  	= "15";
 // $FormLength[$a]  	= "1";
 
 // $a++;
-// $FormLabel[$a]   	= "Nombor Pekerja<br>(SEKIRANYA ADA)";
+// $FormLabel[$a]   	= "Nomor Karyawan<br>(SEKIRANYA ADA)";
 // $FormElement[$a] 	= "staftNo";
 // $FormType[$a]	  	= "text";
 // $FormData[$a]   	= "";
@@ -294,7 +294,7 @@ $FormLength[$a]  	= "15";
 // $FormLength[$a]  	= "1";
 
 // $a++;
-// $FormLabel[$a]   	= "Bangsa";
+// $FormLabel[$a]   	= "Suku Bangsa";
 // $FormElement[$a] 	= "raceID";
 // $FormType[$a]	  	= "select";
 // $FormData[$a]   	= $raceList;
@@ -304,7 +304,7 @@ $FormLength[$a]  	= "15";
 // $FormLength[$a]  	= "1";
 
 // $a++;
-// $FormLabel[$a]   	= "Status Perkahwinan";
+// $FormLabel[$a]   	= "Status Pernikahan";
 // $FormElement[$a] 	= "maritalID";
 // $FormType[$a]	  	= "radio";
 // $FormData[$a]   	= array('Bujang','Berkahwin','Janda/Duda');
@@ -609,7 +609,7 @@ if ($SubmitForm <> "") {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom03">Nombor Kad Pengenalan</label>
+                                                            <label class="form-label" for="validationCustom03">Nombor Kartu Identitas</label>
                                                             <input type="text" class="form-control' . $penamaerr . '" name="w_ic1" value="' . $w_ic1 . '" size=15 maxlength=14 id="validationCustom03" placeholder="(999999999999)">
                                                         </div>
                                                     </div>
@@ -627,7 +627,7 @@ if ($SubmitForm <> "") {
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom06">Alamat Kediaman</label>
+                                                            <label class="form-label" for="validationCustom06">Alamat Rumah</label>
                                                             <textarea class="form-control' . $penamaerr . '" cols=30 rows=3 wrap="hard" name="w_address1" id="validationCustom06">' . $w_address1 . '</textarea>                                                 
                                                         </div>
                                                     </div>

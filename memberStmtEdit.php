@@ -18,7 +18,7 @@ if (!isset($yy))	$yy = date("Y");
 include("header.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -104,18 +104,18 @@ print '
 if (get_session("Cookie_groupID") > 0) {
 	print '<tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian Melalui 
+			Cari Berdasarkan 
 			<select name="by" class="form-select-sm">';
-	if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-	else print '<option value="1">Nombor Anggota</option>';
+	if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+	else print '<option value="1">Nomor Anggota</option>';
 	if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 	else print '<option value="2">Nama Anggota</option>';
-	if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-	else print '<option value="3">Kad Pengenalan</option>';
+	if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+	else print '<option value="3">Kartu Identitas</option>';
 	print '		</select>
 			<input type="text" name="q" value="" class="form-control-sm" maxlength="50" size="30" class="Data">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;		
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 	for ($i = 0; $i < count($deptList); $i++) {
@@ -216,8 +216,8 @@ if (get_session("Cookie_groupID") > 0) {
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
 						<td nowrap>Nombor - Nama Anggota</td>
-						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap colspan="2">Cawangan/Zon</td>
+						<td nowrap align="center">Kartu Identitas</td>
+						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">Yuran</td>
 						<td nowrap align="right">Syer</td>
 						<td nowrap align="right">Khas</td>
@@ -260,7 +260,7 @@ if (get_session("Cookie_groupID") > 0) {
 				} else {
 					$numPage = $TotalPage + 1;
 				}
-				print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+				print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 				for ($i = 1; $i <= $numPage; $i++) {
 					print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 					print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -273,15 +273,15 @@ if (get_session("Cookie_groupID") > 0) {
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 		} else {
 			if ($q == "") {
 				print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 			} else {
 				print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 			}
 		} // end of ($GetMember->RowCount() <> 0)
 	} // end of ($q == "" AND $dept == "")
@@ -353,7 +353,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

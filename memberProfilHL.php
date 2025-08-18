@@ -116,7 +116,7 @@ carianheader($by, $opt);
     <select name="by" class="form-select-sm">';
 if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
-			if ($by == 3)	print '<option value="3" selected>No KP Baru</option>'; 	else print '<option value="3">No KP Baru</option>';	
+			if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>'; 	else print '<option value="3">No KTP Baru</option>';	
 			if ($by == 4)	print '<option value="4" selected>Peringkat</option>'; 		else print '<option value="4">Peringkat</option>';
 print '</select>
     <input type="text" name="q" value="" maxlength="50" size="20" class="form-controlx form-control-sm">
@@ -130,7 +130,7 @@ print '<table border="0" cellspacing="1" cellpadding="3" width="100%" align="cen
 			.'<select name="by" class="form-controlx form-select-sm">'; 
 			if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
-			if ($by == 3)	print '<option value="3" selected>No KP Baru</option>'; 	else print '<option value="3">No KP Baru</option>';	
+			if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>'; 	else print '<option value="3">No KTP Baru</option>';	
 			if ($by == 4)	print '<option value="4" selected>Peringkat</option>'; 		else print '<option value="4">Peringkat</option>';						
 			print
  			'</select>
@@ -169,7 +169,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama Anggota</td>
 						<td nowrap align="center">Nomor Anggota</td>						
-						<td nowrap align="center">Kad Pengenalan</td>
+						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap>Cabang/Zona</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center">Tanggal Keanggotaan</td>
@@ -212,7 +212,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

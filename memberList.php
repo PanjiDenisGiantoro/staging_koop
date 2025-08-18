@@ -15,7 +15,7 @@ if (!isset($dept))			$dept = '';
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -89,8 +89,8 @@ $TotalPage =  ($TotalRec / $pg);
 									else print '<option value="1">Nomor Anggota</option>';
 									if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 									else print '<option value="2">Nama Anggota</option>';
-									if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
-									else print '<option value="3">No KP Baru</option>';
+									if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>';
+									else print '<option value="3">No KTP Baru</option>';
 									?>
 								</select>
 								<input type="text" name="q" value="<?= $q ?>" maxlength="50" size="30">
@@ -270,7 +270,7 @@ $TotalPage =  ($TotalRec / $pg);
 					} else {
 						$numPage = $TotalPage + 1;
 					}
-					print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+					print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 					for ($i = 1; $i <= $numPage; $i++) {
 						print
 							'<a href="' . $_SERVER['PHP_SELF'] . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg

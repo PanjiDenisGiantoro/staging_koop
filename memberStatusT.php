@@ -9,7 +9,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("koperasiList.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -153,7 +153,7 @@ if ($member) {
 
 									?>
 										<tr>
-											<td>Nombor Anggota</td>
+											<td>Nomor Anggota</td>
 											<td></td>
 											<td><b><? print $memberID; ?></b></td>
 										</tr>
@@ -163,7 +163,7 @@ if ($member) {
 											<td><b><? print $username; ?></b></td>
 										</tr>
 										<tr>
-											<td>Tarikh Memohon</td>
+											<td>Tanggal Pengajuan</td>
 											<td></td>
 											<td><b><? print toDate("d/m/Y", $GetUser->fields(applyDate)); ?></b></td>
 										</tr>

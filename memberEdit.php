@@ -447,7 +447,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Suku Bangsa";
+	$FormLabel[$a]   	= "Suku Suku Bangsa";
 	$FormElement[$a] 	= "raceID";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= $raceList;
@@ -897,7 +897,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	}
 
 
-	if ($i == 35) print '<div class="card-header mt-3">MAKLUMAT BANK</div>';
+	if ($i == 35) print '<div class="card-header mt-3">INFORMASI BANK</div>';
 
 	if ($cnt == 1) print '<div class="m-1 row">';
 	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
