@@ -23,7 +23,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName = 'memberLoan.php';
 $sFileRef  = 'memberLoan.php';
-$title     = "Senarai Pinjaman";
+$title     = "Daftar Pinjaman";
 
 $sSQL = "SELECT	* FROM loans 
 		 WHERE	userID = '" . $pk . "' 

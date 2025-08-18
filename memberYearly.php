@@ -18,7 +18,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Urusniaga Anggota Bagi Tahun ' . $yr;
+$title  = 'Laporan Transaksi Anggota Untuk Tahun ' . $yr;
 $title = strtoupper($title);
 
 $sSQL = "";

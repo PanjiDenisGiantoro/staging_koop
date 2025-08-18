@@ -33,7 +33,7 @@ if (
 
 $sFileName = "?vw=memberStmtEditYuranSPSN&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmtPotongan&mn=$mn";
-$title     = "Senarai Potongan Gaji Pembiayaan";
+$title     = "Daftar Potongan Gaji Pembiayaan";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

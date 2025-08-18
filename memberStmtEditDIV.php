@@ -31,7 +31,7 @@ if (
 $updatedDate = date("Y-m-d H:i:s");
 $sFileName = "?vw=memberStmtEditDIV&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmtDIV&mn=$mn";
-$title     = "Senarai Penyata Dividen";
+$title     = "Daftar Pernyataan Dividen";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

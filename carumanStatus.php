@@ -9,7 +9,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("koperasiList.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -187,7 +187,7 @@ if ($staff) {
 			<td><b>RM ' . $withdrawAmt . ' (' . $carumanTypeList[$typeCaruman] . ')</b></td>
 		</tr>								
 		<tr>
-			<td nowrap>Tarikh Memohon</td>
+			<td nowrap>Tanggal Pengajuan</td>
 			<td></td>
 			<td><b>' . toDate("d/m/Y", $GetUser->fields(applyDate)) . '</b></td>
 		</tr>
@@ -423,7 +423,7 @@ if (!$staff) {
         <td nowrap><b>Bil</b></td>
         <td nowrap><b>Pengeluaran</b></td>
         <td nowrap><b>Tarikh Mohon</b></td>
-        <td nowrap align="right"><b>Amaun (RM)</b></td>
+        <td nowrap align="right"><b>Jumlah (Rp)</b></td>
         <td nowrap><b>Status</b></td>
         <td nowrap><b>Tarikh Lulus (Jika Ada)</b></td>
 		<td nowrap><b>Tarikh Ditolak (Jika Ada)</b></td>

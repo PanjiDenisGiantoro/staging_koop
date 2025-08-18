@@ -23,7 +23,7 @@ if (get_session("Cookie_groupID") == 0) {
 	$sActionFileName = "?vw=memberPenamaUp";
 	//$sActionFileName= "memberPenamaUp.php";
 }
-$title 	= "Permohonan Tukar Penama";
+$title 	= "Pengajuan Ubah Pengusul";
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();

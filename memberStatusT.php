@@ -21,7 +21,7 @@ if (get_session("Cookie_groupID") == 0) $member = 0;
 else $member = 1;
 if (!isset($strDate))	$strDate = date("d/m/Y");
 $groupid = get_session("Cookie_userID");
-$title = "Status Permohonan Berhenti";
+$title = "Status Pengajuan Berhenti";
 
 
 

@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 if (!isset($carum))		$carum = "";
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -26,7 +26,7 @@ $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=carumanList&mn=905';
 $sFileRef2 = "?vw=baucer&mn=$mn"; // urusniaga anggota - baucer
-$title     = "Senarai Pengeluaran Caruman";
+$title     = "Daftar Pengeluaran Iuran";
 
 //--- Begin : deletion based on checked box -------------------------------------------------------
 if ($action == "delete") {
@@ -138,24 +138,24 @@ print '
 <input type="hidden" name="carum" value="' . $carum . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=carumanApply&mn=905\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=carumanApply&mn=905\'"/>
 </div>
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 ';
 print '<div class="mb-3">
 <div>
-			Carian Melalui 
+			Cari Berdasarkan 
 			<select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 print '		</select>
 			<input type="text" name="q" value="" class="form-control-sm" maxlength="50" size="20" class="Data">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;		
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -206,8 +206,8 @@ print '</div>
 
 			<table width="100%">
 				<tr>
-<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>					<td align="right" class="textFont">
-						Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>					<td align="right" class="textFont">
+						Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg == 5)	print '<option value="5" selected>5</option>';
 else print '<option value="5">5</option>';
 if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -222,7 +222,7 @@ if ($pg == 50)	print '<option value="50" selected>50</option>';
 else print '<option value="50">50</option>';
 if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
-print '				</select>setiap mukasurat.
+print '				</select>setiap halaman.
 					</td>
 				</tr>
 			</table>
@@ -237,14 +237,14 @@ if ($GetMember->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap style="text-align: center; vertical-align: bottom;">&nbsp;</td>
 						<td nowrap align="center">&nbsp;</td>
-						<td nowrap style="text-align: left; vertical-align: bottom;">Nombor - Nama Anggota</td>
+						<td nowrap style="text-align: left; vertical-align: bottom;">Nomor - Nama Anggota</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Jenis</td>
-						<td nowrap style="text-align: right; vertical-align: bottom;">Amaun (RM)</td>
+						<td nowrap style="text-align: right; vertical-align: bottom;">Jumlah (Rp)</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Status</td>
-                        <td nowrap align="center"><div style="white-space: nowrap;">Tarikh<br>Mohon</div></td>
-                        <td nowrap align="center"><div style="white-space: nowrap;">Tarikh<br>Lulus</div></td>
-						<td nowrap style="text-align: center; vertical-align: bottom;">Baucer</td>
-                        <td nowrap align="center"><div style="white-space: nowrap;">Tarikh<br>Ditolak</div></td>
+                        <td nowrap align="center"><div style="white-space: nowrap;">Tanggal<br>Pengajuan</div></td>
+                        <td nowrap align="center"><div style="white-space: nowrap;">Tanggal<br>Disetujui</div></td>
+						<td nowrap style="text-align: center; vertical-align: bottom;">Voucher</td>
+                        <td nowrap align="center"><div style="white-space: nowrap;">Tanggal<br>Ditolak</div></td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Catatan</td>
 					</tr>';
 
@@ -352,7 +352,7 @@ button:active{
 		if ($status == 1) $colorStatus = '<span class="badge badge-soft-success"><b>' . $carumanStatusList[$status] . '</b></span>'; //lulus & proses baucer
 		if ($status == 2) $colorStatus = '<span class="badge badge-soft-danger"><b>' . $carumanStatusList[$status] . '</b></span>'; //ditolak
 		if ($status == 3) $colorStatus = '<span class="badge badge-soft-primary"><b>' . $carumanStatusList[$status] . '</b></span>'; //selesai
-		// Status : Proses Semakan (kelabu) > Lulus & Proses Baucer (biru)> Selesai (hijau).
+		// Status : Proses Semakan (kelabu) > Lulus & Proses Voucher (biru)> Selesai (hijau).
 		// Status alternatif: Proses Semakan (kelabu) > Ditolak (merah)
 
 		print ' <tr>
@@ -387,7 +387,7 @@ button:active{
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -400,7 +400,7 @@ button:active{
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
@@ -440,7 +440,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -450,7 +450,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -494,7 +494,7 @@ function ITRActionButtonClickStatus(v) {
     }
 
     if (count == 0) {
-        alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+        alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
         return;
     }
 

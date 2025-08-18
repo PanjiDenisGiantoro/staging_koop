@@ -32,7 +32,7 @@ if (
 
 $sFileName = 'memberStmtEditPotonganPAT.php';
 $sFileRef  = 'Edit_memberStmtPotonganPAT.php';
-$title     = "Senarai Potongan Akuan Tabungan Pembiayaan";
+$title     = "Daftar Potongan Akuan Tabungan Pembiayaan";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

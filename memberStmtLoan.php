@@ -32,7 +32,7 @@ if (
 
 $sFileName = '?vw=memberStmtLoan&mn=3';
 $sFileRef  = '?vw=memberStmtLoan&mn=3';
-$title     = "Senarai Penyata Pembiayaan";
+$title     = "Daftar Pernyataan Pembiayaan";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

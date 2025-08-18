@@ -32,7 +32,7 @@ if (
 
 $sFileName = "?vw=memberStmtP&mn=$mn";
 $sFileRef  = "?vw=memberStmtP&mn=$mn";
-$title     = "Senarai Penyata";
+$title     = "Daftar Pernyataan";
 
 if (get_session("Cookie_groupID") == 0) {
     $ID = get_session("Cookie_userID");

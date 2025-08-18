@@ -19,7 +19,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName		= "memberUpdate.php";
 $sActionFileName = "memberUpdate.php";
-$title     		= "Kemaskini Maklumat Pembiayaan Anggota";
+$title     		= "Perbarui Data Pembiayaan Anggota";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress

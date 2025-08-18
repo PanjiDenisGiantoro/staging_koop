@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 include("forms.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -33,7 +33,7 @@ if (get_session("Cookie_groupID") == 0) {
 	$sActionFileName = "?vw=carumanApply&mn=905";
 }
 
-$title     		= "Permohonan Pengeluaran Caruman";
+$title     		= "Pengajuan Pengeluaran Iuran";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -60,7 +60,7 @@ if ($rsCaruman->RowCount() <> 0) {
 //1 => YURAN, 2 => SYER
 
 $a = 0;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -80,7 +80,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "No Kad Pengenalan";
+$FormLabel[$a]   	= "No Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -100,7 +100,7 @@ $FormSize[$a]    	= "2";
 $FormLength[$a]  	= "2";
 
 $a++;
-$FormLabel[$a]   	= "Amaun Pengeluaran (RM)";
+$FormLabel[$a]   	= "Jumlah Pengeluaran (RP)";
 $FormElement[$a] 	= "withdrawAmt";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -164,7 +164,7 @@ if ($SubmitForm <> "") {
 	if ($memberID <> "") {
 		if (dlookup("userdetails", "userID", "memberID=" . tosql($memberID, "Text")) == "") {
 			array_push($strErrMsg, 'memberID');
-			print '- <font class=redText>Nombor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
+			print '- <font class=redText>Nomor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
 			$userName = "";
 			$newIC = "";
 		} else {
@@ -304,7 +304,7 @@ print '
     <div class="mb-3 mt-3 row">
                                 <label class="col-md-2 col-form-label"></label>
                                 <div class="col-md-8">
-								<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Hantar">
+								<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Kirim">
                                 </div>
                             </div>
 ';

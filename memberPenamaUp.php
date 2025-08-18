@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = '?vw=memberPenamaUp&mn=905';
 $sFileRef  = '?vw=memberPenama&mn=905';
-$title     = "Kemaskini Maklumat Penama Anggota";
+$title     = "Perbarui Data Nama Anggota";
 
 
 //--- Prepare department list

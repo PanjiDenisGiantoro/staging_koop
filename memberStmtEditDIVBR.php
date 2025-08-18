@@ -32,7 +32,7 @@ if (
 $updatedDate = date("Y-m-d H:i:s");
 $sFileName = 'memberStmtEditDIVBR.php';
 $sFileRef  = 'Edit_memberStmtDIV.php';
-$title     = "Senarai Penyata Dividen (BERSARA)";
+$title     = "Daftar Pernyataan Dividen (BERSARA)";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

@@ -28,7 +28,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 $sFileName        = "?vw=memberUpdate&mn=4";
 $sActionFileName  = "?vw=memberUpdate&mn=4&tabb=3";
 $sActionFileName1  = "?vw=memberUpdate&mn=4&tabb=5";
-$title            = "Kemaskini Profil";
+$title            = "Perbarui Profil";
 
 $ID               = $_REQUEST['ID'];
 $code             = $_REQUEST['code'];

@@ -33,7 +33,7 @@ if (
 
 $sFileName = 'memberStmtEditYuranSPSNPAT.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Potongan Gaji Yuran PAT";
+$title     = "Daftar Potongan Gaji Yuran PAT";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
