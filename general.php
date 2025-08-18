@@ -33,11 +33,10 @@ if (get_session("Cookie_groupID") <> 2) {
 
 if (!(in_array($cat,$basicVal))) {
 	print '	<script>
-				alert ("'.$cat.' - Kategori ini tidak wujud...!");
+				alert ("'.$cat.' - Kategori ini tidak muncul...!");
 				window.location = "index.php";
 			</script>';
 }
-
 $sFileName = 'general.php';
 $sFileRef  = 'generalAddUpdate.php';
 $title     =  $basicList[array_search($cat,$basicVal)];
@@ -55,11 +54,11 @@ if ($action == "hapus") {
 		$rs = &$conn->Execute($sSQL);
 	}
 }
+
 //--- End   : deletion based on checked box -------------------------------------------------------
 
 $GetGeneral = ctGeneral("ALL",$cat);
 $GetGeneral->Move($StartRec-1);
-
 print '
 <form name="ITRViewResults" action="?vw=general&mn=903'.$xlink.'" method="post">
 <input type="hidden" name="action">
@@ -84,15 +83,15 @@ print '
 						<table border="0" cellspacing="0" cellpadding="3" width="100%">
 						<tr>
 							<td class="textFont">';
-							listGeneral("ALL",1);			
-		print '				</td>
+							listGeneral("ALL",1);
+                            print '</td>
 						</tr>
 					</table>
 				</td></tr></table>
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>'.$RecNum.'</b></td>
+			<td class="textFont">Jumlah Data : <b>'.$RecNum.'</b></td>
 		</tr>';
 	} else {
 		print '
@@ -101,7 +100,7 @@ print '
 				<input type="button" value="tambah" class="btn btn-sm btn-primary" onclick=Javascript:window.open("' . $sFileRef . '?action=tambah&cat='.$cat.'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
 			</td>
 		</tr>		
-		<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod -</b><hr size=1"></td></tr>';
+		<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data -</b><hr size=1"></td></tr>';
 	}
 print ' 
 </table>
@@ -163,7 +162,7 @@ print '
 	        if(count==0) {
 	          alert(\'Select the row(s) to \' + v + \'.\');
 	        } else {
-	          if(confirm(v + \' \' + count + \' rekod ?\')) {
+	          if(confirm(v + \' \' + count + \' Data ?\')) {
 	            e.action.value = v;
 	            e.submit();
 	          }
@@ -225,6 +224,9 @@ function listGeneral($id, $level) {
 	$generalCode = array();
 	$generalName = array();
 	$generalParentID = array();
+    $generalActiveSimpanan = array();
+    $generalKodeSimpanan = array();
+    $generalJenisSimpanan = array();
 	$GetGeneral = ctGeneral($id,$cat);
 	if ($GetGeneral->RowCount() <> 0) {
 		$RecNum = $RecNum + $GetGeneral->RowCount(); 
@@ -233,6 +235,11 @@ function listGeneral($id, $level) {
 			array_push ($generalCode, $GetGeneral->fields(code));
 			array_push ($generalName, $GetGeneral->fields(name));
 			array_push ($generalParentID, $GetGeneral->fields(parentID));
+            if ($cat == 'Y'){
+                array_push ($generalActiveSimpanan, $GetGeneral->fields(status_active_simpanan));
+                array_push ($generalJenisSimpanan, $GetGeneral->fields(jenis_simpanan));
+                array_push ($generalKodeSimpanan, $GetGeneral->fields(kode_simpanan));
+            }
 			$GetGeneral->MoveNext();
 		}
 	}	
@@ -258,7 +265,7 @@ function listGeneral($id, $level) {
 
 		if ($level <= $setLevel) {
         // Add a title attribute for nonDeletable items to show the hover message
-        $title = $disableDelete ? ' title="Kod ini mempunyai transaksi"' : '';
+        $title = $disableDelete ? ' title="Kode ini mempunyai transaksi"' : '';
         	print '<input type="checkbox" class="form-check-input" name="pk[]" value="' . $generalID[$i] . '" data-disable-delete="' . ($disableDelete ? 'true' : 'false') . '"' . $title . '>';
 		} else {
 			print '&nbsp;&nbsp;&nbsp;';
@@ -266,7 +273,20 @@ function listGeneral($id, $level) {
 		print '
 		 <font class="redText"' . $title . '>'.$generalCode[$i].'</font>&nbsp;-&nbsp;
 		 <a ' . $title . ' onclick=Javascript:window.open("'. $sFileRef . '?action=kemaskini&amp;cat='.$cat.'&amp;pk='.$generalID[$i].'&amp;sub='.$generalParentID[$i].'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
-		 <font class="blueText">'.$generalName[$i].'</font></a></b></li>';
+		 <font class="blueText">'.$generalName[$i].'</font></a></b>&nbsp;-&nbsp;
+		 ';
+            if($cat == 'Y'){
+            if($generalActiveSimpanan[$i] == 1){
+                print 'Aktif';
+            }else{
+                print 'Tidak Aktif';
+            }
+            print '&nbsp;-&nbsp;'.$generalJenisSimpanan[$i];
+            }
+            '</font>
+            <font class="blueText">' . $generalParentID[$i] . '</font>
+            <font class="blueText">' . $generalID[$i] . '</font>
+		 </li>';
 		if 	($level <= $setLevel){
 			listGeneral($generalID[$i], $level);
 		}

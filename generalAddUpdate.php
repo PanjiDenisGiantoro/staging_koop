@@ -1,17 +1,17 @@
 <?php
 
 /*********************************************************************************
- *          Project		:	iKOOP.com.my
- *          Filename	: 	generalAddUpdate.php
- *          Date 		: 	03/06/06
+ *          Project        :    iKOOP.com.my
+ *          Filename    :    generalAddUpdate.php
+ *          Date        :    03/06/06
  *********************************************************************************/
 session_start();
-if (!isset($sub))     $sub = "0";
-if (!isset($cat))    $cat = "";
+if (!isset($sub)) $sub = "0";
+if (!isset($cat)) $cat = "";
 
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -107,45 +107,52 @@ print '
 </head>
 <body leftmargin="5" rightmargin="5" topmargin="10" bottommargin="10" style="margin-top: 10px;">';
 
-$sFileName        = "generalAddUpdate.php";
+$sFileName = "generalAddUpdate.php";
 $sActionFileName = "index.php?vw=general&mn=903&selCode=$cat&cat=" . $cat;
-$title     =  $basicList[array_search($cat, $basicVal)];
+$title = $basicList[array_search($cat, $basicVal)];
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]       = "* Kod";
-$FormElement[$a]     = "code";
+$FormLabel[$a] = "* Kode";
+$FormElement[$a] = "code";
+if ($cat == 'Y') {
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank);
+} else {
 //if ($cat == 'O') 
 //	$FormType[$a]	  	= "hiddentext";
 //else
-$FormType[$a]          = "text-sm";
-$FormData[$a]       = "";
-$FormDataValue[$a]    = "";
-$FormCheck[$a]       = array(CheckBlank);
-$FormSize[$a]        = "70";
-$FormLength[$a]      = "20";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank);
+}
+$FormLength[$a] = "20";
+$FormSize[$a] = "70";
 
 $a++;
-$FormLabel[$a]       = "* Nama";
-$FormElement[$a]     = "name";
+$FormLabel[$a] = "* Nama";
+$FormElement[$a] = "name";
 //if ($cat == 'O') 
 //	$FormType[$a]	  	= "hiddentext";
 //else
-$FormType[$a]          = "text-sm";
-$FormData[$a]       = "";
-$FormDataValue[$a]    = "";
-$FormCheck[$a]       = array(CheckBlank);
-$FormSize[$a]        = "70";
-$FormLength[$a]      = "100";
+$FormType[$a] = "text-sm";
+$FormData[$a] = "";
+$FormDataValue[$a] = "";
+$FormCheck[$a] = array(CheckBlank);
+$FormSize[$a] = "70";
+$FormLength[$a] = "100";
 
 if ($cat == "B") {
     if ($sub <> "0") {
         //--- Prepare Jabatan list
         $deptList = array();
-        $deptVal  = array();
+        $deptVal = array();
         $GetDept = ctGeneral("", "B");
         if ($GetDept->RowCount() <> 0) {
             while (!$GetDept->EOF) {
@@ -156,45 +163,45 @@ if ($cat == "B") {
         }
 
         $a++;
-        $FormLabel[$a]       = "Induk";
-        $FormElement[$a]     = "parentID";
-        $FormType[$a]          = "hidden";
-        $FormData[$a]       = $deptList;
-        $FormDataValue[$a]    = $deptVal;
-        $FormCheck[$a]       = array();
-        $FormSize[$a]        = "1";
-        $FormLength[$a]      = "1";
+        $FormLabel[$a] = "Induk";
+        $FormElement[$a] = "parentID";
+        $FormType[$a] = "hidden";
+        $FormData[$a] = $deptList;
+        $FormDataValue[$a] = $deptVal;
+        $FormCheck[$a] = array();
+        $FormSize[$a] = "1";
+        $FormLength[$a] = "1";
     }
 
     $a++;
-    $FormLabel[$a]       = "Alamat";
-    $FormElement[$a]     = "b_Address";
-    $FormType[$a]          = "textarea-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "68";
-    $FormLength[$a]      = "3";
+    $FormLabel[$a] = "Alamat";
+    $FormElement[$a] = "b_Address";
+    $FormType[$a] = "textarea-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "68";
+    $FormLength[$a] = "3";
 
     $a++;
-    $FormLabel[$a]       = "Orang Dihubungi";
-    $FormElement[$a]     = "b_ContactPerson";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "25";
+    $FormLabel[$a] = "Orang Dihubungi";
+    $FormElement[$a] = "b_ContactPerson";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "25";
 
     $a++;
-    $FormLabel[$a]       = " Nombor Telefon";
-    $FormElement[$a]     = "b_ContactNo";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "25";
+    $FormLabel[$a] = " Nomor Telepon";
+    $FormElement[$a] = "b_ContactNo";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "25";
 }
 
 if ($cat == "C") {
@@ -202,7 +209,7 @@ if ($cat == "C") {
     if ($sub <> "0") {
         //--- Prepare loan list
         $loanList = array();
-        $loanVal  = array();
+        $loanVal = array();
         $Getloan = ctGeneral("", "C");
         if ($Getloan->RowCount() <> 0) {
             while (!$Getloan->EOF) {
@@ -213,19 +220,19 @@ if ($cat == "C") {
         }
 
         $a++;
-        $FormLabel[$a]       = "Induk";
-        $FormElement[$a]     = "parentID";
-        $FormType[$a]          = "hidden";
-        $FormData[$a]       = $loanList;
-        $FormDataValue[$a]    = $loanVal;
-        $FormCheck[$a]       = array();
-        $FormSize[$a]        = "1";
-        $FormLength[$a]      = "1";
+        $FormLabel[$a] = "Induk";
+        $FormElement[$a] = "parentID";
+        $FormType[$a] = "hidden";
+        $FormData[$a] = $loanList;
+        $FormDataValue[$a] = $loanVal;
+        $FormCheck[$a] = array();
+        $FormSize[$a] = "1";
+        $FormLength[$a] = "1";
     }
 
     //--- Prepare deduct list
     $deductList = array();
-    $deductVal  = array();
+    $deductVal = array();
     $GetDeduct = ctGeneral("", "J");
     if ($GetDeduct->RowCount() <> 0) {
         while (!$GetDeduct->EOF) {
@@ -236,45 +243,45 @@ if ($cat == "C") {
     }
 
     $a++;
-    $FormLabel[$a]       = "Kod Potongan";
-    $FormElement[$a]     = "c_Deduct";
-    $FormType[$a]          = "selectx";
-    $FormData[$a]       = $deductList;
-    $FormDataValue[$a]    = $deductVal;
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
-    $FormStyle[$a]         = 'style="width:465px;"';
+    $FormLabel[$a] = "Kode Potongan";
+    $FormElement[$a] = "c_Deduct";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = $deductList;
+    $FormDataValue[$a] = $deductVal;
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
 
     $a++;
-    $FormLabel[$a]       = "Caj (%)";
-    $FormElement[$a]     = "c_Caj";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckDecimal);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "4";
+    $FormLabel[$a] = "Biaya (%)";
+    $FormElement[$a] = "c_Caj";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "4";
 
     $a++;
-    $FormLabel[$a]       = "Tempoh Maksima";
-    $FormElement[$a]     = "c_Period";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckNumeric);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "3";
+    $FormLabel[$a] = "Periode  Maksimum";
+    $FormElement[$a] = "c_Period";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckNumeric);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "3";
 
     $a++;
-    $FormLabel[$a]       = "Jumlah Maksima";
-    $FormElement[$a]     = "c_Maksimum";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckDecimal);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Jumlah Maksimum";
+    $FormElement[$a] = "c_Maksimum";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 
     /*$a++;
 	$FormLabel[$a]   	= "Penjamin";
@@ -287,26 +294,26 @@ if ($cat == "C") {
 	$FormLength[$a]  	= "1";*/
 
     $a++;
-    $FormLabel[$a]       = "Perlu Penjamin";
-    $FormElement[$a]     = "c_gurrantor";
-    $FormType[$a]          = "selectx";
-    $FormData[$a]       = array('Tidak', 'Ya');
-    $FormDataValue[$a]    = array('0', '1');
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
-    $FormStyle[$a]         = 'style="width:465px;"';
+    $FormLabel[$a] = "Perlu Penjamin";
+    $FormElement[$a] = "c_gurrantor";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = array('Tidak', 'Ya');
+    $FormDataValue[$a] = array('0', '1');
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
 
     $a++;
-    $FormLabel[$a]       = "Pembiayaan Aktif";
-    $FormElement[$a]     = "c_Aktif";
-    $FormType[$a]          = "selectx";
-    $FormData[$a]       = array('Tidak', 'Ya');
-    $FormDataValue[$a]    = array('0', '1');
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
-    $FormStyle[$a]         = 'style="width:465px;"';
+    $FormLabel[$a] = "Pembiayaan Aktif";
+    $FormElement[$a] = "c_Aktif";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = array('Tidak', 'Ya');
+    $FormDataValue[$a] = array('0', '1');
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
 
     /*$a++;
 	$FormLabel[$a]   	= "Floating Rate";
@@ -321,83 +328,83 @@ if ($cat == "C") {
 
 if ($cat == "D") {
     $a++;
-    $FormLabel[$a]       = "Jenis Panel";
-    $FormElement[$a]     = "d_Type";
-    $FormType[$a]          = "selectx";
-    $FormData[$a]       = array('Panel', 'Insurance', 'Tabung');
-    $FormDataValue[$a]    = array('P', 'I', 'T');
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
-    $FormStyle[$a]         = 'style="width:465px;"';
+    $FormLabel[$a] = "Jenis Panel";
+    $FormElement[$a] = "d_Type";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = array('Panel', 'Insurance', 'Tabung');
+    $FormDataValue[$a] = array('P', 'I', 'T');
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
 
     $a++;
-    $FormLabel[$a]       = "Alamat";
-    $FormElement[$a]     = "d_Address";
-    $FormType[$a]          = "textarea-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "68";
-    $FormLength[$a]      = "3";
+    $FormLabel[$a] = "Alamat";
+    $FormElement[$a] = "d_Address";
+    $FormType[$a] = "textarea-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "68";
+    $FormLength[$a] = "3";
 
     $a++;
-    $FormLabel[$a]       = "Orang Dihubungi";
-    $FormElement[$a]     = "d_Contact";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "25";
+    $FormLabel[$a] = "Orang Dihubungi";
+    $FormElement[$a] = "d_Contact";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "25";
 
     $a++;
-    $FormLabel[$a]       = " Nombor Telefon";
-    $FormElement[$a]     = "d_Phone";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "25";
+    $FormLabel[$a] = " Nomor Telepon";
+    $FormElement[$a] = "d_Phone";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "25";
 }
 
 if ($cat == "G") {
     $a++;
-    $FormLabel[$a]       = "Harga Syer";
-    $FormElement[$a]     = "g_Price";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckDecimal);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "5";
+    $FormLabel[$a] = "Harga Pokok";
+    $FormElement[$a] = "g_Price";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "5";
 
     $a++;
-    $FormLabel[$a]       = "Minimum Unit";
-    $FormElement[$a]     = "g_Minimum";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckNumeric);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Unit Minimum";
+    $FormElement[$a] = "g_Minimum";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckNumeric);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 
     $a++;
-    $FormLabel[$a]       = "Jumlah Unit Syer";
-    $FormElement[$a]     = "g_Maksimum";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckNumeric);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Jumlah Unit Pokok";
+    $FormElement[$a] = "g_Maksimum";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckNumeric);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 }
 
 if ($cat == "J") {
 
     $classList = array();
-    $classVal  = array();
+    $classVal = array();
     $Getclass = ctGeneralACC1("", "AA");
     if ($Getclass->RowCount() <> 0) {
         while (!$Getclass->EOF) {
@@ -409,25 +416,25 @@ if ($cat == "J") {
 
 
     $a++;
-    $FormLabel[$a]       = "Kod Akaun";
-    $FormElement[$a]     = "c_Panel";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "20";
+    $FormLabel[$a] = "Kode Akun";
+    $FormElement[$a] = "c_Panel";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "20";
 
     $a++;
-    $FormLabel[$a]       = "* Kod Master (GL)";
-    $FormElement[$a]     = "c_master";
-    $FormType[$a]          = "selectx";
-    $FormData[$a]       = $classList;
-    $FormDataValue[$a]    = $classVal;
-    $FormCheck[$a]       = array(CheckBlank);
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
-    $FormStyle[$a]         = 'style="width:465px;"';
+    $FormLabel[$a] = "* Kode Master (GL)";
+    $FormElement[$a] = "c_master";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = $classList;
+    $FormDataValue[$a] = $classVal;
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
 
     //dah hardcode syer dan yuran untuk caruman
     // $a++;
@@ -441,103 +448,128 @@ if ($cat == "J") {
     // $FormLength[$a]    = "1";
 
     $a++;
-    $FormLabel[$a]     = "Pindahan";
-    $FormElement[$a]   = "j_Pindah";
-    $FormType[$a]      = "radio";
-    $FormData[$a]      = array("Tidak", "Ya");
+    $FormLabel[$a] = "Pindahan";
+    $FormElement[$a] = "j_Pindah";
+    $FormType[$a] = "radio";
+    $FormData[$a] = array("Tidak", "Ya");
     $FormDataValue[$a] = array('0', '1');
-    $FormCheck[$a]     = array(CheckBlank);
-    $FormSize[$a]      = "1";
-    $FormLength[$a]    = "1";
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a]     = "Status Caj Penjelasan Awal";
-    $FormElement[$a]   = "j_EarlyDeduct";
-    $FormType[$a]      = "radio";
-    $FormData[$a]      = array("Tidak", "Ya");
+    $FormLabel[$a] = "Status Biaya Penjelasan Awal";
+    $FormElement[$a] = "j_EarlyDeduct";
+    $FormType[$a] = "radio";
+    $FormData[$a] = array("Tidak", "Ya");
     $FormDataValue[$a] = array('0', '1');
-    $FormCheck[$a]     = array(CheckBlank);
-    $FormSize[$a]      = "1";
-    $FormLength[$a]    = "1";
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a]     = "Peratus Caj";
-    $FormElement[$a]   = "j_Percentage";
-    $FormType[$a]      = "textx";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "20";
-    $FormLength[$a]      = "20";
+    $FormLabel[$a] = "Persentase  Biaya";
+    $FormElement[$a] = "j_Percentage";
+    $FormType[$a] = "textx";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "20";
+    $FormLength[$a] = "20";
 
     $a++;
-    $FormLabel[$a]     = "Amaun <i>(Default)</i>";
-    $FormElement[$a]   = "j_Amount";
-    $FormType[$a]          = "textx";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "20";
-    $FormLength[$a]      = "20";
+    $FormLabel[$a] = "Amaun <i>(Default)</i>";
+    $FormElement[$a] = "j_Amount";
+    $FormType[$a] = "textx";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "20";
+    $FormLength[$a] = "20";
 
     $a++;
-    $FormLabel[$a]       = "Tahap Keutamaan";
-    $FormElement[$a]     = "priority";
-    $FormType[$a]          = "textx";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "20";
-    $FormLength[$a]      = "20";
+    $FormLabel[$a] = "Tahap Keutamaan";
+    $FormElement[$a] = "priority";
+    $FormType[$a] = "textx";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "20";
+    $FormLength[$a] = "20";
 }
 
 if ($cat == "M") {
     $a++;
-    $FormLabel[$a]       = "Mula";
-    $FormElement[$a]     = "m_Start";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckDecimal);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Mula";
+    $FormElement[$a] = "m_Start";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 
     $a++;
-    $FormLabel[$a]       = "Akhir";
-    $FormElement[$a]     = "m_End";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckDecimal);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Akhir";
+    $FormElement[$a] = "m_End";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 }
 
 if ($cat == "N") {
     $a++;
-    $FormLabel[$a]       = "Mula";
-    $FormElement[$a]     = "n_Start";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckNumeric);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Mula";
+    $FormElement[$a] = "n_Start";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckNumeric);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 
     $a++;
-    $FormLabel[$a]       = "Akhir";
-    $FormElement[$a]     = "n_End";
-    $FormType[$a]          = "text-sm";
-    $FormData[$a]       = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array(CheckBlank, CheckNumeric);
-    $FormSize[$a]        = "70";
-    $FormLength[$a]      = "10";
+    $FormLabel[$a] = "Akhir";
+    $FormElement[$a] = "n_End";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckNumeric);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
 }
+
+
+if ($cat == "Y") {
+        $a++;
+    $FormLabel[$a] = "* Jenis Simpanan";
+    $FormElement[$a] = "jenis_simpanan";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
+
+    $a++;
+    $FormLabel[$a] = "* Active";
+    $FormElement[$a] = "status_active_simpanan";
+    $FormType[$a] = "radio";
+    $FormData[$a] = array("Tidak", "Ya");
+    $FormDataValue[$a] = array(0 , 1);
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "10";
+}
+
+
 /*
 if ($cat == "P") {
 	$a++;
-	$FormLabel[$a]   	= "Kod";
+	$FormLabel[$a]   	= "Kode";
 	$FormElement[$a] 	= "kod";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -559,7 +591,7 @@ if ($cat == "P") {
 
 if ($cat == "Q") {
 	$a++;
-	$FormLabel[$a]   	= "Kod";
+	$FormLabel[$a]   	= "Kode";
 	$FormElement[$a] 	= "kod";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -581,44 +613,44 @@ if ($cat == "Q") {
 
 if ($action == "kemaskini") {
     $a++;
-    $FormLabel[$a]      = "Tarikh Diwujudkan";
-    $FormElement[$a]     = "createdDate";
-    $FormType[$a]          = "hiddenDate";
-    $FormData[$a]        = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
+    $FormLabel[$a] = "Tarikh Diwujudkan";
+    $FormElement[$a] = "createdDate";
+    $FormType[$a] = "hiddenDate";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a]      = "Diwujudkan Oleh";
-    $FormElement[$a]     = "createdBy";
-    $FormType[$a]          = "hidden";
-    $FormData[$a]        = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
+    $FormLabel[$a] = "Diwujudkan Oleh";
+    $FormElement[$a] = "createdBy";
+    $FormType[$a] = "hidden";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a]      = "Tarikh Kemaskini";
-    $FormElement[$a]     = "updatedDate";
-    $FormType[$a]          = "hiddenDate";
-    $FormData[$a]        = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
+    $FormLabel[$a] = "Tarikh Kemaskini";
+    $FormElement[$a] = "updatedDate";
+    $FormType[$a] = "hiddenDate";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a]          = "Kemaskini Oleh";
-    $FormElement[$a]     = "updatedBy";
-    $FormType[$a]          = "hidden";
-    $FormData[$a]        = "";
-    $FormDataValue[$a]    = "";
-    $FormCheck[$a]       = array();
-    $FormSize[$a]        = "1";
-    $FormLength[$a]      = "1";
+    $FormLabel[$a] = "Kemaskini Oleh";
+    $FormElement[$a] = "updatedBy";
+    $FormType[$a] = "hidden";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
 }
 //--- End   :Set the listing list (you may insert here any new listing) -------------------------->
 //--- Begin : Form Validation Field / Add / Update ---------------------------------------------->
@@ -639,27 +671,27 @@ if ($SubmitForm <> "") {
     if (count($strErrMsg) == "0") {
         if ($d_Address <> "") $d_Address = '<pre>' . $d_Address . '</pre>';
         if ($parentID == "") $parentID = "0";
-        $createdBy     = get_session("Cookie_userName");
+        $createdBy = get_session("Cookie_userName");
         $createdDate = date("Y-m-d H:i:s");
-        $updatedBy     = get_session("Cookie_userName");
+        $updatedBy = get_session("Cookie_userName");
         $updatedDate = date("Y-m-d H:i:s");
         $sSQL = "";
         switch (strtolower($SubmitForm)) {
             case "simpan":
-                $sSQL    = "INSERT INTO general (" .
+                $sSQL = "INSERT INTO general (" .
                     "category," .
                     "code," .
                     "name,";
                 if ($sub <> "0") {
                     if ($cat == "B") {
-                        $sSQL  .= "parentID," .
+                        $sSQL .= "parentID," .
                             "b_Address," .
                             "b_ContactPerson," .
                             "b_ContactNo,";
                     }
                 }
                 if ($cat == "C") {
-                    $sSQL  .= "parentID," .
+                    $sSQL .= "parentID," .
                         //"c_Panel," . 
                         "c_Deduct," .
                         "c_Caj," .
@@ -669,19 +701,19 @@ if ($SubmitForm <> "") {
                         "c_gurrantor,";
                 }
                 if ($cat == "D") {
-                    $sSQL  .= "d_Type," .
+                    $sSQL .= "d_Type," .
                         "d_Address," .
                         "d_Contact," .
                         "d_Phone,";
                 }
                 if ($cat == "G") {
-                    $sSQL  .= "g_Price," .
+                    $sSQL .= "g_Price," .
                         "g_Minimum," .
                         "g_Maksimum,";
                 }
                 if ($cat == "J") {
 
-                    $sSQL  .= "c_Panel," .
+                    $sSQL .= "c_Panel," .
                         //   "j_Aktif,". 
                         "j_Pindah," .
                         "j_EarlyDeduct," .
@@ -691,15 +723,22 @@ if ($SubmitForm <> "") {
                         "priority,";
                 }
                 if ($cat == "M") {
-                    $sSQL  .= "m_Start," .
+                    $sSQL .= "m_Start," .
                         "m_End,";
                 }
                 if ($cat == "N") {
-                    $sSQL  .= "n_Start," .
+                    $sSQL .= "n_Start," .
                         "n_End,";
                 }
+                if ($cat == 'Y'){
+                    $sSQL .=
+                        "jenis_simpanan,".
+                        "status_active_simpanan,".
+                        "created_at_simpanan,";
 
-                $sSQL  .= "createdDate," .
+                }
+
+                $sSQL .= "createdDate," .
                     "createdBy," .
                     "updatedDate," .
                     "updatedBy)" .
@@ -709,14 +748,14 @@ if ($SubmitForm <> "") {
                     tosql($name, "Text") . ",";
                 if ($sub <> "0") {
                     if ($cat == "B") {
-                        $sSQL   .= tosql($parentID, "Number") . "," .
+                        $sSQL .= tosql($parentID, "Number") . "," .
                             tosql($b_Address, "Text") . "," .
                             tosql($b_ContactPerson, "Text") . "," .
                             tosql($b_ContactNo, "Text") . ",";
                     }
                 }
                 if ($cat == "C") {
-                    $sSQL   .=    tosql($parentID, "Text") . "," .
+                    $sSQL .= tosql($parentID, "Text") . "," .
                         tosql($c_Deduct, "Number") . "," .
                         tosql($c_Caj, "Number") . "," .
                         tosql($c_Period, "Number") . "," .
@@ -725,20 +764,20 @@ if ($SubmitForm <> "") {
                         tosql($c_gurrantor, "Number") . ",";
                 }
                 if ($cat == "D") {
-                    $sSQL   .= tosql($d_Type, "Text") . "," .
+                    $sSQL .= tosql($d_Type, "Text") . "," .
                         tosql($d_Address, "Text") . "," .
                         tosql($d_Contact, "Text") . "," .
                         tosql($d_Phone, "Text") . ",";
                 }
                 if ($cat == "G") {
-                    $sSQL   .= tosql($g_Price, "Text") . "," .
+                    $sSQL .= tosql($g_Price, "Text") . "," .
                         tosql($g_Minimum, "Number") . "," .
                         tosql($g_Maksimum, "Number") . ",";
                 }
 
                 if ($cat == "J") {
 
-                    $sSQL   .= tosql($c_Panel, "Text") . "," .
+                    $sSQL .= tosql($c_Panel, "Text") . "," .
                         //   tosql($j_Aktif, "Number") . "," .
                         tosql($j_Pindah, "Number") . "," .
                         tosql($j_EarlyDeduct, "Number") . "," .
@@ -749,12 +788,24 @@ if ($SubmitForm <> "") {
                 }
 
                 if ($cat == "M") {
-                    $sSQL   .= tosql($m_Start, "Text") . "," .
+                    $sSQL .= tosql($m_Start, "Text") . "," .
                         tosql($m_End, "Text") . ",";
                 }
                 if ($cat == "N") {
-                    $sSQL   .= tosql($n_Start, "Text") . "," .
+                    $sSQL .= tosql($n_Start, "Text") . "," .
                         tosql($n_End, "Text") . ",";
+                }
+                if ($cat == 'Y'){
+                    $sSQL .=
+                        tosql($jenis_simpanan, "Text") . "," .
+                        tosql($status_active_simpanan, "Text") . ","
+                        .tosql($created_at_simpanan, "Text") . ",".
+                        tosql($createdDate, "Text") . "," .
+                        tosql($createdBy, "Text") . "," .
+                        tosql($updatedDate, "Text") . "," .
+                        tosql($updatedBy, "Text") . ")";
+                    die('cek'.$sSQL);
+
                 }
 
                 /*if ($cat == "P") {
@@ -767,24 +818,24 @@ if ($SubmitForm <> "") {
 					          tosql($nama, "Text") . ",";
 				}*/
 
-                $sSQL   .= tosql($createdDate, "Text") . "," .
+                $sSQL .= tosql($createdDate, "Text") . "," .
                     tosql($createdBy, "Text") . "," .
                     tosql($updatedDate, "Text") . "," .
                     tosql($updatedBy, "Text") . ")";
-                $msg = "Rekod berjaya ditambah !";
+                $msg = "Data telah berhasil disimpan !";
                 break;
             case "kemaskini":
                 $sWhere = "ID=" . tosql($pk, "Number");
-                $sSQL    = "UPDATE general SET " .
+                $sSQL = "UPDATE general SET " .
                     "code=" . tosql($code, "Text") .
                     ",name=" . tosql($name, "Text");
                 if ($cat == "B") {
-                    $sSQL    .= ",b_Address=" . tosql($b_Address, "Text") .
+                    $sSQL .= ",b_Address=" . tosql($b_Address, "Text") .
                         ",b_ContactPerson=" . tosql($b_ContactPerson, "Text") .
                         ",b_ContactNo=" . tosql($b_ContactNo, "Text");
                 }
                 if ($cat == "C") {
-                    $sSQL    .=     ",c_Deduct=" . tosql($c_Deduct, "Number") .
+                    $sSQL .= ",c_Deduct=" . tosql($c_Deduct, "Number") .
                         //",parentID=" . tosql($parentID, "Text") .
                         ",c_Caj=" . tosql($c_Caj, "Number") .
                         ",c_Period=" . tosql($c_Period, "Number") .
@@ -793,19 +844,19 @@ if ($SubmitForm <> "") {
                         ",c_gurrantor=" . tosql($c_gurrantor, "Number");
                 }
                 if ($cat == "D") {
-                    $sSQL    .= ",d_Type=" . tosql($d_Type, "Text") .
+                    $sSQL .= ",d_Type=" . tosql($d_Type, "Text") .
                         ",d_Address=" . tosql($d_Address, "Text") .
                         ",d_Contact=" . tosql($d_Contact, "Text") .
                         ",d_Phone=" . tosql($d_Phone, "Text");
                 }
                 if ($cat == "G") {
-                    $sSQL    .= ",g_Price=" . tosql($g_Price, "Number") .
+                    $sSQL .= ",g_Price=" . tosql($g_Price, "Number") .
                         ",g_Minimum=" . tosql($g_Minimum, "Number") .
                         ",g_Maksimum=" . tosql($g_Maksimum, "Number");
                 }
                 if ($cat == "J") {
 
-                    $sSQL    .= ",c_Panel=" . tosql($c_Panel, "Number") .
+                    $sSQL .= ",c_Panel=" . tosql($c_Panel, "Number") .
                         //    ",j_Aktif=" . tosql($j_Aktif, "Number") .
                         ",j_Pindah=" . tosql($j_Pindah, "Number") .
                         ",j_EarlyDeduct=" . tosql($j_EarlyDeduct, "Number") .
@@ -815,18 +866,27 @@ if ($SubmitForm <> "") {
                         ",priority=" . tosql($priority, "Number");
                 }
                 if ($cat == "M") {
-                    $sSQL    .= ",m_Start=" . tosql($m_Start, "Number") .
+                    $sSQL .= ",m_Start=" . tosql($m_Start, "Number") .
                         ",m_End=" . tosql($m_End, "Number");
                 }
                 if ($cat == "N") {
-                    $sSQL    .= ",n_Start=" . tosql($n_Start, "Number") .
+                    $sSQL .= ",n_Start=" . tosql($n_Start, "Number") .
                         ",n_End=" . tosql($n_End, "Number");
                 }
+                if ($cat == 'Y'){
+                    $sSQL .=
+                        ",nama_simpanan=" . tosql($nama_simpanan, "Text") .
+                        ",kode_simpanan=" . tosql($kode_simpanan, "Text") .
+                        ",jenis_simpanan=" . tosql($jenis_simpanan, "Text") .
+                        ",status_active_simpanan=" . tosql($status_active_simpanan, "Text") .
+                        ",created_at_simpanan=" . tosql($create_at_simpanan, "Text") ;
 
-                $sSQL    .= ",updatedDate=" . tosql($updatedDate, "Text") .
+                }
+
+                $sSQL .= ",updatedDate=" . tosql($updatedDate, "Text") .
                     ",updatedBy=" . tosql($updatedBy, "Text");
                 $sSQL .= " where " . $sWhere;
-                $msg = "Rekod bejaya dikemaskini !";
+                $msg = "Data telah berhasil diupdate !";
                 break;
         }
 
@@ -839,7 +899,7 @@ if ($SubmitForm <> "") {
             for ($i = 0; $i < count($Section); $i++) {
                 if ($Section[$i] <> "" and $Section[$i] <> "-1") {
                     $sSQL = "";
-                    $sSQL    = ' INSERT INTO codegroup (' .
+                    $sSQL = ' INSERT INTO codegroup (' .
                         'groupNo,' .
                         'codeNo)' .
                         ' VALUES (' .
@@ -872,7 +932,7 @@ if ($action == "kemaskini") {
         if ($cat == 'O') {
             //--- Prepare deduct list
             $deductList = array();
-            $deductVal  = array();
+            $deductVal = array();
             $GetDeduct = ctGeneral("", "J");
             if ($GetDeduct->RowCount() <> 0) {
                 while (!$GetDeduct->EOF) {
@@ -915,8 +975,8 @@ print '
 	<tr class="table-primary">
 		<td colspan="2">';
 
-if ($action == "simpan") print '<h6 class="card-subtitle">Kemasukan ' . $title;
-else print '<h6 class="card-subtitle">Kemaskini ' . $title . ' : ' . tohtml($rs->fields(name));
+if ($action == "simpan") print '<h6 class="card-subtitle">Input ' . $title;
+else print '<h6 class="card-subtitle">Data ' . $title . ' : ' . tohtml($rs->fields(name));
 print '</h6></td></tr>';
 
 //--- Begin : Looping to display label -------------------------------------------------------------
@@ -949,6 +1009,9 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
             if ($i == 5) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
         if ($cat <> "B" and $cat <> "C" and $cat <> "D" and $cat <> "G" and $cat <> "M" and $cat <> "N" and $cat <> "J") {
+            if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
+        }
+        if ($cat == 'Y') {
             if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
     }
@@ -996,13 +1059,13 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
     if ($cat == 'O') {
         if ($i == 2) {
             print '
-    		<tr><td class=Header colspan=2>Pilihan Kod Potongan :</td></tr>
+    		<tr><td class=Header colspan=2>Pilihan Kode Potongan :</td></tr>
     		<tr valign=top><td class=Data colspan="2">
     			<table class="table table-bordered table-striped table-sm" style="font-size: 8pt;" border="0" cellspacing="1" cellpadding="3" width="95%" align="center">
     			    <tr valign="top">
-    			    	<td class="data">Senarai Kod Potongan<br>
+    			    	<td class="data">Daftar Kode Potongan<br>
     					<select name="nonSection[]" multiple size="15">';
-            if (count($deductList) ==  0) {
+            if (count($deductList) == 0) {
                 print     '	<option value="">-None-</option>';
             } else {
                 for ($j = 0; $j < count($deductList); $j++) {
@@ -1018,7 +1081,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
     		        	<input type="button" value=">>" onClick="document.MyForm.hidMoveFlag.value=1; addSection()" class=textFont><br>
     		        	<input type="button" value="<<" onClick="document.MyForm.hidMoveFlag.value=1; removeSection()" class=textFont>
     			        </td>				
-    					<td valign="top" class="data">Kod Potongan Pilihan<br>
+    					<td valign="top" class="data">Kode Potongan Pilihan<br>
     			        <select name="Section[]" multiple size="15">';
             if (count($SectionVal) == 0) {
                 print     '	<option value="-1">-None-</option>';
