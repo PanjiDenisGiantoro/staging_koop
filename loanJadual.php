@@ -9,7 +9,7 @@
  *********************************************************************************/
 //include("common.php");	
 session_start();
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiQry.php");
 include("header.php");
 
@@ -31,15 +31,15 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 $strActionPage = '?vw=loanJadual&mn=906&id=' . $id . '';
 $sFileName = '?vw=loanJadual&mn=906';
 $sFileRef  = '?vw=loanJadual&mn=906';
-$title     = "Maklumat pembiayaan";
+$title     = "Informasi pembiayaan";
 
 $GetLoanDet = ctLoanNew("", $id);
-$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
 
 
 if ($apply) {
 
-	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
 	$loanType = dlookup("loans", "loanType", "loanID ='" . $id . "'");
 	$startDay	= toDateMK("d", $startPymtDate);
 	$startMonth = toDateMK("m", $startPymtDate) + 1;
@@ -128,7 +128,7 @@ if ($apply) {
 
 		for ($i = 1; $i <= $loanPeriod; $i++) {
 
-			$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+			$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
 
 			$startMonth = toDateMK("m", $startPymtDate);
 			$startYear	= toDateMK("Y", $startPymtDate);
@@ -193,7 +193,7 @@ if ($apply) {
 if ($id <> "") {
 	$GetLoanDet = ctLoan("", $id);
 
-	$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+	$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
 	$loanAmt	= $GetLoanDet->fields('loanAmt');
 	$loanPeriod	= $GetLoanDet->fields('loanPeriod');
 	$loanCaj	= $GetLoanDet->fields('kadar_u');
@@ -223,11 +223,11 @@ if ($id <> "") {
 		<td>
 			<table width="100%">
 			<tr>';
-	if ($rnoBaucer) {
+	if ($rnoVoucher) {
 		print '<input type="submit" size="3" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false} else {window.Edittrans.submit();};" name="apply" value="Potongan Gaji" class="btn btn-secondary" onclick="PageRefresh();"/>&nbsp;<input class="btn btn-secondary" type="submit" size="3" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false} else {window.Edittrans.submit();};" name="apply_pat" value="Potongan Akaun Tabungan" onclick="PageRefresh();"/> </td>';
 	}
 	print '<tr>
-					<td class="textFont" width="150">Nombor Anggota</td>
+					<td class="textFont" width="150">Nomor Anggota</td>
 					<td class="Label">:&nbsp;<b>' . $GetLoanDet->fields(userID) . '</b></td>
 				</tr>
 				<tr>
@@ -235,7 +235,7 @@ if ($id <> "") {
 					<td class="Label">:&nbsp;<b>' . dlookup("users", "name", "userID=" . tosql($GetLoanDet->fields(userID), "Text")) . '</b></td>
 				</tr>
 				<tr>
-					<td class="textFont">Kad Pengenalan</td>
+					<td class="textFont">Kartu Identitas</td>
 					<td class="Label">:&nbsp;<b>' . dlookup("userdetails", "newIC", "userID=" . tosql($GetLoanDet->fields(userID), "Text")) . '</b></td>
 				</tr>
 				<tr>
@@ -275,11 +275,11 @@ if ($id <> "") {
 			<td class="Label">:&nbsp;<b>' . $bondNO . '</b></td>
 		</tr-->
 				<tr>
-			<td class="textFont" width="150">Nombor Baucer</td>
-			<td class="Label">:&nbsp;<b>' . $rnoBaucer . '</b></td>
+			<td class="textFont" width="150">Nombor Voucher</td>
+			<td class="Label">:&nbsp;<b>' . $rnoVoucher . '</b></td>
 		</tr-->
 		<tr>
-		<td class="textFont" width="150">Tarikh Baucer</td>
+		<td class="textFont" width="150">Tarikh Voucher</td>
 		<td class="Label">:&nbsp;<b>' . toDate("d/m/Y", $startPymtDate) . '</b></td>
 	</tr-->
 	</table>';

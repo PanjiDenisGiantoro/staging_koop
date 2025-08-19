@@ -8,7 +8,7 @@ if (!isset($mm))	$mm=date("m");
 if (!isset($yy))	$yy=date("Y");
 include("header.php");	
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Kuala_Lumpur");	
+date_default_timezone_set("Asia/Jakarta");	
 include ("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -19,7 +19,7 @@ if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR
 
 $sFileName		= "loanpymtEdit.php";
 $sActionFileName= "loanpymtList.php";
-$title     		= "Kemaskini Bayaran Pinjaman";
+$title     		= "Perbarui Pembayaran Pinjaman";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress

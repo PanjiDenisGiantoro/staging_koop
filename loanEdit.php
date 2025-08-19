@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -18,7 +18,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName		= "loanEdit.php";
 $sActionFileName = "loan.php";
-$title     		= "Kemaskini Permohonan Pinjaman";
+$title     		= "Perbarui Pengajuan Pinjaman";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -51,7 +51,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 1;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -61,7 +61,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "No KP Baru / Lama";
+$FormLabel[$a]   	= "No KTP Baru / Lama";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -221,7 +221,7 @@ $FormSize[$a]    	= "100";
 $FormLength[$a]  	= "100";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "sellMemberID";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -231,7 +231,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Memohon";
+$FormLabel[$a]  	= "Tanggal Pengajuan";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]  		= "date";
 $FormData[$a]    	= "";

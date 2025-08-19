@@ -26,7 +26,7 @@ print '
 <body><table border="0" cellpadding="5" cellspacing="0" width="100%">';
 $sqlLoan = "SELECT a . * , (
 				a.loanAmt * a.kadar_u /100 * a.loanPeriod /12
-				) AS tot_untung, b.rnoBaucer
+				) AS tot_untung, b.rnoVoucher
 				FROM loans a, loandocs b
 				WHERE a.loanID = b.loanID
 				AND a.userID = '" . $pk . "' AND a.status = '7' order by a.loanNo ASC";

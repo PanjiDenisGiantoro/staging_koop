@@ -16,7 +16,7 @@ if (!isset($yy)) $yy	= date("Y");
 if (!isset($mm)) $mm	= date("m");
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $IDName = get_session("Cookie_userName");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -254,7 +254,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap><b>Nombor Rujukan/Pembiayaan</b></td>
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>
-						<td nowrap align="center"><b>Tarikh Baucer</b></td>
+						<td nowrap align="center"><b>Tarikh Voucher</b></td>
 						<!--td nowrap align="center"><b>Jadual Bayar Balik</b></td-->
 						<td nowrap align="center"><b>Nombor Bond</b></td>
 					</tr>';
@@ -274,7 +274,7 @@ if ($GetLoan->RowCount() <> 0) {
 		//sprintf("%010d", $GetLoan->fields(loanID))
 		$startPymtDate = dlookup("loandocs", "rcreatedDate", "loanID=" . $GetLoan->fields(loanID));
 		if ($startPymtDate) $startPymtDate = toDate("d/m/Y", $startPymtDate);
-		else $startPymtDate = "Proses Baucer";
+		else $startPymtDate = "Proses Voucher";
 		//--------------
 		$loanType				= $GetLoan->fields('loanType');
 		$codegroup				= dlookup("general", "parentID", "ID=" . $loanType);
@@ -296,7 +296,7 @@ if ($GetLoan->RowCount() <> 0) {
 			$table = "loanJadual78S.php?type=vehicle&page=view&id=" . $GetLoan->fields(loanID);
 		}
 
-		if ($startPymtDate <> "Proses Baucer") {
+		if ($startPymtDate <> "Proses Voucher") {
 
 			print '         <tr>
 						<td class="Data" align="right" height="25">' . $bil . '</td>
@@ -317,7 +317,7 @@ if ($GetLoan->RowCount() <> 0) {
 			print '	<td class="Data" align="center">' . $startPymtDate . '</td>
 						<!--td class="Data" align="center">';
 
-			if ($startPymtDate <> "Proses Baucer") {
+			if ($startPymtDate <> "Proses Voucher") {
 				if ($codegroup <> 1638) {
 					print '<input type=button value="Lihat Jadual" class="btn btn-sm btn-info" onClick=window.open("loanJadual.php?id=' . $GetLoan->fields(loanID) . '","pop","scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>';
 				} else {
@@ -347,7 +347,7 @@ if ($GetLoan->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -361,15 +361,15 @@ if ($GetLoan->RowCount() <> 0) {
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetLoan->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetLoan->RowCount() . '</b></td>
 		</tr-->';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -386,7 +386,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -411,7 +411,7 @@ print '
 	function ITRActionButtonClick_o(v) {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -435,7 +435,7 @@ print '
 	function ITRActionButtonFinish(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

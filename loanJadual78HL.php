@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");
@@ -73,10 +73,10 @@ if ($page == 'list') {
 	$strTitle = $strTitle.' Anggota';
 }
 */
-$strHeaderTitle = '<b>&nbsp;MAKLUMAT PEMBIAYAAN HUTANG LAPUK&nbsp;</b>';
+$strHeaderTitle = '<b>&nbsp;INFORMASI PEMBIAYAAN HUTANG MACET&nbsp;</b>';
 
 if ($page == 'list') {
-	$strTypeNameList	= array('Nombor Anggota', 'Nama Anggota', 'No KP Baru');
+	$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
 	$strTypeValueList	= array(1, 2, 3);
 	$strRecordCountList	= array(5, 10, 20, 30, 40, 50, 100);
 	$strSQLSortList		= array('DESC', 'ASC');
@@ -141,7 +141,7 @@ if ($page <> 'list') {
 		. ' AND   a.loanID = b.loanID';
 	$GetData2 = $conn->Execute($sSQL2);
 
-	$strFieldNameList = array('Nama', 'Nombor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tarikh Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tarikh Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
 
 	if ($GetData->RowCount() <> 0) {
 		$strStartDate = toDate('d/m/Y', $GetData->fields('approvedDate'));
@@ -481,7 +481,7 @@ if ($page <> 'list') {
 
 			$strTemp .=
 				'<tr>'
-				. '<td class="textFont">Jumlah Rekod : <font class="redText">' . $GetData->RowCount() . '</font></td>'
+				. '<td class="textFont">Jumlah Data : <font class="redText">' . $GetData->RowCount() . '</font></td>'
 				. '</tr>';
 		}
 	} else {

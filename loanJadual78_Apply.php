@@ -8,7 +8,7 @@
 include("header.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 ?>
 
 <head>
@@ -55,7 +55,7 @@ if ($type == 'vehicle') {
 $strHeaderTitle = 'MAKLUMAT PEMBIAYAAN';
 
 if ($page == 'list') {
-	$strTypeNameList	= array('Nombor Anggota', 'Nama Anggota', 'No KP Baru');
+	$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
 	$strTypeValueList	= array(1, 2, 3);
 	$strRecordCountList	= array(5, 10, 20, 30, 40, 50, 100);
 	$strSQLSortList		= array('DESC', 'ASC');
@@ -109,7 +109,7 @@ if ($page <> 'list') {
 
 	$GetData = $conn->Execute($sSQL);
 
-	$strFieldNameList = array('Nama', 'Nombor Anggota', 'Jenis', 'Jumlah');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah');
 
 	if ($GetData->RowCount() <> 0) {
 
@@ -413,7 +413,7 @@ if ($page <> 'list') {
 
 			$strTemp .=
 				'<tr>'
-				. '<td class="textFont">Jumlah Rekod : <font class="redText">' . $GetData->RowCount() . '</font></td>'
+				. '<td class="textFont">Jumlah Data : <font class="redText">' . $GetData->RowCount() . '</font></td>'
 				. '</tr>';
 		}
 	} else {

@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if (!isset($strDate))	$strDate = date("d/m/Y");
 if ($action == 'Kemaskini') {
 	$pk = explode(":", $pk);
@@ -88,7 +88,7 @@ for ($s = 0; $s < count($pkall); $s++) {
 		$rejectedDate	= dlookup("userdetails", "rejectedDate", "userID=" . tosql($pk, "Text"));
 		$remark			= dlookup("userdetails", "remark", "userID=" . tosql($pk, "Text"));
 		print '		<tr>
-					<td class="Data">Nombor Anggota</td>
+					<td class="Data">Nomor Anggota</td>
 					<td class="DataB">:&nbsp;' . $memberID . '</td>
 				</tr>
 				<tr>
@@ -96,7 +96,7 @@ for ($s = 0; $s < count($pkall); $s++) {
 					<td class="DataB">:&nbsp;' . $GetUser->fields(name) . '</td>
 				</tr>								
 				<tr>
-					<td class="Data">Tarikh Memohon</td>
+					<td class="Data">Tanggal Pengajuan</td>
 					<td class="DataB">:&nbsp;' . toDate("d/m/Y", $GetUser->fields(applyDate)) . '</td>
 				</tr>
 				<tr><td colspan="2"><hr size=1></td></tr>';

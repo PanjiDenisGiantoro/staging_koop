@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -25,7 +25,7 @@ $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=loan&mn=906';
 $sFileRef  = '?vw=biayaDokumen&mn=906';
-$title	   = "Senarai Permohonan Pembiayaan";
+$title	   = "Daftar Pengajuan Pembiayaan";
 
 //$conn->debug=1;
 //--- Begin	: deletion based on	checked	box	-------------------------------------------------------
@@ -215,7 +215,7 @@ print '<div class="table-responsive">
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=loanApply&mn=906\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApply&mn=906\'"/>
 </div>';
 
 // Fetch loan counts by status
@@ -362,17 +362,17 @@ $entries = array(
 
 	<div class="mb-3 row m-1 mt-5">
             <div>
-			Carian Melalui
+			Cari Berdasarkan
 			<select name="by" class="form-select-sm">';
-	if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';
-	else print '<option	value="1">Nombor Anggota</option>';
+	if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
+	else print '<option	value="1">Nomor Anggota</option>';
 	// if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';	else print '<option	value="2">Nama Anggota</option>';
-	if ($by	== 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-	else print '<option	value="3">Kad Pengenalan</option>';
+	if ($by	== 3)	print '<option value="3" selected>Kartu Identitas</option>';
+	else print '<option	value="3">Kartu Identitas</option>';
 	print '	</select>
 			<input type="text" name="q"	value="" maxlength="50" size="20" class="form-control-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option	value="">- Semua -';
 	for ($i	= 0; $i	< count($deptList); $i++) {
@@ -452,7 +452,7 @@ $entries = array(
 					<tr class="table-primary">
 						<td	nowrap></td>
 						<td	nowrap>Nama Pembiayaan</td>
-						<td	nowrap>Nombor - Nama Anggota</td>
+						<td	nowrap>Nomor - Nama Anggota</td>
 						<td	nowrap align="right">Jumlah (RM)</td>
 						<td	nowrap align="center">Tempoh (Bulan)</td>
 						<td	nowrap align="right">Bayaran Bulanan (RM)</td>
@@ -688,7 +688,7 @@ $entries = array(
 					 <div class="alert alert-secondary mt-2">
 						 <ul>
 							 <li>Nombor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
-							 <li>Kad Pengenalan : ' . dlookup("userdetails", "newIC",	"userID=" .	tosql($GetLoan->fields(userID),	"Text")) . '</li>
+							 <li>Kartu Identitas : ' . dlookup("userdetails", "newIC",	"userID=" .	tosql($GetLoan->fields(userID),	"Text")) . '</li>
 							 <li>Rate : ' . $GetLoan->fields(kadar_u) . ' %</li>
 							 <li>DSR : ' . number_format($hadPeratus, 2) . ' %</li>
 						 </ul>
@@ -738,7 +738,7 @@ $entries = array(
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';

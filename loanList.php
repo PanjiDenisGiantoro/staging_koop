@@ -15,7 +15,7 @@ if (!isset($dept))			$dept = '';
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -31,7 +31,7 @@ if (!(in_array($code, $suratVal))) {
 
 $sFileName = 'loanList.php';
 $sFileRef  = 'loanList.php';
-$title     = 'Senarai Pembiayaan';
+$title     = 'Daftar Pembiayaan';
 
 
 //--- Begin : Surat & Email
@@ -90,12 +90,12 @@ $TotalPage =  ($TotalRec / $pg);
 							<td>
 								<select name="by">
 									<?
-									if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-									else print '<option value="1">Nombor Anggota</option>';
+									if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+									else print '<option value="1">Nomor Anggota</option>';
 									if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 									else print '<option value="2">Nama Anggota</option>';
-									if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
-									else print '<option value="3">No KP Baru</option>';
+									if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>';
+									else print '<option value="3">No KTP Baru</option>';
 									?>
 								</select>
 								<input type="text" name="q" value="<?= $q ?>" maxlength="50" size="30">
@@ -215,7 +215,7 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<input type="checkbox" class="form-check-input" name="letterhead" checked="checked">&nbsp;With Letterhead&nbsp;'
 					. '</td>'
 					. '<td align="right" class="textFont">'
-					. 'Paparan <SELECT name="pg" onchange="doListAll();">';
+					. 'Tampil <SELECT name="pg" onchange="doListAll();">';
 				if ($pg == 5)	$temp .= '<option value="5" selected>5</option>';
 				else $temp .= '<option value="5">5</option>';
 				if ($pg == 10)	$temp .= '<option value="10" selected>10</option>';
@@ -242,11 +242,11 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<tr class="header">'
 					. '<td nowrap>&nbsp;</td>'
 					. '<td nowrap>&nbsp;Nombor Pinjaman&nbsp;</td>'
-					. '<td nowrap>&nbsp;Nombor Anggota/Nama Anggota&nbsp;</td>'
+					. '<td nowrap>&nbsp;Nomor Anggota/Nama Anggota&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Nombor KP Baru&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Jabatan/Cawangan&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Jumlah&nbsp;</td>'
-					. '<td nowrap align="center">&nbsp;Tarikh Memohon&nbsp;</td>';
+					. '<td nowrap align="center">&nbsp;Tanggal Pengajuan&nbsp;</td>';
 				if ($filter == 1) {
 					$temp .=	'<td nowrap align="center">&nbsp;Tarikh Kelulusan</td>';
 				}
@@ -313,7 +313,7 @@ $TotalPage =  ($TotalRec / $pg);
 					} else {
 						$numPage = $TotalPage + 1;
 					}
-					$temp .= '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+					$temp .= '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 					for ($i = 1; $i <= $numPage; $i++) {
 						if (is_int($i / 10)) $temp .= '<br />';
 						print
@@ -329,15 +329,15 @@ $TotalPage =  ($TotalRec / $pg);
 					'</td>'
 					. '</tr>'
 					. '<tr>'
-					. '<td class="textFont">Jumlah Rekod : <b>' . $GetLoan->RowCount() . '</b></td>'
+					. '<td class="textFont">Jumlah Data : <b>' . $GetLoan->RowCount() . '</b></td>'
 					. '</tr>';
 
 				print $temp;
 			} else {
 				if ($q == "") {
-					print '<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+					print '<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 				} else {
-					print '<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+					print '<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 				}
 			}
 			?>
@@ -363,7 +363,7 @@ $TotalPage =  ($TotalRec / $pg);
 	function ITRActionButtonClick(v) {
 		e = document.MyForm;
 		if (e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 
 			count=0;
@@ -382,7 +382,7 @@ $TotalPage =  ($TotalRec / $pg);
 			}
 	        
 			if (count==0) {
-				alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+				alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 			} else {
 				if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 					e.action.value = v;
@@ -395,7 +395,7 @@ $TotalPage =  ($TotalRec / $pg);
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -406,7 +406,7 @@ $TotalPage =  ($TotalRec / $pg);
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'loanStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

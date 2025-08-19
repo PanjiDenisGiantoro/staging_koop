@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 include("header.php");
 
@@ -15,7 +15,7 @@ if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 50;
 if (!isset($q))			$q = "";
 if (!isset($id))			$id = "";
-$errPage2 = "Potongan Gaji Berjaya DiMasukkan Ke Dalam Pangkalan Data";
+$errPage2 = "Potongan Gaji Berhasil Dimasukkan ke Dalam Basis Data";
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");
 $updatedID = get_session("Cookie_groupID");
@@ -26,15 +26,15 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 $GetLoanDet = ctLoan("", $id);
-$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
 
 $strActionPage = 'loanJadual.php?id=' . $id . '';
 $sFileName = 'loanJadual.php';
 $sFileRef  = 'loanJadual.php';
-$title     = "Maklumat pembiayaan";
+$title     = "Informasi pembiayaan";
 if ($apply) {
 	//$GetLoanDet = ctLoan("",$id);
-	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
 	$loanType = dlookup("loans", "loanType", "loanID ='" . $id . "'");
 	$startDay	= toDateMK("d", $startPymtDate);
 	$startMonth = toDateMK("m", $startPymtDate);
@@ -97,7 +97,7 @@ if ($apply) {
 if ($id <> "") {
 	$GetLoanDet = ctLoan("", $id);
 
-	$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+	$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
 	$loanAmt	= $GetLoanDet->fields('loanAmt');
 	$loanPeriod	= $GetLoanDet->fields('loanPeriod');
 	$loanCaj	= $GetLoanDet->fields('kadar_u');
@@ -132,7 +132,7 @@ if ($id <> "") {
 			<table width="100%">
 			<tr></td>
 				<tr>
-					<td class="textFont" width="150">Nombor Anggota</td>
+					<td class="textFont" width="150">Nomor Anggota</td>
 					<td class="Label">:&nbsp;' . $GetLoanDet->fields(userID) . '</td>
 				</tr>
 				<tr>
@@ -188,8 +188,8 @@ if ($id <> "") {
 	//$startMonth = substr($GetLoanDet->fields(startPymtDate),4,2) - 1; //toDate("m",$GetLoanDet->fields(startPymtDate))-1;
 	//$startYear	= substr($GetLoanDet->fields(startPymtDate),0,4);//toDate("Y",$GetLoanDet->fields(startPymtDate));
 
-	//	$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" .$id."'");
-	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+	//	$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" .$id."'");
+	$startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
 	//$startPymtDate = dlookup("loandocs", "rcreatedDate", "loanID=" . $id );
 	$startDay	= toDateMK("d", $startPymtDate);
 	$startMonth = toDateMK("m", $startPymtDate) - 1;

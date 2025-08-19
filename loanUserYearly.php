@@ -127,7 +127,7 @@ print '
 <table border="0" cellpadding="5" cellspacing="0" width="100%">';
 $sqlLoan = "SELECT a . * , (
 				a.loanAmt * a.kadar_u /100 * a.loanPeriod /12
-				) AS tot_untung, b.rnoBaucer
+				) AS tot_untung, b.rnoVoucher
 				FROM loans a, loandocs b
 				WHERE a.loanID = b.loanID
 				AND a.userID = '" . $pk . "' AND a.status = '3' order by a.loanNo ASC";
@@ -152,7 +152,7 @@ print '
   </td></tr>
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
-		<td width="23%">Nombor Anggota</td>
+		<td width="23%">Nomor Anggota</td>
 		<td>:&nbsp;<b>' . dlookup("userdetails", "memberID", "userID=" . tosql($pk, "Text")) . '</b></td>
 	</tr>
 	<tr>
@@ -161,11 +161,11 @@ print '
 		<td>:&nbsp;<b>' . dlookup("users", "name", "userID=" . tosql($pk, "Text")) . '</b></td>
 	</tr>
 	<tr>
-		<td width="23%">No Kad Pengenalan</td>
+		<td width="23%">No Kartu Identitas</td>
 		<td>:&nbsp;<b>' . dlookup("userdetails", "newIC", "userID=" . tosql($pk, "Text")) . '</b></td>
 	</tr>
 	<tr>
-		<td width="23%">Cawangan/Zon</td>
+		<td width="23%">Cabang/Zona</td>
 		<td>:&nbsp;<b>' . dlookup("general", "name", "ID=" . tosql($jabatan, "Text")) . '</b></td>
 	</tr>
 	<tr><td colspan="2"><hr class=1 px;></td></tr>';

@@ -12,10 +12,10 @@ $strTemp = '
 $yr = '2007';
 $sqlLoan = "SELECT a . * , (
 				a.loanAmt * a.kadar_u /100 * a.loanPeriod /12
-				) AS tot_untung, b.rnoBaucer
+				) AS tot_untung, b.rnoVoucher
 				FROM loans a, loandocs b
 				WHERE a.loanID = b.loanID
-				AND b.rnoBaucer <> '' and a.status = 3";
+				AND b.rnoVoucher <> '' and a.status = 3";
 
 $rsLoan = $conn->Execute($sqlLoan);
 while (!$rsLoan->EOF) {

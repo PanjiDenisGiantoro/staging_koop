@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("forms.php");
 
@@ -32,14 +32,14 @@ if (get_session("Cookie_groupID") == 0) {
 	//if($rsC->RowCount() == 0) 
 	$sActionFileName = "biayaMember.php";
 }
-$title     		= "Permohonan Pembiayaan";
+$title     		= "Pengajuan Pembiayaan";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "hiddentext";
@@ -53,7 +53,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "12";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* No KP Baru";
+$FormLabel[$a]   	= "* No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -64,7 +64,7 @@ $FormLength[$a]  	= "12";
 
 /*
 $a = $a + 1;
-$FormLabel[$a]   	= "No KP Lama";
+$FormLabel[$a]   	= "No KTP Lama";
 $FormElement[$a] 	= "oldIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -199,7 +199,7 @@ if ($Kira <> "") {
 				$unitOnHand = dlookup("userdetails", "totalShare", "userID=" . tosql($userID, "Text"));
 			} else {
 				$Kira = "";
-				print '<script>alert("Nombor Anggota : ' . $memberID . ' tidak wujud/sah...!");</script>';
+				print '<script>alert("Nomor Anggota : ' . $memberID . ' tidak wujud/sah...!");</script>';
 			}
 		} else {
 			$Kira = "";

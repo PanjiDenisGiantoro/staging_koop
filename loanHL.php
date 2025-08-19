@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <>	2 or
 $IDName = get_session("Cookie_userName");
 $sFileName = 'loan.php';
 $sFileRef  = 'biayaDokumen.php';
-$title	   = "Senarai Permohonan Pembiayaan";
+$title	   = "Daftar Pengajuan Pembiayaan";
 //--- Begin	: deletion based on	checked	box	-------------------------------------------------------
 if ($action	== "delete") {
 	$sWhere	= "";
@@ -163,8 +163,8 @@ print '
 <tr><td><b class="maroonText">'	. strtoupper($title) . '</b></td></tr>
 <tr	valign="top" class="Header"><td	align="left" >
 Carian melalui<select name="by" class="Data">';
-if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option	value="1">Nombor Anggota</option>';
+if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option	value="2">Nama Anggota</option>';
 if ($by	== 3)	print '<option value="3" selected>No kad pengenalan</option>';
@@ -351,7 +351,7 @@ if ($GetLoan->RowCount() <>	0) {
 
 	if ($q == "") {
 		print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';

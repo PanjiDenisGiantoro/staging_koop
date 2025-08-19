@@ -13,7 +13,7 @@ if (!isset($q))			$q = "";
 include("common.php");
 include("koperasiinfo.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -24,7 +24,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName = 'loanJadual.php';
 $sFileRef  = 'loanJadual.php';
-$title     = "Jadual Bayar Balik Pembiayaan";
+$title     = "Jadwal Pengembalian Pembiayaan";
 
 if ($loanAmt) {
 

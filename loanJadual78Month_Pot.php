@@ -12,7 +12,7 @@ if (!isset($q))            $q = "";
 include("common.php");
 //include("setupinfo.php");	
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 include("header.php");
 
@@ -28,11 +28,11 @@ $updatedID = get_session("Cookie_groupID");
 $strActionPage = 'loanJadual78Month_Pot.php?id=' . $id . '';
 $sFileName = 'loanJadual78Month_Pot.php';
 // $sFileRef  = 'loanJadual78Month_Pot.php';
-$title     = "Jadual Bayar Balik Pembiayaan";
+$title     = "Jadwal Pembayaran Kembali Pembiayaan";
 
 
 $GetLoanDet = ctLoanNew("", $id);
-$rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+$rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
 $loanType = dlookup("loans", "loanType", "loanID ='" . $id . "'");
 $Caj = dlookup("general", "c_caj", "ID ='" . $loanType . "'");
 
@@ -40,7 +40,7 @@ $Caj = dlookup("general", "c_caj", "ID ='" . $loanType . "'");
 // Loan Insert Potbulan / PotBulanLook DB
 if ($apply) {
 
-    $startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+    $startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
     $loanType = dlookup("loans", "loanType", "loanID ='" . $id . "'");
     $startDay    = toDateMK("d", $startPymtDate);
     $startMonth = toDateMK("m", $startPymtDate);
@@ -128,7 +128,7 @@ if ($apply) {
             $totalByranAkhir = number_format($GetLoanDet->fields('untungAkhir') + $GetLoanDet->fields('pokokAkhir'), 2, '.', '');
             $jabatan = dlookup("userdetails", "departmentID", "userID=" . tosql($GetLoanDet->fields(userID), "Text"));
             $Monthly         = number_format($GetLoanDet->fields('monthlyPymt'), 2, '.', '');
-            $startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoBaucer . "'");
+            $startPymtDate = dlookup("vauchers", "tarikh_baucer", "no_baucer ='" . $rnoVoucher . "'");
             $startDay    = toDateMK("d", $startPymtDate);
             $startMonth = toDateMK("m", $startPymtDate);
             $startYear    = toDateMK("Y", $startPymtDate);
@@ -229,7 +229,7 @@ if ($apply) {
 if ($id <> "") {
 
     $GetLoanDet = ctLoan("", $id);
-    $rnoBaucer = dlookup("loandocs", "rnoBaucer", "loanID ='" . $id . "'");
+    $rnoVoucher = dlookup("loandocs", "rnoVoucher", "loanID ='" . $id . "'");
     $caj = dlookup("general", "c_caj", "ID ='" . $loanType . "'");
     $loanAmt    = $GetLoanDet->fields('loanAmt');
     $loanPeriod    = $GetLoanDet->fields('loanPeriod');
@@ -277,7 +277,7 @@ if ($id <> "") {
         <tr><input type="submit" size="3" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false} else {window.Edittrans.submit();};" name="apply" value="Potongan Gaji" onclick="PageRefresh();"/>&nbsp;<input type="submit" size="3" onClick="if(!confirm(\'Adakah ada pasti untuk Kemaskini file ini?\')) {return false} else {window.Edittrans.submit();};" name="apply_pat" value="Akaun Tabungan" onclick="PageRefresh();"/>
             </td>
             <tr>
-			<td class="textFont" width="180">Nombor Anggota</td>
+			<td class="textFont" width="180">Nomor Anggota</td>
 			<td class="Label">:&nbsp;' . $userID . '</td>
         </tr>      
         
@@ -318,7 +318,7 @@ if ($id <> "") {
         </tr>
         <tr>
             <td class="textFont" width="150">No Vaucher</td>
-            <td class="Label">:&nbsp;' . $rnoBaucer . '</td>
+            <td class="Label">:&nbsp;' . $rnoVoucher . '</td>
         </tr>
         <tr>
         <td class="textFont" width="150">tarikh Vaucher</td>

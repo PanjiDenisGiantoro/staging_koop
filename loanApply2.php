@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("forms.php");
 
@@ -31,7 +31,7 @@ if (get_session("Cookie_groupID") == 0) {
 	//if($rsC->RowCount() == 0) 
 	$sActionFileName = "?vw=loanInProcess&mn=$mn";
 }
-$title     		= "Permohonan Pembiayaan";
+$title     		= "Pengajuan Pembiayaan";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -67,7 +67,7 @@ if ($Semak <> "") {
 }
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kad Pengenalan";
+$FormLabel[$a]   	= "* Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -78,7 +78,7 @@ $FormLength[$a]  	= "12";
 
 /*
 $a = $a + 1;
-$FormLabel[$a]   	= "No KP Lama";
+$FormLabel[$a]   	= "No KTP Lama";
 $FormElement[$a] 	= "oldIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
