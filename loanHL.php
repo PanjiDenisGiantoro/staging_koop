@@ -198,7 +198,7 @@ if ($filter == 3) print '&nbsp;&nbsp;Cetak dokumen proses :&nbsp;<input type="bu
 if ($filter	== 4) print 'Ubah ke proses kembali &nbsp;<input type="button" class="but" value="Ubah"	onClick="ITRActionButtonUbah();">';
 print '</td><td	align="right" class="textFont">
 		<!--input 4ype="button" class="but" value="Status" onClick="ITBActionButtonStatus();"-->
-		Paparan	<SELECT	name="pg" class="Data" onchange="doListAll();">';
+		Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 if ($pg	== 5)	print '<option value="5" selected>5</option>';
 else print '<option	value="5">5</option>';
 if ($pg	== 10)	print '<option value="10" selected>10</option>';
@@ -331,7 +331,7 @@ if ($GetLoan->RowCount() <>	0) {
 		} else {
 			$numPage = $TotalPage +	1;
 		}
-		print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+		print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print	'<br />';
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -345,7 +345,7 @@ if ($GetLoan->RowCount() <>	0) {
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetLoan->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetLoan->RowCount()	. '</b></td>
 		</tr>';
 } else {
 

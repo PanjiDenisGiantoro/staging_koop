@@ -404,7 +404,7 @@ $entries = array(
 	print '</div>
 					<div class="col-md-4 pull-right" style="align:right !important;">
 					<!--input 4ype="button" class="but" value="Status" onClick="ITBActionButtonStatus();"-->
-					Paparan	<SELECT	name="pg" class="form-select-xs" onchange="doListAll();">';
+					Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 	if ($pg	== 5)	print '<option value="5" selected>5</option>';
 	else print '<option	value="5">5</option>';
 	if ($pg	== 10)	print '<option value="10" selected>10</option>';
@@ -430,7 +430,7 @@ $entries = array(
 	if ($pg	== 1000) print '<option	value="1000" selected>1000</option>';
 	else print '<option	value="1000">1000</option>';
 
-	print '				</select> setiap	mukasurat.
+	print '				</select>setiap halaman.
 					</div>
 				</div>';
 
@@ -454,11 +454,11 @@ $entries = array(
 						<td	nowrap>Nama Pembiayaan</td>
 						<td	nowrap>Nomor - Nama Anggota</td>
 						<td	nowrap align="right">Jumlah (RM)</td>
-						<td	nowrap align="center">Tempoh (Bulan)</td>
+						<td	nowrap align="center">Jangka Waktu (Bulan)</td>
 						<td	nowrap align="right">Bayaran Bulanan (RM)</td>
-						<td	nowrap align="center">Tarikh ';
+						<td	nowrap align="center">Tanggal ';
 		if ($filter == "ALL" || $filter == "0") {
-			print 'Memohon';
+			print 'Pengajuan';
 		} else {
 			// Dynamic lookup for status name
 			$statusName = 'Status Tidak Dikenali'; // Default in case status not found
@@ -719,7 +719,7 @@ $entries = array(
 			} else {
 				$numPage = $TotalPage +	1;
 			}
-			print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+			print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				if (is_int($i / 10)) print	'<br />';
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -733,7 +733,7 @@ $entries = array(
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetLoan->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetLoan->RowCount()	. '</b></td>
 		</tr>';
 	} else {
 		if ($q == "") {

@@ -87,7 +87,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "20";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kadar Keuntungan(%)";
+$FormLabel[$a]   	= "* Kartuar Keuntungan(%)";
 $FormElement[$a] 	= "loanCajtexr";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -97,7 +97,7 @@ $FormSize[$a]    	= "5";
 $FormLength[$a]  	= "4";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Tempoh Bayaran";
+$FormLabel[$a]   	= "* Jangka Waktu Pembayaran";
 $FormElement[$a] 	= "loanPeriod";
 //$FormType[$a]	  	= "hiddentext";
 $FormType[$a]	  	= "text";
@@ -119,7 +119,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "13";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Maklumat Perkiraan Pembiayaan";
+$FormLabel[$a]   	= "Informasi Perkiraan Pembiayaan";
 $FormElement[$a] 	= "Kira";
 $FormType[$a]	  	= "submit";
 $FormData[$a]   	= "";
@@ -198,11 +198,11 @@ if ($Kira <> "") {
 			$monthlyPymt	= $monthlyPay + $interestPay;
 		} else {
 			$Kira = "";
-			print '<script>alert("Kod pembiayaan : ' . $loanCode . ' tidak wujud...!");</script>';
+			print '<script>alert("Kode pembiayaan : ' . $loanCode . ' tidak Ada...!");</script>';
 		}
 	} else {
 		$Kira = "";
-		print '<script>alert("Sila masukkan semua butiran pembiayaan");</script>';
+		print '<script>alert("Silakan masukan semua detail pembiayaan");</script>';
 	}
 	//--- END   : Check loan ID ---	
 	//--- BEGIN : Check member ID ---
@@ -216,11 +216,11 @@ if ($Kira <> "") {
 				$unitOnHand = dlookup("userdetails", "totalShare", "userID=" . tosql($userID, "Text"));
 			} else {
 				$Kira = "";
-				print '<script>alert("Nomor Anggota : ' . $memberID . ' tidak wujud/sah...!");</script>';
+				print '<script>alert("Nomor Anggota : ' . $memberID . ' tidak Ada/Sah...!");</script>';
 			}
 		} else {
 			$Kira = "";
-			print '<script>alert("Sila masukkan no anggota");</script>';
+			print '<script>alert("Silakan masukkan no anggota");</script>';
 		}
 	}
 	//--- END   : Check member ID ---

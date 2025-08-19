@@ -103,7 +103,7 @@ $FormSize[$a]    	= "8";
 $FormLength[$a]  	= "20";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kadar Keuntungan(%)";
+$FormLabel[$a]   	= "* Kartuar Keuntungan(%)";
 $FormElement[$a] 	= "loanCajtexr";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -114,7 +114,7 @@ $FormLength[$a]  	= "4";
 
 if ((isset($_POST['Semak']) && $_POST['Semak'] !== "") || (isset($_POST['Kira']) && $_POST['Kira'] !== "")) {
 	$a = $a + 1;
-	$FormLabel[$a]   	= "* Tempoh Bayaran (Tahun)";
+	$FormLabel[$a]   	= "* Jangka Waktu Pembayaran (Tahun)";
 	$FormElement[$a] 	= "loanPeriod";
 	$FormType[$a]	  	= "&nbsp;";
 	$FormData[$a]   	= "";
@@ -165,7 +165,7 @@ if ((isset($_POST['Semak']) && $_POST['Semak'] !== "") || (isset($_POST['Kira'])
 	$FormLength[$a]  	= "1";
 } else {
 	$a = $a + 1;
-	$FormLabel[$a]   	= "* Tempoh Bayaran (Tahun)";
+	$FormLabel[$a]   	= "* Jangka Waktu Pembayaran (Tahun)";
 	$FormElement[$a] 	= "loanPeriod";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('1 TAHUN', '2 TAHUN', '3 TAHUN', '4 TAHUN', '5 TAHUN', '6 TAHUN', '7 TAHUN', '8 TAHUN', '9 TAHUN', '10 TAHUN');
@@ -207,7 +207,7 @@ if ((isset($_POST['Semak']) && $_POST['Semak'] !== "") || (isset($_POST['Kira'])
 
 if ($Semak == "" && $Kira == "") {
 	$a = $a + 1;
-	$FormLabel[$a]    = "Maklumat Perkiraan Pembiayaan";
+	$FormLabel[$a]    = "Informasi Perkiraan Pembiayaan";
 	$FormElement[$a]  = "Semak";
 	$FormType[$a]     = "submit";
 	$FormData[$a]     = "";
@@ -267,12 +267,12 @@ if ($Semak <> "") {
 			$monthlyPymt	= $monthlyPay + $interestPay;
 		} else {
 			$Semak = "";
-			print '<script>alert("Kod pembiayaan : ' . $loanCode . ' tidak wujud...!");</script>';
+			print '<script>alert("Kode pembiayaan : ' . $loanCode . ' tidak Ada...!");</script>';
 		}
 	} else {
 		$Semak = "";
-		//print '<script>alert("Sila masukkan semua butiran pembiayaan");</script>';
-		alert("Sila masukkan semua butiran pembiayaan");
+		//print '<script>alert("Silakan masukan semua detail pembiayaan");</script>';
+		alert("Silakan masukan semua detail pembiayaan");
 	}
 	//--- END   : Check loan ID ---	
 	//--- BEGIN : Check member ID ---
@@ -286,11 +286,11 @@ if ($Semak <> "") {
 				$unitOnHand = dlookup("userdetails", "totalShare", "userID=" . tosql($userID, "Text"));
 			} else {
 				$Semak = "";
-				print '<script>alert("No Anggota : ' . $memberID . ' tidak wujud/sah...!");</script>';
+				print '<script>alert("No Anggota : ' . $memberID . ' tidak Ada/Sah...!");</script>';
 			}
 		} else {
 			$Semak = "";
-			print '<script>alert("Sila masukkan no anggota");</script>';
+			print '<script>alert("Silakan masukkan no anggota");</script>';
 		}
 	}
 	//--- END   : Check member ID ---
@@ -324,7 +324,7 @@ if ($SubmitForm <> "") {
 	$GetLoan = &$conn->Execute($sSQL);
 	if ($GetLoan->RowCount() <> 0) {
 		print '<script>
-					alert ("Terdapat permohonan pembiayaan belum siap diproses untuk anggota ini!");
+					alert ("Terdapat permohonan pembiayaan yang belum selesai diproses untuk anggota ini!");
 					//window.location.href = "loanView.php";
 					window.location.href = "?vw=loan&mn=' . $mn . '";
 				</script>';
@@ -363,7 +363,7 @@ if ($Semak <> "") {
 	$totalA = $GettotA->fields(amt);
 	$netPay = $totalA; // total jumlah pendapatan (gaji kasar)
 	if (!$totalA) {
-		$layakSDesc = 'Pastikan maklumat pendapatan dan perbelanjaan anggota dilengkapkan !<br><br>';
+		$layakSDesc = 'Pastikan informasi pendapatan dan pengeluaran anggota dilengkapi !<br><br>';
 		$layakS = "N";
 		$Nisbahdsr = 100;
 	} else {
@@ -410,35 +410,35 @@ if ($Semak <> "") {
 		}
 	}
 	if (($loanAmt > $loanAmtMax) or ($loanPeriod > $loanPeriodMax)) { //amik lepas KIRA
-		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RM)  / TEMPOH BAYARAN(BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RM) / TEMPOH PEMBIAYAAN (BULAN) telah yang ditetapkan.<br><br>';
+		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RM) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RM) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
 		$layakS = "N";
 	}
 
 	if ($houseLoan == 1) { // 75%
 
 		if ($loanAmt >= 100000) {
-			$layakCCRIS = 'SILA KEMUKAKAN LAPORAN CCRIS DARIPADA BANK NEGARA UNTUK MEMUDAHKAH PROSES PERMOHONAN';
+			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERMOHONAN';
 		}
 
 
 		if ($monthlyPymt > $LayakPay75) {
-			$layakSDesc = 'Tidak Layak Memohon. Nisbah DSR melebihi 75%. / (SILA KEMASKINI MAKLUMAT PEMBIAYAAN ATAU GAJI TERKINI) Jumlah Maximum Bayaran Balik Bulanan yang dibenarkan RM ' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {
 
-			$layakSDesc = 'Layak Memohon (Dalam Proses) dan DSR ' . number_format($Nisbahdsr, 2) . '% ' . $layakCCRIS . '';
+			$layakSDesc = 'Layak Mengajukan Permohonan (Dalam Proses) dan DSR' . number_format($Nisbahdsr, 2) . '% ' . $layakCCRIS . '';
 			$layakS = "Y";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		}
 	} else {
 
 		if ($monthlyPymt > $LayakPay50) {
-			$layakSDesc = 'Tidak Layak Memohon Nisbah. DSR melebihi 50%. /  (SILA KEMASKINI MAKLUMAT PEMBIAYAAN ATAU GAJI TERKINI)Jumlah Maximum Bayaran Balik Bulanan yang dibenarkan RM ' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {
-			$layakSDesc = 'Layak Memohon (Dalam Proses)' . $layakCCRIS . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%';
+			$layakSDesc = 'Layak Mengajukan (Dalam Proses)' . $layakCCRIS . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%';
 			$layakS = "Y";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		}
@@ -453,16 +453,16 @@ if ($Kira <> "") {
 		$layakSDesc = 'Jumlah Permohonan melebihi had maksimum yang ditetapkan. Jumlah maksimum yang layak dipohon adalah tidak melebihi RM ' . number_format($loanAmt, 2) . '<br><br>';
 		$layakS = "N";
 	} else {
-		$layakSDesc = 'Layak Memohon (Dalam Proses) dan DSR ' . $Nisbahdsr . '%';
+		$layakSDesc = 'Layak Mengajukan Permohonan (Dalam Proses) dan DSR' . $Nisbahdsr . '%';
 		$layakS = "Y";
 	}
 }
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header">MAKLUMAT ANGGOTA</div>';
+	if ($i == 1) print '<div class="card-header">INFORMASI ANGGOTA</div>';
 	if ($i == 3) {
-		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PERMOHONAN PEMBIAYAAN</div></td></tr>';
+		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PENGAJUAN PEMBIAYAAN</div></td></tr>';
 	}
 	print '<tr valign=top><td class=Data align=right width="250">' . $FormLabel[$i] . '</td>';
 	if (in_array($FormElement[$i], $strErrMsg))
@@ -711,7 +711,7 @@ if ($pass) {
 		if ($loanGuarantor == 1) {
 			print '<script>';
 			if (get_session("Cookie_groupID") == 0) {
-				print '	alert ("Permohonan pembiayaan telah didaftarkan ke dalam sistem. Pembiayaan yang dipohon memerlukan penjamin. Sila isikan borang penjamin.");';
+				print '	alert ("Permohonan pembiayaan telah didaftarkan ke dalam sistem. Pembiayaan yang diajukan memerlukan penjamin. Silakan isi formulir penjamin.");';
 			}
 			print 	'window.location.href = "' . $sActionFileName . '";</script>';
 		} else {
@@ -732,7 +732,7 @@ if ($Kira <> "") {
 if ($Kira <> "") {
 	if ($layakS == 'Y') {
 		print '
-		<tr><td class="DataB" align="right" valign="top">Proses Permohonan&nbsp;</td>
+		<tr><td class="DataB" align="right" valign="top">Proses Pengajuan&nbsp;</td>
 			<td><input type="Submit" name="SubmitForm" class="btn btn-primary" value="Mohon Pembiayaan">&nbsp;
 			</td>
 		</tr>';

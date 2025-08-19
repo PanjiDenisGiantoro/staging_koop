@@ -83,7 +83,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap>Nombor Rujukan Pembiayaan</td>
 						<td nowrap align="right">Jum. Pembiayaan (RM)</td>			
 						<td nowrap align="right">Ansuran (RM)</td>		
-						<td nowrap align="center">Tempoh (Bulan)</td>
+						<td nowrap align="center">Jangka Waktu (Bulan)</td>
 						<td nowrap align="center">Jadual Bayaran</td>
 						<td nowrap align="center">Surat Tawaran</td>
 						<td nowrap align="center">Tarikh Kelulusan</td>
