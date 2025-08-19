@@ -75,7 +75,7 @@ $FormLength[$a]  	= "12";
 */
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kod Pembiayaan";
+$FormLabel[$a]   	= "* Kode Pembiayaan";
 $FormElement[$a] 	= "loanCode";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "displayonly";

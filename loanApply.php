@@ -62,7 +62,7 @@ $FormSize[$a]    	= "12";
 $FormLength[$a]  	= "12";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kod Pembiayaan";
+$FormLabel[$a]   	= "* Kode Pembiayaan";
 $FormElement[$a] 	= "loanCode";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "displayonly";
@@ -76,7 +76,7 @@ $FormSize[$a]    	= "8";
 $FormLength[$a]  	= "20";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kartuar Keuntungan(%)";
+$FormLabel[$a]   	= "* Tingkat Keuntungan (%)";
 $FormElement[$a] 	= "loanCajtexr";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -110,7 +110,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "13";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Ada Pembiayaan Rumah?<br/> (Kiraan DSR)";
+$FormLabel[$a]   	= "* Ada Pembiayaan Rumah?<br/> (Perhitungan DSR)";
 $FormElement[$a] 	= "houseLoan";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= array('TIADA', 'ADA');
