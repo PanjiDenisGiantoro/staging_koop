@@ -6,7 +6,7 @@
  *          Date 		: 	
  *********************************************************************************/
 include("header.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("koperasiQry.php");
 include("forms.php");
 
@@ -18,7 +18,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName		= "?vw=penjamin&mn=906&pk=" . $pk;
 $sActionFileName = "?vw=penjamin&mn=906&pk=" . $pk;
-$title     		= "Maklumat Penjamin";
+$title     		= "Informasi Penjamin";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -35,7 +35,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Kad Pengenalan";
+$FormLabel[$a]   	= "Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -65,7 +65,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -85,7 +85,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 $FormElement[$a] 	= "text";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -417,7 +417,7 @@ if ($GetLoan->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm">
 					<tr class="table-primary">
 						<td nowrap height="20">&nbsp;</td>
-						<td nowrap><b>Nombor Anggota</b></td>
+						<td nowrap><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama</b></td>
 						<td nowrap align="center"><b>Nombor Bond</b></td>						
 						<td nowrap align="right"><b>Yuran/Syer terkumpul</b></td>
@@ -537,7 +537,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -547,7 +547,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -561,7 +561,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -574,7 +574,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          //alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          //alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          //if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -588,7 +588,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -599,7 +599,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "?vw=memberStatus&mn=906&pk=" + pk;
 			}

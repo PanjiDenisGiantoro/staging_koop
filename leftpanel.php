@@ -143,11 +143,11 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu906 . '">';
         TitleBarBlue("PEMBIAYAAN", 'mdi mdi-book-clock-outline');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="false">';
-        MenuLink("loan.php", "Senarai Permohonan", 906, @$_REQUEST['vw']);
-        MenuLink("penjamin.php", "Senarai Penjamin", 906, @$_REQUEST['vw']);
+        MenuLink("loan.php", "Daftar Pengajuan", 906, @$_REQUEST['vw']);
+        MenuLink("penjamin.php", "Daftar Penjamin", 906, @$_REQUEST['vw']);
         MenuLink("loanTable.php", "Diluluskan", 906, @$_REQUEST['vw']);
         MenuLink("loanTableS.php", "Selesai", 906, @$_REQUEST['vw']);
-        MenuLink("memberStmtP.php", "Penyata", 906, @$_REQUEST['vw']);
+        MenuLink("memberStmtP.php", "Pernyataan", 906, @$_REQUEST['vw']);
         echo '<li>';
         TitleBarBlue("Laporan", 'mdi mdi-file');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="true">';
