@@ -18,7 +18,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName		= "?vw=penjamin&mn=906&pk=" . $pk;
 $sActionFileName = "?vw=penjamin&mn=906&pk=" . $pk;
-$title     		= "Informasi Penjamin";
+$title     		= "Maklumat Penjamin";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress

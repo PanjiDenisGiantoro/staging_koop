@@ -179,7 +179,7 @@ print '		</select>
 						<!--td nowrap colspan="12" height="20"><b>JUMLAH POTONGAN RM : ' . $SUMALL . '</b></td-->
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap>Nombor - Nama Anggota</td>
+						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Nomor Karyawan</td>
 						<td nowrap>Cabang/Zona</td>
 						<td nowrap align="center">Nombor Akaun Tabungan</td>

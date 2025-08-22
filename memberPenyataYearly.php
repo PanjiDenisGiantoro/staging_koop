@@ -178,7 +178,7 @@ $sqlLoan = "SELECT userID, loanType, loanID,loanNo, loanAmt, (loanAmt * kadar_u/
 $rsLoan = $conn->Execute($sqlLoan);
 while (!$rsLoan->EOF) {
 	$i = 0;
-	if (dlookup("loandocs", "rnoBaucer", "loanID=" . $rsLoan->fields(loanID)) <> '') {
+	if (dlookup("loandocs", "rnoVoucher", "loanID=" . $rsLoan->fields(loanID)) <> '') {
 		$id = $rsLoan->fields(userID);
 		$loanType = $rsLoan->fields(loanType);
 		$loanNo = $rsLoan->fields(loanNo);    //add loan No ref style

@@ -188,7 +188,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap>Nombor - Nama Anggota</td>
+						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">Sisa Utang Pembiayaan (RM)</td>

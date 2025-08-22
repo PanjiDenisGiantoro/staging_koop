@@ -105,8 +105,8 @@ print '	</td>
 		<td>
 			<table width="100%">
 				<!--tr>
-					<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>					
-					<td align="right" class="textFont">Paparan <SELECT name="pg" class="Data" onchange="doListAll();">';
+					<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>					
+					<td align="right" class="textFont">Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 if ($pg == 5)	print '<option value="5" selected>5</option>';
 else print '<option value="5">5</option>';
 if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -121,7 +121,7 @@ if ($pg == 50)	print '<option value="50" selected>50</option>';
 else print '<option value="50">50</option>';
 if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
-print '				</select>setiap mukasurat.
+print '				</select>setiap halaman.
 					</td>
 				</tr-->
 			</table>

@@ -173,7 +173,7 @@ if (get_session("Cookie_groupID") > 0) {
 					<tr>
 						<td  class="textFont">&nbsp;</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="form-select-sm" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-sm" onchange="doListAll();">';
 			if ($pg == 5)	print '<option value="5" selected>5</option>';
 			else print '<option value="5">5</option>';
 			if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -215,7 +215,7 @@ if (get_session("Cookie_groupID") > 0) {
 					</tr>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap>Nombor - Nama Anggota</td>
+						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">Yuran</td>

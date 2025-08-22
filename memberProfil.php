@@ -182,7 +182,7 @@ print '	</td>
 //if ($filter == 3) {
 if ($filter == 3) {
 	print
-		'<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+		'<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">';
 } else {
 	print

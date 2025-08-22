@@ -84,7 +84,7 @@ if ($GetLoan->RowCount() <> 0) {
 					<tr>
 						<td  class="textFont">&nbsp;</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="Data" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -99,7 +99,7 @@ if ($GetLoan->RowCount() <> 0) {
 	else print '<option value="50">50</option>';
 	if ($pg == 100)	print '<option value="100" selected>100</option>';
 	else print '<option value="100">100</option>';
-	print '				</select>setiap mukasurat.
+	print '				</select>setiap halaman.
 						</td>
 					</tr>
 				</table>
@@ -128,7 +128,7 @@ if ($GetLoan->RowCount() <> 0) {
 		if ($status == 2) $colorStatus = "redText";
 		$startPymtDate = dlookup("loandocs", "rcreatedDate", "loanID=" . $GetLoan->fields(loanID));
 		if ($startPymtDate) $startPymtDate = toDate("d/m/Y", $startPymtDate);
-		else $startPymtDate = "Proses Baucer";
+		else $startPymtDate = "Proses Voucher";
 		print ' <tr>
 						<td class="Data" align="right" height="20">' . $bil . '&nbsp;</td>
 						<td class="Data">&nbsp;' . $GetLoan->fields(loanNo) . '</td>
@@ -138,7 +138,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td class="Data" align="right">' . $GetLoan->fields('loanAmt') . '&nbsp;</td>
 						<td class="Data" align="center">&nbsp;' . $GetLoan->fields('loanPeriod') . '</td>
 						<td class="Data" align="center">&nbsp;';
-		if ($startPymtDate <> "Proses Baucer") {
+		if ($startPymtDate <> "Proses Voucher") {
 			print '<input type=button value="Lihat Jadual" class="but" onClick="ITRActionButtonClick(\'' . $GetLoan->fields(loanID) . '\')";>';
 		}
 		print '		</td>

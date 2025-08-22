@@ -162,7 +162,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<input type="button" class="but" value="Generate PGB" onclick="window.open(\'PreviewPGBAS.php?dept=' . $dept . '&yy=' . $yy . '&mm=' . $mm . '\')">&nbsp;&nbsp;&nbsp;
 						<input type="button" class="but" value="Print" onclick="window.open(\'PreviewPGBAS.php\',\'sel\',\'top=100,left=100,width=600,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="Data" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 			if ($pg == 5)	print '<option value="5" selected>5</option>';
 			else print '<option value="5">5</option>';
 			if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -187,7 +187,7 @@ if (get_session("Cookie_groupID") > 0) {
 			else print '<option value="500">500</option>';
 			if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 			else print '<option value="1000">1000</option>';
-			print '				</select>setiap mukasurat.
+			print '				</select>setiap halaman.
 						</td>
 					</tr>
 				</table>

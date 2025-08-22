@@ -166,7 +166,7 @@ print '
   <tr class="font4 tableHeader1">
     <th>Bil</th>
     <th align="left">Perkara</th>
-    <th align="right">Amaun (RM)</th>
+    <th align="right">Jumlah (Rp)</th>
   </tr>
   
   <tr class="font5">

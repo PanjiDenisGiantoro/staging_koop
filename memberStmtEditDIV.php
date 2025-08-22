@@ -158,7 +158,7 @@ print '		</select>
 						<td  class="textFont">&nbsp;</td>
 						<td align="right" class="textFont">
 
-							Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 			if ($pg == 5)	print '<option value="5" selected>5</option>';
 			else print '<option value="5">5</option>';
 			if ($pg == 10)	print '<option value="10" selected>10</option>';

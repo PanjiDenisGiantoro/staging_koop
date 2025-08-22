@@ -393,7 +393,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "13";
 
 $a++;
-$FormLabel[$a]   	= "Tempoh Bayaran";
+$FormLabel[$a]   	= "Jangka Waktu Pembayaran";
 $FormElement[$a] 	= "loanPeriod";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

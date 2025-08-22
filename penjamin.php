@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = '?vw=penjamin&mn=906';
 $sFileRef  = '?vw=penjaminDetail&mn=906';
-$title     = "Informasi penjamin";
+$title     = "Maklumat penjamin";
 
 if ($dept == "BSR") {
 	$filter = 4;
