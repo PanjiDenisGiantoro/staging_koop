@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -31,7 +31,7 @@ print $strTemp;
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>Nombor Jurnal</td>
+				<td>Nomor Jurnal</td>
 				<td valign="top">:</td>
 				<td><input name="dateTxt" type="text" size="20" maxlength="50" /></td>
 			</tr>

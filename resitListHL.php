@@ -17,7 +17,7 @@ if (!isset($filter))	$filter = "0";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -71,9 +71,9 @@ if ($GetDeduct->RowCount() <> 0) {
 }
 
 //if ($code <> "ALL")  {
-//$GetReceipts = ctBaucersactionCode($q,$yymm,$filter,$code);
+//$GetReceipts = ctVouchersactionCode($q,$yymm,$filter,$code);
 //} else {
-//	$GetReceipts = ctBaucersaction($q,$yymm,$filter);
+//	$GetReceipts = ctVouchersaction($q,$yymm,$filter);
 //}
 
 //if ($carian1 = "anggota") $getQ = " AND bayar_nama = '".$q."'"; else $getQ = '';
@@ -95,7 +95,7 @@ $GetReceipts->Move($StartRec - 1);
 
 $TotalRec = $GetReceipts->RowCount();
 $TotalPage =  ($TotalRec / $pg);
-$jenisList_cari = array('Nombor Anggota', 'Nama');
+$jenisList_cari = array('Nomor Anggota', 'Nama');
 $jenisVal_cari = array(1, 2);
 $jenisList = array('Pembiayaan');
 $jenisVal = array(2);
@@ -129,10 +129,10 @@ print '		</select>
                 <input type="submit" name="action1" value="Capai" class="btn btn-sm btn-secondary">
 </div>
 <br/>
-<div clas="row">Carian Melalui 
+<div clas="row">Cari Berdasarkan 
         <select name="by" class="form-select-sm">';
-if ($by == 2) print '<option value="2" selected>Nombor Anggota</option>';
-else print '<option value="2">Nombor Anggota</option>';
+if ($by == 2) print '<option value="2" selected>Nomor Anggota</option>';
+else print '<option value="2">Nomor Anggota</option>';
 if ($by == 1) print '<option value="1" selected>Nama Anggota</option>';
 else print '<option value="1">Nama Anggota</option>';
 
@@ -182,9 +182,9 @@ print '		</select>
 echo ' 
     <tr valign="top" class="Header">
 	   	<td align="left" >
-	Carian Melalui:
+	Cari Berdasarkan:
 				<select name="by" class="Data">'; 
-if ($by == 2)	print '<option value="2" selected>Nombor Anggota</option>'; 	else print '<option value="2">Nombor Anggota</option>';				
+if ($by == 2)	print '<option value="2" selected>Nomor Anggota</option>'; 	else print '<option value="2">Nomor Anggota</option>';				
 if ($by == 1)	print '<option value="1" selected>Nama Anggota</option>'; 	else print '<option value="1">Nama Anggota</option>';				
 				
 print '		</select>
@@ -251,7 +251,7 @@ if ($GetReceipts->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nombor Resit</td>
 						<td nowrap align="center">Tarikh</td>
-						<td nowrap align="center">Nombor Anggota</td>
+						<td nowrap align="center">Nomor Anggota</td>
 						<td nowrap>Nama</td>
 						<td nowrap>Catatan</td>
 					</tr>';
@@ -313,7 +313,7 @@ if ($GetReceipts->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -327,15 +327,15 @@ if ($GetReceipts->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Baucer : <b>' . $GetReceipts->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Voucher : <b>' . $GetReceipts->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -360,7 +360,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -383,7 +383,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -394,7 +394,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

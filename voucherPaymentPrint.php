@@ -8,7 +8,7 @@ session_start();
 include("common.php");
 
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";
@@ -176,7 +176,7 @@ print '
         <tr><td>EMEL: ' . $email . '</td></tr>
         </table>
     <table class="resit-statement">
-        <tr class="tr-space"><td>Baucer Bayaran Anggota</td></tr>
+        <tr class="tr-space"><td>Voucher Bayaran Anggota</td></tr>
         <tr class="tr-kod-rujukan"><td>' . $no_baucer . '</td></tr>
     </table>
     <!---------Tarikh---------->

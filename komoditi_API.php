@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") == 0) {
 
 $sFileName		= "?vw=komoditi_API&mn=907";
 $sActionFileName = "komoditiAPI.php?userID=" . $no_anggota . "&amount=" . $amt . "&no_sijil=" . $no_sijil . "&loanid=" . $loanid . "";
-$title     		= "Kemasukan Sijil Komoditi";
+$title     		= "Perbarui Sertifikat Komoditi";
 
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
@@ -44,7 +44,7 @@ $strErrMsg = array();
 // }
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "no_anggota";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";

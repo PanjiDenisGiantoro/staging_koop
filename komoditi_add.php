@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -18,7 +18,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName		= "?vw=komoditi_add&mn=907";
 $sActionFileName = "?vw=komoditi_list&mn=907";
-$title     		= "Kemasukan Sijil Komoditi";
+$title     		= "Perbarui Sertifikat Komoditi";
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();
@@ -45,7 +45,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "no_anggota";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -246,7 +246,7 @@ if ($SubmitForm <> "") {
 	print '<div class="mb-3 mt-3 row">
 <label class="col-md-2 col-form-label"></label>
 <div class="col-md-8">
-	<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Hantar">
+	<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Kirim">
 </div>
 </div>';
 

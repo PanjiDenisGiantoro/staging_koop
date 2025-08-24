@@ -8,7 +8,7 @@ session_start();
 include("common.php");
 
 include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -106,12 +106,12 @@ print '
     <!---------Doc/Date-------->
     <table class="stylish-date">
         <tr>
-            <td><b>No. Baucer Anggota</b></td>
+            <td><b>No. Voucher Anggota</b></td>
             <td>&nbsp;:&nbsp;</td>
             <td>'.$no_baucer.'</td>
         </tr>
     <tr>
-        <td><b>Tarikh Baucer</b></td>
+        <td><b>Tarikh Voucher</b></td>
         <td>&nbsp;:&nbsp;</td>
         <td>' . $tarikh_baucer . '</td>
     </tr>

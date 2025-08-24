@@ -6,7 +6,7 @@
 *********************************************************************************/
 include("header.php");		
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Kuala_Lumpur");	
+date_default_timezone_set("Asia/Jakarta");	
 include ("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR
 }
 $sFileName		= "?vw=komoditi_edit&mn=907";
 $sActionFileName= "?vw=komoditi_list&mn=907";
-$title     		= "Kemaskini Maklumat Sijil Komoditi";
+$title     		= "Perbarui Informasi Sertifikat Komoditi";
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = Array();

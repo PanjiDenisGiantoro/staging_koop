@@ -16,7 +16,7 @@ if (!isset($filter))    $filter = "0";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -26,7 +26,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = '?vw=vouchersList&mn=908';
 $sFileRef  = '?vw=baucer&mn=908';
-$title     =  "Baucer";
+$title     =  "Voucher";
 
 $IDName = get_session("Cookie_userName");
 //--- Begin : deletion based on checked box -------------------------------------------------------
@@ -48,16 +48,16 @@ if (isset($_GET['action']) && $_GET['action'] == "delete" && isset($_GET['pk']))
     $sSQL = "DELETE FROM transactionacc WHERE " . $sWhere;
     $rs = &$conn->Execute($sSQL);
 
-    $strActivity = $_POST['Submit'] . ' Baucer Keanggotaan Dihapuskan - ' . $docNo;
+    $strActivity = $_POST['Submit'] . ' Voucher Keanggotaan Dihapuskan - ' . $docNo;
     activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 }
 //--- End   : deletion based on checked box -------------------------------------------------------
 
 
 /*if ($code <> "ALL")  {
-	$GetBaucers = ctBaucersactionCode($q,$yymm,$filter,$code);
+	$GetVouchers = ctVouchersactionCode($q,$yymm,$filter,$code);
 } else {
-	$GetBaucers = ctBaucersaction($q,$yymm,$filter);
+	$GetVouchers = ctVouchersaction($q,$yymm,$filter);
 }*/
 //$conn->debug =1;
 if ($q <> "") {
@@ -74,10 +74,10 @@ $sSQL .= $getQ . " order by no_baucer desc";
 
 //WHERE month( tarikh_baucer ) =" .tosql($mm,"Text")."
 //AND year( tarikh_baucer ) =" .tosql($yy,"Text").$getQ." order by no_baucer desc";
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
 
-$TotalRec = $GetBaucers->RowCount();
+$TotalRec = $GetVouchers->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
 $sqlYears = "SELECT DISTINCT YEAR(tarikh_baucer) AS year FROM vauchers WHERE tarikh_baucer IS NOT NULL AND tarikh_baucer != '' AND tarikh_baucer != 0 ORDER BY year ASC";
@@ -120,12 +120,12 @@ print '		</select>
 	</tr>
     <tr valign="top" class="Header">
 	   	<td align="left" >
-	Carian Melalui
+	Cari Berdasarkan
 				<select name="by" class="form-select-sm">';
-if ($by == 1)    print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
-if ($by == 2)    print '<option value="2" selected>Nombor Baucer</option>';
-else print '<option value="2">Nombor Baucer</option>';
+if ($by == 1)    print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
+if ($by == 2)    print '<option value="2" selected>Nomor Voucher</option>';
+else print '<option value="2">Nomor Voucher</option>';
 
 print '		</select>
 				<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -173,7 +173,7 @@ print '</select> &nbsp;&nbsp;<input type="button" class="btn btn-sm btn-primary"
 print ' <!--input type="button" class="but" value="Status" onClick="ITRActionButtonStatus();"-->
 		</td>
 	</tr>';
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
     $bil = $StartRec;
     $cnt = 1;
     print '
@@ -183,7 +183,7 @@ if ($GetBaucers->RowCount() <> 0) {
 					<tr>
 						<!--<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td-->
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
     if ($pg == 5)    print '<option value="5" selected>5</option>';
     else print '<option value="5">5</option>';
     if ($pg == 10)    print '<option value="10" selected>10</option>';
@@ -210,38 +210,38 @@ if ($GetBaucers->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap>Nombor Baucer</td>
+						<td nowrap>Nomor Voucher</td>
 						<td nowrap align="center">Tarikh</td>
 						<td nowrap width="30%">Catatan</td>
-						<td nowrap align="center">Nombor Anggota</td>
+						<td nowrap align="center">Nomor Anggota</td>
 						<td nowrap>Nama</td>
 						<td nowrap align="center">&nbsp;</td>
 					</tr>';
 
     $DRTotal = 0;
     $CRTotal = 0;
-    while (!$GetBaucers->EOF && $cnt <= $pg) {
+    while (!$GetVouchers->EOF && $cnt <= $pg) {
 
         // check has transaction or not
         $noTran     = false;
-        $sql2         = "SELECT * FROM transaction WHERE docNo = '" . $GetBaucers->fields('no_baucer') . "' ORDER BY ID";
+        $sql2         = "SELECT * FROM transaction WHERE docNo = '" . $GetVouchers->fields('no_baucer') . "' ORDER BY ID";
         $rsDetail     = $conn->Execute($sql2);
         if ($rsDetail->RowCount() < 1) $noTran = true;
 
         $jumlah         = 0;
-        // $sql 		= "SELECT sum( pymtAmt ) AS tot FROM `transaction` WHERE docNo = '".$GetBaucers->fields(no_baucer)."'";
+        // $sql 		= "SELECT sum( pymtAmt ) AS tot FROM `transaction` WHERE docNo = '".$GetVouchers->fields(no_baucer)."'";
         // $rsSum 		= $conn->Execute($sql);
         // $jumlah 		= $rsSum->fields(tot);
         //-----------------
-        // $sqlname 	= "select a.name from users a, userdetails b where a.userID = b.userID and b.memberID = '". $GetBaucers->fields(no_anggota) ."'";
+        // $sqlname 	= "select a.name from users a, userdetails b where a.userID = b.userID and b.memberID = '". $GetVouchers->fields(no_anggota) ."'";
         // $GetName 	= &$conn->Execute($sqlname);
-        $nama             = $GetBaucers->fields('name');
-        $tarikh_baucer     = toDate("d/m/y", $GetBaucers->fields('tarikh_baucer'));
-        $catatan         = $GetBaucers->fields('keterangan');
-        $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentPrint.php?id=' . $GetBaucers->fields('no_baucer') . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetBaucers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
-        $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentView.php?id=' . $GetBaucers->fields('no_baucer') . '\')"></i>';
-        $hapus          = '<a href="' . $sFileName . '&action=delete&pk=' . $GetBaucers->fields['no_baucer'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus resit ini?\')" title="Hapus"><i class="fa fa-trash-alt text-danger" style="font-size: 1.2rem; position: relative; top: -1.5px; left: 3.5px;"></i></a>';
+        $nama             = $GetVouchers->fields('name');
+        $tarikh_baucer     = toDate("d/m/y", $GetVouchers->fields('tarikh_baucer'));
+        $catatan         = $GetVouchers->fields('keterangan');
+        $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentPrint.php?id=' . $GetVouchers->fields('no_baucer') . '\')"></i>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentView.php?id=' . $GetVouchers->fields('no_baucer') . '\')"></i>';
+        $hapus          = '<a href="' . $sFileName . '&action=delete&pk=' . $GetVouchers->fields['no_baucer'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus resit ini?\')" title="Hapus"><i class="fa fa-trash-alt text-danger" style="font-size: 1.2rem; position: relative; top: -1.5px; left: 3.5px;"></i></a>';
 
         if ($noTran == false) {
             print '<tr>';
@@ -251,12 +251,12 @@ if ($GetBaucers->RowCount() <> 0) {
 
         print '
 						<td class="Data" style="text-align: right; vertical-align: middle;">' . $bil . '</td>
-						<td class="Data" style="text-align: left; vertical-align: middle;"><!--input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields('no_baucer')) . '"-->
-						<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetBaucers->fields('no_baucer')) . '&yy=' . $yy . '&mm=' . $mm . '">
-							' . $GetBaucers->fields('no_baucer') . '</td>
+						<td class="Data" style="text-align: left; vertical-align: middle;"><!--input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields('no_baucer')) . '"-->
+						<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields('no_baucer')) . '&yy=' . $yy . '&mm=' . $mm . '">
+							' . $GetVouchers->fields('no_baucer') . '</td>
 						<td class="Data" style="text-align: center; vertical-align: middle;">' . $tarikh_baucer . '</td>
 						<td class="Data" style="text-align: left; vertical-align: middle;">' . $catatan . '</td>
-						<td class="Data" style="text-align: center; vertical-align: middle;">' . $GetBaucers->fields('no_anggota') . '</td>
+						<td class="Data" style="text-align: center; vertical-align: middle;">' . $GetVouchers->fields('no_anggota') . '</td>
 						<td class="Data" style="text-align: left; vertical-align: middle;">' . $nama . '</td>
 						<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $edit . '&nbsp;&nbsp;' . $view . '&nbsp;&nbsp;';
         if (($IDName == 'admin') or ($IDName == 'superadmin')) {
@@ -267,9 +267,9 @@ if ($GetBaucers->RowCount() <> 0) {
 						</tr>';
         $cnt++;
         $bil++;
-        $GetBaucers->MoveNext();
+        $GetVouchers->MoveNext();
     }
-    $GetBaucers->Close();
+    $GetVouchers->Close();
     /*		<!--tr>
 			<td class="textFont" align="right">
 			<b>Debit&nbsp;:&nbsp;'.number_format($DRTotal, 2, '.', ',').'&nbsp;&nbsp;&nbsp;
@@ -290,7 +290,7 @@ if ($GetBaucers->RowCount() <> 0) {
         } else {
             $numPage = $TotalPage + 1;
         }
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             if (is_int($i / 10)) print '<br />';
             print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -304,15 +304,15 @@ if ($GetBaucers->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Baucer : <b>' . $GetBaucers->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Voucher : <b>' . $GetVouchers->RowCount() . '</b></td>
 		</tr>';
 } else {
     if ($q == "") {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
     } else {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
     }
 }
 print ' 
@@ -342,7 +342,7 @@ function open_(url) {
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -365,7 +365,7 @@ function open_(url) {
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -376,7 +376,7 @@ function open_(url) {
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -541,7 +541,7 @@ print '
 	<td valign="top">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>* Nombor Anggota</td><td valign="top"></td>
+				<td>* Nomor Anggota</td><td valign="top"></td>
 				<td><input name="no_anggota" value="' . $no_anggota . '" type="text" size="20" maxlength="50"  class="form-control-sm" readonly/>&nbsp;';
 if ($action == "new" && $jenis == 1) print '<input type="button" class="btn btn-sm btn-info waves-light waves-effect" value="Pilih" onclick="window.open(\'selToMember.php?refer=f\',\'sel\',\'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">';
 else if ($action == "new" && $jenis == 2) print '<input type="button" class="btn btn-sm btn-info waves-light waves-effect" value="Pilih" onclick="window.open(\'selLoanS.php?refer=f\',\'sel\',\'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">';
@@ -551,7 +551,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 		    </td></tr>
 			<tr><td valign="top">Alamat</td><td valign="top"></td><td><textarea name="alamat" cols="50" rows="4" class="form-control-sm" readonly>' . $alamat . '</textarea></td></tr>
 			<tr>
-			  <td valign="top">Nombor Bond / Amaun (RM)</td>
+			  <td valign="top">Nombor Bond / Jumlah (Rp)</td>
 			  <td valign="top"></td>
 			  <td><input name="no_bond"  value="' . $no_bond . '" size="10" maxlength="50"  class="form-control-sm" readonly />
 		      <input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-control-sm" readonly="readonly" /></td>
@@ -589,7 +589,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Master Amaun (RM)</td><td valign="top"></td>
+				<td valign="top" align="right">Master Jumlah (Rp)</td><td valign="top"></td>
 				<td><input id="master" value="' . $masterAmt . '" type="text" class="form-control-sm" size="20" maxlength="10"/ readonly></td>
 			</tr>
 			

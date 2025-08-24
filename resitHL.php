@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -313,7 +313,7 @@ echo '
 	<td width="48%">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top">No. Resit</td>
+				<td valign="top">No. Struk</td>
 				<td valign="top"></td><td><input class="form-control-sm" name="no_resit" value="' . $no_resit . '" type="text" size="20" maxlength="50" readonly/></td>
 			</tr>
 		</table>
@@ -342,7 +342,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 		    </td></tr>
 			<tr><td valign="top">Alamat</td><td valign="top"></td><td><textarea name="alamat" cols="50" rows="4" class="form-control-sm" readonly>' . $alamat . '</textarea></td></tr>
 			<tr>
-			  <td valign="top">No. Bond / Amaun (RM)</td>
+			  <td valign="top">No. Bond / Jumlah (Rp)</td>
 			  <td valign="top"></td>
 			  <td><input name="no_bond"  value="' . $no_bond . '" size="10" maxlength="50"  class="form-control-sm" readonly />
 		      <input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-control-sm" readonly="readonly" /></td>
