@@ -52,7 +52,7 @@ print '<div class="table-responsive">
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Rekening Baru " onClick="window.location.href=\'?vw=loanApply&mn=906\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Rekening Baru " onClick="window.location.href=\'?vw=loanApplysimpanan&mn=946\'"/>
 </div>';
 
 ?>
@@ -167,7 +167,7 @@ print '<div class="table-responsive">
         <tbody>
         <?php
         $sSQL = "
-SELECT *,A.status as status_depositacc, A.id as id_unique
+SELECT *,A.status as status_depositacc, A.id as id_unique, c.name as name_user
 FROM depositoracc A
          JOIN USERdetails B
               ON A.UserID COLLATE latin1_general_ci = B.UserID COLLATE latin1_general_ci
@@ -179,6 +179,7 @@ FROM depositoracc A
         $result = &$conn->Execute($sSQL);
 
         if ($result && !$result->EOF) {
+            $label = ($result->fields['status_depositacc'] == 0) ? "Approve" : "Reject";
             $no = 1;
             while (!$result->EOF) {
                 if ($result->fields['status_depositacc'] == 1) {
@@ -188,23 +189,28 @@ FROM depositoracc A
                 }
                 echo "<tr>";
                 echo "<td>" . $no . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['name']) . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['name_user']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['newIC']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['AccountNumber']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['nama_simpanan']) . "</td>";
                 echo "<td>" .$status . "</td>";
-//            ation
                 echo "<td>
-                  <a href='?vw=loansimpanan&nmn=946&ID=" . $result->fields['id_unique'] . "&action=toggle' 
+    <a href='?vw=loansimpanan&mn=946&ID=" . $result->fields['id_unique'] . "&action=toggle' 
        onclick=\"return confirm('Apakah Anda yakin ingin mengubah status rekening ini?');\">
-       Approve / Reject
-    </a> | 
-    <a href='?vw=editloansimpanan&mn=946&ID=" . $result->fields['id_unique'] . "'>Edit</a> | 
+       $label
+    </a>";
+
+                if ($result->fields['status_depositacc'] != 1) {
+                    // kalau status bukan Aktif, baru tampil Edit & Delete
+                    echo " | 
+    <a href='?vw=loaneditsimpanan&mn=946&ID=" . $result->fields['id_unique'] . "'>Edit</a> | 
     <a href='?vw=deleteloansimpanan&mn=946&ID=" . $result->fields['id_unique'] . "' 
        onclick=\"return confirm('Yakin mau hapus data ini?');\">
        Delete
-    </a>
-            </td>";
+    </a>";
+                }
+
+                echo "</td>";
 
                 echo "</tr>";
                 $no++;
