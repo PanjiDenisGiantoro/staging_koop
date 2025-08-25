@@ -119,6 +119,27 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '</ul></li>';
         echo '</ul></li>';
 
+
+        if (@$mn == 946) {
+            $mn946 = "mm-collapse mm-show";
+            $mu946 = "mm-active";
+        } else {
+            $mn946 = '';
+            $mu946 = '';
+        }
+        echo '<li class="' . $mu946 . '">';
+        TitleBarBlue("SIMPANAN", 'mdi mdi-bank');
+        echo '<ul class="sub-menu ' . $mn946 . '" aria-expanded="false">';
+        MenuLink("loansimpanan.php", "Rekening Simpanan", 946, @$_REQUEST['vw']);
+        MenuLink("loan.php", "Entry Data Simpanan", 946, @$_REQUEST['vw']);
+        echo '<li>';
+        TitleBarBlue("Laporan", 'mdi mdi-file');
+        echo '<ul class="sub-menu ' . $mn946 . '" aria-expanded="true">';
+        MenuLink("reportsimpanan.php", "Simpanan", 946, @$_REQUEST['vw']);
+        echo '</ul></li>';
+        echo '</ul></li>';
+
+
         if (@$mn == 921) {
             $mn921 = "mm-collapse mm-show";
             $mu921 = "mm-active";
