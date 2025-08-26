@@ -217,13 +217,13 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu908 . '">';
         TitleBarBlue("URUSNIAGA ANGGOTA", 'mdi mdi-shopping-search');
         echo '<ul class="sub-menu ' . $mn908 . '" aria-expanded="false">';
-        MenuLink("resitList.php", "Resit Keanggotaan", 908, @$_REQUEST['vw']);
-        MenuLink("vouchersList.php", "Baucer Keanggotaan", 908, @$_REQUEST['vw']);
-        MenuLink("journalsTransferList.php", "Jurnal Pindahan", 908, @$_REQUEST['vw']);
-        MenuLink("paymentsList.php", "Auto Pay", 908, @$_REQUEST['vw']);
-        MenuLink("importPot.php", "Import Fail Potongan", 908, @$_REQUEST['vw']);
-        MenuLink("memberStmtEdit.php", "Edit Import Fail", 908, @$_REQUEST['vw']);
-        MenuLink("memberStmtU.php", "Penyata", 908, @$_REQUEST['vw']);
+        MenuLink("resitList.php", "Struk Keanggotaan", 908, @$_REQUEST['vw']);
+        MenuLink("vouchersList.php", "Voucher Keanggotaan", 908, @$_REQUEST['vw']);
+        MenuLink("journalsTransferList.php", "Jurnal Mutasi", 908, @$_REQUEST['vw']);
+        MenuLink("paymentsList.php", "Pembayaran Otomatis", 908, @$_REQUEST['vw']);
+        MenuLink("importPot.php", "Impor File Potongan", 908, @$_REQUEST['vw']);
+        MenuLink("memberStmtEdit.php", "Edit Impor File", 908, @$_REQUEST['vw']);
+        MenuLink("memberStmtU.php", "Laporan", 908, @$_REQUEST['vw']);
         echo '</ul></li>';
 
         //.................

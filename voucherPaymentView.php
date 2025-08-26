@@ -111,7 +111,7 @@ print '
             <td>'.$no_baucer.'</td>
         </tr>
     <tr>
-        <td><b>Tarikh Voucher</b></td>
+        <td><b>Tanggal Voucher</b></td>
         <td>&nbsp;:&nbsp;</td>
         <td>' . $tarikh_baucer . '</td>
     </tr>

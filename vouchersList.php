@@ -211,7 +211,7 @@ if ($GetVouchers->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nomor Voucher</td>
-						<td nowrap align="center">Tarikh</td>
+						<td nowrap align="center">Tanggal</td>
 						<td nowrap width="30%">Catatan</td>
 						<td nowrap align="center">Nomor Anggota</td>
 						<td nowrap>Nama</td>

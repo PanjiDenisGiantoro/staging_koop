@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -265,7 +265,7 @@ print
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>Nombor Ahli</b></td>
-				<td nowrap="nowrap" align="center"><b>Kad Pengenalan</b></td>
+				<td nowrap="nowrap" align="center"><b>Kartu Identitas</b></td>
 				<td nowrap="nowrap"><b>Nama</b></td>
 				<td nowrap="nowrap"><b>Nombor Akaun</b></td>
 				<td nowrap="nowrap" align="right"><b>Jumlah (RM)</b></td>

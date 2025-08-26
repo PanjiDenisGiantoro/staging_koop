@@ -41,7 +41,7 @@ print $strTemp;
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -95,7 +95,7 @@ print $strTemp;
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>

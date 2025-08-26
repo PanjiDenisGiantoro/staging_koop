@@ -277,7 +277,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top">:</td><td><input name="tarikh_baucer" type="text" value="' . $tarikh_baucer . '" size="20" maxlength="10" /></td>
+				<td valign="top" align="right">Tanggal</td><td valign="top">:</td><td><input name="tarikh_baucer" type="text" value="' . $tarikh_baucer . '" size="20" maxlength="10" /></td>
 			</tr>
 		</table>
 	</td>
@@ -314,7 +314,7 @@ print '</td>
 				<td><input name="no_rujukan" type="text" size="20" maxlength="10" value="' . $no_rujukan . '" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top">:</td>
+				<td valign="top" align="right">Tanggal</td><td valign="top">:</td>
 				<td><input name="tarikh_ruj" type="text" size="20" maxlength="10" value="' . $tarikh_ruj . '" /></td>
 			</tr>
 			<tr>
