@@ -268,7 +268,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '</ul></li>';
 
 
-        /// HUTANG LAPUK.........................
+        /// HUTANG MACET.........................
         if (@$mn == 910) {
             $mn910 = "mm-collapse mm-show";
             $mu910 = "mm-active";
@@ -277,7 +277,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu910 = '';
         }
         echo '<li class="' . $mu910 . '">';
-        TitleBarBlue("HUTANG LAPUK", 'mdi mdi-bag-personal-off-outline');
+        TitleBarBlue("HUTANG MACET", 'mdi mdi-bag-personal-off-outline');
         echo '<ul class="sub-menu ' . $mn910 . '" aria-expanded="false">';
         MenuLink("memberProfilHL.php", "Profile Anggota", 910, @$_REQUEST['vw']);
         MenuLink("loanTableHL.php", "Pengurusan Pembiayaan", 910, @$_REQUEST['vw']);
