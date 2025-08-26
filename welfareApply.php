@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("forms.php");
 
@@ -27,7 +27,7 @@ $Cookie_userID = get_session('Cookie_userID');
 $Cookie_userName = get_session("Cookie_userName");
 $sFileName		= "?vw=welfareApply&mn=$mn";
 $sActionFileName = "?vw=welfare&mn=$mn";
-$title     		= "Permohonan Bantuan Kebajikan";
+$title     		= "Pengajuan Bantuan Sosial";
 if (get_session("Cookie_groupID") == 0) {
 	//$sqlC = "select * from loans where userID =".$userID." and isApproved <> 1";
 	//$rsC = &$conn->Execute($sqlC);
@@ -39,7 +39,7 @@ if (get_session("Cookie_groupID") == 0) {
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "hiddentext";
@@ -53,7 +53,7 @@ $FormSize[$a]    	= "5";
 $FormLength[$a]  	= "12";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kad Pengenalan";
+$FormLabel[$a]   	= "* Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -83,7 +83,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Kod Kebajikan";
+$FormLabel[$a]   	= "* Kode Kebajikan";
 $FormElement[$a] 	= "welfareCode";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "displayonly";
@@ -198,9 +198,9 @@ print '
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header">MAKLUMAT ANGGOTA</div>';
+	if ($i == 1) print '<div class="card-header">INFORMASI ANGGOTA</div>';
 	if ($i == 3) {
-		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PERMOHONAN KEBAJIKAN</div></td></tr>';
+		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PENGAJUAN BANTUAN</div></td></tr>';
 	}
 	print '<tr valign=top><td class=Data align=right width="250">' . $FormLabel[$i] . '</td>';
 	if (in_array($FormElement[$i], $strErrMsg))
@@ -258,7 +258,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 
 	print '
 <tr><td class="" align="right" valign="top"></td>
-	<td><input type="Submit" name="SubmitForm" class="btn btn-primary" value="Mohon Kebajikan">&nbsp;
+	<td><input type="Submit" name="SubmitForm" class="btn btn-primary" value="Mengajukan Bantuan Sosial">&nbsp;
 	</td>
 </tr>';
 

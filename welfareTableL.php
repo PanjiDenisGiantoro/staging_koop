@@ -16,7 +16,7 @@ if (!isset($yy)) $yy	= date("Y");
 if (!isset($mm)) $mm	= date("m");
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -128,19 +128,19 @@ print '
 	
     <tr valign="top">
 	   	<td align="left" >
-			Carian Melalui 
+			Cari Berdasarkan 
 			<select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 
 print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">	
-			Cawangan/Zon
+			Cabang/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -167,7 +167,7 @@ if ($GetWelfare->RowCount() <> 0) {
 	print '
 			</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 	if ($pg == 50)	print '<option value="50" selected>50</option>';
 	else print '<option value="50">50</option>';
 	if ($pg == 100)	print '<option value="100" selected>100</option>';
@@ -176,7 +176,7 @@ if ($GetWelfare->RowCount() <> 0) {
 	else print '<option value="500">500</option>';
 	if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 	else print '<option value="1000">1000</option>';
-	print '				</select> setiap mukasurat.
+	print '				</select> setiap halaman..
 						</td>
 					</tr>
 				</table>
@@ -187,14 +187,14 @@ if ($GetWelfare->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-striped table-sm">
 					<tr class="table-primary">
 					<td nowrap>&nbsp;</td>
-					<td nowrap>&nbsp;<b>Nombor Rujukan - Kebajikan</b></td>
-					<td nowrap align="left">&nbsp;<b>Nombor - Nama Anggota</b></td>
-					<td nowrap align="center">&nbsp;<b>Kad Pengenalan</b></td>
+					<td nowrap>&nbsp;<b>Nomor Rujukan - Bantuan Sosial</b></td>
+					<td nowrap align="left">&nbsp;<b>Nomor - Nama Anggota</b></td>
+					<td nowrap align="center">&nbsp;<b>Kartu Identitas</b></td>
 					<td	nowrap align="center"><b>Status</b></td>
 					<td	nowrap align="center"><b>Tarikh Kelulusan</b></td>
 					<td	nowrap align="center"><b>Nombor Bond</b></td>
-					<td	nowrap align="center"><b>Rujukan Baucer</b></td>
-					<td nowrap align="center"><b>Tarikh Baucer</b></td>
+					<td	nowrap align="center"><b>Rujukan Voucher</b></td>
+					<td nowrap align="center"><b>Tarikh Voucher</b></td>
 					</tr>';
 	$amtWelfare = 0;
 	while (!$GetWelfare->EOF && $cnt <= $pg) {
@@ -219,7 +219,7 @@ if ($GetWelfare->RowCount() <> 0) {
 						<td	class="Data" align="center"><font class="' . $colorStatus . '">' . $bajikanList[$status] . '</td>
 						<td class="Data" align="center">&nbsp;' . toDate("d/m/Y", $GetWelfare->fields(approvedDate)) . '</td>
 						<td class="Data" align="center">&nbsp;' . $GetWelfare->fields(rnoBond) . '</td>
-						<td class="Data" align="center">&nbsp;' . $GetWelfare->fields(rnoBaucer) . '</td>
+						<td class="Data" align="center">&nbsp;' . $GetWelfare->fields(rnoVoucher) . '</td>
 						<td class="Data" align="center">&nbsp;' . toDate("d/m/Y", $GetWelfare->fields(rcreatedDate)) . '</td>';
 		$cnt++;
 		$bil++;
@@ -240,7 +240,7 @@ if ($GetWelfare->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -254,15 +254,15 @@ if ($GetWelfare->RowCount() <> 0) {
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetWelfare->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetWelfare->RowCount() . '</b></td>
 		</tr-->';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -279,7 +279,7 @@ print '
 	function ITRActionButtonFinish(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

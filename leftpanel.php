@@ -148,10 +148,10 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu921 = '';
         }
         echo '<li class="' . $mu921 . '">';
-        TitleBarBlue("KEBAJIKAN", 'mdi mdi-charity');
+        TitleBarBlue("BANTUAN SOSIAL", 'mdi mdi-charity');
         echo '<ul class="sub-menu ' . $mn921 . '" aria-expanded="false">';
-        MenuLink("welfare.php", "Senarai Permohonan", 921, @$_REQUEST['vw']);
-        MenuLink("welfareTableS.php", "Permohonan Selesai", 921, @$_REQUEST['vw']);
+        MenuLink("welfare.php", "Daftar Pengajuan", 921, @$_REQUEST['vw']);
+        MenuLink("welfareTableS.php", "Pengajuan Selesai", 921, @$_REQUEST['vw']);
         echo '</ul></li>';
 
         if (@$mn == 906) {
@@ -236,7 +236,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu908 = '';
         }
         echo '<li class="' . $mu908 . '">';
-        TitleBarBlue("URUSNIAGA ANGGOTA", 'mdi mdi-shopping-search');
+        TitleBarBlue("TRANSAKSI ANGGOTA", 'mdi mdi-shopping-search');
         echo '<ul class="sub-menu ' . $mn908 . '" aria-expanded="false">';
         MenuLink("resitList.php", "Struk Keanggotaan", 908, @$_REQUEST['vw']);
         MenuLink("vouchersList.php", "Voucher Keanggotaan", 908, @$_REQUEST['vw']);

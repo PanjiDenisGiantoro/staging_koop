@@ -9,7 +9,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("koperasiList.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -135,7 +135,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 							?>
 
 								<tr>
-									<td>Nombor Anggota</td>
+									<td>Nomor Anggota</td>
 									<td>&nbsp;<b><? print $memberID; ?></b></td>
 								</tr>
 								<tr>
