@@ -16,7 +16,7 @@ if (!isset($mm)) $mm	= date("m");
 
 include("header.php");	
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Kuala_Lumpur");	
+date_default_timezone_set("Asia/Jakarta");	
 $IDName = get_session("Cookie_userName");
 if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("'.$errPage.'");parent.location.href = "index.php";</script>';
@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR
 
 $sFileName = '?vw=AdvanAdLulus&mn=920';
 $sFileRef  = '?vw=AdvanAdLulus&mn=920';
-$title     = "Pengurusan Advance Payment Diluluskan";
+$title     = "Daftar Advance Payment Diluluskan";
 
 
 //----print penyata tahunan Pembiayaan
@@ -316,7 +316,7 @@ print '
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center" >	
     <tr valign="top">
 	   	<td align="left" >
-			Carian Melalui 
+			Cari Berdasarkan 
 			<select name="by" class="form-select-sm">'; 
 	if ($by	== 1)	print '<option value="1" selected>No. Anggota</option>';		else print '<option	value="1">No. Anggota</option>';
 	if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';	else print '<option	value="2">Nama Anggota</option>';
@@ -357,7 +357,7 @@ print '		</select>&nbsp;&nbsp;
 			<input type="button" class="btn btn-sm btn-warning" value="Hutang Lapuk" onClick="ITRActionButtonFinish(\'Lapuk\');">	
 			</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 						if ($pg == 5)	print '<option value="5" selected>5</option>'; 	 	else print '<option value="5">5</option>';				
 						if ($pg == 10)	print '<option value="10" selected>10</option>'; 	else print '<option value="10">10</option>';				
 						if ($pg == 20)	print '<option value="20" selected>20</option>'; 	else print '<option value="20">20</option>';				
@@ -370,7 +370,7 @@ print '		</select>&nbsp;&nbsp;
 						if ($pg == 400)	print '<option value="400" selected>400</option>';	else print '<option value="400">400</option>';				
 						if ($pg == 500)	print '<option value="500" selected>500</option>';	else print '<option value="500">500</option>';				
 						if ($pg == 1000) print '<option value="1000" selected>1000</option>';	else print '<option value="1000">1000</option>';				
-		print '				</select> setiap mukasurat.
+		print '				</select> setiap halaman..
 						</td>
 					</tr>
 				</table>
@@ -385,7 +385,7 @@ print '		</select>&nbsp;&nbsp;
 						<td nowrap><b>No./Nama Anggota</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>';
 						//<td nowrap align="center">&nbsp;Status Permilikan</td>
-						print '<td nowrap align="center"><b>Tarikh Baucer</b></td>
+						print '<td nowrap align="center"><b>Tarikh Voucher</b></td>
 						<!--td nowrap align="center"><b>Jadual Bayar Balik</b></td-->
 						<td nowrap><b>No. Bond</b></td>
 					</tr>';	
@@ -407,7 +407,7 @@ print '		</select>&nbsp;&nbsp;
 		}
 			else {
 				//$startPymtDate = "redText";
-				$startPymtDate = "Proses Baucer";
+				$startPymtDate = "Proses Voucher";
 		}
 
 			$loanType				= $GetLoan->fields('loanType');
@@ -466,7 +466,7 @@ print '		</select>&nbsp;&nbsp;
 					<td class="Data" align="center">&nbsp;'.$startPymtDate.'</td>
 						<!--td class="Data" align="center">&nbsp;';
 			
-			if ($startPymtDate <> "Proses Baucer") {
+			if ($startPymtDate <> "Proses Voucher") {
 				if($codegroup <> 1638){
 				print '<input type=button value="Lihat Jadual" class="but" onClick=window.open("loanJadual.php?id='.$GetLoan->fields(loanID).'","pop","scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>';
 				}else{
@@ -495,7 +495,7 @@ print '		</select>&nbsp;&nbsp;
 					} else {
 						$numPage = $TotalPage + 1;
 					}
-					print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : '.$TotalRec.'<br>';
+					print '<tr><td class="textFont" valign="top" align="left">Data Dari : '.$TotalRec.'<br>';
 					for ($i=1; $i <= $numPage; $i++) {
 						if(is_int($i/10)) print '<br />';
 						print '<A href="'.$sFileName.'?&StartRec='.(($i * $pg) + 1 - $pg).'&pg='.$pg.'">';
@@ -509,12 +509,12 @@ print '		</select>&nbsp;&nbsp;
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $TotalRec . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $TotalRec . '</b></td>
 		</tr-->';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';
@@ -534,7 +534,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -559,7 +559,7 @@ print '
 	function ITRActionButtonClick_o(v) {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -583,7 +583,7 @@ print '
 	function ITRActionButtonFinish(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

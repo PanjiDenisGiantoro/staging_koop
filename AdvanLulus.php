@@ -16,7 +16,7 @@ if (!isset($mm)) $mm	= date("m");
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -32,7 +32,7 @@ if (get_session("Cookie_groupID") == 0) {
 
 $sFileName = '?vw=AdvanLulus&mn=12';
 $sFileRef  = '?vw=AdvanLulus&mn=12';
-$title     = "Senarai Advance Payment Diluluskan (Aktif)";
+$title     = "Daftar Advance Payment Diluluskan (Aktif)";
 
 //----print penyata tahunan Advance Payment
 if ($action <> "") {
@@ -82,7 +82,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap><b>No. Rujukan Pembiayaan</b></td>
 						<td nowrap align="right"><b>Jum. Pembiayaan (RM)</b></td>			
 						<td nowrap align="right"><b>Ansuran (RM)</b></td>		
-						<td nowrap align="center"><b>Tempoh (Bulan)</b></td>
+						<td nowrap align="center"><b>Jangka Waktu (Bulan)</b></td>
 						<td nowrap align="center"><b>Jadual Bayaran</b></td>
 						<td nowrap align="center"><b>Surat Tawaran</b></td>
 						<td nowrap align="center"><b>Tarikh Kelulusan</b></td>
@@ -186,7 +186,7 @@ if ($GetLoan->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a>&nbsp;&nbsp;';
@@ -199,15 +199,15 @@ if ($GetLoan->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetLoan->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetLoan->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -307,7 +307,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 		e = document.MyForm;
 			if(e==null) {
-				alert(\'Sila pastikan nama form diwujudkan.!\');
+				alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 			} else {
 				count=0;
 				for(c=0; c<e.elements.length; c++) {
@@ -332,7 +332,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -343,7 +343,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'loanStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

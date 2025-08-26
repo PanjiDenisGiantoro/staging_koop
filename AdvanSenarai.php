@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <>	2 or get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -23,7 +23,7 @@ $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=AdvanSenarai&mn=920';
 $sFileRef  = '?vw=AdvanBiayaDokumen&mn=920';
-$title	   = "Senarai Permohonan Advance Payment";
+$title	   = "Daftar Pengajuan Advance Payment";
 
 //$conn->debug=1;
 //--- Begin	: deletion based on	checked	box	-------------------------------------------------------
@@ -199,11 +199,11 @@ print '<div class="table-responsive">
 
 	<div class="mb-3 row m-1">
             <div>
-			Carian Melalui
+			Cari Berdasarkan
 			<select name="by" class="form-select-sm">';
 	if ($by	== 1)	print '<option value="1" selected>No. Anggota</option>';		else print '<option	value="1">No. Anggota</option>';
 	// if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';	else print '<option	value="2">Nama Anggota</option>';
-	if ($by	== 3)	print '<option value="3" selected>Kad Pengenalan</option>';		else print '<option	value="3">Kad Pengenalan</option>';
+	if ($by	== 3)	print '<option value="3" selected>Kartu Identitas</option>';		else print '<option	value="3">Kartu Identitas</option>';
 	print '	</select>
 			<input type="text" name="q"	value="" maxlength="50" size="20" class="form-control-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
@@ -244,7 +244,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 					print '</div>
 					<div class="col-md-4 pull-right" style="align:right !important;">
 					<!--input 4ype="button" class="but" value="Status" onClick="ITBActionButtonStatus();"-->
-					Paparan	<SELECT	name="pg" class="form-select-xs" onchange="doListAll();">';
+					Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 					if ($pg	== 5)	print '<option value="5" selected>5</option>';		else print '<option	value="5">5</option>';
 					if ($pg	== 10)	print '<option value="10" selected>10</option>';	else print '<option	value="10">10</option>';
 					if ($pg	== 20)	print '<option value="20" selected>20</option>';	else print '<option	value="20">20</option>';
@@ -258,7 +258,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 					if ($pg	== 500)	print '<option value="500" selected>500</option>';	else print '<option	value="500">500</option>';
 					if ($pg	== 1000) print '<option	value="1000" selected>1000</option>';	else print '<option	value="1000">1000</option>';
 
-	print '				</select> setiap	mukasurat.
+	print '				</select>setiap halaman.
 					</div>
 				</div>';
         
@@ -281,7 +281,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 						<td	nowrap></td>
 						<td	nowrap><b>No. Rujukan/Advance Payment</b></td>
 						<td	nowrap><b>No./Nama Anggota</b></td>
-						<td	nowrap align="center"><b>Kad Pengenalan</b></td>
+						<td	nowrap align="center"><b>Kartu Identitas</b></td>
 						<td	nowrap align="right"><b>Jumlah (RM)</b></td>
 						<td	nowrap align="center"><b>Status</b></td>
 						<!--td	nowrap align="center"><b>&nbsp;</b></td-->
@@ -404,7 +404,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 		} else {
 			$numPage = $TotalPage +	1;
 		}
-		print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+		print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print	'<br />';
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -418,12 +418,12 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetLoan->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetLoan->RowCount()	. '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';

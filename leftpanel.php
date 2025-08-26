@@ -208,9 +208,9 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu923 . '">';
         TitleBarBlue("ADVANCE PAYMENT", 'fas fa-sort-amount-up');
         echo '<ul class="sub-menu ' . $mn923 . '" aria-expanded="false">';
-        MenuLink("AdvanSenarai.php", "senarai Permohonan", 923, @$_REQUEST['vw']);
-        MenuLink("AdvanAdLulus.php", "Senarai Diluluskan", 923, @$_REQUEST['vw']);
-        MenuLink("AdvanListSelesai.php", "Senarai Selesai", 923, @$_REQUEST['vw']);
+        MenuLink("AdvanSenarai.php", "Daftar Pengajuan", 923, @$_REQUEST['vw']);
+        MenuLink("AdvanAdLulus.php", "Daftar Diluluskan", 923, @$_REQUEST['vw']);
+        MenuLink("AdvanListSelesai.php", "Daftar Selesai", 923, @$_REQUEST['vw']);
         MenuLink("reportAP.php", "Laporan", 923, @$_REQUEST['vw']);
         echo '</ul></li>';
 
