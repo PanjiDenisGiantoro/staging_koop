@@ -6,8 +6,8 @@
  *********************************************************************************/
 
 session_cache_limiter(FALSE);
-//error_reporting (E_ALL ^ E_NOTICE);
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
+error_reporting (E_ALL ^ E_NOTICE);
+//error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 //session_start();
 $errPage        = 'Session denied...!';
 $setLevel        = 3;
