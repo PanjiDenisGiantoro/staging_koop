@@ -115,7 +115,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Tarikh Pembelian Sijil (dd/mm/yyyy)";
+$FormLabel[$a]   	= "* Tanggal Pembelian Sertifikat (dd/mm/yyyy)";
 $FormElement[$a] 	= "tarikh_beli";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -188,8 +188,8 @@ if ($SubmitForm <> "") {
 	//--- Begin : Looping to display label -------------------------------------------------------------
 	for ($i = 0; $i <= count($FormLabel); $i++) {
 		//Print Header Maklumat Pemohon
-		if ($i == 0) print '<div class="card-header mt-3 mb-3">Dokumen Sijil Komoditi</div>';
-		if ($i == 1) print '<div class="card-header mt-3 mb-3">Maklumat Komoditi</div>';
+		if ($i == 0) print '<div class="card-header mt-3 mb-3">Dokumen Sertifikat Komoditas</div>';
+		if ($i == 1) print '<div class="card-header mt-3 mb-3">Informasi Komoditas</div>';
 		print '<div class="mb-2 row"><label class="col-md-2 col-form-label">' . $FormLabel[$i] . '</label>';
 		if (in_array($FormElement[$i], $strErrMsg))
 			print '<div class="col-md-8 bg-danger">';
@@ -233,7 +233,7 @@ if ($SubmitForm <> "") {
 
 		$Gambar = "upload_sijilkomoditi/" . $pic;
 		if ($i == 0) {
-			print '<input type="button" class="btn btn-secondary waves-effect" name="GetPicture" value="Muat Naik Sijil Komoditi" onclick= "Javascript:(window.location.href=\'?vw=uploadwinkomoditi&mn=907&userID=' . $pk . '\')">';
+			print '<input type="button" class="btn btn-secondary waves-effect" name="GetPicture" value="Perbarui Sertifikat Komoditas" onclick= "Javascript:(window.location.href=\'?vw=uploadwinkomoditi&mn=907&userID=' . $pk . '\')">';
 
 			if ($pic) {
 				print '&nbsp;<input type=button value="Paparan Dokumen" class="btn btn-outline-danger" onClick=window.open(\'upload_sijilkomoditi/' . $pic . '\',"pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>

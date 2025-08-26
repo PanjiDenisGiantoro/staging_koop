@@ -222,10 +222,10 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu907 = '';
         }
         echo '<li class="' . $mu907 . '">';
-        TitleBarBlue("KOMODITI", 'mdi mdi-shape-plus');
+        TitleBarBlue("KOMODITAS", 'mdi mdi-shape-plus');
         echo '<ul class="sub-menu ' . $mn907 . '" aria-expanded="false">';
-        MenuLink("komoditi_add.php", "Permohonan Sijil Komoditi", 907, @$_REQUEST['vw']);
-        MenuLink("komoditi_list.php", "Senarai Sijil Komoditi", 907, @$_REQUEST['vw']);
+        MenuLink("komoditi_add.php", "Pengajuan Sertifikat Komoditas", 907, @$_REQUEST['vw']);
+        MenuLink("komoditi_list.php", "Daftar Sertifikat Komoditas", 907, @$_REQUEST['vw']);
         echo '</ul></li>';
 
         if (@$mn == 908) {
@@ -258,7 +258,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu911 . '">';
         TitleBarBlue("POTONGAN GAJI", 'mdi mdi-account-multiple-minus-outline');
         echo '<ul class="sub-menu ' . $mn911 . '" aria-expanded="false">';
-        MenuLink("memberPotonganALL.php", "Senarai Potongan Bulanan", 911, @$_REQUEST['vw']);
+        MenuLink("memberPotonganALL.php", "Daftar Potongan Bulanan", 911, @$_REQUEST['vw']);
         echo '<li>';
         TitleBarBlue("Laporan", 'mdi mdi-file');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="true">';

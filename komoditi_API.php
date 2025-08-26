@@ -114,7 +114,7 @@ $FormLength[$a]  	= "50";
 // $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Tarikh Pembelian Sijil (dd/mm/yyyy)";
+$FormLabel[$a]   	= "* Tanggal Pembelian Sertifikat (dd/mm/yyyy)";
 $FormElement[$a] 	= "tarikh_beli";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -187,7 +187,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	//Print Header Maklumat Pemohon
-	if ($i == 1) print '<div class="card-header mt-3 mb-3">Maklumat Komoditi</div>';
+	if ($i == 1) print '<div class="card-header mt-3 mb-3">Informasi Komoditas</div>';
 	print '<div class="m-1 row"><label class="col-md-3 col-form-label">' . $FormLabel[$i];
 	// if (!($i == 4)) print ':';
 	print ' </label>';

@@ -23,7 +23,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $sFileName = '?vw=komoditi_list&mn=907';
 $sFileRef  = '?vw=komoditi_edit&mn=907';
-$title     = "Daftar Sertifikat Komoditi";
+$title     = "Daftar Sertifikat Komoditas";
 //--- Begin : deletion based on checked box -------------------------------------------------------
 if ($action == "delete") {
 	$sWhere = "";
@@ -102,7 +102,7 @@ if ($pg == 50)	print '<option value="50" selected>50</option>';
 else print '<option value="50">50</option>';
 if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
-print '</select> setiap mukasurat.</td></tr></table></td></tr>';
+print '</select> setiap halaman..</td></tr></table></td></tr>';
 if ($GetMember->RowCount() <> 0) {
 	$bil = $StartRec;
 	$cnt = 1;
