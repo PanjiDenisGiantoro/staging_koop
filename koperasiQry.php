@@ -1,9 +1,12 @@
 <?php
+
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	koperasiQry.php
  *          Date 		: 	06/12/2018
  *********************************************************************************/
+// used by : login.php
+//$conn->debug=true; 
 function ctVerifyUser($login, $pwd)
 {
 	global $conn;
@@ -42,21 +45,7 @@ function ctGeneralACC($q, $cat)
 	if ($q <> "") 	$sWhere .= " and name like " . tosql($q . "%", "Text");
 	$sWhere = " WHERE (" . $sWhere . ")";
 	$sSQL = "SELECT	 * FROM generalacc";
-	$sSQL = $sSQL . $sWhere . ' ORDER BY code, ID';
-	$rs = &$conn->Execute($sSQL);
-	return $rs;
-}
-
-function ctGeneralACC1($q, $cat)
-{
-	global $conn;
-	$sSQL = "";
-	$sWhere = "";
-	$sWhere =  "name != BINARY UPPER(name) AND category = " . tosql($cat, "Text");
-	if ($q <> "") 	$sWhere .= " and name like " . tosql($q . "%", "Text");
-	$sWhere = " WHERE (" . $sWhere . ")";
-	$sSQL = "SELECT	 * FROM generalacc";
-	$sSQL = $sSQL . $sWhere . ' order by CAST( code AS SIGNED INTEGER ) ASC';
+	$sSQL = $sSQL . $sWhere . ' ORDER BY code,ID';
 	$rs = &$conn->Execute($sSQL);
 	return $rs;
 }
@@ -296,6 +285,7 @@ function ctLogin($id)
 }
 
 // used by : memberEdit.php
+//new one
 function ctMemberDetail($id)
 {
 	global $conn;
@@ -304,12 +294,51 @@ function ctMemberDetail($id)
 	$sWhere = " a.userID = " . tosql($id, "Text");
 	$sWhere .= " and a.userID = b.userID ";
 	$sWhere = " WHERE (" . $sWhere . ")";
-	$sSQL = "SELECT	a.*, b.*
+	$sSQL = "SELECT	a.userID, a.loginID, a.name, a.applyDate, a.groupID, a.email, a.isActive,
+					b.memberID, b.memberDate,
+					b.newIC, b.oldIC, b.placeBirth, b.dateBirth, b.kopNum, b.staftNo, b.migrasiAnggota, b.migrasiPembiayaan,
+					b.job, b.slipNo, b.dateStarted, b.grossPay, b.netPay, b.address, b.migrasiYurSyer, b.fax, b.dorman,
+					b.poskod, b.stateID, b.employerName, b.departmentID, b.billingInd, b.guna_fpx, b.pakej, b.kategori,
+					b.officeNo, b.homeNo, b.mobileNo, b.society1, b.societyNo1, b.society2, b.jenisCode, b.borangSST,
+		            b.societyNo2, b.society3, b.societyNo3, b.w_email1, b.w_email2, b.training, b.fasa, b.jenis,
+					b.w_name, b.w_ic, b.w_relation,	b.w_address, b.w_contact, 
+					b.w_name1, b.w_ic1, b.w_jawatan1,	b.w_address1, b.w_contact1, 
+					b.w_name2, b.w_ic2, b.w_jawatan2,	b.w_address2, b.w_contact2, 
+					-- b.w_name3, b.w_ic3, b.w_relation3,	b.w_address3, b.w_contact3, 
+					b.unitShare, b.paymentID, b.bankName, b.bankBranch,
+					b.bankAccount, b.status, b.approvedDate, b.rejectedDate, 
+					b.updatedDate, b.updatedBy, b.remark
 			FROM 	users a, userdetails b";
 	$sSQL = $sSQL . $sWhere;
 	$rs = &$conn->Execute($sSQL);
 	return $rs;
 }
+/* function ctMemberDetail($id) {
+	global $conn;
+	$sSQL = "";
+	$sWhere = "";		
+	$sWhere = " a.userID = " . tosql($id,"Text");
+	$sWhere .= " and a.userID = b.userID ";
+	$sWhere = " WHERE (" . $sWhere . ")";
+	$sSQL = "SELECT	a.userID, a.loginID, a.name, a.applyDate, a.groupID, a.email, a.isActive,
+					b.memberID, b.memberDate,
+					b.newIC, b.oldIC, b.placeBirth, b.dateBirth, b.sex, b.raceID, b.religionID, b.maritalID,
+					b.job, b.slipNo, b.dateStarted, b.grossPay, b.netPay, b.address, b.city,
+					b.postcode, b.stateID, b.employerName, b.departmentID, b.billingInd,
+					b.officeNo, b.homeNo, b.mobileNo, b.society1, b.societyNo1, b.society2, 
+		            b.societyNo2, b.society3, b.societyNo3, 
+					b.w_name, b.w_ic, b.w_relation,	b.w_address, b.w_contact, 
+					b.w_name1, b.w_ic1, b.w_relation1,	b.w_address1, b.w_contact1, 
+					b.w_name2, b.w_ic2, b.w_relation2,	b.w_address2, b.w_contact2, 
+					b.w_name3, b.w_ic3, b.w_relation3,	b.w_address3, b.w_contact3, 
+					b.unitShare, b.paymentID, b.bankName, b.bankBranch,
+					b.bankAccount, b.status, b.approvedDate, b.rejectedDate, 
+					b.updatedDate, b.updatedBy, b.remark
+			FROM 	users a, userdetails b";
+	$sSQL = $sSQL . $sWhere;
+	$rs = &$conn->Execute($sSQL);
+	return $rs;
+} */
 
 // used by : loan.php; loanEdit.php
 function ctLoan($q, $id)
@@ -334,25 +363,6 @@ function ctLoan($q, $id)
 	return $rs;
 }
 
-function ctWelfare($q, $id)
-{
-	global $conn;
-	$sSQL = "";
-	$sWhere = "";
-	if ($q <> "") {
-		$sWhere = " ID like " . tosql($q . "%", "Text");
-		$sWhere .= " OR welfareNo like " . tosql($q . "%", "Text");
-		$sWhere = " WHERE (" . $sWhere . ")";
-	}
-	if ($id <> "ALL") {
-		$sWhere = " ID = " . tosql($id, "Number");
-		$sWhere = " WHERE (" . $sWhere . ")";
-	}
-	$sSQL = "SELECT	* FROM welfares";
-	$sSQL = $sSQL . $sWhere . ' ORDER BY applyDate DESC';
-	$rs = &$conn->Execute($sSQL);
-	return $rs;
-}
 
 function ctLoanNew($q, $id)
 {
@@ -955,6 +965,133 @@ function ctMemberTerminateStatusOk($q, $by, $status, $dept)
 }
 //--- END   : TERMINATION OF MEMBER ---------------------------------------------------------------------
 
+//--- BEGIN   : TUGASAN OF KOPERASI ---------------------------------------------------------------------
+
+function ctTugasanKoperasi($q, $id)
+{
+	global $conn;
+	$sSQL = "";
+	$sWhere = "";
+	if ($q <> "") {
+		$sWhere = " userID = " . tosql($q . "%", "Text");
+		$sWhere = " WHERE (" . $sWhere . ")";
+	}
+	if ($id <> "ALL") {
+		$sWhere = " userID = " . tosql($id, "Text");
+		$sWhere = " WHERE (" . $sWhere . ")";
+	}
+	$sSQL = "	SELECT	* FROM task ";
+	$sSQL = $sSQL . $sWhere . ' ORDER BY startDate DESC';
+	$rs = &$conn->Execute($sSQL);
+	return $rs;
+}
+function ctTugasanKoperasiStatuso($q, $id)
+{
+	global $conn;
+	$sSQL = "";
+	$sWhere = "";
+	if ($id <> "ALL") {
+		$sWhere = " status = " . tosql($id, "Text");
+	}
+	if ($q <> "") {
+		$sWhere = " ID like " . tosql($q . "%", "Text");
+	}
+	$sWhere = " WHERE (" . $sWhere . ")";
+	$sSQL = "SELECT	* FROM 	task ";
+	$sSQL = $sSQL . $sWhere . ' ORDER BY CAST( b.userID AS SIGNED INTEGER ),startDate DESC';
+	$rs = &$conn->Execute($sSQL);
+	return $rs;
+}
+
+function ctTugasanKoperasiStatus($q, $by, $status, $dept, $dtFrom, $dtTo)
+{
+	global $conn;
+
+	$sWhere = " WHERE t.status = " . tosql($status, "Number"); // Penapisan status
+	if ($dept !== "ALL") { // Penapisan jabatan
+		$sWhere .= " AND b.departmentID = " . tosql($dept, "Number");
+	}
+	if ($q !== "") {
+		if ($by == 1) {
+			$sWhere .= " AND b.memberID LIKE " . tosql($q . "%", "Text");
+		} else if ($by == 2) {
+			$sWhere .= " AND a.name LIKE " . tosql($q . "%", "Text");
+		} else if ($by == 3) {
+			$sWhere .= " AND b.newIC LIKE " . tosql($q . "%", "Text");
+		}
+	}
+
+	// Tambahkan syarat untuk tarikh
+	if (!empty($dtFrom) && !empty($dtTo)) {
+		$sWhere .= " AND t.startDate BETWEEN " . tosql($dtFrom, "Text") . " AND " . tosql($dtTo, "Text");
+	}
+
+	$sSQL = "SELECT a.userID, b.kopNum, a.name, t.title_problem, t.person_in_charge, t.keterangan, t.startDate, t.approvedDate
+             FROM users a
+             LEFT JOIN userdetails b ON a.userID = b.userID
+             LEFT JOIN task t ON t.userID = a.userID";
+	$sSQL .= $sWhere . " ORDER BY CAST(b.memberID AS SIGNED INTEGER), t.startDate DESC";
+
+	// Debug query jika perlu
+	// echo "<pre>Debug SQL: $sSQL</pre>";
+
+	$rs = $conn->Execute($sSQL); // Laksanakan query
+	if (!$rs) {
+		die("SQL Error: " . $conn->ErrorMsg());
+	}
+	return $rs;
+}
+
+function ctTugasanKoperasiStatusOk($q, $by, $dept, $dtFrom, $dtTo)
+{
+	global $conn;
+
+	// Penapisan status tetap kepada "3" (ditolak)
+	$sWhere = " WHERE t.status = 3";
+
+	// Penapisan jabatan jika bukan "ALL"
+	if ($dept !== "ALL") {
+		$sWhere .= " AND b.departmentID = " . tosql($dept, "Number");
+	}
+
+	// Penapisan berdasarkan input pengguna
+	if ($q !== "") {
+		if ($by == 1) {
+			$sWhere .= " AND b.memberID LIKE " . tosql($q . "%", "Text");
+		} else if ($by == 2) {
+			$sWhere .= " AND a.name LIKE " . tosql($q . "%", "Text");
+		} else if ($by == 3) {
+			$sWhere .= " AND b.newIC LIKE " . tosql($q . "%", "Text");
+		}
+	}
+
+	// Tambahkan syarat tarikh jika ada
+	if (!empty($dtFrom) && !empty($dtTo)) {
+		$sWhere .= " AND t.startDate BETWEEN " . tosql($dtFrom, "Text") . " AND " . tosql($dtTo, "Text");
+	}
+
+	// Query utama
+	$sSQL = "SELECT a.userID, b.kopNum, a.name, t.title_problem, t.person_in_charge, t.keterangan, t.startDate, t.rejectedDate
+             FROM users a
+             LEFT JOIN userdetails b ON a.userID = b.userID
+             LEFT JOIN task t ON t.userID = a.userID";
+	$sSQL .= $sWhere . " ORDER BY CAST(b.memberID AS SIGNED INTEGER), t.startDate DESC";
+
+	// Debug SQL jika perlu
+	// echo "<pre>Debug SQL: $sSQL</pre>";
+
+	// Laksanakan query
+	$rs = $conn->Execute($sSQL);
+	if (!$rs) {
+		die("SQL Error: " . $conn->ErrorMsg());
+	}
+
+	return $rs;
+}
+
+//--- END   : TUGASAN OF KOPERASI ---------------------------------------------------------------------
+
+
 //--- BEGIN : LOAN PAYMENT -----------------------------------------------------------------------------
 function ctLoanPymtList($q, $by, $yymm, $dept)
 {
@@ -1208,7 +1345,7 @@ function deductList($val)
 {
 	global $conn;
 	//get list of deduction value into array
-	$sSQL = 'SELECT * FROM general WHERE category=\'J\' order by code ASC';
+	$sSQL = 'SELECT * FROM general WHERE category=\'J\' ORDER BY name ASC';
 	$GetData = $conn->Execute($sSQL);
 	if ($GetData->RowCount() <> 0) {
 		$strDeductIDList = array();
@@ -1278,7 +1415,7 @@ function selectAdmin($code, $name)
 {
 	global $conn;
 	//get list of admin value into array
-	$sSQL = 'SELECT * FROM `users` WHERE groupID in (1,2) and isActive = 1 AND loginID NOT IN ("superadmin")';
+	$sSQL = 'SELECT * FROM `users` WHERE groupID in (1,2) and isActive = 1';
 	$GetData = $conn->Execute($sSQL);
 	if ($GetData->RowCount() <> 0) {
 		$strAdminCodeList = array();
@@ -2049,51 +2186,6 @@ function getBakiAKAUN2($id, $yrmth, $bond)
 	} else $bakiAwalAKAUN2 = 0;
 	return $bakiAwalAKAUN2;
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function getBakiBulanY($id, $dtFrom, $dtTo)
-{
-	global $conn;
-
-	$getOpen = "SELECT 
-			
-			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalYuran, 
-			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranKt
-			FROM transaction
-			WHERE
-			deductID IN (1595) 
-			AND userID = '" . $id . "' 
-			AND (createdDate BETWEEN '" . $dtFrom . "' AND '" . $dtTo . "')		
-			GROUP BY userID";
-	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran) - $rsOpen->fields(yuranKt);
-	else $bakiAwal = 0;
-
-	return $bakiAwal;
-}
-
-function getBakiBulanS($id, $dtFrom, $dtTo)
-{
-	global $conn;
-
-	$getOpen = "SELECT 
-			
-			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalYuran, 
-			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranKt
-			FROM transaction
-			WHERE
-			deductID IN (1596) 
-			AND userID = '" . $id . "' 
-			AND (createdDate BETWEEN '" . $dtFrom . "' AND '" . $dtTo . "')		
-			GROUP BY userID";
-	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran) - $rsOpen->fields(yuranKt);
-	else $bakiAwal = 0;
-
-	return $bakiAwal;
-}
-
 ////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -3363,45 +3455,11 @@ WHERE a.userID = b.userID AND a.userID = '" . $id . "' AND  b.status IN (1)'";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function deductListb2($val, $sql)
+function deductListb2($val)
 {
 	global $conn;
-
-	// Check if the 'coreID' column exists in the 'generalacc' table
-	$checkColumnSQL = "SHOW COLUMNS FROM generalacc LIKE 'coreID'";
-	$checkColumn = $conn->Execute($checkColumnSQL);
-	$hasCoreID = ($checkColumn && $checkColumn->RowCount() > 0);
-
-	// Default SQL query
-	$sSQL = "SELECT * FROM generalacc 
-             WHERE ID NOT IN (8,10,11,12,13) 
-             AND category='AA' 
-             AND name != BINARY UPPER(name)
-             ORDER BY CAST(code AS SIGNED INTEGER) ASC";
-
-	// Only modify $sSQL if 'coreID' exists in the table
-	if ($hasCoreID) {
-		if ($sql == "asetPerbelanjaan") { // PI
-			$sSQL = "SELECT * FROM generalacc 
-                     WHERE coreID IN (348,379,1172) 
-                     AND category='AA' 
-                     AND name != BINARY UPPER(name)
-                     ORDER BY CAST(code AS SIGNED INTEGER) ASC";
-		} elseif ($sql == "asetLiabilitiPerbelanjaan") { // PO
-			$sSQL = "SELECT * FROM generalacc 
-                     WHERE coreID IN (348,379,500,508,1172) 
-                     AND category='AA' 
-                     AND name != BINARY UPPER(name)
-                     ORDER BY CAST(code AS SIGNED INTEGER) ASC";
-		} elseif ($sql == "asetPendapatan") { // sebutharga, invois
-			$sSQL = "SELECT * FROM generalacc 
-                     WHERE coreID IN (348,379,13) 
-                     AND category='AA' 
-                     AND name != BINARY UPPER(name)
-                     ORDER BY CAST(code AS SIGNED INTEGER) ASC";
-		}
-	}
-
+	//get list of deduction value into array
+	$sSQL = 'SELECT * FROM generalacc WHERE ID NOT IN (8,10,11,12,13) AND category=\'AA\' ORDER BY code ASC';
 	$GetData = $conn->Execute($sSQL);
 	if ($GetData->RowCount() <> 0) {
 		$strDeductIDList = array();
@@ -3417,17 +3475,19 @@ function deductListb2($val, $sql)
 		}
 	}
 
-	// Return based on $val
+
+
+	//end get list
 	if ($val == 1) return $strDeductIDList;
 	if ($val == 2) return $strDeductCodeList;
 	if ($val == 3) return $strDeductNameList;
 }
 
-function strSelect3($id, $code, $sql, $type = "arr", $width = '')
+function strSelect3($id, $code, $type = "arr", $width = '')
 {
-	$strDeductIDList = deductListb2(1, $sql);
-	$strDeductCodeList = deductListb2(2, $sql);
-	$strDeductNameList = deductListb2(3, $sql);
+	$strDeductIDList = deductListb2(1);
+	$strDeductCodeList = deductListb2(2);
+	$strDeductNameList = deductListb2(3);
 
 	if ($type == "arr") {
 		$name = 'perkara[' . $id . ']';
@@ -3442,7 +3502,7 @@ function strSelect3($id, $code, $sql, $type = "arr", $width = '')
 	}
 
 	$strSelect = '<select name="' . $name . '" class="form-select-sm" onchange="document.MyForm.submit();" ' . $wd . '>
-					<option value="">- Kod -';
+				<option value="">- Kod -';
 	for ($i = 0; $i < count($strDeductIDList); $i++) {
 		$strSelect .= '	<option value="' . $strDeductIDList[$i] . '" ';
 		if ($code == $strDeductIDList[$i]) $strSelect .= ' selected';
@@ -3459,7 +3519,7 @@ function deductListINV($val)
 {
 	global $conn;
 	//get list of deduction value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE parentID NOT IN (8,10,11,12,13) AND a_Kodkump IN (36) AND category=\'AA\'  order by CAST( code AS SIGNED INTEGER ) ASC';
+	$sSQL = 'SELECT * FROM generalacc WHERE parentID NOT IN (8,10,11,12,13) AND a_Kodkump IN (36) AND category=\'AA\'  ORDER BY name ASC';
 	$GetData = $conn->Execute($sSQL);
 	if ($GetData->RowCount() <> 0) {
 		$strDeductIDList = array();
@@ -3995,38 +4055,36 @@ function selectbanks($code, $name)
 	return $strSelect;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function selectbanks1($code, $name)
-{
+function selectbanks1($code,$name){
 	global $conn;
-	//get list of admin value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE category = "AF"';
-	$GetData = $conn->Execute($sSQL);
-	if ($GetData->RowCount() <> 0) {
-		$strbankCodeList = array();
-		$strbankNameList = array();
-		$nCount = 0;
-		while (!$GetData->EOF) {
-			$strbankCodeList[$nCount] = $GetData->fields('ID');
-			$strbankNameList[$nCount] = $GetData->fields('name');
-			$GetData->MoveNext();
-			$nCount++;
+		//get list of admin value into array
+		$sSQL = 'SELECT * FROM generalacc WHERE category = "AF"';
+		$GetData = $conn->Execute($sSQL);
+		if ($GetData->RowCount() <> 0) {
+			$strbankCodeList = array();
+			$strbankNameList = array();
+			$nCount = 0;
+			while (!$GetData->EOF) {
+				$strbankCodeList[$nCount] = $GetData->fields('ID');
+				$strbankNameList[$nCount] = $GetData->fields('name');
+				$GetData->MoveNext();
+				$nCount++;
+			}
 		}
-	}
-	//end get list
-
-
-
-	$strSelect = '<select class="form-selectx" name="' . $name . '">
+		//end get list
+	
+	
+	
+	$strSelect = '<select class="form-selectx" name="'.$name.'">
 					<option value="">- Pilih -';
-	for ($i = 0; $i < count($strbankCodeList); $i++) {
-		$strSelect .= '	<option value="' . $strbankCodeList[$i] . '" ';
-		if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
-		$strSelect .=  '>' . $strbankNameList[$i];
-	}
+				for ($i = 0; $i < count($strbankCodeList); $i++) {
+					$strSelect .= '	<option value="'.$strbankCodeList[$i].'" ';
+					if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
+					$strSelect .=  '>'.$strbankNameList[$i];
+				}
 	$strSelect .= '</select>';
 	return $strSelect;
-}
+	}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function selectbayar($code, $name)
 {
@@ -4281,190 +4339,11 @@ function selectsyarikat($code, $name)
 	$strSelect .= '</select>';
 	return $strSelect;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function selectsyarikatAC($code, $name)
-{
-	global $conn;
-	//get list of admin value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AC")';
-	$GetData = $conn->Execute($sSQL);
-	if ($GetData->RowCount() <> 0) {
-		$strbankCodeList = array();
-		$strbankNameList = array();
-		$nCount = 0;
-		while (!$GetData->EOF) {
-			$strbankCodeList[$nCount] = $GetData->fields('ID');
-			$strbankNameList[$nCount] = $GetData->fields('name');
-			$GetData->MoveNext();
-			$nCount++;
-		}
-	}
-	//end get list
-
-
-
-	$strSelect = '<select name="' . $name . '" class="form-select-xs">
-					<option value="">- Pilih -';
-	for ($i = 0; $i < count($strbankCodeList); $i++) {
-		$strSelect .= '	<option value="' . $strbankCodeList[$i] . '" ';
-		if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
-		$strSelect .=  '>' . $strbankNameList[$i];
-	}
-	$strSelect .= '</select>';
-	return $strSelect;
-}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function selectsyarikatAB($code, $name)
-{
-	global $conn;
-	//get list of admin value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AB")';
-	$GetData = $conn->Execute($sSQL);
-	if ($GetData->RowCount() <> 0) {
-		$strbankCodeList = array();
-		$strbankNameList = array();
-		$nCount = 0;
-		while (!$GetData->EOF) {
-			$strbankCodeList[$nCount] = $GetData->fields('ID');
-			$strbankNameList[$nCount] = $GetData->fields('name');
-			$GetData->MoveNext();
-			$nCount++;
-		}
-	}
-	//end get list
-
-
-
-	$strSelect = '<select name="' . $name . '" class="form-select-xs">
-					<option value="">- Pilih -';
-	for ($i = 0; $i < count($strbankCodeList); $i++) {
-		$strSelect .= '	<option value="' . $strbankCodeList[$i] . '" ';
-		if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
-		$strSelect .=  '>' . $strbankNameList[$i];
-	}
-	$strSelect .= '</select>';
-	return $strSelect;
-}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function selectsyarikatAK($code, $name)
-{
-	global $conn;
-	//get list of admin value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AK")';
-	$GetData = $conn->Execute($sSQL);
-	if ($GetData->RowCount() <> 0) {
-		$strbankCodeList = array();
-		$strbankNameList = array();
-		$nCount = 0;
-		while (!$GetData->EOF) {
-			$strbankCodeList[$nCount] = $GetData->fields('ID');
-			$strbankNameList[$nCount] = $GetData->fields('name');
-			$GetData->MoveNext();
-			$nCount++;
-		}
-	}
-	//end get list
-
-
-
-	$strSelect = '<select name="' . $name . '" class="form-select-xs">
-					<option value="">- Pilih -';
-	for ($i = 0; $i < count($strbankCodeList); $i++) {
-		$strSelect .= '	<option value="' . $strbankCodeList[$i] . '" ';
-		if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
-		$strSelect .=  '>' . $strbankNameList[$i];
-	}
-	$strSelect .= '</select>';
-	return $strSelect;
-}
-
-
-function selectinvestors($code,$name){
-		global $conn;
-			//get list of admin value into array
-			$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AK") ORDER BY name';
-			$GetData = $conn->Execute($sSQL);
-			if ($GetData->RowCount() <> 0) {
-				$strbankCodeList = array();
-				$strbankNameList = array();
-				$nCount = 0;
-				while (!$GetData->EOF) {
-					$strbankCodeList[$nCount] = $GetData->fields('ID');
-					$strbankNameList[$nCount] = $GetData->fields('name');
-					$GetData->MoveNext();
-					$nCount++;
-				}
-			}
-			//end get list
-		
-		
-		
-		$strSelect = '<select name="'.$name.'" class="form-select-xs">
-						<option value="">- Pilih -';
-					for ($i = 0; $i < count($strbankCodeList); $i++) {
-						$strSelect .= '	<option value="'.$strbankCodeList[$i].'" ';
-						if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
-						$strSelect .=  '>'.$strbankNameList[$i];
-					}
-		$strSelect .= '</select>';
-		return $strSelect;
-		}
-
-
-
-function deductListINV1($val){
-global $conn;
-	//get list of deduction value into array
-	$sSQL = 'SELECT * FROM generalacc WHERE parentID NOT IN (8,10,11,12,13) AND a_Kodkump IN (36,35) AND category=\'AA\' ORDER BY CAST( code AS SIGNED INTEGER ) ASC';
-	$GetData = $conn->Execute($sSQL);
-	if ($GetData->RowCount() <> 0) {
-		$strDeductIDList = array();
-		$strDeductCodeList = array();
-		$strDeductNameList = array();
-		$nCount = 0;
-		while (!$GetData->EOF) {
-			$strDeductIDList[$nCount] = $GetData->fields('ID');
-			$strDeductCodeList[$nCount] = $GetData->fields('code');
-			$strDeductNameList[$nCount] = $GetData->fields('name');
-			$GetData->MoveNext();
-			$nCount++;
-		}
-	}
-
-	//end get list
- if($val==1) return $strDeductIDList;
- if($val==2) return $strDeductCodeList;
- if($val==3) return $strDeductNameList;
-}
-
-function strSelectINV1($id,$code,$type="arr"){
-$strDeductIDList = deductListINV1(1);
-$strDeductCodeList = deductListINV1(2);
-$strDeductNameList = deductListINV1(3);
-
-if($type=="arr"){
-	$name = 'perkara['.$id.']';
-}else{
-	$name = 'perkara2';
-}
-
-$strSelect = '<select name="'.$name.'" class="form-select-sm" onchange="document.MyForm.submit();">
-				<option value="">- Kod -';
-			for ($i = 0; $i < count($strDeductIDList); $i++) {
-				$strSelect .= '	<option value="'.$strDeductIDList[$i].'" ';
-				if ($code == $strDeductIDList[$i]) $strSelect .= ' selected';
-				//$strSelect .=  '>'.$strDeductNameList[$i];
-				$strSelect .=  '>'.$strDeductCodeList[$i] .'&nbsp;-&nbsp;'.$strDeductNameList[$i].'';
-			}
-$strSelect .= '</select>';
-return $strSelect;
-}
-
-function selectPelabur($code,$name){
+function selectsyarikatAC($code,$name){
 	global $conn;
 		//get list of admin value into array
-		$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AK") ORDER BY name';
+		$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AC")';
 		$GetData = $conn->Execute($sSQL);
 		if ($GetData->RowCount() <> 0) {
 			$strbankCodeList = array();
@@ -4491,38 +4370,36 @@ function selectPelabur($code,$name){
 	$strSelect .= '</select>';
 	return $strSelect;
 	}
-
-
-function selectTermPayment($code,$name){
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function selectsyarikatAB($code,$name){
 	global $conn;
-		//get list of term value into array
-		$sSQL = 'SELECT * FROM generalacc WHERE category = "AL"';
+		//get list of admin value into array
+		$sSQL = 'SELECT * FROM generalacc WHERE category IN ("AB")';
 		$GetData = $conn->Execute($sSQL);
 		if ($GetData->RowCount() <> 0) {
-			$strTermCodeList = array();
-			$strTermNameList = array();
+			$strbankCodeList = array();
+			$strbankNameList = array();
 			$nCount = 0;
 			while (!$GetData->EOF) {
-				$strTermCodeList[$nCount] = $GetData->fields('ID');
-				$strTermNameList[$nCount] = $GetData->fields('name');
+				$strbankCodeList[$nCount] = $GetData->fields('ID');
+				$strbankNameList[$nCount] = $GetData->fields('name');
 				$GetData->MoveNext();
 				$nCount++;
 			}
 		}
 		//end get list
-
-
-
-	$strSelect = '<select class="form-select-sm" name="'.$name.'">
+	
+	
+	
+	$strSelect = '<select name="'.$name.'" class="form-select-xs">
 					<option value="">- Pilih -';
-				for ($i = 0; $i < count($strTermCodeList); $i++) {
-					$strSelect .= '    <option value="'.$strTermCodeList[$i].'" ';
-					if ($code == $strTermCodeList[$i]) $strSelect .= ' selected';
-					$strSelect .=  '>'.$strTermNameList[$i];
+				for ($i = 0; $i < count($strbankCodeList); $i++) {
+					$strSelect .= '	<option value="'.$strbankCodeList[$i].'" ';
+					if ($code == $strbankCodeList[$i]) $strSelect .= ' selected';
+					$strSelect .=  '>'.$strbankNameList[$i];
 				}
 	$strSelect .= '</select>';
 	return $strSelect;
 	}
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+?>
