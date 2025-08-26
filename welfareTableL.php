@@ -26,7 +26,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = '?vw=welfareTableL&mn=921';
 $sFileRef  = '?vw=welfareTableL&mn=921';
-$title     = "Senarai Kelulusan Permohonan Bantuan Kebajikan";
+$title     = "Daftar Kelulusan Pengajuan Bantuan Kebajikan";
 
 $IDName = get_session("Cookie_userName");
 

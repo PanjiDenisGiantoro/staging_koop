@@ -97,7 +97,7 @@ $FormSize[$a]    	= "8";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "* Tujuan Permohonan";
+$FormLabel[$a]   	= "* Tujuan Pengajuan";
 $FormElement[$a] 	= "purpose";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";

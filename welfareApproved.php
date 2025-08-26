@@ -27,7 +27,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName = '?vw=welfareUser&mn=6';
 $sFileRef  = '?vw=welfareUser&mn=6';
-$title     = "Senarai Permohonan Diluluskan (Aktif)";
+$title     = "Daftar Pengajuan Diluluskan (Aktif)";
 
 $sSQL = "SELECT	a.*,b.* FROM welfares a,general b
 		 WHERE a.welfareType = b.ID AND 

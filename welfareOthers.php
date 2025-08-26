@@ -27,7 +27,7 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 
 $sFileName = '?vw=welfareUser&mn=6';
 $sFileRef  = '?vw=welfareUser&mn=6';
-$title     = "Senarai Permohonan Lain-Lain (Ditolak / Selesai)";
+$title     = "Daftar Pengajuan Lain-Lain (Ditolak / Selesai)";
 
 // $pk = get_session("Cookie_userID");
 
