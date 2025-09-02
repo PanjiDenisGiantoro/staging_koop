@@ -18,7 +18,7 @@ if (!isset($yy))	$yy = date("Y");
 include("header.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -206,8 +206,8 @@ if (get_session("Cookie_groupID") > 0) {
 					
 					<tr class="table-primary">
 						<td align="center" nowrap>Bil</td>
-						<td align="left"   nowrap>Nombor - Nama Anggota</td>
-						<td align="center" nowrap>Kad Pengenalan</td>
+						<td align="left"   nowrap>Nomor - Nama Anggota</td>
+						<td align="center" nowrap>Kartu Identitas</td>
 						<td align="center" nowrap>Akaun Bank</td>
 						<td nowrap align="right">Dividen Tahun ' . $yy . ' (RM)</td>
 					</tr>';
@@ -260,7 +260,7 @@ if (get_session("Cookie_groupID") > 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -275,10 +275,10 @@ if (get_session("Cookie_groupID") > 0) {
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 		}
 	} // end of ($GetMember->RowCount() <> 0)
 	// end of ($q == "" AND $dept == "")

@@ -16,7 +16,7 @@ if (!isset($yy))	$yy=date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
 include("header.php");	
 include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 	
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -163,7 +163,7 @@ print '  <tr valign="top" >
 					<tr class="header">
 						<td nowrap rowspan="1" height="20">&nbsp; Bil</td>
 						<td nowrap>&nbsp;No/Nama Anggota</td>
-						<td nowrap>&nbsp;No KP Baru</td>
+						<td nowrap>&nbsp;No KTP Baru</td>
 
 						<td nowrap align="center">&nbsp;Yuran Bulan</td>
 						<td nowrap align="center">&nbsp;Dividen Syer '.$peratusaham.'</td>
@@ -369,12 +369,12 @@ print '<script>alert("Permohonan Dividen telah dikemaskini di dalam sistem !");<
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $Get->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $Get->RowCount() . '</b></td>
 		</tr-->';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';
@@ -448,7 +448,7 @@ print '
 	function ITRActionButtonClick(v) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 	          if(confirm(\'Adakah Anda Pasti Untuk Di Rekodkan?\')) {
 	            e.action.value = v;
