@@ -130,7 +130,7 @@ if (get_session("Cookie_groupID") > 0) {
     <td colspan="3" class="headerteal" > Masukkan Persentase Pembayaran Dividen (%) </td>
   </tr>
   <tr class="DataB">
-    <td width="120" >Peratus Dividen</td>
+    <td width="120" >Persentase Dividen</td>
     <td width="1487"><input type="text" class="form-control-sm" name="MYA" value="' . $MYA . '" size="5" /></td>
   </tr>
   <tr class="DataB">

@@ -128,7 +128,7 @@ print'    <tr valign="top" class="textFont">
     <td colspan="3" class="headerblue" > Masukkan Persentase Pembayaran Dividen (%) </td>
   </tr>
   <tr class="DataB">
-    <td width="120" >Peratus Dividen</td>
+    <td width="120" >Persentase Dividen</td>
     <td width="10">:</td>
     <td width="1487"><input type="text" name="MYA" value="'.$MYA.'" size="5" /></td>
   </tr>
