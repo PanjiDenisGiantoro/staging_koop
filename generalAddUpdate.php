@@ -804,7 +804,7 @@ if ($SubmitForm <> "") {
                         tosql($createdBy, "Text") . "," .
                         tosql($updatedDate, "Text") . "," .
                         tosql($updatedBy, "Text") . ")";
-                    die('cek'.$sSQL);
+//                    die('cek'.$sSQL);
 
                 }
 
