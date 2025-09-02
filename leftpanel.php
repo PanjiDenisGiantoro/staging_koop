@@ -299,10 +299,10 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu909 = '';
         }
         echo '<li class="' . $mu909 . '">';
-        TitleBarBlue("KIRAAN DIVIDEN", 'mdi mdi-sprout-outline');
+        TitleBarBlue("PERHITUNGAN DIVIDEN", 'mdi mdi-sprout-outline');
         echo '<ul class="sub-menu ' . $mn909 . '" aria-expanded="false">';
-        MenuLink("dividenPeratusBlnKhd.php", "Kiraan Dividen", 909, @$_REQUEST['vw']);
-        MenuLink("dividenList.php", "Senarai Dividen", 909, @$_REQUEST['vw']);
+        MenuLink("dividenPeratusBlnKhd.php", "Perhitungan Dividen", 909, @$_REQUEST['vw']);
+        MenuLink("dividenList.php", "Daftar Dividen", 909, @$_REQUEST['vw']);
         MenuLink("reportsDIV.php", "Laporan Dividen", 909, @$_REQUEST['vw']);
         echo '</ul></li>';
 

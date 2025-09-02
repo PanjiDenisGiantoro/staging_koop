@@ -29,7 +29,7 @@ if (get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> $k
 
 $sFileName = "?vw=dividenPeratusBlnKhd&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmt&mn=$mn";
-$title     = "Dividen Peratus (Berkhidmat)";
+$title     = "Persentase Dividen (Dilayani/Disalurkan)";
 
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");

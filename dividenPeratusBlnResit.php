@@ -26,7 +26,7 @@ if (get_session("Cookie_koperasiID") <> $koperasiID) {
 
 $sFileName = 'dividenPeratusBlnResit.php'; 
 $sFileRef  = 'Edit_memberStmt.php';
-$title     = "Dividen Peratus Bulanan (resit)";
+$title     = "Persentase Dividen Bulanan (resi)";
 
 $updatedDate = date("Y-m-d H:i:s");   
 $updatedBy 	= get_session("Cookie_userName");

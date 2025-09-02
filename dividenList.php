@@ -28,7 +28,7 @@ if (get_session("Cookie_koperasiID") <> $koperasiID) {
 
 $sFileName = "?vw=dividenList&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmt&mn=$mn";
-$title     = "Senarai Dividen";
+$title     = "Daftar Dividen";
 
 $updatedDate = date("Y-m-d H:i:s");
 $updatedBy 	= get_session("Cookie_userName");
