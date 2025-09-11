@@ -193,21 +193,26 @@ print '
 	    }
 </script>';
 
-function ctGeneral($id,$cat) {
-	global $conn;
-	$sSQL = "";
-	$sWhere = "";		
-	$sWhere = "category = " . tosql($cat,"Text");
-	if ($id == "ALL") {
-		$sWhere .= " AND parentID = 0";
-	} else {
-		$sWhere .= " AND parentID = " . tosql($id,"Number");
-	}
-	$sWhere = " WHERE (" . $sWhere . ")";
-	$sSQL = "SELECT	 * FROM general";
-	$sSQL = $sSQL . $sWhere . ' ORDER BY code';
-	$rs = &$conn->Execute($sSQL);
-	return $rs;
+function ctGeneral($id, $cat) {
+    global $conn;
+    $sSQL = "";
+    $sWhere = "";
+    $sWhere = "g.category = " . tosql($cat, "Text");
+
+    if ($id == "ALL") {
+        $sWhere .= " AND g.parentID = 0";
+    } else {
+        $sWhere .= " AND g.parentID = " . tosql($id, "Number");
+    }
+
+    $sSQL = "SELECT g.*, ga.name as loanName 
+             FROM general g 
+             LEFT JOIN generalacc ga ON g.loanCode = ga.code 
+             WHERE " . $sWhere . " 
+             ORDER BY g.code";
+
+    $rs = &$conn->Execute($sSQL);
+    return $rs;
 }
 
 function listGeneral($id, $level) {
@@ -226,7 +231,8 @@ function listGeneral($id, $level) {
 	$generalParentID = array();
     $generalActiveSimpanan = array();
     $generalKodeSimpanan = array();
-    $generalJenisSimpanan = array();
+    $loanCode = array();
+    $loanName = array();
 	$GetGeneral = ctGeneral($id,$cat);
 	if ($GetGeneral->RowCount() <> 0) {
 		$RecNum = $RecNum + $GetGeneral->RowCount(); 
@@ -235,10 +241,13 @@ function listGeneral($id, $level) {
 			array_push ($generalCode, $GetGeneral->fields(code));
 			array_push ($generalName, $GetGeneral->fields(name));
 			array_push ($generalParentID, $GetGeneral->fields(parentID));
-            if ($cat == 'Y'){
-                array_push ($generalActiveSimpanan, $GetGeneral->fields(status_active_simpanan));
-                array_push ($generalJenisSimpanan, $GetGeneral->fields(jenis_simpanan));
-                array_push ($generalKodeSimpanan, $GetGeneral->fields(kode_simpanan));
+
+            // Inside your while loop where you process results
+            if ($cat == 'Y') {
+                array_push($generalActiveSimpanan, $GetGeneral->fields('status_active_simpanan'));
+                array_push($loanCode, $GetGeneral->fields('loanCode'));
+                array_push($loanName, $GetGeneral->fields('loanName')); // Add this line
+                array_push($generalKodeSimpanan, $GetGeneral->fields('kode_simpanan'));
             }
 			$GetGeneral->MoveNext();
 		}
@@ -281,7 +290,7 @@ function listGeneral($id, $level) {
             }else{
                 print 'Tidak Aktif';
             }
-            print '&nbsp;-&nbsp;'.$generalJenisSimpanan[$i];
+            print '&nbsp;-&nbsp;'.$loanName[$i];
             }
             '</font>
             <font class="blueText">' . $generalParentID[$i] . '</font>

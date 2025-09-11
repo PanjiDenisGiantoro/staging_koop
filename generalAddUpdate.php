@@ -544,15 +544,33 @@ if ($cat == "N") {
 
 
 if ($cat == "Y") {
-        $a++;
-    $FormLabel[$a] = "* Jenis Simpanan";
-    $FormElement[$a] = "jenis_simpanan";
-    $FormType[$a] = "text-sm";
-    $FormData[$a] = "";
+
+    $a = $a + 1;
+    $FormLabel[$a]    	= "* Kode Ledger";
+    $FormElement[$a] 	= "loanCode";
+    if (get_session("Cookie_groupID") == 0) {
+        $FormType[$a]     = "custom";
+    } else {
+        $FormType[$a]     = "custom";
+    }
+    $FormData[$a]    	= "";
     $FormDataValue[$a] = "";
-    $FormCheck[$a] = array(CheckBlank);
-    $FormSize[$a] = "70";
-    $FormLength[$a] = "10";
+    $FormCustomHTML[$a] = "
+    <div class='mb-2'>
+        <div class='input-group'>
+            <span class='input-group-text'>Kode</span>
+            <input type='text' name='loanCode' id='loanCode' class='form-control' value='".htmlspecialchars($loanCode)."' readonly>
+            <button type='button' class='btn btn-sm btn-info' onclick=\"window.open('listledger.php','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')\">Pilih</button>
+        </div>
+        <div class='input-group mt-2'>
+            <span class='input-group-text'>Nama</span>
+            <input type='text' name='loanName' id='loanName' class='form-control' value='".htmlspecialchars($loanName)."' readonly>
+        </div>
+    </div>";
+    $FormCheck[$a]    	= array(CheckBlank);
+    $FormSize[$a]     	= "8";
+    $FormLength[$a]   	= "20";
+
 
     $a++;
     $FormLabel[$a] = "* Active";
@@ -732,12 +750,10 @@ if ($SubmitForm <> "") {
                 }
                 if ($cat == 'Y'){
                     $sSQL .=
-                        "jenis_simpanan,".
+                        "loanCode,".
                         "status_active_simpanan,".
                         "created_at_simpanan,";
-
                 }
-
                 $sSQL .= "createdDate," .
                     "createdBy," .
                     "updatedDate," .
@@ -797,13 +813,13 @@ if ($SubmitForm <> "") {
                 }
                 if ($cat == 'Y'){
                     $sSQL .=
-                        tosql($jenis_simpanan, "Text") . "," .
+                        tosql($loanCode, "Text") . "," .
                         tosql($status_active_simpanan, "Text") . ","
-                        .tosql($created_at_simpanan, "Text") . ",".
-                        tosql($createdDate, "Text") . "," .
-                        tosql($createdBy, "Text") . "," .
-                        tosql($updatedDate, "Text") . "," .
-                        tosql($updatedBy, "Text") . ")";
+                        .tosql($created_at_simpanan, "Text") . ",";
+//                        tosql($createdDate, "Text") . "," .
+//                        tosql($createdBy, "Text") . "," .
+//                        tosql($updatedDate, "Text") . "," .
+//                        tosql($updatedBy, "Text") . ")";
 //                    die('cek'.$sSQL);
 
                 }
@@ -812,7 +828,7 @@ if ($SubmitForm <> "") {
 					$sSQL   .=tosql($kod, "Text") . "," .
 					          tosql($nama, "Text") . ",";
 				}
-				
+
 				if ($cat == "Q") {
 					$sSQL   .=tosql($kod, "Text") . "," .
 					          tosql($nama, "Text") . ",";
@@ -877,7 +893,7 @@ if ($SubmitForm <> "") {
                     $sSQL .=
                         ",nama_simpanan=" . tosql($nama_simpanan, "Text") .
                         ",kode_simpanan=" . tosql($kode_simpanan, "Text") .
-                        ",jenis_simpanan=" . tosql($jenis_simpanan, "Text") .
+                        ",loanCode=" . tosql($loanCode, "Text") .
                         ",status_active_simpanan=" . tosql($status_active_simpanan, "Text") .
                         ",created_at_simpanan=" . tosql($create_at_simpanan, "Text") ;
 
@@ -1012,7 +1028,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
             if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
         if ($cat == 'Y') {
-            if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
+//            if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
     }
     print '<tr valign=top><td class=Data align=right>' . $FormLabel[$i] . '</td>';

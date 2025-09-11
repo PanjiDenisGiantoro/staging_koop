@@ -221,25 +221,33 @@ function FormEntry($strFormName, $strFormElement, $strFormType, $strFormValue, $
 		print '</select>';
 	}
 
-	if ($strFormType == "custom" && $strFormElement == "month_day") {
-		$selectedMonth = isset($_POST['month']) ? $_POST['month'] : '';
-		$selectedDay   = isset($_POST['day']) ? $_POST['day'] : '';
+	if ($strFormType == "custom") {
+		if ($strFormElement == "month_day") {
+			$selectedMonth = isset($_POST['month']) ? $_POST['month'] : '';
+			$selectedDay   = isset($_POST['day']) ? $_POST['day'] : '';
 
-		echo "<label>Months:</label> ";
-		echo "<select name='month'>";
-		for ($m = 0; $m <= 24; $m++) { // allow up to 2 years duration
-			$sel = ($m == $selectedMonth) ? 'selected' : '';
-			echo "<option value='$m' $sel>$m</option>";
-		}
-		echo "</select> ";
+			echo "<label>Months:</label> ";
+			echo "<select name='month'>";
+			for ($m = 0; $m <= 24; $m++) { // allow up to 2 years duration
+				$sel = ($m == $selectedMonth) ? 'selected' : '';
+				echo "<option value='$m' $sel>$m</option>";
+			}
+			echo "</select> ";
 
-		echo "<label>Days:</label> ";
-		echo "<select name='day'>";
-		for ($d = 0; $d <= 31; $d++) {
-			$sel = ($d == $selectedDay) ? 'selected' : '';
-			echo "<option value='$d' $sel>$d</option>";
+			echo "<label>Days:</label> ";
+			echo "<select name='day'>";
+			for ($d = 0; $d <= 31; $d++) {
+				$sel = ($d == $selectedDay) ? 'selected' : '';
+				echo "<option value='$d' $sel>$d</option>";
+			}
+			echo "</select>";
+		} else {
+			// Handle other custom form elements
+			eval('global $FormCustomHTML;');
+			if (isset($FormCustomHTML) && is_array($FormCustomHTML) && isset($FormCustomHTML[$GLOBALS['i']])) {
+				echo $FormCustomHTML[$GLOBALS['i']];
+			}
 		}
-		echo "</select>";
 	}
 	
 }
