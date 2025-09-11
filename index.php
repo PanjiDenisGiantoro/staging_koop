@@ -159,7 +159,7 @@ print '
 
                 <!-- Left Menu Start -->
                 <ul class="metismenu list-unstyled" id="side-menu">
-                    <?php include("leftpanel.php"); ?>
+                    <?php include("leftpanel-new.php"); ?>
                 </ul>
             </div>
             <!-- Sidebar -->
