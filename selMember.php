@@ -25,27 +25,27 @@ $sSQL = "	SELECT a.departmentID, b.code as deptCode, b.name as deptName
 			GROUP BY a.departmentID";
 $rs = &$conn->Execute($sSQL);
 if ($rs->RowCount() <> 0) {
-	while (!$rs->EOF) {
-		array_push($deptList, $rs->fields(deptName));
-		array_push($deptVal, $rs->fields(departmentID));
-		$rs->MoveNext();
-	}
+    while (!$rs->EOF) {
+        array_push($deptList, $rs->fields(deptName));
+        array_push($deptVal, $rs->fields(departmentID));
+        $rs->MoveNext();
+    }
 }
 
 //$GetMember = ctMemberStatusDept($q,$by,"1",$dept);
 $sSQL = "";
 $sWhere = " a.userID = b.userID AND b.status IN ('1','4')";;
 if ($dept <> "") {
-	$sWhere .= " AND b.departmentID = " . tosql($dept, "Number");
+    $sWhere .= " AND b.departmentID = " . tosql($dept, "Number");
 }
 if ($q <> "") {
-	if ($by == 1) {
-		$sWhere .= " AND b.memberID like '%" . $q . "%'";
-	} else if ($by == 2) {
-		$sWhere .= " AND a.name like '%" . $q . "%'";
-	} else if ($by == 3) {
-		$sWhere .= " AND b.newIC like '%" . $q . "%'";
-	}
+    if ($by == 1) {
+        $sWhere .= " AND b.memberID like '%" . $q . "%'";
+    } else if ($by == 2) {
+        $sWhere .= " AND a.name like '%" . $q . "%'";
+    } else if ($by == 3) {
+        $sWhere .= " AND b.newIC like '%" . $q . "%'";
+    }
 }
 $sWhere = " WHERE (" . $sWhere . ")";
 $sSQL = "SELECT	DISTINCT a.*, b.*
@@ -70,18 +70,57 @@ print '
 <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />   	
 </head>
 <script language="JavaScript">
-	function selAnggota(userid,memberid,newic,name)
-	{	
-		window.opener.document.MyForm.userID.value = userid;	
-		window.opener.document.MyForm.memberID.value = memberid;	
-		if(window.opener.document.MyForm.hasOwnProperty(\'userName\'))
-			window.opener.document.MyForm.userName.value = name;	
-		window.opener.document.MyForm.newIC.value = newic;
-			
-		//window.opener.document.MyForm.oldIC.value = oldic;	
-		//window.opener.document.MyForm.unitOnHand.value = unit;	
-		window.close();
-	}
+function selAnggota(userid, memberid, newic, name) {
+  if (!(window.opener && !window.opener.closed)) {
+    alert(\'Jendela induk tidak tersedia.\');
+    return;
+  }
+
+  // 1) Preferred: parent exposes setSelectedMember(userId, userName)
+  if (typeof window.opener.setSelectedMember === \'function\') {
+    try {
+      window.opener.setSelectedMember(userid, name);
+      window.close();
+      return;
+    } catch (e) {
+      console.error(\'setSelectedMember error:\', e);
+    }
+  }
+
+  // 2) Fallback: fill by element IDs (no named form required)
+  try {
+    var doc = window.opener.document;
+    var hid = doc.getElementById(\'UserID\');
+    var code = doc.getElementById(\'loanCode\');
+    var nm = doc.getElementById(\'loanName\');
+    if (hid || code || nm) {
+      if (hid) hid.value = userid;
+      if (code) code.value = userid;
+      if (nm) nm.value = name;
+      window.close();
+      return;
+    }
+  } catch (e) {
+    console.error(\'Direct ID fill error:\', e);
+  }
+
+  // 3) Legacy fallback: pages that still use document.MyForm
+  try {
+    if (window.opener.document && window.opener.document.MyForm) {
+      var f = window.opener.document.MyForm;
+      if (f.userID) f.userID.value = userid;
+      if (f.memberID) f.memberID.value = memberid;
+      if (f.userName) f.userName.value = name;
+      if (f.newIC) f.newIC.value = newic;
+      window.close();
+      return;
+    }
+  } catch (e) {
+    console.error(\'Legacy MyForm fill error:\', e);
+  }
+
+  alert(\'Form target di halaman induk tidak ditemukan. Pastikan fungsi setSelectedMember tersedia atau elemen input dengan ID: UserID, loanCode, loanName ada.\');
+}
 </script>
 
 <body leftmargin="0" rightmargin="0" topmargin="0" bottommargin="0" class="bodyBG">';
@@ -115,22 +154,22 @@ print '		</select>
 						<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 							<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
-	print '	<option value="' . $deptVal[$i] . '" ';
-	if ($dept == $deptVal[$i]) print ' selected';
-	print '>' . $deptList[$i];
+    print '	<option value="' . $deptVal[$i] . '" ';
+    if ($dept == $deptVal[$i]) print ' selected';
+    print '>' . $deptList[$i];
 }
 print '			</select>
 					</td>
 				</tr>';
 if ($GetMember->RowCount() == 0) {
-	print '		<tr><td class="Label" align="center" height=50 valign=middle>
+    print '		<tr><td class="Label" align="center" height=50 valign=middle>
 					<b>- Sila masukkan No / Nama Anggota ATAU pilih Jabatan  -</b>
 				</td></tr>';
 } else {
-	if ($GetMember->RowCount() <> 0) {
-		$bil = $StartRec;
-		$cnt = 1;
-		print '	<tr>
+    if ($GetMember->RowCount() <> 0) {
+        $bil = $StartRec;
+        $cnt = 1;
+        print '	<tr>
 					<td class="Data" width="100%">
 						
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-bordered table-striped table-sm" style="font-size: 10pt;">
@@ -139,74 +178,74 @@ if ($GetMember->RowCount() == 0) {
 						<td class="header" align="center"><b>Nombor Anggota</b></td>
 						<td class="header" ><b>Nama</b></td>
 						<td class="header" align="center"><b>Kad Pengenalan</b></td>';
-		//				<td class="header" >&nbsp;Email</td>
-		print '						<td class="header" align="right"><b>Pegangan Yuran (RM)</b></b></td>
+        //				<td class="header" >&nbsp;Email</td>
+        print '						<td class="header" align="right"><b>Pegangan Yuran (RM)</b></b></td>
 					</tr>';
-		while (!$GetMember->EOF && $cnt <= $pg) {
-			$userid		= $GetMember->fields(userID);
-			$memberid	= $GetMember->fields(memberID);
-			$name		= $GetMember->fields(name);
-			$newic		= $GetMember->fields(newIC);
-			//$email		= $GetMember->fields(email);
-			$jabatan 	= $GetMember->fields(departmentID);
-			//					$jumlahUnit = ctNumberShare($userid);
-			//					$jumlahUnit = $jumlahUnit + $GetMember->fields(unitShare); 
-			//					$jumlahUnit = $GetMember->fields(totalShare); // grab from userdetails (totalshare)
-			$jumlahUnit = number_format(getFees($userid, date("Y")), 2);
-			print '
+        while (!$GetMember->EOF && $cnt <= $pg) {
+            $userid		= $GetMember->fields(userID);
+            $memberid	= $GetMember->fields(memberID);
+            $name		= $GetMember->fields(name);
+            $newic		= $GetMember->fields(newIC);
+            //$email		= $GetMember->fields(email);
+            $jabatan 	= $GetMember->fields(departmentID);
+            //					$jumlahUnit = ctNumberShare($userid);
+            //					$jumlahUnit = $jumlahUnit + $GetMember->fields(unitShare);
+            //					$jumlahUnit = $GetMember->fields(totalShare); // grab from userdetails (totalshare)
+            $jumlahUnit = number_format(getFees($userid, date("Y")), 2);
+            print '
 					<tr>
 						<td class="Data" align="right">' . $bil . '</td>
 						<td class="Data" align="center"><a href="javascript:selAnggota(\'' . $userid . '\',\'' . $memberid . '\',\'' . $newic . '\',\'' . $name . '\');">' . $memberid . '</a></td>
 						<td class="Data"><a href="javascript:selAnggota(\'' . $userid . '\',\'' . $memberid . '\',\'' . $newic . '\',\'' . $name . '\');">' . $name . '</a></td>';
 
-			//<td class="Data" align="center">'.$email.'&nbsp;</td>
-			print '
+            //<td class="Data" align="center">'.$email.'&nbsp;</td>
+            print '
 						<td class="Data" align="center">' . $newic . '</td>
 						<td class="Data" align="right">' . $jumlahUnit . '</td>
 					</tr>';
-			$cnt++;
-			$bil++;
-			$GetMember->MoveNext();
-		}
-		print ' </table>
+            $cnt++;
+            $bil++;
+            $GetMember->MoveNext();
+        }
+        print ' </table>
 			</td>
 		</tr>		
 		<tr>
 			<td>';
-		if ($TotalRec > $pg) {
-			print '
+        if ($TotalRec > $pg) {
+            print '
 					<table border="0" cellspacing="5" cellpadding="0"  class="textFont" width="100%">';
-			if ($TotalRec % $pg == 0) {
-				$numPage = $TotalPage;
-			} else {
-				$numPage = $TotalPage + 1;
-			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
-			for ($i = 1; $i <= $numPage; $i++) {
-				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
-				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
-			}
-			print '</td>
+            if ($TotalRec % $pg == 0) {
+                $numPage = $TotalPage;
+            } else {
+                $numPage = $TotalPage + 1;
+            }
+            print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+            for ($i = 1; $i <= $numPage; $i++) {
+                print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
+                print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
+            }
+            print '</td>
 						</tr>
 					</table>';
-		}
-		print '
+        }
+        print '
 			</td>
 		</tr>';
 
-		print '
+        print '
 				</td>
 			</tr>
 				</table>
 				
 						</td>
 					</tr>';
-	} else {
-		print '
+    } else {
+        print '
 					<tr><td	class="Label" align="center" height=50 valign=middle>
 						<b>- Tiada rekod mengenai anggota  -</b>
 					</td></tr>';
-	} // end of ($GetMember->RowCount() <> 0)
+    } // end of ($GetMember->RowCount() <> 0)
 } // end of ($q == "" AND $dept == "")
 print '		</table>
 		</td>

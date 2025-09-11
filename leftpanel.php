@@ -130,7 +130,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu946 . '">';
         TitleBarBlue("SIMPANAN", 'mdi mdi-bank');
         echo '<ul class="sub-menu ' . $mn946 . '" aria-expanded="false">';
-        MenuLink("loansimpanan.php", "Rekening Simpanan", 946, @$_REQUEST['vw']);
+        MenuLink("loansimpanan1.php", "Rekening Simpanan", 946, @$_REQUEST['vw']);
         MenuLink("loanApplysimpanan.php", "Entry Data Simpanan", 946, @$_REQUEST['vw']);
         echo '<li>';
         TitleBarBlue("Laporan", 'mdi mdi-file');

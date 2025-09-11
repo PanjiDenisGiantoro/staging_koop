@@ -1,0 +1,19 @@
+--akun rekening simpanan--
+
+CREATE TABLE depositoracc (
+    Id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    UserID BIGINT NOT NULL,
+    AccountNumber VARCHAR(50) NOT NULL,
+    Code_simpanan VARCHAR(20) NOT NULL COMMENT 'Jenis simpanan, ex: General',
+    Balance DECIMAL(18,2) NOT NULL DEFAULT 0,
+    Status TINYINT(1) NOT NULL DEFAULT 1 COMMENT '0 = Nonaktif, 1 = Aktif',
+    DateApply TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdateUserID BIGINT NULL,
+    DateUpdateUserID TIMESTAMP NULL
+);
+
+ALTER TABLE depositoracc
+MODIFY COLUMN UserID VARCHAR(50) NOT NULL
+
+ALTER TABLE general
+ADD COLUMN loanCode VARCHAR(255);

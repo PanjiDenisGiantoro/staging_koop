@@ -79,23 +79,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form method="post" action="" onsubmit="return confirm('Apakah Anda yakin ingin menyimpan data ini?')">
         <div class="form-group mb-3">
             <label>Nama</label>
-            <select name="UserID" class="form-control select2" required>
-                <option value="">-- Pilih User --</option>
-                <?php
-                $sqlUser = "SELECT A.UserID, B.name 
-                    FROM userdetails A 
-                    JOIN users B ON A.UserID = B.UserID
-                    ORDER BY B.name";
-                $rsUser = $conn->Execute($sqlUser);
+            <input type="hidden" name="UserID" id="UserID" value="<?php echo htmlspecialchars($UserID); ?>">
 
-                while (!$rsUser->EOF) {
-                    $userId = htmlspecialchars($rsUser->fields['UserID']);
-                    $userName = htmlspecialchars($rsUser->fields['name']);
-                    echo "<option value='" . $userId . "'>" . $userName . "</option>";
-                    $rsUser->MoveNext();
-                }
-                ?>
-            </select>
+            <div class="mb-2">
+                <div class="input-group">
+                    <span class="input-group-text">Kode</span>
+                    <input type="text" name="loanCode" id="loanCode" class="form-control"
+                           value="<?php echo htmlspecialchars($loanCode); ?>" readonly>
+                    <button type="button" class="btn btn-sm btn-info"
+                            onclick="window.open('selMember.php','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')">
+                        Pilih
+                    </button>
+                </div>
+                <div class="input-group mt-2">
+                    <span class="input-group-text">Nama</span>
+                    <input type="text" name="loanName" id="loanName" class="form-control"
+                           value="<?php echo htmlspecialchars($loanName); ?>" readonly>
+                </div>
+            </div>
+
         </div>
 
         <div class="form-group mb-3">
@@ -103,11 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <select name="Code_simpanan" class="form-control" required>
                 <option value="">-- Pilih Simpanan --</option>
                 <?php
-                $sqlGen = "SELECT * FROM general  where category = 'Y' ORDER BY nama_simpanan";
+                $sqlGen = "SELECT * FROM general  where category = 'Y' and status_active_simpanan = '1' ORDER BY nama_simpanan";
                 $rsGen = $conn->Execute($sqlGen);
                 while(!$rsGen->EOF){
                     echo "<option value='" . htmlspecialchars($rsGen->fields['ID']) . "'>"
-                        . htmlspecialchars($rsGen->fields['nama_simpanan']) . "</option>";
+                        . htmlspecialchars($rsGen->fields['name']) . "</option>";
                     $rsGen->MoveNext();
                 }
                 ?>
@@ -127,13 +129,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </div>
 
+<script>
+// Expose function globally so selMember popup can call it
+window.setSelectedMember = function(userId, userName) {
+  var codeEl = document.getElementById('loanCode');
+  var nameEl = document.getElementById('loanName');
+  var idEl   = document.getElementById('UserID');
+  if (codeEl) codeEl.value = userId;
+  if (nameEl) nameEl.value = userName;
+  if (idEl)   idEl.value   = userId;
+};
+</script>
 <?php include("footer.php"); ?>
 <script>
-    $(document).ready(function() {
-        $('.select2').select2({
-            placeholder: "Pilih User",
-            allowClear: true,
-            width: '100%'
-        });
-    });
+  $(function() {
+    if (window.jQuery && $.fn.select2) {
+      $('.select2').select2({
+        placeholder: 'Pilih User',
+        allowClear: true,
+        width: '100%'
+      });
+    }
+  });
 </script>
