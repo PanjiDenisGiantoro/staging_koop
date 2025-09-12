@@ -17,3 +17,36 @@ MODIFY COLUMN UserID VARCHAR(50) NOT NULL
 
 ALTER TABLE general
 ADD COLUMN loanCode VARCHAR(255);
+
+-- auto-generated definition
+create table transactionsvg
+(
+    ID           INT(10) auto_increment
+        primary key,
+    docNo        VARCHAR(50)                 null,
+    userID       VARCHAR(50)                 null,
+    yrmth        VARCHAR(6)                  null,
+    basicType    TINYINT(3)     default 0    not null,
+    deductID     INT(10)        default 0    not null,
+    MdeductID    INT(10)        default 0    null,
+    transID      INT(10)        default 0    not null,
+    addminus     TINYINT(3)     default 0    not null,
+    pymtID       INT(10)        default 0    not null,
+    pymtRefer    VARCHAR(30)                 null,
+    pymtAmt      DECIMAL(10, 2) default 0.00 not null,
+    cajAmt       DECIMAL(10, 2) default 0.00 not null,
+    status       TINYINT(3)     default 0    not null,
+    isApproved   TINYINT(3)     default 0    not null,
+    approvedDate DATETIME(19)                null,
+    isRejected   TINYINT(3)     default 0    not null,
+    rejectedDate DATETIME(19)                null,
+    updatedBy    VARCHAR(20)                 null,
+    updatedDate  DATETIME(19)                null,
+    createdBy    VARCHAR(20)                 null,
+    createdDate  DATETIME(19)                null,
+    remark       VARCHAR(100)                null
+);
+
+create index useryrmthaddminusdeductid_svg
+    on transactionsvg (userID, yrmth, addminus, deductID);
+

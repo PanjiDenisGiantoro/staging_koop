@@ -166,8 +166,8 @@ for ($i = 0; $i < count($statusList); $i++) {
 }
 print '	</select-->&nbsp;&nbsp;';
 
-$jenisList = array('Anggota', 'Pembiayaan');
-$jenisVal = array(1, 2);
+$jenisList = array('Anggota', 'Pembiayaan','Simpanan','Simpanan Berjangka');
+$jenisVal = array(1, 2,3,4);
 
 print '		Jenis
 			<select name="jenis" class="form-select-sm" onchange="document.MyForm.submit();">';

@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 
 
-$sFileName = '?vw=loansimpanan&mn=946';
+$sFileName = '?vw=loansimpanan1&mn=946';
 $sFileRef = '?vw=biayaDokumensimpanan&mn=946';
 $title = "Rekening Simpanan";
 
@@ -530,14 +530,14 @@ if ($GetMember->RowCount() <> 0) {
 							</td>';
                 } else {
                     print '<td>
-						<a href="javascript:void(0);"" onClick="openPopup(this);" title="Verifikasi Anggota" data-pk="' . $GetMember->fields(memberID) . '">
+						<a href="javascript:void(0);"" onClick="openPopup(this);" title="Verifikasi Anggota" data-pk="' . $GetMember->fields(depositorID) . '">
 								<i class="mdi mdi-account-check text-warning" style="font-size: 25px;"></i>
 							</a>
 							</td>';
                 }
 
                 print '<td>
-							<a href="?vw=member&mn=946&action=delete&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
+							<a href="?vw=deleteloansimpanan&mn=946&ID=' . $GetMember->fields['depositorID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt text-danger" style="font-size: 19px; margin-top: 9px;"></i>
 							</a>
 						</td>';
@@ -720,7 +720,7 @@ print '
 			var top = (screenHeight - height) / 2;
 
 			// Create the popup window with the pk value in the URL
-			var url = \'verify.php?pk=\' + encodeURIComponent(pk);
+			var url = \'verify_simpanan.php?pk=\' + encodeURIComponent(pk);
 			console.log(\'Popup URL:\', url); // Debugging: Log the URL to be opened
 
 			// Open the popup window
