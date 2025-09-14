@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conn->Execute($sql);
 
         echo "<script>alert('Rekening Simpanan berhasil ditambahkan'); 
-          window.location.href='?vw=loansimpanan&mn=946';</script>";
+          window.location.href='?vw=loansimpanan1&mn=946';</script>";
         exit;
     } else {
         echo "<script>alert('Semua field wajib diisi');</script>";
@@ -119,8 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-group mb-3">
             <label>Status</label>
             <select name="status" class="form-control">
-                <option value="1">Aktif</option>
-                <option value="0">Tidak Aktif</option>
+                <option value="0">Dalam Proses</option>
             </select>
         </div>
 

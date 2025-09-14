@@ -11,10 +11,6 @@ include("koperasiQry.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
-if ((get_session("Cookie_koperasiID") <> $koperasiID){
-	print '<script>parent.location.href = "index.php";</script>';
-}
-
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 25;
