@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -409,7 +409,7 @@ print '
 		<table border="0" cellspacing="1" cellpadding="2">
 
 			<tr>
-				<td>Nombor Rujukan</td>
+				<td>Nomor Rujukan</td>
 				<td valign="top"></td>
 				<td>
 					<input  name="SENO" value="' . $SENO . '" type="text" size="20" maxlength="50" class="form-controlx" readonly/>
@@ -425,7 +425,7 @@ print '
 
 			
 			<tr> <td>Projek</td> <td valign="top"></td> <td>' . selectproject($kod_project, 'kod_project') . '</td> </tr>
-			<tr> <td>Cawangan/Kawasan/Zon</td> <td valign="top"></td> <td>' . selectjabatan($kod_jabatan, 'kod_jabatan') . '</td> </tr>
+			<tr> <td>Cabang/Wilayah/Zona</td> <td valign="top"></td> <td>' . selectjabatan($kod_jabatan, 'kod_jabatan') . '</td> </tr>
 
 			
 
@@ -435,7 +435,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_entry">
@@ -479,8 +479,8 @@ print
 				<td nowrap="nowrap" align="center"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right"><b>Debit (RM)</b></td>
-				<td nowrap="nowrap" align="right"><b>Kredit (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>Debit (RP)</b></td>
+				<td nowrap="nowrap" align="right"><b>Kredit (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -925,7 +925,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -935,7 +935,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -949,7 +949,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -962,7 +962,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -975,7 +975,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -986,7 +986,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}

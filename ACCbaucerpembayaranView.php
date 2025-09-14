@@ -8,7 +8,7 @@
 session_start();
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -289,7 +289,7 @@ print '
             <td>' . ucwords(strtolower($sedia)) . '</td>
         </tr>
         <tr>
-            <td><b>DISEMAK OLEH</b></td>
+            <td><b>DICEK OLEH</b></td>
             <td>&nbsp;:&nbsp;</b></td>
             <td>' . ucwords(strtolower($sah)) . '</td>
         </tr>

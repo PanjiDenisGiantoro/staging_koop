@@ -1,5 +1,5 @@
 <div class="card-body">
-    <h4 class="card-title">Laman Utama</h4>
+    <h4 class="card-title">Halaman Utama</h4>
 
     <table class="table table-sm mb-3">
         <tbody>
@@ -8,7 +8,7 @@
                     <div>&nbsp;</div>
                 </td>
                 <td width="100%" valign="top">
-                    <div class="maroon" align="left"><b>Laman Utama</b></div>
+                    <div class="maroon" align="left"><b>Halaman Utama</b></div>
 
 
                     <form name="MyForm" action="/ikoop/[NAMA KOPERASI]/index.php?page=main&page_id=1&rec_per_page=10&sort=DESC" method="post">

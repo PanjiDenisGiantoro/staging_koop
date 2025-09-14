@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -643,7 +643,7 @@ print
 			</tr>
 		
 			<tr>
-				<td>Tarikh</td>
+				<td>Tanggal</td>
 				<td valign="top"></td>
 				<td>
 					<div class="input-group" id="tarikh_RV">
@@ -715,7 +715,7 @@ $sql3 = "SELECT * FROM transactionacc WHERE addminus IN (0) AND docNo = '" . $RV
 $rsDetail1 = $conn->Execute($sql3);
 
 print '<tr>
-<td valign="top">Master Amaun (RM)</td>
+<td valign="top">Master Jumlah (Rp)</td>
 <td valign="top"></td>
 <td><input name="master" id="master" class="form-controlx" value="' . $rsDetail1->fields(pymtAmt) . '" type="text" size="20" maxlength="10" readonly/></td>
 </tr>
@@ -1037,7 +1037,7 @@ print 		'<tr class="table-secondary">
 				<td class="Data" align=""><b>&nbsp;</b></td>
                 <td class="Data" align=""><b>&nbsp;</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>
-				<td class="Data" colspan="2" align="right"><b>Baki (RM)</b></td>
+				<td class="Data" colspan="2" align="right"><b>Saldo (RM)</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>
 				<td class="Data" align="right"><b>' . number_format($totalBal, 2) . '&nbsp;</b></td>
 				<td class="Data" align="left"></td>

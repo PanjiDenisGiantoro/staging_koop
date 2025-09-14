@@ -13,7 +13,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -541,7 +541,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top"></td>
 				<td>
 					<div class="input-group" id="tarikh_note">
@@ -620,7 +620,7 @@ $sql3 = "SELECT * FROM transactionacc WHERE addminus IN (1) AND docNo = '" . $no
 $rsDetail1 = $conn->Execute($sql3);
 
 print '<tr>
-			<td valign="top">Master Amaun (RM)</td>
+			<td valign="top">Master Jumlah (Rp)</td>
 			<td valign="top"></td>
 			<td><input id="master" class="form-controlx" value="' . $rsDetail1->fields('pymtAmt') . '" type="text" size="20" maxlength="10" readonly/></td>
 			</tr>

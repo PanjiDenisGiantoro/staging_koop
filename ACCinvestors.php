@@ -13,7 +13,7 @@ if (!isset($dept))		$dept="";
 
 include("header.php");
 include("koperasiQry.php"); 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -59,7 +59,7 @@ print '
 <h5 class="card-title">'.strtoupper($title).'</h5>
     
 <div class="mb-3 row m-1">
-<div>Carian Melalui 
+<div>Cari Berdasarkan 
 			<select name="by" class="form-select-sm mt-3">'; 
 if ($by == 1)	print '<option value="1" selected>Nama Syarikat</option>'; 	else print '<option value="1">Nama Syarikat</option>';				
 if ($by == 2)	print '<option value="2" selected>Person In Charge</option>'; 	else print '<option value="2">Person In Charge</option>';
@@ -74,7 +74,7 @@ print '		</div></div>
 		<td>
 			<table width="100%">
 				<tr>
-					<td align="right" class="textFont">Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+					<td align="right" class="textFont">Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 					if ($pg == 5)	print '<option value="5" selected>5</option>'; 	 	else print '<option value="5">5</option>';				
 					if ($pg == 10)	print '<option value="10" selected>10</option>'; 	else print '<option value="10">10</option>';				
 					if ($pg == 20)	print '<option value="20" selected>20</option>'; 	else print '<option value="20">20</option>';				
@@ -82,7 +82,7 @@ print '		</div></div>
 					if ($pg == 40)	print '<option value="40" selected>40</option>'; 	else print '<option value="40">40</option>';				
 					if ($pg == 50)	print '<option value="50" selected>50</option>';	else print '<option value="50">50</option>';				
 					if ($pg == 100)	print '<option value="100" selected>100</option>';	else print '<option value="100">100</option>';				
-	print '				</select> setiap mukasurat.
+	print '				</select> setiap halaman..
 					</td>
 				</tr>
 			</table>
@@ -128,7 +128,7 @@ print '		</div></div>
 				} else {
 					$numPage = $TotalPage +	1;
 				}
-				print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+				print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 				for	($i=1; $i <= $numPage; $i++) {
 					if(is_int($i/10)) print	'<br />';
 					print '<A href="'.$sFileName.'&StartRec='.(($i	* $pg) + 1 - $pg).'&pg='.$pg.'&q='.$q.'&by='.$by.'&filter='.$filter.'">';
@@ -142,12 +142,12 @@ print '		</div></div>
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetInvest->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetInvest->RowCount() . '</b></td>
 		</tr>';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';

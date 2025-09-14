@@ -34,36 +34,36 @@ if ($_SERVER['QUERY_STRING'] == '' or ($page <> 'main' and $page <> 'list' and $
 }
 
 if ($page == 'main') {
-	$strTitles = array('LAMAN UTAMA');
+	$strTitles = array('HALAMAN UTAMA');
 	$strPages = array('');
 	$align = 'left';
 } else if ($page == 'list') {
-	$strTitles = array('Laman Utama', 'Senarai Buletin');
+	$strTitles = array('Halaman Utama', 'Senarai Buletin');
 	$strPages = array($_SERVER['PHP_SELF'], '');
 	$align = 'left';
 } else if ($page == 'add') {
-	$strTitles = array('Laman Utama', 'Tambah Buletin');
+	$strTitles = array('Halaman Utama', 'Tambah Buletin');
 	$strPages = array($_SERVER['PHP_SELF'], '');
 	$align = 'left';
 } else if ($page == 'edit') {
 	if ($id <> '999') {
-		$strTitles = array('Laman Utama', 'Kemaskini Buletin');
+		$strTitles = array('Halaman Utama', 'Kemaskini Buletin');
 	} else {
-		$strTitles = array('Laman Utama', 'Kemaskini Syarat & Kelayakan');
+		$strTitles = array('Halaman Utama', 'Kemaskini Syarat & Kelayakan');
 	}
 	$strPages = array($_SERVER['PHP_SELF'], '');
 	$align = 'left';
 } else if ($page == 'view') {
 	if ($id <> '999') {
-		$strTitles = array('Laman Utama', 'Kandungan Buletin');
+		$strTitles = array('Halaman Utama', 'Kandungan Buletin');
 	} else {
-		$strTitles = array('Laman Utama', 'Syarat & Kelayakan');
+		$strTitles = array('Halaman Utama', 'Syarat & Kelayakan');
 	}
 	$strPages = array($_SERVER['PHP_SELF'], '');
 	$align = 'left';
 } else if ($page == 'contact_us') {
 	if (get_session('Cookie_groupID') == '') {
-		$strTitles = array('Laman Utama', 'Hubungi Kami');
+		$strTitles = array('Halaman Utama', 'Hubungi Kami');
 	} else {
 		$strTitles = array('[NAMA KOPERASI]', 'Hubungi Kami');
 	}
@@ -627,7 +627,7 @@ if (get_session('Cookie_groupID') == '' and $page == 'login') {
 	</div>
 	<div align="center" class="mb-2"><i class="mdi mdi-key text-primary"></i>&nbsp;
 		<div style="position: relative; display: inline-block;">
-			<input id="password" type="password" class="form-controlx" placeholder="Kata Laluan" name="password" size="20" maxlength="20">
+			<input id="password" type="password" class="form-controlx" placeholder="Kata Sandi" name="password" size="20" maxlength="20">
 			<div style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
 				<a id="eyeIcon" href="#" onclick="togglePassword()">
 					<i id="eyeIconInner" class="mdi mdi-eye-off-outline" aria-hidden="true"></i>
@@ -635,7 +635,7 @@ if (get_session('Cookie_groupID') == '' and $page == 'login') {
 			</div>
 		</div>    
 	</div>
-	<div align="center"><a href="?vw=lostPassword">&nbsp;Lupa kata laluan dan id pengguna?<a/></div>
+	<div align="center"><a href="?vw=lostPassword">&nbsp;Lupa Kata Sandi dan id pengguna?<a/></div>
 	<div align="center" class="mt-3">                                                          
 		<input type="submit" name="action" class="btn w-lg btn-primary mb-3" value="MASUK">                                                                                
 	</div>';
@@ -683,10 +683,10 @@ if (get_session('Cookie_groupID') == '' and $page == 'login') {
 		'
 	<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-1 border-bottom"></div>
           
-                <p align="center">Berminat menjadi anggota?<br/>
+                <p align="center">Tertarik menjadi anggota?<br/>
                         <a href="?vw=checkIC"><b>&nbsp;DAFTAR ANGGOTA BARU</b></font></a></p>
 
-                        <p align="center">Semak status keanggotaan?<br/>                         
+                        <p align="center">Cek status keanggotaan?<br/>                         
                         <a href="?vw=checkICinfo"><b>STATUS KEANGGOTAAN</b></font></a> <br/><br/>						
 						
 						<a align="center" class="text-secondary" href="">Terma & Syarat</a>&nbsp;|

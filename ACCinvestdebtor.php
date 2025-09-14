@@ -6,7 +6,7 @@
 *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -454,7 +454,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top"></td><td><input class="form-controlx" name="tarikh_invest" value="'.$tarikh_invest.'" type="text" size="20" maxlength="10" /></td>
+				<td valign="top" align="right">Tanggal</td><td valign="top"></td><td><input class="form-controlx" name="tarikh_invest" value="'.$tarikh_invest.'" type="text" size="20" maxlength="10" /></td>
 
 			
 			</tr>

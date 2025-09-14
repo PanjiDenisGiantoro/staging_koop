@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 
 session_start();
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $title          = "Pembuka Akaun";
 $sFileName      = "?vw=ACClejerListEdit&mn=$mn";
@@ -178,7 +178,7 @@ if ($code == 1) {
       <td>&nbsp;</td>
     </tr>
     <tr>
-      <td>Nama Carta Akaun</td>
+      <td>Nama Bagan Akun</td>
       <td>:</td>
       <td>' . $rs->fields(name) . '</td>
     </tr>
@@ -204,9 +204,9 @@ if ($code == 1) {
     </tr>
     <tr valign="top" class="table-primary">
       <td width="2%" align="center"  nowrap rowspan="1" ><b>Bil</b></td>
-      <td width="11%"align="left" nowrap><b>Kod Akaun - Nama Carta Akaun</b></td>
+      <td width="11%"align="left" nowrap><b>Kode Akun - Nama Bagan Akun</b></td>
       <td width="8%" align="center" nowrap><b>Tahun & Bulan</b></td>
-      <td width="11%"align="right" nowrap><div align="right"><b>Amaun (RM)</b></div></td>
+      <td width="11%"align="right" nowrap><div align="right"><b>Jumlah (Rp)</b></div></td>
       <td width="8%" align="center"nowrap><div align="center"><b>Pilihan</b></div></td>
       <td colspan="3"align="center" nowrap><div align="center"></div></td>
     </tr>';

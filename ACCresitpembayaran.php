@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -581,7 +581,7 @@ print '
 			</tr>
 			
 			<tr>
-				<td valign="top" align="right">Master Amaun (RM)</td><td valign="top"></td>
+				<td valign="top" align="right">Master Jumlah (Rp)</td><td valign="top"></td>
 				<td><input id="master" class="form-control-sm" value="' . $masterAmt . '" type="text" size="20" maxlength="10"/></td>
 			</tr>
 			

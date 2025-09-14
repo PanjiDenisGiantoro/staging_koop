@@ -8,7 +8,7 @@
 if (!isset($mm))	$mm = "ALL"; //date("m");
 if (!isset($yy))	$yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 50;
@@ -68,9 +68,9 @@ if ($mm <> "ALL") $sSQL .= " AND MONTH(A.tarikh_doc) =" . $mm;
 $sSQL .= $getQ . " ORDER BY A.tarikh_doc DESC";
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
-$TotalRec = $GetBaucers->RowCount();
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
+$TotalRec = $GetVouchers->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
 print '<div class="table-responsive">
@@ -124,7 +124,7 @@ print '
 		</td>
 	</tr>';
 
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
 	$bil = $StartRec;
 	$cnt = 1;
 	print '
@@ -152,42 +152,42 @@ if ($GetBaucers->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap align ="center"><b>Bil</b></td>
-						<td nowrap align ="center"><b>Nombor Rujukan</b></td>
+						<td nowrap align ="center"><b>Nomor Rujukan</b></td>
 						<td nowrap><b>Bank</b></td>
 						<td nowrap align ="center"><b>Tarikh</b></td>
-						<td nowrap align ="right"><b>Debit (RM)</b></td>
-						<td nowrap align ="right"><b>Kredit (RM)</b></td>
-						<td nowrap align ="right"><b>Baki (RM)</b></td>
+						<td nowrap align ="right"><b>Debit (RP)</b></td>
+						<td nowrap align ="right"><b>Kredit (RP)</b></td>
+						<td nowrap align ="right"><b>Saldo (RM)</b></td>
 											
 					</tr>';
 
 	$DRTotal = 0;
 	$CRTotal = 0;
-	while (!$GetBaucers->EOF && $cnt <= $pg) {
+	while (!$GetVouchers->EOF && $cnt <= $pg) {
 		$jumlah = 0;
-		$tarikh_baucer = toDate("d/m/y", $GetBaucers->fields(tarikh_doc));
+		$tarikh_baucer = toDate("d/m/y", $GetVouchers->fields(tarikh_doc));
 
-		$bankname = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(deductID), "Text"));
+		$bankname = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(deductID), "Text"));
 
 		print ' <tr>
 			<td class="Data" align="center">' . $bil . '</td>';
 
-		print '	<td class="Data" align ="center">' . $GetBaucers->fields(docNo) . '</td>';
+		print '	<td class="Data" align ="center">' . $GetVouchers->fields(docNo) . '</td>';
 		print '	<td class="Data">' . $bankname . '</td>';
 		print '	<td class="Data" align ="center">' . $tarikh_baucer . '</td>';
 
-		if ($GetBaucers->fields(addminus) == 0) {
+		if ($GetVouchers->fields(addminus) == 0) {
 
-			$debit = $GetBaucers->fields(pymtAmt);
+			$debit = $GetVouchers->fields(pymtAmt);
 
 			print '	<td class="Data" align ="right">' . $debit . '</td>';
 			print '	<td class="Data" align ="right">0.00</td>';
 
 			$totalDb += $debit;
 		}
-		if ($GetBaucers->fields(addminus) == 1) {
+		if ($GetVouchers->fields(addminus) == 1) {
 
-			$kredit = $GetBaucers->fields(pymtAmt);
+			$kredit = $GetVouchers->fields(pymtAmt);
 			print '	<td class="Data" align ="right">0.00</td>';
 			print '	<td class="Data" align ="right">' . $kredit . '</td>';
 
@@ -200,9 +200,9 @@ if ($GetBaucers->RowCount() <> 0) {
 		$bil++;
 
 
-		$GetBaucers->MoveNext();
+		$GetVouchers->MoveNext();
 	}
-	$GetBaucers->Close();
+	$GetVouchers->Close();
 
 	print '<tr>
 				<td class="Data" colspan="4" align="right"><b>JUMLAH (RM)</b></td>
@@ -223,7 +223,7 @@ if ($GetBaucers->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -232,15 +232,15 @@ if ($GetBaucers->RowCount() <> 0) {
 		print '</td></tr></table>';
 	}
 	print '</td></tr><tr>
-			<td class="textFont">Jumlah Rujukan : <b>' . $GetBaucers->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Rujukan : <b>' . $GetVouchers->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -265,7 +265,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -288,7 +288,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -299,7 +299,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

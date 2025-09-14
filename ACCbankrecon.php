@@ -8,7 +8,7 @@
 if (!isset($mm))	$mm = "ALL"; //date("m");
 if (!isset($yy))	$yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 50;
@@ -105,10 +105,10 @@ if ($mm <> "ALL") $sSQL .= " AND MONTH(A.tarikh_doc) =" . $mm;
 $sSQL .= $getQ . " ORDER BY A.tarikh_doc DESC";
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
 
-$TotalRec = $GetBaucers->RowCount();
+$TotalRec = $GetVouchers->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
 print '<div class="table-responsive">
@@ -161,7 +161,7 @@ echo '
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 ';
 
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
 	$bil = $StartRec;
 	$cnt = 1;
 	print '
@@ -195,34 +195,34 @@ if ($GetBaucers->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap>Nombor Rujukan&nbsp;&nbsp;</td>
+						<td nowrap>Nomor Rujukan&nbsp;&nbsp;</td>
 						<td nowrap align ="center">Batch</td>
 						<td nowrap>Bank</td>
-						<td nowrap align ="right">Debit (RM)</td>
-						<td nowrap align ="right">Kredit (RM)</td>
-						<td nowrap align ="center">Tarikh</td>
+						<td nowrap align ="right">Debit (RP)</td>
+						<td nowrap align ="right">Kredit (RP)</td>
+						<td nowrap align ="center">Tanggal</td>
 						<td nowrap>Pengesahan</td>
 											
 					</tr>';
 
 	$DRTotal = 0;
 	$CRTotal = 0;
-	while (!$GetBaucers->EOF && $cnt <= $pg) {
+	while (!$GetVouchers->EOF && $cnt <= $pg) {
 		$jumlah = 0;
-		$tarikh_baucer = toDate("d/m/y", $GetBaucers->fields(tarikh_doc));
+		$tarikh_baucer = toDate("d/m/y", $GetVouchers->fields(tarikh_doc));
 
-		$bankname = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(deductID), "Text"));
-		$batchName = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(batchNo), "Text"));
+		$bankname = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(deductID), "Text"));
+		$batchName = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(batchNo), "Text"));
 
 		$colorPen = "Data";
-		if ($GetBaucers->fields(stat_check) == 1) {
+		if ($GetVouchers->fields(stat_check) == 1) {
 			$colorPen = "greenText";
 			$pengesahan = "Pengesahan Telah Dibuat";
 		} else {
 			$colorPen = "redText";
 			$pengesahan = "Pengesahan Belum Dilakukan";
 		}
-		$sSQL2 = "SELECT g_lockstat FROM generalacc WHERE ID = " . $GetBaucers->fields(batchNo) . " ORDER BY ID";
+		$sSQL2 = "SELECT g_lockstat FROM generalacc WHERE ID = " . $GetVouchers->fields(batchNo) . " ORDER BY ID";
 		$rsDetail = &$conn->Execute($sSQL2);
 
 		print ' <tr>
@@ -230,267 +230,267 @@ if ($GetBaucers->RowCount() <> 0) {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		if ($GetBaucers->fields(docID) == 3) { //BAUCER
+		if ($GetVouchers->fields(docID) == 3) { //BAUCER
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 4) { //RESIT
+		if ($GetVouchers->fields(docID) == 4) { //RESIT
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef1 . '&action=view&no_resit=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef1 . '&action=view&no_resit=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 2) { //SINGLE ENTRY
+		if ($GetVouchers->fields(docID) == 2) { //SINGLE ENTRY
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 6) { //BAYAR INVOICE
+		if ($GetVouchers->fields(docID) == 6) { //BAYAR INVOICE
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef3 . '&action=view&RVNo=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef3 . '&action=view&RVNo=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 7) { //BAYAR BIL
+		if ($GetVouchers->fields(docID) == 7) { //BAYAR BIL
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef4 . '&action=view&no_bill=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef4 . '&action=view&no_bill=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 12) { //BAUCER ANGGOTA
+		if ($GetVouchers->fields(docID) == 12) { //BAUCER ANGGOTA
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef5 . '&action=view&no_baucer=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef5 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 10) { //RESIT ANGGOTA
+		if ($GetVouchers->fields(docID) == 10) { //RESIT ANGGOTA
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef6 . '&action=view&no_resit=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef6 . '&action=view&no_resit=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 5) { //INVOICE ANGGOTA
+		if ($GetVouchers->fields(docID) == 5) { //INVOICE ANGGOTA
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef7 . '&action=view&invNo=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef7 . '&action=view&invNo=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		if ($GetBaucers->fields(docID) == 11) { //JURNAL ANGGOTA
+		if ($GetVouchers->fields(docID) == 11) { //JURNAL ANGGOTA
 
 			if ($rsDetail->fields(g_lockstat) == 1) {
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
 				
-				' . $GetBaucers->fields(docNo) . '
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			} else {
 
 				print 	'<td class="Data">
-				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(docNo)) . '">
-				<a href="' . $sFileRef8 . '&action=view&no_jurnal=' . tohtml($GetBaucers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields(docNo) . '
+				<input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(docNo)) . '">
+				<a href="' . $sFileRef8 . '&action=view&no_jurnal=' . tohtml($GetVouchers->fields(docNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields(docNo) . '
 			</td>';
 			}
 			print '	<td class="Data" align="center">' . $batchName . '</td>';
 			print '	<td class="Data">' . $bankname . '</td>';
 
-			if ($GetBaucers->fields(addminus) == 0) {
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+			if ($GetVouchers->fields(addminus) == 0) {
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 				print '	<td class="Data" align ="right">0.00</td>';
 			}
-			if ($GetBaucers->fields(addminus) == 1) {
+			if ($GetVouchers->fields(addminus) == 1) {
 				print '	<td class="Data" align ="right">0.00</td>';
-				print '	<td class="Data" align ="right">' . $GetBaucers->fields(pymtAmt) . '</td>';
+				print '	<td class="Data" align ="right">' . $GetVouchers->fields(pymtAmt) . '</td>';
 			}
 			print '	<td class="Data" align="center">' . $tarikh_baucer . '</td>';
 		}
@@ -502,9 +502,9 @@ if ($GetBaucers->RowCount() <> 0) {
 		print '	</tr>';
 		$cnt++;
 		$bil++;
-		$GetBaucers->MoveNext();
+		$GetVouchers->MoveNext();
 	}
-	$GetBaucers->Close();
+	$GetVouchers->Close();
 
 	print '	</table>
 </td></tr><tr><td>';
@@ -516,7 +516,7 @@ if ($GetBaucers->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -525,15 +525,15 @@ if ($GetBaucers->RowCount() <> 0) {
 		print '</td></tr></table>';
 	}
 	print '</td></tr><tr>
-			<td class="textFont">Jumlah Rujukan : <b>' . $GetBaucers->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Rujukan : <b>' . $GetVouchers->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -558,7 +558,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -581,7 +581,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -592,7 +592,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

@@ -6,7 +6,7 @@
 *********************************************************************************/
 include ("common.php");
 include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec= 1; 
 if (!isset($pg))		$pg= 25;
@@ -76,7 +76,7 @@ print '
 				
 				<tr>
 					<td class="Data">
-						Carian Melalui 
+						Cari Berdasarkan 
 
 							<select name="by" class="form-select-sm">'; 
 	if ($by == 1)
@@ -160,7 +160,7 @@ if ($GetMember->RowCount() == 0) {
 					else {
 						$numPage = $TotalPage + 1;
 					}
-					print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+					print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 					if($refer) $rfr = '&refer='.$refer; else $rfr= '';
 
 					for ($i=1; $i <= $numPage; $i++) {

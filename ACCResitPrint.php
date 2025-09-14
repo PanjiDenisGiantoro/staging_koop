@@ -7,7 +7,7 @@
 include("common.php");
 
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";
@@ -102,7 +102,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top">:</td>
 				<td><input class="Data" name="tarikh_resit" value="'.$tarikh_resit.'" type="text" size="20" maxlength="10" readonly/></td>
 			</tr>

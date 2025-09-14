@@ -12,13 +12,13 @@ $title	= "Permohonan Menjadi Ahli";
 $id		= "";
 $detail	= "";
 
-if ($_POST["action"] == "SEMAK") {
+if ($_POST["action"] == "CEK") {
 	if ($_POST["ic"] == "") {
 
 		$detail = '<div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>Ralat!</strong> Sila masukkan nombor kad pengenalan anda.
+                                                    <strong>Ralat!</strong> Silahkan masukkan nomor kad Pengenal anda.
                                                 </div>';
 	} else {
 		$id = dlookup("userdetails", "userID", "newIC=" . tosql($ic, "Text"));
@@ -42,18 +42,18 @@ if ($_POST["action"] == "SEMAK") {
 					'<form name="MyForm" action="?vw=memberApply" method="post">'
 					. '<table class="table lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">'
 					. '<tr>'
-					. '<td class="borderallgreen" align="center" valign="middle"><div class="headerred"><b>MAKLUMAT AHLI BERDAFTAR</b></div></td>'
+					. '<td class="borderallgreen" align="center" valign="middle"><div class="headerred"><b>INFORMASI ANGGOTA TERDAFTAR</b></div></td>'
 					. '</tr>'
 					. '<tr>'
 					. '<td class="borderleftrightbottomred">'
 					. '<table border="0" cellpadding="0" cellspacing="6" width="100%" align="center">'
 					. '<tr>'
 					. '<td class="textFont" colspan="3" height="30">'
-					. 'Maklumat tertera di bawah didapati telah berhenti dalam sistem iKOOP - [NAMA KOPERASI]<br>'
-					. 'Sila rujuk pada pihak [NAMA KOPERASI] untuk tindakan susulan.'
+					. 'Informasi tertera di bawah didapati telah dihentikan dalam sistem iKOOP - \[NAMA KOPERASI]<br>'
+					. 'Silakan rujuk pada pihak [NAMA KOPERASI] untuk tindakan selanjutnya.'
 					. '</td>'
 					. '</tr>'
-					. '<tr><td class="textFont">Nombor Anggota</td><td>:</td><td class="textFont">' . strtoupper($memberID) . '</td></tr>'
+					. '<tr><td class="textFont">Nomor Anggota</td><td>:</td><td class="textFont">' . strtoupper($memberID) . '</td></tr>'
 					. '<tr><td class="textFont">Nama Anggota </td><td>:</td><td class="textFont">' . strtoupper($name) . '</td></tr>'
 					. '<tr>'
 					. '<td class="textFont" align="center" colspan="3"><br /><input type="submit" name="action"  value="Daftar Semula" size="50"><br />&nbsp;</td>'
@@ -67,7 +67,7 @@ if ($_POST["action"] == "SEMAK") {
 				$detail .=
 					'<table class="table lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">'
 					. '<tr class="table-primary">'
-					. '<td class="borderall" align="center" valign="middle"><div class="headerred"><b>MAKLUMAT AHLI BERDAFTAR</b></div></td>'
+					. '<td class="borderall" align="center" valign="middle"><div class="headerred"><b>INFORMASI ANGGOTA TERDAFTAR</b></div></td>'
 					. '</tr>'
 					. '<tr class="table-light">'
 					. '<td class="borderleftrightbottomred">'
@@ -81,7 +81,7 @@ if ($_POST["action"] == "SEMAK") {
 
 					. '</td>'
 					. '</tr>'
-					. '<tr><td class="textFont">Nama/Nombor Anggota </td><td>:</td><td class="textFont"><b>' . strtoupper($name) . ' - (' . $memberID . ')</b></td></tr>'
+					. '<tr><td class="textFont">Nama/Nomor Anggota </td><td>:</td><td class="textFont"><b>' . strtoupper($name) . ' - (' . $memberID . ')</b></td></tr>'
 					. '<tr><td class="textFont">Status Keanggotaan </td><td>:</td><td class="greenText"><b>' . strtoupper($statusList[$status]) . '</b></td></tr>'
 					. '</table>'
 					. '</td>'
@@ -120,7 +120,7 @@ if ($_POST["action"] == "SEMAK") {
 					</tr>
 					<tr>
 						<td class="borderallteal" align="center" valign="middle">
-							<h6 class="card-subtitle">NOMBOR KAD PENGENALAN BARU</h6>
+							<h6 class="card-subtitle">NOMOR KARTU PENGENAL BARU</h6>
 						</td>
 					</tr>
 					<tr>
@@ -128,7 +128,7 @@ if ($_POST["action"] == "SEMAK") {
 					</tr>
 					<tr>
 						<td class="textFont" align="center" colspan="3"><input type="button" class="btn btn-secondary waves-effect waves-light" onClick="window.location.href='index.php'" value="<<" size="50">
-							<input type="submit" class="btn btn-primary w-md waves-effect waves-light" name="action" value="SEMAK" size="50">
+							<input type="submit" class="btn btn-primary w-md waves-effect waves-light" name="action" value="CEK" size="50">
 						</td>
 					</tr>
 					<tr>
@@ -157,7 +157,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -167,7 +167,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -181,7 +181,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -194,7 +194,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          //alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          //alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          //if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -208,7 +208,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -219,7 +219,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}

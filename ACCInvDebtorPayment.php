@@ -6,7 +6,7 @@
 *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -436,7 +436,7 @@ print
 			</tr>
 		
 			<tr>
-				<td>Tarikh</td>
+				<td>Tanggal</td>
 				<td valign="top"></td>
 				<td><input class="form-control-sm" name="tarikh_PB" value="'.$tarikh_PB.'" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -539,7 +539,7 @@ print
 				<td nowrap="nowrap"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>Cara Bayaran</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right"><b>Amaun (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>Jumlah (Rp)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -625,7 +625,7 @@ print 		'<tr class="table-secondary">
 			<tr class="table-secondary">
 
 				<td class="Data" align=""><b>&nbsp;</b></td>
-				<td class="Data" colspan="2" align="right"><b>Baki (RM)</b></td>
+				<td class="Data" colspan="2" align="right"><b>Saldo (RM)</b></td>
 				<td class="Data" align="right"><b>'.number_format($baki,2).'&nbsp;</b></td>
 				<td class="Data" align="left"></td>
 			</tr>

@@ -17,7 +17,7 @@ if (!isset($filter))    $filter = "0";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -88,7 +88,7 @@ $GetReceipts->Move($StartRec - 1);
 
 $TotalRec         = $GetReceipts->RowCount();
 $TotalPage        =  ($TotalRec / $pg);
-$jenisList_cari = array('Nombor Anggota', 'Nama');
+$jenisList_cari = array('Nomor Anggota', 'Nama');
 $jenisVal_cari     = array(1, 2);
 $sqlYears = "SELECT DISTINCT YEAR(tarikh_resit) AS year FROM resitacc WHERE tarikh_resit IS NOT NULL AND tarikh_resit != '' AND tarikh_resit != 0 ORDER BY year ASC";
 $rsYears = $conn->Execute($sqlYears);
@@ -124,7 +124,7 @@ print '		</select>
 			<input type="submit" name="action1" value="Capai" class="btn btn-sm btn-secondary">
     </div><br/>
     <div clas="row">
-    Carian Melalui
+    Cari Berdasarkan
 				<select name="by" class="form-select-sm">';
 if ($by == 2)    print '<option value="2" selected>Nombor Resit</option>';
 else print '<option value="2">Nombor Resit</option>';
@@ -175,7 +175,7 @@ if ($GetReceipts->RowCount() <> 0) {
 			<td>
 				<table width="100%"><br>
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">';
     echo papar_ms($pg);
     print '</td>
@@ -187,10 +187,10 @@ if ($GetReceipts->RowCount() <> 0) {
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap align="center">Bil</td>
+						<td nowrap align="center">No</td>
 						<td nowrap align="left">No. Resit</td>
 						<td nowrap align="center">Nama Batch</td>
-						<td nowrap align="center">Tarikh</td>
+						<td nowrap align="center">Tanggal</td>
 						<td nowrap align="left">Bank</td>
 						<td nowrap align="left">Catatan</td>
 						<td nowrap align="right">Jumlah (RM)</td>
@@ -290,7 +290,7 @@ if ($GetReceipts->RowCount() <> 0) {
         } else {
             $numPage = $TotalPage + 1;
         }
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             if (is_int($i / 10)) print '<br />';
             print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -304,15 +304,15 @@ if ($GetReceipts->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Baucer : <b>' . $GetReceipts->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Voucher : <b>' . $GetReceipts->RowCount() . '</b></td>
 		</tr>';
 } else {
     if ($q == "") {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
     } else {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
     }
 }
 print ' 
@@ -342,7 +342,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -365,7 +365,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -376,7 +376,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

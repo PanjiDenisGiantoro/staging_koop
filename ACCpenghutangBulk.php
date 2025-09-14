@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 30;
@@ -75,7 +75,7 @@ print '
 				
 		<tr>
 		<td class="Data">
-		Carian Melalui 
+		Cari Berdasarkan 
 		<select name="by"  class="form-select-sm">';
 if ($by == 1)
 	print '<option value="1" selected>Nama Syarikat</option>';
@@ -108,7 +108,7 @@ if ($GetMember->RowCount() == 0) {
 						<td class="header" ><b>Alamat Billing</b></td>
 						<td class="header" align="right"><b>Amaun Invois (RM)</b></td>
                         <td class="header" align="right"><b>Jumlah Terbayar (RM)</b></td>
-                        <td class="header" align="right"><b>Baki (RM)</b></td>
+                        <td class="header" align="right"><b>Saldo (RM)</b></td>
 					</tr>';
 
 		while (!$GetMember->EOF && $cnt <= $pg) {
@@ -178,7 +178,7 @@ if ($GetMember->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			if ($refer) $rfr = '&refer=' . $refer;
 			else $rfr = '';
 

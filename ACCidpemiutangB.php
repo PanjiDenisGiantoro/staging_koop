@@ -5,7 +5,7 @@
  *********************************************************************************/
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 30;
@@ -96,7 +96,7 @@ print '	</select>
 					<td	 class="textFont" align ="left">&nbsp;</td>
 					<td	align="right" class="textFont">
 
-					Paparan	<SELECT	name="pg" class="Data" onchange="doListAll();">';
+					Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 if ($pg	== 5)	print '<option value="5" selected>5</option>';
 else print '<option	value="5">5</option>';
 if ($pg	== 10)	print '<option value="10" selected>10</option>';
@@ -179,7 +179,7 @@ if ($GetLoan->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

@@ -62,9 +62,9 @@ UNION ALL
     AND C.tarikh_doc <= '" . $dtTo . "'
 )
 ORDER BY tarikh_doc DESC";
-$GetBaucers = &$conn->Execute($sSQL);
+$GetVouchers = &$conn->Execute($sSQL);
 
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
     $cnt = 1;
 
     print '
@@ -81,14 +81,14 @@ if ($GetBaucers->RowCount() <> 0) {
                     <td nowrap align="center"><b>Lhdn Status</b></td>
                 </tr>';
 
-    while (!$GetBaucers->EOF) {
-        $namacomp = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields('companyID'), "Text"));
-        $description = $GetBaucers->fields('description') ? $GetBaucers->fields('description') : $GetBaucers->fields('catatan');
-        $tarikh = $GetBaucers->fields('tarikh_inv') ? toDate("d/m/y", $GetBaucers->fields('tarikh_inv')) : toDate("d/m/y", $GetBaucers->fields('tarikh_note'));
-        $amaun = $GetBaucers->fields('outstandingbalance') ? $GetBaucers->fields('outstandingbalance') : $GetBaucers->fields('pymtAmt');
-        $docNo = $GetBaucers->fields('invNo') ? $GetBaucers->fields('invNo') : $GetBaucers->fields('noteNo');
+    while (!$GetVouchers->EOF) {
+        $namacomp = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields('companyID'), "Text"));
+        $description = $GetVouchers->fields('description') ? $GetVouchers->fields('description') : $GetVouchers->fields('catatan');
+        $tarikh = $GetVouchers->fields('tarikh_inv') ? toDate("d/m/y", $GetVouchers->fields('tarikh_inv')) : toDate("d/m/y", $GetVouchers->fields('tarikh_note'));
+        $amaun = $GetVouchers->fields('outstandingbalance') ? $GetVouchers->fields('outstandingbalance') : $GetVouchers->fields('pymtAmt');
+        $docNo = $GetVouchers->fields('invNo') ? $GetVouchers->fields('invNo') : $GetVouchers->fields('noteNo');
 
-        $result = dlookup("generalacc", "b_tinLhdn", "ID=" . tosql($GetBaucers->fields("companyID"), "Text"));
+        $result = dlookup("generalacc", "b_tinLhdn", "ID=" . tosql($GetVouchers->fields("companyID"), "Text"));
         $tinLhdn = $result ? '<span style="color: green; font-size: 16px;" title="' . htmlspecialchars($result) . '">&#10004;</span>' : '<span style="color: red; font-size: 16px;">&#10008;</span>';
 
         print '
@@ -103,9 +103,9 @@ if ($GetBaucers->RowCount() <> 0) {
         </tr>';
 
         $cnt++;
-        $GetBaucers->MoveNext();
+        $GetVouchers->MoveNext();
     }
-    $GetBaucers->Close();
+    $GetVouchers->Close();
 }
 
 print '</table>

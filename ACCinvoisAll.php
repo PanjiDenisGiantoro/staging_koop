@@ -586,11 +586,11 @@ print'
                 ';
                 } else {
                 print'
-                <th scope="col" class="th-stylish-right">Kredit (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RM)</i></small></th>                
+                <th scope="col" class="th-stylish-right">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RM)</i></small></th>                
                 ';
                 }
                 print'
-                <th scope="col" class="th-stylish-right">Baki (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Balance (RM)</i></small></th>
+                <th scope="col" class="th-stylish-right">Saldo (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Balance (RM)</i></small></th>
             </tr>
         </thead>
         <tbody>

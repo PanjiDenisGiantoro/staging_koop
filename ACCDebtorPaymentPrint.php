@@ -8,7 +8,7 @@
 session_start();
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";
@@ -452,7 +452,7 @@ print '
             <td>' . ucwords(strtolower($sedia)) . '</td>
         </tr>
         <tr>
-            <td><b>DISEMAK OLEH</b></td>
+            <td><b>DICEK OLEH</b></td>
             <td>&nbsp;:&nbsp;</b></td>
             <td>' . ucwords(strtolower($semak)) . '</td>
         </tr>

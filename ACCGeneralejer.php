@@ -5,7 +5,7 @@
  *          Filename		: 	ACCGeneralejer.php
  *          Date 		: 	04/8/2006
  *********************************************************************************/
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if (!isset($mm))    $mm = "ALL"; //date("m");
 if (!isset($yy))    $yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
@@ -74,13 +74,13 @@ $sSQL = $sSQL . $sWhere . ' ORDER BY A.docNo ASC,A.tarikh_doc DESC';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
 
-// $batchName 	= dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields('batchNo'), "Text"));
-$glname     = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields('deductID'), "Text"));
+// $batchName 	= dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields('batchNo'), "Text"));
+$glname     = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields('deductID'), "Text"));
 
-$TotalRec     = $GetBaucers->RowCount();
+$TotalRec     = $GetVouchers->RowCount();
 $TotalPage     =  ($TotalRec / $pg);
 
 $sqlYears     = "SELECT DISTINCT YEAR(tarikh_doc) AS year FROM transactionacc 
@@ -142,7 +142,7 @@ $sSQLakaun  = "SELECT DISTINCT
                     generalacc.category = 'AA' /* Kod Carta Akaun only */
                     OR general.category = 'J' /* Kod Objek Akaun only */
                 )
-                AND transactionacc.deductID IN ($akaunDeductIDListString) /* Kod Akaun currently in use only */
+                AND transactionacc.deductID IN ($akaunDeductIDListString) /* Kode Akun currently in use only */
                 AND transactionacc.docID NOT IN (0) /* excluded docID 0 for buggy data */
             ORDER BY 
                 CAST(generalacc.code AS UNSIGNED) ASC,
@@ -204,15 +204,15 @@ print '		</select>
 			<input type="submit" name="action1" value="Capai" class="btn btn-sm btn-secondary">
 </div><br/>
 <div clas="row">
-Carian Melalui
+Cari Berdasarkan
 				<select name="by" class="form-select-sm" onchange="toggleSearchFields(this.value);">';
-if ($by == 1)    print '<option value="1" selected>Nombor Rujukan</option>';
-else print '<option value="1">Nombor Rujukan</option>';
+if ($by == 1)    print '<option value="1" selected>Nomor Rujukan</option>';
+else print '<option value="1">Nomor Rujukan</option>';
 // if ($by == 2)	print '<option value="2" selected>Nama Batch</option>'; 	else print '<option value="2">Nama Batch</option>';					
 if ($by == 3)    print '<option value="3" selected>Nama Akaun</option>';
 else print '<option value="3">Nama Akaun</option>';
-if ($by == 4)    print '<option value="4" selected>Kod Akaun</option>';
-else print '<option value="4">Kod Akaun</option>';
+if ($by == 4)    print '<option value="4" selected>Kode Akun</option>';
+else print '<option value="4">Kode Akun</option>';
 
 print '</select>';
 
@@ -267,21 +267,21 @@ print '
 			<td nowrap align="right" style="padding-right: 5px; width: 500%;" colspan="2"><b><u>Jumlah Pada ' . $stringDesc . ' Tahun ' . $yy . '</u></b></td>
 		</tr>
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Jumlah Debit (RM):</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Jumlah Debit (RP):</b></td>
 			<td nowrap align="right" style="padding-right: 5px; width: 50%;">' . number_format($totalDebit, 2) . '</td>
 		</tr>
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Jumlah Kredit (RM):</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Jumlah Kredit (RP):</b></td>
 			<td nowrap align="right" style="padding-right: 5px; width: 50%;">' . number_format($totalCredit, 2) . '</td>
 		</tr>
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Baki (RM):</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Saldo (RM):</b></td>
 			<td nowrap align="right" style="padding-right: 5px; width: 50%;">' . number_format($balance, 2) . '</td>
 		</tr>
 	</table>
 </div>';
 
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
     $bil = $StartRec;
     $cnt = 1;
 
@@ -291,7 +291,7 @@ if ($GetBaucers->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td align="left" class="textFont"><br>Jumlah Rujukan : <b>' . $GetBaucers->RowCount() . '</b></td>
+						<td align="left" class="textFont"><br>Jumlah Rujukan : <b>' . $GetVouchers->RowCount() . '</b></td>
 
 						
 						<td align="right" class="textFont"><br>';
@@ -306,25 +306,25 @@ if ($GetBaucers->RowCount() <> 0) {
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap align="center">Bil</td>
-						<td nowrap>Nombor Rujukan</td>
+						<td nowrap align="center">No</td>
+						<td nowrap>Nomor Rujukan</td>
 						<td nowrap align="center">Nama Batch</td>
-						<td nowrap align="center">Tarikh</td>
-						<td nowrap>Kod Akaun</td>
+						<td nowrap align="center">Tanggal</td>
+						<td nowrap>Kode Akun</td>
 						<td nowrap>Akaun GL</td>
 						<td nowrap>Catatan</td>	
-						<td nowrap align ="right">Debit (RM)</td>
-						<td nowrap align ="right">Kredit (RM)</td>	
+						<td nowrap align ="right">Debit (RP)</td>
+						<td nowrap align ="right">Kredit (RP)</td>	
 						<td nowrap align="center">Tindakan</td>					
 					</tr>';
 
     $DRTotal = 0;
     $CRTotal = 0;
-    while (!$GetBaucers->EOF && $cnt <= $pg) {
+    while (!$GetVouchers->EOF && $cnt <= $pg) {
         $jumlah = 0;
-        $tarikh_baucer = toDate("d/m/y", $GetBaucers->fields('tarikh_doc'));
-        $description = dlookup("transactionacc", "desc_akaun", "ID=" . tosql($GetBaucers->fields('ID'), "Text"));
-        $batchNo = trim($GetBaucers->fields('batchNo')); // Extract and trim batchNo
+        $tarikh_baucer = toDate("d/m/y", $GetVouchers->fields('tarikh_doc'));
+        $description = dlookup("transactionacc", "desc_akaun", "ID=" . tosql($GetVouchers->fields('ID'), "Text"));
+        $batchNo = trim($GetVouchers->fields('batchNo')); // Extract and trim batchNo
 
         // Check if batchNo is valid (not null, empty string, or 0)
         if (!empty($batchNo) && $batchNo != '0') {
@@ -342,28 +342,28 @@ if ($GetBaucers->RowCount() <> 0) {
             $batchName = dlookup("generalacc", "name", "ID=" . tosql($batchNo, "Text"));
         }
 
-        $docID = $GetBaucers->fields('docID');
+        $docID = $GetVouchers->fields('docID');
 
         // yang pakai kod objek akaun selain Jurnal
         if ($docID == 10) { //RT (cater cara penyimpanan deductID and JdeductID yg berbeza)
-            $deductID = $GetBaucers->fields('JdeductID') != ''
-                ? $GetBaucers->fields('JdeductID')
-                : $GetBaucers->fields('deductID');
+            $deductID = $GetVouchers->fields('JdeductID') != ''
+                ? $GetVouchers->fields('JdeductID')
+                : $GetVouchers->fields('deductID');
         }
         // yang pakai kod carta akaun selain Jurnal
         else {
-            $deductID = $GetBaucers->fields('deductID') != ''
-                ? $GetBaucers->fields('deductID')
-                : $GetBaucers->fields('JdeductID');
+            $deductID = $GetVouchers->fields('deductID') != ''
+                ? $GetVouchers->fields('deductID')
+                : $GetVouchers->fields('JdeductID');
         }
 
         $glId     = dlookup("general", "c_master", "ID=" . tosql($deductID, "Text"));
 
-        $glcode   = dlookup("generalacc", "code", "ID=" . tosql($GetBaucers->fields('deductID'), "Text"));
+        $glcode   = dlookup("generalacc", "code", "ID=" . tosql($GetVouchers->fields('deductID'), "Text"));
         $glcode1  = dlookup("general", "code", "ID=" . tosql($deductID, "Text"));
         $glcode2  = dlookup("generalacc", "code", "ID=" . $glId);
 
-        $glname   = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields('deductID'), "Text"));
+        $glname   = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields('deductID'), "Text"));
         $glname1  = dlookup("general", "name", "ID=" . tosql($deductID, "Text"));
         $glname2  = dlookup("generalacc", "name", "ID=" . $glId);
 
@@ -393,15 +393,15 @@ if ($GetBaucers->RowCount() <> 0) {
         print '<td class="Data" style="text-align: center; vertical-align: middle;">' . $bil . '</td>';
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 2) { //SINGLE ENTRY
+        if ($GetVouchers->fields('docID') == 2) { //SINGLE ENTRY
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 			</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-			<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-				' . $GetBaucers->fields('docNo') . '
+			<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+				' . $GetVouchers->fields('docNo') . '
 			</td>';
             }
 
@@ -414,21 +414,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -439,15 +439,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 3) { //BAUCER
+        if ($GetVouchers->fields('docID') == 3) { //BAUCER
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '
+					<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '
 				</td>';
             }
 
@@ -459,21 +459,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -484,15 +484,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 4) { //RESIT
+        if ($GetVouchers->fields('docID') == 4) { //RESIT
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '
+					<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '
 				</td>';
             }
 
@@ -504,21 +504,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitPrintCustomer.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitPrintCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitViewCustomer.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitViewCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -529,15 +529,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 5) { //INVOICE
+        if ($GetVouchers->fields('docID') == 5) { //INVOICE
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             }
 
             print '	<td class="Data" align="left">' . $batchName . '</td>';
@@ -548,21 +548,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -573,15 +573,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 6) { //BAYAR INVOICE
+        if ($GetVouchers->fields('docID') == 6) { //BAYAR INVOICE
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             }
 
             print '	<td class="Data" align="left">' . $batchName . '</td>';
@@ -592,21 +592,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -617,15 +617,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         //////////////////////////////////////////////////////////////////DEFAULT/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 8) { //PURCHASE INVOICE
+        if ($GetVouchers->fields('docID') == 8) { //PURCHASE INVOICE
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             }
 
             print '	<td class="Data" align="left">' . $batchName . '</td>';
@@ -636,21 +636,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 1) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 1) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 0) {
+            if ($GetVouchers->fields('addminus') == 0) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoicePrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoicePrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoiceView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoiceView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -661,15 +661,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 7) { //PEMBAYARAN BIL
+        if ($GetVouchers->fields('docID') == 7) { //PEMBAYARAN BIL
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             }
 
             print '	<td class="Data" align="left">' . $batchName . '</td>';
@@ -680,21 +680,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillPrintCustomer.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillPrintCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillViewCustomer.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillViewCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -705,15 +705,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 10) { //RESIT ANGGOTA
+        if ($GetVouchers->fields('docID') == 10) { //RESIT ANGGOTA
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             }
             print '	<td class="Data" align="left">' . $batchName . '</td>';
             print '	<td class="Data" style="text-align: center; vertical-align: middle;">' . $tarikh_baucer . '</td>';
@@ -723,21 +723,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentPrint.php?ID=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentPrint.php?ID=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -750,17 +750,17 @@ if ($GetBaucers->RowCount() <> 0) {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        if ($GetBaucers->fields('docID') == 11) { //JURNAL ANGGOTA
+        if ($GetVouchers->fields('docID') == 11) { //JURNAL ANGGOTA
 
             /*	if ($rsDetail && $rsDetail->fields('g_lockstat') == 1){
-		print 	'<td class="Data">&nbsp;'.$GetBaucers->fields('docNo').'
+		print 	'<td class="Data">&nbsp;'.$GetVouchers->fields('docNo').'
 				</td>';
 			}
 		else {*/
 
             print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '</td>';
+					<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '</td>';
             //	}
 
             print '	<td class="Data" align="left">' . $batchName . '</td>';
@@ -771,21 +771,21 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentView.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
+            $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -796,15 +796,15 @@ if ($GetBaucers->RowCount() <> 0) {
             }
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields('docID') == 12) { //BAUCER
+        if ($GetVouchers->fields('docID') == 12) { //BAUCER
 
             if ($rsDetail && $rsDetail->fields('g_lockstat') == 1) {
-                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields('docNo') . '
+                print     '<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields('docNo') . '
 				</td>';
             } else {
                 print     '<td class="Data" style="text-align: left; vertical-align: middle;">
-					<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetBaucers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
-					' . $GetBaucers->fields('docNo') . '
+					<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields('docNo')) . '&yy=' . $yy . '&mm=' . $mm . '">
+					' . $GetVouchers->fields('docNo') . '
 				</td>';
             }
 
@@ -816,20 +816,20 @@ if ($GetBaucers->RowCount() <> 0) {
 
             print '	<td class="Data" style="text-align: left; vertical-align: middle;">' . $description . '</td>';
 
-            if ($GetBaucers->fields('addminus') == 0) {
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+            if ($GetVouchers->fields('addminus') == 0) {
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
             }
-            if ($GetBaucers->fields('addminus') == 1) {
+            if ($GetVouchers->fields('addminus') == 1) {
                 print '	<td class="Data" style="text-align: right; vertical-align: middle;">0.00</td>';
-                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetBaucers->fields('pymtAmt'), 2) . '</td>';
+                print '<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($GetVouchers->fields('pymtAmt'), 2) . '</td>';
             }
 
-            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentPrint.php?id=' . $GetBaucers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetBaucers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
+            $edit         = '<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
 
-            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+            if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
                 print '
 		<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 		';
@@ -845,9 +845,9 @@ if ($GetBaucers->RowCount() <> 0) {
 
         $cnt++;
         $bil++;
-        $GetBaucers->MoveNext();
+        $GetVouchers->MoveNext();
     }
-    $GetBaucers->Close();
+    $GetVouchers->Close();
 
     print '	</table>
 			</td>
@@ -863,7 +863,7 @@ if ($GetBaucers->RowCount() <> 0) {
         } else {
             $numPage = $TotalPage + 1;
         }
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             if (is_int($i / 10)) print '<br />';
             print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -877,14 +877,14 @@ if ($GetBaucers->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-		<td class="textFont">Jumlah Rujukan : <b>' . $GetBaucers->RowCount() . '</b></td>';
+		<td class="textFont">Jumlah Rujukan : <b>' . $GetVouchers->RowCount() . '</b></td>';
 } else {
     if ($q == "") {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
     } else {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
     }
 }
 print ' 
@@ -914,7 +914,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -937,7 +937,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -948,7 +948,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

@@ -104,7 +104,7 @@ print '
 				<h5 class="card-title">Senarai Invois Syarikat Penghutang <b>' . dlookup("generalacc", "name", "ID=" . $compID) . '</b></h5>
 	<tr	valign="top" class="Header">
 		<td	align="left" >
-			Carian Melalui
+			Cari Berdasarkan
 			<select	name="by" class="form-select-sm">';
 if ($by	== 1)	print '<option value="1" selected>Nombor Invois</option>';
 else print '<option	value="1">Nombor Invois</option>';
@@ -122,7 +122,7 @@ print '	</select>
 					<td	 class="textFont" align ="left">&nbsp;</td>
 					<td	align="right" class="textFont">
 
-					Paparan	<SELECT	name="pg" class="form-select-xs" onchange="doListAll();">';
+					Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg	== 5)	print '<option value="5" selected>5</option>';
 else print '<option	value="5">5</option>';
 if ($pg	== 10)	print '<option value="10" selected>10</option>';
@@ -148,7 +148,7 @@ else print '<option	value="500">500</option>';
 if ($pg	== 1000) print '<option	value="1000" selected>1000</option>';
 else print '<option	value="1000">1000</option>';
 
-print '				</select> setiap	mukasurat.
+print '				</select>setiap halaman.
 					</td>
 				</tr>';
 print '	</table>
@@ -236,7 +236,7 @@ if ($GetInvoice->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

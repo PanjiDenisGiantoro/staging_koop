@@ -16,7 +16,7 @@ $yymm = sprintf("%04d%02d", $yy, $mm);
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") == '0') {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -139,7 +139,7 @@ print '		</select>
 	</tr>
     <tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian Melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">';
 if ($by == 1)	print '<option value="1" selected>No Dokumen</option>';
 else print '<option value="1">No Dokumen</option>';
@@ -163,9 +163,9 @@ if ($GetTrans->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="Data"  onchange="document.MyForm.submit();">';
+							Tampil <SELECT name="pg" class="Data"  onchange="document.MyForm.submit();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -190,7 +190,7 @@ if ($GetTrans->RowCount() <> 0) {
 	else print '<option value="500">500</option>';
 	if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 	else print '<option value="1000">1000</option>';
-	print '</select>setiap mukasurat. &nbsp;
+	print '</select>setiap halaman. &nbsp;
 
 			Muka Surat: 
 			<select name="StartRec" class="data" onchange="document.MyForm.submit();">';
@@ -222,7 +222,7 @@ if ($GetTrans->RowCount() <> 0) {
 						<td nowrap>&nbsp;Rujukan</td>
 						<td nowrap align="center" width="50">&nbsp;Debit/Kredit</td>
 						<td nowrap align="center">&nbsp;Amaun</td>
-						<td nowrap align="center">&nbsp;Tarikh</td>
+						<td nowrap align="center">&nbsp;Tanggal</td>
 					</tr>';
 	$DRTotal = 0;
 	$CRTotal = 0;
@@ -263,10 +263,10 @@ if ($GetTrans->RowCount() <> 0) {
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -291,7 +291,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -314,7 +314,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

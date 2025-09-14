@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -132,7 +132,7 @@ if ($perkara2) {
 
         $rs = &$conn->Execute($sSQL);
 
-        $strActivity = $_POST['Submit'] . 'Kemaskini Pembayaran Baucer - ' . $no_baucer;
+        $strActivity = $_POST['Submit'] . 'Kemaskini Pembayaran Voucher - ' . $no_baucer;
         activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 
         print '<script>
@@ -152,7 +152,7 @@ if ($action == "Hapus") {
             if ($display) print $sSQL . '<br />';
             else $rs = &$conn->Execute($sSQL);
 
-            $strActivity = $_POST['Submit'] . 'Hapus Kandungan Pembayaran Baucer - ' . $docNo;
+            $strActivity = $_POST['Submit'] . 'Hapus Kandungan Pembayaran Voucher - ' . $docNo;
             activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
         }
     }
@@ -465,7 +465,7 @@ print
 	<td width="48%">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>Nombor Rujukan</td>
+				<td>Nomor Rujukan</td>
 				<td valign="top"></td>
 				<td>
 					<input  name="no_baucer" value="' . $no_baucer . '" type="text" size="20" maxlength="50" class="form-control-sm" readonly/>
@@ -490,7 +490,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Baucer</td>
+				<td valign="top" align="right">Tarikh Voucher</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_baucer">
@@ -574,7 +574,7 @@ print '
 			</tr>
 
 			<tr>
-				<td valign="top" align="right">Master Amaun (RM)</td><td valign="top"></td>
+				<td valign="top" align="right">Master Jumlah (Rp)</td><td valign="top"></td>
 				<td><input id="master" class="form-control-sm" value="' . $masterAmt . '" type="text" size="20" maxlength="10"/ readonly></td>
 			</tr>
 		</table>
@@ -979,7 +979,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  if(act == \'Kemaskini\') {
   
 		  if(e.elements[c].name=="tarikh_baucer" && e.elements[c].value==\'\') {
-			  alert(\'Pilih Tarikh Baucer!\');
+			  alert(\'Pilih Tarikh Voucher!\');
 			  count++;
 			}
 		  }
@@ -1023,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		  if(e.elements[c].name=="tarikh_baucer" && e.elements[c].value==\'\') 
 			{
-			alert(\'Pilih Tarikh Baucer!\');
+			alert(\'Pilih Tarikh Voucher!\');
 			count++;
 			}
 		  }

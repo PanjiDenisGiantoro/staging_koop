@@ -23,7 +23,7 @@ if (!isset($debt))        $debt = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -85,9 +85,9 @@ $sSQL = "SELECT *
 
 if ($mm <> "ALL") $sWhere .= " AND month( A.tarikh_RV ) =" . $mm;
 $sSQL         = $sSQL . $sWhere . " group by RVNo order by RVNo desc";
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
-$TotalRec     = $GetBaucers->RowCount();
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
+$TotalRec     = $GetVouchers->RowCount();
 $TotalPage     =  ($TotalRec / $pg);
 $jenisList_cari = array('Penghutang');
 $jenisVal_cari     = array(2);
@@ -147,7 +147,7 @@ print '		</select>
 		
 </div><br/>
 <div clas="row">
-    Carian Melalui
+    Cari Berdasarkan
 	<select name="by" class="form-select-sm" onchange="toggleSearchFields(this.value);">';
 if ($by == 1)    print '<option value="1" selected>Nama Batch</option>';
 else print '<option value="1">Nama Batch</option>';
@@ -192,7 +192,7 @@ print '
 <td align="left" >
 </td>
 </tr>';
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
     $bil = $StartRec;
     $cnt = 1;
     print '
@@ -200,7 +200,7 @@ if ($GetBaucers->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">';
     echo papar_ms($pg);
     print '</td>
@@ -216,27 +216,27 @@ if ($GetBaucers->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap align="left">Nombor Bayaran</td>
 						<td nowrap align="center">Nama Batch</td>
-						<td nowrap align="center">Tarikh</td>
+						<td nowrap align="center">Tanggal</td>
 						<td nowrap align="left">Nama Syarikat</td>						
 						<td nowrap align="left">Nombor Invois</td>
 						<td nowrap align="right">Amaun Invois (RM)</td>
 						<td nowrap align="right">Jumlah Bayaran (RM)</td>
-						<td nowrap align="right">Baki (RM)</td>
+						<td nowrap align="right">Saldo (RM)</td>
 						<td nowrap align="center">Action</td>
 					</tr>';
 
     $DRTotal = 0;
     $CRTotal = 0;
-    while (!$GetBaucers->EOF && $cnt <= $pg) {
+    while (!$GetVouchers->EOF && $cnt <= $pg) {
         $jumlah = 0;
 
-        $RVNo         = $GetBaucers->fields(RVNo);
-        $companyID     = $GetBaucers->fields(companyID);
-        $bank         = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(kod_bank), "Text"));
-        $namakp     = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(companyID), "Text"));
-        $nama         = $GetBaucers->fields(name);
-        $tarikh_RV     = toDate("d/m/y", $GetBaucers->fields(tarikh_RV));
-        $inv         = $sFileRefInv . '&action=view&invNo=' . $GetBaucers->fields(invNo) . '&yy=' . $yy . '&mm=' . $mm;
+        $RVNo         = $GetVouchers->fields(RVNo);
+        $companyID     = $GetVouchers->fields(companyID);
+        $bank         = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(kod_bank), "Text"));
+        $namakp     = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(companyID), "Text"));
+        $nama         = $GetVouchers->fields(name);
+        $tarikh_RV     = toDate("d/m/y", $GetVouchers->fields(tarikh_RV));
+        $inv         = $sFileRefInv . '&action=view&invNo=' . $GetVouchers->fields(invNo) . '&yy=' . $yy . '&mm=' . $mm;
 
         $noInv         = array();
         $linkInv         = array();
@@ -278,23 +278,23 @@ if ($GetBaucers->RowCount() <> 0) {
 
         $balance     = $amaun - $bayaran;
 
-        $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentPrint.php?id=' . $GetBaucers->fields(RVNo) . '\')"></i>';
-        $edit         = '<a href="' . $sFileRef . '&action=view&RVNo=' . tohtml($GetBaucers->fields['RVNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentPrint.php?id=' . $GetVouchers->fields(RVNo) . '\')"></i>';
+        $edit         = '<a href="' . $sFileRef . '&action=view&RVNo=' . tohtml($GetVouchers->fields['RVNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
-        $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentView.php?id=' . $GetBaucers->fields(RVNo) . '\')"></i>';
+        $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentView.php?id=' . $GetVouchers->fields(RVNo) . '\')"></i>';
 
         print ' <tr>
 	<td class="Data" style="text-align: center; vertical-align: middle;">' . $bil . '</td>';
 
-        if ($GetBaucers->fields(g_lockstat) == 1) {
+        if ($GetVouchers->fields(g_lockstat) == 1) {
             print '
-	<td class="Data" nowrap style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(RVNo)) . '">
-	' . $GetBaucers->fields(RVNo) . '</td>';
+	<td class="Data" nowrap style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(RVNo)) . '">
+	' . $GetVouchers->fields(RVNo) . '</td>';
         } else {
             print '
-	<td class="Data" nowrap style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(RVNo)) . '">
-	<a href="' . $sFileRef . '&action=view&RVNo=' . tohtml($GetBaucers->fields(RVNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
-	' . $GetBaucers->fields(RVNo) . '</td>';
+	<td class="Data" nowrap style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(RVNo)) . '">
+	<a href="' . $sFileRef . '&action=view&RVNo=' . tohtml($GetVouchers->fields(RVNo)) . '&yy=' . $yy . '&mm=' . $mm . '">
+	' . $GetVouchers->fields(RVNo) . '</td>';
         }
         print '	
 	<td class="Data" style="text-align: center; vertical-align: middle;">' . $nama . '</td>
@@ -328,7 +328,7 @@ if ($GetBaucers->RowCount() <> 0) {
 	<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($bayaran, 2) . '</td>
 	<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($balance, 2) . '</td>
 	';
-        if (($GetBaucers->fields['g_lockstat'] == 1) && ($GetBaucers->fields('batchNo') <> "")) {
+        if (($GetVouchers->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
             print '
 	<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $editLock . '&nbsp;&nbsp;' . $view . '</td>
 	';
@@ -340,9 +340,9 @@ if ($GetBaucers->RowCount() <> 0) {
         print '</tr>';
         $cnt++;
         $bil++;
-        $GetBaucers->MoveNext();
+        $GetVouchers->MoveNext();
     }
-    $GetBaucers->Close();
+    $GetVouchers->Close();
 
     print '	</table>
 	</td>
@@ -357,7 +357,7 @@ if ($GetBaucers->RowCount() <> 0) {
         } else {
             $numPage = $TotalPage + 1;
         }
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             if (is_int($i / 10)) print '<br />';
             print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -371,15 +371,15 @@ if ($GetBaucers->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Baucer : <b>' . $GetBaucers->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Voucher : <b>' . $GetVouchers->RowCount() . '</b></td>
 		</tr>';
 } else {
     if ($q == "") {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
     } else {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
     }
 }
 print ' 
@@ -409,7 +409,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

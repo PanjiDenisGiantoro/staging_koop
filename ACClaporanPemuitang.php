@@ -17,7 +17,7 @@ if (!isset($yy))		$yy=date("Y");
 include("header.php");	
 include("koperasiQry.php");	
 include("koperasiList.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -192,7 +192,7 @@ print '  <tr valign="top" >
 					} else {
 						$numPage = $TotalPage + 1;
 					}
-					print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+					print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 					for ($i=1; $i <= $numPage; $i++) {
 						print '<A href="'.$sFileName.'&StartRec='.(($i * $pg) + 1 - $pg).'&pg='.$pg.'&q='.$q.'&by='.$by.'&dept='.$dept.'">';
 						print '<b><u>'.(($i * $pg) - $pg + 1).'-'.($i * $pg).'</u></b></a> &nbsp; &nbsp;';
@@ -205,12 +205,12 @@ print '  <tr valign="top" >
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';
@@ -242,7 +242,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

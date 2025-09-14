@@ -136,7 +136,7 @@ print '
       <th width="10%">Tarikh</th>
       <th width="10%">No Rujukan</th>
       <th width="10%">Tarikh Tamat Tempoh</th>
-      <th width="10%" align="right">Baki (RM)</th>
+      <th width="10%" align="right">Saldo (RM)</th>
       <th width="10%" align="right">Semasa (RM)</th>
       <th width="10%" align="right">Hari Ke 31-60 (RM)</th>
       <th width="10%" align="right">Hari Ke 61-90 (RM)</th>

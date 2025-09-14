@@ -13,7 +13,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -482,7 +482,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_quote">
@@ -537,7 +537,7 @@ print '<input type="button" class="btn btn-sm btn-info" id="pilihButton" value="
 				<td><textarea name="b_Baddress" cols="50" rows="4" class="form-controlx" readonly>' . $b_Baddress . '</textarea></td>
 			</tr>
 		    <tr>
-            	<td valign="top">Master Amaun (RM)</td><td valign="top"></td>
+            	<td valign="top">Master Jumlah (Rp)</td><td valign="top"></td>
             	<td><input id="master" class="form-controlx" value="' . $masterAmt . '" type="text" size="20" maxlength="10" readonly/></td>
             </tr>
 		  	<tr>

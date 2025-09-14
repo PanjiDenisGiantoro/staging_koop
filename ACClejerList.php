@@ -20,7 +20,7 @@ $yrmth = sprintf("%04d%02d", $yy, $mm);
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -59,10 +59,10 @@ print '<div class="table-responsive">
 <input type="hidden" name="filter" value="' . $filter . '">
 <h5 class="card-title">' . strtoupper($title) . ' &nbsp;</h5>
    
-                    Carian Melalui 
+                    Cari Berdasarkan 
                     <select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nama Carta Akaun</option>';
-else print '<option value="1">Nama Carta Akaun</option>';
+if ($by == 1)	print '<option value="1" selected>Nama Bagan Akun</option>';
+else print '<option value="1">Nama Bagan Akun</option>';
 print '</select>
             <input type="text" name="q" value="" maxlength="50" size="20" class="form-control-sm">
                     <input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;</div>                        
@@ -103,7 +103,7 @@ print '
 	<td>
 		<table width="100%">
 		<tr>
-		<td align="right" class="textFont">Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+		<td align="right" class="textFont">Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg == 5)	print '<option value="5" selected>5</option>';
 else print '<option value="5">5</option>';
 if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -120,7 +120,7 @@ if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
 if ($pg == 500)	print '<option value="500" selected>500</option>';
 else print '<option value="500">500</option>';
-print '				</select> setiap mukasurat.
+print '				</select> setiap halaman..
 				</td>
 			</tr>
 		</table>
@@ -133,22 +133,22 @@ if ($GetMember->RowCount() <> 0) {
 	while (!$GetMember->EOF) {
 		$core = $GetMember->fields['coreID'];
 		if ($core == 348) {
-			$header = "ASSET BUKAN SEMASA";
+			$header = "ASET TIDAK LANCAR";
 		} else if ($core == 379) {
-			$header = "ASSET SEMASA";
+			$header = "ASET LANCAR";
 		} elseif ($core == 500) {
-			$header = "LIABILITI BUKAN SEMASA";
+			$header = "LIABILITAS JANGKA PANJANG";
 		} elseif ($core == 508) {
-			$header = "LIABILITI SEMASA";
+			$header = "LIABILITAS JANGKA PENDEK";
 		} else if ($core == 10) {
-			$header = "EKUITI";
+			$header = "EKUITAS";
 		}
 		// if ($core == 348 || $core == 379) {
 		// 	$header = "ASSET";
 		// } elseif ($core == 500 || $core == 508) {
 		// 	$header = "LIABILITI";
 		// } else {
-		// 	$header = "EKUITI";
+		// 	$header = "EKUITAS";
 		// }
 		if (!isset($groupedRecords[$header])) {
 			$groupedRecords[$header] = array();
@@ -173,9 +173,9 @@ if ($GetMember->RowCount() <> 0) {
 
 		print ' 	<tr class="table-primary">
 						<td nowrap align="center">&nbsp;</td>
-						<td nowrap align="left">Kod Akaun - Nama</td>
-						<td nowrap align="right">Debit (RM)</td>
-						<td nowrap align="right">Kredit (RM)</td>
+						<td nowrap align="left">Kode Akun - Nama</td>
+						<td nowrap align="right">Debit (RP)</td>
+						<td nowrap align="right">Kredit (RP)</td>
 					</tr>';
 
 		foreach ($records as $record) {
@@ -219,15 +219,15 @@ if ($GetMember->RowCount() <> 0) {
 	print ' 	<tr class="table-primary">
 					<td nowrap align="center">&nbsp;</td>
 					<td nowrap align="left"></td>
-					<td nowrap align="right">Debit (RM)</td>
-					<td nowrap align="right">Kredit (RM)</td>
+					<td nowrap align="right">Debit (RP)</td>
+					<td nowrap align="right">Kredit (RP)</td>
 		</tr>';
 	print '<tr><td colspan="2" align="right"><b>JUMLAH KESELURUHAN (RM) </b></td>';
 	print '<td align="right">&nbsp;' . number_format($totaldebitAll, 2) . '</td>';
 	print '<td align="right">&nbsp;' . number_format($totalkreditAll, 2) . '</td></tr>';
 
 	$debTkre = ($totaldebitAll - $totalkreditAll);
-	print '<tr><td colspan="2" align="right"><b>BAKI (RM) </b></td>';
+	print '<tr><td colspan="2" align="right"><b>SALDO (RM) </b></td>';
 	print '	<td width="5%"></td>';
 	print '	<td width="5%" align="right">' . number_format($debTkre, 2) . '</td></tr>';
 
@@ -244,7 +244,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -257,7 +257,7 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>
 		<tr>
 			<td><input type="button" class="btn btn-sm btn-secondary" value="Cetak" onclick="window.print();"></td>
@@ -265,10 +265,10 @@ if ($GetMember->RowCount() <> 0) {
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -293,7 +293,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -303,7 +303,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -317,7 +317,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -330,7 +330,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -343,7 +343,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -354,7 +354,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}

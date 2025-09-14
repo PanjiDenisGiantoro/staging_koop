@@ -8,7 +8,7 @@
 if (!isset($mm))    $mm = "ALL"; //date("m");
 if (!isset($yy))    $yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))    $StartRec = 1;
 
@@ -29,7 +29,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = "?vw=ACCvouchersList&mn=$mn"; //file name
 $sFileRef  = "?vw=ACCbaucerpembayaran&mn=$mn"; // file ni pergi mane
-$title     =  "Baucer Pembayaran (Buku Tunai)"; //Title 
+$title     =  "Voucher Pembayaran (Buku Tunai)"; //Title 
 
 $IDName = get_session("Cookie_userName");
 
@@ -50,7 +50,7 @@ if ($action == "delete") {
         $sSQL = "DELETE FROM transactionacc WHERE " . $sWhere;
         $rs = &$conn->Execute($sSQL);
 
-        $strActivity = $_POST['Submit'] . ' Pembayaran Baucer Dihapuskan - ' . $docNo;
+        $strActivity = $_POST['Submit'] . ' Pembayaran Voucher Dihapuskan - ' . $docNo;
         activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
     }
 }
@@ -78,10 +78,10 @@ if ($mm <> "ALL") $sSQL .= " AND MONTH(a.tarikh_baucer) =" . $mm;
 $sSQL .= $getQ . " ORDER BY a.no_baucer DESC";
 
 
-$GetBaucers = &$conn->Execute($sSQL);
-$GetBaucers->Move($StartRec - 1);
+$GetVouchers = &$conn->Execute($sSQL);
+$GetVouchers->Move($StartRec - 1);
 
-$TotalRec = $GetBaucers->RowCount();
+$TotalRec = $GetVouchers->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
 $sqlYears = "SELECT DISTINCT YEAR(tarikh_baucer) AS year FROM bauceracc WHERE tarikh_baucer IS NOT NULL AND tarikh_baucer != '' AND tarikh_baucer != 0 ORDER BY year ASC";
@@ -118,12 +118,12 @@ print '		</select>
 			<input type="submit" name="action1" value="Capai" class="btn btn-sm btn-secondary">
     </div><br/>
      <div clas="row">
-     Carian Melalui
+     Cari Berdasarkan
 				<select name="by" class="form-select-sm">';
 if ($by == 1)    print '<option value="1" selected>Nama Batch</option>';
 else print '<option value="1">Nama Batch</option>';
-if ($by == 2)    print '<option value="2" selected>Nombor Baucer</option>';
-else print '<option value="2">Nombor Baucer</option>';
+if ($by == 2)    print '<option value="2" selected>Nomor Voucher</option>';
+else print '<option value="2">Nomor Voucher</option>';
 if ($by == 3)    print '<option value="3" selected>Keterangan</option>';
 else print '<option value="3">Keterangan</option>';
 if ($by == 4)    print '<option value="4" selected>Bayar Kepada</option>';
@@ -173,7 +173,7 @@ print ' <!--input type="button" class="but" value="Status" onClick="ITRActionBut
 	
 		</td>
 	</tr>';
-if ($GetBaucers->RowCount() <> 0) {
+if ($GetVouchers->RowCount() <> 0) {
     $bil = $StartRec;
     $cnt = 1;
     print '
@@ -181,7 +181,7 @@ if ($GetBaucers->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">';
     echo papar_ms($pg);
     print '</td>
@@ -194,10 +194,10 @@ if ($GetBaucers->RowCount() <> 0) {
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap style="text-align: center; vertical-align: bottom;">Bil</td>
-						<td nowrap style="text-align: left; vertical-align: bottom;">No. Baucer</td>
+						<td nowrap style="text-align: center; vertical-align: bottom;">No</td>
+						<td nowrap style="text-align: left; vertical-align: bottom;">No. Voucher</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Nama Batch</td>
-						<td nowrap style="text-align: center; vertical-align: bottom;">Tarikh</td>
+						<td nowrap style="text-align: center; vertical-align: bottom;">Tanggal</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Bank</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Bayar Kepada</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Catatan</td>
@@ -207,23 +207,23 @@ if ($GetBaucers->RowCount() <> 0) {
 
     $DRTotal = 0;
     $CRTotal = 0;
-    while (!$GetBaucers->EOF && $cnt <= $pg) {
+    while (!$GetVouchers->EOF && $cnt <= $pg) {
 
         // check has transaction or not
         $noTran     = false;
-        $sql2         = "SELECT * FROM transactionacc WHERE docNo = '" . $GetBaucers->fields(no_baucer) . "' AND addminus IN (0) ORDER BY ID";
+        $sql2         = "SELECT * FROM transactionacc WHERE docNo = '" . $GetVouchers->fields(no_baucer) . "' AND addminus IN (0) ORDER BY ID";
         $rsDetail     = $conn->Execute($sql2);
         if ($rsDetail->RowCount() < 1) $noTran = true;
 
         $jumlah = 0;
 
-        $tarikh_baucer     = toDate("d/m/y", $GetBaucers->fields(tarikh_baucer));
-        $bank             = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(kod_bank), "Text"));
-        $batchName         = dlookup("generalacc", "name", "ID=" . tosql($GetBaucers->fields(batchNo), "Text"));
-        $amount         = $GetBaucers->fields(pymtAmt);
-        $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetBaucers->fields(no_baucer) . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetBaucers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
-        $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetBaucers->fields(no_baucer) . '\')"></i>';
+        $tarikh_baucer     = toDate("d/m/y", $GetVouchers->fields(tarikh_baucer));
+        $bank             = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(kod_bank), "Text"));
+        $batchName         = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(batchNo), "Text"));
+        $amount         = $GetVouchers->fields(pymtAmt);
+        $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetVouchers->fields(no_baucer) . '\')"></i>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetVouchers->fields(no_baucer) . '\')"></i>';
 
         if ($noTran == false) {
             print '<tr>';
@@ -234,28 +234,28 @@ if ($GetBaucers->RowCount() <> 0) {
         print '
 		<td class="Data" style="text-align: center; vertical-align: middle;">' . $bil . '</td>';
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////d//////////////////////////////////////////////////////////////////////////////////////
-        if ($GetBaucers->fields(g_lockstat) == 1) {
-            print '<td class="Data" style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(no_baucer)) . '">
-		' . $GetBaucers->fields(no_baucer) . '</td>';
+        if ($GetVouchers->fields(g_lockstat) == 1) {
+            print '<td class="Data" style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(no_baucer)) . '">
+		' . $GetVouchers->fields(no_baucer) . '</td>';
         } else {
-            print '<td class="Data" style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetBaucers->fields(no_baucer)) . '">
-		<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetBaucers->fields(no_baucer)) . '&yy=' . $yy . '&mm=' . $mm . '">' . $GetBaucers->fields(no_baucer) . '</td>';
+            print '<td class="Data" style="text-align: left; vertical-align: middle;"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetVouchers->fields(no_baucer)) . '">
+		<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields(no_baucer)) . '&yy=' . $yy . '&mm=' . $mm . '">' . $GetVouchers->fields(no_baucer) . '</td>';
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         print '	<td class="Data" style="text-align: center; vertical-align: middle;">' . $batchName . '</td>
 			<td class="Data" style="text-align: center; vertical-align: middle;">' . $tarikh_baucer . '</td>
 			<td class="Data" style="text-align: left; vertical-align: middle;">' . $bank . '</td>
-			<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields(bayaran_kpd) . '</td>
-			<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetBaucers->fields(catatan) . '</td>		
+			<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields(bayaran_kpd) . '</td>
+			<td class="Data" style="text-align: left; vertical-align: middle;">' . $GetVouchers->fields(catatan) . '</td>		
 			<td class="Data" style="text-align: right; vertical-align: middle;">' . number_format($amount, 2) . '</td>
 			<td class="Data" style="text-align: center; vertical-align: middle;" nowrap>' . $cetak . '&nbsp;&nbsp;' . $edit . '&nbsp;&nbsp;' . $view . '</td>
 			</tr>';
         $cnt++;
         $bil++;
-        $GetBaucers->MoveNext();
+        $GetVouchers->MoveNext();
     }
-    $GetBaucers->Close();
+    $GetVouchers->Close();
     print '	</table>
 	</td>
 	</tr>	
@@ -269,7 +269,7 @@ if ($GetBaucers->RowCount() <> 0) {
         } else {
             $numPage = $TotalPage + 1;
         }
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             if (is_int($i / 10)) print '<br />';
             print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -283,15 +283,15 @@ if ($GetBaucers->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rujukan : <b>' . $GetBaucers->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Rujukan : <b>' . $GetVouchers->RowCount() . '</b></td>
 		</tr>';
 } else {
     if ($q == "") {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
     } else {
         print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
     }
 }
 print ' 
@@ -321,7 +321,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -344,7 +344,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -355,7 +355,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.open(\'transStatus.php?pk=\' + pk,\'status\',\'top=50,left=50,width=500,height=250,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');					
 			}

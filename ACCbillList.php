@@ -23,7 +23,7 @@ if (!isset($credit))	$credit = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> $koperasiID) {
@@ -139,7 +139,7 @@ include("ACCsummary.php");
 print'
 <br/>
 <div clas="row">
-    Carian Melalui
+    Cari Berdasarkan
 <select name="by" class="form-select-sm" onchange="toggleSearchFields(this.value);">';
 // if ($by == 1)	print '<option value="1" selected>Nama Batch</option>'; 			else print '<option value="1">Nama Batch</option>';				
 if ($by == 2)	print '<option value="2" selected>Nombor Bill</option>';
@@ -189,7 +189,7 @@ if ($GetReceipts->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">';
 	echo papar_ms($pg);
 	print '</td>
@@ -204,12 +204,12 @@ if ($GetReceipts->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Nombor Bill</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Nama Batch</td>
-						<td nowrap style="text-align: center; vertical-align: bottom;">Tarikh</td>
+						<td nowrap style="text-align: center; vertical-align: bottom;">Tanggal</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Nama Syarikat</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Nombor Purchase Invois</td>
 						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah Purchase<br>Invois (RM)</div></td>
 						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah<br>Bayaran (RM)</div></td>
-						<td nowrap style="text-align: right; vertical-align: bottom;">Baki (RM)</td>
+						<td nowrap style="text-align: right; vertical-align: bottom;">Saldo (RM)</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Tindakan</td>
 					</tr>';
 
@@ -337,7 +337,7 @@ if ($GetReceipts->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '&yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -351,15 +351,15 @@ if ($GetReceipts->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Baucer : <b>' . $GetReceipts->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Voucher : <b>' . $GetReceipts->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -389,7 +389,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

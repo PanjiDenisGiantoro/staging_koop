@@ -13,7 +13,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -512,7 +512,7 @@ print
 			</tr>
 
 			<tr>
-				<td>Tarikh</td>
+				<td>Tanggal</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_PI">
@@ -604,7 +604,7 @@ $rsDetail1 = $conn->Execute($sql3);
 
 print
 	'<tr>
-	<td valign="top" align="left">Master Amaun (RM)</td><td valign="top"></td>
+	<td valign="top" align="left">Master Jumlah (Rp)</td><td valign="top"></td>
 	<td><input id="master" class="form-control-sm" value="' . $rsDetail1->fields('pymtAmt') . '" type="text" size="20" maxlength="10" readonly/></td>
  </tr>
 
@@ -706,7 +706,7 @@ print
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap"><b>* Kuantiti</b></td>
 				<td nowrap="nowrap"><b>* Harga Seunit (RM)</b></td>
-				<td nowrap="nowrap" align="right"><b>Amaun (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>Jumlah (Rp)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 

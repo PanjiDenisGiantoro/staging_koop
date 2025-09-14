@@ -958,8 +958,8 @@ elseif (in_array($sourceSub, array("default", "accsingleentrylist"))) {
 
             $sqlBalanced = "( SELECT COALESCE(SUM(CASE WHEN addminus = 0 THEN pymtAmt ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN addminus = 1 THEN pymtAmt ELSE 0 END), 0) FROM transactionacc WHERE docNo = a.SENO) = 0 ";
             $sqlUnbalanced = "( SELECT COALESCE(SUM(CASE WHEN addminus = 0 THEN pymtAmt ELSE 0 END), 0) - COALESCE(SUM(CASE WHEN addminus = 1 THEN pymtAmt ELSE 0 END), 0) FROM transactionacc WHERE docNo = a.SENO) != 0 ";
-            // $GetBaucers = &$conn->Execute($sqlBalanced);
-            // $GetBaucers = &$conn->Execute($sqlUnbalanced);
+            // $GetVouchers = &$conn->Execute($sqlBalanced);
+            // $GetVouchers = &$conn->Execute($sqlUnbalanced);
 			// $isBalanced = $rsBayaran->fields['sqlBalanced'];
 			// $isUnbalanced = $rsBayaran->fields['sqlUnbalanced'];
         }
