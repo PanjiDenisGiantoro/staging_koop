@@ -10,7 +10,7 @@ if (!isset($pg))		$pg = 50;
 if (!isset($q))			$q = "";
 if (!isset($by))		$by = "1";
 if (!isset($filter))	$filter = "0";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 include("koperasiQry.php");
@@ -84,7 +84,7 @@ print '
 <input type="hidden" name="filter" value="' . $filter . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=minitApply&mn='.$mn.'\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=minitApply&mn='.$mn.'\'"/>
 </div>';
 
 	print '
@@ -96,7 +96,7 @@ print '
 			<tr><td>&nbsp;</td></tr>
 				<tr>
 					<!--td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td-->
-					<td align="right" class="textFont">Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+					<td align="right" class="textFont">Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -111,7 +111,7 @@ print '
 	else print '<option value="50">50</option>';
 	if ($pg == 100)	print '<option value="100" selected>100</option>';
 	else print '<option value="100">100</option>';
-	print '				</select> setiap mukasurat.
+	print '				</select> setiap halaman..
 					</td>
 				</tr>
 			</table>
@@ -124,13 +124,13 @@ print '
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap align="left"><b>Nombor Rujukan Minit Mesyuarat</b></td>
+						<td nowrap align="left"><b>Nomor Rujukan Minit Mesyuarat</b></td>
 						<td nowrap><b>Tajuk</b></td>
 						<td nowrap align="left"><b>Kandungan</b></td>
 						<td nowrap align="left"><b>ALK Terlibat</b></td>
 						<td nowrap align="center"><b>Dokumen</b></td>
 						<td nowrap align="left"><b>Disediakan Oleh</b></td>
-						<td nowrap align="center"><b>Tarikh Mesyuarat</b></td>';
+						<td nowrap align="center"><b>Tanggal Rapat</b></td>';
 			if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 			if ($filter == 0) {
 				print '<td nowrap align="center">&nbsp;<b>&nbsp;</b></td>';
@@ -206,7 +206,7 @@ print '
         print '<table border="0" cellspacing="5" cellpadding="0" class="textFont" width="100%">';
         $numPage = ($TotalRec % $pg == 0) ? $TotalPage : $TotalPage + 1;
 
-        print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+        print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
         for ($i = 1; $i <= $numPage; $i++) {
             $start = (($i * $pg) - $pg + 1);
             $end = ($i * $pg);
@@ -218,16 +218,16 @@ print '
 
     print '</td></tr>
     <tr>
-        <td class="textFont">Jumlah Rekod : <b>' . $GetMinit->RowCount() . '</b></td>
+        <td class="textFont">Jumlah Data : <b>' . $GetMinit->RowCount() . '</b></td>
     </tr>';
 }
 else {
 		if ($q == "") {
 			print '
-			<tr><td align="center" colspan="8"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b></td></tr>';
+			<tr><td align="center" colspan="8"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b></td></tr>';
 		} else {
 			print '
-			<tr><td align="center"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b></td></tr>';
+			<tr><td align="center"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b></td></tr>';
 		}
 	}
 	print ' 
