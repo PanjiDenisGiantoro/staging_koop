@@ -314,7 +314,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Suku Suku Suku Suku Suku Suku Suku Suku Suku Bangsa";
+$FormLabel[$a]   	= "Suku Bangsa";
 $FormElement[$a] 	= "raceID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $raceList;

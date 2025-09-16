@@ -190,7 +190,7 @@ unset($pk);
 						if ($status == 0) {
 			?>
 			<tr>
-				<td>Tarikh Mesyuarat</td>
+				<td>Tanggal Rapat</td>
 				<td><input type="text" class="form-controlx" name="strDate" value="<? print $strDate; ?>" size="15" maxlength="10"></td>
 			</tr>
 			<tr>

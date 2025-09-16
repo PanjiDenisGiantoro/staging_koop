@@ -183,7 +183,7 @@ print '		</select>
 			else print '<option value="500">500</option>';
 			if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 			else print '<option value="1000">1000</option>';
-			print '				</select> setiap mukasurat.
+			print '				</select> setiap halaman..
 						</td>
 					</tr>
 				</table>

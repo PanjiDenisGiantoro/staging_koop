@@ -229,7 +229,7 @@ if ($id <> "") {
 	<table border="0" cellspacing="1" cellpadding="3" width="100%" align="center"><tr><td>
 	<table width="100%">
 		<tr>
-			<td class="textFont" width="150">Nombor Rujukan ID</td>
+			<td class="textFont" width="150">Nomor Rujukan ID</td>
 			<td class="Label">:&nbsp;' . $loanNo . '</td>
 		</tr>
 		<tr>
@@ -243,7 +243,7 @@ if ($id <> "") {
 	</table>
 	<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 		<tr class="header">
-			<td nowrap>&nbsp;Tarikh</td>
+			<td nowrap>&nbsp;Tanggal</td>
 			<td nowrap>&nbsp;No Pembayaran</td>
 			<td nowrap align="center" width="100">&nbsp;Bayaran Pokok</td>
 			<td nowrap align="center" width="100">&nbsp;Untung</td>
