@@ -224,7 +224,7 @@ if ($GetMember->RowCount() <> 0) {
 					</tr>';
 	while (!$GetMember->EOF && $cnt <= $pg) {
 		$status   = dlookup("staff", "statuskerja", "staffID=" . tosql($GetMember->fields('staffID'), "Number"));
-		$statusIndex = array_search($status, $kerjaVal); // Use $status, not $statusID
+		$statusIndex = @array_search($status, $kerjaVal); // Use $status, not $statusID
 		$jabatan  = dlookup("staff", "jabatanID", "staffID=" . tosql($GetMember->fields('staffID'), "Number"));
 		$jabatanN = dlookup("general", "name", "ID=" . $jabatan);
 
