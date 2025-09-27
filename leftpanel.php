@@ -74,7 +74,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("Modal / Simpanan", 'mdi mdi-account-cash');
         echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
         MenuLink("memberStmtA.php", "Info Modal", 902, @$_REQUEST['vw']);
-        MenuLink("blank.php", "Info Simpanan", 902, @$_REQUEST['vw']);
+        MenuLink("loansimpanan1.php", "Info Simpanan", 902, @$_REQUEST['vw']);
         MenuLink("blank.php", "Jurnal Pindahan", 902, @$_REQUEST['vw']);
             // admin.anggota.modalSimpanan.pengeluaran
             echo '<li>';
@@ -98,7 +98,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             TitleBarBlue("Laporan", 'mdi mdi-file');
             echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
             MenuLink("rAllFeesShare.php", "Keseluruhan Yuran & Syer", 901, @$_REQUEST['vw']);
-            MenuLink("blank.php", "Simpanan", 902, @$_REQUEST['vw']);
+            MenuLink("reportsimpanan.php", "Simpanan", 902, @$_REQUEST['vw']);
             MenuLink("reports.php?cat=B", "Transaksi", 902, @$_REQUEST['vw']);
             echo '</ul></li>';
         echo '</ul></li>';
@@ -275,12 +275,46 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("Master", 'mdi mdi-cube');
         echo '<ul class="sub-menu ' . $mn908 . '" aria-expanded="true">';
             // admin.akaun.master.tatapanAkaun
-            echo '<li>';
-            TitleBarBlue("Tatapan Akaun", 'mdi mdi-cube');
-            echo '<ul class="sub-menu ' . $mn908 . '" aria-expanded="true">';
-            MenuLink("blank.php", "Kod Object/Akaun", 908, @$_REQUEST['vw']);
-            MenuLink("blank.php", "Jenis Pembiayaan", 908, @$_REQUEST['vw']);
-            echo '</ul></li>';
+            // echo '<li>';
+            // TitleBarBlue("Tatapan Akaun", 'mdi mdi-cube');
+            // echo '<ul class="sub-menu ' . $mn908 . '" aria-expanded="true">';
+            // MenuLink("blank.php", "Kod Object/Akaun", 908, @$_REQUEST['vw']);
+            // MenuLink("blank.php", "Jenis Pembiayaan", 908, @$_REQUEST['vw']);
+            // echo '</ul></li>';
+        if ((get_session("Cookie_userName") == 'superadmin') or (get_session("Cookie_userName") == 'admin') or (get_session("Cookie_groupID") == '3')) {
+            if (@$mn == 904) {
+                $mn904 = "mm-collapse mm-show";
+                $mu904 = "mm-active";
+            } else {
+                $mn904 = '';
+                $mu904 = '';
+            }
+            echo '<li class="' . $mu904 . '">';
+            TitleBarBlue("INFORMASI Akun", 'mdi mdi-chart-areaspline');
+            echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="false">';
+        ?>
+            <li>
+
+                <form method="post" action="?vw=generalACC&mn=904" style="margin-left: 3.5em;">
+
+
+                    <select name="selCodeACC" class="button btn-light form-select-sm" onchange="this.form.submit()">
+                        <?php
+                        for ($i = 0; $i < count($basicListACC); $i++) {
+                            if (@$_REQUEST['selCodeACC'] == $basicValACC[$i]) {
+                                $seleACC = "selected";
+                            } else {
+                                $seleACC = '';
+                            }
+
+                            print '	<option ' . $seleACC . ' value="' . $basicValACC[$i] . '" >' . $basicListACC[$i];
+                        }
+                        ?>
+                    </select>
+                </form>
+            </li>
+        <?php echo '</ul></li>'; }
+
         MenuLink("ACCLejerList.php", "Pembukaan Akaun", 908, @$_REQUEST['vw']);
         MenuLink("ACCSingleEntryList.php", "Jurnal Entry", 908, @$_REQUEST['vw']);
         MenuLink("ACCGeneralejer.php", "General Ledger", 908, @$_REQUEST['vw']);
@@ -709,43 +743,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             echo '</ul></li>';
         }
 
-        if ((get_session("Cookie_userName") == 'superadmin') or (get_session("Cookie_userName") == 'admin') or (get_session("Cookie_groupID") == '3')) {
-
-            if (@$mn == 904) {
-                $mn904 = "mm-collapse mm-show";
-                $mu904 = "mm-active";
-            } else {
-                $mn904 = '';
-                $mu904 = '';
-            }
-            echo '<li class="' . $mu904 . '">';
-            TitleBarBlue("INFORMASI Akun", 'mdi mdi-chart-areaspline');
-
-            echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="false">';
-        ?>
-            <li>
-
-                <form method="post" action="?vw=generalACC&mn=904" style="margin-left: 3.5em;">
-
-
-                    <select name="selCodeACC" class="button btn-light form-select-sm" onchange="this.form.submit()">
-                        <?php
-                        for ($i = 0; $i < count($basicListACC); $i++) {
-                            if (@$_REQUEST['selCodeACC'] == $basicValACC[$i]) {
-                                $seleACC = "selected";
-                            } else {
-                                $seleACC = '';
-                            }
-
-                            print '	<option ' . $seleACC . ' value="' . $basicValACC[$i] . '" >' . $basicListACC[$i];
-                        }
-                        ?>
-                    </select>
-                </form>
-            </li>
-<?php
-            echo '</ul></li>';
-        }
+        
 
 
             // admin.tatapan.admin.api
@@ -759,24 +757,24 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '</ul></li>';
 
         // admin.simpanan
-        if (@$mn == 930) {
-            $mn930 = "mm-collapse mm-show";
-            $mu930 = "mm-active";
-        } else {
-            $mn930 = '';
-            $mu930 = '';
-        }
-        echo '<li class="' . $mu930 . '">';
-        TitleBarBlue("SIMPANAN", 'mdi mdi-bank');
-        echo '<ul class="sub-menu ' . $mn930 . '" aria-expanded="false">';
-        MenuLink("loansimpanan1.php", "Rekening Simpanan", 930, @$_REQUEST['vw']);
-        MenuLink("loanApplysimpanan.php", "Entry Data Simpanan", 930, @$_REQUEST['vw']);
-        echo '<li>';
-        TitleBarBlue("Laporan", 'mdi mdi-file');
-        echo '<ul class="sub-menu ' . $mn930 . '" aria-expanded="true">';
-        MenuLink("reportsimpanan.php", "Simpanan", 930, @$_REQUEST['vw']);
-        echo '</ul></li>';
-        echo '</ul></li>';
+        // if (@$mn == 930) {
+        //     $mn930 = "mm-collapse mm-show";
+        //     $mu930 = "mm-active";
+        // } else {
+        //     $mn930 = '';
+        //     $mu930 = '';
+        // }
+        // echo '<li class="' . $mu930 . '">';
+        // TitleBarBlue("SIMPANAN", 'mdi mdi-bank');
+        // echo '<ul class="sub-menu ' . $mn930 . '" aria-expanded="false">';
+        // MenuLink("loansimpanan1.php", "Rekening Simpanan", 930, @$_REQUEST['vw']);
+        // MenuLink("loanApplysimpanan.php", "Entry Data Simpanan", 930, @$_REQUEST['vw']);
+        // echo '<li>';
+        // TitleBarBlue("Laporan", 'mdi mdi-file');
+        // echo '<ul class="sub-menu ' . $mn930 . '" aria-expanded="true">';
+        // MenuLink("reportsimpanan.php", "Simpanan", 930, @$_REQUEST['vw']);
+        // echo '</ul></li>';
+        // echo '</ul></li>';
 
 
         
