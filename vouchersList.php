@@ -151,17 +151,17 @@ for ($i = 0; $i < count($statusList); $i++) {
 }
 print '	</select-->&nbsp;&nbsp;';
 
-$jenisList = array('Anggota', 'Pembiayaan', 'Kebajikan');
-$jenisVal = array(1, 2, 3);
+// $jenisList = array('Anggota', 'Pembiayaan', 'Kebajikan');
+// $jenisVal = array(1, 2, 3);
 
-print '		Jenis
-			<select name="jenis" class="form-select-sm" onchange="document.MyForm.submit();">';
-print '<option value="">- Pilih -';
-for ($i = 0; $i < count($jenisList); $i++) {
-    print '	<option value="' . $jenisVal[$i] . '" ';
-    if ($jenis == $jenisVal[$i]) print ' selected';
-    print '>' . $jenisList[$i];
-}
+// print '		Jenis
+// 			<select name="jenis" class="form-select-sm" onchange="document.MyForm.submit();">';
+// print '<option value="">- Pilih -';
+// for ($i = 0; $i < count($jenisList); $i++) {
+//     print '	<option value="' . $jenisVal[$i] . '" ';
+//     if ($jenis == $jenisVal[$i]) print ' selected';
+//     print '>' . $jenisList[$i];
+// }
 
 print '</select> &nbsp;&nbsp;<input type="button" class="btn btn-sm btn-primary" value="Tambah" onClick="location.href=\'' . $sFileRef . '&action=new&jenis=' . $jenis . '\';">';
 

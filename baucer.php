@@ -731,6 +731,8 @@ if ($action == "new" && $jenis == 1) {
     print '&nbsp;<input name="welfareNo" type="hidden" value=""></td>';
 }
 
+print '<input type="button" class="btn btn-sm btn-info ms-1 waves-light waves-effect" value="Pilih Simpanan" onclick="window.open(\'selToMemberA.php?refer=f\',\'sel\',\'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">';
+
 print '</tr>
 			<tr><td valign="top">Nama</td><td valign="top"></td><td><input name="nama_anggota"  value="' . $nama . '" type="text" size="50" maxlength="50" class="form-control-sm" readonly/>
 		    </td></tr>

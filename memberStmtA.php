@@ -141,6 +141,7 @@ if (get_session("Cookie_groupID") > 0) {
 	   			    <input type="button" class="btn btn-sm btn-secondary" value="Keseluruhan" onClick="ITRActionButtonClick(\'ShareYearlyAll\');" style="width:100px;">
 					</td>
 				</tr>	
+				<!--
 				<tr>
 					<td class="textFont">Penyata Simpanan Khas</td>
 					<td class="textFont">
@@ -148,7 +149,8 @@ if (get_session("Cookie_groupID") > 0) {
 	   			    <input type="button" class="btn btn-sm btn-secondary" value="Tahunan" onClick="ITRActionButtonClick(\'depoYearly\');" style="width:100px;"> 
 					<input type="button" class="btn btn-sm btn-secondary" value="Keseluruhan" onClick="ITRActionButtonClick(\'depoYearlyAll\');" style="width:100px;">            
 					</td>
-				</tr>						
+				</tr>
+				-->						
 			</table>
 		</td>
 	</tr>';
@@ -189,7 +191,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">&nbsp;Yuran</td>
 						<td nowrap align="right">&nbsp;Syer</td>
-						<td nowrap align="right">&nbsp;Simpanan Khas</td>
+						<!-- <td nowrap align="right">&nbsp;Simpanan Khas</td> -->
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;
@@ -205,7 +207,7 @@ if (get_session("Cookie_groupID") > 0) {
 			<td class="Data" colspan="2">' . dlookup("general", "name", "ID=" . tosql($GetMember->fields('departmentID'), "Number")) . '</td>						
 			<td class="Data" align="right">' . $totalFees . '</td>
 			<td class="Data" align="right">' . $totalSharesTK . '</td>
-			<td class="Data" align="right">' . $totalKhasTK . '</td>
+			<!-- <td class="Data" align="right">' . $totalKhasTK . '</td> -->
 			</tr>';
 				$cnt++;
 				$bil++;

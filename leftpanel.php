@@ -75,21 +75,21 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
         MenuLink("memberStmtA.php", "Info Modal", 902, @$_REQUEST['vw']);
         MenuLink("loansimpanan1.php", "Info Simpanan", 902, @$_REQUEST['vw']);
-        MenuLink("blank.php", "Jurnal Pindahan", 902, @$_REQUEST['vw']);
-            // admin.anggota.modalSimpanan.pengeluaran
-            echo '<li>';
-            TitleBarBlue("Pengeluaran", 'mdi mdi-cash-minus');
-            echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
-            MenuLink("blank.php", "Permohonan", 902, @$_REQUEST['vw']);
-            MenuLink("vouchersList.php", "Baucer", 902, @$_REQUEST['vw']);
-            echo '</ul></li>';
-            // admin.anggota.modalSimpanan.penambahan
-            echo '<li>';
-            TitleBarBlue("Penambahan", 'mdi mdi-cash-plus');
-            echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
-            MenuLink("blank.php", "Permohonan", 902, @$_REQUEST['vw']);
-            MenuLink("resitList.php", "Resit", 902, @$_REQUEST['vw']);
-            echo '</ul></li>';
+        // MenuLink("blank.php", "Jurnal Pindahan", 902, @$_REQUEST['vw']);
+        //     // admin.anggota.modalSimpanan.pengeluaran
+        //     echo '<li>';
+        //     TitleBarBlue("Pengeluaran", 'mdi mdi-cash-minus');
+        //     echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
+        //     MenuLink("blank.php", "Permohonan", 902, @$_REQUEST['vw']);
+        //     MenuLink("vouchersList.php", "Baucer", 902, @$_REQUEST['vw']);
+        //     echo '</ul></li>';
+        //     // admin.anggota.modalSimpanan.penambahan
+        //     echo '<li>';
+        //     TitleBarBlue(" ", 'mdi mdi-cash-plus');
+        //     echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
+        //     MenuLink("blank.php", "Permohonan", 902, @$_REQUEST['vw']);
+        //     MenuLink("resitList.php", "Resit", 902, @$_REQUEST['vw']);
+        //     echo '</ul></li>';
         MenuLink("blank.php", "Transaksi Online", 902, @$_REQUEST['vw']);
         MenuLink("blank.php", "Proses Hibah Simpanan", 902, @$_REQUEST['vw']);
         MenuLink("blank.php", "Penyata Simpanan", 902, @$_REQUEST['vw']);
@@ -129,6 +129,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             MenuLink("blank.php", "Transaksi", 903, @$_REQUEST['vw']);
             echo '</ul></li>';
         echo '</ul></li>';
+
         // admin.anggota.transaksiAnggota
         if (@$mn == 945) {
             $mn945 = "mm-collapse mm-show";
@@ -146,7 +147,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             TitleBarBlue("Pengeluaran", 'mdi mdi-file');
             echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
             MenuLink("blank.php", "Permohonan", 945, @$_REQUEST['vw']);
-            MenuLink("vouchersList.php", "Baucer", 945, @$_REQUEST['vw']);
+            MenuLink("vouchersList.php?jenis=1", "Baucer", 945, @$_REQUEST['vw']);
             echo '</ul></li>';
             // admin.anggota.infoAnggota.penambahan
             echo '<li>';
