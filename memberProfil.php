@@ -250,7 +250,8 @@ if ($GetMember->RowCount() <> 0) {
 							' . strtoupper($GetMember->fields(name)) . '</a>&nbsp;' . $isVerified;
 		print '</td>	
 						<td class="Data" align="center">' . $GetMember->fields(userID) . '</td>		
-						<td class="Data" nowrap align="center">' . convertNewIC($GetMember->fields(newIC)) . '</td>
+						<!--<td class="Data" nowrap align="center">' . convertNewIC($GetMember->fields(newIC)) . '</td>-->
+						<td class="Data" nowrap align="left">' . $GetMember->fields(newIC) . '</td>
 						<td class="Data" align="left">' . dlookup("general", "name", "ID=" . tosql($GetMember->fields('departmentID'), "Number")) . '</td>
 						<td class="Data" align="center"><font class="' . $colorStatus . '">' . $statusList[$status] . ' ' . $MSSList[$MSS] . '</font></td>
 						<!--td class="Data" align="center">' . toDate("d/m/Y", $GetMember->fields(applyDate)) . '</td-->
