@@ -196,7 +196,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 					<tr class="header">
 						<td nowrap colspan="5" height="20">&nbsp; Jumlah Bayaran Dividen Tunai Tahun ' . $yy . ' RM(' . $dividenAll . ') </td>
-						<td nowrap colspan="3" align="center">&nbsp;Dividen / Yuran</td>
+						<td nowrap colspan="3" align="center">&nbsp;Dividen / Wajib</td>
 					</tr>
 					<tr class="header">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>

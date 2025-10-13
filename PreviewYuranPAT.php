@@ -109,7 +109,7 @@ print '  <tr valign="top" >
 						<td nowrap>&nbsp;Nombor Anggota</td>
 						<td nowrap>&nbsp;Nama Anggota</td>
 						<td nowrap colspan="2"> Jabatan</td>
-					    <td nowrap colspan="2"> Pot. Yuran</td>
+					    <td nowrap colspan="2"> Pot. Wajib</td>
 
 					</tr>';
 $totalFee = 0;

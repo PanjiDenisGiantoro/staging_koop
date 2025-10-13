@@ -198,7 +198,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>&nbsp;No KTP Baru</td>
 						<td nowrap colspan="2"> Jabatan</td>
 						<td nowrap colspan="2"> Jum Pot.Pembiayaan</td>
-					    <td nowrap colspan="2"> Pot. Yuran</td>
+					    <td nowrap colspan="2"> Pot. Wajib</td>
 
 					</tr>';
 			$totalFee = 0;

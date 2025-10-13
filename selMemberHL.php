@@ -118,7 +118,7 @@ if ($GetMember->RowCount() == 0) {
 		<td class="header" width=80>&nbsp;Nombor Anggota</td>
 		<td class="header" >&nbsp;Nama</td>
 		<td class="header" >&nbsp;No KP Baru</td>';
-		print '<td class="header" align="center">&nbsp;Pegangan Yuran</td></tr>';
+		print '<td class="header" align="center">&nbsp;Pegangan Wajib</td></tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);
 			$memberid	= $GetMember->fields(memberID);

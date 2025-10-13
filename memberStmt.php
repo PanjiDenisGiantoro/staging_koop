@@ -126,7 +126,7 @@ if (get_session("Cookie_groupID") > 0) {
 
 				   
 				<tr>
-					<td class="textFont">Penyata Yuran</td>
+					<td class="textFont">Penyata Wajib</td>
 					<td class="textFont"> 
 			        <input type="button" class="btn btn-sm btn-secondary" value="Bulanan" onClick="ITRActionButtonClick(\'feesMonthly\');" style="width:100px;">
 					<input type="button" class="btn btn-sm btn-secondary" value="Tahunan" onClick="ITRActionButtonClick(\'feesYearly\');" style="width:100px;">

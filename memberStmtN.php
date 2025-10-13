@@ -143,7 +143,7 @@ Carian melalui <select name="by" class="Data">';
 
 				   
 				<tr class="table-success">
-					<td class="textFont">Penyata Yuran</td>
+					<td class="textFont">Penyata Wajib</td>
 					<td class="textFont">:&nbsp; 
 			        <input type="button" class="but" value="Bulanan" onClick="ITRActionButtonClick(\'feesMonthly\');" style="width:100px;">
 					<input type="button" class="but" value="Tahunan" onClick="ITRActionButtonClick(\'feesYearly\');" style="width:100px;">
