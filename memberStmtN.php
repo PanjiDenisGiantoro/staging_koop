@@ -242,7 +242,7 @@ Carian melalui <select name="by" class="Data">';
 						<td nowrap>&nbsp;No/Nama Anggota</td>
 						<td nowrap>&nbsp;No KTP Baru</td>
 						<td nowrap colspan="2">&nbsp;Jabatan</td>
-						<td nowrap align="center">&nbsp;Yuran</td>
+						<td nowrap align="center">&nbsp;Wajib</td>
 						<td nowrap align="center">&nbsp;Syer</td>
 					</tr>';
 			$totalFee = 0;

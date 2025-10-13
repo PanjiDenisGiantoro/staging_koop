@@ -149,7 +149,7 @@ if ($GetList->RowCount() <> 0) {
 						<td nowrap>&nbsp;No / Nama Anggota </td>
 						<td nowrap align="center">&nbsp;Nombor KP Baru</td>
 						<td nowrap>&nbsp;Jabatan</td>
-						<td nowrap align="center">&nbsp;Yuran</td>						
+						<td nowrap align="center">&nbsp;Wajib</td>						
 						<td nowrap align="center">&nbsp;Syer</td>						
 					</tr>';
 	$totalFee = 0;

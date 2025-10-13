@@ -170,7 +170,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap>Kartu Identitas</td>
 						<td nowrap colspan="2">Cabang/Zona</td>
-						<td nowrap align="right">Yuran</td>
+						<td nowrap align="right">Wajib</td>
 						<td nowrap align="right">Syer</td>
 						<td nowrap align="right">Simpanan Khas</td>
 					</tr>';
