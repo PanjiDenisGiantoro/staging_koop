@@ -109,7 +109,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Nilai Pelaburan (RM)";
+$FormLabel[$a]   	= "Nilai Pelaburan (RP)";
 $FormElement[$a] 	= "amount";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -129,7 +129,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Pembuka Akaun (RM)";
+$FormLabel[$a]   	= "Pembuka Akaun (RP)";
 $FormElement[$a] 	= "openbalpro";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

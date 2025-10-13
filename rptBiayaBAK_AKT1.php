@@ -108,14 +108,14 @@ print '
 					<th nowrap align="left">&nbsp;Nombor Rujukan Pembiayaan</th>
 					<th nowrap align="left">&nbsp;Nama Pembiayaan</th>
 					<th nowrap align="left">&nbsp;Nombor Bond</th>
-					<th nowrap align="right">&nbsp;Jumlah Pembiayaan Pokok (RM)</th>	
-					<th nowrap align="right">&nbsp;Jumlah Pembiayaan Untung (RM)</th>	
-					<th nowrap align="right">&nbsp;Baki Pembiayaan Pokok (RM)</th>
-					<th nowrap align="right">&nbsp;Baki Pembiayaan Untung (RM)</th>		
+					<th nowrap align="right">&nbsp;Jumlah Pembiayaan Pokok (RP)</th>	
+					<th nowrap align="right">&nbsp;Jumlah Pembiayaan Untung (RP)</th>	
+					<th nowrap align="right">&nbsp;Baki Pembiayaan Pokok (RP)</th>
+					<th nowrap align="right">&nbsp;Baki Pembiayaan Untung (RP)</th>		
 				</tr>';
 
 /*
-					<th nowrap align="right">&nbsp;Baki Pembiayaan Sebenar (RM)</th>*/
+					<th nowrap align="right">&nbsp;Baki Pembiayaan Sebenar (RP)</th>*/
 
 $totalPALL  = 0;
 $totalUALL  = 0;
@@ -175,7 +175,7 @@ if ($rs->RowCount() <> 0) {
 		$rs->MoveNext();
 	}
 	print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-					<td colspan="6" align="right">&nbsp;<b>Jumlah Keseluruhan (RM):</b></td>
+					<td colspan="6" align="right">&nbsp;<b>Jumlah Keseluruhan (RP):</b></td>
 					<td align="right"><b>&nbsp;' . number_format($totalpokok, 2) . '</b></td>
 					<td align="right"><b>&nbsp;' . number_format($totaluntung, 2) . '</b></td>
 					<td align="right"><b>&nbsp;' . number_format($totalPALL, 2) . '</b></td>

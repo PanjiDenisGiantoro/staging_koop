@@ -76,9 +76,9 @@ if ($loanAmt) {
 		<tr class="table-primary">
 			<td nowrap><b>Tarikh</b></td>
 			<td nowrap><b>Nombor Pembayaran</b></td>
-			<td nowrap align="right"><span align="center"><b>Pokok (RM)</b></span></td>
-			<td nowrap align="right"><b>Untung (RM)</b></td>
-			<td nowrap align="right"><b>Jumlah (RM)</b></td>						
+			<td nowrap align="right"><span align="center"><b>Pokok (RP)</b></span></td>
+			<td nowrap align="right"><b>Untung (RP)</b></td>
+			<td nowrap align="right"><b>Jumlah (RP)</b></td>						
 		</tr>';
 	$monthlyTotal = 0;
 	$interestTotal = 0;
@@ -114,7 +114,7 @@ if ($loanAmt) {
 	}
 	print '	
 		<tr>
-			<td nowrap class="headerteal" colspan="2" align="right"><b>Jumlah (RM)&nbsp;&nbsp;&nbsp;</b></td>
+			<td nowrap class="headerteal" colspan="2" align="right"><b>Jumlah (RP)&nbsp;&nbsp;&nbsp;</b></td>
 			<td nowrap class="data" align="right"><b>' . thousand($monthlyTotal) . '</b></td>
 			<td nowrap class="data" align="right"><b>' . thousand($interestTotal) . '</b></td>
 			<td nowrap class="data" align="right"><b>' . thousand($overallTotal) . '</b></td>						

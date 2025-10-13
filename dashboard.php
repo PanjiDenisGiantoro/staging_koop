@@ -201,7 +201,7 @@ $entries = array(
             data: {
                 labels: ['Yuran', 'Syer'],
                 datasets: [{
-                    label: 'Jumlah Terkumpul (RM)',
+                    label: 'Jumlah Terkumpul (RP)',
                     data: [<?php echo $totalsumFee; ?>, <?php echo $totalsumShare; ?>],
                     backgroundColor: ['#F7A8B8', '#F7A8B8']
                 }]

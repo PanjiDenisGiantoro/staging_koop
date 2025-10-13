@@ -95,9 +95,9 @@ print '
 					<th nowrap>Tarikh</th>
 					<th nowrap>&nbsp;Nombor Invois</th>
 					<th nowrap>&nbsp;Akaun</th>
-					<th nowrap>&nbsp;Debit(RM)</th>
-					<th nowrap>&nbsp;Kredit(RM)</th>
-					<th nowrap>&nbsp;Baki(RM)</th>
+					<th nowrap>&nbsp;Debit(RP)</th>
+					<th nowrap>&nbsp;Kredit(RP)</th>
+					<th nowrap>&nbsp;Baki(RP)</th>
 				</tr>
 				
 				<tr><td colspan="5">&nbsp;</td></tr>';

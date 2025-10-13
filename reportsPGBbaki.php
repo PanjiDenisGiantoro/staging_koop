@@ -152,7 +152,7 @@ print '
                         <td nowrap align="center">Nombor Anggota </td>
                         <td nowrap align="left">Nama</td>
                         <td nowrap align="center">Nombor Bond</td>
-                        <td nowrap align="right">Baki Pembiayaan Tunai(RM)</td>
+                        <td nowrap align="right">Baki Pembiayaan Tunai(RP)</td>
                     </tr>';
 
 $yrmth2 = str_replace("-", "", $dtTo);

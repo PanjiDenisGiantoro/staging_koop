@@ -124,7 +124,7 @@ print '  <tr valign="top" >
 						<td nowrap><b>Nama Anggota</b></td>
 						<td nowrap><b>Cawangan/Zon</b></td>
 						<td nowrap><b>Nombor Pekerja</b></td>
-						<td nowrap colspan="2" align="right"><b>Jumlah Potongan Bulanan (RM)</b></td>
+						<td nowrap colspan="2" align="right"><b>Jumlah Potongan Bulanan (RP)</b></td>
 					</tr>';
 $totalFee = 0;
 $totalShare = 0;

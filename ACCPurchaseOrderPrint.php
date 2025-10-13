@@ -244,8 +244,8 @@ print'
                 <td nowrap="nowrap"><b>BIL</b></td>
                 <td nowrap="nowrap"><b>KETERANGAN</b></td>
                 <td nowrap="nowrap" align="center"><b>KUANTITI</b></td>
-                <td nowrap="nowrap" align="right"><b>HARGA SEUNIT (RM)</b></td>
-                <td nowrap="nowrap" align="right"><b>JUMLAH (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>HARGA SEUNIT (RP)</b></td>
+                <td nowrap="nowrap" align="right"><b>JUMLAH (RP)</b></td>
             </tr>
     </thead>';
 

@@ -108,7 +108,7 @@ print '  <tr valign="top" >
 						<td nowrap><b>Nombor Anggota</b></td>
 						<td nowrap><b>Nama Anggota</b></td>
 						<td nowrap colspan="2"><b>Cawangan/Zon</b></td>
-					    <td nowrap colspan="2" align="right"><b>Potongan Yuran (RM)</b></td>
+					    <td nowrap colspan="2" align="right"><b>Potongan Yuran (RP)</b></td>
 
 					</tr>';
 $totalFee = 0;

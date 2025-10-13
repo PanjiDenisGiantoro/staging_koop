@@ -157,7 +157,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align ="center"><b>Tarikh</b></td>
 						<td nowrap align ="right"><b>Debit (RP)</b></td>
 						<td nowrap align ="right"><b>Kredit (RP)</b></td>
-						<td nowrap align ="right"><b>Saldo (RM)</b></td>
+						<td nowrap align ="right"><b>Saldo (RP)</b></td>
 											
 					</tr>';
 
@@ -205,7 +205,7 @@ if ($GetVouchers->RowCount() <> 0) {
 	$GetVouchers->Close();
 
 	print '<tr>
-				<td class="Data" colspan="4" align="right"><b>JUMLAH (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>JUMLAH (RP)</b></td>
 				<td class="Data" align="right"><b>' . number_format($totalDb, 2) . '&nbsp;</b></td>
 				<td class="Data" align="right"><b>' . number_format($totalKt, 2) . '&nbsp;</b></td>
 				<td class="Data" align="right"><b>' . number_format($totalBank, 2) . '&nbsp;</b></td>

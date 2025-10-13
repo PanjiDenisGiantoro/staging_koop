@@ -209,7 +209,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td align="left"   nowrap>Nomor - Nama Anggota</td>
 						<td align="center" nowrap>Kartu Identitas</td>
 						<td align="center" nowrap>Akaun Bank</td>
-						<td nowrap align="right">Dividen Tahun ' . $yy . ' (RM)</td>
+						<td nowrap align="right">Dividen Tahun ' . $yy . ' (RP)</td>
 					</tr>';
 		$totalFees = 0;
 		$totalShares = 0;

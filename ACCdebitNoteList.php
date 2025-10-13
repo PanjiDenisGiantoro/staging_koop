@@ -256,7 +256,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap><b>Nama Syarikat</b></td>
 						<td nowrap><b>Nomor Rujukan</b></td>
 						<td nowrap><b>Catatan</b></td>
-						<td nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Tindakan</b></td>
 					</tr>';
 

@@ -91,8 +91,8 @@ print '
 					<td nowrap>Tarikh</td>
 					<td nowrap>Nombor Rujukan</td>
 					<td nowrap>Item</td>
-					<td nowrap align="right">Debit (RM)</td>
-					<td nowrap align="right">Kredit (RM)</td>
+					<td nowrap align="right">Debit (RP)</td>
+					<td nowrap align="right">Kredit (RP)</td>
 				</tr>';
 print '
 				<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt;" bgcolor="FFFFFF">

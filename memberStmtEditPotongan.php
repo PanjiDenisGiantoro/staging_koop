@@ -177,7 +177,7 @@ print '		</select>
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap><b>Kartu Identitas ' . $mth . '</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
-						<td nowrap colspan="2"><b>Jumlah Potongan Pembiayaan (RM)</b></td>
+						<td nowrap colspan="2"><b>Jumlah Potongan Pembiayaan (RP)</b></td>
 					    <td nowrap colspan="2"><b>Potongan Yuran</b></td>
 
 					</tr>';

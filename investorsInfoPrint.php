@@ -164,7 +164,7 @@ print '
 				<td align="left" class="borderSideTitle">'.$period.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Nilai Pelaburan (RM):</b></td>
+				<td align="right" class="borderSideTitle"><b>Nilai Pelaburan (RP):</b></td>
 				<td align="left" class="borderSideTitle">'.$amount.'</td>
 			</tr>
 			<tr>
@@ -176,7 +176,7 @@ print '
 				<td align="left" class="borderSideTitle">'.$alkselia.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Opening Balance (RM):</b></td>
+				<td align="right" class="borderSideTitle"><b>Opening Balance (RP):</b></td>
 				<td align="left" class="borderSideTitle">'.$openbalpro.'</td>
 			</tr>
 		</table>

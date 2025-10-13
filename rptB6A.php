@@ -55,7 +55,7 @@ print '
 					<th nowrap>Emel</th>
 					<th nowrap>No Rujukan</th>
 					<th nowrap>Jenis Advance Payment</th>
-					<th nowrap>Jumlah Permohonan (RM)</th>		
+					<th nowrap>Jumlah Permohonan (RP)</th>		
 					<th nowrap>Jenis Pemprosesan</th>			
 					<th nowrap>Tarikh Permohonan</th>
 					<th nowrap>Tarikh Kelulusan</th>

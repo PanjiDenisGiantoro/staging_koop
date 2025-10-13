@@ -282,16 +282,16 @@ if ($id <> "") {
         </tr>      
         
             <tr>
-			    <td class="textFont" width="180">Pembiayaan (RM)</td>
+			    <td class="textFont" width="180">Pembiayaan (RP)</td>
 			    <td class="Label">:&nbsp;' . number_format($loanAmt, 2, '.', ',') . '</td>
             </tr>
 
             <tr>
-			<td class="textFont" width="180">Keuntungan (RM)</td>
+			<td class="textFont" width="180">Keuntungan (RP)</td>
 			<td class="Label">:&nbsp;' . number_format($totalInterest, 2, '.', ',') . '</td>
 		</tr>
         <tr>
-			<td class="textFont" width="180">Jumlah Pembiayaan (RM)</td>
+			<td class="textFont" width="180">Jumlah Pembiayaan (RP)</td>
 			<td class="Label">:&nbsp;' . number_format($totalLoan, 2, '.', ',') . '</td>
 		</tr>
 
@@ -309,7 +309,7 @@ if ($id <> "") {
 
 		
 		<tr>
-			<td class="textFont" width="180">Bayaran Bulanan (RM)</td>
+			<td class="textFont" width="180">Bayaran Bulanan (RP)</td>
 			<td class="Label">:&nbsp;' . number_format($monthlyPay, 2, '.', ',') . '</td>
         </tr>
         <tr>
@@ -343,8 +343,8 @@ if ($id <> "") {
 			<td nowrap align="right"><b>Pokok</td>
 			<td nowrap align="right"><b>Untung</td>
 			<td nowrap align="right"><b>Bulanan</td>
-			<td nowrap align="right"><b>Baki Pokok(RM)</td>
-			<td nowrap align="right"><b>Baki Pembiayaan(RM)</td>					
+			<td nowrap align="right"><b>Baki Pokok(RP)</td>
+			<td nowrap align="right"><b>Baki Pembiayaan(RP)</td>					
 		</tr>
 		';
 

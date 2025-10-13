@@ -631,8 +631,8 @@ $TotalPage =  ($TotalRec / $pg);
 						<td nowrap>&nbsp;</td>
 						<td nowrap><b>Nama Pembiayaan</b></td>
 						<td nowrap><b>Nomor - Nama Anggota</b></td>
-						<td nowrap align="right"><b>Jumlah Permohonan (RM)</b></td>
-						<td nowrap align="right"><b>Bayaran Bulanan (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah Permohonan (RP)</b></td>
+						<td nowrap align="right"><b>Bayaran Bulanan (RP)</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>						
 						<td nowrap align="center"><b>Tarikh Voucher</b></td>
 						<td nowrap align="center"><b>Status PGB</b></td>

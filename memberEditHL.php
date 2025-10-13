@@ -1046,7 +1046,7 @@ if (@$tabb == 2) {
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Awal Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kode Potongan</b></td>
-					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RM)</b></td>
+					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RP)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bond /<br/>Rujukan</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>PTJ</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Status</b></td>	  

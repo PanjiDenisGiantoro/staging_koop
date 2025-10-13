@@ -201,7 +201,7 @@ print '<div class="card-header mb-3">SENARAI PROJEK&nbsp;&nbsp;<input type="butt
 						<td nowrap align="left"><b>Nama Projek</b></td>
 						<td nowrap align="center"><b>Tarikh Mula</b></td>
 						<td nowrap align="center"><b>Tarikh Akhir</b></td>
-						<td nowrap align="right"><b>Nilai Pelaburan (RM)</b></td>
+						<td nowrap align="right"><b>Nilai Pelaburan (RP)</b></td>
 						<td nowrap align="left"><b>Person In Charge</b></td>
 					</tr>';	
 		while (!$GetIv3->EOF && $cnt <= $pg) {

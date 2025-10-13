@@ -175,7 +175,7 @@ print '  <tr valign="top" >
 				<tr><td>&nbsp;</td></tr>	
 				<tr class="table-primary">
 						<td nowrap colspan="4" height="20">&nbsp;</td>
-						<td nowrap height="20" colspan="8" nowrap><div align="center"><b>Jumlah Tunggakkan (RM)</b></div></td>
+						<td nowrap height="20" colspan="8" nowrap><div align="center"><b>Jumlah Tunggakkan (RP)</b></div></td>
 					</tr>
 
 						<tr class="table-primary">
@@ -183,10 +183,10 @@ print '  <tr valign="top" >
 						<td nowrap height="8" align="center"><b>Nombor Anggota</b></td>
 						<td nowrap><b>Nama</b></td>
 						<td nowrap><b>Nombor Pekerja</b></td>
-						<td nowrap colspan="2" align="right"><b>Yuran (RM)</b></td>
-						<td nowrap colspan="2" align="right"><b>Pembiayaan (RM)</b></td>
-						<td nowrap colspan="2" align="right"><b>Jumlah Tunggakkan (RM)</b></td>
-					    <td nowrap colspan="2" align="right"><b>Yuran Terkini (RM)</b></td>
+						<td nowrap colspan="2" align="right"><b>Yuran (RP)</b></td>
+						<td nowrap colspan="2" align="right"><b>Pembiayaan (RP)</b></td>
+						<td nowrap colspan="2" align="right"><b>Jumlah Tunggakkan (RP)</b></td>
+					    <td nowrap colspan="2" align="right"><b>Yuran Terkini (RP)</b></td>
 
 					</tr>';
 $totalFee = 0;

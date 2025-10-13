@@ -55,8 +55,8 @@ print '
 					<th nowrap align ="center">BIL</th>
 					<th nowrap align ="center">KOD AKAUN</th>
 					<th nowrap align ="left">NAMA AKAUN</th>
-					<th nowrap align ="right">SIMPANAN(DEBIT) (RM)</th>
-					<th nowrap align ="right">KELUARAN(KREDIT) (RM)</th>	
+					<th nowrap align ="right">SIMPANAN(DEBIT) (RP)</th>
+					<th nowrap align ="right">KELUARAN(KREDIT) (RP)</th>	
 				</tr>';
 
 $totaldebit 	= 0;
@@ -106,7 +106,7 @@ if ($rs->RowCount() <> 0) {
 
 	print '	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="3" align="right"><b>&nbsp;JUMLAH KESELURUHAN (RM)</b></td>
+		<td colspan="3" align="right"><b>&nbsp;JUMLAH KESELURUHAN (RP)</b></td>
 		<td align="right">' . number_format($totaldebit, 2) . '</td>
 		<td align="right">' . number_format($totalkredit, 2) . '</td>
 	</tr>';
@@ -115,7 +115,7 @@ if ($rs->RowCount() <> 0) {
 
 	print '	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="3" align="right"><b>&nbsp;BAKI (RM)</b></td>
+		<td colspan="3" align="right"><b>&nbsp;BAKI (RP)</b></td>
 		<td colspan="2" align="right">' . number_format($baki, 2) . '</td>
 	</tr>';
 } else {

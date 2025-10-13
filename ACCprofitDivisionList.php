@@ -197,7 +197,7 @@ if ($GetMember->RowCount() <> 0) {
 
 	print '
 			<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;font-weight:bold;" bgcolor="FFFFFF">
-			<td colspan="3" align="right"><b>JUMLAH (RM) </b></td>
+			<td colspan="3" align="right"><b>JUMLAH (RP) </b></td>
 			<td align="right">&nbsp;' . number_format($totaldebit, 2) . '</td>
 			<td align="right">&nbsp;' . number_format($totalkredit, 2) . '</td>
 		</tr>';

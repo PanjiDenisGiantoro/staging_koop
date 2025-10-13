@@ -153,7 +153,7 @@ while (!$rsLoan->EOF) {
 		<th nowrap align="left">&nbsp;Item</th>
 		<th width="10%">&nbsp;Debit</th>
 		<th width="10%">&nbsp;Kredit</th>
-		<th width="15%">&nbsp;Baki(RM)</th>
+		<th width="15%">&nbsp;Baki(RP)</th>
 		</tr>';
 
 	$totalakhir = $jumlahPembiayaan - $payment;

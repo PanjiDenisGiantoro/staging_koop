@@ -530,8 +530,8 @@ print
 				<td nowrap="nowrap"><b>* Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap"><b>* Kuantiti</b></td>
-				<td nowrap="nowrap"><b>* Harga Seunit (RM)</b></td>
-				<td nowrap="nowrap"><b>Jumlah (RM)</b></td>
+				<td nowrap="nowrap"><b>* Harga Seunit (RP)</b></td>
+				<td nowrap="nowrap"><b>Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -724,7 +724,7 @@ if ($totalDb <> 0) {
 // $idname = get_session('Cookie_fullName');
 
 print 		'<tr class="table-secondary">
-				<td class="Data" colspan="5" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="5" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" align="right"><b>' . number_format($totalDb, 2) . '</b></td>
 				
 				<td class="Data" align=""><b>&nbsp;</b></td>

@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <td><b>Mula Potongan (Tahun/Bulan)</b></td>
                     <td><b>Akhir Potongan (Tahun/Bulan)</b></td>
                     <td><b>Jenis/Kod Potongan</b></td>
-                    <td align="left"><b>Potongan Bulanan (RM)</b></td>
+                    <td align="left"><b>Potongan Bulanan (RP)</b></td>
                     <td align="left"><b>PTJ</b></td>
                     <td>&nbsp;</td>
                 </tr>

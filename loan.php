@@ -453,9 +453,9 @@ $entries = array(
 						<td	nowrap></td>
 						<td	nowrap>Nama Pembiayaan</td>
 						<td	nowrap>Nomor - Nama Anggota</td>
-						<td	nowrap align="right">Jumlah (RM)</td>
+						<td	nowrap align="right">Jumlah (RP)</td>
 						<td	nowrap align="center">Jangka Waktu (Bulan)</td>
-						<td	nowrap align="right">Bayaran Bulanan (RM)</td>
+						<td	nowrap align="right">Bayaran Bulanan (RP)</td>
 						<td	nowrap align="center">Tanggal ';
 		if ($filter == "ALL" || $filter == "0") {
 			print 'Pengajuan';

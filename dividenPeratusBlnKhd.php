@@ -166,7 +166,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap colspan="3" height="20">&nbsp;</td>
-						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Yuran Dan Syer (RM)</div></td>
+						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Yuran Dan Syer (RP)</div></td>
 
 					</tr>
 					<tr class="table-primary">

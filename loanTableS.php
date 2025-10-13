@@ -306,8 +306,8 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama Pembiayaan</td>
 						<td nowrap>Nomor - Nama Anggota</td>
-						<td nowrap align="right">Jumlah Permohonan (RM)</td>
-						<td nowrap align="right">Bayaran Bulanan (RM)</td>
+						<td nowrap align="right">Jumlah Permohonan (RP)</td>
+						<td nowrap align="right">Bayaran Bulanan (RP)</td>
 						<td nowrap>Surat Tawaran</td>						
 						<td nowrap align="center">Tarikh Voucher</td>
 						<td nowrap align="center">Status PGB</td>

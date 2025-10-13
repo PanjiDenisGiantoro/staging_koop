@@ -65,7 +65,7 @@ print '
 					<th nowrap align="center">&nbsp;Kod Akaun</th>
 					<th nowrap align="left">&nbsp;Perkara / Nama Akaun</th>
 					<th nowrap align="left">&nbsp;Keterangan Perkara</th>
-					<th nowrap align="right">&nbsp;Kredit / Amaun (RM)</th>
+					<th nowrap align="right">&nbsp;Kredit / Amaun (RP)</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {
@@ -92,7 +92,7 @@ if ($rs->RowCount() <> 0) {
 		$rs->MoveNext();
 	}
 	print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="6" align="right"><b>&nbsp;Jumlah Keseluruhan (RM) :</b></td>
+						<td colspan="6" align="right"><b>&nbsp;Jumlah Keseluruhan (RP) :</b></td>
 						<td align="right"><b>&nbsp;' . number_format($totalDb, 2) . '</b></td>
 					</tr>';
 } else {

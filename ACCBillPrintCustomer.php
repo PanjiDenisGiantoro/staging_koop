@@ -312,7 +312,7 @@ print'
                 <td nowrap="nowrap"><b>JABATAN</b></td>
                 <td nowrap="nowrap"><b>PROJEK</b></td>
                 <td nowrap="nowrap"><b>KETERANGAN</b></td>
-                <td nowrap="nowrap" align="right"><b>AMAUN (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>AMAUN (RP)</b></td>
             </tr>
     </thead>';
 

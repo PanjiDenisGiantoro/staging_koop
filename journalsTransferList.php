@@ -217,8 +217,8 @@ if ($GetjournalsTransfer->RowCount() <> 0) {
                         <td nowrap align="center">Tarikh</td>
                         <td nowrap>Nombor/Nama Anggota</td>
                         <td nowrap>Keterangan</td>
-                        <td nowrap align="right">Debit (RM)</td>
-                        <td nowrap align="right">Kredit (RM)</td>
+                        <td nowrap align="right">Debit (RP)</td>
+                        <td nowrap align="right">Kredit (RP)</td>
 						<td nowrap align="center">Status</td>
                         <td nowrap align="center">Tindakan</td>
                     </tr>';

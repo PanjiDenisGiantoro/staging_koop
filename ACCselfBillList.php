@@ -219,7 +219,7 @@ if ($GetSB->RowCount() <> 0) {
 						<td nowrap align="center"><b>Nama Batch</b></td>
 						<td nowrap align="center"><b>Tarikh</b></td>
 						<td nowrap><b>Nama Syarikat | TIN LHDN</b></td>
-						<td nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status e-Invois</b></td>
 						<td nowrap align="center"><b>Action</b></td>
 					</tr>';

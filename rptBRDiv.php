@@ -69,9 +69,9 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="centre" nowrap>Bil</th>
 					<th width="150" align="left" nowrap>&nbsp;Nombor Anggota- Nama</th>
-					<th width="100" align="left" nowrap><div align="right">Yuran Bulan(RM) </div></th>
-					<th width="90" align="left" nowrap><div align="right">Dividen Syer (RM) ' . $rsCheck->fields(amtFee) . '% </div></th>
-					<th nowrap align="center" width="90"><div align="right">Dividen Tabungan (RM) ' . $rsCheck->fields(amtShare) . '%</div></th>
+					<th width="100" align="left" nowrap><div align="right">Yuran Bulan(RP) </div></th>
+					<th width="90" align="left" nowrap><div align="right">Dividen Syer (RP) ' . $rsCheck->fields(amtFee) . '% </div></th>
+					<th nowrap align="center" width="90"><div align="right">Dividen Tabungan (RP) ' . $rsCheck->fields(amtShare) . '%</div></th>
 				</tr>';
 //$total = 0;
 

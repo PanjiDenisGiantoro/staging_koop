@@ -125,9 +125,9 @@ while (!$rsLoan->EOF) {
 					<th nowrap align="left">Batch</th>
 					<th nowrap align="left">Nombor Rujukan</th>
 					<th nowrap align="left">Perkara</th>
-					<th nowrap align="right">Debit(RM)</th>
-					<th nowrap align="right">Kredit(RM)</th>
-					<th nowrap align="right">Baki(RM)</th>
+					<th nowrap align="right">Debit(RP)</th>
+					<th nowrap align="right">Kredit(RP)</th>
+					<th nowrap align="right">Baki(RP)</th>
 				</tr>';
 
 

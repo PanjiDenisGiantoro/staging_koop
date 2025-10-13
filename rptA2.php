@@ -62,7 +62,7 @@ print '
 					<td nowrap><b>Nama</b></td>
 					<td nowrap align="center"><b>Kad Pengenalan</b></td>
 					<td nowrap align="center"><b>No Pekerja</b></td>
-					<td nowrap align="right"><b>Yuran Bulanan (RM)</b></td>
+					<td nowrap align="right"><b>Yuran Bulanan (RP)</b></td>
 					<td nowrap><b>Cawangan/Zon</b></td>
 					<td nowrap align="center"><b>Tarikh Memohon</b></td>
 					<td nowrap align="center"><b>Tarikh Diluluskan</b></td>

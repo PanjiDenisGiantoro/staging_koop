@@ -122,15 +122,15 @@ print '
 						<td nowrap align="center">Tarikh Baucer</td>		
 						<td nowrap align="center">No Bond</td>			
 						<td nowrap align="center">Mula Perlu Bayar</td>	
-						<td nowrap align="right">Ansuran Bulanan (RM)</td>
-						<td nowrap align="right">Bayaran Perlu Dibayar (RM)<br/>(' . $mth . '/' . $yr . ')</td>
-						<td nowrap align="right">Bayaran Diterima (RM)<br/>(' . $mth . '/' . $yr . ')</td>
-						<td nowrap align="right">Baki Tunggakan (RM)</td>
+						<td nowrap align="right">Ansuran Bulanan (RP)</td>
+						<td nowrap align="right">Bayaran Perlu Dibayar (RP)<br/>(' . $mth . '/' . $yr . ')</td>
+						<td nowrap align="right">Bayaran Diterima (RP)<br/>(' . $mth . '/' . $yr . ')</td>
+						<td nowrap align="right">Baki Tunggakan (RP)</td>
 						<td nowrap align="center">Bulan Tunggakan</td>
-						<td nowrap align="right">Jum. Pembiayaan (RM)<br/>(Pokok + Untung)</td>		
-						<td nowrap align="right">Jumlah Bayaran Transaksi (RM)</td>
-						<td nowrap align="right">Baki (RM)</td>
-						<!--td nowrap align="right">Caj Lewat (RM)</td-->
+						<td nowrap align="right">Jum. Pembiayaan (RP)<br/>(Pokok + Untung)</td>		
+						<td nowrap align="right">Jumlah Bayaran Transaksi (RP)</td>
+						<td nowrap align="right">Baki (RP)</td>
+						<!--td nowrap align="right">Caj Lewat (RP)</td-->
                     </tr>';
 
 // Initialize total variables

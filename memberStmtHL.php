@@ -191,7 +191,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap colspan="2">Cabang/Zona</td>
-						<td nowrap align="right">Sisa Utang Pembiayaan (RM)</td>
+						<td nowrap align="right">Sisa Utang Pembiayaan (RP)</td>
 					</tr>';
 			$totalFees = 0;
 			$totalShare = 0;

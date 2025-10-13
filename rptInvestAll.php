@@ -118,10 +118,10 @@ if ($GetData->RowCount() <> 0) {
                 <th nowrap width="5%">Tarikh Mula</th>  
                 <th nowrap width="5%">Tarikh Akhir</th>
                 <th nowrap width="5%">Tempoh Perjanjian (Bulan)</th>
-                <th align="right" nowrap width="10%">Nilai Pelaburan (RM)</th>
-                <th align="right" nowrap width="10%">Nilai Disbursement (RM)</th>
-                <th align="right" nowrap width="10%">Baki (RM)</th>
-                <th align="right" nowrap width="10%">Opening Balance (RM)</th>
+                <th align="right" nowrap width="10%">Nilai Pelaburan (RP)</th>
+                <th align="right" nowrap width="10%">Nilai Disbursement (RP)</th>
+                <th align="right" nowrap width="10%">Baki (RP)</th>
+                <th align="right" nowrap width="10%">Opening Balance (RP)</th>
                 <th align="right" nowrap width="10%">Rate</th>
                 <th align="left" nowrap width="5%">PIC</th>
                 <th align="left" nowrap width="5%">ALK Selian</th>

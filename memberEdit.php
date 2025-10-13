@@ -529,7 +529,7 @@ if (@$tabb == 1) {
 
 // if (@$tabb == 2) {
 // 	$a = 1;
-// 	$FormLabel[$a]   	= "Bayaran Pendaftaran (RM)";
+// 	$FormLabel[$a]   	= "Bayaran Pendaftaran (RP)";
 // 	$FormElement[$a] 	= "totPay";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";
@@ -539,7 +539,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "* Yuran Bulanan (RM)";
+// 	$FormLabel[$a]   	= "* Yuran Bulanan (RP)";
 // 	$FormElement[$a] 	= "monthFee";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";
@@ -549,7 +549,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "* Deposit Khas (RM)";
+// 	$FormLabel[$a]   	= "* Deposit Khas (RP)";
 // 	$FormElement[$a] 	= "monthDepo";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";
@@ -559,7 +559,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "* Syer Bulanan (RM)";
+// 	$FormLabel[$a]   	= "* Syer Bulanan (RP)";
 // 	$FormElement[$a] 	= "unitShare";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";
@@ -988,7 +988,7 @@ if (@$tabb == 2) {
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Awal Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kode Potongan</b></td>
-					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RM)</b></td>
+					<td nowrap align="right" style="text-align: right;"><b>Potongan<br/>Bulanan (RP)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bond /<br/>Rujukan</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>PTJ</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Status</b></td>	  

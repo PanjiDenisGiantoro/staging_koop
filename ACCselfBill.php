@@ -527,7 +527,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value=""></td>
 			</tr>
 
 			<tr>
-				<td valign="top">Amaun Invois (RM)</td>
+				<td valign="top">Amaun Invois (RP)</td>
 				<td valign="top"></td>
 				<td><input name="amt"  value="' . $amt . '" size="20" maxlength="50"  class="form-controlx" readonly/></td>
 			</tr>
@@ -650,8 +650,8 @@ print
 				<td nowrap="nowrap"><b>* Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>	
 				<td nowrap="nowrap" align="center"><b>* Kuantiti</b></td>	
-				<td nowrap="nowrap" align="right"><b>* Harga Seunit (RM)</b></td>
-				<td nowrap="nowrap" align="right"><b>Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>* Harga Seunit (RP)</b></td>
+				<td nowrap="nowrap" align="right"><b>Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -850,7 +850,7 @@ if ($totalDb <> 0) {
 }
 
 print 		'<tr>
-				<td class="Data" colspan="5" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="5" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" id="totalJumlah" align="right"><b>' . number_format($totalDb, 2) . '&nbsp;</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>
 			</tr>

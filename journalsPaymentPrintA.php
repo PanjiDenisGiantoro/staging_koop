@@ -253,7 +253,7 @@ print'
 				<td nowrap="nowrap"><b>BIL</b></td>
                 <td nowrap="nowrap"><b>KETERANGAN</b></td>
                 <td nowrap="nowrap"><b>NO BOND</b></td>
-                <td nowrap="nowrap" align="right"><b>BAYARAN (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>BAYARAN (RP)</b></td>
             </tr>
     </thead>';
 

@@ -92,8 +92,8 @@ if ($GetLoan->RowCount() <> 0) {
                     <tr class="table-primary">
                         <td class="headerteal" align="center"><b>Nombor Rujukan</b></td>
                         <td class="headerteal"><b>Jenis Pembiayaan</b></td>
-                        <td class="headerteal" align="right"><b>Baki Pembiayaan (RM)</b></td>
-                        <td class="headerteal" align="right"><b>Untung Sebulan (RM)</b></td>
+                        <td class="headerteal" align="right"><b>Baki Pembiayaan (RP)</b></td>
+                        <td class="headerteal" align="right"><b>Untung Sebulan (RP)</b></td>
                     </tr>
                 </thead>';
 

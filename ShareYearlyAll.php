@@ -84,8 +84,8 @@ print '
 					<td nowrap><b>Tarikh</b></td>
 					<td nowrap><b>Nombor Rujukan</b></td>
 					<td nowrap><b>Item</b></td>
-					<td nowrap align="right"><b>Debit(RM)</b></td>
-					<td nowrap align="right"><b>Kredit(RM)</b></td>
+					<td nowrap align="right"><b>Debit(RP)</b></td>
+					<td nowrap align="right"><b>Kredit(RP)</b></td>
 				</tr>';
 print '
 				<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">

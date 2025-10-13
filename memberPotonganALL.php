@@ -183,7 +183,7 @@ print '		</select>
 						<td nowrap align="center">Nomor Karyawan</td>
 						<td nowrap>Cabang/Zona</td>
 						<td nowrap align="center">Nombor Akaun Tabungan</td>
-						<td nowrap align="right">Jumlah Potongan Bulanan (RM)</td>
+						<td nowrap align="right">Jumlah Potongan Bulanan (RP)</td>
 					   
 
 					</tr>';

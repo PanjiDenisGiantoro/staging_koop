@@ -52,8 +52,8 @@ print '
 					<th nowrap>NOMBOR RUJUKAN</th>
 					<th nowrap>TARIKH</th>
 					<th nowrap align="left">No Account - NAMA AKAUN GL</th>
-					<th nowrap align ="right">SIMPANAN(DEBIT) (RM)</th>
-					<th nowrap align ="right">KELUARAN(KREDIT) (RM)</th>	
+					<th nowrap align ="right">SIMPANAN(DEBIT) (RP)</th>
+					<th nowrap align ="right">KELUARAN(KREDIT) (RP)</th>	
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

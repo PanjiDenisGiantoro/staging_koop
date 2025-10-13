@@ -184,7 +184,7 @@ print '
 <tr>
     	<td align="left" class="borderLeftTitle"><b>&nbsp;NO AKAUN / NAMA AKAUN&nbsp;</b></td>
 		<td align="left" class="borderSideTitle"><b>&nbsp;KETERANGAN&nbsp;</b></td>	
-        <td align="right" class="borderRightTitle"><b>&nbsp;JUMLAH (RM)&nbsp;</b></td>
+        <td align="right" class="borderRightTitle"><b>&nbsp;JUMLAH (RP)&nbsp;</b></td>
 	</tr>';
 
 		if ($rsDetail->RowCount() <> 0){
@@ -226,7 +226,7 @@ print
 </tr>
 	<tr>
 	<td nowrap="nowrap" align="center">&nbsp;</td>
-		<td nowrap="nowrap" align="right"><b>JUMLAH (RM):&nbsp;</b></td>
+		<td nowrap="nowrap" align="right"><b>JUMLAH (RP):&nbsp;</b></td>
 		<td nowrap="nowrap" align="right"><b>RM&nbsp;'.number_format($jumlah,2).'&nbsp;</b></td>
 	</tr>
 	</table>

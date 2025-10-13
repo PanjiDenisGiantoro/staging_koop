@@ -264,7 +264,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap>Nama Syarikat</td>
 						<td nowrap>Nomor Rujukan</td>
 						<td nowrap align="left">Catatan</td>
-						<td nowrap align="right">Jumlah (RM)</td>
+						<td nowrap align="right">Jumlah (RP)</td>
 						<td nowrap align="center">Tindakan</td>
 					</tr>';
     $DRTotal = 0;

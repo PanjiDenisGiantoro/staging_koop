@@ -173,7 +173,7 @@ print '		</select>
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap align="center"><b>Kartu Identitas</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
-					    <td nowrap align="right"><b>Potongan Yuran (RM)</b></td>
+					    <td nowrap align="right"><b>Potongan Yuran (RP)</b></td>
 
 					</tr>';
 			$totalFee = 0;

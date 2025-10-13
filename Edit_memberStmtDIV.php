@@ -129,9 +129,9 @@ $rs1 = &$conn->Execute($sSQL2);
       <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
       <td width="20%" nowrap ><b>Nombor Anggota - Nama</b></td>
       <td width="5%" nowrap><b>Tahun</b></td>
-      <td width="8%" nowrap align="right"><b>Dividen (RM)</b></td>
-	  <td width="10%" nowrap align="right"><b>Tunggakkan (RM)</b></td>
-	  <td width="10%" nowrap align="right"><b>Upfront (Bersara) (RM)</b></td>
+      <td width="8%" nowrap align="right"><b>Dividen (RP)</b></td>
+	  <td width="10%" nowrap align="right"><b>Tunggakkan (RP)</b></td>
+	  <td width="10%" nowrap align="right"><b>Upfront (Bersara) (RP)</b></td>
 	  <td width="15%" nowrap><b>Catatan</b></td>
       <td colspan="3" nowrap><div align="center"><b>Edit</b></div></td>
     </tr>';

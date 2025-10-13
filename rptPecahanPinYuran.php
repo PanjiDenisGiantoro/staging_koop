@@ -61,7 +61,7 @@ print '
 					<td nowrap  width="143"><div align="right">Baki Awal</div></td>
 				    <td nowrap  width="192"><div align="right">Tambahan (+) </div></td>
 				    <td nowrap  width="185"><div align="right">Kekurangan (-) </div></td>
-				    <td nowrap  width="130"><div align="right">Baki Akhir (RM)</div></td>
+				    <td nowrap  width="130"><div align="right">Baki Akhir (RP)</div></td>
 				</tr>';
 
 

@@ -172,9 +172,9 @@ if ($GetLoan->RowCount() == 0) {
 						<td	nowrap><b>No. Invois</b></td>
 						<td	nowrap><b>No/Nama Syarikat</b></td>
 						<td	nowrap><b>Alamat Billing</b></td>
-						<td	nowrap align="right"><b>Jumlah Invois (RM)</b></td>
-						<td	nowrap align="right"><b>Bayaran (RM)</b></td>
-						<td	nowrap align="right"><b>Tunggakan (RM)</b></td>
+						<td	nowrap align="right"><b>Jumlah Invois (RP)</b></td>
+						<td	nowrap align="right"><b>Bayaran (RP)</b></td>
+						<td	nowrap align="right"><b>Tunggakan (RP)</b></td>
 						<td	nowrap align="center"><b>Tarikh Invois</b></td>
 					</tr>';
 		$amtLoan = 0;

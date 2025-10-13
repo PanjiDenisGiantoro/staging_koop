@@ -59,7 +59,7 @@ print '
 	<td align="left">Nama Pembiayaan</td>
 	<td align="center">Nombor Rujukan</td>
 	<td align="center">Nombor Bond</td>
-	<td align="right">Jumlah Pembiayaan (RM)</td>
+	<td align="right">Jumlah Pembiayaan (RP)</td>
 	<td align="center">Tarikh Pembiayaan Diluluskan</td>
 </tr>';
 if ($GetMember->RowCount() <> 0) {

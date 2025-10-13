@@ -213,7 +213,7 @@ print
     	<td align="center" class="borderLeftTitle"><b>&nbsp;Description&nbsp;</b></td>
 		<td align="center" class="borderSideTitle">&nbsp;Nombor&nbsp;</td>	
         <td align="center" class="borderRightTitle"><b>&nbsp;Serial Nombor&nbsp;</b></td>
-    	<td align="center" class="borderRightTitle"><b>&nbsp;Amount (RM)&nbsp;</b></td>
+    	<td align="center" class="borderRightTitle"><b>&nbsp;Amount (RP)&nbsp;</b></td>
 	</tr>
     
 	<tr>
@@ -226,7 +226,7 @@ print
 	<tr><td  colspan="4"><br></td></tr>
 
 	<tr>
-	<td nowrap="nowrap" align="right" colspan="3" style="padding: 10px 40px 0 40px width: 90%;" class="borderSideTitle"><b>TOTAL AMOUNT (RM):&nbsp;</b></td>
+	<td nowrap="nowrap" align="right" colspan="3" style="padding: 10px 40px 0 40px width: 90%;" class="borderSideTitle"><b>TOTAL AMOUNT (RP):&nbsp;</b></td>
 	<td nowrap="nowrap" align="right" style="padding: 10px 40px 0 40px width: 10%;" class="borderRightTitle"><b>RM&nbsp;' . number_format($jumlah, 2) . '&nbsp;</b></td>
 </tr>
     </table>

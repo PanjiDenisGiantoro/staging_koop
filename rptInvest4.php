@@ -64,9 +64,9 @@ print '
                 <th align="center" nowrap width="80">Tarikh</th>
                 <th align="left" nowrap width="120">Nama Syarikat</th>
                 <th nowrap width="80">No. Invois</th>    
-                <th nowrap width="80" align="right">Amaun Invois (RM)</th>
-                <td nowrap width="80" align="right">Jumlah Bayaran (RM)</td>
-                <td nowrap width="80" align="right">Baki (RM)</td>
+                <th nowrap width="80" align="right">Amaun Invois (RP)</th>
+                <td nowrap width="80" align="right">Jumlah Bayaran (RP)</td>
+                <td nowrap width="80" align="right">Baki (RP)</td>
             </tr>';
 
             // Initialize totals
@@ -114,7 +114,7 @@ print '
             // Display totals
             print '
             <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-                <td align="right" colspan="5"><b>Jumlah Keseluruhan (RM) : </b></td>
+                <td align="right" colspan="5"><b>Jumlah Keseluruhan (RP) : </b></td>
                 <td align="right"><b>'.number_format($totalAmaun, 2).'</b></td>
                 <td align="right"><b>'.number_format($totalBayaran, 2).'</b></td>
                 <td align="right"><b>'.number_format($totalBalance, 2).'</b></td>

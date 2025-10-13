@@ -569,7 +569,7 @@ print'
 </tr>
 
 <tr>
-	<td valign="top">Amaun Purchase Invoice (RM)</td>
+	<td valign="top">Amaun Purchase Invoice (RP)</td>
 	<td valign="top"></td>
 	<td><input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-controlx" readonly/></td>
 </tr>
@@ -692,7 +692,7 @@ print
 				<td nowrap="nowrap"><b>* Perkara</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap"><b>* Kuantiti</b></td>
-				<td nowrap="nowrap"><b>* Harga Seunit (RM)</b></td>
+				<td nowrap="nowrap"><b>* Harga Seunit (RP)</b></td>
 				<td nowrap="nowrap" align="right"><b>Jumlah (Rp)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
@@ -891,7 +891,7 @@ if ($totalKt <> 0) {
 
 print 		'<tr class="table-secondary">
 				<td class="Data" align=""><b>&nbsp;</b></td>
-				<td class="Data" colspan="4" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" id="totalJumlah" align="right"><b>' . number_format($totalKt, 2) . '&nbsp;</b></td>
 				<td class="Data" align="right"></td>
 			</tr>';
@@ -899,7 +899,7 @@ if ($PINo) {
 	print '
 				<tr class="table-secondary">
 					<td class="Data" align=""><b>&nbsp;</b></td>
-					<td class="Data" colspan="4" align="right"><b>Baki Purchase Order (RM)</b></td>
+					<td class="Data" colspan="4" align="right"><b>Baki Purchase Order (RP)</b></td>
 					<td class="Data" align="right"><b>' . number_format($baki, 2) . '&nbsp;</b></td>
 					<td class="Data" align="right"></td>
 				</tr>';

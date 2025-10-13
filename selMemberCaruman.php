@@ -138,9 +138,9 @@ if ($GetMember->RowCount() == 0) {
 						<td class="header" align="center"><b>Nombor Anggota</b></td>
 						<td class="header" ><b>Nama</b></td>
 						<td class="header" align="center"><b>Kad Pengenalan</b></td>
-                        <td class="header" align="right"><b>Yuran Terkumpul(RM)</b></td>
-                        <td class="header" align="right"><b>Syer Terkumpul(RM)</b></td>
-                        <!-- <td class="header" align="right"><b>Simpanan Khas Terkumpul(RM)</b></td> -->
+                        <td class="header" align="right"><b>Yuran Terkumpul(RP)</b></td>
+                        <td class="header" align="right"><b>Syer Terkumpul(RP)</b></td>
+                        <!-- <td class="header" align="right"><b>Simpanan Khas Terkumpul(RP)</b></td> -->
 					</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);

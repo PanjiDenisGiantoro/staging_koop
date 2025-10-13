@@ -173,7 +173,7 @@ if ($GetLoan->RowCount() == 0) {
 						<td	nowrap><b>No. Purchase Order</b></td>
 						<td	nowrap><b>No/Nama Syarikat</b></td>
 						<td	nowrap align="left"><b>Alamat Billing</b></td>
-						<td	nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td	nowrap align="center"><b>Tarikh PO</b></td>
 					</tr>';
 		$amtLoan = 0;

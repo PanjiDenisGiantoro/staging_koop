@@ -70,9 +70,9 @@ print '
 					<td nowrap><div align="center">Bil</div></td>
 					<td nowrap align="center">Nombor Anggota </td>
 					<td width="514" align="left" nowrap>Nama Anggota</td>
-					<td width="169" align="right" nowrap>Baki Awal (RM)</td>
-					<td width="169" align="right" nowrap>Baki Akhir (RM)</td>
-					<td width="169" align="right" nowrap>Jumlah Baki Akhir (RM)</td>
+					<td width="169" align="right" nowrap>Baki Awal (RP)</td>
+					<td width="169" align="right" nowrap>Baki Akhir (RP)</td>
+					<td width="169" align="right" nowrap>Jumlah Baki Akhir (RP)</td>
 			    </tr>';
 if ($rs->RowCount() <> 0) {
 	//	$countID=0;
@@ -105,7 +105,7 @@ if ($rs->RowCount() <> 0) {
 						<td align="right"></td>
 						<td align="right"></td>
 						<td align="right"></td>
-						<td align="right">Jumlah Keseluruhan (RM) : </td>
+						<td align="right">Jumlah Keseluruhan (RP) : </td>
 						<td align="right">' . number_format($JumBakiAkhir, 2) . '</td>
 					</tr>';
 } else {

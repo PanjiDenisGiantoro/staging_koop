@@ -338,12 +338,12 @@ if ($GetCreditor->RowCount() <> 0) {
     <tr class="font5 tableTitle" >
       <th class="thData">Tarikh<br><small><i style="font-weight: normal; font-size: 10px;">Date</i></small></th>
       <th class="thData">No Rujukan<br><small><i style="font-weight: normal; font-size: 10px;">Reference No</i></small></th>
-      <th align="right" class="thData">Invois (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">Invoiced (RM)</i></small></th>
-      <th align="right" class="thData">Baki Semasa (RM)<br><small><i style="font-weight: normal; font-size: 10px;">Current Balance (RM)</i></small></th>
-      <th align="right" class="thData">0-30 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">0-30 Days (RM)</i></small></th>
-      <th align="right" class="thData">31-60 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">31-60 Days (RM)</i></small></th>
-      <th align="right" class="thData">61-90 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">61-90 Days (RM)</i></small></th>
-      <th align="right" class="thData">>90 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">90 Days (RM)</i></small></th>
+      <th align="right" class="thData">Invois (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">Invoiced (RP)</i></small></th>
+      <th align="right" class="thData">Baki Semasa (RP)<br><small><i style="font-weight: normal; font-size: 10px;">Current Balance (RP)</i></small></th>
+      <th align="right" class="thData">0-30 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">0-30 Days (RP)</i></small></th>
+      <th align="right" class="thData">31-60 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">31-60 Days (RP)</i></small></th>
+      <th align="right" class="thData">61-90 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">61-90 Days (RP)</i></small></th>
+      <th align="right" class="thData">>90 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">90 Days (RP)</i></small></th>
     </tr>';
 
         if ($GetData->RowCount() <> 0) {

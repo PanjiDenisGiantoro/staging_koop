@@ -282,7 +282,7 @@ print
 print '<tr><td colspan="4"><br></td></tr>
 	<tr><td  colspan="4"><br></td></tr>
 	<tr>
-		<td nowrap="nowrap" colspan="2" align="right"><b>JUMLAH (RM)<b></td>
+		<td nowrap="nowrap" colspan="2" align="right"><b>JUMLAH (RP)<b></td>
 		<td nowrap="nowrap" align="center"><b>&nbsp;'.number_format($jumlah1,2).'&nbsp;</b></td>	
 		<td nowrap="nowrap" align="center"><b>&nbsp;'.number_format($jumlah2,2).'&nbsp;</b></td>		
 	</tr>

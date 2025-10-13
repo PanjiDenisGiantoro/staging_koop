@@ -191,9 +191,9 @@ print '
 					<th nowrap align="left" width="10%">Batch</th>
 					<th nowrap align="left" width="10%">Nombor Rujukan</th>
 					<th nowrap align="left" width="25%">Perkara</th>
-					<th nowrap align="right" width="15%">Debit(RM)</th>
-					<th nowrap align="right" width="15%">Kredit(RM)</th>
-					<th nowrap align="right" width="15%">Baki(RM)</th>
+					<th nowrap align="right" width="15%">Debit(RP)</th>
+					<th nowrap align="right" width="15%">Kredit(RP)</th>
+					<th nowrap align="right" width="15%">Baki(RP)</th>
 				</tr>';
 
 				print '

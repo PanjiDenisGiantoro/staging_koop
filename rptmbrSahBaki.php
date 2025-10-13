@@ -68,8 +68,8 @@ print
 					<th nowrap align="left">Nama Anggota</th>
 					<th nowrap align="center">Nombor Kad Pengenalan</th>
 					<th nowrap align="left">Nombor Telefon</th>
-					<th nowrap align="right">Baki Terkumpul Yuran (RM)</th>
-					<th nowrap align="right">Baki Terkumpul Syer (RM)</th>
+					<th nowrap align="right">Baki Terkumpul Yuran (RP)</th>
+					<th nowrap align="right">Baki Terkumpul Syer (RP)</th>
 				</tr>';
 
 $total1 = 0;
@@ -109,7 +109,7 @@ if ($GetData->RowCount() <> 0) {
 
 	print '					
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="right"><b>JUMLAH KESELURUHAN (RM)  </b>:</td>
+						<td colspan="5" align="right"><b>JUMLAH KESELURUHAN (RP)  </b>:</td>
 						<td align="right">&nbsp;<b>' . number_format($total1, 2) . '</b></td>
 						<td align="right">&nbsp;<b>' . number_format($total2, 2) . '</b></td>
 					</tr>';

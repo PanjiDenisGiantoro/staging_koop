@@ -573,24 +573,24 @@ print'
                 ';
                 if ($cr <> ''){
                 print'
-                <th scope="col" class="th-stylish-right">Pembelian Invois (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Purchase Invoices (RM)</i></small></th>
+                <th scope="col" class="th-stylish-right">Pembelian Invois (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Purchase Invoices (RP)</i></small></th>
                 ';
                 } else {
                 print'
-                <th scope="col" class="th-stylish-right">Invois (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Invoiced (RM)</i></small></th>
+                <th scope="col" class="th-stylish-right">Invois (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Invoiced (RP)</i></small></th>
                 ';
                 }
                 if ($cr <> ''){
                 print'
-                <th scope="col" class="th-stylish-right">Bayaran (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Payments</i></small></th>                
+                <th scope="col" class="th-stylish-right">Bayaran (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Payments</i></small></th>                
                 ';
                 } else {
                 print'
-                <th scope="col" class="th-stylish-right">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RM)</i></small></th>                
+                <th scope="col" class="th-stylish-right">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RP)</i></small></th>                
                 ';
                 }
                 print'
-                <th scope="col" class="th-stylish-right">Saldo (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Balance (RM)</i></small></th>
+                <th scope="col" class="th-stylish-right">Saldo (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Balance (RP)</i></small></th>
             </tr>
         </thead>
         <tbody>

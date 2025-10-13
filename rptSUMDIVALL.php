@@ -81,7 +81,7 @@ print '
 					<th width="150" align="left" nowrap>&nbsp;Nombor Anggota- Nama</th>
 					<th width="40" align="left" nowrap><div align="right">Dividen Tahun (Yuran) ' . $yr . ' &nbsp;' . $rsCheck->fields(yuranRate) . '% </div></th>
 					<th width="30" align="left" nowrap><div align="right">Dividen Tahun (Tabung) ' . $yr . '&nbsp;' . $rsCheck->fields(TbgRate) . '% </div></th>
-					<th width="45"><div align="right">Jumlah Pembayaran Dividen ' . $yr . ' (RM)</div></th>
+					<th width="45"><div align="right">Jumlah Pembayaran Dividen ' . $yr . ' (RP)</div></th>
 				</tr>';
 //$total = 0;
 

@@ -46,7 +46,7 @@ $FormLength[$a]  	= "12";
 
 
 $a++;
-$FormLabel[$a]   	= "Baki Pokok (RM)";
+$FormLabel[$a]   	= "Baki Pokok (RP)";
 $FormElement[$a] 	= "ByrnPokok";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -56,7 +56,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Baki Untung (RM)";
+$FormLabel[$a]   	= "Baki Untung (RP)";
 $FormElement[$a] 	= "ByrnUntg";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Baki Pinjaman (RM)";
+$FormLabel[$a]   	= "Baki Pinjaman (RP)";
 $FormElement[$a] 	= "BalancePinjm";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -76,7 +76,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Denda Lewat Sebulan (RM)";
+$FormLabel[$a]   	= "Denda Lewat Sebulan (RP)";
 $FormElement[$a] 	= "LateCharges";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -116,7 +116,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Baki Pinjaman Sebenar (RM)";
+$FormLabel[$a]   	= "Baki Pinjaman Sebenar (RP)";
 $FormElement[$a] 	= "BalanceHL";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

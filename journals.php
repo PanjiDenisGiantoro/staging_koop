@@ -525,8 +525,8 @@ print
 				<td nowrap="nowrap"><b>* Perkara | No. Bond</b></td>
 				<td nowrap="nowrap"><b>Master Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right"><b>Debit (RM)</b></td>
-				<td nowrap="nowrap" align="right"><b>Kredit (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>Debit (RP)</b></td>
+				<td nowrap="nowrap" align="right"><b>Kredit (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -660,7 +660,7 @@ print	   '<tr>
 
 $baki = $totalDb - $totalKt;
 print 		'<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Jumlah Keseluruhan (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Jumlah Keseluruhan (RP)</b></td>
 				<td class="Data" align="right"><b>'.number_format($totalDb,2).'&nbsp;</b></td>
 				<td class="Data" align="right"><b>'.number_format($totalKt,2).'&nbsp;</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
@@ -672,7 +672,7 @@ print 		'<tr class="table-secondary">
 
 			print'
 			<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Baki (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Baki (RP)</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 				<td class="Data" align="right"><font class="'.$colorPen.'"><b>'.number_format($baki,2).'&nbsp;</b></font></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
@@ -682,7 +682,7 @@ print 		'<tr class="table-secondary">
 				$colorPen = "redText";
 			print'
 			<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Baki (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Baki (RP)</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 				<td class="Data" align="right"><font class="'.$colorPen.'"><b>'.number_format($baki,2).'&nbsp;</b></font></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>

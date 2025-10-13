@@ -166,9 +166,9 @@ print'
 						<td nowrap><b>Catatan</b></td>
 						<td nowrap><b>Kumpulan</b></td>
 						<td nowrap><b>Klasifikasi</b></td>
-						<td nowrap align="center"><b>Harga Jual(RM)</b></td>
+						<td nowrap align="center"><b>Harga Jual(RP)</b></td>
 						<td nowrap><b>Akaun Jualan</b></td>
-						<td nowrap align="right"><b>Harga Beli (RM)</b></td>
+						<td nowrap align="right"><b>Harga Beli (RP)</b></td>
 						<td nowrap><b>Kuantiti</b></td>
 					</tr>';	
 		$DRTotal = 0;

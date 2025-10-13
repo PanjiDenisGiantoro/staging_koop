@@ -84,7 +84,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "10";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Jumlah Pembiayaan (RM)";
+$FormLabel[$a]   	= "Jumlah Pembiayaan (RP)";
 $FormElement[$a] 	= "amt";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

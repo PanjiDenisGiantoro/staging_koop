@@ -54,7 +54,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><div align="left">Jenis Pinjaman</div></td>
 					<td width="188" align="center" nowrap>Bilangan Anggota</td>
-					<td nowrap align="right" width="244">Jumlah (RM)</td>
+					<td nowrap align="right" width="244">Jumlah (RP)</td>
 				</tr>';
 
 

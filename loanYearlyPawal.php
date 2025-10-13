@@ -154,8 +154,8 @@ $bakiAwal = $jumlahPembiayaan - $jumlahBayar;
 					<th nowrap>&nbsp;Nombor rujukan</th>
 					<th nowrap>&nbsp;Item</th>
 					<th nowrap>&nbsp;Untung</th>
-					<th nowrap>&nbsp;Debit(RM)</th>
-					<th nowrap>&nbsp;Kredit(RM)</th>
+					<th nowrap>&nbsp;Debit(RP)</th>
+					<th nowrap>&nbsp;Kredit(RP)</th>
 				</tr>';
 	print '
 				<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">

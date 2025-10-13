@@ -109,8 +109,8 @@ print ' <tr valign="top" >
 						<td nowrap align="center"><b>Nombor Anggota</b></td>
 						<td nowrap><b>Nama Anggota</b></td>
 						<td nowrap><b>Nombor Pekerja</b></td>
-						<td nowrap align="right"><b>Yuran (RM)</b></td>
-						<td nowrap align="right"><b>Syer (RM)</b></td>
+						<td nowrap align="right"><b>Yuran (RP)</b></td>
+						<td nowrap align="right"><b>Syer (RP)</b></td>
 					</tr>';
 $totalFee = 0;
 $totalShare = 0;

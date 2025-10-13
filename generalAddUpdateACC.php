@@ -412,7 +412,7 @@ if ($cat == "AB") {
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Opening Balance (RM)";
+	$FormLabel[$a]   	= "Opening Balance (RP)";
 	$FormElement[$a] 	= "b_crelim";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";
@@ -649,7 +649,7 @@ $a++;
 	$FormLength[$a]  	= "25";
 
 	$a++;
-	$FormLabel[$a]   	= "Opening Balance (RM)";
+	$FormLabel[$a]   	= "Opening Balance (RP)";
 	$FormElement[$a] 	= "b_crelim";
 	$FormType[$a]	  	= "text-sm";
 	$FormData[$a]   	= "";

@@ -62,9 +62,9 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><div align="left">Jenis Pinjaman</div></td>
 					<td width="92" align="center" nowrap>Bilangan Anggota</td>
-					<td nowrap align="right" width="130">Baki Awal (RM)</td>
-				    <td nowrap align="right" width="130">Baki Akhir (RM)</td>
-				    <td nowrap align="right" width="130">Beza (RM)</td>
+					<td nowrap align="right" width="130">Baki Awal (RP)</td>
+				    <td nowrap align="right" width="130">Baki Akhir (RP)</td>
+				    <td nowrap align="right" width="130">Beza (RP)</td>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	//	$countID=0;

@@ -49,7 +49,7 @@ print '	</th>
 					<th nowrap>&nbsp;No Rujukan Pembiayaan</th>
 					<th nowrap>&nbsp;No Sijil</th>
 					<th nowrap>&nbsp;Komoditi</th>
-					<th nowrap>&nbsp;Jumlah Pembiayaan (RM)</th>
+					<th nowrap>&nbsp;Jumlah Pembiayaan (RP)</th>
 					<th nowrap>&nbsp;Tarikh Sijil</th>
 					<th nowrap>&nbsp;Pengesahan</th>
 					<th nowrap>&nbsp;Status Pemilikan</th>

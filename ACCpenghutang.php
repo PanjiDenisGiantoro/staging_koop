@@ -109,9 +109,9 @@ if ($GetMember->RowCount() == 0) {
 					<td class="header" ><b>Nama Syarikat</b></td>
 					<td class="header" ><b>Kod Syarikat</b></td>
 					<td class="header" ><b>Alamat Billing</b></td>
-					<td class="header" ><b>Jumlah Opening Balance (RM)</b></td>
-					<td class="header" ><b>Jumlah Terbayar (RM)</b></td>
-					<td class="header" ><b>Jumlah Tertunggak (RM)</b></td>
+					<td class="header" ><b>Jumlah Opening Balance (RP)</b></td>
+					<td class="header" ><b>Jumlah Terbayar (RP)</b></td>
+					<td class="header" ><b>Jumlah Tertunggak (RP)</b></td>
 					</tr>';
 
 					while (!$GetMember->EOF && $cnt <= $pg) {

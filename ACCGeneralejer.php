@@ -275,7 +275,7 @@ print '
 			<td nowrap align="right" style="padding-right: 5px; width: 50%;">' . number_format($totalCredit, 2) . '</td>
 		</tr>
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Saldo (RM):</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 500%;"><b>Saldo (RP):</b></td>
 			<td nowrap align="right" style="padding-right: 5px; width: 50%;">' . number_format($balance, 2) . '</td>
 		</tr>
 	</table>

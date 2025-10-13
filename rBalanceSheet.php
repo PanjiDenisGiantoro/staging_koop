@@ -215,7 +215,7 @@ print'
     </tr>
     <tr class="table-primary" style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for ASET
@@ -264,7 +264,7 @@ $firstParentPrinted = false;; // Flag to track if the first parent has been prin
                     // Print total balance for 11000 ASET BUKAN SEMASA
                     print '
                     <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-                    <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset Bukan Semasa (RM) &nbsp;</b></td>
+                    <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset Bukan Semasa (RP) &nbsp;</b></td>
                     <td align="right">'.number_format($totalbalanceAsetBS,2).'</td>
                     </tr>';
 
@@ -366,7 +366,7 @@ $firstParentPrinted = false;; // Flag to track if the first parent has been prin
         $totalbalanceAsetSemasa = ($debitAset - $kreditAset);
         print '
         <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset Semasa (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset Semasa (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceAsetSemasa,2).'</td>
         </tr>';
 
@@ -376,7 +376,7 @@ $firstParentPrinted = false;; // Flag to track if the first parent has been prin
         $totalbalanceAsetOverall = ($debitAsetOverall - $kreditAsetOverall);
         print '
         <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan Aset (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceAsetOverall,2).'</td>
         </tr>';
 
@@ -398,7 +398,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-primary" style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 $totaldebit=0;
@@ -518,7 +518,7 @@ $totalkredit=0;
 
         print '
             <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-            <td colspan="2" align="right"><b>Jumlah Ekuiti (RM) &nbsp;</b></td>
+            <td colspan="2" align="right"><b>Jumlah Ekuiti (RP) &nbsp;</b></td>
             <td align="right">'.number_format($totalbalanceEkuiti,2).'</td>
             </tr>';
     } else {
@@ -539,7 +539,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-primary" style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="5">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
     $totaldebit=0;
@@ -591,7 +591,7 @@ print '<table width="100%" class="table table-striped">
                         // Print total balance for 21000 LIABILITI BUKAN SEMASA
                         print '
                         <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-                        <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti Bukan Semasa (RM) &nbsp;</b></td>
+                        <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti Bukan Semasa (RP) &nbsp;</b></td>
                         <td align="right">'.number_format($totalbalanceLiabilitiBS,2).'</td>
                         </tr>';
     
@@ -692,7 +692,7 @@ print '<table width="100%" class="table table-striped">
             $totalbalanceLiabilitiSemasa = ($kreditLiabiliti - $debitLiabiliti);
             print '
             <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-            <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti Semasa (RM) &nbsp;</b></td>
+            <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti Semasa (RP) &nbsp;</b></td>
             <td align="right">'.number_format($totalbalanceLiabilitiSemasa,2).'</td>
             </tr>';
     
@@ -702,7 +702,7 @@ print '<table width="100%" class="table table-striped">
             $totalbalanceLiabilitiOverall = ($kreditLiabilitiOverall - $debitLiabilitiOverall);
             print '
             <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-            <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti (RM) &nbsp;</b></td>
+            <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti (RP) &nbsp;</b></td>
             <td align="right">'.number_format($totalbalanceLiabilitiOverall,2).'</td>
             </tr>';
     
@@ -719,7 +719,7 @@ print '<table width="100%" class="table table-striped">
 		print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="5" align="right"><b>Jumlah Liabiliti + Ekuiti (RM) &nbsp;</b></td>
+		<td colspan="5" align="right"><b>Jumlah Liabiliti + Ekuiti (RP) &nbsp;</b></td>
 		<td align="right">'.number_format($total_liaeku,2).'</td>
 		</tr>';
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

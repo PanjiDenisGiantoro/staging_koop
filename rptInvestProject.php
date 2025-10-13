@@ -280,9 +280,9 @@ print '
       <th width="10%" class="thData" colspan="6">Date</th>
       <th width="20%" class="thData" colspan="6">Reference No</th>
       <th width="30%" class="thData" colspan="6" style="text-align: left;">Description</th>
-      <th width="10%" class="thData" colspan="6" align="right">Invoiced (RM)</th>
-      <th width="10%" class="thData" colspan="6" align="right">Credit (RM)</th>
-      <th width="20%" class="thData" colspan="6" align="right">Balance (RM)</th>
+      <th width="10%" class="thData" colspan="6" align="right">Invoiced (RP)</th>
+      <th width="10%" class="thData" colspan="6" align="right">Credit (RP)</th>
+      <th width="20%" class="thData" colspan="6" align="right">Balance (RP)</th>
     </tr>    
     
     <tr class="font6">

@@ -63,7 +63,7 @@ if ($GetLoan->RowCount() <> 0) {
 			<td class="headerteal"><b>Jenis Pembiayaan</b></td>
 			<td class="headerteal"><b>Kod Potongan</b></td>
 			<td class="headerteal"><b>Penjamin</b></td>
-			<td class="headerteal" align="right"><b>Jumlah Maksimum (RM)</b></td>
+			<td class="headerteal" align="right"><b>Jumlah Maksimum (RP)</b></td>
 			<td class="headerteal" align="center"><b>Tempoh Bulan Maksimum</b></td>
 			<td class="headerteal" align="center"><b>Caj Pembiayaan (%)</b></td>
 		</tr></thead>';

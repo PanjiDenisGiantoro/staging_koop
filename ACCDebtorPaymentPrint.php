@@ -362,7 +362,7 @@ if (in_array($RVNo, $rvBulkList)) {
 print '
                 <td nowrap="nowrap"><b>CARA BAYARAN</b></td>
                 <td nowrap="nowrap"><b>KETERANGAN</b></td>
-                <td nowrap="nowrap" align="right"><b>AMAUN (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>AMAUN (RP)</b></td>
             </tr>
     </thead>';
 

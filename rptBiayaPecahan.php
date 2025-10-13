@@ -55,7 +55,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;JENIS KUMPULAN PEMBIAYAAN</th>
 					<th nowrap>&nbsp;BIL</th>
-					<th nowrap>&nbsp;JUMLAH(RM)</th>
+					<th nowrap>&nbsp;JUMLAH(RP)</th>
 				</tr>';
 
 if ($rs->RowCount() <> 0) {

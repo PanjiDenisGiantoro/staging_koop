@@ -57,17 +57,17 @@ print '
 					<th nowrap rowspan=2>&nbsp;Bil.Permohonan Diterima</th>
 					<th nowrap rowspan=2>&nbsp;Bil.Permohonan Diluluskan</th>
 					<th nowrap rowspan=2>&nbsp;Peratus(%) Kelulusan</th>
-					<th nowrap rowspan=2>&nbsp;Jum. Yang Diluluskan (RM)</th>
+					<th nowrap rowspan=2>&nbsp;Jum. Yang Diluluskan (RP)</th>
 					<th nowrap colspan=3>&nbsp;DSR 40% dan Ke Bawah</th>
 					<th nowrap colspan=3>&nbsp;DSR 41% dan Ke Atas (75%)</th>
 				</tr>
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Bil. Akaun</th>
 					<th nowrap>&nbsp;%</th>
-					<th nowrap>&nbsp;Jumlah (RM)</th>
+					<th nowrap>&nbsp;Jumlah (RP)</th>
 					<th nowrap>&nbsp;Bil. Akaun</th>
 					<th nowrap>&nbsp;%</th>
-					<th nowrap>&nbsp;Jumlah (RM)</th>
+					<th nowrap>&nbsp;Jumlah (RP)</th>
 				</tr>';
 
 print '

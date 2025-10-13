@@ -61,9 +61,9 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#008080" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 						<td nowrap height="20">&nbsp;</td>
-						<td nowrap align="right">&nbsp;DEBIT (RM)</td>
-						<td nowrap align="right">&nbsp;KREDIT (RM)</td>
-						<td nowrap align="right">&nbsp;BAKI (RM)</td>
+						<td nowrap align="right">&nbsp;DEBIT (RP)</td>
+						<td nowrap align="right">&nbsp;KREDIT (RP)</td>
+						<td nowrap align="right">&nbsp;BAKI (RP)</td>
 				</tr>';
 
 $totaldebit1 = 0;
@@ -120,7 +120,7 @@ if ($rs1->RowCount() <> 0) {
 	print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="1" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+		<td colspan="1" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
 		<td align="right">' . number_format($totaldebit1, 2) . '</td>
 		<td align="right">' . number_format($totalkredit1, 2) . '</td>
 		<td align="right">' . number_format($totalbalance1, 2) . '</td>
@@ -129,7 +129,7 @@ if ($rs1->RowCount() <> 0) {
 	print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="1" align="right"><b>Jumlah Pendapatan Bersih (RM) &nbsp;</b></td>
+		<td colspan="1" align="right"><b>Jumlah Pendapatan Bersih (RP) &nbsp;</b></td>
 		<td align="right">' . number_format($totalbalance1, 2) . '</td>
 		<td colspan="2" align="right">&nbsp;</td>
 		</tr>';
@@ -152,9 +152,9 @@ print '</table>
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#008080" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 						<td nowrap height="20">&nbsp;</td>
-						<td nowrap align="right">&nbsp;DEBIT (RM)</td>
-						<td nowrap align="right">&nbsp;KREDIT (RM)</td>
-						<td nowrap align="right">&nbsp;BAKI (RM)</td>
+						<td nowrap align="right">&nbsp;DEBIT (RP)</td>
+						<td nowrap align="right">&nbsp;KREDIT (RP)</td>
+						<td nowrap align="right">&nbsp;BAKI (RP)</td>
 				</tr>';
 $totaldebit2 = 0;
 $totalkredit2 = 0;
@@ -217,7 +217,7 @@ if ($rs2->RowCount() <> 0) {
 	print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="1" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+		<td colspan="1" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
 		<td align="right">' . number_format($totaldebit2, 2) . '</td>
 		<td align="right">' . number_format($totalkredit2, 2) . '</td>
 		<td align="right">' . number_format($totalbalance2, 2) . '</td>
@@ -226,7 +226,7 @@ if ($rs2->RowCount() <> 0) {
 	print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="1" align="right"><b>Jumlah Keseluruhan Perbelanjaan (RM) &nbsp;</b></td>
+		<td colspan="1" align="right"><b>Jumlah Keseluruhan Perbelanjaan (RP) &nbsp;</b></td>
 		<td align="right">' . number_format($totalbalance2, 2) . '</td>
 		<td colspan="2" align="right">&nbsp;</td>
 		</tr>';
@@ -236,7 +236,7 @@ if ($rs2->RowCount() <> 0) {
 	print '
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="1" align="right"><b>Jumlah Bersih Keuntungan (RM) &nbsp;</b></td>
+		<td colspan="1" align="right"><b>Jumlah Bersih Keuntungan (RP) &nbsp;</b></td>
 		<td align="right">' . number_format($allbalance, 2) . '</td>
 		<td colspan="2" align="right">&nbsp;</td>
 		</tr>';

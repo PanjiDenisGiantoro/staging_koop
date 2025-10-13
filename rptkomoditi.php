@@ -50,7 +50,7 @@ print '	</th>
 					<th nowrap>&nbsp;No Rujukan Pembiayaan</th>
 					<th nowrap>&nbsp;No Sijil</th>
 					<th nowrap>&nbsp;Komoditi</th>
-					<th nowrap>&nbsp;Jumlah Pembiayaan (RM)</th>
+					<th nowrap>&nbsp;Jumlah Pembiayaan (RP)</th>
 					<th nowrap>&nbsp;Tarikh Pembelian Sijil</th>
 					<th nowrap>&nbsp;Masa Pembelian Sijil</th>
 				</tr>';

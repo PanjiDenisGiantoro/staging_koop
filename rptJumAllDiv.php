@@ -72,9 +72,9 @@ print '
 					<th width="80" align="left" nowrap><div align="right">Yuran Awal Tahun ' . $yr . ' </th>
 					<th width="80" align="left" nowrap><div align="right">Yuran Akhir Tahun ' . $yr . ' </th>
 					<th width="70" align="left" nowrap><div align="right">Dividen ' . $rsCheck->fields(amtFee) . '% </div>
-					<th width="70" align="left" nowrap><div align="right">Tunggakkan (RM)</div>
-					<th width="70" align="left" nowrap><div align="right">Upfront (RM)</div>
-					<th width="70" align="left" nowrap><div align="right">Dividen Bersih (RM)</div>
+					<th width="70" align="left" nowrap><div align="right">Tunggakkan (RP)</div>
+					<th width="70" align="left" nowrap><div align="right">Upfront (RP)</div>
+					<th width="70" align="left" nowrap><div align="right">Dividen Bersih (RP)</div>
 				</tr>';
 //$total = 0;
 

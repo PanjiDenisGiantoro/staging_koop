@@ -177,12 +177,12 @@ $rowCounter = 1;
     <tr class="font5 tableTitle" >
       <th class="thData">Tarikh<br><small><i style="font-weight: normal; font-size: 10px;">Date</i></small></th>
       <th class="thData">No Rujukan<br><small><i style="font-weight: normal; font-size: 10px;">Reference No</i></small></th>
-      <th align="right" class="thData">Invois (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">Invoiced (RM)</i></small></th>
-      <th align="right" class="thData">Baki Semasa (RM)<br><small><i style="font-weight: normal; font-size: 10px;">Current Balance (RM)</i></small></th>
-      <th align="right" class="thData">0-30 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">0-30 Days (RM)</i></small></th>
-      <th align="right" class="thData">31-60 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">31-60 Days (RM)</i></small></th>
-      <th align="right" class="thData">61-90 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">61-90 Days (RM)</i></small></th>
-      <th align="right" class="thData">>90 Hari (RM)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">>90 Days (RM)</i></small></th>
+      <th align="right" class="thData">Invois (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">Invoiced (RP)</i></small></th>
+      <th align="right" class="thData">Baki Semasa (RP)<br><small><i style="font-weight: normal; font-size: 10px;">Current Balance (RP)</i></small></th>
+      <th align="right" class="thData">0-30 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">0-30 Days (RP)</i></small></th>
+      <th align="right" class="thData">31-60 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">31-60 Days (RP)</i></small></th>
+      <th align="right" class="thData">61-90 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">61-90 Days (RP)</i></small></th>
+      <th align="right" class="thData">>90 Hari (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">>90 Days (RP)</i></small></th>
     </tr>';
     
     //sum total invoice
@@ -373,7 +373,7 @@ $rowCounter = 1;
 
     print'
     <tr class="font6">
-    <td colspan="2" class="tdData" align="right"><b>Jumlah (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Total (RM)</i></small></b></td>';
+    <td colspan="2" class="tdData" align="right"><b>Jumlah (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Total (RP)</i></small></b></td>';
     print '
     <td colspan="1" class="tdData" align="right"><b>'.number_format($totalInvoisCompany, 2).'</b></td>
     <td colspan="1" class="tdData" align="right"><b>'.number_format($totalBakiCompany, 2).'</b></td>
@@ -410,8 +410,8 @@ $GetCreditor->Close();
 print '
 <table width="100%" class="tableContent" style="border: 1px solid black; border-collapse: collapse;">
     <tr class="font6 tableTitle">
-        <th class="thData" style="width: 50%; text-align: center; padding: 5px;">Jumlah Invois (RM)<br><small style="display: block; padding-top: 0px; position: relative; top: -1px;"><i style="font-weight: normal; font-size: 10px;">Invoice Amount (RM)</i></small></th>
-        <th class="thData" style="width: 50%; text-align: center; padding: 5px;">Jumlah Baki Semasa (RM)<br><small style="display: block; padding-top: 0px; position: relative; top: -1px;"><i style="font-weight: normal; font-size: 10px;">Current Balance Amount (RM)</i></small></th>
+        <th class="thData" style="width: 50%; text-align: center; padding: 5px;">Jumlah Invois (RP)<br><small style="display: block; padding-top: 0px; position: relative; top: -1px;"><i style="font-weight: normal; font-size: 10px;">Invoice Amount (RP)</i></small></th>
+        <th class="thData" style="width: 50%; text-align: center; padding: 5px;">Jumlah Baki Semasa (RP)<br><small style="display: block; padding-top: 0px; position: relative; top: -1px;"><i style="font-weight: normal; font-size: 10px;">Current Balance Amount (RP)</i></small></th>
     </tr>
     <tr class="font7">
         <td class="tdData" style="width: 50%; text-align: center; padding: 5px;"><b>' . number_format($totalInvoisCompanyAll, 2) . '</b></td>

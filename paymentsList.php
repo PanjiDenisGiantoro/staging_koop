@@ -205,7 +205,7 @@ if ($Getbayars->RowCount() <> 0) {
 						<td nowrap align="center">Tarikh</td>
 						<td nowrap align="center">Bil. Data</td>
 						<!--td nowrap>Nombor Siri</td-->
-						<td nowrap align="right" width="50">Jumlah (RM)</td>
+						<td nowrap align="right" width="50">Jumlah (RP)</td>
 					</tr>';
 	while (!$Getbayars->EOF && $cnt <= $pg) {
 		$sql = "SELECT sum( amount ) AS tot, count(ID) as totID FROM bayar_detail WHERE no_bayar = '" . $Getbayars->fields(no_bayar) . "'";

@@ -268,7 +268,7 @@ print
 				<td nowrap="nowrap" align="center"><b>Kartu Identitas</b></td>
 				<td nowrap="nowrap"><b>Nama</b></td>
 				<td nowrap="nowrap"><b>Nombor Akaun</b></td>
-				<td nowrap="nowrap" align="right"><b>Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -337,7 +337,7 @@ if ($add) {
 			</tr>';
 }
 print 		'<tr class="table-secondary">
-				<td class="Data" colspan="5" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="5" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" align="right"><b>' . number_format($total, 2) . '&nbsp;</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 			</tr>

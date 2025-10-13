@@ -116,7 +116,7 @@ print
 			<tr>
 				<td nowrap="nowrap">&nbsp;BIL&nbsp;</td>
 				<td nowrap="nowrap" align="center">&nbsp;PERKARA&nbsp;</td>
-				<td nowrap="nowrap" align="right">&nbsp;AMAUN (RM)&nbsp;</td>
+				<td nowrap="nowrap" align="right">&nbsp;AMAUN (RP)&nbsp;</td>
 			</tr>
 			<tr><td colspan="3"><hr size="1px" /></td></tr>';
 $jumlah = 0;

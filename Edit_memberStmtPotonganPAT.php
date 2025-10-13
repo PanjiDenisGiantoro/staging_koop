@@ -123,7 +123,7 @@ $rs1 = &$conn->Execute($sSQL2);
       <td width="18%" nowrap>Jenis Pembiayaan </td>
       <td width="11%" nowrap>No Bond </td>
 	  <td width="11%" nowrap>Jumlah Yuran </td>
-      <td width="10%" nowrap>Jum Pot. Bulan Pembiayaan (RM) </td>
+      <td width="10%" nowrap>Jum Pot. Bulan Pembiayaan (RP) </td>
       <td colspan="3" nowrap><div align="center">Edit</div></td>
     </tr>';
   if ($rs->RowCount() <> 0) {

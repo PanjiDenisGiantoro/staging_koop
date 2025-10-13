@@ -236,7 +236,7 @@ print
 				<td class="Data" align="right">&nbsp;</td>
 			</tr>
 			<tr>
-				<td class="Data" align="right" colspan="3"><b>Jumlah (RM)</b></td>
+				<td class="Data" align="right" colspan="3"><b>Jumlah (RP)</b></td>
 				<td class="Data" align="right" nowrap="nowrap"><b>' . $jumlah . '</b></td>
 			</tr>
 		</table>

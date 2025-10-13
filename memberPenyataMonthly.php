@@ -196,8 +196,8 @@ print '
     <th align="center">&nbsp;Bil</th>
     <th align="left">Nama Pembiayaan</th>
     <th align="center">Nombor Bond</th>
-    <th align="right">Potongan Bulanan (RM)</th>
-    <th align="right">Baki Semasa Pokok (RM)</th>
+    <th align="right">Potongan Bulanan (RP)</th>
+    <th align="right">Baki Semasa Pokok (RP)</th>
   </tr>';
 //1896
 

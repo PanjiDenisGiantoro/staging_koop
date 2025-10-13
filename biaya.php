@@ -131,7 +131,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Yuran Bulanan (RM)";
+$FormLabel[$a]   	= "Yuran Bulanan (RP)";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -141,7 +141,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Pegangan Yuran (RM)";
+$FormLabel[$a]   	= "Pegangan Yuran (RP)";
 $FormElement[$a] 	= "totalFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -211,7 +211,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Jumlah Dipohon (RM)";
+$FormLabel[$a]   	= "Jumlah Dipohon (RP)";
 $FormElement[$a] 	= "loanAmt";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

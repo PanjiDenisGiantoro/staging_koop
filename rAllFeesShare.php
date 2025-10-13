@@ -155,9 +155,9 @@ print '<div class="table-responsive">
                         <td nowrap align="center">Nombor Anggota</td>
                         <td nowrap align="left">Nama Anggota</td>
                         <td nowrap align="center">Peratusan Yuran (%)</td>
-					    <td nowrap align="right">Yuran Terkumpul (RM)</td>
+					    <td nowrap align="right">Yuran Terkumpul (RP)</td>
                         <td nowrap align="center">Peratusan syer (%)</td>
-                        <td nowrap align="right">Syer Terkumpul (RM)</td>
+                        <td nowrap align="right">Syer Terkumpul (RP)</td>
                     </tr>';
 
 if ($GetMember->RowCount() <> 0) {

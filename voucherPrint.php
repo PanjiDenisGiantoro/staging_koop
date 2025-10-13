@@ -159,9 +159,9 @@ print $header;
           <td width="328" valign="top" bgcolor="#CCCCCC"><strong>PERKARA</strong></td>
           <td width="78" valign="top" bgcolor="#CCCCCC"><div align="center"><strong>KUANTITI</strong></div></td>
           <td width="103" valign="top" bgcolor="#CCCCCC"><div align="center"><strong>HARGA 
-              SEUNIT (RM)</strong></div></td>
+              SEUNIT (RP)</strong></div></td>
           <td width="95" valign="top" bgcolor="#CCCCCC"><div align="center"><strong>HARGA 
-              (RM) </strong></div></td>
+              (RP) </strong></div></td>
         </tr>
         <?
 		$getD = "SELECT * FROM my_q_details WHERE q_id = ".$rs->fields(id)." ORDER BY d_id";

@@ -224,7 +224,7 @@ if ($GetQuote->RowCount() <> 0) {
 						<td nowrap align="center">Nama Batch</td>
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap>Nama Syarikat</td>
-						<td nowrap align="right">Jumlah Sebut Harga (RM)</td>
+						<td nowrap align="right">Jumlah Sebut Harga (RP)</td>
 						<td nowrap align="center">Tindakan</td>
 					</tr>';
 	$DRTotal = 0;

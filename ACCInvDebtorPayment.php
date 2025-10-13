@@ -491,7 +491,7 @@ print '&nbsp;
 </tr>
 
    <tr>
-<td valign="top">Amaun Invois (RM)</td>
+<td valign="top">Amaun Invois (RP)</td>
 <td valign="top"></td>
 <td><input name="amt"  value="'.$amt.'" size="10" maxlength="50"  class="form-control-sm" readonly/></td>
 </tr>
@@ -617,7 +617,7 @@ $idname = get_session('Cookie_fullName');
 
 print 		'<tr class="table-secondary">
 				<td class="Data" align=""><b>&nbsp;</b></td>
-				<td class="Data" colspan="2" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="2" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" align="right"><b>'.number_format($totalKt,2).'&nbsp;</b></td>
 				<td class="Data" align="left"></td>
 			</tr>
@@ -625,7 +625,7 @@ print 		'<tr class="table-secondary">
 			<tr class="table-secondary">
 
 				<td class="Data" align=""><b>&nbsp;</b></td>
-				<td class="Data" colspan="2" align="right"><b>Saldo (RM)</b></td>
+				<td class="Data" colspan="2" align="right"><b>Saldo (RP)</b></td>
 				<td class="Data" align="right"><b>'.number_format($baki,2).'&nbsp;</b></td>
 				<td class="Data" align="left"></td>
 			</tr>

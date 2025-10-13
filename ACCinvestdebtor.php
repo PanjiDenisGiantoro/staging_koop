@@ -515,7 +515,7 @@ print '
 		    </tr>
 			
 			<tr>
-				<td valign="top">Nilai Pelaburan (RM)</td>
+				<td valign="top">Nilai Pelaburan (RP)</td>
 				<td valign="top"></td>
 				<td><input class="form-control-sm" name="nilaiPelaburan" value="'.$nilaiPelaburan.'" type="text" size="30" maxlength="100" readonly/>
 			</tr>
@@ -547,8 +547,8 @@ print
 				<td nowrap="nowrap"><b>Perkara Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>	
 				<!--td nowrap="nowrap">Kuantiti</td>	
-				<td nowrap="nowrap">Harga Seunit (RM)</td-->			
-				<td nowrap="nowrap" align="right"><b>Jumlah (RM)</b></td>
+				<td nowrap="nowrap">Harga Seunit (RP)</td-->			
+				<td nowrap="nowrap" align="right"><b>Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 

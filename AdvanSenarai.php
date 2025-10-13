@@ -282,7 +282,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 						<td	nowrap><b>No. Rujukan/Advance Payment</b></td>
 						<td	nowrap><b>No./Nama Anggota</b></td>
 						<td	nowrap align="center"><b>Kartu Identitas</b></td>
-						<td	nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td	nowrap align="center"><b>Status</b></td>
 						<!--td	nowrap align="center"><b>&nbsp;</b></td-->
 						<td	nowrap align="center"><b>Tarikh';

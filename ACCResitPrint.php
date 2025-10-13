@@ -143,7 +143,7 @@ print
 				<td nowrap="nowrap" align="center">&nbsp;NO AKAUN&nbsp;</td>
 				<td nowrap="nowrap" align="center">&nbsp;AKAUN DETAIL&nbsp;</td>
 				<td nowrap="nowrap" align="center">&nbsp;KETERANGAN&nbsp;</td>
-				<td nowrap="nowrap" align="center">&nbsp;AMAUN (RM)&nbsp;</td>
+				<td nowrap="nowrap" align="center">&nbsp;AMAUN (RP)&nbsp;</td>
 			</tr>
 		<tr><td colspan="5"><hr size="2px" /></td></tr>';
 

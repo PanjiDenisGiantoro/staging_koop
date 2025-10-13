@@ -116,7 +116,7 @@ if ($GetMember->RowCount() <> 0) {
 	<td nowrap align="center">Nomor Anggota</td>
 	<td nowrap align="left">Nama Anggota</td>
 	<td nowrap align="center">Nombor Rujukan</td>
-	<td nowrap align="right">Jumlah Pembelian Komoditi (RM)</td>
+	<td nowrap align="right">Jumlah Pembelian Komoditi (RP)</td>
 	<td nowrap align="center">&nbsp;Sijil Komoditi</td>
 	<td nowrap align="center">Tarikh Pembelian Komoditi</td>
 </tr>';

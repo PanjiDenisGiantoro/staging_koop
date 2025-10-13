@@ -337,8 +337,8 @@ print'
                 <th nowrap scope="col">Bil.<br><small><i style="font-weight: normal; font-size: 12px;">No.</i></small></th>
                 <th nowrap scope="col">Nama Syarikat<br><small><i style="font-weight: normal; font-size: 12px;">Company Name</i></small></th>
                 <th nowrap scope="col">Debit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Debit (RP)</i></small></th>
-                <th nowrap scope="col">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RM)</i></small></th>
-                <th nowrap scope="col" class="text-end">Baki Akhir (RM)<br><small><i style="font-weight: normal; font-size: 12px;">Ending Balance (RM)</i></small></th>
+                <th nowrap scope="col">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RP)</i></small></th>
+                <th nowrap scope="col" class="text-end">Baki Akhir (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Ending Balance (RP)</i></small></th>
             </tr>
         </thead>';
 
@@ -358,8 +358,8 @@ foreach ($companyData as $company) {
 print '
         <tr>
             <td colspan="4" class="text-end" style="text-align: right;">
-                <strong>Jumlah Baki Akhir (RM):</strong><br>
-                <small><i style="font-weight: normal; font-size: 12px;">Total Ending Balance (RM):</i></small>
+                <strong>Jumlah Baki Akhir (RP):</strong><br>
+                <small><i style="font-weight: normal; font-size: 12px;">Total Ending Balance (RP):</i></small>
             </td>
             <td class="text-end" style="text-align: right;">
                 <strong>' . number_format($totalEndingBalance, 2) . '</strong>

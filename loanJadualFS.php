@@ -302,9 +302,9 @@ while (!$rsLoan->EOF) {
 		<tr>
 			<td nowrap align="center"><i>No.</i><br/>Bil.</td>
 			<td nowrap><i>Descriptions</i><br/>Keterangan</td>
-			<td nowrap align="right"><i>Debit (RM)</i><br/>Masuk</td>
-			<td nowrap align="right"><i>Kredit (RM)</i><br/>Keluar</td>
-			<td nowrap align="right"><i>Balance (RM)</i><br/>Baki</td>
+			<td nowrap align="right"><i>Debit (RP)</i><br/>Masuk</td>
+			<td nowrap align="right"><i>Kredit (RP)</i><br/>Keluar</td>
+			<td nowrap align="right"><i>Balance (RP)</i><br/>Baki</td>
 		</tr>';
 
 	function calculateRule78Interest($loanAmt, $kadar_u, $loanPeriod, $totalPayments)
@@ -445,7 +445,7 @@ while (!$rsLoan->EOF) {
 		print '
 			<tr>
 				<td align="center">(A)</td>
-				<td align="right"><b>JUMLAH KESELURUHAN BAYARAN PEMBIAYAAN (RM)</b></td>
+				<td align="right"><b>JUMLAH KESELURUHAN BAYARAN PEMBIAYAAN (RP)</b></td>
 				<td align="right"><b>' . number_format($totaldebit + $profit, 2) . '</b></td>
 				<td align="right"><b>' . number_format($totalkredit + $rebat, 2) . '</b></td>
 				<td align="right"><b>' . number_format($bakiSemasa, 2) . '</b></td>
@@ -458,7 +458,7 @@ while (!$rsLoan->EOF) {
 	}
 	print '		</table>';
 
-	// Baris untuk LAIN LAIN CAJ (RM) PEMBIAYAAN
+	// Baris untuk LAIN LAIN CAJ (RP) PEMBIAYAAN
 	$getCat = "SELECT * FROM `general` WHERE category = 'J' AND j_EarlyDeduct = 1 ORDER BY code";
 	$rsCat = $conn->Execute($getCat);
 
@@ -470,7 +470,7 @@ while (!$rsLoan->EOF) {
             <tr>
                 <td align="center"><i>No.</i><br/>Bil.</td>
                 <td><i>Descriptions</i><br/>Keterangan</td>
-                <td align="right"><i>Amount (RM)</i><br/>Amaun</td>
+                <td align="right"><i>Amount (RP)</i><br/>Amaun</td>
             </tr>';
 
 	$i = 0;
@@ -508,11 +508,11 @@ while (!$rsLoan->EOF) {
 			</tr>';
 	}
 
-	// Baris untuk TOTAL LAIN LAIN CAJ (RM)
+	// Baris untuk TOTAL LAIN LAIN CAJ (RP)
 	print '
 		<tr>
 			<td align="center">(B)</td>
-			<td align="right"><b>JUMLAH KESELURUHAN LAIN LAIN CAJ (RM)</b></td>
+			<td align="right"><b>JUMLAH KESELURUHAN LAIN LAIN CAJ (RP)</b></td>
 			<td align="right"><b>' . number_format($total_caj, 2) . '</b></td>
 		</tr>';
 

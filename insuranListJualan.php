@@ -137,13 +137,13 @@ if ($GetListIns->RowCount() <>	0) {
 						<td width="20" nowrap><b>Tarikh Keluar (C.N)</b></td>
 						<td	nowrap><b>Nama Peserta</b></td>
 						<td	nowrap><b>Nombor Pendafaran</b></td>
-						<td	nowrap align="right"><b>Jumlah Premium (RM)</b></td>
+						<td	nowrap align="right"><b>Jumlah Premium (RP)</b></td>
 					    <td	nowrap align="center"><b>Stamp Duty</b></td>						
 						<td	nowrap align="center"><b>Premium<br>Tolak Stamp Duty</b></td>
 						<td	nowrap align="center"><b>Komisen 10%</b></td>
-						<td	nowrap align="right"><b>Jumlah Premium (RM)<br>- Tolak Komisen</b></td>
-						<td	nowrap align="right"><b>Jumlah Bersih (RM)<br>+ Stamp Duty</b></td>						
-						<td	nowrap align="right"><b>Jumlah (RM)<br>Diskaun Diberi</b></td>
+						<td	nowrap align="right"><b>Jumlah Premium (RP)<br>- Tolak Komisen</b></td>
+						<td	nowrap align="right"><b>Jumlah Bersih (RP)<br>+ Stamp Duty</b></td>						
+						<td	nowrap align="right"><b>Jumlah (RP)<br>Diskaun Diberi</b></td>
 						<td	nowrap align="center"><b>Bayaran Ke <br>Takaful Ikhlas</b></td>
 						<td	nowrap align="center"><b>Jumlah<br>Bersih Komisen</b></td>
 					</tr>

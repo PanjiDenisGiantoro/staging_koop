@@ -201,7 +201,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap style="text-align: left; vertical-align: bottom;">Bank</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Bayar Kepada</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Catatan</td>
-						<td nowrap style="text-align: right; vertical-align: bottom;">Jumlah (RM)</td>					
+						<td nowrap style="text-align: right; vertical-align: bottom;">Jumlah (RP)</td>					
 						<td nowrap style="text-align: center; vertical-align: bottom;">Action</td>
 					</tr>';
 

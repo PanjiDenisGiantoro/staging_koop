@@ -222,7 +222,7 @@ print '
             <tr>
                 <td nowrap="nowrap"><b>BIL</b></td>
                 <td><b>KETERANGAN</b></td>
-				<td nowrap="nowrap" align="right"><b>AMAUN (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>AMAUN (RP)</b></td>
             </tr>
     </thead>';
 

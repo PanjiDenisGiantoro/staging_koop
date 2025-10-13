@@ -199,10 +199,10 @@ if ($GetListIns->RowCount() <>	0) {
 						<td	nowrap align="center"><b>Nombor Anggota</b></td>
 						<td	nowrap><b>Nama</b></td>
 						<td	nowrap align="center"><b>Nombor Kenderaan</b></td>
-						  <td	nowrap align="right"><b>Jumlah Premium (RM)</b></td>
-						  <td	nowrap align="right"><b>Jumlah Premium Kasar (RM)</b></td>
-						  <td	nowrap align="right"><b>Jumlah Premium Bersih (RM)</b></td>
-				    <td	nowrap align="right"><b>Jumlah Insuran (RM)</b></td>			
+						  <td	nowrap align="right"><b>Jumlah Premium (RP)</b></td>
+						  <td	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>
+						  <td	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
+				    <td	nowrap align="right"><b>Jumlah Insuran (RP)</b></td>			
 						<td	nowrap align="center"><b>Tarikh Mula Insuran</b></td>
 						<td	nowrap align="center"><b>Tarikh Tamat Insuran</b></td>						
 						<td	nowrap align="center"><b>Tarikh Mohon</b></td>

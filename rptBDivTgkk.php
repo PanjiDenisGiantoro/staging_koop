@@ -77,9 +77,9 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="5" align="center" nowrap>Bil</th>
 					<th width="300" align="left" nowrap>&nbsp;Nombor Anggota- Nama</th>
-					<th width="20" align="left" nowrap><div align="right">Dividen (RM)</div></th>
-					<th width="30" align="left" nowrap><div align="right">Tunggakkan (RM)</div></th>
-					<th width="30" align="left" nowrap><div align="right">Upfront (RM)</div></th>
+					<th width="20" align="left" nowrap><div align="right">Dividen (RP)</div></th>
+					<th width="30" align="left" nowrap><div align="right">Tunggakkan (RP)</div></th>
+					<th width="30" align="left" nowrap><div align="right">Upfront (RP)</div></th>
 				    <th width="300" align="center" nowrap><div align="left">Catatan</div></th>
 				</tr>';
 //$total = 0;

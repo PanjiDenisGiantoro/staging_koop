@@ -170,9 +170,9 @@ if ($GetInvoice->RowCount() == 0) {
 					<tr class="table-primary">
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap><b>Nombor Invois</b></td>
-						<td	nowrap align="right"><b>Jumlah Invois (RM)</b></td>
-						<td	nowrap align="right"><b>Bayaran (RM)</b></td>
-						<td	nowrap align="right"><b>Tunggakan (RM)</b></td>
+						<td	nowrap align="right"><b>Jumlah Invois (RP)</b></td>
+						<td	nowrap align="right"><b>Bayaran (RP)</b></td>
+						<td	nowrap align="right"><b>Tunggakan (RP)</b></td>
 						<td	nowrap align="center"><b>Tarikh Invois</b></td>
 					</tr>';
 		$amtLoan = 0;

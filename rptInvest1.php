@@ -60,7 +60,7 @@ print '
 					<th nowrap width="80">Tarikh Mula</th>	
 					<th nowrap width="80">Tarikh Akhir</th>
 					<th nowrap width="80">Tempoh Perjanjian (Bulan)</th>
-					<th align="right" nowrap width="80">Nilai Pelaburan (RM)</th>
+					<th align="right" nowrap width="80">Nilai Pelaburan (RP)</th>
 					<th align="center" nowrap width="80">Status</th>
 				</tr>';
 

@@ -116,8 +116,8 @@ print '
 						<td	nowrap>Jenis Pembiayaan</td>		
 						<td	align="center" nowrap>Rujukan Pembiayaan</td>	
 						<td	align="center" nowrap>Bond Pembiayaan</td>
-					    <td	align="right" nowrap>Baki Pokok (RM)</td>						
-						<td	align="right" nowrap>Jumlah Terakhir Pembayaran (RM)</td>
+					    <td	align="right" nowrap>Baki Pokok (RP)</td>						
+						<td	align="right" nowrap>Jumlah Terakhir Pembayaran (RP)</td>
 						<td	align="center" nowrap>Tarikh Akhir Bayar</td>
 						<td	align="center" nowrap>Beza (Bulan)</td>
 						<td	align="center" nowrap>NPL (Status)</td>

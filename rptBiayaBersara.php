@@ -57,7 +57,7 @@ print '
 					<th nowrap>&nbsp;NO ANGGOTA</th>
 					<th nowrap>&nbsp;NAMA</th>
 					<th nowrap>&nbsp;TARIKH MULA BERSARA</th>
-					<th nowrap>&nbsp;JUMLAH YURAN MULA BERSARA(RM)</th>
+					<th nowrap>&nbsp;JUMLAH YURAN MULA BERSARA(RP)</th>
 					<th nowrap>&nbsp;JUMLAH YURAN TERKINI</th>
 					<th nowrap>&nbsp;YURAN BULANAN</th>
 					<th nowrap>&nbsp;2005</th>

@@ -105,7 +105,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Yuran Bulanan (RM)";
+$FormLabel[$a]   	= "Yuran Bulanan (RP)";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

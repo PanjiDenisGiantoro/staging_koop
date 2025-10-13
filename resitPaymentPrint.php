@@ -234,7 +234,7 @@ print'
             <tr>
                 <td><b>Bil</b></td>
                 <td><b>Perkara</b></td>
-                <td colspan="2" align="right"><b>Jumlah (RM)</b></td>
+                <td colspan="2" align="right"><b>Jumlah (RP)</b></td>
             </tr>
     </thead>';
 

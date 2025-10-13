@@ -197,7 +197,7 @@ if ($GetLoan->RowCount() == 0) {
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap align="center"><b>Kad Pengenalan</b></td>
 						<td nowrap align="center"><b>Nombor Rujukan</b></td>
-						<td nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status</b></td>
 						<td nowrap align="center"><b>Tarikh Memohon</b></td>
 					</tr>';

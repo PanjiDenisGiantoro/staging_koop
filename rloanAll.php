@@ -116,7 +116,7 @@ print '
                         <td align="center" nowrap>Nombor Anggota</td>
                         <td nowrap>Nama Anggota</td>
                         <td nowrap>Cawangan/Zon</td>
-                        <td align="right" nowrap>Jumlah Pembiayaan (RM)</td>					
+                        <td align="right" nowrap>Jumlah Pembiayaan (RP)</td>					
                         <td align="center" nowrap>Tarikh Permohonan</td>
                         <td align="center" nowrap>Tarikh Kelulusan</td>
                     </tr>';

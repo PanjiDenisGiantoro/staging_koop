@@ -210,7 +210,7 @@ print'
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for INCOME
@@ -288,7 +288,7 @@ if (!empty($gaData1)) {
     $totalbalanceA = ($totalkredit1 - $totaldebit1);
     print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceA,2).'</td>
         </tr>';
 } else {
@@ -304,7 +304,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for COST OF SALES
@@ -382,7 +382,7 @@ if (!empty($gaData2)) {
     $totalbalanceB = ($totaldebit2 - $totalkredit2);
     print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceB,2).'</td>
         </tr>';
 } else {
@@ -401,7 +401,7 @@ print '</table>
     <table width="100%" class="table table-striped">
         <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
             <td colspan="2" align="right">&nbsp;</td>
-            <td width="100" align="right">BAKI (RM)</td>
+            <td width="100" align="right">BAKI (RP)</td>
         </tr>';
         
         // Calculate and print Gross Profit (INCOME minus COST OF SALES) 
@@ -409,7 +409,7 @@ print '</table>
 
         print'
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="#FFFFFF">
-            <td colspan="2" align="right"><b>Jumlah Pendapatan Kasar (Gross Profit) (RM) &nbsp;</b></td>
+            <td colspan="2" align="right"><b>Jumlah Pendapatan Kasar (Gross Profit) (RP) &nbsp;</b></td>
             <td colspan="1" align="right">'.number_format($totalbalanceC,2).'</td>
         </tr>';
 
@@ -422,7 +422,7 @@ print '</table>
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for OTHER INCOME
@@ -498,7 +498,7 @@ if (!empty($gaData3)) {
     $totalbalanceD = ($totalkredit3 - $totaldebit3);
     print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceD,2).'</td>
         </tr>';
 } else {
@@ -517,7 +517,7 @@ print '</table>
     <table width="100%" class="table table-striped">
         <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
             <td colspan="2" align="right">&nbsp;</td>
-            <td width="100" align="right">BAKI (RM)</td>
+            <td width="100" align="right">BAKI (RP)</td>
         </tr>';
         
         // Calculate and print Total Gross Profit (GROSS PROFIT plus OTHER INCOME) 
@@ -525,7 +525,7 @@ print '</table>
 
         print'
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="#FFFFFF">
-            <td colspan="2" align="right"><b>Jumlah Keseluruhan Pendapatan Kasar (Total Gross Profit) (RM) &nbsp;</b></td>
+            <td colspan="2" align="right"><b>Jumlah Keseluruhan Pendapatan Kasar (Total Gross Profit) (RP) &nbsp;</b></td>
             <td colspan="1" align="right">'.number_format($totalbalanceE,2).'</td>
         </tr>';
 
@@ -538,7 +538,7 @@ print '</table>
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RM)</td>
+        <td width="100" style="text-align: right;">BAKI (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for EXPENSES
@@ -616,7 +616,7 @@ if (!empty($gaData4)) {
     $totalbalanceF = ($totaldebit4 - $totalkredit4);
     print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RM) &nbsp;</b></td>
+        <td colspan="2" align="right"><b>Jumlah Keseluruhan (RP) &nbsp;</b></td>
         <td align="right">'.number_format($totalbalanceF,2).'</td>
         </tr>';
 
@@ -626,7 +626,7 @@ $allbalance		= ($totalbalanceE - $totalbalanceF);
 		print '
 		</tr>
 		<tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="2" align="right"><b>Jumlah Bersih Keuntungan (Net Profit) (RM) &nbsp;</b></td>
+		<td colspan="2" align="right"><b>Jumlah Bersih Keuntungan (Net Profit) (RP) &nbsp;</b></td>
 		<td align="right">'.number_format($allbalance,2).'</td>
 		</tr>';
 	

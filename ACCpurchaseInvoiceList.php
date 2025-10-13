@@ -201,10 +201,10 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap>Nama Syarikat | TIN LHDN</td>
 						<td nowrap>No Purchase Order</td>
-						<td nowrap align="right">Amaun PO (RM)</td>
-						<td nowrap align="right">Jumlah Invois (RM)</td>
-						<td nowrap align="right">Bayaran (RM)</td>
-						<td nowrap align="right">Baki Invois (RM)</td>
+						<td nowrap align="right">Amaun PO (RP)</td>
+						<td nowrap align="right">Jumlah Invois (RP)</td>
+						<td nowrap align="right">Bayaran (RP)</td>
+						<td nowrap align="right">Baki Invois (RP)</td>
 						<td nowrap align="center">Tindakan</td>
 					</tr>';
 

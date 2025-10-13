@@ -194,7 +194,7 @@ if ($action == 'Kemaskini') {
 							<td colspan="2"><input type="text" class="form-controlx form-control-sm" name="ByrnUtng" value="<? echo $untung = $rsaccount->fields(ByrnUtng); ?>" size="15" maxlength="10">&nbsp;</td>
 						</tr>
 						<tr>
-							<td>Denda Lewat Sebulan (RM)</td>
+							<td>Denda Lewat Sebulan (RP)</td>
 							<td><strong>:</strong></td>
 							<td colspan="2"><input type="text" class="form-controlx form-control-sm" name="lateCharge" value="<? echo $lateCharge = $rsaccount->fields(LateCharge); ?>" size="15" maxlength="10">&nbsp;</td>
 						</tr>

@@ -133,7 +133,7 @@ $FormSize[$a]     = "1";
 $FormLength[$a]   = "1";
 
 $a++;
-$FormLabel[$a]    = "Jumlah (RM)";
+$FormLabel[$a]    = "Jumlah (RP)";
 $FormElement[$a]  = "amount";
 $FormType[$a]     = "text";
 $FormData[$a]     = "";

@@ -239,7 +239,7 @@ if ($getAdj->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap><b>Nombor Dokumen</b></td>
 						<td nowrap align="center"><b>Tarikh</b></td>
-						<td nowrap align="right"><b>Jumlah (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status e-Invois</b></td>
 						<td nowrap align="center"><b>Action</b></td>
 					</tr>';

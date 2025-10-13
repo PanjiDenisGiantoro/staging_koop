@@ -69,7 +69,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap align="left">Nombor Rujukan - Pembiayaan [Pengesahan]</td>
 						<td nowrap align="left">Nombor - Nama Anggota</td>
 						<td nowrap align="center">Kad Pengenalan</td>
-						<td nowrap align="right">Jumlah Pembiayaan (RM)</td>
+						<td nowrap align="right">Jumlah Pembiayaan (RP)</td>
 						<td nowrap align="center">Tarikh Pengesahan</td>			
 						<td nowrap align="center">
 						';
@@ -131,7 +131,7 @@ if ($GetLoan->RowCount() <> 0) {
 		$GetLoan->MoveNext();
 	}
 	print ' 	<tr>
-						<td class="DataB" align="right" colspan="4" height="20"><b>Jumlah Pembiayaan (RM) </b></td>
+						<td class="DataB" align="right" colspan="4" height="20"><b>Jumlah Pembiayaan (RP) </b></td>
 						<td class="DataB" align="right"><b>' . number_format($amtLoan, 2, '.', ',') . '</b></td>
 						<td class="DataB" colspan="2">&nbsp;</td>
 					</tr>	

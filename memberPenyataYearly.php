@@ -270,7 +270,7 @@ while (!$rsLoan->EOF) {
 					<td nowrap>Tanggal</td>
 					<td nowrap>&nbsp;Nomor Rujukan</td>
 					<td nowrap>&nbsp;Item</td>
-					<td nowrap align="right">&nbsp;Untung (RM)</td>
+					<td nowrap align="right">&nbsp;Untung (RP)</td>
 					<td nowrap align="right">&nbsp;Debit (RP)</td>
 					<td nowrap align="right">&nbsp;Kredit (RP)</td>
 				</tr>';

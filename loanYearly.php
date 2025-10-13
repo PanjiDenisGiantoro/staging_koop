@@ -297,10 +297,10 @@ while (!$rsLoan->EOF) {
 					<td nowrap align="left">Tarikh<br/><i style="font-size: 9pt;">Date</i></td>
 					<td nowrap>No Rujukan<br/><i style="font-size: 9pt;">Nombor Ref</i></td>
 					<td nowrap>Keterangan<br/><i style="font-size: 9pt;">Descriptions</i></td>
-					<!--td nowrap align="right">Untung (RM)</td-->
-					<td nowrap align="right">Masuk<br/><i style="font-size: 9pt;">Debit (RM)</i></td>
-					<td nowrap align="right">Bayaran<br/><i style="font-size: 9pt;">Credit (RM)</i></td>
-					<td nowrap align="right">Baki<br/><i style="font-size: 9pt;">Balance (RM)</i></td>
+					<!--td nowrap align="right">Untung (RP)</td-->
+					<td nowrap align="right">Masuk<br/><i style="font-size: 9pt;">Debit (RP)</i></td>
+					<td nowrap align="right">Bayaran<br/><i style="font-size: 9pt;">Credit (RP)</i></td>
+					<td nowrap align="right">Baki<br/><i style="font-size: 9pt;">Balance (RP)</i></td>
 				</tr>';
 	print '
 				<tr>
@@ -367,7 +367,7 @@ while (!$rsLoan->EOF) {
 		print '
 					<tr>
 					<td width="10%" colspan=3 align="right">&nbsp;</td>
-						<td align="right"><b>JUMLAH BAYARAN (RM)<b/></td>
+						<td align="right"><b>JUMLAH BAYARAN (RP)<b/></td>
 							<td width="10%" align="right"><b>' . number_format($sumDebit, 2) . '</b></td>
 							<td width="10%" align="right"><b>' . number_format($totalkredit, 2) . '</b></td>
 							<td width="10%" align="right"><b>' . number_format($bakiSemasa, 2) . '</b></td>

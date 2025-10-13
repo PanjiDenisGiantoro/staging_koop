@@ -400,7 +400,7 @@ if ($rsdpt->RowCount() <> 0) {
 	}
 	print 	'<tr valign="top">
 				<td class="DataB" align="right" width="20%">
-				Jumlah (RM): </td>
+				Jumlah (RP): </td>
 				<td class="DataB">
 				<b>' . number_format($tot, 2) . '</b>&nbsp;
 				</td>

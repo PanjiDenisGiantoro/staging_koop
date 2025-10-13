@@ -86,7 +86,7 @@ print '
 					<td nowrap align="center">Nombor Anggota </td>
 					<td width="852" align="left" nowrap>Nama</td>
 					<td align="center">Nombor Bond</td>
-					<td width="196" align="right" nowrap>Baki Pembiayaan Tunai(RM)</td>
+					<td width="196" align="right" nowrap>Baki Pembiayaan Tunai(RP)</td>
 			    </tr>';
 if ($GetMember->RowCount() <> 0) {
 	$bil = 1;
@@ -117,7 +117,7 @@ if ($GetMember->RowCount() <> 0) {
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 						<td align="right"></td>
 						<td align="right"></td>
-						<td align="right">Jumlah Keseluruhan (RM) : </td>
+						<td align="right">Jumlah Keseluruhan (RP) : </td>
 						<td align="right">' . number_format($JumBakiAkhir, 2) . '</td>
 					</tr>';
 } else {

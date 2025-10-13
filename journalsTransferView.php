@@ -177,8 +177,8 @@ print'
 				<td nowrap="nowrap"><b>BIL</b></td>
                 <td nowrap="nowrap"><b>ANGGOTA</b></td>
                 <td nowrap="nowrap"><b>KETERANGAN</b></td>
-                <td nowrap="nowrap" align="right"><b>DEBIT (RM)</b></td>
-                <td nowrap="nowrap" align="right"><b>KREDIT (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>DEBIT (RP)</b></td>
+                <td nowrap="nowrap" align="right"><b>KREDIT (RP)</b></td>
             </tr>
     </thead>';
 

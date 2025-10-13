@@ -75,8 +75,8 @@ print '
 					<td nowrap><b>Tarikh</b></td>
 					<td nowrap><b>Nomor Rujukan</b></td>
 					<td nowrap><b>Item</b></td>
-					<td nowrap align="right"><b>Debit(RM)</b></td>
-					<td nowrap align="right"><b>Kredit(RM)</b></td>
+					<td nowrap align="right"><b>Debit(RP)</b></td>
+					<td nowrap align="right"><b>Kredit(RP)</b></td>
 				</tr>';
 $totaldebit = 0;
 $totalkredit = 0;

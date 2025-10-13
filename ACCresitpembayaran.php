@@ -674,7 +674,7 @@ print
 				<td nowrap="nowrap"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>* Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right" ><b>* Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right" ><b>* Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -840,7 +840,7 @@ if ($totalKt <> 0) {
 $kerani = get_session('Cookie_fullName');
 
 print         '<tr class="table-secondary">
-				<td class="Data" colspan="3" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="3" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" id="totalJumlah" align="right"><b>' . number_format($totalKt, 2) . '&nbsp;</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>
 			</tr>

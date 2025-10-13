@@ -66,7 +66,7 @@ print '
 					<th nowrap align="left">Nama Anggota</th>
 					<th nowrap align="center">Nombor Kad Pengenalan</th>
 					<th nowrap align="center">Nombor Resit</th>
-					<th nowrap align="right">Belian (RM)</th>
+					<th nowrap align="right">Belian (RP)</th>
 				</tr>';
 
 $totalA = 0;
@@ -107,7 +107,7 @@ if ($rs->RowCount() <> 0) {
 			
 			<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 				<td colspan="5" align="right"></td>
-				<td align="right">Jumlah Keseluruhan Belian (RM) &nbsp;</td>
+				<td align="right">Jumlah Keseluruhan Belian (RP) &nbsp;</td>
 				<td align="right">' . number_format($totalB, 2) . '</td>
 			</tr>';
 } else {

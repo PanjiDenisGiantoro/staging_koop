@@ -172,7 +172,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "9";
 
 $a++;
-$FormLabel[$a]   	= "Jumlah Perlindungan (RM)";
+$FormLabel[$a]   	= "Jumlah Perlindungan (RP)";
 $FormElement[$a] 	= "carJumPremium";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -182,7 +182,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Jumlah Premium Kasar (RM)";
+$FormLabel[$a]   	= "Jumlah Premium Kasar (RP)";
 $FormElement[$a] 	= "Jum_Pre_Kasar";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -192,7 +192,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Jumlah Premium Bersih (RM)";
+$FormLabel[$a]   	= "Jumlah Premium Bersih (RP)";
 $FormElement[$a] 	= "Jum_Pre_Bersih";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";

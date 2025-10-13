@@ -204,8 +204,8 @@ print '		</select>
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap align="center"><b>Kartu Identitas</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
-						<td nowrap align="right"><b>Dividen Tunai ' . $yy . ' (RM)</b></td>
-						<td nowrap align="right"><b>Yuran Terkini (RM)</b></td>
+						<td nowrap align="right"><b>Dividen Tunai ' . $yy . ' (RP)</b></td>
+						<td nowrap align="right"><b>Yuran Terkini (RP)</b></td>
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;

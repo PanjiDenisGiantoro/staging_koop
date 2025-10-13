@@ -207,9 +207,9 @@ if ($GetReceipts->RowCount() <> 0) {
 						<td nowrap style="text-align: center; vertical-align: bottom;">Tanggal</td>
 						<td nowrap style="text-align: left; vertical-align: bottom;">Nama Syarikat</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Nombor Purchase Invois</td>
-						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah Purchase<br>Invois (RM)</div></td>
-						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah<br>Bayaran (RM)</div></td>
-						<td nowrap style="text-align: right; vertical-align: bottom;">Saldo (RM)</td>
+						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah Purchase<br>Invois (RP)</div></td>
+						<td nowrap><div style="text-align: right; white-space: nowrap;">Jumlah<br>Bayaran (RP)</div></td>
+						<td nowrap style="text-align: right; vertical-align: bottom;">Saldo (RP)</td>
 						<td nowrap style="text-align: center; vertical-align: bottom;">Tindakan</td>
 					</tr>';
 

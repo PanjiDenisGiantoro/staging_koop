@@ -249,10 +249,10 @@ print'
                 <td nowrap="nowrap" align="left"><b>BIL</b></td>
                 <td nowrap="nowrap" align="left"><b>KETERANGAN</b></td>
                 <td nowrap="nowrap" align="center"><b>KUANTITI</b></td>
-                <td nowrap="nowrap" align="right"><b>HARGA (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>HARGA (RP)</b></td>
                 <td nowrap="nowrap" align="right"><b>DISKAUN (%)</b></td>
                 <td nowrap="nowrap" align="right"><b>CUKAI SST (8%)</b></td>
-                <td nowrap="nowrap" align="right"><b>JUMLAH (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>JUMLAH (RP)</b></td>
             </tr>
     </thead>';
 

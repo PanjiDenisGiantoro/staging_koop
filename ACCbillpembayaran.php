@@ -657,7 +657,7 @@ print '&nbsp;
 </tr>
 
  <tr>
- <td valign="top">Amaun Purchase Invoice (RM)</td>
+ <td valign="top">Amaun Purchase Invoice (RP)</td>
  <td valign="top"></td>
  <td><input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-controlx" readonly/></td>
  </tr>
@@ -817,7 +817,7 @@ print
 				<td nowrap="nowrap"><b>* Jabatan</b></td>
 				<td nowrap="nowrap"><b>Projek</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right" ><b>* Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right" ><b>* Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -976,14 +976,14 @@ if ($totalKt <> 0) {
 // $kerani = get_session('Cookie_fullName');
 
 print 		'<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" id="totalJumlah" align="right"><b>' . number_format($totalKt, 2) . '&nbsp;	
 				</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>
 			</tr>
 
 			<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Saldo (RM)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Saldo (RP)</b></td>
 				<td class="Data" align="right"><b>' . number_format($baki, 2) . '&nbsp;	
 				</b></td>
 				<td class="Data" align=""><b>&nbsp;</b></td>

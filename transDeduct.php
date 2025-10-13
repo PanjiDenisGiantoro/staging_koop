@@ -319,9 +319,9 @@ if ($page <> 'list') {
 
 	//set list header 
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RM)');
+		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	} else {
-		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RM)');
+		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	}
 	$strFieldWidthList = array('15', '', '10%', '20%', '10%', '10%', '8%');
 	$strFieldAlignList = array('right', 'left', 'left', 'left', 'center', 'right', 'right');

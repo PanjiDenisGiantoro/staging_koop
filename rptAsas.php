@@ -65,7 +65,7 @@ if ($code == 'C') {
 					<td nowrap align="left"><b>Nama Kod</b></td>
 					<td nowrap align="right"><b>Caj(%)</b></td>
 					<td nowrap align="right"><b>Tempoh Maksima</b></td>
-					<td nowrap align="right"><b>Jumlah Maksima (RM)</b></td>
+					<td nowrap align="right"><b>Jumlah Maksima (RP)</b></td>
 					<td nowrap align="center"><b>Penjamin</b></td>';
 }
 if ($code == 'D') {
@@ -77,9 +77,9 @@ if ($code == 'D') {
 }
 if ($code == 'G') {
 	$noSpan = 6;
-	print '			<td nowrap align="right"><b>Harga Syer (RM)</td>
+	print '			<td nowrap align="right"><b>Harga Syer (RP)</td>
 					<td nowrap align="right"><b>&Minimum Unit</b></td>
-					<td nowrap align="right"><b>Jumlah Unit Syer (RM)</b></td>';
+					<td nowrap align="right"><b>Jumlah Unit Syer (RP)</b></td>';
 }
 if ($code == 'J') {
 	$noSpan = 4;
@@ -87,8 +87,8 @@ if ($code == 'J') {
 }
 if ($code == 'M') {
 	$noSpan = 5;
-	print '			<td nowrap align="right"><b>Dari (RM)</b></td>
-					<td nowrap align="right"><b>Hingga (RM)</b></td>';
+	print '			<td nowrap align="right"><b>Dari (RP)</b></td>
+					<td nowrap align="right"><b>Hingga (RP)</b></td>';
 }
 if ($code == 'N') {
 	$noSpan = 5;

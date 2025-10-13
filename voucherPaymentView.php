@@ -150,7 +150,7 @@ print '
             <tr>
                 <td><b>Bil</b></td>
                 <td><b>Perkara</b></td>
-                <td nowrap="nowrap"colspan="2" align="right"><b>Jumlah (RM)</b></td>
+                <td nowrap="nowrap"colspan="2" align="right"><b>Jumlah (RP)</b></td>
             </tr>
     </thead>';
 

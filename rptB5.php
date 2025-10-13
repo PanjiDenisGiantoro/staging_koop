@@ -55,7 +55,7 @@ print '
 					<th nowrap>Emel</th>
 					<th nowrap>No Rujukan ID</th>
 					<th nowrap>Jenis Advance Payment</th>
-					<th nowrap>Jumlah Advance Payment (RM)</th>					
+					<th nowrap>Jumlah Advance Payment (RP)</th>					
 					<th nowrap>Tarikh Memohon</th>
 				</tr>';
 				if ($rs->RowCount() <> 0) {	

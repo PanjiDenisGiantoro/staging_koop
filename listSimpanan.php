@@ -56,7 +56,7 @@ print '
 					<td nowrap>Jenis Simpanan</td>
 					<td nowrap align="center">No Akaun</td>
 					<td	nowrap align="center">Status</td>
-					<td nowrap align="right">Baki Terkini (RM)</td>
+					<td nowrap align="right">Baki Terkini (RP)</td>
                     <td nowrap align="center">Tambah (+)</td>
 					</tr>                    
                     <tr>

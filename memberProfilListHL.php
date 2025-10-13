@@ -173,10 +173,10 @@ if ($GetMember->RowCount() <> 0) {
 					<tr class="header">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>&nbsp;No anggota/Nama</td>
-						<td nowrap align ="right">&nbsp;Yuran (RM)</td>
-						<td nowrap align="right">Bayaran Bulanan (RM)</td>
+						<td nowrap align ="right">&nbsp;Yuran (RP)</td>
+						<td nowrap align="right">Bayaran Bulanan (RP)</td>
 						<!--td nowrap>&nbsp;Jabatan/Cawangan</td-->
-						<td nowrap align="right">&nbsp;Sisa Utang(RM)</td>
+						<td nowrap align="right">&nbsp;Sisa Utang(RP)</td>
 						<td nowrap align="center">&nbsp;Tanggal Keanggotaan</td>
 					</tr>';
 	while (!$GetMember->EOF && $cnt <= $pg) {

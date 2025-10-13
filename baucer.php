@@ -738,7 +738,7 @@ print '</tr>
 		    </td></tr>
 			<tr><td valign="top">Alamat</td><td valign="top"></td><td><textarea name="alamat" cols="50" rows="4" class="form-control-sm" readonly>' . $alamat . '</textarea></td></tr>
 			<tr>
-			  <td valign="top">Nombor Bond / Amaun (RM)</td>
+			  <td valign="top">Nombor Bond / Amaun (RP)</td>
 			  <td valign="top"></td>
 			  <td><input name="no_bond"  value="' . $no_bond . '" size="10" maxlength="50"  class="form-control-sm" readonly />
 		      <input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-control-sm" readonly="readonly" /></td>
@@ -750,7 +750,7 @@ print '</tr>
 		  </tr>
 
 		<tr>
-				<td valign="top" align="left">Master Amaun (RM)</td><td valign="top"></td>
+				<td valign="top" align="left">Master Amaun (RP)</td><td valign="top"></td>
 				<td><input class="form-control-sm" id="master" value="' . $masterAmt . '" type="text" size="20" maxlength="10"/ readonly></td>
 			</tr>
 		  
@@ -853,7 +853,7 @@ print
 				<td nowrap="nowrap"><b>Kod Master Akaun</b></td>
 				<td nowrap="nowrap"><b>Kod Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
-				<td nowrap="nowrap" align="right"><b>* Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>* Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
@@ -1063,7 +1063,7 @@ if ($totalDb <> 0) {
 }
 
 print         '<tr class="table-secondary">
-				<td class="Data" colspan="5" align="right"><b>Jumlah (RM)</b></td>
+				<td class="Data" colspan="5" align="right"><b>Jumlah (RP)</b></td>
 				<td class="Data" id="totalJumlah" align="right"><b>' . number_format($totalDb, 2) . '&nbsp;</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 			</tr>

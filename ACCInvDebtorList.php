@@ -172,9 +172,9 @@ print' <!--input type="button" class="but" value="Status" onClick="ITRActionButt
 						<td nowrap align="center"><b>Tarikh</b></td>
 						<td nowrap align="left"><b>Nama Syarikat</b></td>						
 						<td nowrap align="center"><b>No. Invois</b></td>
-						<td nowrap align="right"><b>Amaun Invois (RM)</b></td>
-						<td nowrap align="right"><b>Jumlah Bayaran (RM)</b></td>
-						<td nowrap align="right"><b>Saldo (RM)</b></td>
+						<td nowrap align="right"><b>Amaun Invois (RP)</b></td>
+						<td nowrap align="right"><b>Jumlah Bayaran (RP)</b></td>
+						<td nowrap align="right"><b>Saldo (RP)</b></td>
 
 					</tr>';	
 

@@ -63,7 +63,7 @@ print'&nbsp;';
         <div class="card bg-soft-info">
         <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/fee.png" alt="Picture is missing"></center>
         <div class="card-body" align="center">
-            <h5 class="card-title" align="center">YURAN (RM)</h5>
+            <h5 class="card-title" align="center">YURAN (RP)</h5>
             <input type="text" name="totalFees" style="border: none; text-align: center; font-size: 1.5rem; font-weight: bold; color: blue; width: 250px;" value="'.$totalFees.'" readonly>
             </div>
         </div>
@@ -71,7 +71,7 @@ print'&nbsp;';
         <div class="card bg-soft-primary">
         <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/share.png" alt="Picture is missing"></center>
         <div class="card-body" align="center">
-        <h5 class="card-title" align="center">SYER (RM)</h5>
+        <h5 class="card-title" align="center">SYER (RP)</h5>
         <input type="text" name="totalSharesTK" style="border: none; text-align: center; font-size: 1.5rem; font-weight: bold; color: blue; width: 250px;" value="'.$totalSharesTK.'" readonly>
         </div>
     </div>
@@ -79,7 +79,7 @@ print'&nbsp;';
         <div class="card bg-soft-warning">
         <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/saving.png" alt="Picture is missing"></center>
         <div class="card-body" align="center">
-            <h5 class="card-title" align="center">SIMPANAN (RM)</h5>
+            <h5 class="card-title" align="center">SIMPANAN (RP)</h5>
             <input type="text" name="totalDepo" style="border: none; text-align: center; font-size: 1.5rem; font-weight: bold; color: blue; width: 250px;" value="'.$totalDepo.'" readonly>
             </div>
         </div> -->

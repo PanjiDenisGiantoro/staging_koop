@@ -237,9 +237,9 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap>Nama Syarikat | TIN LHDN</td>
 						<td nowrap align="left">Catatan</td>
-						<td nowrap align="right">Jum Invois (RM)</td>
-						<td nowrap align="right">Bayaran (RM)</td>
-						<td nowrap align="right">Baki Invois (RM)</td>
+						<td nowrap align="right">Jum Invois (RP)</td>
+						<td nowrap align="right">Bayaran (RP)</td>
+						<td nowrap align="right">Baki Invois (RP)</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center">Status e-Invois</td>
 						<td nowrap align="center">Tindakan</td>

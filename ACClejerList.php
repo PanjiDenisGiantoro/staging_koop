@@ -211,7 +211,7 @@ if ($GetMember->RowCount() <> 0) {
 
 		print '<tr><td colspan="4"></td>';
 		print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;font-weight:bold;" bgcolor="FFFFFF">';
-		print '<tr><td colspan="2" align="right"><b>JUMLAH (RM) </b></td>';
+		print '<tr><td colspan="2" align="right"><b>JUMLAH (RP) </b></td>';
 		print '<td align="right">&nbsp;' . number_format($totaldebit, 2) . '</td>';
 		print '<td align="right">&nbsp;' . number_format($totalkredit, 2) . '</td></tr>';
 	}
@@ -222,12 +222,12 @@ if ($GetMember->RowCount() <> 0) {
 					<td nowrap align="right">Debit (RP)</td>
 					<td nowrap align="right">Kredit (RP)</td>
 		</tr>';
-	print '<tr><td colspan="2" align="right"><b>JUMLAH KESELURUHAN (RM) </b></td>';
+	print '<tr><td colspan="2" align="right"><b>JUMLAH KESELURUHAN (RP) </b></td>';
 	print '<td align="right">&nbsp;' . number_format($totaldebitAll, 2) . '</td>';
 	print '<td align="right">&nbsp;' . number_format($totalkreditAll, 2) . '</td></tr>';
 
 	$debTkre = ($totaldebitAll - $totalkreditAll);
-	print '<tr><td colspan="2" align="right"><b>SALDO (RM) </b></td>';
+	print '<tr><td colspan="2" align="right"><b>SALDO (RP) </b></td>';
 	print '	<td width="5%"></td>';
 	print '	<td width="5%" align="right">' . number_format($debTkre, 2) . '</td></tr>';
 

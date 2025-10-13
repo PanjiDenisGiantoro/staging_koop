@@ -129,7 +129,7 @@ print '
       <td width="11%" nowrap><b>Bulan Tahun</b></td>
       <td width="18%" nowrap><b>Jenis Pembiayaan</b> </td>
       <td width="11%" nowrap><b>Nombor Bond</b> </td>
-      <td width="10%" nowrap><b>Jumlah Potongan Pembiayaan (RM)</b></td>
+      <td width="10%" nowrap><b>Jumlah Potongan Pembiayaan (RP)</b></td>
       <td colspan="3" nowrap><div align="center"><b>Edit</b></div></td>
     </tr>';
 if ($rs->RowCount() <> 0) {

@@ -193,7 +193,7 @@ if ($GetReceipts->RowCount() <> 0) {
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap align="left">Bank</td>
 						<td nowrap align="left">Catatan</td>
-						<td nowrap align="right">Jumlah (RM)</td>
+						<td nowrap align="right">Jumlah (RP)</td>
 						<td nowrap align="center">Tindakan</td>
 					</tr>';
     $DRTotal = 0;

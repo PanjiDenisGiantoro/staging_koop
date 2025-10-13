@@ -98,7 +98,7 @@ $FormLength[$a]  	= "4";
 if ($Kira <> "") {
 
 	$a = $a + 1;
-	$FormLabel[$a]   	= "* Jumlah Pembiayaan (RM)";
+	$FormLabel[$a]   	= "* Jumlah Pembiayaan (RP)";
 	$FormElement[$a] 	= "loanAmt";
 	$FormType[$a]	  	= "hiddentext";
 	$FormData[$a]   	= "";
@@ -108,7 +108,7 @@ if ($Kira <> "") {
 	$FormLength[$a]  	= "13";
 
 	$a = $a + 1;
-	$FormLabel[$a]   	= "Jumlah Pokok + Caj Perkhidmatan (RM)";
+	$FormLabel[$a]   	= "Jumlah Pokok + Caj Perkhidmatan (RP)";
 	$FormElement[$a] 	= "";
 	$FormType[$a]	  	= "";
 	$FormData[$a]   	= "";
@@ -130,7 +130,7 @@ if ($Kira <> "") {
 } else {
 
 	$a = $a + 1;
-	$FormLabel[$a]   	= "* Jumlah Pembiayaan (RM)";
+	$FormLabel[$a]   	= "* Jumlah Pembiayaan (RP)";
 	$FormElement[$a] 	= "loanAmt";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";
@@ -152,7 +152,7 @@ if ($Kira <> "") {
 }
 
 // $a = $a + 1;
-// $FormLabel[$a]   	= "* Ansuran Bulanan (RM)";
+// $FormLabel[$a]   	= "* Ansuran Bulanan (RP)";
 // $FormElement[$a] 	= "monthlyPymt";
 // $FormType[$a]	  	= "hidden";
 // $FormData[$a]   	= "";
@@ -588,7 +588,7 @@ if ($Kira <> "") {
 
 	}
 	if (($loanAmt > $loanAmtMax) or ($loanPeriod > $loanPeriodMax)) {
-		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RM) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RM) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
+		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
 		$layakS = "N";
 	}
 

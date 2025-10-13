@@ -598,7 +598,7 @@ print
 				<td nowrap="nowrap">Projek</td>
 				<td nowrap="nowrap">Jabatan</td>
 				<td nowrap="nowrap">Keterangan</td>
-				<td nowrap="nowrap" align="right" >Jumlah (RM)</td>
+				<td nowrap="nowrap" align="right" >Jumlah (RP)</td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 

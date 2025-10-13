@@ -131,8 +131,8 @@ print '
                         <th nowrap>NOMBOR RUJUKAN</th>
                         <th nowrap>TARIKH</th>
                         <th nowrap align="left">NO. AKAUN - NAMA AKAUN GL</th>
-                        <th nowrap align ="right">SIMPANAN(DEBIT) (RM)</th>
-                        <th nowrap align ="right">KELUARAN(KREDIT) (RM)</th>
+                        <th nowrap align ="right">SIMPANAN(DEBIT) (RP)</th>
+                        <th nowrap align ="right">KELUARAN(KREDIT) (RP)</th>
                     </tr>';
 
 if ($rs->RowCount() <> 0) {
@@ -174,7 +174,7 @@ print '
 
 print'	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
-		<td colspan="4" align="right"><b>&nbsp;JUMLAH KESELURUHAN (RM)</b></td>
+		<td colspan="4" align="right"><b>&nbsp;JUMLAH KESELURUHAN (RP)</b></td>
 		<td align="right">RM&nbsp;'.number_format($totaldebit,2).'</td>
 		<td align="right">RM&nbsp;'.number_format($totalkredit,2).'</td>
 	</tr>';
@@ -183,7 +183,7 @@ $baki = ($totaldebit - $totalkredit);
 
 print'	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
-		<td colspan="4" align="right"><b>&nbsp;BAKI (RM)</b></td>
+		<td colspan="4" align="right"><b>&nbsp;BAKI (RP)</b></td>
 		<td colspan="2" align="right">RM&nbsp;'.number_format($baki,2).'</td>
 	</tr>';
 					

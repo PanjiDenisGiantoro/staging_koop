@@ -91,11 +91,11 @@ print '
 					<th nowrap>&nbsp;Nama Anggota</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
 					<th nowrap>&nbsp;Nombor Rujukan</th>
-					<th nowrap>&nbsp;Jumlah Dipohon(RM)</th>
+					<th nowrap>&nbsp;Jumlah Dipohon(RP)</th>
 					<th nowrap>&nbsp;Tempoh(Bulan)</th>
 					<th nowrap>&nbsp;Jenis Loan</th>
 					
-					<th nowrap>&nbsp;Jumlah Lulus(RM)</th>
+					<th nowrap>&nbsp;Jumlah Lulus(RP)</th>
 					<th nowrap>&nbsp;Tarikh Surat Tawaran Keluar</th>
 					<th nowrap>&nbsp;Masalah</th>
 					<th nowrap>&nbsp;Tempoh Dari Terima<br> Hingga Masuk Komiti</th>

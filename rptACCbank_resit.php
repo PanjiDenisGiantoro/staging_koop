@@ -70,7 +70,7 @@ print '
 					<th nowrap align="left">&nbsp;Perkara / Nama Akaun</th>
 					<th nowrap align="left">&nbsp;Keterangan Perkara</th>
 					<th nowrap>&nbsp;Bank</th>
-					<th nowrap align="right">&nbsp;Kredit / Amaun (RM)</th>
+					<th nowrap align="right">&nbsp;Kredit / Amaun (RP)</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

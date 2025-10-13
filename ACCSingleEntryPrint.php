@@ -261,8 +261,8 @@ print'
                 <td nowrap="nowrap"><b>BIL</b></td>
                 <td nowrap="nowrap" ><b>A/C KETERANGAN</b></td>
                 <td nowrap="nowrap" ><b>KETERANGAN</b></td>
-                <td nowrap="nowrap" align="right"><b>DEBIT (RM)</b></td>
-                <td nowrap="nowrap" align="right"><b>KREDIT (RM)</b></td>
+                <td nowrap="nowrap" align="right"><b>DEBIT (RP)</b></td>
+                <td nowrap="nowrap" align="right"><b>KREDIT (RP)</b></td>
             </tr>
     </thead>';
 
@@ -324,13 +324,13 @@ print'
     <tr><td colspan="6">&nbsp;</td></tr>
     <tr>
 		<td nowrap="nowrap" colspan="2"></td>
-		<td nowrap="nowrap" align="right"><b>JUMLAH (RM)<b></td>
+		<td nowrap="nowrap" align="right"><b>JUMLAH (RP)<b></td>
 		<td nowrap="nowrap" align="right">'.number_format($jumlahDbt,2).'</td>
 		<td nowrap="nowrap" align="right">'.number_format($jumlahKrt,2).'</td>
 	</tr>
 	<tr>
 		<td nowrap="nowrap" colspan="2"></td>
-		<td nowrap="nowrap" align="right"><b>BAKI BALANCE (RM)<b></td>
+		<td nowrap="nowrap" align="right"><b>BAKI BALANCE (RP)<b></td>
 		<td nowrap="nowrap" colspan="2" align="right">'.number_format($baki,2).'</td>
 	</tr>
     </table>

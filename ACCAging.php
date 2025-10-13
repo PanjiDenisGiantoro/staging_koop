@@ -136,13 +136,13 @@ print '
       <th width="10%">Tarikh</th>
       <th width="10%">No Rujukan</th>
       <th width="10%">Tarikh Tamat Tempoh</th>
-      <th width="10%" align="right">Saldo (RM)</th>
-      <th width="10%" align="right">Semasa (RM)</th>
-      <th width="10%" align="right">Hari Ke 31-60 (RM)</th>
-      <th width="10%" align="right">Hari Ke 61-90 (RM)</th>
-      <th width="10%" align="right">Hari Ke 91-120 (RM)</th>
-      <th width="10%" align="right">Hari Ke 121-150 (RM)</th>
-      <th width="10%" align="right">Hari Ke >150 (RM)</th>
+      <th width="10%" align="right">Saldo (RP)</th>
+      <th width="10%" align="right">Semasa (RP)</th>
+      <th width="10%" align="right">Hari Ke 31-60 (RP)</th>
+      <th width="10%" align="right">Hari Ke 61-90 (RP)</th>
+      <th width="10%" align="right">Hari Ke 91-120 (RP)</th>
+      <th width="10%" align="right">Hari Ke 121-150 (RP)</th>
+      <th width="10%" align="right">Hari Ke >150 (RP)</th>
     </tr>';
 
 if ($rs->RowCount() <> 0) {
@@ -170,7 +170,7 @@ if ($rs->RowCount() <> 0) {
 print '
 
       <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;font-weight:bold;" bgcolor="FFFFFF">
-      <td colspan="3" align="right"><b>JUMLAH (RM) </b></td>
+      <td colspan="3" align="right"><b>JUMLAH (RP) </b></td>
       <td align="right">&nbsp;' . number_format($totaldebit, 2) . '</td>
       <td align="right">&nbsp;' . number_format($totalkredit, 2) . '</td>
       <td align="right">&nbsp;' . number_format($totalkredit, 2) . '</td>

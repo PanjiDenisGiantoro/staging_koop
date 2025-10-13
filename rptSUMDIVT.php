@@ -79,10 +79,10 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="center" nowrap>Bil</th>
 					<th width="150" align="left" nowrap>&nbsp;Nombor Anggota- Nama</th>
-					<th width="40" align="left" nowrap><div align="right">Dividen Tahun ' . $yr . ' (RM)(Tabung) </div></th>
-					<th width="30" align="left" nowrap><div align="right">Jumlah Dividen Bulanan Tahun ' . $yr . ' (RM)(Tabung) </div></th>
-					<th width="30"><div align="">Jumlah Dividen Resit ' . $yr . ' (RM)(Tabung)</div></th>
-					<th width="45"><div align="right">Total Dividen ' . $yr . ' (RM)(Tabung)</div></th>
+					<th width="40" align="left" nowrap><div align="right">Dividen Tahun ' . $yr . ' (RP)(Tabung) </div></th>
+					<th width="30" align="left" nowrap><div align="right">Jumlah Dividen Bulanan Tahun ' . $yr . ' (RP)(Tabung) </div></th>
+					<th width="30"><div align="">Jumlah Dividen Resit ' . $yr . ' (RP)(Tabung)</div></th>
+					<th width="45"><div align="right">Total Dividen ' . $yr . ' (RP)(Tabung)</div></th>
 				</tr>';
 //$total = 0;
 

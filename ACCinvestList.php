@@ -193,7 +193,7 @@ print'
 						<td nowrap><b>Nama Syarikat</b></td>
 						<td nowrap><b>Nama Projek</b></td>
 						<td nowrap align="center"><b>Catatan</b></td>
-						<td nowrap align="right"><b>Jumlah Invois (RM)</b></td>
+						<td nowrap align="right"><b>Jumlah Invois (RP)</b></td>
 					</tr>';	
 		$DRTotal = 0;
 		$CRTotal = 0;

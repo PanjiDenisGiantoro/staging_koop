@@ -94,7 +94,7 @@ if ($rs->RowCount() <> 0) {
 						<td align="right"></td>
 						<td align="right"></td>
 						<td align="right"></td>
-						<td align="right">Jumlah Keseluruhan Pokok (RM) : </td>
+						<td align="right">Jumlah Keseluruhan Pokok (RP) : </td>
 						<td align="right">' . number_format($JumBakiAkhir1, 2) . '</td>
 					</tr>
 
@@ -102,7 +102,7 @@ if ($rs->RowCount() <> 0) {
 						<td align="right"></td>
 						<td align="right"></td>
 						<td align="right"></td>
-						<td align="right">Jumlah Keseluruhan Untung (RM) : </td>
+						<td align="right">Jumlah Keseluruhan Untung (RP) : </td>
 						<td align="right">' . number_format($JumBakiAkhir2, 2) . '</td>
 					</tr>';
 } else {

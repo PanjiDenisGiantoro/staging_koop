@@ -50,7 +50,7 @@ if ($GetShare->RowCount() <> 0) {
 							<tr>
 								<td class="header">&nbsp;Kod</td>
 								<td class="header">&nbsp;Syer</td>
-								<td class="header" align="center">&nbsp;Harga Seunit (RM)</td>
+								<td class="header" align="center">&nbsp;Harga Seunit (RP)</td>
 							</tr>';
 	while (!$GetShare->EOF) {
 		$id		= $GetShare->fields(ID);

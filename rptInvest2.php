@@ -65,7 +65,7 @@ print '
 					<th nowrap width="40">Tarikh</th>
 					<th align="left" nowrap width="120">Nama Syarikat</th>
 					<th align="left" nowrap width="80">Keterangan</th>	
-					<th align="right" nowrap width="50">Jumlah Invois (RM)</th>
+					<th align="right" nowrap width="50">Jumlah Invois (RP)</th>
 
 				</tr>';
 
@@ -100,7 +100,7 @@ print '
 
 				print '
 				<tr>
-					<td colspan="5" align="right"><b>Jumlah Keseluruhan (RM) :</b></td>
+					<td colspan="5" align="right"><b>Jumlah Keseluruhan (RP) :</b></td>
 					<td align="right"><b>'.number_format($total, 2).'</b></td>
 				</tr>';
 print '		</table> 

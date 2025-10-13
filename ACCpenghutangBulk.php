@@ -106,9 +106,9 @@ if ($GetMember->RowCount() == 0) {
 						<td class="header" ><b>Nama Syarikat</b></td>
 						<td class="header" ><b>Kod Syarikat</b></td>
 						<td class="header" ><b>Alamat Billing</b></td>
-						<td class="header" align="right"><b>Amaun Invois (RM)</b></td>
-                        <td class="header" align="right"><b>Jumlah Terbayar (RM)</b></td>
-                        <td class="header" align="right"><b>Saldo (RM)</b></td>
+						<td class="header" align="right"><b>Amaun Invois (RP)</b></td>
+                        <td class="header" align="right"><b>Jumlah Terbayar (RP)</b></td>
+                        <td class="header" align="right"><b>Saldo (RP)</b></td>
 					</tr>';
 
 		while (!$GetMember->EOF && $cnt <= $pg) {

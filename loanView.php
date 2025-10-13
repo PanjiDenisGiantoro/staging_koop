@@ -48,7 +48,7 @@ print '
 					<tr class="table-primary">
 						<td nowrap height="20">&nbsp;</td>
 						<td nowrap><b>No Rujukan/Pembiayaan</b></td>
-						<td nowrap align="right"><b>Jumlah Pinjaman (RM)</b></td>					
+						<td nowrap align="right"><b>Jumlah Pinjaman (RP)</b></td>					
 						<td nowrap align="center"><b>Jangka Waktu (Bulan)</b></td>
 						<td nowrap align="center"><b>Status</b></td>
 						<td nowrap align="center"><b>Surat Tawaran</b></td>

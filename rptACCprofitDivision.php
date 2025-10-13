@@ -70,7 +70,7 @@ print '
     <tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
       <th nowrap align="left">Bil</th>
       <th nowrap align="left">Perkara</th>
-      <td nowrap align="right">Amaun (RM)</td>
+      <td nowrap align="right">Amaun (RP)</td>
     </tr>
     <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold;">
       <td nowrap colspan="2" align="left">Untung Bersih Tahun Semasa</td>
@@ -116,7 +116,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RM)</td> <!-- Spans two columns -->
+			<td nowrap align="right">&nbsp;Amaun (RP)</td> <!-- Spans two columns -->
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Baki Untung Bersih Selepas Pembahagian Berkanun</td> 	
 			<td nowrap align="right">63,750.00</td> <!-- Amaun1 -->
@@ -170,7 +170,7 @@ print '		</table>
 // 				$rs->MoveNext();
 // 				}	
 // 					print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-// 						<td colspan="4" align="right"><b>&nbsp;Jumlah Keseluruhan (RM) :</b></td>
+// 						<td colspan="4" align="right"><b>&nbsp;Jumlah Keseluruhan (RP) :</b></td>
 // 						<td align="right"><b>&nbsp;'.number_format($totalDb,2).'</b></td>
 // 					</tr>';
 // 				} else {
@@ -200,7 +200,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RM)</td> 
+			<td nowrap align="right">&nbsp;Amaun (RP)</td> 
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Cadangan Dividen (10% x RM800,000 modal syer)</td> 	
@@ -249,7 +249,7 @@ print '		</table>
 // 			$rs->MoveNext();
 // 			}	
 // 				print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-// 					<td colspan="4" align="right"><b>&nbsp;Jumlah Keseluruhan (RM) :</b></td>
+// 					<td colspan="4" align="right"><b>&nbsp;Jumlah Keseluruhan (RP) :</b></td>
 // 					<td align="right"><b>&nbsp;'.number_format($totalDb,2).'</b></td>
 // 				</tr>';
 // 			} else {
@@ -273,7 +273,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RM)</td> 
+			<td nowrap align="right">&nbsp;Amaun (RP)</td> 
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Baki Keuntungan Yang Belum Dibahagikan</td> 	

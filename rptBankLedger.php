@@ -107,7 +107,7 @@ if ($rs->RowCount() <> 0) {
 	print '
 							  </tr>
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td colspan="6" align="right">Jumlah Keseluruhan (RM) &nbsp;</td>
+							<td colspan="6" align="right">Jumlah Keseluruhan (RP) &nbsp;</td>
 							<td align="right">' . number_format($totalA, 2) . '&nbsp;</td>
 						</tr>';
 } else {

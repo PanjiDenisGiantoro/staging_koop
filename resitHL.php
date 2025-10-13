@@ -481,7 +481,7 @@ print
 				<td nowrap="nowrap"><b>Kod Objek</b></td>
 				<td nowrap="nowrap"><b>Kod Akaun</b></td>
 				<!--td nowrap="nowrap"><b>* No. Rujukan</b></td-->
-				<td nowrap="nowrap" align="right"><b>*Jumlah (RM)</b></td>
+				<td nowrap="nowrap" align="right"><b>*Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
 			</tr>';
 
