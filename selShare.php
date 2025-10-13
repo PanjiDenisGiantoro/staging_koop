@@ -49,7 +49,7 @@ if ($GetShare->RowCount() <> 0) {
 						<table border="0" cellpadding="2" cellspacing="1" width="100%" class="Data">
 							<tr>
 								<td class="header">&nbsp;Kod</td>
-								<td class="header">&nbsp;Syer</td>
+								<td class="header">&nbsp;Pokok</td>
 								<td class="header" align="center">&nbsp;Harga Seunit (RP)</td>
 							</tr>';
 	while (!$GetShare->EOF) {

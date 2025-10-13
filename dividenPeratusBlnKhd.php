@@ -175,7 +175,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap align="center">Kartu Identitas</td>
 
 						<td nowrap align="right">Saldo Awal Tahun ' . $yy . ' (Yuran)</td>
-						<td nowrap align="right">Syer</td>
+						<td nowrap align="right">Pokok</td>
 					</tr>';
 		$totalFees = 0;
 		$totalShares = 0;

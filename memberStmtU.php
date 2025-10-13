@@ -171,7 +171,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>Kartu Identitas</td>
 						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">Wajib</td>
-						<td nowrap align="right">Syer</td>
+						<td nowrap align="right">Pokok</td>
 						<td nowrap align="right">Simpanan Khas</td>
 					</tr>';
             $totalFee = 0;

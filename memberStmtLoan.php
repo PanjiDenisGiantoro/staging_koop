@@ -202,7 +202,7 @@ Carian melalui <select name="by" class="Data">';
 						<td nowrap>&nbsp;No KTP Baru</td>
 						<td nowrap colspan="2">&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Wajib</td>
-						<td nowrap align="center">&nbsp;Syer</td>
+						<td nowrap align="center">&nbsp;Pokok</td>
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;

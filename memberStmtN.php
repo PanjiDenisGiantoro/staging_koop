@@ -151,7 +151,7 @@ Carian melalui <select name="by" class="Data">';
 					</td>
 				</tr>
 				<tr class="table-success">
-					<td class="textFont">Penyata Syer</td>
+					<td class="textFont">Penyata Pokok</td>
 					<td class="textFont">:&nbsp; 
 			        <input type="button" class="but" value="Bulanan" onClick="ITRActionButtonClick(\'shareMonthly\');" style="width:100px;">            
 	   			    <input type="button" class="but" value="Tahunan" onClick="ITRActionButtonClick(\'shareYearly\');" style="width:100px;">            
@@ -243,7 +243,7 @@ Carian melalui <select name="by" class="Data">';
 						<td nowrap>&nbsp;No KTP Baru</td>
 						<td nowrap colspan="2">&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Wajib</td>
-						<td nowrap align="center">&nbsp;Syer</td>
+						<td nowrap align="center">&nbsp;Pokok</td>
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;

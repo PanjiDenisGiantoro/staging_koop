@@ -150,7 +150,7 @@ if ($GetList->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;Nombor KP Baru</td>
 						<td nowrap>&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Wajib</td>						
-						<td nowrap align="center">&nbsp;Syer</td>						
+						<td nowrap align="center">&nbsp;Pokok</td>						
 					</tr>';
 	$totalFee = 0;
 	$totalShare = 0;

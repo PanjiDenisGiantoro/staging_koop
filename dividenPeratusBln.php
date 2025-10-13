@@ -174,7 +174,7 @@ print '  <tr valign="top" >
 						<td nowrap>&nbsp;No KTP Baru</td>
 
 						<td nowrap align="center">&nbsp; Saldo Awal Tahun '.$yy.' (Yuran)</td>
-						<td nowrap align="center">&nbsp; Syer</td>
+						<td nowrap align="center">&nbsp; Pokok</td>
 					</tr>';	
 		$totalFees = 0;
 		$totalShares = 0;
