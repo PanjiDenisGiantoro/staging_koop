@@ -34,7 +34,7 @@ if (
 
 $sFileName = 'memberPotonganALL.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Semak Potongan Gaji Pembiayaan / Yuran Dari SPSN";
+$title     = "Senarai Semak Potongan Gaji Pembiayaan / Wajib Dari SPSN";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

@@ -4,7 +4,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptAllFee.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();
@@ -19,7 +19,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Yuran Pada Bulan&nbsp;' . displayBulan($month) . '&nbsp; Tahun ' . $yr . '&nbsp;Bagi Resit';
+$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Wajib Pada Bulan&nbsp;' . displayBulan($month) . '&nbsp; Tahun ' . $yr . '&nbsp;Bagi Resit';
 
 $sSQLC = "SELECT * FROM dividen WHERE SUBSTRING(startYear,5,6) = " . $month . "
         AND SUBSTRING(startYear,1,4) = " . $yr . "

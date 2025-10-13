@@ -33,7 +33,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA14')">Senarai Daftar Anggota</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectUrusniaga('rptA26')">Senarai Daftar Anggota Berdasarkan Tahun</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptPembiayaanT')">Senarai Anggota Yang Mempunyai Loan / Tiada Loan</a></li>
-					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptJumPotonganThn')">Senarai Potongan Pembiayaan / Yuran Bagi Tahunan </a></li>
+					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptJumPotonganThn')">Senarai Potongan Pembiayaan / Wajib Bagi Tahunan </a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA4')">Senarai Anggota Masih Berkhidmat</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA8')">Senarai Anggota Ada Emel</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA9')">Senarai Anggota Tiada Emel</a></li>
@@ -59,7 +59,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF5')">Ringkasan Keseluruhan Anggota Mengikut Skala Umur</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF6')">Ringkasan Keseluruhan Anggota Mengikut Skala Gaji</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF7')">Ringkasan Keseluruhan Anggota Mengikut Negeri</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesC')">Ringkasan Keseluruhan Yuran Anggota Mengikut Pegangan Yuran</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesC')">Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Yuran</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesKhas')">Ringkasan Keseluruhan Simpanan Anggota Mengikut Pegangan Simpanan Khas (Deposit)</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesSHM')">Ringkasan Keseluruhan Saham Anggota Mengikut Nombor Keanggotaan</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAnggota('rptmbrSahBaki')">Senarai Baki (Yuran & Syer) Terkumpul Berdasarkan Tarikh Pilihan</a></li>

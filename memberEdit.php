@@ -539,7 +539,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "* Yuran Bulanan (RP)";
+// 	$FormLabel[$a]   	= "* Wajib Bulanan (RP)";
 // 	$FormElement[$a] 	= "monthFee";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";

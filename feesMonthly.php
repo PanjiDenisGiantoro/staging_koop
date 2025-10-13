@@ -16,7 +16,7 @@ if (
 	exit;
 }
 
-$title  = 'Penyata Yuran Anggota Bagi Bulan/Tahun ' . substr($yrmth, 4, 2) . '/' . substr($yrmth, 0, 4);
+$title  = 'Penyata Wajib Anggota Bagi Bulan/Tahun ' . substr($yrmth, 4, 2) . '/' . substr($yrmth, 0, 4);
 $title = strtoupper($title);
 
 $sSQL = "";

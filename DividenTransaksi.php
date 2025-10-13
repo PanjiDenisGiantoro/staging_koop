@@ -165,7 +165,7 @@ print '  <tr valign="top" >
 while (!$GetMember->EOF  && $cnt <= $pg) {
 		
 		
-//..................... data Yuran ............................
+//..................... data Wajib ............................
 	
 	
 	    $yrmth = $yy.$mm;
@@ -380,8 +380,8 @@ print '<script>alert("Permohonan Dividen telah dikemaskini di dalam sistem !");<
 print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

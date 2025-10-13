@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=rAllFeesShare&mn=905';
-$title       = "Keseluruhan Yuran & Syer";
+$title       = "Keseluruhan Wajib & Syer";
 
 if (isset($_POST['dtTo'])) {
     $dtTo = $_POST['dtTo'];
@@ -154,7 +154,7 @@ print '<div class="table-responsive">
                         <td nowrap>&nbsp;</td>
                         <td nowrap align="center">Nombor Anggota</td>
                         <td nowrap align="left">Nama Anggota</td>
-                        <td nowrap align="center">Peratusan Yuran (%)</td>
+                        <td nowrap align="center">Peratusan Wajib (%)</td>
 					    <td nowrap align="right">Yuran Terkumpul (RP)</td>
                         <td nowrap align="center">Peratusan syer (%)</td>
                         <td nowrap align="right">Syer Terkumpul (RP)</td>

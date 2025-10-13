@@ -36,7 +36,7 @@ if (
 
 $sFileName = 'rptJumPotonganThn.php.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Anggota Potongan Pembiayaan / Yuran Selama Setahun (" . $yr . ")";
+$title     = "Senarai Anggota Potongan Pembiayaan / Wajib Selama Setahun (" . $yr . ")";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -159,7 +159,7 @@ if (get_session("Cookie_groupID") > 0) {
 					<td nowrap align="left"><b>Nombor Pekerja</b></td>
 					<td nowrap align="left"><b>Cawangan/Zon</b></td>
 					<td nowrap align="left"><b>Nombor Akaun Tabungan</b></td>
-					<td nowrap align="right"><b>Jumlah Potongan Yuran (' . $yr . ')</b></td>
+					<td nowrap align="right"><b>Jumlah Potongan Wajib (' . $yr . ')</b></td>
 					<td nowrap align="right"><b>Jumlah Potongan Pembiayaan (' . $yr . ')</b></td>
 				</tr>';
 			$totalFee = 0;
@@ -209,7 +209,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td colspan="7" height="30" valign="bottom">Jumlah Anggota : <b>' . $GetMember->RowCount() . '</b></td>
 					</tr>		
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="7" height="30" valign="bottom">Jumlah Yuran Setahun : <b>' . number_format($jumALLYuran, 2) . '</b></td>
+						<td colspan="7" height="30" valign="bottom">Jumlah Wajib Setahun : <b>' . number_format($jumALLYuran, 2) . '</b></td>
 					</tr>	
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 						<td colspan="7" height="30" valign="bottom">Jumlah Pembiayaan Setahun : <b>' . number_format($jumALLPem, 2) . '</b></td>
@@ -231,8 +231,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

@@ -224,8 +224,8 @@ print '  <tr valign="top" >
 print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'ACCinvoisMonth\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'ACCinvoisYear\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'ACCinvoisMonth\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'ACCinvoisYear\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

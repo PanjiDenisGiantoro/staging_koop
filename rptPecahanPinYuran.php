@@ -4,7 +4,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptAllFee.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();

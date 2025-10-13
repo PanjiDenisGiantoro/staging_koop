@@ -433,7 +433,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Yuran Bulanan";
+$FormLabel[$a]   	= "* Wajib Bulanan";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

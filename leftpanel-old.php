@@ -115,7 +115,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li>';
         TitleBarBlue("Laporan", 'mdi mdi-file');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="true">';
-        MenuLink("rAllFeesShare.php", "Keseluruhan Yuran & Syer", 905, @$_REQUEST['vw']);
+        MenuLink("rAllFeesShare.php", "Keseluruhan Wajib & Syer", 905, @$_REQUEST['vw']);
         echo '</ul></li>';
         echo '</ul></li>';
 

@@ -33,7 +33,7 @@ if (
 
 $sFileName = 'memberStmtEditYuranSPSNPAT.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Daftar Potongan Gaji Yuran PAT";
+$title     = "Daftar Potongan Gaji Wajib PAT";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -154,7 +154,7 @@ if (get_session("Cookie_groupID") > 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont">&nbsp;Jum Anggota PGB &nbsp' . $TotalRec . '</td><input type="button" class="but" value="Preview Yuran PAT" onclick="window.open(\'PreviewYuranPAT.php\',\'sel\',\'top=100,left=100,width=600,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">
+						<td  class="textFont">&nbsp;Jum Anggota PGB &nbsp' . $TotalRec . '</td><input type="button" class="but" value="Preview Wajib PAT" onclick="window.open(\'PreviewYuranPAT.php\',\'sel\',\'top=100,left=100,width=600,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">
 						<td align="right" class="textFont">
 							Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 			if ($pg == 5)	print '<option value="5" selected>5</option>';
@@ -272,8 +272,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

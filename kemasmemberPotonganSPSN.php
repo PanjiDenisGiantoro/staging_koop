@@ -30,7 +30,7 @@ if (
 
 $sFileName = 'KemasmemberPotonganP.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Kemaskini Potongan Gaji (PGB) Pembiayaan / Yuran (NAIK SEKOLAH , UMRAH)";
+$title     = "Kemaskini Potongan Gaji (PGB) Pembiayaan / Wajib (NAIK SEKOLAH , UMRAH)";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -345,8 +345,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

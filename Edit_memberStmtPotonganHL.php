@@ -150,7 +150,7 @@ $rs1 = &$conn->Execute($sSQL2);
       <td width="11%" nowrap>Mula Pot. (Bulan/Tahun) </td>
       <td width="18%" nowrap>Jenis Pembiayaan </td>
       <td width="11%" nowrap>No Bond </td>
-	  <td width="11%" nowrap>Jumlah Yuran </td>
+	  <td width="11%" nowrap>Jumlah Wajib </td>
       <td width="10%" nowrap>Jum Pot. Bulan Pembiayaan (RP) </td>
       <td colspan="3" nowrap><div align="center">Edit</div></td>
     </tr>';

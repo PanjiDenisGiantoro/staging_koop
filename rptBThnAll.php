@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptBThn.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();
@@ -18,7 +18,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Yuran Pada Tahun ' . $yr;
+$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Wajib Pada Tahun ' . $yr;
 
 $sSQL = "";
 $sWhere = " a.userID = b.userID AND b.status IN (1,4)";;

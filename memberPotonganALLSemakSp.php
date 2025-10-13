@@ -36,7 +36,7 @@ if (
 
 $sFileName = 'memberPotonganALLSemakSp.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Potongan Gaji (PGB) Pembiayaan / Yuran Dan SPSN";
+$title     = "Senarai Potongan Gaji (PGB) Pembiayaan / Wajib Dan SPSN";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -332,8 +332,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

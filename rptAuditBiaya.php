@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptAllFee.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();
@@ -16,7 +16,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Keseluruhan Yuran Anggota Mengikut Nombor Keanggotaan';
+$title  = 'Ringkasan Keseluruhan Wajib Anggota Mengikut Nombor Keanggotaan';
 $sSQL = "";
 $sSQL = "SELECT b.memberID, a.name, a.userID , c.loanType, c.loanAmt, c.loanPeriod, c.kadar_u,
 		c.monthlyPymt, c.applyDate, d.ajkDate2,  b.approvedDate, d.btindihCaj,
@@ -87,7 +87,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">';
 /*Bil	Nombor Anggota	Nama	Tarikh menjadi anggota	
-Jumlah Yuran Bulanan	Kod Pembiayaan	Jumlah Pembiayaan	Tempoh Pembiayaan	Kadar Keuntungan	Jumlah ansuran bulanan	
+Jumlah Wajib Bulanan	Kod Pembiayaan	Jumlah Pembiayaan	Tempoh Pembiayaan	Kadar Keuntungan	Jumlah ansuran bulanan	
 
 Tarikh mohon	Tarikh Lulus	----Tarikh pengeluaran	Baki Pembiayaan @30/11/2006	Jumlah Tunggakan-----
 

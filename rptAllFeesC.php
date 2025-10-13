@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptAllFee.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();
@@ -16,7 +16,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Keseluruhan Yuran Anggota Mengikut Pegangan Yuran';
+$title  = 'Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Yuran';
 
 
 $sSQL = "SELECT b.memberID as userID, c.name as name,

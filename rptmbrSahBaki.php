@@ -68,7 +68,7 @@ print
 					<th nowrap align="left">Nama Anggota</th>
 					<th nowrap align="center">Nombor Kad Pengenalan</th>
 					<th nowrap align="left">Nombor Telefon</th>
-					<th nowrap align="right">Baki Terkumpul Yuran (RP)</th>
+					<th nowrap align="right">Baki Terkumpul Wajib (RP)</th>
 					<th nowrap align="right">Baki Terkumpul Syer (RP)</th>
 				</tr>';
 

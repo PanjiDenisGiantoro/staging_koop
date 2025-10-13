@@ -141,7 +141,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Pegangan Yuran (RP)";
+$FormLabel[$a]   	= "Pegangan Wajib (RP)";
 $FormElement[$a] 	= "totalFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

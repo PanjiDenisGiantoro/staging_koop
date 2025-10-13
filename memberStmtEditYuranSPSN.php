@@ -173,7 +173,7 @@ print '		</select>
 						<td nowrap><b>Nombor/Nama Anggota</b></td>
 						<td nowrap align="center"><b>Kartu Identitas</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
-					    <td nowrap align="right"><b>Potongan Yuran (RP)</b></td>
+					    <td nowrap align="right"><b>Potongan Wajib (RP)</b></td>
 
 					</tr>';
 			$totalFee = 0;
@@ -246,8 +246,8 @@ print '		</select>
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

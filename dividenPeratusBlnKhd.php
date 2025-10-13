@@ -166,7 +166,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap colspan="3" height="20">&nbsp;</td>
-						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Yuran Dan Syer (RP)</div></td>
+						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Wajib Dan Syer (RP)</div></td>
 
 					</tr>
 					<tr class="table-primary">
@@ -184,7 +184,7 @@ if (get_session("Cookie_groupID") > 0) {
 
 		while (!$GetMember->EOF  && $cnt <= $pg) {
 
-			//..................... checking data Yuran ............................
+			//..................... checking data Wajib ............................
 			$yrmth = $yy . $mm;
 			$totalFees = number_format(getFeesAwalthn($GetMember->fields(userID), $yy), 2);
 			$totalShares = number_format(getShares($GetMember->fields(userID), $yy), 2);
@@ -398,8 +398,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

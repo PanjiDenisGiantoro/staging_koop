@@ -165,7 +165,7 @@ print '  <tr valign="top" >
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 					<tr class="header">
 						<td nowrap colspan="3" height="20">&nbsp;</td>
-						<td nowrap height="20" colspan="2" nowrap><div align="center">Simpanan Yuran Dan Syer</div></td>
+						<td nowrap height="20" colspan="2" nowrap><div align="center">Simpanan Wajib Dan Syer</div></td>
 
 					</tr>
 					<tr class="header">
@@ -183,7 +183,7 @@ print '  <tr valign="top" >
 	
 		while (!$GetMember->EOF  && $cnt <= $pg) {
 	
-//..................... checking data Yuran ............................
+//..................... checking data Wajib ............................
 		$yrmth = $yy.$mm;
 		$totalFees = number_format(getFeesAwalthn($GetMember->fields(userID), $yy),2);
 	    $totalShares = number_format(getShares($GetMember->fields(userID), $yy),2);
@@ -411,8 +411,8 @@ print '<script>alert("Permohonan Dividen telah dikemaskini di dalam sistem !");<
 print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Yuran Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Yuran Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
 		</td>
 	</tr>
     ';

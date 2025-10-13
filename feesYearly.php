@@ -20,7 +20,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Yuran Anggota Pada Tahun ' . $yr;
+$title  = 'Penyata Wajib Anggota Pada Tahun ' . $yr;
 $title = strtoupper($title);
 
 $sSQL = "select * from transaction 

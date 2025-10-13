@@ -4,7 +4,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptSUMDIV.php
- *		   Description	:	Ringkasan Keseluruhan Yuran Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Wajib Anggota 
  *          Date 		: 	31/5/2006
  *********************************************************************************/
 session_start();
@@ -20,7 +20,7 @@ if (get_session("Cookie_koperasiID") <> $koperasiID) {
 if (!isset($yr)) $yr	= date("Y");
 //$yr = (int)substr($yrmth,0,4);
 
-$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Yuran dan Tabungan Pada Tahun ' . $yr;
+$title  = 'Ringkasan Dividen Anggota Mengikut Pegangan Wajib dan Tabungan Pada Tahun ' . $yr;
 
 $sSQL = "";
 $sWhere = " a.userID = b.userID AND b.status <> 0";;
