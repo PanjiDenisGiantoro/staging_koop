@@ -559,7 +559,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "* Syer Bulanan (RP)";
+// 	$FormLabel[$a]   	= "* Pokok Bulanan (RP)";
 // 	$FormElement[$a] 	= "unitShare";
 // 	$FormType[$a]	  	= "textx";
 // 	$FormData[$a]   	= "";

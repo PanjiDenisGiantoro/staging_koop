@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptAllFeesSHM.php
- *		   Description	:	Ringkasan Keseluruhan Syer Anggota 
+ *		   Description	:	Ringkasan Keseluruhan Pokok Anggota 
  *          Date 		: 	14/09/2018
  *********************************************************************************/
 session_start();
@@ -17,7 +17,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Keseluruhan Syer Anggota Mengikut Nombor Keanggotaan';
+$title  = 'Ringkasan Keseluruhan Pokok Anggota Mengikut Nombor Keanggotaan';
 
 $sSQL = "SELECT b.memberID as userID, c.name as name, 
 SUM(CASE WHEN a.addminus = '0' THEN -a.pymtAmt ELSE a.pymtAmt END ) AS jumlah 

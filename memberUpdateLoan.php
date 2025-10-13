@@ -1393,7 +1393,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	if ($i == 107) print '<tr><td class=Header colspan=4>F: MAKLUMAT KELAYAKAN PEMOHON</td></tr>';
 
 	//	if ($i == 37) print '<tr><td class=Header colspan=4>Maklumat Waris:</td></tr>';
-	//	if ($i == 43) print '<tr><td class=Header colspan=4>Pembelian Syer Koperasi :</td></tr>';
+	//	if ($i == 43) print '<tr><td class=Header colspan=4>Pembelian Pokok Koperasi :</td></tr>';
 	$addr = str_replace("<pre>", "", $GetMember->fields('w_address1'));
 	$addr1 = str_replace("</pre>", "", $addr);
 	$addr = str_replace("<pre>", "", $GetMember->fields('w_address2'));

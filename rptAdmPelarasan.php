@@ -17,7 +17,7 @@ $today = date("F j, Y, g:i a");
 $memberFrom = $_POST['memberFrom'];
 $memberTo = $_POST['memberTo'];
 
-$title  = 'Senarai Urusniaga Pelarasan Syer Anggota';
+$title  = 'Senarai Urusniaga Pelarasan Pokok Anggota';
 
 
 print '

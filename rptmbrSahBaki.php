@@ -69,7 +69,7 @@ print
 					<th nowrap align="center">Nombor Kad Pengenalan</th>
 					<th nowrap align="left">Nombor Telefon</th>
 					<th nowrap align="right">Baki Terkumpul Wajib (RP)</th>
-					<th nowrap align="right">Baki Terkumpul Syer (RP)</th>
+					<th nowrap align="right">Baki Terkumpul Pokok (RP)</th>
 				</tr>';
 
 $total1 = 0;

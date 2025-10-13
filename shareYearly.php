@@ -20,7 +20,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Syer Anggota Pada Tahun ' . $yr;
+$title  = 'Penyata Pokok Anggota Pada Tahun ' . $yr;
 $title = strtoupper($title);
 
 $sSQL = "SELECT * from transaction 
@@ -151,7 +151,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt;" bgcolor="FFFFFF">
-						<td colspan="8" align="center"><b>- Tiada Rekod Syer </b></td>
+						<td colspan="8" align="center"><b>- Tiada Rekod Pokok </b></td>
 					</tr>';
 }
 print '</table></td></tr><tr><td colspan="2">&nbsp;</td></tr>';

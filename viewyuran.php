@@ -30,7 +30,7 @@ if (get_session("Cookie_groupID") <> 0 and get_session("Cookie_groupID") <> 1 an
 }
 
 $sFileName = 'viewyuran.php';
-$title     = "Senarai Potongan Wajib Dan Syer Bulanan Anggota";
+$title     = "Senarai Potongan Wajib Dan Pokok Bulanan Anggota";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

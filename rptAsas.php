@@ -77,9 +77,9 @@ if ($code == 'D') {
 }
 if ($code == 'G') {
 	$noSpan = 6;
-	print '			<td nowrap align="right"><b>Harga Syer (RP)</td>
+	print '			<td nowrap align="right"><b>Harga Pokok (RP)</td>
 					<td nowrap align="right"><b>&Minimum Unit</b></td>
-					<td nowrap align="right"><b>Jumlah Unit Syer (RP)</b></td>';
+					<td nowrap align="right"><b>Jumlah Unit Pokok (RP)</b></td>';
 }
 if ($code == 'J') {
 	$noSpan = 4;

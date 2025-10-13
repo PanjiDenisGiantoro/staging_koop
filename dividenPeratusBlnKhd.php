@@ -166,7 +166,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap colspan="3" height="20">&nbsp;</td>
-						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Wajib Dan Syer (RP)</div></td>
+						<td nowrap height="20" colspan="2" nowrap><div align="right">Simpanan Wajib Dan Pokok (RP)</div></td>
 
 					</tr>
 					<tr class="table-primary">
@@ -407,8 +407,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Syer Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Syer Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

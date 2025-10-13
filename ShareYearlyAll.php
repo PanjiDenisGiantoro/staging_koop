@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Syer Keseluruhan Anggota';
+$title  = 'Penyata Pokok Keseluruhan Anggota';
 $title = strtoupper($title);
 
 $sSQL = "SELECT * FROM transaction 

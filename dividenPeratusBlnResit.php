@@ -166,7 +166,7 @@ print '  <tr valign="top" >
 						<td nowrap>&nbsp;No KTP Baru</td>
 
 						<td nowrap align="center">&nbsp;Yuran Bulan</td>
-						<td nowrap align="center">&nbsp;Dividen Syer '.$peratusaham.'</td>
+						<td nowrap align="center">&nbsp;Dividen Pokok '.$peratusaham.'</td>
 					</tr>';	
 		$totalFee = 0;
 		$totalShare = 0;
@@ -396,8 +396,8 @@ print '
 print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Syer Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Syer Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

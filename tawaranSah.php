@@ -329,7 +329,7 @@ function myFunction3() {
 function myFunction3Ra() {
 
     document.getElementById("button5").hidden = false;
-	document.getElementById("demosaham").innerHTML = "<b>Tawaran Pembelian Bagi Syer Siarharga PIGTF Public Mutual (1 Unit Syer = RM20.00 iaitu Bersamaan : RM ' . $loanAmt . '/20 Perunit = ' . $totalshare . ' unit)</b>";
+	document.getElementById("demosaham").innerHTML = "<b>Tawaran Pembelian Bagi Pokok Siarharga PIGTF Public Mutual (1 Unit Pokok = RM20.00 iaitu Bersamaan : RM ' . $loanAmt . '/20 Perunit = ' . $totalshare . ' unit)</b>";
 	document.getElementById("demosaham").hidden = false;
 	
 }

@@ -78,7 +78,7 @@ print '
 					<td width="5" align="center" nowrap><b>Bil<b></td>
 					<td width="250" align="left" nowrap><b>Nombor Anggota- Nama<b></td>
 					<td width="100" align="left" nowrap><div align="right"><b>Yuran Bulanan (RP)<b></div></td>
-					<td width="70" align="left" nowrap><div align="right"><b>Bayaran Dividen Syer (RP)' . $rsCheck->fields(amtFee) . '%<b></div></td>
+					<td width="70" align="left" nowrap><div align="right"><b>Bayaran Dividen Pokok (RP)' . $rsCheck->fields(amtFee) . '%<b></div></td>
 					<td nowrap align="center" width="70"><div align="right"><b>Bayaran Dividen Tabungan (RP)  ' . $rsCheck->fields(amtShare) . '%<b></div></td>
 				</tr>';
 //$total = 0;

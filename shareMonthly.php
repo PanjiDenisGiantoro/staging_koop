@@ -14,7 +14,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Pegangan Syer Anggota Bagi Bulan/Tahun ' . substr($yrmth, 4, 2) . '/' . substr($yrmth, 0, 4);
+$title  = 'Penyata Pegangan Pokok Anggota Bagi Bulan/Tahun ' . substr($yrmth, 4, 2) . '/' . substr($yrmth, 0, 4);
 $title = strtoupper($title);
 
 $sSQL = "";

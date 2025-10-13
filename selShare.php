@@ -41,7 +41,7 @@ print '
 		<td class="Data">
 			<table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 				<tr>
-					<td	class="Label" colspan="2">Klik pada Kod ATAU Syer untuk pilihan.</b></td>
+					<td	class="Label" colspan="2">Klik pada Kod ATAU Pokok untuk pilihan.</b></td>
 				</tr>';
 if ($GetShare->RowCount() <> 0) {  
 	print '		<tr>
@@ -67,11 +67,11 @@ if ($GetShare->RowCount() <> 0) {
 	print '				</table>	
 					</td>
 				</tr>
-				<tr><td class="Data"><br><i>Jumlah Keseluruhan Rekod Syer : <b>'.$GetShare->RowCount().'</b></i></li></td></tr>';
+				<tr><td class="Data"><br><i>Jumlah Keseluruhan Rekod Pokok : <b>'.$GetShare->RowCount().'</b></i></li></td></tr>';
 } else { 
 	print '
 				<tr><td	class="Label" align="center">
-					<hr size="1"><b>- Tiada rekod mengenai Kod Syer  -</b><hr size="1">
+					<hr size="1"><b>- Tiada rekod mengenai Kod Pokok  -</b><hr size="1">
 				</td></tr>';
 }
 print '		</table>
