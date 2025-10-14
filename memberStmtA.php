@@ -182,7 +182,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap colspan="5" height="20">&nbsp;</td>
-						<td nowrap colspan="3" align="center">&nbsp;Pembiayaan (RP)</td>
+						<td nowrap colspan="3" align="center">&nbsp;Simpanan (RP)</td>
 					</tr>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
@@ -191,7 +191,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap colspan="2">Cabang/Zona</td>
 						<td nowrap align="right">&nbsp;Wajib</td>
 						<td nowrap align="right">&nbsp;Pokok</td>
-						<!-- <td nowrap align="right">&nbsp;Pembiayaan Khas</td> -->
+						<!-- <td nowrap align="right">&nbsp;Simpanan Khas</td> -->
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;
