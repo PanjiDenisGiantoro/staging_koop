@@ -161,8 +161,6 @@ if ($GetMember->RowCount() == 0) {
 						<td class="headerteal" ><b>Nombor Anggota</b></td>
 						<td class="headerteal" ><b>Nama</b></td>
 						<td class="headerteal" ><b>Kad Pengenalan (Baru)</b></td>
-						<td class="headerteal" ><b>Wajib</b></td>
-						<td class="headerteal" ><b>Pokok</b></td>
 						<td class="headerteal" ><b>Saldo</b></td>
 						<!-- <td class="headerteal" ><b>Kad Pengenalan (Lama)</b></td> -->
 						<!-- <td class="headerteal" ><b>Cawangan/Zon</b></td> -->
@@ -203,8 +201,6 @@ if ($GetMember->RowCount() == 0) {
 						} */
 			print '</td>
 						<td class="Data" align="left">' . $newic . '</td>
-						<td>0</td>
-						<td>0</td>
 						<td>0</td>
 						<!-- <td class="Data" align="left">' . $oldic . '</td> -->
 						<!-- <td class="Data" align="left">' . dlookup("general", "name", "ID=" . $jabatan) . '</td> -->
