@@ -84,7 +84,7 @@ print '
 <tr><td class="Data">
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 <tr><td	class="Header" colspan="2">Senarai Anggota</b></td></tr>
-tr><td class="Data">Carian melalui 
+tr><td class="Data">Cari Berdasarkan 
 	<select name="by" class="Data">';
 if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option value="1">Nomor Anggota</option>';

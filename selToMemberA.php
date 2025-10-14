@@ -122,7 +122,7 @@ print '
 				</tr>
 				<tr>
 					<td class="Data">
-						Carian melalui 
+						Cari Berdasarkan 
 						<select name="by" class="form-select-sm">';
 if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option value="1">Nomor Anggota</option>';

@@ -115,7 +115,7 @@ print '
 				<h5 class="card-title">Senarai Pembiayaan Lulus</h5>
 	<tr	valign="top">
 		<td	align="left" >
-			Carian melalui
+			Cari Berdasarkan
 			<select	name="by" class="form-select-xs">';
 if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option	value="1">Nomor Anggota</option>';

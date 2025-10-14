@@ -153,7 +153,7 @@ print '		</select>
 			}
 print '		</select>
 			<input type="submit" name="action1" value="Capai" class="but">
-		<!--br>Carian melalui No Larian <input type="text" name="q" value="" maxlength="100" size="20" class="Data">
+		<!--br>Cari Berdasarkan No Larian <input type="text" name="q" value="" maxlength="100" size="20" class="Data">
            	 <input type="submit" class="but" value="Cari">
 			&nbsp;&nbsp;			
 			Kod Potongan
