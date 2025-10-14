@@ -119,8 +119,8 @@ print '
 		<td	align="left" >
 			Carian melalui
 			<select	name="by" class="form-select-sm">';
-if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option	value="1">Nombor Anggota</option>';
+if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option	value="2">Nama Anggota</option>';
 if ($by	== 3)	print '<option value="3" selected>No KP	Baru</option>';
@@ -128,7 +128,7 @@ else print '<option	value="3">No KP	Baru</option>';
 print '	</select>
 			<input type="text" name="q"	value="" maxlength="50"	size="30" class="form-select-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-			Cawangan/Zon
+			Cabang/Zona
 			<select	name="dept"	class="form-select-sm" onchange="document.MyForm.submit();">
 				<option	value="">- Semua -';
 for ($i	= 0; $i	< count($deptList); $i++) {
@@ -165,7 +165,7 @@ if ($GetLoan->RowCount() == 0) {
 						<td	>&nbsp;<b>Nombor KP Baru</b></td>
 						<td	>&nbsp;<b>Jumlah</b></td>
 						<td	>&nbsp;<b>Status</b></td>
-						<td	>&nbsp;<b>Tarikh Memohon</b></td>
+						<td	>&nbsp;<b>Tanggal Pengajuan</b></td>
 					</tr>';
 		$amtLoan = 0;
 		while (!$GetLoan->EOF && $cnt <= $pg) {
@@ -218,7 +218,7 @@ if ($GetLoan->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

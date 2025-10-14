@@ -41,7 +41,7 @@ print '
 		<td class="Data">
 			<table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 				<tr>
-					<td	class="Header" colspan="2">Klik pada Jabatan dan klik pada Nombor Anggota Atau Nama untuk pilihan.</b></td>
+					<td	class="Header" colspan="2">Klik pada Jabatan dan klik pada Nomor Anggota Atau Nama untuk pilihan.</b></td>
 				</tr>';
 $totalUser = 0;
 if ($GetDept->RowCount() <> 0) {
@@ -58,7 +58,7 @@ if ($GetDept->RowCount() <> 0) {
 			print '
 			<table border="0" cellpadding="2" cellspacing="1" width="500" class="Data">
 				<tr>
-					<td class="header">&nbsp;Nombor Anggota</td><td class="header">&nbsp;Nama</td>
+					<td class="header">&nbsp;Nomor Anggota</td><td class="header">&nbsp;Nama</td>
 				</tr>';
 			while (!$GetUserDept->EOF) {
 				$userid		= $GetUserDept->fields(userID);
@@ -83,7 +83,7 @@ if ($GetDept->RowCount() <> 0) {
 } else {
 	print '
 				<tr><td	class="Label" align="center">
-					<hr size="1"><b>- Tiada rekod mengenai Kod Cawangan/Zon -</b><hr size="1">
+					<hr size="1"><b>- Tiada rekod mengenai Kod Cabang/Zona -</b><hr size="1">
 				</td></tr>';
 }
 print '		</table>

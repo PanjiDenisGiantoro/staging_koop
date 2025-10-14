@@ -57,7 +57,7 @@ if ($GetWelfare->RowCount() <> 0) {
 		<table cellpadding="2" cellspacing="1" width="100%" class="table table-bordered table-striped table-sm" style="font-size: 10pt;">
                 <thead>
 		<tr class="table-primary">
-			<td class="headerteal"><b>Kod Kebajikan</b></td>
+			<td class="headerteal"><b>Kode Kebajikan</b></td>
 			<td class="headerteal"><b>Jenis Kebajikan</b></td>
 		</tr></thead>';
 	while (!$GetWelfare->EOF) {

@@ -118,16 +118,16 @@ print '
 		<td	align="left" >
 			Carian melalui
 			<select	name="by" class="form-select-sm">';
-if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option	value="1">Nombor Anggota</option>';
+if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option	value="2">Nama Anggota</option>';
-if ($by	== 3)	print '<option value="3" selected>Kad Pengenalan</option>';
+if ($by	== 3)	print '<option value="3" selected>Kartu Identitas</option>';
 else print '<option	value="3">No KP	Baru</option>';
 print '	</select>
 			<input type="text" name="q"	value="" maxlength="50"	size="20" class="form-select-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-			Cawangan/Zon
+			Cabang/Zona
 			<select	name="dept"	class="form-select-sm" onchange="document.MyForm.submit();">
 				<option	value="">- Semua -';
 for ($i	= 0; $i	< count($deptList); $i++) {
@@ -145,7 +145,7 @@ print '	</select>
 					<td	 class="textFont" align ="left">&nbsp;</td>
 					<td	align="right" class="textFont">
 
-					Paparan	<SELECT	name="pg" class="form-select-xs" onchange="doListAll();">';
+					Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg	== 5)	print '<option value="5" selected>5</option>';
 else print '<option	value="5">5</option>';
 if ($pg	== 10)	print '<option value="10" selected>10</option>';
@@ -192,12 +192,12 @@ if ($GetLoan->RowCount() == 0) {
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-bordered table-striped table-sm" style="font-size: 9pt;">
 					<tr	class="table-primary">
 						<td	nowrap>&nbsp;</td>
-						<td	nowrap><b>Nombor Rujukan Pinjaman</b></td>
+						<td	nowrap><b>Nomor Rujukan Pinjaman</b></td>
 						<td	nowrap><b>Nombor/Nama Anggota</b></td>
 						<td	nowrap align="center"><b>Nombor Bond</b></td>
 						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td	nowrap align="center"><b>Status</b></td>
-						<td	nowrap align="center"><b>Tarikh Memohon</b></td>
+						<td	nowrap align="center"><b>Tanggal Pengajuan</b></td>
 					</tr>';
 		$amtLoan = 0;
 		while (!$GetLoan->EOF && $cnt <= $pg) {
@@ -251,7 +251,7 @@ if ($GetLoan->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

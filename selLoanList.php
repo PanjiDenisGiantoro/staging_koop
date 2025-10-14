@@ -56,7 +56,7 @@ if ($GetLoan->RowCount() <> 0) {
 					<td class="Data">
 						<table border="0" cellpadding="2" cellspacing="1" width="100%" class="Data">
 							<tr>
-								<td class="header">&nbsp;Nombor Rujukan</td>
+								<td class="header">&nbsp;Nomor Rujukan</td>
 								<td class="header">&nbsp;Nombor anggota</td>
 								<td class="header">&nbsp;Jenis Pembiayaan</td>
 								<td class="header">&nbsp;caj Pembiayaan(%)</td>

@@ -92,18 +92,18 @@ print '
 			<table border="0" cellspacing="1" cellpadding="3" width="100%" align="center" style="font-size: 9pt;">
 				<h5 class="card-title">Senarai Anggota</h5><tr>
 				<td class="Data">
-				Carian Melalui 
+				Cari Berdasarkan 
 				<select name="by" class="form-select-xs">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 print '		</select>
 						<input type="text" name="q" value="" class="form-control-sm" maxlength="50" size="30" class="Data">
 			           	<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-						Cawangan/Zon
+						Cabang/Zona
 						<select name="dept" class="form-select-xs" onchange="document.MyForm.submit();">
 							<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -124,9 +124,9 @@ if ($GetMember->RowCount() == 0) {
 			<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-sm table-striped" style="font-size: 9pt;">
 			<tr class="table-primary">
 			<td align="center" nowrap>&nbsp;</td>
-			<td align="center"><b>Nombor Anggota</b></td>
+			<td align="center"><b>Nomor Anggota</b></td>
 			<td align="left"><b>Nama</b></td>
-			<td align="center"><b>Kad Pengenalan</b></td>
+			<td align="center"><b>Kartu Identitas</b></td>
 			<td align="left"><b>Emel</b></td>';
 		print '</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
@@ -167,7 +167,7 @@ if ($GetMember->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';

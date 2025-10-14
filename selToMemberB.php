@@ -124,16 +124,16 @@ print '
 					<td class="Data">
 						Carian melalui 
 						<select name="by" class="form-select-sm">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan (Baru)</option>';
-else print '<option value="3">Kad Pengenalan (Baru)</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas (Baru)</option>';
+else print '<option value="3">Kartu Identitas (Baru)</option>';
 print '		</select>
 						<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
 			           	<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-						Cawangan/Zon
+						Cabang/Zona
 						<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 							<option value="">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -158,12 +158,12 @@ if ($GetMember->RowCount() == 0) {
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-bordered table-striped table-sm" style="font-size: 9pt;">
 					<tr class="table-primary">
 						<td class="headerteal" nowrap>&nbsp;</td>
-						<td class="headerteal" ><b>Nombor Anggota</b></td>
+						<td class="headerteal" ><b>Nomor Anggota</b></td>
 						<td class="headerteal" ><b>Nama</b></td>
-						<td class="headerteal" ><b>Kad Pengenalan (Baru)</b></td>
+						<td class="headerteal" ><b>Kartu Identitas (Baru)</b></td>
 						<td class="headerteal" ><b>Saldo</b></td>
-						<!-- <td class="headerteal" ><b>Kad Pengenalan (Lama)</b></td> -->
-						<!-- <td class="headerteal" ><b>Cawangan/Zon</b></td> -->
+						<!-- <td class="headerteal" ><b>Kartu Identitas (Lama)</b></td> -->
+						<!-- <td class="headerteal" ><b>Cabang/Zona</b></td> -->
 					</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);
@@ -222,7 +222,7 @@ if ($GetMember->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			if ($refer) $rfr = '&refer=' . $refer;
 			else $rfr = '';
 			for ($i = 1; $i <= $numPage; $i++) {

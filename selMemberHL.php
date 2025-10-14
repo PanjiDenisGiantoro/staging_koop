@@ -86,12 +86,12 @@ print '
 <tr><td	class="Header" colspan="2">Senarai Anggota</b></td></tr>
 tr><td class="Data">Carian melalui 
 	<select name="by" class="Data">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
-else print '<option value="3">No KP Baru</option>';
+if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>';
+else print '<option value="3">No KTP Baru</option>';
 print '</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="Data">
 			<input type="submit" class="but" value="Cari">&nbsp;&nbsp;&nbsp;
@@ -115,9 +115,9 @@ if ($GetMember->RowCount() == 0) {
 		<table border="0" cellpadding="2" cellspacing="1" width="100%" class="Data">
 		<tr>
 		<td class="header" nowrap>&nbsp;</td>
-		<td class="header" width=80>&nbsp;Nombor Anggota</td>
+		<td class="header" width=80>&nbsp;Nomor Anggota</td>
 		<td class="header" >&nbsp;Nama</td>
-		<td class="header" >&nbsp;No KP Baru</td>';
+		<td class="header" >&nbsp;No KTP Baru</td>';
 		print '<td class="header" align="center">&nbsp;Pegangan Wajib</td></tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);
@@ -148,7 +148,7 @@ if ($GetMember->RowCount() == 0) {
 			} else {
 				$numPage = $TotalPage + 1;
 			}
-			print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+			print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 			for ($i = 1; $i <= $numPage; $i++) {
 				print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '">';
 				print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
