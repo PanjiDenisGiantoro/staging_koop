@@ -490,7 +490,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Voucher</td>
+				<td valign="top" align="right">Tanggal Voucher</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_baucer">
@@ -979,7 +979,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  if(act == \'Kemaskini\') {
   
 		  if(e.elements[c].name=="tarikh_baucer" && e.elements[c].value==\'\') {
-			  alert(\'Pilih Tarikh Voucher!\');
+			  alert(\'Pilih Tanggal Voucher!\');
 			  count++;
 			}
 		  }
@@ -1023,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		  if(e.elements[c].name=="tarikh_baucer" && e.elements[c].value==\'\') 
 			{
-			alert(\'Pilih Tarikh Voucher!\');
+			alert(\'Pilih Tanggal Voucher!\');
 			count++;
 			}
 		  }

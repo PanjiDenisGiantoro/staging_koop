@@ -76,10 +76,10 @@ print '
 				</tr>
 	<tr	valign="top" class="Header">
 		<td	align="left" >
-			Carian melalui
+			Cari Berdasarkan
 			<select	name="by" class="Data">';
-if ($by	== 1) print '<option value="1" selected>Nama Syarikat</option>';
-else print '<option	value="1">Nama Syarikat</option>';
+if ($by	== 1) print '<option value="1" selected>Nama Serikat</option>';
+else print '<option	value="1">Nama Serikat</option>';
 
 print '	</select>
 			<input type="text" name="q"	value="" maxlength="50"	size="20" class="Data">
@@ -130,7 +130,7 @@ print '	</table>
 
 if ($GetLoan->RowCount() == 0) {
 	print '		<tr><td	class="Label" align="center" height=50 valign=middle>
-					<b>- Sila masukkan No / Nama Syarikat -</b>
+					<b>- Sila masukkan No / Nama Serikat -</b>
 				</td></tr>';
 } else {
 	if ($GetLoan->RowCount() <> 0) {
@@ -143,7 +143,7 @@ if ($GetLoan->RowCount() == 0) {
 					<tr	class="header">
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap>&nbsp;Nombor Syarikat</td>
-						<td	nowrap>&nbsp;Nama Syarikat</td>
+						<td	nowrap>&nbsp;Nama Serikat</td>
 						<td	nowrap align="center">&nbsp;Alamat Billing</td>
 					</tr>';
 		$amtLoan = 0;

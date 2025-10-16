@@ -151,8 +151,8 @@ print 'Cari Berdasarkan
     <select name="by" class="form-select-sm" onchange="toggleSearchFields(this.value);">';
 if ($by == 2)	print '<option value="2" selected>No Quotation</option>';
 else print '<option value="2">No Quotation</option>';
-if ($by == 3)	print '<option value="3" selected>Nama Syarikat</option>';
-else print '<option value="3">Nama Syarikat</option>';
+if ($by == 3)	print '<option value="3" selected>Nama Serikat</option>';
+else print '<option value="3">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor

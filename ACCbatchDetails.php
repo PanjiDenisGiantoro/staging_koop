@@ -89,7 +89,7 @@ if (get_session("Cookie_groupID") > 0) {
   echo '<div clas="row" style="background-color: #efefef;padding:6px;border-radius: 0.15rem;border: 1px solid #e4e4e4;">';
 
     print '
-    Carian melalui <select name="by" class="form-select-sm">'; 
+    Cari Berdasarkan <select name="by" class="form-select-sm">'; 
     if ($by == 1)	print '<option value="1" selected>Kod Batch</option>'; 	else print '<option value="1">Kod Batch</option>';				
     if ($by == 2)	print '<option value="2" selected>Nama Batch</option>'; 	else print '<option value="2">Nama Batch</option>';				
     print '</select>
@@ -128,7 +128,7 @@ echo '
 if (get_session("Cookie_groupID") > 0) {
     /*
 print '<tr valign="top" class="Header"><td align="left" >
-Carian melalui <select name="by" class="Data">'; 
+Cari Berdasarkan <select name="by" class="Data">'; 
 if ($by == 1)	print '<option value="1" selected>Kod Batch</option>'; 	else print '<option value="1">Kod Batch</option>';				
 if ($by == 2)	print '<option value="2" selected>Nama Batch</option>'; 	else print '<option value="2">Nama Batch</option>';				
 print '</select>

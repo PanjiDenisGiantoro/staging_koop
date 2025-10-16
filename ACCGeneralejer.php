@@ -311,7 +311,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align="center">Nama Batch</td>
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap>Kode Akun</td>
-						<td nowrap>Akaun GL</td>
+						<td nowrap>Akun GL</td>
 						<td nowrap>Catatan</td>	
 						<td nowrap align ="right">Debit (RP)</td>
 						<td nowrap align ="right">Kredit (RP)</td>	

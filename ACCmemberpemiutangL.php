@@ -128,8 +128,8 @@ print '
 			<select	name="by" class="form-select-sm">';
 if ($by    == 1)    print '<option value="1" selected>Nombor Invois</option>';
 else print '<option	value="1">Nombor Invois</option>';
-if ($by    == 2)    print '<option value="2" selected>Nama Syarikat</option>';
-else print '<option	value="2">Nama Syarikat</option>';
+if ($by    == 2)    print '<option value="2" selected>Nama Serikat</option>';
+else print '<option	value="2">Nama Serikat</option>';
 print '	</select>
 			<input type="text" name="q"	value="" maxlength="50"	size="20" class="form-control-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">
@@ -193,7 +193,7 @@ if ($GetLoan->RowCount() == 0) {
 					<tr class="table-primary">
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap><b>Nombor Invois</b></td>
-						<td	nowrap><b>No/Nama Syarikat</b></td>
+						<td	nowrap><b>No/Nama Serikat</b></td>
 						<td	nowrap><b>Alamat Billing</b></td>
 						<td	nowrap align="right"><b>Jumlah Invois (RP)</b></td>
 		';

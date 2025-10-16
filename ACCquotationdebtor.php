@@ -882,7 +882,7 @@ print 	'
 			</tr>
 
 
-			<tr><td nowrap="nowrap">Kerani Kewangan</td><td valign="top"></td><td>' . selectAdmin($disedia, 'disedia') . '</td></tr>
+			<tr><td nowrap="nowrap">Staf Keuangan</td><td valign="top"></td><td>' . selectAdmin($disedia, 'disedia') . '</td></tr>
 			<!--tr><td nowrap="nowrap">Disahkan Oleh</td><td valign="top"></td><td>' . selectAdmin($disahkan, 'disahkan') . '</td></tr-->
 			<tr><td>Bank Bayaran</td><td valign="top"></td><td>' . selectbanks1($kod_bank, 'kod_bank') . '</td></tr>
 			<tr>

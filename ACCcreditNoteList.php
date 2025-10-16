@@ -160,8 +160,8 @@ if ($by == 1)    print '<option value="1" selected>Nama Batch</option>';
 else print '<option value="1">Nama Batch</option>';
 if ($by == 2)    print '<option value="2" selected>Nombor Debit Note</option>';
 else print '<option value="2">Nombor Debit Note</option>';
-if ($by == 3)    print '<option value="3" selected>Nama Syarikat</option>';
-else print '<option value="3">Nama Syarikat</option>';
+if ($by == 3)    print '<option value="3" selected>Nama Serikat</option>';
+else print '<option value="3">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor
@@ -261,7 +261,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap>Nombor Nota Kredit</td>
 						<td nowrap align="center">Nama Batch</td>
 						<td nowrap align="center">Tanggal</td>
-						<td nowrap>Nama Syarikat</td>
+						<td nowrap>Nama Serikat</td>
 						<td nowrap>Nomor Rujukan</td>
 						<td nowrap align="left">Catatan</td>
 						<td nowrap align="right">Jumlah (RP)</td>

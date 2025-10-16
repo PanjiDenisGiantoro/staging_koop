@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if (!isset($strDate))	$strDate = date("d/m/Y");
 $sFileName = "?vw=accountHL2&mn=$mn";
 
@@ -149,7 +149,7 @@ if ($action == 'Kemaskini') {
 							<td colspan="4" height="38px" style="background-color: #d4f1f9;">Maklumat Anggota Hutang Lapuk</td>
 						</tr>
 						<tr>
-							<td width="201">Nombor Anggota</td>
+							<td width="201">Nomor Anggota</td>
 							<td width="5"><strong>:</strong></td>
 							<td width="203"><? echo $userID ?>&nbsp;</td>
 							<td width="81">&nbsp;</td>
@@ -179,7 +179,7 @@ if ($action == 'Kemaskini') {
 							<td colspan="4" height="38px" style="background-color: #d4f1f9;">Maklumat Akaun Hutang Lapuk</td>
 						</tr>
 						<tr>
-							<td>Baki Hutang Semasa</td>
+							<td>Sisa Utang Semasa</td>
 							<td><strong>:</strong></td>
 							<td colspan="2"><input type="text" class="form-controlx form-control-sm" name="BakiHutang" value="<? echo $BakiHutang = $rsaccount->fields(BalanceHL);  ?>" size="15" maxlength="10">&nbsp;</td>
 						</tr>

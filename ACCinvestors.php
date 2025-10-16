@@ -61,7 +61,7 @@ print '
 <div class="mb-3 row m-1">
 <div>Cari Berdasarkan 
 			<select name="by" class="form-select-sm mt-3">'; 
-if ($by == 1)	print '<option value="1" selected>Nama Syarikat</option>'; 	else print '<option value="1">Nama Syarikat</option>';				
+if ($by == 1)	print '<option value="1" selected>Nama Serikat</option>'; 	else print '<option value="1">Nama Serikat</option>';				
 if ($by == 2)	print '<option value="2" selected>Person In Charge</option>'; 	else print '<option value="2">Person In Charge</option>';
 if ($by == 3)	print '<option value="3" selected>No. Business Registration</option>'; 	else print '<option value="3">No. Business Registration</option>';							
 print '		</select>
@@ -97,7 +97,7 @@ print '		</div></div>
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap>&nbsp;<b>Nama Syarikat</b></td>
+						<td nowrap>&nbsp;<b>Nama Serikat</b></td>
 						<td nowrap align="left">&nbsp;<b>Person In Charge</b></td>
 						<td nowrap align="left">&nbsp;<b>Business Registration No</b></td>
 					</tr>';	

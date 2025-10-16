@@ -335,7 +335,7 @@ print'
         <thead>
             <tr>
                 <th nowrap scope="col">Bil.<br><small><i style="font-weight: normal; font-size: 12px;">No.</i></small></th>
-                <th nowrap scope="col">Nama Syarikat<br><small><i style="font-weight: normal; font-size: 12px;">Company Name</i></small></th>
+                <th nowrap scope="col">Nama Serikat<br><small><i style="font-weight: normal; font-size: 12px;">Company Name</i></small></th>
                 <th nowrap scope="col">Debit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Debit (RP)</i></small></th>
                 <th nowrap scope="col">Kredit (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Credit (RP)</i></small></th>
                 <th nowrap scope="col" class="text-end">Baki Akhir (RP)<br><small><i style="font-weight: normal; font-size: 12px;">Ending Balance (RP)</i></small></th>

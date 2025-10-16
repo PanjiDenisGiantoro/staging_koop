@@ -78,8 +78,8 @@ print '
 		Cari Berdasarkan 
 		<select name="by"  class="form-select-sm">';
 if ($by == 1)
-	print '<option value="1" selected>Nama Syarikat</option>';
-else print '<option value="1">Nama Syarikat</option>';
+	print '<option value="1" selected>Nama Serikat</option>';
+else print '<option value="1">Nama Serikat</option>';
 if ($by == 2)	print '<option value="2" selected>Nombor Kod</option>';
 else print '<option value="2">Nombor Kod</option>';
 print '		
@@ -103,7 +103,7 @@ if ($GetMember->RowCount() == 0) {
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-sm table-striped" style="font-size: 9pt;">
                                                                                 <tr class="table-primary">
 						<td class="header" align="center"><b>Bil</b></td>
-						<td class="header" ><b>Nama Syarikat</b></td>
+						<td class="header" ><b>Nama Serikat</b></td>
 						<td class="header" ><b>Kod Syarikat</b></td>
 						<td class="header" ><b>Alamat Billing</b></td>
 						<td class="header" align="right"><b>Amaun Invois (RP)</b></td>

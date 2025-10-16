@@ -70,9 +70,9 @@ print 'div class="table-responsive">
 
 if (get_session("Cookie_groupID") > 0) {
 echo '<div clas="row" style="background-color: #efefef;padding:6px;border-radius: 0.15rem;border: 1px solid #e4e4e4;">
-    Carian melalui <select name="by" class="form-select-sm">'; 
+    Cari Berdasarkan <select name="by" class="form-select-sm">'; 
 if ($by == 1)	print '<option value="1" selected>No Syarikat</option>'; 	else print '<option value="1">No Syarikat</option>';				
-if ($by == 2)	print '<option value="2" selected>Nama Syarikat</option>'; 	else print '<option value="2">Nama Syarikat</option>';				
+if ($by == 2)	print '<option value="2" selected>Nama Serikat</option>'; 	else print '<option value="2">Nama Serikat</option>';				
 print '</select>
 		<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
  		<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp';		
@@ -157,7 +157,7 @@ print '  <tr valign="top" >
 					</tr>
 					<tr class="table-success">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap>&nbsp;No/Nama Syarikat</td>
+						<td nowrap>&nbsp;No/Nama Serikat</td>
 						<td nowrap align="center">&nbsp;Jumlah</td>
 					</tr>';	
 		$totalFee = 0;

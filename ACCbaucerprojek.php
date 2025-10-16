@@ -469,7 +469,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Voucher</td>
+				<td valign="top" align="right">Tanggal Voucher</td>
 				<td valign="top"></td>
 				<td><input class="form-control-sm" name="tarikh_baucer" value="'.$tarikh_baucer.'" type="text" size="20" maxlength="10" /></td>
 			</tr>

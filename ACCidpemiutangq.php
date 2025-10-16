@@ -74,10 +74,10 @@ print '
 				
 		<tr>
 		<td class="Data">
-		Carian melalui 
+		Cari Berdasarkan 
 		<select name="by" class="form-select-xs">'; 
 		if ($by==1)	
-		print '<option value="1" selected>Nama Syarikat</option>';else print '<option value="1">Nama Syarikat</option>';	
+		print '<option value="1" selected>Nama Serikat</option>';else print '<option value="1">Nama Serikat</option>';	
 		if ($by==2)	print '<option value="2" selected>No Kod</option>'; else print '<option value="2">No Kod</option>';				
 		print '		
 		</select>
@@ -100,7 +100,7 @@ if ($GetMember->RowCount() == 0) {
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-sm table-striped" style="font-size: 9pt;">
 					<tr class="table-primary">
 					<td class="header" align="center"><b>Bil</b></td>
-					<td class="header" ><b>Nama Syarikat</b></td>
+					<td class="header" ><b>Nama Serikat</b></td>
 					<td class="header" ><b>Kod Syarikat</b></td>
 					<td class="header" ><b>Alamat Billing</b></td>
 					<td class="header" ><b>Credit Limit</b></td>

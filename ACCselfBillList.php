@@ -141,8 +141,8 @@ if ($by == 1)	print '<option value="1" selected>Nama Batch</option>';
 else print '<option value="1">Nama Batch</option>';
 if ($by == 2)	print '<option value="2" selected>No Quotation</option>';
 else print '<option value="2">No Quotation</option>';
-if ($by == 3)	print '<option value="3" selected>Nama Syarikat</option>';
-else print '<option value="3">Nama Syarikat</option>';
+if ($by == 3)	print '<option value="3" selected>Nama Serikat</option>';
+else print '<option value="3">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor
@@ -218,7 +218,7 @@ if ($GetSB->RowCount() <> 0) {
 						<td nowrap><b>Nombor Self Bill Doc</b></td>
 						<td nowrap align="center"><b>Nama Batch</b></td>
 						<td nowrap align="center"><b>Tarikh</b></td>
-						<td nowrap><b>Nama Syarikat | TIN LHDN</b></td>
+						<td nowrap><b>Nama Serikat | TIN LHDN</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status e-Invois</b></td>
 						<td nowrap align="center"><b>Action</b></td>

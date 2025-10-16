@@ -180,7 +180,7 @@ print' <!--input type="button" class="but" value="Status" onClick="ITRActionButt
 						<td nowrap align="left"><b>Bank</b></td>
 						<td nowrap align="left"><b>Keterangan</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>					
-						<td nowrap align="right"><b>Nama Syarikat</b></td>					
+						<td nowrap align="right"><b>Nama Serikat</b></td>					
 						<td nowrap align="right"><b>Nama Projek</b></td>					
 					</tr>';	
 

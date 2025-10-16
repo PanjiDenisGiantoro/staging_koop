@@ -645,7 +645,7 @@ print '&nbsp;
 </tr>
 
 <tr>
- <td valign="top">Nama Syarikat</td>
+ <td valign="top">Nama Serikat</td>
  <td valign="top"></td>
  <td><input name="name" value="' . $name . '" size="50" maxlength="50"  class="form-controlx" readonly /></td>
  </tr>

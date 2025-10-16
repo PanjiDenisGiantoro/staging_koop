@@ -32,7 +32,7 @@ $doc3 = dlookup("investors", "doc3", "compID=" . tosql($pk, "Text"));
 $strErrMsg = Array();
 
 $a = 1;
-$FormLabel[$a]   	= "Nama Syarikat";
+$FormLabel[$a]   	= "Nama Serikat";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

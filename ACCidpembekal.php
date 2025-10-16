@@ -80,7 +80,7 @@ print '
 
 							<select name="by" class="form-select-sm">'; 
 	if ($by == 1)
-		print '<option value="1" selected>Nama Syarikat</option>'; 	else print '<option value="1">Nama Syarikat</option>';	
+		print '<option value="1" selected>Nama Serikat</option>'; 	else print '<option value="1">Nama Serikat</option>';	
 	if ($by == 2)	
 		print '<option value="2" selected>No. Kod</option>';else print '<option value="2">No. Kod</option>';				
 	
@@ -109,7 +109,7 @@ if ($GetMember->RowCount() == 0) {
 				<table border="0" cellpadding="2" cellspacing="1" width="100%" class="table table-sm table-striped" style="font-size: 9pt;">
 					<tr class="table-primary">
 						<td align="center"><b>Bil</b></td>
-						<td><b>Nama Syarikat</b></td>
+						<td><b>Nama Serikat</b></td>
 						<td align="center"><b>No. Kod</b></td>
 						<td><b>Alamat Billing</b></td>
 						<td align="center"><b>Credit Limit</b></td>

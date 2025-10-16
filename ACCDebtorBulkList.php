@@ -155,8 +155,8 @@ if ($by == 2)    print '<option value="2" selected>Nombor RV</option>';
 else print '<option value="2">Nombor RV</option>';
 if ($by == 3)    print '<option value="3" selected>Nombor Invois</option>';
 else print '<option value="3">Nombor Invois</option>';
-if ($by == 4)    print '<option value="4" selected>Nama Syarikat</option>';
-else print '<option value="4">Nama Syarikat</option>';
+if ($by == 4)    print '<option value="4" selected>Nama Serikat</option>';
+else print '<option value="4">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor
@@ -217,7 +217,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align="left">Nombor Bayaran</td>
 						<td nowrap align="center">Nama Batch</td>
 						<td nowrap align="center">Tanggal</td>
-						<td nowrap align="left">Nama Syarikat</td>						
+						<td nowrap align="left">Nama Serikat</td>						
 						<td nowrap align="left">Nombor Invois</td>
 						<td nowrap align="right">Amaun Invois (RP)</td>
 						<td nowrap align="right">Jumlah Bayaran (RP)</td>

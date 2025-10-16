@@ -699,7 +699,7 @@ print '
 </tr>
 
 <tr>
- <td valign="top">Nama Syarikat</td>
+ <td valign="top">Nama Serikat</td>
  <td valign="top"></td>
  <td><input name="nama"  value="' . $nama . '" size="50" maxlength="50"  class="form-control-sm" readonly /></td>
  </tr>

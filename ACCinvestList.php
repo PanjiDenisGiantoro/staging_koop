@@ -123,7 +123,7 @@ print '		</select>
 if ($by == 1)	print '<option value="1" selected>Nama Batch</option>'; else print '<option value="1">Nama Batch</option>';		
 
 if ($by == 2)	print '<option value="2" selected>No Invoice</option>'; 	else print '<option value="2">No Invoice</option>';			
-if ($by == 3)	print '<option value="3" selected>Nama Syarikat</option>'; 	else print '<option value="3">Nama Syarikat</option>';				
+if ($by == 3)	print '<option value="3" selected>Nama Serikat</option>'; 	else print '<option value="3">Nama Serikat</option>';				
 				
 print '		</select>
 				<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -190,7 +190,7 @@ print'
 						<td nowrap>&nbsp;</td>
 						<td nowrap><b>No. Invois</b></td>
 						<td nowrap align="center"><b>Tarikh</b></td>
-						<td nowrap><b>Nama Syarikat</b></td>
+						<td nowrap><b>Nama Serikat</b></td>
 						<td nowrap><b>Nama Projek</b></td>
 						<td nowrap align="center"><b>Catatan</b></td>
 						<td nowrap align="right"><b>Jumlah Invois (RP)</b></td>
