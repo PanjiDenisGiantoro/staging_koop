@@ -8,7 +8,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -553,7 +553,7 @@ if (get_session("Cookie_groupID") == 0) {
 		</tr>
 
 		<tr>
-			<td class="align-middle">* Kad Pengenalan</td>
+			<td class="align-middle">* Kartu Identitas</td>
 			<td>
 				<div class="col-md-8 col-form-label"><input type="button" class="btn btn-outline-primary" name="GetPicture" value="Muat Naik"  onclick= "Javascript:(window.location.href=\'?vw=uploadwinic&mn=3&userID=' . $pk . '\')"></div>
 			</td>';
@@ -639,7 +639,7 @@ if (get_session("Cookie_groupID") == 0) {
 		</tr>
 
 		<tr>
-			<td class="align-middle">* Kad Pengenalan</td>
+			<td class="align-middle">* Kartu Identitas</td>
 			<td>
 				<div class="col-md-8 col-form-label"><input type="button" class="btn btn-outline-primary" name="GetPicture" value="Muat Naik"  onclick= "Javascript:(window.location.href=\'?vw=uploadwinic&mn=906' . $strpk . '&userID=' . $userID . '\')"></div>
 			</td>';

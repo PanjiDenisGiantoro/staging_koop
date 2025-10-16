@@ -109,7 +109,7 @@ Date 		: 	26/6/2006
 				 *********************************************************************************/
 				//include("common.php");	
 				include("koperasiQry.php");
-				date_default_timezone_set("Asia/Kuala_Lumpur");
+				date_default_timezone_set("Asia/Jakarta");
 
 				//check this loan had to be guarantor
 				$loList = array();
@@ -1398,7 +1398,7 @@ Date 		: 	26/6/2006
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td>Tarikh Keanggotaan</td>
+							<td>Tanggal Keanggotaan</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . todate("d/m/y", dlookup("userdetails", "approvedDate", "userID=" . tosql($userID, "Text"))) . '</td>
 						</tr>
@@ -1412,7 +1412,7 @@ Date 		: 	26/6/2006
 							<td colspan="3">&nbsp;</td>
 						</tr>
 						<tr>
-							<td>Nombor Rujukan&nbsp;</td>
+							<td>Nomor Rujukan&nbsp;</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . dlookup("loans", "loanNo", "loanID=" . tosql($pk, "Text")) . '</td>
 						</tr>
@@ -1426,7 +1426,7 @@ Date 		: 	26/6/2006
 				<td align="left" valign="top" width="40%">
 					<table cellpadding="0" cellspacing="0">
 						<tr>
-							<td>Nombor Anggota</td>
+							<td>Nomor Anggota</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . $memberNo . '</td>
 						</tr>
@@ -1454,7 +1454,7 @@ Date 		: 	26/6/2006
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td>Tempoh (Bulan)&nbsp;</td>
+							<td>Jangka Waktu (Bulan)&nbsp;</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . $loanPeriod . '</td>
 						</tr>

@@ -9,7 +9,7 @@ include("header.php");
 
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -27,7 +27,7 @@ $title     		= "Rujukan pembiayaan :" . $ruj_no . " (" . $loanName . ")";
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "penjaminID1";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -47,7 +47,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "penjaminID2";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -67,7 +67,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "penjaminID3";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -299,10 +299,10 @@ print '
 
 
 	function resetP1() {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

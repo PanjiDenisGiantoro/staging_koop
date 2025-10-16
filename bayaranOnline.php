@@ -7,7 +7,7 @@
 include ("header.php"); 
 include("koperasiQry.php"); 
 include ("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -73,7 +73,7 @@ print '
 ';
 
 $a = 0;
-$FormLabel[$a]    = "* Nombor Anggota";
+$FormLabel[$a]    = "* Nomor Anggota";
 $FormElement[$a]  = "userID";
 $FormType[$a]     = "hiddentext";
 $FormData[$a]     = "";
@@ -93,7 +93,7 @@ $FormSize[$a]     = "35";
 $FormLength[$a]   = "50";
 
 $a++;
-$FormLabel[$a]    = "Kad Pengenalan";
+$FormLabel[$a]    = "Kartu Identitas";
 $FormElement[$a]  = "newIC";
 $FormType[$a]     = "hiddentext";
 $FormData[$a]     = "";
@@ -248,7 +248,7 @@ if ($SubmitForm <> "") {
     <tr>
     <td colspan="2" align="center">
     <div>&nbsp;</div>
-    <input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Hantar">
+    <input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Kirim">
     <div>&nbsp;</div>
     </td>
     </tr>

@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -676,8 +676,8 @@ print
     '<tr>
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="2">
-			<tr><td>Nombor Baucer</td><td valign="top"></td><td><input name="no_baucer" value="' . $no_baucer . '" type="text" size="20" maxlength="50" class="form-control-sm" readonly/></td></tr>
-			<tr><td>* Tarikh</td><td valign="top"></td>
+			<tr><td>Nomor Voucher</td><td valign="top"></td><td><input name="no_baucer" value="' . $no_baucer . '" type="text" size="20" maxlength="50" class="form-control-sm" readonly/></td></tr>
+			<tr><td>* Tanggal</td><td valign="top"></td>
 			<td>
 			<div class="input-group" id="tarikh_baucer">
 			<input type="text" name="tarikh_baucer" id="tarikh_baucer_input" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -717,7 +717,7 @@ print '
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td valign="top">Bayar Kepada</td></tr>
 			<tr>
-				<td>* Nombor Anggota</td><td valign="top"></td>
+				<td>* Nomor Anggota</td><td valign="top"></td>
 				<td><input name="no_anggota" value="' . $no_anggota . '" type="text" size="20" maxlength="50"  class="form-control-sm" readonly/>&nbsp;';
 // if ($action == "new" && $jenis == 1) {
 //     print '<input type="button" class="btn btn-sm btn-info waves-light waves-effect" value="Pilih" onclick="window.open(\'selToMember.php?refer=f\',\'sel\',\'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">';
@@ -740,7 +740,7 @@ print '</tr>
 		    </td></tr>
 			<tr><td valign="top">Alamat</td><td valign="top"></td><td><textarea name="alamat" cols="50" rows="4" class="form-control-sm" readonly>' . $alamat . '</textarea></td></tr>
 			<tr>
-			  <td valign="top">Nombor Bond / Amaun (RP)</td>
+			  <td valign="top">Nomor Obligasi / Jumlah (RP)</td>
 			  <td valign="top"></td>
 			  <td><input name="no_bond"  value="' . $no_bond . '" size="10" maxlength="50"  class="form-control-sm" readonly />
 		      <input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-control-sm" readonly="readonly" /></td>
@@ -752,7 +752,7 @@ print '</tr>
 		  </tr>
 
 		<tr>
-				<td valign="top" align="left">Master Amaun (RP)</td><td valign="top"></td>
+				<td valign="top" align="left">Master Jumlah (Rp)</td><td valign="top"></td>
 				<td><input class="form-control-sm" id="master" value="' . $masterAmt . '" type="text" size="20" maxlength="10"/ readonly></td>
 			</tr>
 		  
@@ -853,7 +853,7 @@ print
 				<td nowrap="nowrap"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>* Perkara</b></td>
 				<td nowrap="nowrap"><b>Kod Master Akaun</b></td>
-				<td nowrap="nowrap"><b>Kod Akaun</b></td>
+				<td nowrap="nowrap"><b>Kode Akun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap" align="right"><b>* Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>

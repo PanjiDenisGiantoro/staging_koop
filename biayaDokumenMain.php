@@ -75,7 +75,7 @@ print '</td>
 		</tr>
 
 		<tr>
-			<td class="align-middle">Kad Pengenalan</td>
+			<td class="align-middle">Kartu Identitas</td>
 			<td class="align-middle">';
 
 if ($picic) {
@@ -133,7 +133,7 @@ print '</td>
 						<tr>
 							<td valign="0">1.</td>
 							<td>&nbsp;</td>
-							<td>Salinan Kad Pengenalan (Depan & Belakang)</td>
+							<td>Salinan Kartu Identitas (Depan & Belakang)</td>
 						</tr>
 						<tr>
 							<td valign="0">2.</td>
