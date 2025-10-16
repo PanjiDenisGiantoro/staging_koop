@@ -21,7 +21,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=ACCquotationList&mn=' . $mn . '">SENARAI</a><b>' . '&nbsp;>&nbsp;SEBUT HARGA</b>';
+$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=ACCquotationList&mn=' . $mn . '">SENARAI</a><b>' . '&nbsp;>&nbsp;PENAWARAN HARGA</b>';
 
 if (!isset($mm))	$mm = date("m");
 if (!isset($yy))	$yy = date("Y");
@@ -137,7 +137,7 @@ if ($perkara2) {
 	else {
 		$rs = &$conn->Execute($sSQL);
 
-		$strActivity = $_POST['Submit'] . 'Kemaskini Sebut Harga - ' . $quoteNo;
+		$strActivity = $_POST['Submit'] . 'Kemaskini Penawaran Harga - ' . $quoteNo;
 		activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 
 		print '<script>
@@ -157,7 +157,7 @@ if ($action == "Hapus") {
 			if ($display) print $sSQL . '<br />';
 			else $rs = &$conn->Execute($sSQL);
 
-			$strActivity = $_POST['Submit'] . 'Hapus Kandungan Sebut Harga - ' . $docNo;
+			$strActivity = $_POST['Submit'] . 'Hapus Kandungan Penawaran Harga - ' . $docNo;
 			activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 		}
 	}
@@ -223,7 +223,7 @@ if ($action == "Hapus") {
 	$rs = &$conn->Execute($sSQL2);
 
 	// $sqlAct = "INSERT INTO activitylog (`report`, `sqlType`, `sql`, `byID`, `activityDate`, `activityBy`)".
-	// 		" VALUES ('Mengemaskini sebut harga $quoteNo', 'UPDATE', '" . str_replace( "'", "", $sSQL ) . "', '".get_session('Cookie_userID')."','".$updatedDate."', '".$updatedBy."')";
+	// 		" VALUES ('Mengemaskini penawaran harga $quoteNo', 'UPDATE', '" . str_replace( "'", "", $sSQL ) . "', '".get_session('Cookie_userID')."','".$updatedDate."', '".$updatedBy."')";
 	// $rs = &$conn->Execute($sqlAct);
 
 	////////////////////////////////////////////////////////////////////////////////////////////
@@ -443,7 +443,7 @@ elseif ($action == "Simpan" || $simpan) {
 	$rs = &$conn->Execute($sSQL1);
 
 	// $sqlAct = "INSERT INTO activitylog (`report`, `sqlType`, `sql`, `byID`, `activityDate`, `activityBy`)".
-	// 		" VALUES ('Membuat sebut harga $quoteNo', 'UPDATE', '" . str_replace( "'", "", $sSQL ) . "', '".get_session('Cookie_userID')."','".$updatedDate."', '".$updatedBy."')";
+	// 		" VALUES ('Membuat penawaran harga $quoteNo', 'UPDATE', '" . str_replace( "'", "", $sSQL ) . "', '".get_session('Cookie_userID')."','".$updatedDate."', '".$updatedBy."')";
 	// $rs = &$conn->Execute($sqlAct);
 
 	$getMax = "SELECT MAX(CAST(right(quoteNo,6) AS SIGNED INTEGER )) AS no FROM cb_quotation";

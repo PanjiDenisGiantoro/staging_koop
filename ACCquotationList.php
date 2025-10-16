@@ -33,7 +33,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 
 $sFileName = "?vw=ACCquotationList&mn=$mn"; //file name
 $sFileRef  = "?vw=ACCquotationdebtor&mn=$mn"; // file ni pergi mane
-$title     =  "Sebut Harga"; //Title 
+$title     =  "Penawaran Harga"; //Title 
 
 $IDName = get_session("Cookie_userName");
 
@@ -54,7 +54,7 @@ if ($action == "delete") {
 		$sSQL = "DELETE FROM cb_purchaseinf WHERE " . $sWhere;
 		$rs = &$conn->Execute($sSQL);
 
-		$strActivity = $_POST['Submit'] . ' Sebut Harga Dihapuskan - ' . $docNo;
+		$strActivity = $_POST['Submit'] . ' Penawaran Harga Dihapuskan - ' . $docNo;
 		activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 	}
 }
@@ -146,8 +146,8 @@ if ($by == 1)	print '<option value="1" selected>Nama Batch</option>';
 else print '<option value="1">Nama Batch</option>';
 if ($by == 2)	print '<option value="2" selected>No Quotation</option>';
 else print '<option value="2">No Quotation</option>';
-if ($by == 3)	print '<option value="3" selected>Nama Syarikat</option>';
-else print '<option value="3">Nama Syarikat</option>';
+if ($by == 3)	print '<option value="3" selected>Nama Serikat</option>';
+else print '<option value="3">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor
@@ -220,11 +220,11 @@ if ($GetQuote->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap align="center">&nbsp;</td>
-						<td nowrap>Nombor Sebut Harga</td>
+						<td nowrap>Nombor Penawaran Harga</td>
 						<td nowrap align="center">Nama Batch</td>
 						<td nowrap align="center">Tanggal</td>
-						<td nowrap>Nama Syarikat</td>
-						<td nowrap align="right">Jumlah Sebut Harga (RP)</td>
+						<td nowrap>Nama Serikat</td>
+						<td nowrap align="right">Jumlah Penawaran Harga (RP)</td>
 						<td nowrap align="center">Tindakan</td>
 					</tr>';
 	$DRTotal = 0;

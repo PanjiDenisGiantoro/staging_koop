@@ -217,7 +217,7 @@ print'
         <tr><td>EMEL: '.$email.'</td></tr>
         </table>
     <table class="resit-statement">
-        <tr class="tr-space"><td>Sebut Harga</td></tr>
+        <tr class="tr-space"><td>Penawaran Harga</td></tr>
         <tr ><td><b>'.$quoteNo.'</b></td></tr>
     </table>
     <table class="stylish-date">
