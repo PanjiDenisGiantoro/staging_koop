@@ -313,7 +313,7 @@ if ($page <> 'list') {
 
 	$strTemp .=	$strErrMsg
 		. '<tr>'
-		. '<td align="right" width="150"><b>Carian melalui</b></td>'
+		. '<td align="right" width="150"><b>Cari Berdasarkan</b></td>'
 		. '<td>'
 		. SelectForm('by', $by, $strTypeNameList, $strTypeValueList, '') . '&nbsp;'
 		. '<input name="keyword" type="text" value="' . $keyword . '" maxlength="50" size="30">&nbsp;'

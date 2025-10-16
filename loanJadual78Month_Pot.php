@@ -338,7 +338,7 @@ if ($id <> "") {
         print '
 	<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 		<tr class="header">
-			<td nowrap><b>&nbsp;Tarikh</td>
+			<td nowrap><b>&nbsp;Tanggal</td>
 			<td nowrap><b>&nbsp;No Pembayaran</td>
 			<td nowrap align="right"><b>Pokok</td>
 			<td nowrap align="right"><b>Untung</td>

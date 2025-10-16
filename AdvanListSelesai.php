@@ -231,7 +231,7 @@ print '
 print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">	
-			Cawangan/Kawasan/Zon
+			Cabang/Wilayah/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -';
 			for ($i = 0; $i < count($deptList); $i++) {
@@ -286,7 +286,7 @@ print '		</select>&nbsp;&nbsp;
 						<td nowrap><b>No. Rujukan/Pembiayaan</b></td>
 						<td nowrap><b>No./Nama Anggota</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>
-						<td nowrap align="center"><b>Tarikh Voucher</b></td>
+						<td nowrap align="center"><b>Tanggal Voucher</b></td>
 						<!--td nowrap align="center"><b>Jadual Bayar Balik</b></td-->
 						<td nowrap align="center"><b>No. Bond</b></td>
 					</tr>';	

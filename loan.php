@@ -687,7 +687,7 @@ $entries = array(
 				 <td colspan="13" class="Data">
 					 <div class="alert alert-secondary mt-2">
 						 <ul>
-							 <li>Nombor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
+							 <li>Nomor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
 							 <li>Kartu Identitas : ' . dlookup("userdetails", "newIC",	"userID=" .	tosql($GetLoan->fields(userID),	"Text")) . '</li>
 							 <li>Rate : ' . $GetLoan->fields(kadar_u) . ' %</li>
 							 <li>DSR : ' . number_format($hadPeratus, 2) . ' %</li>

@@ -155,7 +155,7 @@ if ($id <> "") {
 	<tr><td>
 	<table width="100%">
 		<tr>
-			<td class="textFont" width="150">Nombor Rujukan</td>
+			<td class="textFont" width="150">Nomor Rujukan</td>
 			<td class="Label">:&nbsp;' . $loanNo . ':&nbsp;' . $id . '</td>
 		</tr>
 		<tr>
@@ -202,7 +202,7 @@ if ($id <> "") {
 
 		print '<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 		<tr class="header">
-			<td nowrap>&nbsp;Tarikh</td>
+			<td nowrap>&nbsp;Tanggal</td>
 			<td nowrap>&nbsp;No Pembayaran</td>
 			<td nowrap align="center" width="100">&nbsp;Pokok</td>
 			<td nowrap align="center" width="100">&nbsp;Untung</td>

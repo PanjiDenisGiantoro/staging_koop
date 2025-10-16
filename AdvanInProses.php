@@ -83,7 +83,7 @@ print '
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">                             
 					<tr class="table-primary">
 						<td nowrap height="20"></td>
-						<td nowrap><b>Nombor Rujukan Pembiayaan</b></td>
+						<td nowrap><b>Nomor Rujukan Pembiayaan</b></td>
 						<td nowrap align="right"><b>Jumlah Pinjaman (RP)</b></td>					
 						<td nowrap align="center"><b>Jangka Waktu (Bulan)</b></td>
 						<td nowrap align="center"><b>Status</b></td>									

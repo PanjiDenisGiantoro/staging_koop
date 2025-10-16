@@ -323,8 +323,8 @@ if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option	value="2">Nama Anggota</option>';
-if ($by	== 3)	print '<option value="3" selected>Nombor Rujukan</option>';
-else print '<option	value="3">Nombor Rujukan</option>';
+if ($by	== 3)	print '<option value="3" selected>Nomor Rujukan</option>';
+else print '<option	value="3">Nomor Rujukan</option>';
 
 print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -345,7 +345,7 @@ echo '
 echo ' 
     <tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">'; 
 	if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';		else print '<option	value="1">Nomor Anggota</option>';
 	if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';	else print '<option	value="2">Nama Anggota</option>';
@@ -391,11 +391,11 @@ if ($GetLoan->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap><b>Nombor Rujukan/Pembiayaan</b></td>
-						<td nowrap><b>Nombor/Nama Anggota</b></td>
+						<td nowrap><b>Nomor Rujukan/Pembiayaan</b></td>
+						<td nowrap><b>Nomor/Nama Anggota</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>
 						<td nowrap align="center"><b>Status Barang</b></td>
-						<td nowrap align="center"><b>Tarikh Voucher</b></td>
+						<td nowrap align="center"><b>Tanggal Voucher</b></td>
 						<!--td nowrap align="center"><b>Jadual Bayar Balik</b></td-->
 						<td nowrap align="center"><b>Nombor Bond</b></td>
 					</tr>';

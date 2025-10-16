@@ -94,7 +94,7 @@ if ($GetLoan->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">                             
 					<tr class="table-primary">
 						<td nowrap height="20"></td>
-						<td nowrap>Nombor Rujukan Pembiayaan</td>
+						<td nowrap>Nomor Rujukan Pembiayaan</td>
 						<td nowrap align="right">Jumlah Pinjaman (RP)</td>					
 						<td nowrap align="center">Jangka Waktu (Bulan)</td>
 						<td nowrap align="center">Status</td>									

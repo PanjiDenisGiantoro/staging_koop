@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 // Validate ID
 $ID = isset($_GET['ID']) ? trim($_GET['ID']) : '';

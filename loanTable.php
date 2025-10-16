@@ -504,8 +504,8 @@ $entries = array(
 	else print '<option	value="1">Nomor Anggota</option>';
 	if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 	else print '<option	value="2">Nama Anggota</option>';
-	if ($by	== 3)	print '<option value="3" selected>Nombor Rujukan</option>';
-	else print '<option	value="3">Nombor Rujukan</option>';
+	if ($by	== 3)	print '<option value="3" selected>Nomor Rujukan</option>';
+	else print '<option	value="3">Nomor Rujukan</option>';
 
 	print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -618,7 +618,7 @@ $TotalPage =  ($TotalRec / $pg);
 		else print '<option value="500">500</option>';
 		if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 		else print '<option value="1000">1000</option>';
-		print '				</select> setiap mukasurat.
+		print '				</select> setiap halaman..
 						</td>
 					</tr>
 				</table>
@@ -634,7 +634,7 @@ $TotalPage =  ($TotalRec / $pg);
 						<td nowrap align="right"><b>Jumlah Permohonan (RP)</b></td>
 						<td nowrap align="right"><b>Bayaran Bulanan (RP)</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>						
-						<td nowrap align="center"><b>Tarikh Voucher</b></td>
+						<td nowrap align="center"><b>Tanggal Voucher</b></td>
 						<td nowrap align="center"><b>Status PGB</b></td>
 						<td nowrap colspan="3" align="center"><b>&nbsp;</b></td>
 					</tr>';
@@ -744,7 +744,7 @@ $TotalPage =  ($TotalRec / $pg);
                     <td colspan="11" class="Data">
                         <div class="alert alert-secondary mt-2">
                             <ul>
-                                <li>Nombor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
+                                <li>Nomor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
                                 <li>Rate : ' . $GetLoan->fields(kadar_u) . ' %</li>
                                 <li>Tempoh : ' . $GetLoan->fields(loanPeriod) . ' Bulan</li>
                                 <li>Nombor Bond : ' . $bond . '</li>

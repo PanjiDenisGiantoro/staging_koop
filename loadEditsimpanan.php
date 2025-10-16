@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $id = isset($_GET['ID']) ? trim($_GET['ID']) : ''; // ID dari parameter URL
 if ($id == '') {

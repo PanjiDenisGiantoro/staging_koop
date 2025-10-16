@@ -86,7 +86,7 @@ $TotalPage =  ($TotalRec / $pg);
 				<td>
 					<table cellpadding="0" cellspacing="6">
 						<tr>
-							<td align="right" width="150"><b>Carian melalui</b></td>
+							<td align="right" width="150"><b>Cari Berdasarkan</b></td>
 							<td>
 								<select name="by">
 									<?

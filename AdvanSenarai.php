@@ -207,7 +207,7 @@ print '<div class="table-responsive">
 	print '	</select>
 			<input type="text" name="q"	value="" maxlength="50" size="20" class="form-control-sm">
 			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;
-			Cawangan/Kawasan/Zon
+			Cabang/Wilayah/Zona
 			<select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option	value="">- Semua -';
 			for	($i	= 0; $i	< count($deptList);	$i++) {

@@ -134,7 +134,7 @@ if ($page <> 'list') {
 	$GetData3 = $conn->Execute($sSQL3);
 
 
-	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tarikh Voucher Dikeluarkan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tanggal Voucher Dikeluarkan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
 
 	if ($GetData->RowCount() <> 0) {
 		$NoBond = $GetData->fields('rnoBond');
@@ -366,7 +366,7 @@ if ($page <> 'list') {
 
 	$strTemp .=	$strErrMsg
 		. '<tr>'
-		. '<td align="right" width="150"><b>Carian melalui</b></td>'
+		. '<td align="right" width="150"><b>Cari Berdasarkan</b></td>'
 		. '<td>'
 		. SelectForm('by', $by, $strTypeNameList, $strTypeValueList, '') . '&nbsp;'
 		. '<input name="keyword" type="text" value="' . $keyword . '" maxlength="50" size="30">&nbsp;'

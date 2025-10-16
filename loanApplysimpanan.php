@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $UserID         = isset($_POST['UserID']) ? trim($_POST['UserID']) : '';

@@ -320,7 +320,7 @@ print '
 	</tr>
     <tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">';
 if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option	value="1">Nomor Anggota</option>';
@@ -396,7 +396,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap>&nbsp;No Rujukan/Pembiayaan</td>
 						<td nowrap>&nbsp;No/Nama Anggota</td>
 						<td nowrap>&nbsp;Surat Tawaran</td>
-						<td nowrap align="center">&nbsp;Tarikh Voucher</td>
+						<td nowrap align="center">&nbsp;Tanggal Voucher</td>
 						<!--td nowrap align="center">&nbsp;Jadual Bayar Balik</td-->
 						<td nowrap>&nbsp;Nombor bond</td>
 					</tr>';

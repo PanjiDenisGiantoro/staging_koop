@@ -317,8 +317,8 @@ if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option	value="2">Nama Anggota</option>';
-if ($by	== 3)	print '<option value="3" selected>Nombor Rujukan</option>';
-else print '<option	value="3">Nombor Rujukan</option>';
+if ($by	== 3)	print '<option value="3" selected>Nomor Rujukan</option>';
+else print '<option	value="3">Nomor Rujukan</option>';
 
 print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -339,7 +339,7 @@ echo '
 	   	<td align="left" >';
 /*
 echo ' 
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">'; 
 	if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';		else print '<option	value="1">Nomor Anggota</option>';
 	if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';	else print '<option	value="2">Nama Anggota</option>';
@@ -387,7 +387,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap align="right">Jumlah Permohonan (RP)</td>
 						<td nowrap align="right">Bayaran Bulanan (RP)</td>
 						<td nowrap>Surat Tawaran</td>						
-						<td nowrap align="center">Tarikh Voucher</td>
+						<td nowrap align="center">Tanggal Voucher</td>
 						<td nowrap align="center">Status PGB</td>
 						<td nowrap colspan="3" align="center">&nbsp;</td>
 					</tr>';
@@ -473,7 +473,7 @@ if ($GetLoan->RowCount() <> 0) {
                     <td colspan="11" class="Data">
                         <div class="alert alert-secondary mt-2">
                             <ul>
-                                <li>Nombor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
+                                <li>Nomor Rujukan : ' . $GetLoan->fields(loanNo) . '</li>
                                 <li>Rate : ' . $GetLoan->fields(kadar_u) . ' %</li>
                                 <li>Tempoh : ' . $GetLoan->fields(loanPeriod) . ' Bulan</li>
                                 <li>Nombor Bond : ' . $bond . '</li>

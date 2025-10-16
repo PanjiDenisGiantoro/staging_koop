@@ -251,10 +251,10 @@ if ($GetLoan->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap><b>Nombor Rujukan/Pembiayaan</b></td>
-						<td nowrap><b>Nombor/Nama Anggota</b></td>
+						<td nowrap><b>Nomor Rujukan/Pembiayaan</b></td>
+						<td nowrap><b>Nomor/Nama Anggota</b></td>
 						<td nowrap><b>Surat Tawaran</b></td>
-						<td nowrap align="center"><b>Tarikh Voucher</b></td>
+						<td nowrap align="center"><b>Tanggal Voucher</b></td>
 						<!--td nowrap align="center"><b>Jadual Bayar Balik</b></td-->
 						<td nowrap align="center"><b>Nombor Bond</b></td>
 					</tr>';

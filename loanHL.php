@@ -162,7 +162,7 @@ print '
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 <tr><td><b class="maroonText">'	. strtoupper($title) . '</b></td></tr>
 <tr	valign="top" class="Header"><td	align="left" >
-Carian melalui<select name="by" class="Data">';
+Cari Berdasarkan<select name="by" class="Data">';
 if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option	value="1">Nomor Anggota</option>';
 if ($by	== 2)	print '<option value="2" selected>Nama Anggota</option>';

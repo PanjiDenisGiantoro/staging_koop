@@ -253,7 +253,7 @@ while (!$rsLoan->EOF) {
 		<td>:&nbsp;<b>' . dlookup("userdetails", "newIC", "userID=" . tosql($id, "Text")) . '</b></td>
 	</tr>
 	<tr>
-		<td>Cawangan/Kawasan/Zon</td>
+		<td>Cabang/Wilayah/Zona</td>
 		<td>:&nbsp;<b>' . dlookup("general", "name", "ID=" . tosql($jabatan, "Text")) . '</b></td>
 	</tr>
 	<tr><td colspan="2"><hr class=1 px;></td></tr>
