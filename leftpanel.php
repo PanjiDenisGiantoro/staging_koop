@@ -97,7 +97,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             echo '<li>';
             TitleBarBlue("Laporan", 'mdi mdi-file');
             echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
-            MenuLink("rAllFeesShare.php", "Keseluruhan Wajib & Syer", 901, @$_REQUEST['vw']);
+            MenuLink("rAllFeesShare.php", "Keseluruhan Wajib & Syer", 902, @$_REQUEST['vw']);
             MenuLink("reportsimpanan.php", "Simpanan", 902, @$_REQUEST['vw']);
             MenuLink("reports.php?cat=B", "Transaksi", 902, @$_REQUEST['vw']);
             echo '</ul></li>';
@@ -180,7 +180,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu904 . '">';
         TitleBarBlue("Informasi", 'mdi mdi-cash-usd');
         echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="true">';
-        MenuLink("loan.php", "Senarai Mohon", 904, @$_REQUEST['vw']);
+        MenuLink("loan.php", "Daftar Pengajuan", 904, @$_REQUEST['vw']);
         MenuLink("loanTable.php", "Senarai (Diluluskan)", 904, @$_REQUEST['vw']);
         MenuLink("loanTable.php", "Senarai (Selesai)", 904, @$_REQUEST['vw']);
             // admin.pembiayaan.infoPembiayaan.advancePayment
@@ -204,9 +204,9 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu944 . '">';
         TitleBarBlue("Transaksi", 'mdi mdi-cash-usd');
         echo '<ul class="sub-menu ' . $mn944 . '" aria-expanded="true">';
-        MenuLink("komoditi_add.php", "Belian Sijil Komoditi", 904, @$_REQUEST['vw']);
-        MenuLink("journalsList.php", "Pengeluaran(Baucer)", 904, @$_REQUEST['vw']);
-        MenuLink("resit.php?action=new&jenis=2", "Terimaan(Resit)", 904, @$_REQUEST['vw']);
+        MenuLink("komoditi_add.php", "Belian Sijil Komoditi", 944, @$_REQUEST['vw']);
+        MenuLink("journalsList.php", "Pengeluaran(Baucer)", 944, @$_REQUEST['vw']);
+        MenuLink("resit.php?action=new&jenis=2", "Terimaan(Resit)", 944, @$_REQUEST['vw']);
         // MenuLink("blank.php", "Jurnal Pindahan", 904, @$_REQUEST['vw']);
         echo '</ul></li>';
         // admin.pembiayaan.laporan
