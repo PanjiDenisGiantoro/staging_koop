@@ -453,7 +453,7 @@ print
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td>No. Jurnal</td><td valign="top"></td><td><input name="no_jurnal" value="'.$no_jurnal.'" type="text" size="20" maxlength="50" class="form-controlx" readonly/></td></tr>
-			<tr><td>* Tarikh</td><td valign="top"></td>
+			<tr><td>* Tanggal</td><td valign="top"></td>
 			<td>
 			<div class="input-group" id="tarikh_jurnal">
 			<input type="text" name="tarikh_jurnal" id="tarikh_jurnal_input" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -672,7 +672,7 @@ print 		'<tr class="table-secondary">
 
 			print'
 			<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Baki (RP)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Saldo (RP)</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 				<td class="Data" align="right"><font class="'.$colorPen.'"><b>'.number_format($baki,2).'&nbsp;</b></font></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
@@ -682,7 +682,7 @@ print 		'<tr class="table-secondary">
 				$colorPen = "redText";
 			print'
 			<tr class="table-secondary">
-				<td class="Data" colspan="4" align="right"><b>Baki (RP)</b></td>
+				<td class="Data" colspan="4" align="right"><b>Saldo (RP)</b></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>
 				<td class="Data" align="right"><font class="'.$colorPen.'"><b>'.number_format($baki,2).'&nbsp;</b></font></td>
 				<td class="Data" align="right"><b>&nbsp;</b></td>

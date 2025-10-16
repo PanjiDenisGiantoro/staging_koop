@@ -153,8 +153,8 @@ print '     </select>
                 <select name="by" class="form-select-sm">';
 if ($by == 1)   print '<option value="1" selected>Nomor Anggota</option>';
 else print '<option value="1">Nomor Anggota</option>';
-if ($by == 2)   print '<option value="2" selected>Nombor Jurnal</option>';
-else print '<option value="2">Nombor Jurnal</option>';
+if ($by == 2)   print '<option value="2" selected>Nomor Jurnal</option>';
+else print '<option value="2">Nomor Jurnal</option>';
 if ($by == 3)   print '<option value="3" selected>Keterangan</option>';
 else print '<option value="3">Keterangan</option>';
 
@@ -226,9 +226,9 @@ if ($GetJournals->RowCount() <> 0) {
                 <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
                     <tr class="table-primary">
                         <td nowrap>&nbsp;</td>
-                        <td nowrap>Nombor Jurnal</td>
-                        <td nowrap align="center">Tarikh</td>
-                        <td nowrap>Nombor/Nama Anggota</td>
+                        <td nowrap>Nomor Jurnal</td>
+                        <td nowrap align="center">Tanggal</td>
+                        <td nowrap>Nomor/Nama Anggota</td>
                         <td nowrap>Keterangan</td>
                         <td nowrap align="right">Debit (RP)</td>
                         <td nowrap align="right">Kredit (RP)</td>
