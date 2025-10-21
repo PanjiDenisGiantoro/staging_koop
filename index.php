@@ -52,21 +52,22 @@ print '
 
                     <!-- LOGO -->
                     <div class="navbar-brand-box" style="background-color: #2b3a4a;">
+                    <!-- <div class="navbar-brand-box" style="background-color: #181818ff;"> -->
                         <a href="index.php" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="assets/images/logo-sm-dark.png" alt="" height="30">
+                                <img src="assets/images/logo-text-white-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo-dark.png" alt="" height="45">
+                                <img src="assets/images/logo-text-white-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                         </a>
 
                         <a href="index.php" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="assets/images/logo-sm-light.png" alt="" height="22">
+                                <img src="assets/images/logo-text-black-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo-light.png" alt="" height="24">
+                                <img src="assets/images/logo-text-black-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                         </a>
                     </div>
@@ -122,6 +123,7 @@ print '
 
     <!-- ========== Left Sidebar Start ========== -->
     <div class="vertical-menu" style="background-color: #2b3a4a;">
+    <!-- <div class="vertical-menu" style="background-color: #141414ff;"> -->
 
         <div data-simplebar class="h-100">
             <div class="user-details">

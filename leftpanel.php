@@ -693,11 +693,25 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu928 . '">';
         TitleBarBlue("Anggota", 'mdi mdi-home');
         echo '<ul class="sub-menu ' . $mn928 . '" aria-expanded="true">';
-        // MenuLink("blank.php", "Laman Utama", 928, @$_REQUEST['vw']);
-        // MenuLink("blank.php", "Buletin", 928, @$_REQUEST['vw']);
-        // MenuLink("blank.php", "Kelayakan Anggota", 928, @$_REQUEST['vw']);
-        // MenuLink("blank.php", "Info Pembayaran", 928, @$_REQUEST['vw']);
+        MenuLink("mainpage.php", "Laman Utama", 928, @$_REQUEST['vw']);
+        MenuLink("mainpage.php?page=add&id=0", "Buletin", 928, @$_REQUEST['vw']);
+        if (get_session("Cookie_groupID") == '2') {
+            if ((get_session("Cookie_userName") == 'superadmin') or (get_session("Cookie_userName") == 'admin')) {
+                MenuLink("admin.php", "Senarai Kakitangan", 928, @$_REQUEST['vw']);
+            }
+        }
+        MenuLink("syarat_kelayakan.php?screen=view&id=999", "Kelayakan Anggota", 928, @$_REQUEST['vw']);
+        MenuLink("caraBayar.php?screen=view&id=998", "Info Pembayaran", 928, @$_REQUEST['vw']);
+        if (get_session("Cookie_groupID") == '2') {
+            if ((get_session("Cookie_userName") == 'superadmin') or (get_session("Cookie_userName") == 'admin')) {
+                MenuLink("settingcoop.php", "Tetapan Koperasi", 928, @$_REQUEST['vw']);
+            }
+        }
+        MenuLink("profile.php", "Tukar Katalaluan", 928, @$_REQUEST['vw']);
+        MenuLink("aktivitiLog.php", "Log Aktiviti", 928, @$_REQUEST['vw']);
         echo '</ul></li>';
+
+        
         // admin.tatapan.admin
         if (@$mn == 929) {
             $mn929 = "mm-collapse mm-show";

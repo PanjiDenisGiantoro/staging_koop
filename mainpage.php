@@ -611,7 +611,7 @@ if (get_session('Cookie_groupID') == '' and $page == 'login') {
 
 	$strTemp .=
 		'                	<center>
-                        	<img id="elImage" src="' . $Gambar . '" style="height: 120px;" alt="Logo Koperasi">
+                        	<img id="elImage" src="' . $Gambar . '" style="width: 400px; max-width:100%;" alt="Logo Koperasi">
 						</center>
 						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mt-3 mb-3 border-bottom"></div>';
 
