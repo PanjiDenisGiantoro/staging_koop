@@ -812,6 +812,21 @@ print '
 																		print "active";
 																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PENGUSUL</a>
 	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=7" class="nav-link <?php if (@$tabb == 7) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">SIMPANAN</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=8" class="nav-link <?php if (@$tabb == 8) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PEMBIAYAAN</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=9" class="nav-link <?php if (@$tabb == 9) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">AKTIVITAS</a>
+	</li>
 
 
 </ul>
@@ -1415,6 +1430,38 @@ if ((get_session("Cookie_groupID") == 2)) {
             </div>';
 	}
 }
+
+
+
+// ----------------------------------------- Bahagian simpanan -----------------------------------------
+if (@$tabb == 7) {
+	print '<div class="mb-3">';
+	print '<div class="py-4">';
+	print 'SIMPANAN';
+	print '</div>';
+	print '</div>';
+}
+
+// ----------------------------------------- Bahagian pembiayaan -----------------------------------------
+if (@$tabb == 8) {
+	print '<div class="mb-3">';
+	print '<div class="py-4">';
+	print 'PEMBIAYAAN';
+	print '</div>';
+	print '</div>';
+}
+
+// ----------------------------------------- Bahagian aktivitas -----------------------------------------
+if (@$tabb == 9) {
+	print '<div class="mb-3">';
+	print '<div class="py-4">';
+	print 'AKTIVITAS';
+	print '</div>';
+	print '</div>';
+}
+
+
+
 
 print '</div></form>';
 include("footer.php");
