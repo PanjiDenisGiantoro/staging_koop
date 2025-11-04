@@ -559,7 +559,7 @@ print '
 			</tr>
 
 			<tr>
-				<td valign="top" align="right">Tarikh Bayaran</td><td valign="top"></td>
+				<td valign="top" align="right">Tanggal Pembayaran</td><td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_bayar">
 				<input type="text" name="tarikh_bayar" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -987,7 +987,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  if(act == \'Kemaskini\') {
 
 		  if(e.elements[c].name=="tarikh_bayar" && e.elements[c].value==\'\') {
-			alert(\'Pilih Tarikh Bayaran!\');
+			alert(\'Pilih Tanggal Pembayaran!\');
 			count++;
 			}
 		  }
@@ -1032,7 +1032,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		  if(e.elements[c].name=="tarikh_bayar" && e.elements[c].value==\'\') 
 			{
-			alert(\'Pilih Tarikh Bayaran!\');
+			alert(\'Pilih Tanggal Pembayaran!\');
 			count++;
 			}
 		  }

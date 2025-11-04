@@ -522,7 +522,7 @@ print
 		<table border="0" cellspacing="1" cellpadding="4" width="100%" class="table table-sm table-striped">
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
-				<td nowrap="nowrap"><b>* Perkara | No. Bond</b></td>
+				<td nowrap="nowrap"><b>* Transaksi | No. Bond</b></td>
 				<td nowrap="nowrap"><b>Master Akaun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap" align="right"><b>Debit (RP)</b></td>
@@ -729,7 +729,7 @@ print' 	</table>
 			<tr><td nowrap="nowrap" colspan="3">Maklumat dari Slip Bank</td></tr>
 			<tr><td nowrap="nowrap">Kod Cawangan</td><td valign="top"></td><td><input name="kod_caw" value="'.$kod_caw.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
 			<tr><td nowrap="nowrap">Nombor Siri</td><td valign="top"></td><td><input name="no_siri" value="'.$no_siri.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
-			<tr><td>* Tarikh Dikemaskini</td><td valign="top"></td>
+			<tr><td>* Tanggal Dikemaskini</td><td valign="top"></td>
 			<td>
 			<div class="input-group" id="tarikh_bank">
 			<input type="text" name="tarikh_bank" class="form-control-sm" placeholder="dd/mm/yyyy"

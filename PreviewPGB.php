@@ -19,7 +19,7 @@ if (!isset($yy))	$yy = date("Y");
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 $yymm = $yy . $mm;
@@ -120,10 +120,10 @@ print '  <tr valign="top" >
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 						<tr class="table-primary">
 						<td nowrap height="20" align="center"><b>Bil</b></td>
-						<td nowrap height="20" align="center"><b>Nombor Anggota</b></td>
+						<td nowrap height="20" align="center"><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama Anggota</b></td>
-						<td nowrap><b>Cawangan/Zon</b></td>
-						<td nowrap><b>Nombor Pekerja</b></td>
+						<td nowrap><b>Cabang/Zona</b></td>
+						<td nowrap><b>Nomor Karyawan</b></td>
 						<td nowrap colspan="2" align="right"><b>Jumlah Potongan Bulanan (RP)</b></td>
 					</tr>';
 $totalFee = 0;
@@ -159,7 +159,7 @@ print '
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 
 
@@ -187,7 +187,7 @@ print '
 		function ITRActionButtonFinish(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -200,7 +200,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

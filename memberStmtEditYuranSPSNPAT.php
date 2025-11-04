@@ -106,7 +106,7 @@ print '
 if (get_session("Cookie_groupID") > 0) {
 	print '<tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">';
 	if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
 	else print '<option value="1">Nomor Anggota</option>';
@@ -272,8 +272,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -281,8 +281,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

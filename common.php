@@ -104,18 +104,18 @@ function set_session($ParamName, $ParamValue)
 
 function carianheader($by, $opt = array(1, 2, 3), $dept = '', $deptList = '', $deptVal = '')
 {
-    echo '<div clas="row">Carian Melalui 
+    echo '<div clas="row">Cari Berdasarkan 
         <select name="by" class="form-select-sm">';
-    if (in_array(1, $opt)) if ($by == 1)    print '<option value="1" selected>Nombor Anggota</option>';
-    else print '<option value="1">Nombor Anggota</option>';
+    if (in_array(1, $opt)) if ($by == 1)    print '<option value="1" selected>Nomor Anggota</option>';
+    else print '<option value="1">Nomor Anggota</option>';
     if (in_array(2, $opt)) if ($by == 2)    print '<option value="2" selected>Nama Anggota</option>';
     else print '<option value="2">Nama Anggota</option>';
-    if (in_array(3, $opt)) if ($by == 3)    print '<option value="3" selected>Kad Pengenalan</option>';
-    else print '<option value="3">Kad Pengenalan</option>';
+    if (in_array(3, $opt)) if ($by == 3)    print '<option value="3" selected>Kartu Identitas</option>';
+    else print '<option value="3">Kartu Identitas</option>';
     if (in_array(4, $opt)) if ($by == 4) print '<option value="4" selected>Peringkat</option>';
     else print '<option value="4">Peringkat</option>';
-    if (in_array(5, $opt)) if ($by == 5) print '<option value="5" selected>Nombor Rujukan</option>';
-    else print '<option value="5">Nombor Rujukan</option>';
+    if (in_array(5, $opt)) if ($by == 5) print '<option value="5" selected>Nomor Rujukan</option>';
+    else print '<option value="5">Nomor Rujukan</option>';
     if (in_array(6, $opt)) if ($by == 6) print '<option value="6" selected>Nombor Kenderaan</option>';
     else print '<option value="6">Nombor Kenderaan</option>';
     if (in_array(7, $opt)) if ($by == 7) print '<option value="7" selected>Jumlah Hari Tempoh Tamat Insuran</option>';
@@ -126,7 +126,7 @@ function carianheader($by, $opt = array(1, 2, 3), $dept = '', $deptList = '', $d
         <input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;';
     if (is_array($deptList)) {
         echo ' 
-        Cawangan/Zon
+        Cabang/Zona
             <select name="dept" class="form-select-sm" onchange="document.MyForm.submit();">
                     <option value="">- Semua -';
         for ($i = 0; $i < count($deptList); $i++) {
@@ -141,7 +141,7 @@ function carianheader($by, $opt = array(1, 2, 3), $dept = '', $deptList = '', $d
 
 function papar_ms($pg)
 {
-    $ms = '&nbsp;&nbsp;Paparan
+    $ms = '&nbsp;&nbsp;Tampil
                 <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
     if ($pg == 5)    $ms = $ms . '<option value="5" selected>5</option>';
     else $ms = $ms . '<option value="5">5</option>';

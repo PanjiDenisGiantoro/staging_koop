@@ -9,7 +9,7 @@ include("header.php");
 
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -123,7 +123,7 @@ $FormSize[$a]    	= "40";
 $FormLength[$a]  	= "70";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -143,7 +143,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Menjadi Anggota";
+$FormLabel[$a]   	= "Tanggal Menjadi Anggota";
 $FormElement[$a] 	= "approvedDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -173,7 +173,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "No KP Baru";
+$FormLabel[$a]   	= "No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -183,7 +183,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Lahir (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Lahir (dd/mm/yyyy)";
 $FormElement[$a] 	= "dateBirth";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -328,7 +328,7 @@ $a++;
 $FormLabel[$a]   	= "Jantina";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Lelaki', 'Perempuan');
+$FormData[$a]   	= array('Laki-laki', 'Perempuan');
 $FormDataValue[$a]	= array('0', '1');
 $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "1";
@@ -347,10 +347,10 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Status Perkahwinan";
+$FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 $FormDataValue[$a]	= array('0', '1', '2');
 $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "1";
@@ -369,7 +369,7 @@ $FormLength[$a]  	= "1";
 
 
 $a++;
-$FormLabel[$a]   	= "BlackList Dividen";
+$FormLabel[$a]   	= "Daftar Hitam Dividen";
 $FormElement[$a] 	= "BlackListDIV";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Ya', 'Tidak');
@@ -380,7 +380,7 @@ $FormLength[$a]  	= "1";
 
 
 $a++;
-$FormLabel[$a]   	= "Status Senarai Hitam";
+$FormLabel[$a]   	= "Status Daftar Hitam";
 $FormElement[$a] 	= "BlackListID";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Ya', 'Tidak');
@@ -390,7 +390,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Status Hutang Lapuk";
+$FormLabel[$a]   	= "Status Utang Macet";
 $FormElement[$a] 	= "statusHL";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Ya', 'Tidak');
@@ -649,8 +649,8 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1) print '<tr><td class=Header colspan=4>MAKLUMAT PENDAFTARAN ID :</td></tr>';
-	if ($i == 9) print '<tr><td class=Header colspan=4>A. BUTIR-BUTIR PERIBADI :</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>INFORMASI PENDAFTARAN ID :</td></tr>';
+	if ($i == 9) print '<tr><td class=Header colspan=4>A. DETAIL PRIBADI :</td></tr>';
 	if ($i == 33) print '<tr><td class=Header colspan=4>B. BAYARAN MASUK/YURAN :</td></tr>';
 	$addr = str_replace("<pre>", "", $GetMember->fields('w_address1'));
 	$addr1 = str_replace("</pre>", "", $addr);

@@ -55,7 +55,7 @@ print '
 			<table width="83%" border=0 align="center"  cellpadding="2" cellspacing="1">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap><div align="center">Bil</div></th>
-					<th nowrap>Nombor Anggota </th>
+					<th nowrap>Nomor Anggota </th>
 					<th width="514" align="left" nowrap>Nama  Anggota  </th>
 					<th width="514" align="left" nowrap>Nama  Pembiayaan  </th>
 					<th width="169" align="left" nowrap>Pokok</th>

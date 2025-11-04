@@ -17,7 +17,7 @@ if (!isset($yr)) $yr	= date("Y");
 
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -180,9 +180,9 @@ print '  <tr valign="top" >
 
 						<tr class="table-primary">
 						<td nowrap height="8" align="center"><b>Bil</b></td>
-						<td nowrap height="8" align="center"><b>Nombor Anggota</b></td>
+						<td nowrap height="8" align="center"><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama</b></td>
-						<td nowrap><b>Nombor Pekerja</b></td>
+						<td nowrap><b>Nomor Karyawan</b></td>
 						<td nowrap colspan="2" align="right"><b>Yuran (RP)</b></td>
 						<td nowrap colspan="2" align="right"><b>Pembiayaan (RP)</b></td>
 						<td nowrap colspan="2" align="right"><b>Jumlah Tunggakkan (RP)</b></td>
@@ -238,7 +238,7 @@ print '
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 
 print ' 
@@ -261,7 +261,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

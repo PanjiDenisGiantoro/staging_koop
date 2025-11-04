@@ -15,7 +15,7 @@ if (!isset($dept))			$dept = '';
 include("common.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -64,9 +64,9 @@ print '
 print
 	'<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Bil.</th>
-					<th nowrap align="center">Nombor Anggota</th>
+					<th nowrap align="center">Nomor Anggota</th>
 					<th nowrap align="left">Nama Anggota</th>
-					<th nowrap align="center">Nombor Kad Pengenalan</th>
+					<th nowrap align="center">Nombor Kartu Identitas</th>
 					<th nowrap align="left">Nombor Telefon</th>
 					<th nowrap align="right">Baki Terkumpul Wajib (RP)</th>
 					<th nowrap align="right">Baki Terkumpul Pokok (RP)</th>

@@ -50,7 +50,7 @@ if ($action	== "finish") {
 				$sSQL .= ' WHERE ' . $sWhere;
 				$rs	= &$conn->Execute($sSQL);
 
-				print '<script>alert("Nombor Rujukan tersebut telah diselesaikan.");</script>';
+				print '<script>alert("Nomor Rujukan tersebut telah diselesaikan.");</script>';
 			} else {
 				print '<script>alert("Hanya permohonan berstatus lulus sahaja boleh dibatalkan.");</script>';
 			}
@@ -194,7 +194,7 @@ if ($GetWelfare->RowCount() <> 0) {
 					<td	nowrap align="center"><b>Tarikh Kelulusan</b></td>
 					<td	nowrap align="center"><b>Nombor Bond</b></td>
 					<td	nowrap align="center"><b>Rujukan Voucher</b></td>
-					<td nowrap align="center"><b>Tarikh Voucher</b></td>
+					<td nowrap align="center"><b>Tanggal Voucher</b></td>
 					</tr>';
 	$amtWelfare = 0;
 	while (!$GetWelfare->EOF && $cnt <= $pg) {

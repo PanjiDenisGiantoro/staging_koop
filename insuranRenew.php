@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -56,7 +56,7 @@ $strErrMsg = array();
 
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Kad Pengenalan";
+$FormLabel[$a]   	= "Kartu Identitas";
 $FormElement[$a] 	= "NoKP";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Anggota";
+$FormLabel[$a]   	= "Nomor Anggota";
 $FormElement[$a] 	= "NoAnggota";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -76,7 +76,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "Nama";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";

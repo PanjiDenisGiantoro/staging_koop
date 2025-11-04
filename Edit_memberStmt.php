@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $title     = "Kemaskini Transaksi";
 
@@ -111,7 +111,7 @@ print '
       <td></b>' . $rs1->fields(name) . '</b></td>
     </tr>
     <tr>
-      <td>Nombor Anggota  :</td>
+      <td>Nomor Anggota  :</td>
       <td><b>' . $ID . '</b></td>
     </tr>
     <tr>

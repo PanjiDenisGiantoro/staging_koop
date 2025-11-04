@@ -9,7 +9,7 @@
 session_start();
 include("common.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -56,12 +56,12 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Bil</th>
-					<th nowrap>&nbsp;Nombor Rujukan</th>
+					<th nowrap>&nbsp;Nomor Rujukan</th>
 					<th nowrap>&nbsp;Tarikh Rujukan</th>
-					<th nowrap align="center">&nbsp;Kod Akaun</th>
+					<th nowrap align="center">&nbsp;Kode Akun</th>
 					<th nowrap align="left">&nbsp;Perkara / Nama Akaun</th>
 					<th nowrap align="left">&nbsp;Keterangan Perkara</th>
-					<th nowrap align="right">&nbsp;Kredit / Amaun (RP)</th>
+					<th nowrap align="right">&nbsp;Kredit / Jumlah (Rp)</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

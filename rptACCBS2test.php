@@ -11,7 +11,7 @@ session_start();
 include("common.php");	
 include ("AccountQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur"); 
+date_default_timezone_set("Asia/Jakarta"); 
 $today = date("F j, Y, g:i a");                 
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -142,7 +142,7 @@ print '
     </tr>
     <tr class="table-success" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for ASET
@@ -322,7 +322,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-success" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 $totaldebit=0;
@@ -458,7 +458,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-success" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="5">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
     $totaldebit=0;
@@ -496,18 +496,18 @@ print '<table width="100%" class="table table-striped">
                 // Calculate balance for the current item
                 $balanceA = ($kreditL - $debitL);
     
-                // Check if the parent has already been printed (21000 LIABILITI BUKAN SEMASA OR 22000 LIABILITI SEMASA)
+                // Check if the parent has already been printed (21000 LIABILITAS JANGKA PANJANG OR 22000 LIABILITAS JANGKA PENDEK)
                 if (!isset($printedParents[$gaParent])) {
                     // If the first parent was already printed, print its balance before moving to the next parent
                     if ($firstParentPrinted) {
     
-                        // Calculate the balance for 21000 LIABILITI BUKAN SEMASA
+                        // Calculate the balance for 21000 LIABILITAS JANGKA PANJANG
                         $debitLiabiliti = ($parentDebit + $parentdebitL);
                         $kreditLiabiliti = ($parentKredit + $parentKreditL);
     
                         $totalbalanceLiabilitiBS = ($kreditLiabiliti- $debitLiabiliti);
     
-                        // Print total balance for 21000 LIABILITI BUKAN SEMASA
+                        // Print total balance for 21000 LIABILITAS JANGKA PANJANG
                         print '
                         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
                         <td colspan="5" align="right"><b>Jumlah Keseluruhan Liabiliti Bukan Semasa (RP) &nbsp;</b></td>
@@ -523,7 +523,7 @@ print '<table width="100%" class="table table-striped">
                         $firstParentPrinted = false;  // Reset the flag for the next parent
                     }
     
-                    // Print the parent code and name (21000 LIABILITI BUKAN SEMASA OR 22000 LIABILITI SEMASA)
+                    // Print the parent code and name (21000 LIABILITAS JANGKA PANJANG OR 22000 LIABILITAS JANGKA PENDEK)
                     print '
                         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
                         <td colspan="5"><font size=3><b>&nbsp;<u>' . $gaParentCode . ' - ' . $gaParentName . '</u></b></td>
@@ -595,11 +595,11 @@ print '<table width="100%" class="table table-striped">
                 $totalDebitL += $debitL;
                 $totalKreditL += $kreditL;
     
-                // Totals debit and credit amounts for each LIABILITI account (kod 21100+) under 21000 LIABILITI BUKAN SEMASA or (kod 22200+) under 22000 LIABILITI SEMASA
+                // Totals debit and credit amounts for each LIABILITI account (kod 21100+) under 21000 LIABILITAS JANGKA PANJANG or (kod 22200+) under 22000 LIABILITAS JANGKA PENDEK
                 $parentDebitL += $debitL;
                 $parentKreditL += $kreditL;
     
-                // Mark the first parent as printed (21000 LIABILITI BUKAN SEMASA)
+                // Mark the first parent as printed (21000 LIABILITAS JANGKA PANJANG)
                 $firstParentPrinted = true;
             }
     

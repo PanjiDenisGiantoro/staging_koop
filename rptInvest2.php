@@ -63,7 +63,7 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th align="left" nowrap width="40">No. Invois</th>
 					<th nowrap width="40">Tarikh</th>
-					<th align="left" nowrap width="120">Nama Syarikat</th>
+					<th align="left" nowrap width="120">Nama Serikat</th>
 					<th align="left" nowrap width="80">Keterangan</th>	
 					<th align="right" nowrap width="50">Jumlah Invois (RP)</th>
 
@@ -107,7 +107,7 @@ print '		</table>
 		</td>
 	</tr>
     <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="5" align="left"><b>Jumlah Rekod : '.$bil.'</b></td>
+        <td colspan="5" align="left"><b>Jumlah Data : '.$bil.'</b></td>
     </tr>
 	<tr><td colspan="8">&nbsp;</td></tr>
 	<tr align="center"><td colspan="8"><font size="1" color="#999999"><b>'.$retooFetis.'</b></font></td></tr>	

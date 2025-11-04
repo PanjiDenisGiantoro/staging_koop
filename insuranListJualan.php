@@ -16,7 +16,7 @@ if (!isset($yy))	$yy = date("Y");
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -242,7 +242,7 @@ if ($GetListIns->RowCount() <>	0) {
 		} else {
 			$numPage = $TotalPage +	1;
 		}
-		print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+		print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print	'<br />';
 			print '<A href="' . $sFileName . '&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -256,12 +256,12 @@ if ($GetListIns->RowCount() <>	0) {
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetListIns->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetListIns->RowCount()	. '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';

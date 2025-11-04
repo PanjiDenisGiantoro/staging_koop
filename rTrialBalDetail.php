@@ -14,7 +14,7 @@ if (!isset($dept))      $dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -78,8 +78,8 @@ print '
 
 <table border="0" cellspacing="0" cellpadding="3" width="50%" align="left">
 <tr>
-    <td>Dari Tarikh</td>
-    <td>Sehingga Tarikh</td>
+    <td>Dari Tanggal</td>
+    <td>Sehingga Tanggal</td>
 </tr>
 <tr>
     <td><input type="date" class="form-controlx" name="dtFrom" value="' . $dtFrom . '"/></td>
@@ -183,7 +183,7 @@ $baki = ($totaldebit - $totalkredit);
 
 print'	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
-		<td colspan="4" align="right"><b>&nbsp;BAKI (RP)</b></td>
+		<td colspan="4" align="right"><b>&nbsp;SALDO (RP)</b></td>
 		<td colspan="2" align="right">RM&nbsp;'.number_format($baki,2).'</td>
 	</tr>';
 					

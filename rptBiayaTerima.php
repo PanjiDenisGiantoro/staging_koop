@@ -90,7 +90,7 @@ print '
 					<th nowrap>&nbsp;Tarikh</th>
 					<th nowrap>&nbsp;Nama Anggota</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
-					<th nowrap>&nbsp;Nombor Rujukan</th>
+					<th nowrap>&nbsp;Nomor Rujukan</th>
 					<th nowrap>&nbsp;Jumlah Dipohon(RP)</th>
 					<th nowrap>&nbsp;Tempoh(Bulan)</th>
 					<th nowrap>&nbsp;Jenis Loan</th>

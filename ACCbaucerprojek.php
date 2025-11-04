@@ -548,7 +548,7 @@ print '
 			</tr>
 
 			<tr>
-				<td valign="top" align="right">Tarikh Bayaran</td><td valign="top"></td>
+				<td valign="top" align="right">Tanggal Pembayaran</td><td valign="top"></td>
 				<td><input  class="form-control-sm" name="tarikh_bayar" value="'.$tarikh_bayar.'" type="text" size="20" maxlength="10"/></td>
 			</tr>
 

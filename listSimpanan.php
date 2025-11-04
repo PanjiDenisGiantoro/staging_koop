@@ -14,7 +14,7 @@ if (!isset($yy)) $yy	= date("Y");
 if (!isset($mm)) $mm	= date("m");
 if (!isset($filter))	$filter = "ALL";
 if (!isset($dept))		$dept = "";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 include("koperasiQry.php");
@@ -52,7 +52,7 @@ print '
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">                             
 					<tr class="table-primary">
-					<td nowrap>Bil</td>
+					<td nowrap>No</td>
 					<td nowrap>Jenis Simpanan</td>
 					<td nowrap align="center">No Akaun</td>
 					<td	nowrap align="center">Status</td>
@@ -135,7 +135,7 @@ print ' </table>
 // 	} else {
 // 		$numPage = $TotalPage + 1;
 // 	}
-// 	print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+// 	print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 // 	for ($i=1; $i <= $numPage; $i++) {
 // 		print '<A href="'.$sFileName.'&StartRec='.(($i * $pg) + 1 - $pg).'&pg='.$pg.'&q='.$q.'&by='.$by.'&dept='.$dept.'&filter='.$filter.'">';
 // 		print '<b><u>'.(($i * $pg) - $pg + 1).'-'.($i * $pg).'</u></b></a> &nbsp; &nbsp;';
@@ -148,12 +148,12 @@ print ' </table>
 // 	</td>
 // </tr>
 // <tr>
-// 	<td class="textFont">Jumlah Rekod : <b>' . $GetWelfare->RowCount() . '</b></td>
+// 	<td class="textFont">Jumlah Data : <b>' . $GetWelfare->RowCount() . '</b></td>
 // </tr>';
 // } else {
 // 	if ($q == "") {
 // 		print '
-// 		<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+// 		<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 // 	} else {
 // 		print '
 // 		<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';
@@ -205,7 +205,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -218,7 +218,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -231,7 +231,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -242,7 +242,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "welfareStatus.php?pk=" + pk;
 			}
@@ -257,7 +257,7 @@ print '
 	function ITRActionButtonFinish(v) {
 		e = document.MyForm;
 		if(e==null) {
-		  alert(\'Sila pastikan nama form diwujudkan.!\');
+		  alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 		  count=0;
 		  for(c=0; c<e.elements.length; c++) {

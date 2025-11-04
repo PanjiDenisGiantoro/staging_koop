@@ -61,7 +61,7 @@ if ($code == 'B') {
 if ($code == 'C') {
 	$noSpan = 8;
 	print '			<td nowrap align="left"><b>Kod Objek</b></td>
-					<td nowrap align="left"><b>Kod Akaun</b></td>
+					<td nowrap align="left"><b>Kode Akun</b></td>
 					<td nowrap align="left"><b>Nama Kod</b></td>
 					<td nowrap align="right"><b>Caj(%)</b></td>
 					<td nowrap align="right"><b>Tempoh Maksima</b></td>
@@ -83,7 +83,7 @@ if ($code == 'G') {
 }
 if ($code == 'J') {
 	$noSpan = 4;
-	print '			<td nowrap align="left"><b>Kod Akaun</b></td>';
+	print '			<td nowrap align="left"><b>Kode Akun</b></td>';
 }
 if ($code == 'M') {
 	$noSpan = 5;

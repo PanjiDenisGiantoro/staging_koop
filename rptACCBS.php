@@ -10,7 +10,7 @@ session_start();
 include("common.php");
 include("AccountQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 $month = (int)substr($yrmth, 4, 2);
 
@@ -67,7 +67,7 @@ print '
 						<td nowrap height="20">&nbsp;</td>
 						<td nowrap align="right">&nbsp;DEBIT (RP)</td>
 						<td nowrap align="right">&nbsp;KREDIT (RP)</td>
-						<td nowrap align="right">&nbsp;BAKI (RP)</td>
+						<td nowrap align="right">&nbsp;SALDO (RP)</td>
 				</tr>';
 //'.number_format($debit,2).'
 $totaldebit = 0;
@@ -193,7 +193,7 @@ print '</table>
 			<td nowrap height="20">&nbsp;</td>
 			<td nowrap align="right">&nbsp;DEBIT (RP)</td>
 			<td nowrap align="right">&nbsp;KREDIT (RP)</td>
-			<td nowrap align="right">&nbsp;BAKI (RP)</td>
+			<td nowrap align="right">&nbsp;SALDO (RP)</td>
 		</tr>';
 
 $totaldebit1 = 0;
@@ -321,7 +321,7 @@ print '</table>
 						<td nowrap height="20">&nbsp;</td>
 						<td nowrap align="right">&nbsp;DEBIT (RP)</td>
 						<td nowrap align="right">&nbsp;KREDIT (RP)</td>
-						<td nowrap align="right">&nbsp;BAKI (RP)</td>
+						<td nowrap align="right">&nbsp;SALDO (RP)</td>
 				</tr>';
 
 $totaldebit2 = 0;

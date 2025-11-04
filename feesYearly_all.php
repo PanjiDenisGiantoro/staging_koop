@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Wajib Anggota Pada Tahun ' . $yr;
+$title  = 'Laporan Wajib Anggota Pada Tahun ' . $yr;
 $title = strtoupper($title);
 $sSQL2 = "select * from transaction 
 		 WHERE deductid in (1595,1607) 

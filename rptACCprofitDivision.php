@@ -9,7 +9,7 @@
 session_start();
 include("common.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y");
 
 if (get_session("Cookie_koperasiID") <> 0) {
@@ -70,7 +70,7 @@ print '
     <tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
       <th nowrap align="left">Bil</th>
       <th nowrap align="left">Perkara</th>
-      <td nowrap align="right">Amaun (RP)</td>
+      <td nowrap align="right">Jumlah (Rp)</td>
     </tr>
     <tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold;">
       <td nowrap colspan="2" align="left">Untung Bersih Tahun Semasa</td>
@@ -116,7 +116,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RP)</td> <!-- Spans two columns -->
+			<td nowrap align="right">&nbsp;Jumlah (Rp)</td> <!-- Spans two columns -->
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Baki Untung Bersih Selepas Pembahagian Berkanun</td> 	
 			<td nowrap align="right">63,750.00</td> <!-- Amaun1 -->
@@ -200,7 +200,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RP)</td> 
+			<td nowrap align="right">&nbsp;Jumlah (Rp)</td> 
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Cadangan Dividen (10% x RM800,000 modal syer)</td> 	
@@ -273,7 +273,7 @@ print '		</table>
 		<tr class="table-success" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 			<th nowrap>&nbsp;Bil</th>
 			<th nowrap align="left">&nbsp;Perkara</th>
-			<td nowrap align="right">&nbsp;Amaun (RP)</td> 
+			<td nowrap align="right">&nbsp;Jumlah (Rp)</td> 
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
 			<td nowrap colspan="2" align="left">Baki Keuntungan Yang Belum Dibahagikan</td> 	

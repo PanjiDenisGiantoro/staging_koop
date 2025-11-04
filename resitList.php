@@ -139,8 +139,8 @@ if ($by == 2)    print '<option value="2" selected>Nomor Anggota</option>';
 else print '<option value="2">Nomor Anggota</option>';
 if ($by == 1)    print '<option value="1" selected>Nama Anggota</option>';
 else print '<option value="1">Nama Anggota</option>';
-if ($by == 3)    print '<option value="3" selected>Nombor Struk</option>';
-else print '<option value="3">Nombor Struk</option>';
+if ($by == 3)    print '<option value="3" selected>Nomor Struk</option>';
+else print '<option value="3">Nomor Struk</option>';
 
 print '		</select>
 				<input type="text" name="q" value="" maxlength="50" size="30" class="form-control-sm">
@@ -237,7 +237,7 @@ if ($GetReceipts->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap>Nombor Struk</td>
+						<td nowrap>Nomor Struk</td>
 						<td nowrap align="center">Tanggal</td>
 						<td nowrap width="30%">Catatan</td>
 						<td nowrap align="center">Nomor Anggota</td>

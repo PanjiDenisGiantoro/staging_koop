@@ -49,7 +49,7 @@ if ($action	== "finish") {
 					' ,selesaiDate='	. tosql($updatedDate, "Text");
 				$sSQL .= ' WHERE ' . $sWhere;
 				$rs	= &$conn->Execute($sSQL);
-				print '<script>alert("Nombor Rujukan tersebut telah dimasukkan semula ke senarai kelulusan.");</script>';
+				print '<script>alert("Nomor Rujukan tersebut telah dimasukkan semula ke senarai kelulusan.");</script>';
 			} else {
 				print '<script>alert("Hanya permohonan berstatus selesai sahaja boleh dimasuk semula.");</script>';
 			}
@@ -207,7 +207,7 @@ if ($GetWelfare->RowCount() <> 0) {
 					<td	nowrap align="center">Status</td>
 					<td	nowrap align="center">Tarikh Kelulusan</td>
 					<td	nowrap align="center">Nombor Bond</td>
-					<td nowrap align="center">Tarikh Voucher</td>
+					<td nowrap align="center">Tanggal Voucher</td>
 					</tr>';
 	$amtWelfare = 0;
 	while (!$GetWelfare->EOF && $cnt <= $pg) {

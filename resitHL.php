@@ -322,7 +322,7 @@ echo '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top"></td><td><input name="tarikh_resit" value="' . $tarikh_resit . '" class="form-control-sm" type="text" size="20" maxlength="10" /></td>
+				<td valign="top" align="right">Tanggal</td><td valign="top"></td><td><input name="tarikh_resit" value="' . $tarikh_resit . '" class="form-control-sm" type="text" size="20" maxlength="10" /></td>
 			</tr>
 		</table>
 	</td>
@@ -366,7 +366,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 				<td><input name="kod_siri" value="' . $kod_siri . '" class="form-control-sm" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh Bayaran</td><td valign="top"></td>
+				<td valign="top" align="right">Tanggal Pembayaran</td><td valign="top"></td>
 				<td><input name="tarikh" value="' . $tarikh . '" type="text" class="form-control-sm" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
@@ -399,7 +399,7 @@ print '
     <td width="48%" align="right">
                 <table border="0" cellspacing="1" cellpadding="2">
                         <tr>
-                                <td valign="top" align="right">Tarikh</td><td valign="top">:</td><td><input name="tarikh_resit" value="'.$tarikh_resit.'" type="text" size="20" maxlength="10" /></td>
+                                <td valign="top" align="right">Tanggal</td><td valign="top">:</td><td><input name="tarikh_resit" value="'.$tarikh_resit.'" type="text" size="20" maxlength="10" /></td>
                         </tr>
                 </table>
     </td>
@@ -445,7 +445,7 @@ print '
 				<td><input name="kod_siri" value="'.$kod_siri.'" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh Bayaran</td><td valign="top">:</td>
+				<td valign="top" align="right">Tanggal Pembayaran</td><td valign="top">:</td>
 				<td><input name="tarikh" value="'.$tarikh.'" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
@@ -477,9 +477,9 @@ print
 		<table border="0" cellspacing="1" cellpadding="4" width="100%" class="table table-sm table-striped">
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
-				<td nowrap="nowrap"><b>* Perkara</b></td>
+				<td nowrap="nowrap"><b>* Transaksi</b></td>
 				<td nowrap="nowrap"><b>Kod Objek</b></td>
-				<td nowrap="nowrap"><b>Kod Akaun</b></td>
+				<td nowrap="nowrap"><b>Kode Akun</b></td>
 				<!--td nowrap="nowrap"><b>* No. Rujukan</b></td-->
 				<td nowrap="nowrap" align="right"><b>*Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
@@ -576,7 +576,7 @@ print 		'<tr class="table-light">
 	<td width="60%" valign="top" colspan="3">
 		<table border="0" cellspacing="1" cellpadding="3">
                                         <tr><td colspan="3" nowrap="nowrap">Jumlah Dalam Perkataan<br /><input name="" size="100" maxlength="100" value="' . $strTotal . '" class="form-controlx" readonly></td></tr>
-                                        <tr><td nowrap="nowrap">Kerani Kewangan</td><td valign="top"></td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
+                                        <tr><td nowrap="nowrap">Staf Keuangan</td><td valign="top"></td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
                                         <tr><td nowrap="nowrap" valign="top">Catatan</td><td valign="top"></td><td valign="top"><textarea name="catatan" class="form-controlx" cols="45" rows="4">' . $catatan . '</textarea></td></tr>
 		</table>
 	</td>

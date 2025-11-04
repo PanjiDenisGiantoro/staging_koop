@@ -8,7 +8,7 @@
 include("common.php");
 
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $ssSQL = "SELECT name, address1, address2, address3, address4, noPhone, email, koperasiID FROM setup
         WHERE setupID = 1";
@@ -157,7 +157,7 @@ print '&nbsp;</td>
 	</td></tr>
 	<tr><td colspan="3"><hr size="1px" /></td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
-	<tr><td nowrap="nowrap" width="33%">Cara bayaran : <u>' . $cara_bayar . '</u></td><td nowrap="nowrap" width="33%" align="center" >Kod & Nombor siri : <u>' . $kod_siri . '&nbsp;</u></td><td nowrap="nowrap" width="33%" align="right">Tarikh Bayaran: <u>' . $tarikh . '</u></td></tr>
+	<tr><td nowrap="nowrap" width="33%">Cara bayaran : <u>' . $cara_bayar . '</u></td><td nowrap="nowrap" width="33%" align="center" >Kod & Nombor siri : <u>' . $kod_siri . '&nbsp;</u></td><td nowrap="nowrap" width="33%" align="right">Tanggal Pembayaran: <u>' . $tarikh . '</u></td></tr>
 	<tr><td colspan="3">Catatan :' . $catatan . '</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>

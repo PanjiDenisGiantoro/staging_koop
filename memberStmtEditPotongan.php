@@ -112,7 +112,7 @@ if (get_session("Cookie_groupID") > 0) {
 	/*
  print '<tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">'; 
 if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
@@ -174,7 +174,7 @@ print '		</select>
 						<td nowrap colspan="8" height="20">&nbsp;</td>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap><b>Nombor/Nama Anggota</b></td>
+						<td nowrap><b>Nomor/Nama Anggota</b></td>
 						<td nowrap><b>Kartu Identitas ' . $mth . '</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
 						<td nowrap colspan="2"><b>Jumlah Potongan Pembiayaan (RP)</b></td>
@@ -252,8 +252,8 @@ print '		</select>
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -261,8 +261,8 @@ print '		</select>
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

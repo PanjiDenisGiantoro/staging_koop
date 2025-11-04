@@ -112,7 +112,7 @@ print
 $opt = array(1, 2, 3, 4);
 carianheader($by, $opt);
 /*
- print '<div clas="row" style="background-color: #d7eee7;padding:7px;border-radius: 0.25rem;">Carian melalui 
+ print '<div clas="row" style="background-color: #d7eee7;padding:7px;border-radius: 0.25rem;">Cari Berdasarkan 
     <select name="by" class="form-select-sm">';
 if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				
@@ -126,7 +126,7 @@ print '<table border="0" cellspacing="1" cellpadding="3" width="100%" align="cen
 /*
 	print '<tr valign="top" class="Header">'
 	   	.'<td align="left" >'
-			.'Carian melalui '
+			.'Cari Berdasarkan '
 			.'<select name="by" class="form-controlx form-select-sm">'; 
 			if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>'; 	else print '<option value="1">Nomor Anggota</option>';				
 			if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>'; 	else print '<option value="2">Nama Anggota</option>';				

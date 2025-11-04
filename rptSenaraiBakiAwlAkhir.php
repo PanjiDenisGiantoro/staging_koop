@@ -68,7 +68,7 @@ print '
 			<table width="100%" border=0 align="center"  cellpadding="2" cellspacing="1">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><div align="center">Bil</div></td>
-					<td nowrap align="center">Nombor Anggota </td>
+					<td nowrap align="center">Nomor Anggota </td>
 					<td width="514" align="left" nowrap>Nama Anggota</td>
 					<td width="169" align="right" nowrap>Baki Awal (RP)</td>
 					<td width="169" align="right" nowrap>Baki Akhir (RP)</td>

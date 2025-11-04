@@ -8,7 +8,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
 
 //set combo box value in member list 
 //carian by value
-$strTypeNameList	= array('Nombor Anggota', 'Nama Anggota', 'No KP Baru');
+$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
 $strTypeValueList	= array(1, 2, 3);
 //member status lulus berhenti bersara
 $strStatusNameList	= array($statusList[1], $statusList[3],  $statusList[4]);
@@ -194,7 +194,7 @@ if ($page <> 'list') {
 	$strCurrentDate = date('d/m/Y');
 
 	//set member detail header
-	$strFieldNameList = array('Nama', 'Nombor Anggota', 'Nombor KP', 'Jabatan/Cawangan', 'Tarikh Keanggotaan');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Nombor KP', 'Jabatan/Cawangan', 'Tanggal Keanggotaan');
 
 	if ($GetData->RowCount() <> 0) {
 
@@ -229,7 +229,7 @@ if ($page <> 'list') {
 	// handle member list
 	$strTemp .=	$strErrMsg
 		. '<tr>'
-		. '<td align="right" width="150"><b>Carian melalui</b></td>'
+		. '<td align="right" width="150"><b>Cari Berdasarkan</b></td>'
 		. '<td>'
 		. SelectForm('by', $by, $strTypeNameList, $strTypeValueList, '') . '&nbsp;'
 		. '<input name="keyword" type="text" value="' . $keyword . '" maxlength="50" size="30">&nbsp;'
@@ -319,9 +319,9 @@ if ($page <> 'list') {
 
 	//set list header 
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	} else {
-		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	}
 	$strFieldWidthList = array('15', '', '10%', '20%', '10%', '10%', '8%');
 	$strFieldAlignList = array('right', 'left', 'left', 'left', 'center', 'right', 'right');
@@ -545,7 +545,7 @@ if ($GetData->RowCount() <> 0) {
 
 	$strTemp .=
 		'<tr>'
-		. '<td class="textFont">Jumlah Rekod : <font class="redText">' . $GetData->RowCount() . '</font></td>'
+		. '<td class="textFont">Jumlah Data : <font class="redText">' . $GetData->RowCount() . '</font></td>'
 		. '</tr>';
 } else {
 	$strTemp .=

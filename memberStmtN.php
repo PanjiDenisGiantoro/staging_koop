@@ -97,7 +97,7 @@ print '
 
 if (get_session("Cookie_groupID") > 0) {
 	print '<tr valign="top" class="Header"><td align="left" >
-Carian melalui <select name="by" class="Data">';
+Cari Berdasarkan <select name="by" class="Data">';
 	if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
 	else print '<option value="1">Nomor Anggota</option>';
 	if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
@@ -143,7 +143,7 @@ Carian melalui <select name="by" class="Data">';
 
 				   
 				<tr class="table-success">
-					<td class="textFont">Penyata Wajib</td>
+					<td class="textFont">Laporan Wajib</td>
 					<td class="textFont">:&nbsp; 
 			        <input type="button" class="but" value="Bulanan" onClick="ITRActionButtonClick(\'feesMonthly\');" style="width:100px;">
 					<input type="button" class="but" value="Tahunan" onClick="ITRActionButtonClick(\'feesYearly\');" style="width:100px;">
@@ -151,7 +151,7 @@ Carian melalui <select name="by" class="Data">';
 					</td>
 				</tr>
 				<tr class="table-success">
-					<td class="textFont">Penyata Pokok</td>
+					<td class="textFont">Laporan Pokok</td>
 					<td class="textFont">:&nbsp; 
 			        <input type="button" class="but" value="Bulanan" onClick="ITRActionButtonClick(\'shareMonthly\');" style="width:100px;">            
 	   			    <input type="button" class="but" value="Tahunan" onClick="ITRActionButtonClick(\'shareYearly\');" style="width:100px;">            
@@ -302,8 +302,8 @@ Carian melalui <select name="by" class="Data">';
 	include("memberStmtUser.php");
 
 	/*
-	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
+	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
 	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'memberMonthly\')">Penyata Urusniaga Bulanan</a>
 */
 	print '

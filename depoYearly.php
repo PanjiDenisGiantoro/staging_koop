@@ -80,16 +80,16 @@ print '
 		<td>:&nbsp;' . dlookup("userdetails", "newIC", "userID=" . tosql($id, "Text")) . '</td>
 	</tr>
 	<tr style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold;" bgcolor="FFFFFF">
-		<td width="20%">&nbsp;Cawangan/Kawasan/Zon</td>
+		<td width="20%">&nbsp;Cabang/Wilayah/Zona</td>
 		<td>:&nbsp;' . dlookup("general", "name", "ID=" . tosql($jabatan, "Text")) . '</td>
 	</tr>
 	<tr>
 		<td colspan="2">
 			<table class="table table-bordered table-striped" border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 			<tr bgcolor="#C0C0C0" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold;">
-					<td nowrap>Bil</td>
-					<td nowrap>Tarikh</td>
-					<td nowrap>Nombor Rujukan</td>
+					<td nowrap>No</td>
+					<td nowrap>Tanggal</td>
+					<td nowrap>Nomor Rujukan</td>
 					<td nowrap>Perkara</td>
 					<td nowrap align="right">Debit (RP)</td>
 					<td nowrap align="right">Kredit (RP)</td>

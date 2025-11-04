@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") == "" or get_session("Cookie_koperasiID") <> $
 	exit;
 }
 
-$title  = 'Penyata Wajib Anggota Pada Tahun ' . $yr;
+$title  = 'Laporan Wajib Anggota Pada Tahun ' . $yr;
 $title = strtoupper($title);
 
 $sSQL = "select * from transaction 
@@ -73,7 +73,7 @@ print '
 		<td>:&nbsp;' . dlookup("userdetails", "newIC", "userID=" . tosql($id, "Text")) . '</td>
 	</tr>
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" bgcolor="FFFFFF">
-		<td width="20%">&nbsp;Cawangan/Zon</td>
+		<td width="20%">&nbsp;Cabang/Zona</td>
 		<td>:&nbsp;' . dlookup("general", "name", "ID=" . tosql($jabatan, "Text")) . '</td>
 	</tr>
 	<tr>
@@ -82,7 +82,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><b>Bil</b></td>
 					<td nowrap><b>Tarikh</b></td>
-					<td nowrap><b>Nombor Rujukan</b></td>
+					<td nowrap><b>Nomor Rujukan</b></td>
 					<td nowrap><b>Item</b></td>
 					<td nowrap align="right"><b>Debit(RP)</b></td>
 					<td nowrap align="right"><b>Kredit(RP)</b></td>

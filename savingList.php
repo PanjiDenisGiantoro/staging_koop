@@ -75,14 +75,14 @@ print '		</select>/
 	</tr>
     <tr valign="top" class="Header">
 	   	<td align="left" >
-			Carian melalui 
+			Cari Berdasarkan 
 			<select name="by" class="Data">';
-if ($by == 1)	print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1)	print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Anggota</option>';
 else print '<option value="2">Nama Anggota</option>';
-if ($by == 3)	print '<option value="3" selected>No KP Baru</option>';
-else print '<option value="3">No KP Baru</option>';
+if ($by == 3)	print '<option value="3" selected>No KTP Baru</option>';
+else print '<option value="3">No KTP Baru</option>';
 print '	</select>
 			<input type="text" name="q" value="" maxlength="50" size="30" class="Data">
            	 <input type="submit" class="but" value="Cari">&nbsp;&nbsp;&nbsp;
@@ -110,7 +110,7 @@ if ($GetList->RowCount() <> 0) {
 					<tr>
 						<td  class="textFont">&nbsp;</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="Data" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="Data" onchange="doListAll();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -135,7 +135,7 @@ if ($GetList->RowCount() <> 0) {
 	else print '<option value="500">500</option>';
 	if ($pg == 1000) print '<option value="1000" selected>1000</option>';
 	else print '<option value="1000">1000</option>';
-	print '				</select>setiap mukasurat.
+	print '				</select>setiap halaman.
 						</td>
 					</tr>
 				</table>
@@ -193,7 +193,7 @@ if ($GetList->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '?yy=' . $yy . '&mm=' . $mm . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a>&nbsp; &nbsp;';
@@ -206,7 +206,7 @@ if ($GetList->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetList->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetList->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
@@ -214,7 +214,7 @@ if ($GetList->RowCount() <> 0) {
 			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Mengenai Simpanan Anggota Bagi Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -239,7 +239,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

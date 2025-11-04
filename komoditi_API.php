@@ -64,7 +64,7 @@ $FormSize[$a]    	= "35";
 $FormLength[$a]  	= "50";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "Nombor Rujukan";
+$FormLabel[$a]   	= "Nomor Rujukan";
 $FormElement[$a] 	= "name_type";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -94,7 +94,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 // $a++;
-// $FormLabel[$a]   	= "* Nombor Sijil";
+// $FormLabel[$a]   	= "* Nomor Sertifikat";
 // $FormElement[$a] 	= "no_sijil";
 // $FormType[$a]	  	= "text";
 // $FormData[$a]   	= "";
@@ -104,7 +104,7 @@ $FormLength[$a]  	= "50";
 // $FormLength[$a]  	= "12";
 
 // $a++;
-// $FormLabel[$a]   	= "* Komoditi";
+// $FormLabel[$a]   	= "* Komoditas";
 // $FormElement[$a] 	= "item";
 // $FormType[$a]	  	= "hidden";
 // $FormData[$a]   	= "";

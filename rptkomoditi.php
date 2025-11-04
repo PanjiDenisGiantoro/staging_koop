@@ -45,13 +45,13 @@ print '	</th>
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
-					<th nowrap>&nbsp;Nombor Anggota</th>
+					<th nowrap>&nbsp;Nomor Anggota</th>
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;No Rujukan Pembiayaan</th>
 					<th nowrap>&nbsp;No Sijil</th>
 					<th nowrap>&nbsp;Komoditi</th>
 					<th nowrap>&nbsp;Jumlah Pembiayaan (RP)</th>
-					<th nowrap>&nbsp;Tarikh Pembelian Sijil</th>
+					<th nowrap>&nbsp;Tanggal Pembelian Sertifikat</th>
 					<th nowrap>&nbsp;Masa Pembelian Sijil</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

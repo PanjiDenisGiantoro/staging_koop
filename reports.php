@@ -142,7 +142,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptbank_urusniaga')">Penyata Laporan Urusniaga Bank</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptbank_resit')">Penyata Laporan Resit</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptbank_baucer')">Penyata Laporan Baucer</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptbank_yuran')">Penyata Laporan Penyata Yuran</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptbank_yuran')">Penyata Laporan Laporan Wajib</a></li>
 			</tr>
 
 			<tr>

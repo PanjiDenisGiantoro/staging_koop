@@ -19,7 +19,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 include("header.php");
 include("koperasiQry.php");
 include("AccountQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -86,11 +86,11 @@ print '
 
 <table border="0" cellspacing="0" cellpadding="3" width="50%" align="left">
   <tr>
-    <td>Dari Tarikh</td>
+    <td>Dari Tanggal</td>
     <td><input type="date" class="form-controlx" name="dtFrom" value="' . $dtFrom . '"/></td>
   </tr>
   <tr>
-    <td>Sehingga Tarikh</td>
+    <td>Sehingga Tanggal</td>
     <td><input type="date" class="form-controlx" name="dtTo" value="' . $dtTo . '"/></td>
   </tr>
   <tr>
@@ -216,7 +216,7 @@ print '
 					<th nowrap width="5%">Bil</th>
 					<th nowrap align="center" width="5%">Tarikh</th>
 					<th nowrap align="left" width="10%">Batch</th>
-					<th nowrap align="left" width="10%">Nombor Rujukan</th>
+					<th nowrap align="left" width="10%">Nomor Rujukan</th>
 					<th nowrap align="left" width="25%">Perkara</th>
 					<th nowrap align="right" width="15%">Debit(RP)</th>
 					<th nowrap align="right" width="15%">Kredit(RP)</th>

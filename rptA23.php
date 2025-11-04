@@ -10,7 +10,7 @@
 session_start();
 include("common.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $title2  = 'PENYATA LEDGER';
@@ -121,7 +121,7 @@ while (!$rsLoan->EOF) {
 					<th nowrap>Bil</th>
 					<th nowrap align="center">Tarikh</th>
 					<th nowrap align="left">Batch</th>
-					<th nowrap align="left">Nombor Rujukan</th>
+					<th nowrap align="left">Nomor Rujukan</th>
 					<th nowrap align="left">Perkara</th>
 					<th nowrap align="right">Debit(RP)</th>
 					<th nowrap align="right">Kredit(RP)</th>

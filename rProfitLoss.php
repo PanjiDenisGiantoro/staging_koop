@@ -14,7 +14,7 @@ if (!isset($dept))      $dept = "";
 include("header.php");
 include("koperasiQry.php");
 include("AccountQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
@@ -153,8 +153,8 @@ print '
 
 <table border="0" cellspacing="0" cellpadding="3" width="50%" align="left">
 <tr>
-    <td>Dari Tarikh</td>
-    <td>Sehingga Tarikh</td>
+    <td>Dari Tanggal</td>
+    <td>Sehingga Tanggal</td>
 </tr>
 <tr>
     <td><input type="date" class="form-controlx" name="dtFrom" value="' . $dtFrom . '"/></td>
@@ -210,7 +210,7 @@ print'
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for INCOME
@@ -304,7 +304,7 @@ print '<table width="100%" class="table table-striped">
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for COST OF SALES
@@ -401,7 +401,7 @@ print '</table>
     <table width="100%" class="table table-striped">
         <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
             <td colspan="2" align="right">&nbsp;</td>
-            <td width="100" align="right">BAKI (RP)</td>
+            <td width="100" align="right">SALDO (RP)</td>
         </tr>';
         
         // Calculate and print Gross Profit (INCOME minus COST OF SALES) 
@@ -422,7 +422,7 @@ print '</table>
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for OTHER INCOME
@@ -517,7 +517,7 @@ print '</table>
     <table width="100%" class="table table-striped">
         <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
             <td colspan="2" align="right">&nbsp;</td>
-            <td width="100" align="right">BAKI (RP)</td>
+            <td width="100" align="right">SALDO (RP)</td>
         </tr>';
         
         // Calculate and print Total Gross Profit (GROSS PROFIT plus OTHER INCOME) 
@@ -538,7 +538,7 @@ print '</table>
     </tr>
     <tr class="table-primary" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: bold; text-align: right;">
         <td colspan="2">&nbsp;</td>
-        <td width="100" style="text-align: right;">BAKI (RP)</td>
+        <td width="100" style="text-align: right;">SALDO (RP)</td>
     </tr>';
 
 // Initialize variables to track total debit and credit for EXPENSES

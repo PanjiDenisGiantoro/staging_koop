@@ -188,7 +188,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Jenis</td>
 						<td nowrap>Cabang/Zona</td>
-						<td nowrap align="right">Yuran/Syer Terkumpul (RP)</td>
+						<td nowrap align="right">Wajib/Pokok Terkumpul (RP)</td>
 						<td nowrap align="right">Baki Pinjaman (RP)</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center">Tanggal Pengajuan</td>';

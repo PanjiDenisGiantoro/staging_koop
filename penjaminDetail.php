@@ -95,7 +95,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Cawangan / Zon";
+$FormLabel[$a]   	= "Cabang / Zona";
 $FormElement[$a] 	= "dept";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

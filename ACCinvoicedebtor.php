@@ -596,7 +596,7 @@ print '<tr>
 		    </tr>
 
 			<tr>
-				<td valign="top">Tarikh Bayaran Terakhir</td>
+				<td valign="top">Tanggal Pembayaran Terakhir</td>
 				<td valign="top"></td>
 				<td>
 					<div class="input-group" id="tarikh_akhir">

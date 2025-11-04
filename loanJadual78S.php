@@ -368,9 +368,9 @@ if ($page <> 'list') {
 	}
 
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList = array($strCheckboxTemp, 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tarikh Bayaran');
+		$strFieldNameList = array($strCheckboxTemp, 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
 	} else {
-		$strFieldNameList = array('&nbsp;', 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tarikh Bayaran');
+		$strFieldNameList = array('&nbsp;', 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
 	}
 	$strFieldWidthList = array('15', '', '', '10%', '10%', '10%', '10%');
 	$strFieldAlignList = array('right', 'left', 'left', 'left', 'left', 'right', 'right');

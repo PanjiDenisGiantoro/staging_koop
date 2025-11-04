@@ -82,7 +82,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
-					<th nowrap align="left">Nombor Anggota- Nama</th>
+					<th nowrap align="left">Nomor Anggota- Nama</th>
 					<th nowrap align="right" width="200">Jumlah (RP)</th>
 				</tr>';
 $total = 0;

@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -155,7 +155,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top">:</td><td><input name="tarikh_resit" value="' . $tarikh_resit . '" type="text" size="20" maxlength="10" /></td>
+				<td valign="top" align="right">Tanggal</td><td valign="top">:</td><td><input name="tarikh_resit" value="' . $tarikh_resit . '" type="text" size="20" maxlength="10" /></td>
 			</tr>
 		</table>
 	</td>
@@ -181,11 +181,11 @@ print
 				<td><input name="cara_bayar" value="' . $cara_bayar . '" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Kod & Nombor Siri</td><td valign="top">:</td>
+				<td valign="top" align="right">Kode & Nomor Seri</td><td valign="top">:</td>
 				<td><input name="kod_siri" value="' . $kod_siri . '" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh</td><td valign="top">:</td>
+				<td valign="top" align="right">Tanggal</td><td valign="top">:</td>
 				<td><input name="tarikh" value="' . $tarikh . '" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
@@ -202,7 +202,7 @@ print
 			<tr class="header">
 				<td nowrap="nowrap">Kod</td>
 				<td nowrap="nowrap">Keterangan</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Jumlah</td>
 			</tr>';
 if ($ID) {
@@ -247,7 +247,7 @@ print
 	<td width="60%" valign="top" colspan="3">
 		<table border="0" cellspacing="1" cellpadding="3">
 			<tr><td colspan="3" nowrap="nowrap">Jumlah Dalam Perkataan<br /><input name="" size="80" maxlength="80" value="' . $strTotal . '" readonly></td></tr>
-			<tr><td nowrap="nowrap">Kerani Kewangan</td><td valign="top">:</td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
+			<tr><td nowrap="nowrap">Staf Keuangan</td><td valign="top">:</td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
 			<tr><td nowrap="nowrap" valign="top">Catatan</td><td valign="top">:</td><td valign="top"><textarea name="catatan" cols="50" rows="4">' . $catatan . '</textarea></td></tr>
 		</table>
 	</td>
@@ -288,7 +288,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -298,7 +298,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -312,7 +312,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -325,7 +325,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -338,7 +338,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -349,7 +349,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "receipts.php?action=add" + pk;
 			}

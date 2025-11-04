@@ -54,7 +54,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
-					<td nowrap align="left">Nama Cawangan/Zon</td>
+					<td nowrap align="left">Nama Cabang/Zona</td>
 					<td nowrap align="right" width="200">Jumlah (RP)</td>
 				</tr>';
 $total = 0;

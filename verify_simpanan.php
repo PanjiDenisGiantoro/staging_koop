@@ -2,7 +2,7 @@
 session_start();
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $today = date('Y-m-d');
 
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pk !== '') {
                     </td>
                 </tr>
                 <tr>
-                    <td align="right">Kad Pengenalan Anggota:</td>
+                    <td align="right">Kartu Identitas Anggota:</td>
                     <td><span class="data-bold"><?php echo ($userID !== '' ? dlookup("userdetails", "newIC", "userID=" . tosql($userID, "Text")) : '-'); ?></span></td>
                 </tr>
                 <tr>

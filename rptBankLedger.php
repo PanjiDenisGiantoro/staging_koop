@@ -80,7 +80,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Tarikh</th>
 					<th nowrap>&nbsp;Batch</th>
-					<th nowrap>&nbsp;Nombor Rujukan</th>
+					<th nowrap>&nbsp;Nomor Rujukan</th>
 					<th nowrap>&nbsp;Keterangan</th>
 					<th nowrap>&nbsp;Debit</th>
 					<th nowrap>&nbsp;Kredit</th>

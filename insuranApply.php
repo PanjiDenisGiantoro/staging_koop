@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -58,7 +58,7 @@ if ($GetPlan->RowCount() <> 0) {
 $strErrMsg = array();
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 if (get_session("Cookie_groupID") == 0) {
 	$FormType[$a]	  	= "hiddentext";
@@ -72,7 +72,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "* Kad Pengenalan";
+$FormLabel[$a]   	= "* Kartu Identitas";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -82,7 +82,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "userName";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -385,7 +385,7 @@ print '<div class="table-responsive">
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	//Print Header Maklumat Pemohon
 	if ($i == 1) print '<tr><td class=card-header colspan=2>Maklumat Pemohon</td></tr>';
-	if ($i == 2) print '<tr><td></td><td>(** Masukkan Nombor Anggota sekiranya pemohon adalah Anggota Koperasi)</td></tr>';
+	if ($i == 2) print '<tr><td></td><td>(** Masukkan Nomor Anggota sekiranya pemohon adalah Anggota Koperasi)</td></tr>';
 	//Print Header Maklumat kenderaan
 	if ($i == 12) print '<tr><td class=card-header colspan=2>Maklumat Kenderaan</td></tr>';
 	//Print Header Maklumat Tambahan

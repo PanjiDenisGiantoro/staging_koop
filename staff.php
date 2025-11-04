@@ -11,7 +11,7 @@ if (!isset($q))			$q = "";
 if (!isset($by))		$by = "1";
 if (!isset($filter))	$filter = "ALL";
 if (!isset($jabatan))	$jabatan = "";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 include("koperasiQry.php");
@@ -123,8 +123,8 @@ if ($by == 1) print '<option value="1" selected>Nombor Staf</option>';
 else print '<option value="1">No. Staf</option>';
 if ($by == 2) print '<option value="2" selected>Nama Staf</option>';
 else print '<option value="2">Nama Staf</option>';
-if ($by == 3) print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3) print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 print '      </select>
 
 
@@ -180,7 +180,7 @@ print '
 			<table width="100%">
 				<tr>
 					<!-- 
-					<td class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>					
+					<td class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>					
 					<td align="right" class="textFont">Paparan 
 						<SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg == 5)	print '<option value="5" selected>5</option>';
@@ -197,7 +197,7 @@ if ($pg == 50)	print '<option value="50" selected>50</option>';
 else print '<option value="50">50</option>';
 if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
-print '				</select> setiap mukasurat.
+print '				</select> setiap halaman..
 					</td>
 					-->
 				</tr>
@@ -216,7 +216,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap align="left">&nbsp;Nama Staf</td>
 						<td nowrap align="center">&nbsp;Nombor Staf</td>
-						<td nowrap align="center">&nbsp;Kad Pengenalan</td>
+						<td nowrap align="center">&nbsp;Kartu Identitas</td>
 						<td nowrap align="center">&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Status</td>
 						<td nowrap align="center">&nbsp;Tarikh Daftar</td>
@@ -282,7 +282,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $jabatan . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -295,15 +295,15 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -328,7 +328,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -338,7 +338,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	            e.action.value = v;
@@ -352,7 +352,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -365,7 +365,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -379,7 +379,7 @@ print '
 		  var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -392,7 +392,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
@@ -405,7 +405,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -416,7 +416,7 @@ print '
 			}
 	        
 			if(count != 1) {
-				alert(\'Sila pilih satu rekod sahaja untuk kemaskini status\');
+				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
 				window.location.href = "memberStatus.php?pk=" + pk;
 			}

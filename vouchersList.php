@@ -198,7 +198,7 @@ if ($GetVouchers->RowCount() <> 0) {
     else print '<option value="50">50</option>';
     if ($pg == 100)    print '<option value="100" selected>100</option>';
     else print '<option value="100">100</option>';
-    print '				</select> setiap mukasurat.
+    print '				</select> setiap halaman..
 						</td>
 					</tr>
 				</table>

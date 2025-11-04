@@ -76,7 +76,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="center" nowrap>Bil</th>
-					<th width="30" align="left" nowrap><div align="right">Nombor Anggota</th>
+					<th width="30" align="left" nowrap><div align="right">Nomor Anggota</th>
 					<th width="180" align="left" nowrap>Nama</th>
 					<th width="80" align="left" nowrap><div align="right">Syer Terkumpul </th>
 					<th width="80" align="left" nowrap><div align="right">Yuran Awal Tahun ' . $yr . ' </th>

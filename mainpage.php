@@ -8,7 +8,7 @@
 require_once("common.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 setlocale(LC_TIME, 'ms_MY');
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -388,11 +388,11 @@ if (get_session('Cookie_groupID') <> '') {
 
 			$strTemp .=
 				'<tr>'
-				. '<td class="textFont">Jumlah Rekod : <font class="redText">' . ($GetData->RowCount() - 1) . '</font></td>'
+				. '<td class="textFont">Jumlah Data : <font class="redText">' . ($GetData->RowCount() - 1) . '</font></td>'
 				. '</tr>';
 		} else {
 			if ($id == "") {
-				$strTemp .= '<tr><td align="center"><b class="textFont">- Tiada Rekod Untuk ' . $strTitle . '  -</b></td></tr>';
+				$strTemp .= '<tr><td align="center"><b class="textFont">- Tidak Ada Data Untuk ' . $strTitle . '  -</b></td></tr>';
 			} else {
 				$strTemp .= '<tr><td align="center"><b class="textFont">- Carian rekod "' . $id . '" tidak jumpa  -</b></td></tr>';
 			}

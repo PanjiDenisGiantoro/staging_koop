@@ -95,7 +95,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "* Nombor Sijil";
+$FormLabel[$a]   	= "* Nomor Sertifikat";
 $FormElement[$a] 	= "no_sijil";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -105,7 +105,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "* Komoditi";
+$FormLabel[$a]   	= "* Komoditas";
 $FormElement[$a] 	= "item";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

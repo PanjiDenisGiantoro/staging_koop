@@ -36,7 +36,7 @@ print '
 	</tr>
 	<tr bgcolor="#336699" style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold;">
 		<th colspan="85 height="40"><font color="#FFFFFF">' . $title . '<br>
-			Untuk Nombor Anggota Dari 
+			Untuk Nomor Anggota Dari 
 			<input type="text" name="memberFrom" size="5" maxlength="6" value="' . $memberFrom . '" class="data">
 			 Hingga 
 			<input type="text" name="memberTo" size="5" maxlength="6" value="' . $memberTo . '" class="data">
@@ -53,7 +53,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
-					<th nowrap>&nbsp;Nombor Anggota</th>
+					<th nowrap>&nbsp;Nomor Anggota</th>
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Kod Urusniaga</th>
 					<th nowrap>&nbsp;Urusniaga</th>

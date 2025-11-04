@@ -82,8 +82,8 @@ print '
 		<td>
 			<table width="100%" border=0 align="center"  cellpadding="2" cellspacing="1">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-					<td nowrap align="center">Bil</td>
-					<td nowrap align="center">Nombor Anggota </td>
+					<td nowrap align="center">No</td>
+					<td nowrap align="center">Nomor Anggota </td>
 					<td width="852" align="left" nowrap>Nama</td>
 					<td align="center">Nombor Bond</td>
 					<td width="196" align="right" nowrap>Baki Pembiayaan Tunai(RP)</td>

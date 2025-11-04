@@ -205,7 +205,7 @@ if (get_session("Cookie_groupID") > 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					
 					<tr class="table-primary">
-						<td align="center" nowrap>Bil</td>
+						<td align="center" nowrap>No</td>
 						<td align="left"   nowrap>Nomor - Nama Anggota</td>
 						<td align="center" nowrap>Kartu Identitas</td>
 						<td align="center" nowrap>Akaun Bank</td>

@@ -291,8 +291,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -300,8 +300,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

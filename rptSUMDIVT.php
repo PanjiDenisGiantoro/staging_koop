@@ -78,7 +78,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="center" nowrap>Bil</th>
-					<th width="150" align="left" nowrap>&nbsp;Nombor Anggota- Nama</th>
+					<th width="150" align="left" nowrap>&nbsp;Nomor Anggota- Nama</th>
 					<th width="40" align="left" nowrap><div align="right">Dividen Tahun ' . $yr . ' (RP)(Tabung) </div></th>
 					<th width="30" align="left" nowrap><div align="right">Jumlah Dividen Bulanan Tahun ' . $yr . ' (RP)(Tabung) </div></th>
 					<th width="30"><div align="">Jumlah Dividen Resit ' . $yr . ' (RP)(Tabung)</div></th>

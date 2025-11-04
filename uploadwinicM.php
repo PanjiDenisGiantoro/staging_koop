@@ -105,7 +105,7 @@ print '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 						<tr>
 							<form action="uploadwinicM.php?action=upload" method=post  enctype="multipart/form-data">
 							<br></br>
-							<b>Masukkan Fail Kad Pengenalan</b> (Saiz Maksimum: '.$max_size.' bytes/'.($max_size/1024).' kb):<br>
+							<b>Masukkan Fail Kartu Identitas</b> (Saiz Maksimum: '.$max_size.' bytes/'.($max_size/1024).' kb):<br>
 							<input type="file" name="filename"><br></br>
 							<input type="hidden" name="action" value="upload">
 							

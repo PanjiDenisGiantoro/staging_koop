@@ -310,7 +310,7 @@ print '</td>
 				<td><input name="cara_bayar" type="text" size="20" maxlength="20" value="' . $cara_bayar . '" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Nombor Rujukan</td><td valign="top">:</td>
+				<td valign="top" align="right">Nomor Rujukan</td><td valign="top">:</td>
 				<td><input name="no_rujukan" type="text" size="20" maxlength="10" value="' . $no_rujukan . '" /></td>
 			</tr>
 			<tr>
@@ -318,7 +318,7 @@ print '</td>
 				<td><input name="tarikh_ruj" type="text" size="20" maxlength="10" value="' . $tarikh_ruj . '" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Kod & Nombor Siri</td><td valign="top">:</td>
+				<td valign="top" align="right">Kode & Nomor Seri</td><td valign="top">:</td>
 				<td><input name="kod_siri" type="text" size="20" maxlength="10" value="' . $kod_siri . '" /></td>
 			</tr>
 		</table>
@@ -339,7 +339,7 @@ print '</td>
 				<td nowrap="nowrap">Kod.</td>
 				<td nowrap="nowrap">Nombor Ruj</td>
 				<td nowrap="nowrap">Keterangan</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Qty</td>
 				<td nowrap="nowrap">Jumlah</td>
 				<td nowrap="nowrap">&nbsp;</td>
@@ -420,7 +420,7 @@ print 		'<tr>
 	<td width="60%" valign="top" colspan="3">
 		<table border="0" cellspacing="1" cellpadding="3">
 			<tr><td colspan="3" nowrap="nowrap">Jumlah Dalam Perkataan<br /><input name="rm" value="' . $strTotal . '" size="100" maxlength="100"></td></tr>
-			<tr><td nowrap="nowrap">Kerani Kewangan</td><td valign="top">:</td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
+			<tr><td nowrap="nowrap">Staf Keuangan</td><td valign="top">:</td><td>' . selectAdmin($kerani, 'kerani') . '</td></tr>
 			<tr><td nowrap="nowrap" valign="top">Catatan</td><td valign="top">:</td><td valign="top"><textarea name="catatan" cols="50" rows="4">' . $catatan . '</textarea></td></tr>
 		</table>
 	</td>

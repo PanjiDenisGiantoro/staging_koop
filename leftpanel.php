@@ -377,7 +377,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu912 . '">';
         TitleBarBlue("Penghutang", 'mdi mdi-wallet');
         echo '<ul class="sub-menu ' . $mn912 . '" aria-expanded="true">';
-        MenuLink("ACCQuotationList.php", "Sebut Harga", 912, @$_REQUEST['vw']);
+        MenuLink("ACCQuotationList.php", "Penawaran Harga", 912, @$_REQUEST['vw']);
         // MenuLink("blank.php", "Penghantar(DO)", 912, @$_REQUEST['vw']);
         MenuLink("ACCInvoiceList.php", "Invoice", 912, @$_REQUEST['vw']);
         MenuLink("ACCDebtorList.php", "Terima(Invoice)", 912, @$_REQUEST['vw']);

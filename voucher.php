@@ -68,7 +68,7 @@ print $strTemp;
 				<td nowrap="nowrap">Bil.</td>
 				<td nowrap="nowrap">Perkara</td>
 				<td nowrap="nowrap">Kod Objek</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Debit</td>
 				<td nowrap="nowrap">Kredit</td>
 			</tr>

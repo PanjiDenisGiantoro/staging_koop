@@ -9,7 +9,7 @@
 session_start();
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y");
 $yr = (int)substr($yrmth, 0, 4);
 $mth = (int)substr($yrmth, 4, 2);
@@ -54,10 +54,10 @@ print '
 	<table width="100%" border=0 align="center"  cellpadding="2" cellspacing="1">
 	<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 	<td nowrap><div align="center">Bil</div></td>
-	<td nowrap align="center">Nombor Anggota </td>
+	<td nowrap align="center">Nomor Anggota </td>
 	<td align="left" nowrap>Nama</td>
 	<td align="left">Nama Pembiayaan</td>
-	<td align="center">Nombor Rujukan</td>
+	<td align="center">Nomor Rujukan</td>
 	<td align="center">Nombor Bond</td>
 	<td align="right">Jumlah Pembiayaan (RP)</td>
 	<td align="center">Tarikh Pembiayaan Diluluskan</td>

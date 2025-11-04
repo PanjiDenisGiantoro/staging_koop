@@ -367,7 +367,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "50";
 
 	$a++;
-	$FormLabel[$a]   	= "Cawangan / Zon";
+	$FormLabel[$a]   	= "Cabang / Zona";
 	$FormElement[$a] 	= "departmentIDd";
 	$FormType[$a]	  	= "hidden";
 	$FormData[$a]   	= "";

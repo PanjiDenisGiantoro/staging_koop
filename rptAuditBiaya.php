@@ -60,7 +60,7 @@ $fname = trim($fname);
 $fname = 'auditBiaya.csv';
 $filename = $dpath . '/' . $fname;
 $file = fopen($filename, 'w', 1);
-fwrite($file, "Bil, Nombor Anggota, Nama, Tarikh Masuk Anggota, Jumlah yuran, Kod pembiayaan, Jumlah pembiayaan, Tempoh, Kadar Keuntunggan, Jumlah ansuran bulanan, Tarikh mohon, Tarikh lulus, Tarikh pengeluaran, Baki Pembiayaan, Jumlah Tunggakan, Caj perkhidmatan, Penjamin 1, Penjamin 2, Penjamin 3, Tarikh terima LO");
+fwrite($file, "Bil, Nomor Anggota, Nama, Tarikh Masuk Anggota, Jumlah yuran, Kod pembiayaan, Jumlah pembiayaan, Tempoh, Kadar Keuntunggan, Jumlah ansuran bulanan, Tarikh mohon, Tarikh lulus, Tarikh pengeluaran, Baki Pembiayaan, Jumlah Tunggakan, Caj perkhidmatan, Penjamin 1, Penjamin 2, Penjamin 3, Tarikh terima LO");
 fwrite($file, "\r\n");
 
 print '
@@ -86,7 +86,7 @@ print '
 		<td>
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">';
-/*Bil	Nombor Anggota	Nama	Tarikh menjadi anggota	
+/*Bil	Nomor Anggota	Nama	Tarikh menjadi anggota	
 Jumlah Wajib Bulanan	Kod Pembiayaan	Jumlah Pembiayaan	Tempoh Pembiayaan	Kadar Keuntungan	Jumlah ansuran bulanan	
 
 Tarikh mohon	Tarikh Lulus	----Tarikh pengeluaran	Baki Pembiayaan @30/11/2006	Jumlah Tunggakan-----
@@ -99,7 +99,7 @@ no anggota penjamin
 tarikh terima lo*/
 print '
 					<th nowrap>&nbsp;</th>
-					<th nowrap align="left">&nbsp;Nombor Anggota</th>
+					<th nowrap align="left">&nbsp;Nomor Anggota</th>
 					<th nowrap align="left">&nbsp;Nama</th>
 					<th nowrap align="left">&nbsp;Tarikh Masuk Anggota</th>
 					<th nowrap align="left">&nbsp;Jumlah yuran</th>

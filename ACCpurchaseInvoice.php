@@ -702,7 +702,7 @@ print
 		<table border="0" cellspacing="1" cellpadding="3" width="100%" class="table table-sm table-striped">
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
-				<td nowrap="nowrap"><b>* Perkara</b></td>
+				<td nowrap="nowrap"><b>* Transaksi</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap"><b>* Kuantiti</b></td>
 				<td nowrap="nowrap"><b>* Harga Seunit (RP)</b></td>

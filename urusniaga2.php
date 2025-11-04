@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 //$conn->debug=true;
 if (!isset($StartRec))	$StartRec = 1;
@@ -59,7 +59,7 @@ $TotalPage =  ($TotalRec / $pg);
 
 
 $a = 1;
-$FormLabel[$a]   	= "* Nombor Anggota";
+$FormLabel[$a]   	= "* Nomor Anggota";
 $FormElement[$a] 	= "memberID";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -69,7 +69,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* No KP Baru";
+$FormLabel[$a]   	= "* No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -79,7 +79,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "No KP Lama";
+$FormLabel[$a]   	= "No KTP Lama";
 $FormElement[$a] 	= "oldIC";
 $FormType[$a]	  	= "hiddentext";
 $FormData[$a]   	= "";
@@ -119,7 +119,7 @@ if ($SubmitForm <> "" or $memberID <> "") {
 	if ($memberID <> "") {
 		if (dlookup("userdetails", "userID", "memberID=" . tosql($memberID, "Text")) == "") {
 			array_push($strErrMsg, 'memberID');
-			print '- <font class=redText>Nombor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
+			print '- <font class=redText>Nomor Anggota - ' . $memberID . ' tidak wujud...!</font><br>';
 			$userName = "";
 			$newIC = "";
 			$oldIC = "";
@@ -253,7 +253,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '?&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&filter=' . $filter . '&memberID=' . $memberID . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a>&nbsp;&nbsp;';
@@ -266,15 +266,15 @@ if ($GetMember->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont" colspan=2>Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont" colspan=2>Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center" colspan=2><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center" colspan=2><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center" colspan=2><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center" colspan=2><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 
@@ -296,7 +296,7 @@ print '
 	function ITRActionButtonClick(v) {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

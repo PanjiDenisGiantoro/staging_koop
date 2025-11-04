@@ -31,7 +31,7 @@ print $strTemp;
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>Nombor Jurnal</td>
+				<td>Nomor Jurnal</td>
 				<td valign="top">:</td>
 				<td><input name="dateTxt" type="text" size="20" maxlength="50" /></td>
 			</tr>
@@ -68,7 +68,7 @@ print $strTemp;
 				<td nowrap="nowrap">Bil.</td>
 				<td nowrap="nowrap">Perkara</td>
 				<td nowrap="nowrap">Kod Objek</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Debit</td>
 				<td nowrap="nowrap">Kredit</td>
 			</tr>

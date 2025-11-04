@@ -497,7 +497,7 @@ print '
 	<td width="48%">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top">Nombor Resit</td>
+				<td valign="top">Nomor Voucher</td>
 				<td valign="top"></td><td><input class="form-control-sm" name="no_resit" value="' . $no_resit . '" type="text" size="20" maxlength="50" readonly/></td>
 			</tr>
 
@@ -519,7 +519,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">* Tarikh</td><td valign="top"></td>
+				<td valign="top" align="right">* Tanggal</td><td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_resit">
 				<input type="text" name="tarikh_resit" id="tarikh_resit_input" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -573,11 +573,11 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 				<td><input name="cara_bayar" value="' . $cara_bayar . '" class="form-control-sm" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Kod & Nombor Siri</td><td valign="top"></td>
+				<td valign="top" align="right">Kode & Nomor Seri</td><td valign="top"></td>
 				<td><input name="kod_siri" value="' . $kod_siri . '" class="form-control-sm" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh Bayaran</td><td valign="top"></td>
+				<td valign="top" align="right">Tanggal Pembayaran</td><td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh">
 				<input type="text" name="tarikh" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -688,9 +688,9 @@ print
 		<table border="0" cellspacing="1" cellpadding="4" width="100%" class="table table-sm table-striped">
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
-				<td nowrap="nowrap"><b>* Perkara</b></td>
-				<td nowrap="nowrap"><b>Kod Master Akaun</b></td>
-				<td nowrap="nowrap"><b>Kod Akaun</b></td>
+				<td nowrap="nowrap"><b>* Transaksi</b></td>
+				<td nowrap="nowrap"><b>Kode Master Akun</b></td>
+				<td nowrap="nowrap"><b>Kode Akun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap" align="right"><b>* Jumlah (RP)</b></td>
 				<td nowrap="nowrap">&nbsp;</td>
@@ -892,7 +892,7 @@ print         '<tr class="table-secondary">
 					</td>
 			</tr>
 			<tr>
-			<td nowrap="nowrap">Kerani Kewangan</td><td valign="top"></td><td>' . selectAdmin($kerani, 'kerani') . '</td>
+			<td nowrap="nowrap">Staf Keuangan</td><td valign="top"></td><td>' . selectAdmin($kerani, 'kerani') . '</td>
 			</tr>
 			<tr>
 			<td nowrap="nowrap" valign="top">Catatan</td><td valign="top"></td><td valign="top"><textarea name="catatan" class="form-control-sm" cols="50" rows="4">' . $catatan . '</textarea></td>

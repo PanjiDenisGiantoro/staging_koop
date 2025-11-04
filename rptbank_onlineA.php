@@ -9,7 +9,7 @@ session_start();
 include("common.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $yr = (int)substr($yrmth, 0, 4);
@@ -62,10 +62,10 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="2%" nowrap align="center">Bil</th>
 					<th nowrap align="center">Tarikh Transaksi</th>
-					<th nowrap align="center">Nombor Anggota</th>
+					<th nowrap align="center">Nomor Anggota</th>
 					<th nowrap align="left">Nama Anggota</th>
-					<th nowrap align="center">Nombor Kad Pengenalan</th>
-					<th nowrap align="center">Nombor Resit</th>
+					<th nowrap align="center">Nombor Kartu Identitas</th>
+					<th nowrap align="center">Nomor Voucher</th>
 					<th nowrap align="right">Belian (RP)</th>
 				</tr>';
 

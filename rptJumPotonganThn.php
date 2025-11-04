@@ -19,7 +19,7 @@ if (!isset($yy))	$yy = date("Y");
 include("common.php");
 // include("header.php");	
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 $yymm = $yy . $mm;
@@ -155,9 +155,9 @@ if (get_session("Cookie_groupID") > 0) {
 			print
 				'<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 10pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
-					<td nowrap align="left"><b>Nombor/Nama Anggota</b></td>
-					<td nowrap align="left"><b>Nombor Pekerja</b></td>
-					<td nowrap align="left"><b>Cawangan/Zon</b></td>
+					<td nowrap align="left"><b>Nomor/Nama Anggota</b></td>
+					<td nowrap align="left"><b>Nomor Karyawan</b></td>
+					<td nowrap align="left"><b>Cabang/Zona</b></td>
 					<td nowrap align="left"><b>Nombor Akaun Tabungan</b></td>
 					<td nowrap align="right"><b>Jumlah Potongan Wajib (' . $yr . ')</b></td>
 					<td nowrap align="right"><b>Jumlah Potongan Pembiayaan (' . $yr . ')</b></td>
@@ -218,10 +218,10 @@ if (get_session("Cookie_groupID") > 0) {
 		} else {
 			if ($q == "") {
 				print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 			} else {
 				print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 			}
 		} // end of ($GetMember->RowCount() <> 0)
 	} // end of ($q == "" AND $dept == "")
@@ -231,8 +231,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -240,8 +240,8 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';
@@ -292,7 +292,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

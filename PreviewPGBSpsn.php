@@ -18,7 +18,7 @@ if (!isset($yymm))	$yymm; //"ALL";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 
@@ -171,8 +171,8 @@ print '  <tr valign="top" >
 	<input type="button" name="generate" value="Generate" class="but" onclick= "Javascript:(window.location.href=\'PreviewPGBSpsn.php?action=view&no_bayar=' . $yrmthNow . '&generate=y\')">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 						<tr class="header">
-						<td nowrap height="20">&nbsp;Bil</td>
-						<td nowrap height="20">&nbsp;Nombor Anggota</td>
+						<td nowrap height="20">&nbsp;No</td>
+						<td nowrap height="20">&nbsp;Nomor Anggota</td>
 						<td nowrap>&nbsp;Nama Anggota</td>
 						<td nowrap>&nbsp;No Pekerja</td>
 						<td nowrap colspan="2"> Jum Potongan Bulanan</td>
@@ -224,7 +224,7 @@ print '
 			</td>
 		</tr>
 		<!--tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 		</tr-->';
 
 print ' 
@@ -249,7 +249,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

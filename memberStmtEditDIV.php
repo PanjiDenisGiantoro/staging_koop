@@ -201,7 +201,7 @@ print '		</select>
 					</tr>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
-						<td nowrap><b>Nombor/Nama Anggota</b></td>
+						<td nowrap><b>Nomor/Nama Anggota</b></td>
 						<td nowrap align="center"><b>Kartu Identitas</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
 						<td nowrap align="right"><b>Dividen Tunai ' . $yy . ' (RP)</b></td>
@@ -276,8 +276,8 @@ print '		</select>
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Penyata Wajib Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesMonthly\')">Laporan Wajib Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -285,8 +285,8 @@ print '		</select>
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Penyata Pokok Bulanan</a>
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareMonthly\')">Laporan Pokok Bulanan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

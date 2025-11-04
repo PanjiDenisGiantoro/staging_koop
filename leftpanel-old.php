@@ -382,7 +382,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("PENGHUTANG", 'mdi mdi-account-cash');
         echo '<ul class="sub-menu ' . $mn915 . '" aria-expanded="false">';
 
-        MenuLink("ACCquotationList.php", "Sebut Harga", 915, @$_REQUEST['vw']);
+        MenuLink("ACCquotationList.php", "Penawaran Harga", 915, @$_REQUEST['vw']);
         MenuLink("ACCinvoiceList.php", "Invois", 915, @$_REQUEST['vw']);
         MenuLink("ACCDebtorList.php", "Terima Bayaran (Invois)", 915, @$_REQUEST['vw']);
         MenuLink("ACCDebtorBulkList.php", "Terima Bayaran Bulk", 915, @$_REQUEST['vw']);

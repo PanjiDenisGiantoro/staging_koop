@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -105,11 +105,11 @@ $opt = array(1, 2, 3, 6, 7);
 carianheader($by, $opt);
 /*
 echo ' 
-			Carian melalui
+			Cari Berdasarkan
 			<select	name="by" class="Data">';
-		if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';		else print '<option	value="1">Nombor Anggota</option>';
+		if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';		else print '<option	value="1">Nomor Anggota</option>';
 		if ($by	== 2)	print '<option value="2" selected>Nama</option>';	else print '<option	value="2">Nama</option>';
-		if ($by	== 3)	print '<option value="3" selected>No Kad Pengenalan</option>';		else print '<option	value="3">No Kad Pengenalan</option>';
+		if ($by	== 3)	print '<option value="3" selected>No Kartu Identitas</option>';		else print '<option	value="3">No Kartu Identitas</option>';
 		if ($by	== 4)	print '<option value="4" selected>No Kenderaan</option>';		else print '<option	value="4">No Kenderaan</option>';
 		if ($by	== 5)	print '<option value="5" selected>Jum.Hari Tempoh Tamat Insuran</option>';		else print '<option	value="5">Jum.Hari Tempoh Tamat Insuran</option>';
 	print '	</select>
@@ -178,7 +178,7 @@ if ($GetListIns->RowCount() <>	0) {
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap>&nbsp;</td>
-						<td	nowrap><b>Nombor Rujukan</b></td>
+						<td	nowrap><b>Nomor Rujukan</b></td>
 						<td	width="10" nowrap align="center"><b>Tahun Perlindungan</b></td>
 						<td width="80"	nowrap><b>Nama</b></td>
 						<td	 width="15" nowrap align="center"><b>Nombor Kenderaan</b></td>
@@ -241,7 +241,7 @@ if ($GetListIns->RowCount() <>	0) {
 		} else {
 			$numPage = $TotalPage +	1;
 		}
-		print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+		print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print	'<br />';
 			print '<A href="' . $sFileName . '&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -255,12 +255,12 @@ if ($GetListIns->RowCount() <>	0) {
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetListIns->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetListIns->RowCount()	. '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';

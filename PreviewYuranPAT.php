@@ -18,7 +18,7 @@ if (!isset($yy))	$yy = date("Y");
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $yrmthNow = sprintf("%04d%02d", $yr, $mth);
 
@@ -105,8 +105,8 @@ print '  <tr valign="top" >
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 				<tr class="header">
-						<td nowrap rowspan="1" height="20">&nbsp;Bil</td>
-						<td nowrap>&nbsp;Nombor Anggota</td>
+						<td nowrap rowspan="1" height="20">&nbsp;No</td>
+						<td nowrap>&nbsp;Nomor Anggota</td>
 						<td nowrap>&nbsp;Nama Anggota</td>
 						<td nowrap colspan="2"> Jabatan</td>
 					    <td nowrap colspan="2"> Pot. Wajib</td>
@@ -155,7 +155,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

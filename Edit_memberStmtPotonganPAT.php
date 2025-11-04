@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Potongan Akaun Tabungan (PAT)";
 
 $sFileName = 'Edit_memberStmtPotonganPAT.php';
@@ -105,7 +105,7 @@ $rs1 = &$conn->Execute($sSQL2);
       <td>' . $rs1->fields(name) . '</td>
     </tr>
     <tr>
-      <td>Nombor Anggota  :</td>
+      <td>Nomor Anggota  :</td>
       <td>' . $ID . '</td>
     </tr>
     <tr>

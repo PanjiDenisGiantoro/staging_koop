@@ -12,7 +12,7 @@ session_start();
 include("common.php");
 include("AccountQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -118,7 +118,7 @@ if ($rs->RowCount() <> 0) {
 
 	print '	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-		<td colspan="3" align="right"><b>&nbsp;BAKI (RP)</b></td>
+		<td colspan="3" align="right"><b>&nbsp;SALDO (RP)</b></td>
 		<td colspan="2" align="right">' . number_format($baki, 2) . '</td>
 	</tr>';
 } else {

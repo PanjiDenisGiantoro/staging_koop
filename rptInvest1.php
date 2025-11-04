@@ -20,7 +20,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $sSQL = "";
 $sSQL = "SELECT a.*, b.* FROM generalacc a, investors b WHERE a.ID = b.compID AND a.category = 'AK' AND a.ID = '$id' ";
 $GetData = &$conn->Execute($sSQL);
-$title  = 'Senarai Projek Berdasarkan Nama Syarikat';
+$title  = 'Senarai Projek Berdasarkan Nama Serikat';
 
 //----------------------------------------------------------------------
 

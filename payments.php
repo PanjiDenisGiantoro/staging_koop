@@ -239,7 +239,7 @@ print
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td>Nombor Auto Pay</td><td valign="top"></td><td><input class="form-controlx" name="no_bayar" value="' . $no_bayar . '" type="text" size="20" maxlength="50" readonly/></td></tr>
-			<tr><td>Tarikh</td><td valign="top"></td><td><input name="tarikh_bayar" class="form-controlx"value="' . date("d/m/Y") . '" type="text" size="20" maxlength="10" /></td></tr>
+			<tr><td>Tanggal</td><td valign="top"></td><td><input name="tarikh_bayar" class="form-controlx"value="' . date("d/m/Y") . '" type="text" size="20" maxlength="10" /></td></tr>
 		</table>
 	</td>
 </tr>
@@ -363,7 +363,7 @@ print 		'<tr class="table-secondary">
 			<tr><td nowrap="nowrap" colspan="3">Maklumat dari Slip Bank</td></tr>
 			<tr><td nowrap="nowrap">Kod Caw.</td><td valign="top">:</td><td><input name="kod_caw" value="' . $kod_caw . '" type="text" size="20" maxlength="50" /></td></tr>
 			<tr><td nowrap="nowrap">NomborSiri</td><td valign="top">:</td><td><input name="no_siri" value="' . $no_siri . '" type="text" size="20" maxlength="50" /></td></tr>
-			<tr><td nowrap="nowrap">Tarikh</td><td valign="top">:</td><td><input name="tarikh_bank" value="' . $tarikh_bank . '" type="text" size="20" maxlength="50" /></td></tr>
+			<tr><td nowrap="nowrap">Tanggal</td><td valign="top">:</td><td><input name="tarikh_bank" value="' . $tarikh_bank . '" type="text" size="20" maxlength="50" /></td></tr>
 		</table>
 	</td-->
 </tr>';

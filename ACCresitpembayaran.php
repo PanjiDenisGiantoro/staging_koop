@@ -466,7 +466,7 @@ print
 	<td width="48%">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>Nombor Resit</td>
+				<td>Nomor Voucher</td>
 				<td valign="top"></td>
 				<td>
 					<input  name="no_resit" value="' . $no_resit . '" type="text" size="20" maxlength="50" class="form-control-sm" readonly/>

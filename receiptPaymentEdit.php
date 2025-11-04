@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -41,7 +41,7 @@ print $strTemp;
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -85,12 +85,12 @@ print $strTemp;
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Kod & Nombor Siri</td>
+				<td valign="top" align="right">Kode & Nomor Seri</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Tarikh</td>
+				<td valign="top" align="right">Tanggal</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -111,7 +111,7 @@ print $strTemp;
 			<tr class="header">
 				<td nowrap="nowrap">Kod</td>
 				<td nowrap="nowrap">Keterangan</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Jumlah</td>
 			</tr>
 			<tr>
@@ -149,7 +149,7 @@ print $strTemp;
 				<td colspan="3" nowrap="nowrap">Jumlah Dalam Perkataan<br /><input name="" size="80" maxlength="80" value="Satu Ribu Satu Ratus Empat Puluh Dua Sahaja."></td>
 			</tr>
 			<tr>
-				<td nowrap="nowrap">Kerani Kewangan</td>
+				<td nowrap="nowrap">Staf Keuangan</td>
 				<td valign="top">:</td>
 				<td><select>
 						<option>RAMLI BIN MOHD SALLEH</option>

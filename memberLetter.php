@@ -271,7 +271,7 @@ if ($page <> 'list') {
 			<tr><td>Kod Surat</td><td>&nbsp;&nbsp;</td><td>' . $code_name . '</td></tr>';
 
 				$strHtml .= '
-			<tr><td>Nombor Susunan</td><td>&nbsp;&nbsp;</td><td>' . $sort_num . '</td></tr>';
+			<tr><td>Nomor Urut</td><td>&nbsp;&nbsp;</td><td>' . $sort_num . '</td></tr>';
 
 				$strHtml .= '
 			<tr><td>Nama Surat</td><td>&nbsp;&nbsp;</td><td>' . $title . '</td></tr>';
@@ -322,7 +322,7 @@ if ($page <> 'list') {
 			</tr>';
 			$strHtml .= '
 			<tr>
-				<td>Nombor Susunan</td>
+				<td>Nomor Urut</td>
 				<td>&nbsp;&nbsp;</td>
 				<td><input name="sort_num" class="form-control-sm" type="text" size="11" maxlength="11" value="' . $sort_num . '"></td>
 			</tr>';
@@ -550,7 +550,7 @@ if ($page <> 'list') {
 
 	$strHtml .=	$strErrMsg . '
 				<tr>
-					<td align="right" width="150">Carian melalui&nbsp;</td>
+					<td align="right" width="150">Cari Berdasarkan&nbsp;</td>
 					<td>'
 		. SelectForm('by', $by, $strTypeNameList, $strTypeValueList, '') . '&nbsp;
 					<input name="keyword" type="text" value="" class="form-control-sm" maxlength="50" size="30">&nbsp;

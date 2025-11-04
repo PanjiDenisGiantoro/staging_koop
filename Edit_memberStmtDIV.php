@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Transaksi";
 
 $sFileName = "?vw=Edit_memberStmtDIV&mn=$mn";
@@ -117,7 +117,7 @@ $rs1 = &$conn->Execute($sSQL2);
       <td width="908"><b>' . $rs1->fields(name) . '</b></td>
     </tr>
     <tr class="table-light">
-      <td>Nombor Anggota  :</td>
+      <td>Nomor Anggota  :</td>
       <td><b>' . $ID . '</b></td>
     </tr>
   </table>
@@ -127,7 +127,7 @@ $rs1 = &$conn->Execute($sSQL2);
     </tr>
     <tr class="table-primary">
       <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
-      <td width="20%" nowrap ><b>Nombor Anggota - Nama</b></td>
+      <td width="20%" nowrap ><b>Nomor Anggota - Nama</b></td>
       <td width="5%" nowrap><b>Tahun</b></td>
       <td width="8%" nowrap align="right"><b>Dividen (RP)</b></td>
 	  <td width="10%" nowrap align="right"><b>Tunggakkan (RP)</b></td>

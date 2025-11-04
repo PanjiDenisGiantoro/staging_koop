@@ -11,7 +11,7 @@ session_start();
 
 include("common.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $yr = (int)substr($yrmth, 0, 4);
@@ -103,9 +103,9 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Bil</th>
-					<th nowrap align="center">&nbsp;Nombor Anggota</th>
+					<th nowrap align="center">&nbsp;Nomor Anggota</th>
 					<th nowrap align="left">&nbsp;Nama Anggota</th>
-					<th nowrap align="left">&nbsp;Nombor Rujukan Pembiayaan</th>
+					<th nowrap align="left">&nbsp;Nomor Rujukan Pembiayaan</th>
 					<th nowrap align="left">&nbsp;Nama Pembiayaan</th>
 					<th nowrap align="left">&nbsp;Nombor Bond</th>
 					<th nowrap align="right">&nbsp;Jumlah Pembiayaan Pokok (RP)</th>	

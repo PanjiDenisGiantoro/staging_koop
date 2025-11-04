@@ -53,7 +53,7 @@ if ($GetWelfare->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">                             
 					<tr class="table-primary">
 					<td nowrap>&nbsp;</td>
-					<td nowrap>Nombor Rujukan/Kebajikan</td>
+					<td nowrap>Nomor Rujukan/Kebajikan</td>
 					<td	nowrap align="center">Status</td>
 					<td nowrap align="center">Tarikh Mohon</td>
                     <td nowrap align="center">Tarikh Kelulusan</td>

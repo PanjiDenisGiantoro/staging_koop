@@ -211,10 +211,10 @@ print'
 		<td nowrap="nowrap" align="right">'; print number_format($jumlah,2); print '</td>
 	</tr>
     </table>
-    <!-----------Cara Bayar/No. Siri/Tarikh Bayaran------------->
+    <!-----------Cara Bayar/No. Siri/Tanggal Pembayaran------------->
     <div class="bayar-style">Cara Bayaran : '.$cara_bayar.'</div>
     <div class="no-siri">Kod & No. Siri : '.$kod_siri.'</div>
-    <div class="date-bayar-stylish">Tarikh Bayaran : '.$tarikh.'</div>
+    <div class="date-bayar-stylish">Tanggal Pembayaran : '.$tarikh.'</div>
     <div class="stylish-catat">Catatan :'.$catatan.'</div>
     </div>';
 

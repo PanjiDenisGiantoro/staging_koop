@@ -202,7 +202,7 @@ if ($Getbayars->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nombor Bayar</td>
-						<td nowrap align="center">Tarikh</td>
+						<td nowrap align="center">Tanggal</td>
 						<td nowrap align="center">Bil. Data</td>
 						<!--td nowrap>Nombor Siri</td-->
 						<td nowrap align="right" width="50">Jumlah (RP)</td>

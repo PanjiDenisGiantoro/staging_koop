@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Potongan Pembiayaan Bulanan";
 
 $sFileName = "?vw=Edit_memberStmtPotongan&mn=$mn";
@@ -172,15 +172,15 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
       <td><b>' . $rs1->fields(name) . '</b></td>
     </tr>
     <tr>
-      <td width="20%">Nombor Anggota :</td>
+      <td width="20%">Nomor Anggota :</td>
       <td><b>' . $ID . '</b></td>
     </tr>
 	<tr>
-      <td>No Kad Pengenalan :</td>
+      <td>No Kartu Identitas :</td>
       <td><b>' . $rs1->fields(newIC) . '</b></td>
     </tr>
 	<tr>
-      <td>Cawangan/Zon :</td>
+      <td>Cabang/Zona :</td>
       <td><b>' . dlookup("general", "name", "ID=" . tosql($rs1->fields(departmentID), "Text")) . '</b></td>
     </tr>
 	<tr><td colspan="2"><hr class="1px"></td></tr>
@@ -201,7 +201,7 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
       <td>&nbsp;</td>
     </tr>
 	<tr>
-		<td colspan="2"><input type="button" class="btn btn-primary" value="Kod PTJ" onclick="window.open(\'generalAddUpdate.php?action=tambah&cat=U&sub=\', \'newwindow\', \'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">&nbsp;
+		<td colspan="2"><input type="button" class="btn btn-primary" value="Kode PTJ" onclick="window.open(\'generalAddUpdate.php?action=tambah&cat=U&sub=\', \'newwindow\', \'top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">&nbsp;
 		<input type="button" class="btn btn-primary" value="Tambah Potongan Baru" onclick="window.open(\'addNewPot.php?ID=' . $ID . '\', \'newwindow\', \'top=\' + ((window.innerHeight / 2) - (500 / 2)) + \',left=\' + ((window.innerWidth / 2) - (950 / 2)) + \',width=950,height=200,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\');">
 
 	</tr>

@@ -126,8 +126,8 @@ print '		</select>
     <div clas="row">
     Cari Berdasarkan
 				<select name="by" class="form-select-sm">';
-if ($by == 2)    print '<option value="2" selected>Nombor Resit</option>';
-else print '<option value="2">Nombor Resit</option>';
+if ($by == 2)    print '<option value="2" selected>Nomor Voucher</option>';
+else print '<option value="2">Nomor Voucher</option>';
 if ($by == 1)    print '<option value="1" selected>Keterangan</option>';
 else print '<option value="1">Keterangan</option>';
 

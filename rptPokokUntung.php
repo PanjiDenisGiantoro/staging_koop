@@ -19,7 +19,7 @@ $yymm = sprintf("%04d%02d", $yy, $mm);
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 //$yrmthNow = sprintf("%04d%02d", $yr, $mth);
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -125,8 +125,8 @@ print '  <tr valign="top" >
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 					<tr class="header">
-						<td nowrap rowspan="1" align="center">&nbsp; Bil</td>
-						<td nowrap>Nombor Anggota</td>
+						<td nowrap rowspan="1" align="center">&nbsp; No</td>
+						<td nowrap>Nomor Anggota</td>
 						<td nowrap>&nbsp;Nama Anggota</td>
 						<td nowrap>&nbsp;Jenis Pembiayaan</td>
 						<td nowrap colspan="2">BOND</td>
@@ -242,7 +242,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

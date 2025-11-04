@@ -126,7 +126,7 @@ if (get_session("Cookie_groupID") > 0) {
 
 				   
 				<tr>
-					<td class="textFont">Penyata Wajib</td>
+					<td class="textFont">Laporan Wajib</td>
 					<td class="textFont"> 
 			        <input type="button" class="btn btn-sm btn-secondary" value="Bulanan" onClick="ITRActionButtonClick(\'feesMonthly\');" style="width:100px;">
 					<input type="button" class="btn btn-sm btn-secondary" value="Tahunan" onClick="ITRActionButtonClick(\'feesYearly\');" style="width:100px;">
@@ -134,7 +134,7 @@ if (get_session("Cookie_groupID") > 0) {
 					</td>
 				</tr>
 				<tr>
-					<td class="textFont">Penyata Pokok</td>
+					<td class="textFont">Laporan Pokok</td>
 					<td class="textFont">
 			        <input type="button" class="btn btn-sm btn-secondary" value="Bulanan" onClick="ITRActionButtonClick(\'shareMonthly\');" style="width:100px;">            
 	   			    <input type="button" class="btn btn-sm btn-secondary" value="Tahunan" onClick="ITRActionButtonClick(\'shareYearly\');" style="width:100px;">
@@ -254,7 +254,7 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Penyata Wajib Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Laporan Wajib Tahunan</a>
 		</td>
 	</tr>
     ';
@@ -262,7 +262,7 @@ if (get_session("Cookie_groupID") > 0) {
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Penyata Pokok Tahunan</a>
+		<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Laporan Pokok Tahunan</a>
 		</td>
 	</tr>
 	';

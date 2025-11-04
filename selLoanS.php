@@ -193,7 +193,7 @@ if ($GetLoan->RowCount() == 0) {
 					<tr class="table-primary">
 						<td	nowrap>&nbsp;</td>
 						<td	nowrap><b>Nomor Rujukan Pinjaman</b></td>
-						<td	nowrap><b>Nombor/Nama Anggota</b></td>
+						<td	nowrap><b>Nomor/Nama Anggota</b></td>
 						<td	nowrap align="center"><b>Kartu Identitas</b></td>
 						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td	nowrap align="center"><b>Status</b></td>

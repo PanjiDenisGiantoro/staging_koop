@@ -19,7 +19,7 @@ print '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 if (!isset($mm))	$mm = "ALL"; //date("m");
 if (!isset($yy))	$yy = date("Y");
 $yymm = sprintf("%04d%02d", $yy, $mm);
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 30;
@@ -159,12 +159,12 @@ print '		</select>
 			<input type="submit" name="action1" value="Capai" class="btn btn-sm btn-secondary">
 <br/><br/>';
 
-print 'Carian Melalui
+print 'Cari Berdasarkan
     <select name="by" class="form-select-sm" onchange="toggleSearchFields(this.value);">';
 if ($by == 2)	print '<option value="2" selected>No Pelarasan</option>';
 else print '<option value="2">No Pelarasan</option>';
-// if ($by == 3)	print '<option value="3" selected>Nama Syarikat</option>';
-// else print '<option value="3">Nama Syarikat</option>';
+// if ($by == 3)	print '<option value="3" selected>Nama Serikat</option>';
+// else print '<option value="3">Nama Serikat</option>';
 print '</select>';
 
 // Dropdown for selecting debtor
@@ -208,9 +208,9 @@ if ($getAdj->RowCount() <> 0) {
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>
+						<td  class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
 						<td align="right" class="textFont">
-							Paparan <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
+							Tampil <SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 	if ($pg == 5)	print '<option value="5" selected>5</option>';
 	else print '<option value="5">5</option>';
 	if ($pg == 10)	print '<option value="10" selected>10</option>';
@@ -225,7 +225,7 @@ if ($getAdj->RowCount() <> 0) {
 	else print '<option value="50">50</option>';
 	if ($pg == 100)	print '<option value="100" selected>100</option>';
 	else print '<option value="100">100</option>';
-	print '				</select>setiap mukasurat.
+	print '				</select>setiap halaman.
 						</td>
 					</tr>
 				</table>
@@ -286,7 +286,7 @@ if ($getAdj->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print '<br />';
 			print '<A href="' . $sFileName . '?yy=' . $yy . '&mm=' . $mm . '&code=' . $code . '&filter=' . $filter . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '">';
@@ -305,10 +305,10 @@ if ($getAdj->RowCount() <> 0) {
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . ' Bagi Bulan/Tahun - ' . $mm . '/' . $yy . ' -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 
@@ -338,7 +338,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

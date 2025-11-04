@@ -14,7 +14,7 @@ if (!isset($dept))		$dept = "";
 
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -113,14 +113,14 @@ print '<div class="table-responsive">
 <input type="hidden" name="action">
 <h5 class="card-title">' . strtoupper($title) . ' &nbsp;</h5>
  <div clas="row">
- Carian Melalui
+ Cari Berdasarkan
                     <select	name="by" class="form-select-sm">';
-if ($by == 1) print '<option value="1" selected>Nombor Anggota</option>';
-else print '<option value="1">Nombor Anggota</option>';
+if ($by == 1) print '<option value="1" selected>Nomor Anggota</option>';
+else print '<option value="1">Nomor Anggota</option>';
 if ($by == 2) print '<option value="2" selected>Nama</option>';
 else print '<option value="2">Nama</option>';
-if ($by == 3) print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3) print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 if ($by == 4) print '<option value="4" selected>Nombor Kenderaan</option>';
 else print '<option value="4">Nombor Kenderaan</option>';
 
@@ -133,11 +133,11 @@ print '	</select>
 		<td align="left" >';
 /*
 echo ' 
-			Carian melalui
+			Cari Berdasarkan
 			<select	name="by" class="Data">';
-		if ($by	== 1)	print '<option value="1" selected>Nombor Anggota</option>';		else print '<option	value="1">Nombor Anggota</option>';
+		if ($by	== 1)	print '<option value="1" selected>Nomor Anggota</option>';		else print '<option	value="1">Nomor Anggota</option>';
 		if ($by	== 2)	print '<option value="2" selected>Nama</option>';	else print '<option	value="2">Nama</option>';
-		if ($by	== 3)	print '<option value="3" selected>No Kad Pengenalan</option>';		else print '<option	value="3">No Kad Pengenalan</option>';
+		if ($by	== 3)	print '<option value="3" selected>No Kartu Identitas</option>';		else print '<option	value="3">No Kartu Identitas</option>';
 		if ($by	== 4)	print '<option value="4" selected>No Kenderaan</option>';		else print '<option	value="4">No Kenderaan</option>';
 		
 	print '	</select>
@@ -194,9 +194,9 @@ if ($GetListIns->RowCount() <>	0) {
 					<tr class="table-primary">
 						<td	nowrap>&nbsp;</td>	
 						<td	nowrap>&nbsp;</td>	
-						<td	nowrap><b>Nombor Rujukan</b></td>
+						<td	nowrap><b>Nomor Rujukan</b></td>
 						<td	nowrap align="center"><b>Tahun Perlindungan</b></td>
-						<td	nowrap align="center"><b>Nombor Anggota</b></td>
+						<td	nowrap align="center"><b>Nomor Anggota</b></td>
 						<td	nowrap><b>Nama</b></td>
 						<td	nowrap align="center"><b>Nombor Kenderaan</b></td>
 						  <td	nowrap align="right"><b>Jumlah Premium (RP)</b></td>
@@ -262,7 +262,7 @@ if ($GetListIns->RowCount() <>	0) {
 		} else {
 			$numPage = $TotalPage +	1;
 		}
-		print '<tr><td class="textFont"	valign="top" align="left">Rekod	Dari : <br>';
+		print '<tr><td class="textFont"	valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			if (is_int($i / 10)) print	'<br />';
 			print '<A href="' . $sFileName . '&StartRec=' . (($i	* $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter=' . $filter . '">';
@@ -276,12 +276,12 @@ if ($GetListIns->RowCount() <>	0) {
 			</td>
 		</tr>
 		<tr>
-			<td	class="textFont">Jumlah	Rekod :	<b>' . $GetListIns->RowCount()	. '</b></td>
+			<td	class="textFont">Jumlah Data :	<b>' . $GetListIns->RowCount()	. '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td	align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
+			<tr><td	align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr	size=1"></td></tr>';
 	} else {
 		print '
 			<tr><td	align="center"><hr size=1"><b class="textFont">- Carian	rekod "' . $q . '" tidak jumpa	-</b><hr size=1"></td></tr>';
@@ -333,7 +333,7 @@ print '
 function SendData(v) {'
 	. 'frm = document.MyForm;'
 	. 'if (frm==null) {'
-	. 'alert(\'Sila pastikan nama form diwujudkan.!\');'
+	. 'alert(\'Silakan pastikan nama form dibuat/tersedia.!\');'
 	. 'return false;'
 	. '} else {'
 	. 'count=0;'
@@ -350,7 +350,7 @@ function SendData(v) {'
 	. '}'
 	. '}'
 	. 'if (count==0) {'
-	. 'alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');'
+	. 'alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');'
 	. 'return false;'
 	. '} else {'
 	. 'if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {'

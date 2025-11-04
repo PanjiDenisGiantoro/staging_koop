@@ -57,7 +57,7 @@ print '
 					<th width="2%" nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Penerima</th>
 					<th nowrap>&nbsp;Tarikh</th>
-					<th nowrap>&nbsp;Nombor Baucer</th>
+					<th nowrap>&nbsp;Nomor Voucher</th>
 					<th nowrap>&nbsp;Jumlah</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

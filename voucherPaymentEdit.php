@@ -90,7 +90,7 @@ print $strTemp;
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Nombor Rujukan</td>
+				<td valign="top" align="right">Nomor Rujukan</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -100,7 +100,7 @@ print $strTemp;
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
 			<tr>
-				<td valign="top" align="right">Kod & Nombor Siri</td>
+				<td valign="top" align="right">Kode & Nomor Seri</td>
 				<td valign="top">:</td>
 				<td><input name="" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -117,7 +117,7 @@ print $strTemp;
 				<td nowrap="nowrap">Kod.</td>
 				<td nowrap="nowrap">Nombor Ruj</td>
 				<td nowrap="nowrap">Keterangan</td>
-				<td nowrap="nowrap">Kod Akaun</td>
+				<td nowrap="nowrap">Kode Akun</td>
 				<td nowrap="nowrap">Qty</td>
 				<td nowrap="nowrap">Jumlah</td>
 			</tr>
@@ -162,7 +162,7 @@ print $strTemp;
 				<td colspan="3" nowrap="nowrap">Jumlah Dalam Perkataan<br /><input name="" size="80" maxlength="80"></td>
 			</tr>
 			<tr>
-				<td nowrap="nowrap">Kerani Kewangan</td>
+				<td nowrap="nowrap">Staf Keuangan</td>
 				<td valign="top">:</td>
 				<td><select>
 						<option>NOREHA BINTI MIZI</option>

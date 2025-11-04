@@ -58,13 +58,13 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" >
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
-					<td nowrap align="center"><b>Nombor Anggota</b></td>
+					<td nowrap align="center"><b>Nomor Anggota</b></td>
 					<td nowrap><b>Nama</b></td>
-					<td nowrap align="center"><b>Kad Pengenalan</b></td>
+					<td nowrap align="center"><b>Kartu Identitas</b></td>
 					<td nowrap align="center"><b>No Pekerja</b></td>
 					<td nowrap align="right"><b>Yuran Bulanan (RP)</b></td>
-					<td nowrap><b>Cawangan/Zon</b></td>
-					<td nowrap align="center"><b>Tarikh Memohon</b></td>
+					<td nowrap><b>Cabang/Zona</b></td>
+					<td nowrap align="center"><b>Tanggal Pengajuan</b></td>
 					<td nowrap align="center"><b>Tarikh Diluluskan</b></td>
 				</tr>';
 if ($rs->RowCount() <> 0) {

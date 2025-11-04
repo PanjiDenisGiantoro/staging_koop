@@ -80,7 +80,7 @@
                                             <tr class="table-success">
                                                 <td nowrap align="right" width="15">&nbsp;</td>
                                                 <td nowrap align="left" width="">Perkara</td>
-                                                <td nowrap align="center" width="10%">Tarikh</td>
+                                                <td nowrap align="center" width="10%">Tanggal</td>
                                                 <td nowrap align="center" width="10%">Oleh</td>
                                             </tr>
                                             <tr>
@@ -118,7 +118,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="textFont">Jumlah Rekod : <font class="redText">3</font>
+                                    <td class="textFont">Jumlah Data : <font class="redText">3</font>
                                     </td>
                                 </tr>
                             </table>

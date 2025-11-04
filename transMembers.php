@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -39,7 +39,7 @@ $strHeaderTitle = strtoupper($strTitle);
 
 $strHeaderTitle = '<a class="maroon" href="index.php">LAMAN UTAMA</a><b>' . '&nbsp;>&nbsp;' . $strHeaderTitle . '</b>';
 
-$strTypeNameList	= array('Nombor Anggota', 'Nama Anggota', 'No KP Baru');
+$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
 $strTypeValueList	= array(1, 2, 3);
 $strStatusNameList	= array($statusList[1], $statusList[3],  $statusList[4]);
 $strStatusValueList	= array($statusVal[1], $statusVal[3], $statusVal[4]);
@@ -78,7 +78,7 @@ $strTemp .=
 
 $strTemp .=	$strErrMsg
 	. '<tr>'
-	. '<td align="right" width="150"><b>Carian melalui</b></td>'
+	. '<td align="right" width="150"><b>Cari Berdasarkan</b></td>'
 	. '<td>'
 	. SelectForm('by', $by, $strTypeNameList, $strTypeValueList, '') . '&nbsp;'
 	. '<input name="keyword" type="text" value="' . $keyword . '" maxlength="50" size="30">&nbsp;'
@@ -122,9 +122,9 @@ $sSQL .= ' ORDER BY CAST( b.memberID AS SIGNED INTEGER ) ' . $sort;
 $GetData = $conn->Execute($sSQL);
 
 if ($GetData->RowCount() <> 0) {
-	$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+	$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 } else {
-	$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tarikh Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+	$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 }
 $strFieldWidthList = array('15', '', '10%', '20%', '10%', '10%', '8%');
 $strFieldAlignList = array('right', 'left', 'left', 'left', 'center', 'right', 'right');
@@ -268,7 +268,7 @@ if ($GetData->RowCount() <> 0) {
 
 	$strTemp .=
 		'<tr>'
-		. '<td class="textFont">Jumlah Rekod : <font class="redText">' . $GetData->RowCount() . '</font></td>'
+		. '<td class="textFont">Jumlah Data : <font class="redText">' . $GetData->RowCount() . '</font></td>'
 		. '</tr>';
 } else {
 	$strTemp .=
