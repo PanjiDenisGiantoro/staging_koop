@@ -25,8 +25,8 @@ if (get_session("Cookie_groupID") == 0) {
 	$oldIC		= dlookup("userdetails", "oldIC", "userID=" . tosql(get_session('Cookie_userID'), "Text"));
 }
 
-$sFileName		= "?vw=memberApplyTP&mn=905";
-$sActionFileName = "?vw=memberT&mn=905";
+$sFileName		= "?vw=memberApplyTP&mn=901";
+$sActionFileName = "?vw=memberT&mn=901";
 $title     		= "Pengajuan Mengundurkan Diri dari Layanan";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->

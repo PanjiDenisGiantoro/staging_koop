@@ -33,7 +33,7 @@ if ($action == 'Kemaskini') {
 		$rs = &$conn->Execute($sSQL);
 		print 	'
 		<script>
-			window.location = "?vw=memberProfil&mn=905";
+			window.location = "?vw=memberProfil&mn=901";
 		</script>';
 		//exit;
 	}
@@ -120,7 +120,7 @@ print '		</select>
 				<tr class="table-light">
 					<td colspan="2" align="center">
 					<input type="hidden" name="pk" value="' . $strpk . '">
-					<input type="submit" name="action" value="Kemaskini" class="btn btn-primary">&nbsp;<input type="button" name="batal" value="Batal" class="btn btn-danger"  onclick= "Javascript:(window.location.href=\'?vw=memberProfil&mn=905\')"></td>
+					<input type="submit" name="action" value="Kemaskini" class="btn btn-primary">&nbsp;<input type="button" name="batal" value="Batal" class="btn btn-danger"  onclick= "Javascript:(window.location.href=\'?vw=memberProfil&mn=901\')"></td>
 				</tr>';
 
 

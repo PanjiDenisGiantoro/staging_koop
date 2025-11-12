@@ -890,7 +890,7 @@ if ($page <> 'list') {
 	} ';
 }
 $strActionPage =
-	'?vw=loanJadual78NEW&mn=906&type=' . $type
+	'?vw=loanJadual78NEW&mn=904&type=' . $type
 	. '&page=' . $page
 	. '&page_id=1';
 
@@ -1173,7 +1173,7 @@ function PageLink($strPath_, $type_, $page_, $page_id_, $rec_per_page_, $sort_, 
 {
 	$strTemp_ =
 		$strPath_
-		. '?vw=loanJadual78NEW&mn=906&type=' . $type_
+		. '?vw=loanJadual78NEW&mn=904&type=' . $type_
 		. '&page=' . $page_;
 
 	if ($page_ <> 'list') {

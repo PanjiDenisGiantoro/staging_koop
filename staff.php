@@ -21,8 +21,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=staff&mn=933';
-$sFileRef  = '?vw=staffEdit&mn=933';
+$sFileName = '?vw=staff&mn=919';
+$sFileRef  = '?vw=staffEdit&mn=919';
 $title     = "Senarai Staf Koperasi";
 
 $IDName = get_session("Cookie_userName");
@@ -146,7 +146,7 @@ print '      </select>
 print '        </div>
 
 						<div>
-							<a href="?vw=staffRegister&mn=933" class="btn btn-sm btn-success">Daftar Staf</a>
+							<a href="?vw=staffRegister&mn=919" class="btn btn-sm btn-success">Daftar Staf</a>
 						</div>
 					</div>
 					

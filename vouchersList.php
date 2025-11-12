@@ -24,8 +24,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=vouchersList&mn=908';
-$sFileRef  = '?vw=baucer&mn=908';
+$sFileName = '?vw=vouchersList&mn=945';
+$sFileRef  = '?vw=baucer&mn=945';
 $title     =  "Voucher";
 
 $IDName = get_session("Cookie_userName");

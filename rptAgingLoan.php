@@ -21,7 +21,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=rptAgingLoan&mn=906';
+$sFileName = '?vw=rptAgingLoan&mn=905';
 $title       = "Laporan Aging";
 
 if (isset($_POST['dtTo'])) {

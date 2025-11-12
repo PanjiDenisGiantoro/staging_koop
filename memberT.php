@@ -26,8 +26,8 @@ if (
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=memberT&mn=905';
-$sFileRef  = '?vw=memberEditT&mn=905';
+$sFileName = '?vw=memberT&mn=901';
+$sFileRef  = '?vw=memberEditT&mn=901';
 $title     = "Daftar Pengajuan Berhenti/Pensiun";
 
 //--- Begin : deletion based on checked box -------------------------------------------------------
@@ -99,7 +99,7 @@ print '
 <input type="hidden" name="filter" value="' . $filter . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=memberApplyTP&mn=905\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=memberApplyTP&mn=901\'"/>
 </div>
 <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 ';
@@ -224,7 +224,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td class="Data" align="center">' . toDate("d/m/Y", $GetMember->fields(applyDate)) . '</td>';
 		if (($IDName == 'superadmin') or ($IDName == 'admin') and ($status == 0)) {
 			print '<td>
-							<a href="?vw=memberT&mn=905&action=delete&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
+							<a href="?vw=memberT&mn=901&action=delete&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt fa-lg text-danger" style="display: inline-flex; align-items: center; justify-content: center;"></i>
 							</a>							
 						</td>';
@@ -336,7 +336,7 @@ print '
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
-	          window.location.href ="?vw=memberStatusT&mn=905&pk=" + strStatus;
+	          window.location.href ="?vw=memberStatusT&mn=901&pk=" + strStatus;
 			  }
 	        }
 	      }
@@ -358,7 +358,7 @@ print '
 			if(count != 1) {
 				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
-				window.location.href = "?vw=memberStatusT&mn=905&pk=" + pk;
+				window.location.href = "?vw=memberStatusT&mn=901&pk=" + pk;
 			}
 		}
 	}

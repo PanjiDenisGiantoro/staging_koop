@@ -23,8 +23,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=loansimpanan&mn=946';
-$sFileRef = '?vw=biayaDokumensimpanan&mn=946';
+$sFileName = '?vw=loansimpanan&mn=902';
+$sFileRef = '?vw=biayaDokumensimpanan&mn=902';
 $title = "Rekening Simpanan";
 
 if (isset($_GET['action']) && $_GET['action'] == "toggle") {
@@ -52,7 +52,7 @@ print '<div class="table-responsive">
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Rekening Baru " onClick="window.location.href=\'?vw=loanApplysimpanan&mn=946\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Rekening Baru " onClick="window.location.href=\'?vw=loanApplysimpanan&mn=902\'"/>
 </div>';
 
 ?>
@@ -195,7 +195,7 @@ FROM depositoracc A
                 echo "<td>" . htmlspecialchars($result->fields['nama_simpanan']) . "</td>";
                 echo "<td>" .$status . "</td>";
                 echo "<td>
-    <a href='?vw=loansimpanan&mn=946&ID=" . $result->fields['id_unique'] . "&action=toggle' 
+    <a href='?vw=loansimpanan&mn=902&ID=" . $result->fields['id_unique'] . "&action=toggle' 
        onclick=\"return confirm('Apakah Anda yakin ingin mengubah status rekening ini?');\">
        $label
     </a>";
@@ -203,8 +203,8 @@ FROM depositoracc A
                 if ($result->fields['status_depositacc'] != 1) {
                     // kalau status bukan Aktif, baru tampil Edit & Delete
                     echo " | 
-    <a href='?vw=loaneditsimpanan&mn=946&ID=" . $result->fields['id_unique'] . "'>Edit</a> | 
-    <a href='?vw=deleteloansimpanan&mn=946&ID=" . $result->fields['id_unique'] . "' 
+    <a href='?vw=loaneditsimpanan&mn=902&ID=" . $result->fields['id_unique'] . "'>Edit</a> | 
+    <a href='?vw=deleteloansimpanan&mn=902&ID=" . $result->fields['id_unique'] . "' 
        onclick=\"return confirm('Yakin mau hapus data ini?');\">
        Delete
     </a>";

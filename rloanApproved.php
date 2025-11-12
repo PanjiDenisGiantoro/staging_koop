@@ -23,7 +23,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=rloanApproved&mn=906';
+$sFileName = '?vw=rloanApproved&mn=905';
 $title       = "Kelulusan Pembiayaan";
 
 // Menangani tarikh dari borang

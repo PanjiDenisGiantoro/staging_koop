@@ -270,7 +270,7 @@ if ($GetMember->RowCount() <> 0) {
 					</td>';
 			}
 			print '<td>
-							<a href="?vw=memberProfil&mn=905&action=reset&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk set semula kata laluan anggota ini?\')" title="Set Semula Kata Laluan">
+							<a href="?vw=memberProfil&mn=901&action=reset&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk set semula kata laluan anggota ini?\')" title="Set Semula Kata Laluan">
 								<i class="fas fa-user-lock fa-lg text-warning" style="font-size: 18px; margin-top: 12px;"></i>
 							</a>
 						</td>';
@@ -381,7 +381,7 @@ print '
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
-	          window.location.href ="?vw=memberAktif&mn=905&pk=" + strStatus;
+	          window.location.href ="?vw=memberAktif&mn=901&pk=" + strStatus;
 			  }
 	        }
 	      }
@@ -404,7 +404,7 @@ print '
 			if(count != 1) {
 				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
-				window.location.href = "?vw=memberAktif&mn=905&pk=" + pk;
+				window.location.href = "?vw=memberAktif&mn=901&pk=" + pk;
 			}
 		}
 	}

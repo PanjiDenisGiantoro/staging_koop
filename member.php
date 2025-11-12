@@ -23,8 +23,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=member&mn=905';
-$sFileRef  = '?vw=memberEdit&mn=905';
+$sFileName = '?vw=member&mn=901';
+$sFileRef  = '?vw=memberEdit&mn=901';
 $title     = "Status Pengajuan Anggota";
 
 $IDName = get_session("Cookie_userName");
@@ -134,7 +134,7 @@ print '
 <input type="hidden" name="filter" value="' . $filter . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=memberApply&mn=905\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=memberApply&mn=901\'"/>
 </div>';
 
 // Fetch users counts by status
@@ -414,7 +414,7 @@ Jenis
 					}
 
 					print '<td>
-							<a href="?vw=member&mn=905&action=delete&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
+							<a href="?vw=member&mn=901&action=delete&pk=' . $GetMember->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt text-danger" style="font-size: 19px; margin-top: 9px;"></i>
 							</a>
 						</td>';

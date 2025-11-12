@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=resitList&mn=908">SENARAI</a><b>' . '&nbsp;>&nbsp;RESIT ANGGOTA</b>';
+$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=resitList&mn=945">SENARAI</a><b>' . '&nbsp;>&nbsp;RESIT ANGGOTA</b>';
 
 $display = 0;
 if ($no_resit && $action == "view") {
@@ -174,7 +174,7 @@ if ($perkara2) {
 
         // Redirect to the resit page
         print '<script>
-		window.location = "?vw=resit&mn=908&action=view&no_resit=' . $no_resit . '";
+		window.location = "?vw=resit&mn=945&action=view&no_resit=' . $no_resit . '";
 		</script>';
     }
 }
@@ -204,7 +204,7 @@ if ($action == "Hapus") {
     }
     if (!$display) {
         print '<script>
-	window.location = "?vw=resit&mn=908&action=view&no_resit=' . $no_resit . '";
+	window.location = "?vw=resit&mn=945&action=view&no_resit=' . $no_resit . '";
 	</script>';
     }
 } elseif ($action == "Kemaskini" || $perkara) {
@@ -366,7 +366,7 @@ if ($action == "Hapus") {
 
     if (!$display) {
         print '<script>
-	window.location = "?vw=resit&mn=908&action=view&no_resit=' . $no_resit . '";
+	window.location = "?vw=resit&mn=945&action=view&no_resit=' . $no_resit . '";
 	</script>';
     }
 } elseif ($action == "Simpan" || $simpan) {
@@ -477,7 +477,7 @@ if ($action == "Hapus") {
     $max = sprintf("%06s", $rsMax->fields('no'));
     if (!$display) {
         print '<script>
-	window.location = "?vw=resit&mn=908&action=view&add=1&no_resit=RT' . $max . '";
+	window.location = "?vw=resit&mn=945&action=view&add=1&no_resit=RT' . $max . '";
 	</script>';
     }
 }
@@ -486,7 +486,7 @@ $strTemp .=
     '<div class="maroon" align="left">' . $strHeaderTitle . '</div>'
     . '<div style="width: 100%; text-align:left">'
     . '<div>&nbsp;</div><div class="table-responsive">'
-    . '<form name="MyForm" action="?vw=resit&mn=908" method="post">'
+    . '<form name="MyForm" action="?vw=resit&mn=945" method="post">'
     . '<table border="0" cellspacing="0" cellpadding="3" width="100%" align="center">';
 
 print $strTemp;
@@ -597,7 +597,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 			
 			
 		<!-- <tr>
-<td align="right"><input type="button" class="btn btn-sm btn-secondary" name="GetPicture" value="Muat Naik Resit"  onclick= "Javascript:(window.location.href=\'?vw=uploadwinresit&mn=908&no_resit=' . $no_resit . '\')"></td><td valign="top" align="right"></td><td><input name="pic" value="' . $pic . '" type="text" size="20" class="form-control-sm" maxlength="50" class="data" readonly /></td>
+<td align="right"><input type="button" class="btn btn-sm btn-secondary" name="GetPicture" value="Muat Naik Resit"  onclick= "Javascript:(window.location.href=\'?vw=uploadwinresit&mn=945&no_resit=' . $no_resit . '\')"></td><td valign="top" align="right"></td><td><input name="pic" value="' . $pic . '" type="text" size="20" class="form-control-sm" maxlength="50" class="data" readonly /></td>
 			</tr> -->
 		</table>
 	</td>
@@ -670,7 +670,7 @@ if ($action == "view" && !is_int(dlookup("transaction", "ID", "docNo='" . $no_re
 
 		<!-- Implementing the visual effect on button Tambah for akaun. START -->
 		<div class="request-loader-container" id="loaderContainer">
-			<input type="button" name="add" value="Tambah" class="btn btn-sm btn-primary" onClick="window.location.href=\'?vw=resit&mn=908&action=' . $action . '&no_resit=' . $no_resit . '&add=1\';">
+			<input type="button" name="add" value="Tambah" class="btn btn-sm btn-primary" onClick="window.location.href=\'?vw=resit&mn=945&action=' . $action . '&no_resit=' . $no_resit . '&add=1\';">
 			<div class="request-loader" id="requestLoaderTambah"></div>
 		</div>
 		<!-- Implementing the visual effect on button Tambah for akaun. END -->

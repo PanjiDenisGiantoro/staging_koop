@@ -16,8 +16,8 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName		= "?vw=komoditi_add&mn=907";
-$sActionFileName = "?vw=komoditi_list&mn=907";
+$sFileName		= "?vw=komoditi_add&mn=944";
+$sActionFileName = "?vw=komoditi_list&mn=944";
 $title     		= "Perbarui Sertifikat Komoditi";
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
@@ -233,7 +233,7 @@ if ($SubmitForm <> "") {
 
 		$Gambar = "upload_sijilkomoditi/" . $pic;
 		if ($i == 0) {
-			print '<input type="button" class="btn btn-secondary waves-effect" name="GetPicture" value="Perbarui Sertifikat Komoditas" onclick= "Javascript:(window.location.href=\'?vw=uploadwinkomoditi&mn=907&userID=' . $pk . '\')">';
+			print '<input type="button" class="btn btn-secondary waves-effect" name="GetPicture" value="Perbarui Sertifikat Komoditas" onclick= "Javascript:(window.location.href=\'?vw=uploadwinkomoditi&mn=944&userID=' . $pk . '\')">';
 
 			if ($pic) {
 				print '&nbsp;<input type=button value="Paparan Dokumen" class="btn btn-outline-danger" onClick=window.open(\'upload_sijilkomoditi/' . $pic . '\',"pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>

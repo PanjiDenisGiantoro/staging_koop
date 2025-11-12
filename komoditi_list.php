@@ -21,8 +21,8 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
-$sFileName = '?vw=komoditi_list&mn=907';
-$sFileRef  = '?vw=komoditi_edit&mn=907';
+$sFileName = '?vw=komoditi_list&mn=944';
+$sFileRef  = '?vw=komoditi_edit&mn=944';
 $title     = "Daftar Sertifikat Komoditas";
 //--- Begin : deletion based on checked box -------------------------------------------------------
 if ($action == "delete") {

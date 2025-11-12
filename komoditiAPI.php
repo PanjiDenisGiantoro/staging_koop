@@ -21,7 +21,7 @@ $tenure       = dlookup("loans", "loanPeriod", "loanID=" . $loanid);
 $profit_rate  = dlookup("loans", "kadar_u", "loanID=" . $loanid); 
 $channel = 1;
 
-$redirectlink = 'https://app.ikoop.com.my/staging/index.php?vw=komoditi_list&mn=907';
+$redirectlink = 'https://app.ikoop.com.my/staging/index.php?vw=komoditi_list&mn=944';
 
 $url = "https://rcbdev.assidqlink.com/rcb/webservice/rest/DoTrading.php";
 

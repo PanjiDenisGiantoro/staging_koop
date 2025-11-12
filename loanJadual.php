@@ -28,9 +28,9 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$strActionPage = '?vw=loanJadual&mn=906&id=' . $id . '';
-$sFileName = '?vw=loanJadual&mn=906';
-$sFileRef  = '?vw=loanJadual&mn=906';
+$strActionPage = '?vw=loanJadual&mn=904&id=' . $id . '';
+$sFileName = '?vw=loanJadual&mn=904';
+$sFileRef  = '?vw=loanJadual&mn=904';
 $title     = "Informasi pembiayaan";
 
 $GetLoanDet = ctLoanNew("", $id);

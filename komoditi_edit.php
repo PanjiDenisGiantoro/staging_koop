@@ -14,8 +14,8 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_groupID") <> 1 AND get_session("Cookie_groupID") <> 2 OR get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("'.$errPage.'");window.location="index.php";</script>';
 }
-$sFileName		= "?vw=komoditi_edit&mn=907";
-$sActionFileName= "?vw=komoditi_list&mn=907";
+$sFileName		= "?vw=komoditi_edit&mn=944";
+$sActionFileName= "?vw=komoditi_list&mn=944";
 $title     		= "Perbarui Informasi Sertifikat Komoditi";
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress

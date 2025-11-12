@@ -94,7 +94,7 @@ print '
 <table border="0" cellspacing="3" cellpadding="3" width="100%" align="center">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=addAdmin&mn=901\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Mohon Baru" onClick="window.location.href=\'?vw=addAdmin&mn=928\'"/>
 </div>';
 
 if ($GetAdmin->RowCount() <> 0) {
@@ -136,12 +136,12 @@ if ($GetAdmin->RowCount() <> 0) {
 		print '</td>
 						<td class="Data" align="center">' . toDate("d/m/Y", $GetAdmin->fields(applyDate)) . '</td>
 						<td>
-							<a href="?vw=admin&mn=901&action=delete&pk=' . $GetAdmin->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus kakitangan ini?\')" title="Hapus">
+							<a href="?vw=admin&mn=928&action=delete&pk=' . $GetAdmin->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus kakitangan ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt fa-lg text-danger"></i>
 							</a>
 						</td>
 						<td>
-							<a href="?vw=admin&mn=901&action=reset&pk=' . $GetAdmin->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk set semula kata laluan kakitangan ini?\')" title="Set Semula Kata Laluan">
+							<a href="?vw=admin&mn=928&action=reset&pk=' . $GetAdmin->fields['userID'] . '" onClick="return confirm(\'Adakah anda pasti untuk set semula kata laluan kakitangan ini?\')" title="Set Semula Kata Laluan">
 								<i class="fas fa-user-lock fa-lg text-warning"></i>
 							</a>
 						</td>

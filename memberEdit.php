@@ -24,9 +24,9 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");window.location="index.php";</script>';
 }
 
-$sFileName		= "?vw=memberEdit&mn=905&pk=" . $pk . "";
-$sActionFileName = "?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=3";
-$sActionFileName1 = "?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=5";
+$sFileName		= "?vw=memberEdit&mn=901&pk=" . $pk . "";
+$sActionFileName = "?vw=memberEdit&mn=901&pk=" . $pk . "&tabb=3";
+$sActionFileName1 = "?vw=memberEdit&mn=901&pk=" . $pk . "&tabb=5";
 $sFileRef  = "?vw=Edit_memberStmtPotonganPokok&mn=$mn";
 
 $title     		= "Perbaharui Informasi Anggota";
@@ -715,7 +715,7 @@ if ($SubmitForm <> "") {
 		$rs = &$conn->Execute($sqlAct);
 
 		alert("Informasi anggota telah diperbarui dalam sistem.");
-		gopage("?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=1", 1000);
+		gopage("?vw=memberEdit&mn=901&pk=" . $pk . "&tabb=1", 1000);
 	} else if (@$tabb == 2) {
 		$updatedBy 	= get_session("Cookie_userName");
 		$updatedDate = date("Y-m-d H:i:s");
@@ -741,7 +741,7 @@ if ($SubmitForm <> "") {
 		$rs = &$conn->Execute($sqlAct);
 
 		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
-		gopage("?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=2", 1000);
+		gopage("?vw=memberEdit&mn=901&pk=" . $pk . "&tabb=2", 1000);
 	} else if (@$tabb == 4) {
 		$updatedBy 	= get_session("Cookie_userName");
 		$updatedDate = date("Y-m-d H:i:s");
@@ -763,7 +763,7 @@ if ($SubmitForm <> "") {
 		$rs = &$conn->Execute($sqlAct);
 
 		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
-		gopage("?vw=memberEdit&mn=905&pk=" . $pk . "&tabb=4", 1000);
+		gopage("?vw=memberEdit&mn=901&pk=" . $pk . "&tabb=4", 1000);
 	}
 }
 //--- End   : Form Validation Field / Add / Update ---------------------------------------------->
@@ -1318,7 +1318,7 @@ if (@$tabb == 6) {
 	if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 		print '
 	<div class="mt-3">
-		<input value="Perbarui Gaji" class="btn btn-md btn-primary waves-effect waves-light" onClick="window.location.href=\'?vw=biayaEditA&mn=905&pk=' . $pk . '\'"/>
+		<input value="Perbarui Gaji" class="btn btn-md btn-primary waves-effect waves-light" onClick="window.location.href=\'?vw=biayaEditA&mn=901&pk=' . $pk . '\'"/>
 	</div>';
 	}
 

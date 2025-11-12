@@ -101,7 +101,7 @@ if ($action == 'Kemaskini') {
 
 		print 	'
 		<script>
-			window.location = "?vw=memberT&mn=905";
+			window.location = "?vw=memberT&mn=901";
 		</script>';
 		exit;
 	}

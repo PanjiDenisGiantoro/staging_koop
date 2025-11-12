@@ -878,7 +878,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	if ($i == 9) {
 		print '<div class="card-header mb-3">DETAIL PRIBADI';
 
-		print '<a class="data" href="?vw=biayaEditA&mn=905&pk=' . $pk . '">&nbsp;[MENGUBAH]</a></font>';
+		print '<a class="data" href="?vw=biayaEditA&mn=901&pk=' . $pk . '">&nbsp;[MENGUBAH]</a></font>';
 
 		if ($pic) {
 			print '&nbsp;<input type=button value="Paparan Slip Gaji" class="btn btn-sm btn-outline-danger" onClick=window.open(\'upload_gaji/' . $pic . '\',"pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>

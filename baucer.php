@@ -16,7 +16,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
     print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=vouchersList&mn=908">SENARAI</a><b>' . '&nbsp;>&nbsp;BAUCER BAYARAN ANGGOTA</b>';
+$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=vouchersList&mn=945">SENARAI</a><b>' . '&nbsp;>&nbsp;BAUCER BAYARAN ANGGOTA</b>';
 
 $display = 0;
 if ($no_baucer && $action == "view") {
@@ -285,7 +285,7 @@ if ($perkara2) {
 
         // Redirect to the baucer page
         print '<script>
-		window.location = "?vw=baucer&mn=908&action=view&no_baucer=' . $no_baucer . '";
+		window.location = "?vw=baucer&mn=945&action=view&no_baucer=' . $no_baucer . '";
 		</script>';
     }
 }
@@ -371,7 +371,7 @@ if ($action == "Hapus") {
     }
     if (!$display) {
         print '<script>
-	window.location = "?vw=baucer&mn=908&action=view&no_baucer=' . $no_baucer . '";
+	window.location = "?vw=baucer&mn=945&action=view&no_baucer=' . $no_baucer . '";
 	</script>';
     }
 } elseif ($action == "Kemaskini" || $perkara) {
@@ -530,7 +530,7 @@ if ($action == "Hapus") {
 
     if (!$display) {
         print '<script>
-	window.location = "?vw=baucer&mn=908&action=view&no_baucer=' . $no_baucer . '";
+	window.location = "?vw=baucer&mn=945&action=view&no_baucer=' . $no_baucer . '";
 	</script>';
     }
 } elseif ($action == "Simpan" || $simpan) {
@@ -657,7 +657,7 @@ if ($action == "Hapus") {
     $max    = sprintf("%06s", $rsMax->fields('no'));
     if (!$display) {
         print '<script>
-	window.location ="?vw=baucer&mn=908&action=view&add=1&no_baucer=PVA' . $max . '";
+	window.location ="?vw=baucer&mn=945&action=view&add=1&no_baucer=PVA' . $max . '";
 	</script>';
     }
 }
@@ -666,7 +666,7 @@ $strTemp .=
     '<div class="maroon" align="left">' . $strHeaderTitle . '</div>'
     . '<div style="width: 100%; text-align:left">'
     . '<div>&nbsp;</div><div class="table-responsive">'
-    . '<form name="MyForm" action="?vw=baucer&mn=908" method="post">'
+    . '<form name="MyForm" action="?vw=baucer&mn=945" method="post">'
     . '<table border="0" cellspacing="0" cellpadding="3" width="100%" align="center">';
 
 print $strTemp;
@@ -827,7 +827,7 @@ if ($action == "view" && !is_int(dlookup("transaction", "ID", "docNo='" . $no_ba
 
 	<!-- Implementing the visual effect on button Tambah for akaun. START -->
 	<div class="request-loader-container" id="loaderContainer">
-		<input type="button" name="add" value="Tambah" class="btn btn-sm btn-primary" onClick="window.location.href=\'?vw=baucer&mn=908&action=' . $action . '&no_baucer=' . $no_baucer . '&add=1\';">
+		<input type="button" name="add" value="Tambah" class="btn btn-sm btn-primary" onClick="window.location.href=\'?vw=baucer&mn=945&action=' . $action . '&no_baucer=' . $no_baucer . '&add=1\';">
 		<div class="request-loader" id="requestLoaderTambah"></div>
 	</div>
 	<!-- Implementing the visual effect on button Tambah for akaun. END -->

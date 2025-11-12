@@ -23,8 +23,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <>	2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=loan&mn=906';
-$sFileRef  = '?vw=biayaDokumen&mn=906';
+$sFileName = '?vw=loan&mn=904';
+$sFileRef  = '?vw=biayaDokumen&mn=904';
 $title	   = "Daftar Pengajuan Pembiayaan";
 
 //$conn->debug=1;
@@ -215,7 +215,7 @@ print '<div class="table-responsive">
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApply&mn=906\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApply&mn=904\'"/>
 </div>';
 
 // Fetch loan counts by status
@@ -665,13 +665,13 @@ $entries = array(
 				print '<i class="fas fa-file-alt text-info" title="lihat DSR" style="font-size: 1.1rem; cursor: pointer; margin-top: 10px;" onClick=window.open("DSRCetak.php?loanID=' . $GetLoan->fields(loanID) . '","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");></i></td>
 							&nbsp;<td class="Data" align="center"><button 
 								 style="border: none; background-color: transparent; cursor: pointer;" 
-								 onclick="printContent(\'?vw=biayaDokumen&mn=906&pk=\' + encodeURIComponent(\'' . $GetLoan->fields(loanID) . '\'));">
+								 onclick="printContent(\'?vw=biayaDokumen&mn=904&pk=\' + encodeURIComponent(\'' . $GetLoan->fields(loanID) . '\'));">
 								 <i class="mdi mdi-printer text-primary" style="font-size: 24px;"></i>
 							 </button></td>
-							&nbsp;<td class="Data" align="center"><i class="mdi mdi-lead-pencil text-warning" title="kemaskini" style="font-size: 1.4rem; cursor: pointer;" onClick="window.location.href=\'?vw=biayaDokumen&mn=906&pk=' . $GetLoan->fields(loanID) . '\'"></i></td>';
+							&nbsp;<td class="Data" align="center"><i class="mdi mdi-lead-pencil text-warning" title="kemaskini" style="font-size: 1.4rem; cursor: pointer;" onClick="window.location.href=\'?vw=biayaDokumen&mn=904&pk=' . $GetLoan->fields(loanID) . '\'"></i></td>';
 				if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 					print '<td align="center">
-							<a href="?vw=loan&mn=906&action=delete&pk=' . $GetLoan->fields['loanID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
+							<a href="?vw=loan&mn=904&action=delete&pk=' . $GetLoan->fields['loanID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt fa-lg text-danger" style="display: inline-flex; align-items: center; justify-content: center; margin-top: 10px;"></i>
 							</a>
 							</td>';

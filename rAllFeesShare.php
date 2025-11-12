@@ -23,7 +23,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=rAllFeesShare&mn=905';
+$sFileName = '?vw=rAllFeesShare&mn=902';
 $title       = "Keseluruhan Wajib & Syer";
 
 if (isset($_POST['dtTo'])) {

@@ -475,7 +475,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
         <td colspan="2" align="center">
             <div style="text-align: center;">
                 <input type="button" name="batal" value="Kembali" class="btn btn-md btn-primary" 
-                       onclick="Javascript:(window.location.href=\'?vw=staff&mn=933\')">
+                       onclick="Javascript:(window.location.href=\'?vw=staff&mn=919\')">
             </div>
         </td>
     </tr>';

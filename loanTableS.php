@@ -24,8 +24,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=loanTableS&mn=906';
-$sFileRef  = '?vw=loanEdit&mn=906';
+$sFileName = '?vw=loanTableS&mn=904';
+$sFileRef  = '?vw=loanEdit&mn=904';
 $title     = "Pengurusan Pembiayaan Selesai";
 
 $IDName = get_session("Cookie_userName");
@@ -341,9 +341,9 @@ if ($GetLoan->RowCount() <> 0) {
 		if ($bond == '') $bond = 'AJK';
 
 		if ($codegroup <> 1638) {
-			$table  = "?vw=loanJadualS&mn=906&id=" . $GetLoan->fields(loanID);
+			$table  = "?vw=loanJadualS&mn=904&id=" . $GetLoan->fields(loanID);
 		} else {
-			$table = "?vw=loanJadual78S&mn=906&type=vehicle&page=view&id=" . $GetLoan->fields(loanID);
+			$table = "?vw=loanJadual78S&mn=904&type=vehicle&page=view&id=" . $GetLoan->fields(loanID);
 		}
 
 		$rowID = "row-" . $GetLoan->fields('loanID');

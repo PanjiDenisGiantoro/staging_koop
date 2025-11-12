@@ -14,7 +14,7 @@ date_default_timezone_set("Asia/Jakarta");
 $Cookie_userID = get_session('Cookie_userID');
 $Cookie_userName = get_session("Cookie_userName");
 $sFileName		= "?vw=memberApply&mn=$mn";
-$sActionFileName = "?vw=member&mn=905";
+$sActionFileName = "?vw=member&mn=901";
 $title     		= "Pengajuan Anggota";
 
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->

@@ -84,7 +84,7 @@ unset($pk);
 
 <div class="table-responsive">
 	<h5 class="card-title"><?php echo strtoupper($title); ?></h5>
-	<form name="MyForm" action="?vw=memberStatus&mn=905" method="post">
+	<form name="MyForm" action="?vw=memberStatus&mn=901" method="post">
 		<input type="hidden" name="action">
 		<input type="hidden" name="pk" value="<? print implode(",", $pkall); ?>">
 		<table class="table" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">

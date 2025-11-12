@@ -22,7 +22,7 @@ if (get_session("Cookie_groupID") == 0) {
 	$newIC		= dlookup("userdetails", "newIC", "userID=" . tosql(get_session('Cookie_userID'), "Text"));
 }
 
-$sFileName		= "?vw=komoditi_API&mn=907";
+$sFileName		= "?vw=komoditi_API&mn=944";
 $sActionFileName = "komoditiAPI.php?userID=" . $no_anggota . "&amount=" . $amt . "&no_sijil=" . $no_sijil . "&loanid=" . $loanid . "";
 $title     		= "Perbarui Sertifikat Komoditi";
 

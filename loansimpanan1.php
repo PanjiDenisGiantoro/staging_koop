@@ -24,8 +24,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 
 
-$sFileName = '?vw=loansimpanan1&mn=946';
-$sFileRef = '?vw=biayaDokumensimpanan&mn=946';
+$sFileName = '?vw=loansimpanan1&mn=902';
+$sFileRef = '?vw=biayaDokumensimpanan&mn=902';
 $title = "Rekening Simpanan";
 
 
@@ -256,7 +256,7 @@ print '
 <input type="hidden" name="filter" value="' . $filter . '">
 <div class="d-flex justify-content-between align-items-center mb-1">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
-    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApplysimpanan&mn=946\'"/>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApplysimpanan&mn=902\'"/>
 </div>';
 
 // Fetch users counts by status
@@ -537,7 +537,7 @@ if ($GetMember->RowCount() <> 0) {
                 }
 
                 print '<td>
-							<a href="?vw=deleteloansimpanan&mn=946&ID=' . $GetMember->fields['depositorID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
+							<a href="?vw=deleteloansimpanan&mn=902&ID=' . $GetMember->fields['depositorID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
 								<i class="fas fa-trash-alt text-danger" style="font-size: 19px; margin-top: 9px;"></i>
 							</a>
 						</td>';

@@ -25,8 +25,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=loanTablePawal&mn=906';
-$sFileRef  = '?vw=loanEdit&mn=906';
+$sFileName = '?vw=loanTablePawal&mn=904';
+$sFileRef  = '?vw=loanEdit&mn=904';
 $title     = "Penjelasan Awal";
 
 //----print penyata tahunan Pembiayaan
@@ -339,9 +339,9 @@ if ($GetLoan->RowCount() <> 0) {
 		if ($bond == '') $bond = 'AJK';
 
 		if ($codegroup <> 1638) {
-			$table  = "?vw=loanJadualS&mn=906&id=" . $GetLoan->fields(loanID);
+			$table  = "?vw=loanJadualS&mn=904&id=" . $GetLoan->fields(loanID);
 		} else {
-			$table = "?vw=loanJadual78S&mn=906&type=vehicle&page=view&id=" . $GetLoan->fields(loanID);
+			$table = "?vw=loanJadual78S&mn=904&type=vehicle&page=view&id=" . $GetLoan->fields(loanID);
 		}
 
 		if ($startPymtDate <> "Proses Voucher") {
@@ -360,7 +360,7 @@ if ($GetLoan->RowCount() <> 0) {
 				. dlookup("users", "name", "userID=" . tosql($GetLoan->fields(userID), "Text")) . '</td>
 						<td class="Data"><font class="' . $colorPen . '">' . $pengesahan . '&nbsp;</font>' . toDate("d/m/Y", $GetLoan->fields(approvedDate)) . '';
 			if ($GetLoan->fields(isApproved) == 1) {
-				print ' <input type=button value="Cetak" class="btn btn-sm btn-secondary" onClick="window.location.href=\'index.php?vw=tawaranSah2&mn=906&ID=' . $GetLoan->fields(loanID) . '\'"></td>';
+				print ' <input type=button value="Cetak" class="btn btn-sm btn-secondary" onClick="window.location.href=\'index.php?vw=tawaranSah2&mn=904&ID=' . $GetLoan->fields(loanID) . '\'"></td>';
 			}
 			print '	<td class="Data" align="center">&nbsp;' . $startPymtDate . '</td>
 						<!--td class="Data" align="center">&nbsp;';

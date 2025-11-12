@@ -28,8 +28,8 @@ if (get_session('Cookie_userID') == "" or get_session("Cookie_koperasiID") <> $k
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$strActionPage = '?vw=loanJadual1&mn=906&id=' . $id . '';
-$sFileName = '?vw=loanJadual1&mn=906';
+$strActionPage = '?vw=loanJadual1&mn=904&id=' . $id . '';
+$sFileName = '?vw=loanJadual1&mn=904';
 $sFileRef  = '?vw=loanApproved&mn=3';
 $title     = "Informasi pembiayaan";
 

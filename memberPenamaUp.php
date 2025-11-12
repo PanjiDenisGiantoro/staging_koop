@@ -22,8 +22,8 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=memberPenamaUp&mn=905';
-$sFileRef  = '?vw=memberPenama&mn=905';
+$sFileName = '?vw=memberPenamaUp&mn=901';
+$sFileRef  = '?vw=memberPenama&mn=901';
 $title     = "Perbarui Data Nama Anggota";
 
 
@@ -267,7 +267,7 @@ print '
 	        } else {
 	          if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          //e.submit();
-	          window.location.href ="vw=memberStatus&mn=905&pk=" + strStatus;
+	          window.location.href ="vw=memberStatus&mn=901&pk=" + strStatus;
 			  }
 	        }
 	      }
@@ -289,7 +289,7 @@ print '
 			if(count != 1) {
 				alert(\'Silakan pilih satu data saja untuk memperbarui status\');
 			} else {
-				window.location.href = "?vw=memberStatus&mn=905&pk=" + pk;
+				window.location.href = "?vw=memberStatus&mn=901&pk=" + pk;
 			}
 		}
 	}

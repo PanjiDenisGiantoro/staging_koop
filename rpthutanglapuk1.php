@@ -21,7 +21,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 }
 $IDName = get_session("Cookie_userName");
 
-$sFileName = '?vw=rpthutanglapuk1&mn=910';
+$sFileName = '?vw=rpthutanglapuk1&mn=907';
 $title       = "Laporan Tertunggak Yang Belum Dihapuskira (Kurang 12 Bulan)";
 
 // Menangani tarikh dari borang
