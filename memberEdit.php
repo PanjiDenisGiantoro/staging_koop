@@ -815,15 +815,20 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=7" class="nav-link <?php if (@$tabb == 7) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">SIMPANAN</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MODAL SIMPANAN</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=8" class="nav-link <?php if (@$tabb == 8) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PEMBIAYAAN</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">SIMPANAN</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=9" class="nav-link <?php if (@$tabb == 9) {
+																		print "active";
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">PEMBIAYAAN</a>
+	</li>
+	<li class="nav-item" role="presentation">
+		<a href="<?php print $sFileName; ?>&tabb=10" class="nav-link <?php if (@$tabb == 10) {
 																		print "active";
 																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">AKTIVITAS</a>
 	</li>
@@ -1437,13 +1442,22 @@ if ((get_session("Cookie_groupID") == 2)) {
 if (@$tabb == 7) {
 	print '<div class="mb-3">';
 	print '<div class="py-4">';
+	print 'MODAL SIMPANAN';
+	print '</div>';
+	print '</div>';
+}
+
+// ----------------------------------------- Bahagian simpanan -----------------------------------------
+if (@$tabb == 8) {
+	print '<div class="mb-3">';
+	print '<div class="py-4">';
 	print 'SIMPANAN';
 	print '</div>';
 	print '</div>';
 }
 
 // ----------------------------------------- Bahagian pembiayaan -----------------------------------------
-if (@$tabb == 8) {
+if (@$tabb == 9) {
 	print '<div class="mb-3">';
 	print '<div class="py-4">';
 	print 'PEMBIAYAAN';
@@ -1452,7 +1466,7 @@ if (@$tabb == 8) {
 }
 
 // ----------------------------------------- Bahagian aktivitas -----------------------------------------
-if (@$tabb == 9) {
+if (@$tabb == 10) {
 	print '<div class="mb-3">';
 	print '<div class="py-4">';
 	print 'AKTIVITAS';

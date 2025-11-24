@@ -142,20 +142,22 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("Transaksi", 'mdi mdi-contacts');
         echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
         MenuLink("journalsTransferList.php", "Jurnal Pindahan", 945, @$_REQUEST['vw']);
-            // admin.anggota.infoAnggota.pengeluaran
-            echo '<li>';
-            TitleBarBlue("Pengeluaran", 'mdi mdi-file');
-            echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
-            // MenuLink("blank.php", "Permohonan", 945, @$_REQUEST['vw']);
-            MenuLink("vouchersList.php?jenis=1", "Baucer", 945, @$_REQUEST['vw']);
-            echo '</ul></li>';
-            // admin.anggota.infoAnggota.penambahan
-            echo '<li>';
-            TitleBarBlue("Penambahan", 'mdi mdi-file');
-            echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
-            // MenuLink("blank.php", "Permohonan", 945, @$_REQUEST['vw']);
-            MenuLink("resitList.php", "Resit", 945, @$_REQUEST['vw']);
-            echo '</ul></li>';
+        MenuLink("vouchersList.php?jenis=1", "Tarik Tunai(Voucher)", 945, @$_REQUEST['vw']);
+        MenuLink("resitList.php", "Setor Tunai(Struk)", 945, @$_REQUEST['vw']);
+            // // admin.anggota.infoAnggota.pengeluaran
+            // echo '<li>';
+            // TitleBarBlue("Pengeluaran", 'mdi mdi-file');
+            // echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
+            // // MenuLink("blank.php", "Permohonan", 945, @$_REQUEST['vw']);
+            // // MenuLink("vouchersList.php?jenis=1", "Baucer", 945, @$_REQUEST['vw']);
+            // echo '</ul></li>';
+            // // admin.anggota.infoAnggota.penambahan
+            // echo '<li>';
+            // TitleBarBlue("Penambahan", 'mdi mdi-file');
+            // echo '<ul class="sub-menu ' . $mn945 . '" aria-expanded="true">';
+            // // MenuLink("blank.php", "Permohonan", 945, @$_REQUEST['vw']);
+            // MenuLink("resitList.php", "Resit", 945, @$_REQUEST['vw']);
+            // echo '</ul></li>';
         // MenuLink("blank.php", "Transaksi Online", 945, @$_REQUEST['vw']);
             // admin.anggota.infoAnggota.laporan
             echo '<li>';
@@ -205,8 +207,8 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("Transaksi", 'mdi mdi-cash-usd');
         echo '<ul class="sub-menu ' . $mn944 . '" aria-expanded="true">';
         MenuLink("komoditi_add.php", "Belian Sijil Komoditi", 944, @$_REQUEST['vw']);
-        MenuLink("journalsList.php", "Pengeluaran(Baucer)", 944, @$_REQUEST['vw']);
-        MenuLink("resit.php?action=new&jenis=2", "Terimaan(Resit)", 944, @$_REQUEST['vw']);
+        MenuLink("journalsList.php", "Keluaran(Voucher)", 944, @$_REQUEST['vw']);
+        MenuLink("resit.php?action=new&jenis=2", "Terimaan(Struk)", 944, @$_REQUEST['vw']);
         // MenuLink("blank.php", "Jurnal Pindahan", 904, @$_REQUEST['vw']);
         echo '</ul></li>';
         // admin.pembiayaan.laporan
@@ -402,9 +404,9 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li class="' . $mu913 . '">';
         TitleBarBlue("Pemiutang", 'mdi mdi-wallet');
         echo '<ul class="sub-menu ' . $mn913 . '" aria-expanded="true">';
-        MenuLink("ACCpurchaseList.php", "Belian(Purchase Order)", 913, @$_REQUEST['vw']);
-        MenuLink("ACCpurchaseInvoiceList.php", "Belian(Purchase Invoice)", 913, @$_REQUEST['vw']);
-        MenuLink("ACCbillList.php", "Bayaran(Baucev PI)", 913, @$_REQUEST['vw']);
+        MenuLink("ACCpurchaseList.php", "Surat Pesanan(Order)", 913, @$_REQUEST['vw']);
+        MenuLink("ACCpurchaseInvoiceList.php", "Faktur Pembelian(Invoice)", 913, @$_REQUEST['vw']);
+        MenuLink("ACCbillList.php", "Pembayaran(Voucher PI)", 913, @$_REQUEST['vw']);
         MenuLink("ACCdebitNoteList.php", "Nota Debit", 913, @$_REQUEST['vw']);
             // admin.akaun.pemiutang.laporan
             echo '<li class="' . $mu913 . '">';
@@ -423,12 +425,12 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             $mu914 = '';
         }
         echo '<li class="' . $mu914 . '">';
-        TitleBarBlue("Pelaburan", 'mdi mdi-shape');
+        TitleBarBlue("Investasi", 'mdi mdi-shape');
         echo '<ul class="sub-menu ' . $mn914 . '" aria-expanded="true">';
         MenuLink("reportCreditor.php", "Daftar Projek", 914, @$_REQUEST['vw']);
-        MenuLink("ACCvouchersProjectsList.php", "Bayaran(Baucer)", 914, @$_REQUEST['vw']);
+        MenuLink("ACCvouchersProjectsList.php", "Tarik Tunai(Voucher)", 914, @$_REQUEST['vw']);
         MenuLink("ACCinvestList.php", "Invoice", 914, @$_REQUEST['vw']);
-        MenuLink("ACCInvDebtorList.php", "Terima(Resit)", 914, @$_REQUEST['vw']);
+        MenuLink("ACCInvDebtorList.php", "Setor Tunai(Struk)", 914, @$_REQUEST['vw']);
         MenuLink("investorReports.php", "Laporan", 914, @$_REQUEST['vw']);
         echo '</ul></li>';
         // admin.akaun.simpananBank
