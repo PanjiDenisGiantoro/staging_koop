@@ -99,7 +99,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
             MenuLink("rAllFeesShare.php", "Keseluruhan Wajib & Syer", 902, @$_REQUEST['vw']);
             MenuLink("reportsimpanan.php", "Simpanan", 902, @$_REQUEST['vw']);
-            MenuLink("reports.php?cat=B", "Transaksi", 902, @$_REQUEST['vw']);
+            MenuLink("reports.php?cat=B", "Umum", 902, @$_REQUEST['vw']);
             echo '</ul></li>';
         echo '</ul></li>';
 

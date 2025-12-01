@@ -29,24 +29,26 @@ print '<tr valign="top">
   <div class="card bg-soft-info">
     <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/fee.png" alt="Picture is missing"></center>
     <div class="card-body">
-      <h5 class="card-title" align="center">YURAN</h5>
-      <h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $totalFees . '</font></h2>
+      <h5 class="card-title" align="center">WAJIB</h5>
+      <h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $totalFees . '</font></h2>
       </div>
   </div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <!--div class="card bg-soft-warning">
-  <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/saving.png" alt="Picture is missing"></center>
+  <!--
+  <div class="card bg-soft-warning">
+    <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/saving.png" alt="Picture is missing"></center>
     <div class="card-body">
       <h5 class="card-title" align="center">SIMPANAN</h5>
-      <h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $totalDepo . '</font></h2>
+      <h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $totalDepo . '</font></h2>
       </div>
-  </div-->
+  </div>
+  -->
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="card bg-soft-primary">
     <center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/share.png" alt="Picture is missing"></center>
     <div class="card-body">
-      <h5 class="card-title" align="center">SYER</h5>
-      <h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $totalSharesTK . '</font></h2>
+      <h5 class="card-title" align="center">POKOK</h5>
+      <h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $totalSharesTK . '</font></h2>
       </div>
   </div>
 </div>

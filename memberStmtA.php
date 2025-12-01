@@ -41,10 +41,52 @@ if (get_session("Cookie_groupID") == 0) {
 	$objchk = " checked disabled ";
 }
 
+$sSQL="SELECT DISTINCT a.*, b.* FROM users a, userdetails b WHERE (a.userID=b.userID AND b.status<>0) ORDER BY CAST(b.memberID AS SIGNED INTEGER) DESC";
+$GetMember=&$conn->Execute($sSQL);
+$GetMember->Move($StartRec-1);
+
+$totalFees=0;
+$totalSharesTK=0;
+
+while(!$GetMember->EOF){
+	$userID=$GetMember->fields["userID"];
+	$totalFees+=getFees($userID,$yr);
+	$totalSharesTK+=getSharesterkini($userID,$yr);
+	$GetMember->MoveNext();
+}
+
+$totalFees=number_format($totalFees,2);
+$totalSharesTK=number_format($totalSharesTK,2);
 
 
+print '<div class="card">
+	<div class="card-group">
+		<div class="card bg-soft-info">
+			<center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/fee.png" alt="Picture is missing"></center>
+			<div class="card-body">
+				<h5 class="card-title" align="center">WAJIB</h5>
+				<h2 class="card-text" align="center"><font color="black">RP&nbsp;'.$totalFees.'</font></h2>
+				</div>
+		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<div class="card bg-soft-primary">
+			<center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/share.png" alt="Picture is missing"></center>
+			<div class="card-body">
+				<h5 class="card-title" align="center">POKOK</h5>
+				<h2 class="card-text" align="center"><font color="black">RP&nbsp;'.$totalSharesTK.'</font></h2>
+				</div>
+		</div>
+		<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<div class="card bg-soft-warning">
+		<center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/saving.png" alt="Picture is missing"></center>
+			<div class="card-body">
+				<h5 class="card-title" align="center">SIMPANAN</h5>
+				<h2 class="card-text" align="center"><font color="black">RM&nbsp;</font></h2>
+				</div>
+		</div> -->
 
-print '<div class="card">CARD WAJIB/POKOK</div>';
+	</div>
+</div>';
 
 
 

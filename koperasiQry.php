@@ -3363,7 +3363,7 @@ WHERE a.userID = b.userID AND a.userID = '" . $id . "' AND  b.status IN (1)'";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function deductListb2($val, $sql)
+function deductListb2($val, $sql='')
 {
 	global $conn;
 
@@ -3423,7 +3423,7 @@ function deductListb2($val, $sql)
 	if ($val == 3) return $strDeductNameList;
 }
 
-function strSelect3($id, $code, $sql, $type = "arr", $width = '')
+function strSelect3($id, $code, $sql='', $type = "arr", $width = '')
 {
 	$strDeductIDList = deductListb2(1, $sql);
 	$strDeductCodeList = deductListb2(2, $sql);
