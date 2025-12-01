@@ -1467,11 +1467,178 @@ if (@$tabb == 9) {
 
 // ----------------------------------------- Bahagian aktivitas -----------------------------------------
 if (@$tabb == 10) {
-	print '<div class="mb-3">';
-	print '<div class="py-4">';
-	print 'AKTIVITAS';
-	print '</div>';
-	print '</div>';
+
+
+
+// $sWhere = " ID is not null and (byID > 0 or byID like 'a%') and report <> ''";
+// $sWhere = " WHERE `byID` = " . tosql($pk, "Text") . " ";
+$sWhere = "";
+$sSQL   = "SELECT * FROM `activitylog`";
+$sSQL   = $sSQL . $sWhere . " ORDER BY `activityDate` DESC";
+$GetMember = &$conn->Execute($sSQL);
+// $GetMember = $conn->SelectLimit($sSQL, 30, 0);
+
+// print_r(tosql($pk, "Text")); die;
+// echo '<pre>'; var_dump($GetMember); die;
+
+?><div class="card">
+  <div class="card-body">
+
+    <form name="MyForm" action="?vw=aktivitiLog&amp;mn=901" method="post">
+      <input type="hidden" name="action">
+      <input type="hidden" name="pk" value="">
+      <input type="hidden" name="filter" value="0">
+      <div class="table-responsive">
+        <h5 class="card-title">LOG AKTIVITAS &nbsp;</h5>
+        <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
+          <tbody>
+            <tr valign="top">
+              <td valign="top">
+                <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
+									<tbody>
+										<tr class="table-primary">
+											<td nowrap="" align="center">NO</td>
+											<td nowrap="">Aktivitas</td>
+											<td nowrap="" align="center">Tanggal</td>
+											<td nowrap="" align="center">Waktu</td>
+											<td nowrap="" align="center">Nomor Anggota</td>
+											<td nowrap="">ID Pengguna</td>
+										</tr>
+										<?php while (!$GetMember->EOF) {
+											$status = dlookup("userdetails", "status", "userID=" . tosql($GetMember->fields(userID), "Text"));
+											$colorStatus = "Data";
+											if ($status == 1) $colorStatus = "greenText";
+											if ($status == 2) $colorStatus = "redText";
+											$dateTime = explode(" ", $GetMember->fields(activityDate));
+											$date = $dateTime[0];
+											$time = $dateTime[1];
+
+											$dateParts = split("-", $date);
+											if ($dateParts[1] == NULL) {
+												$dateParts = split("/", $varDate);
+											}
+											$day = $dateParts[2];
+											$month = $dateParts[1];
+											$year = $dateParts[0];
+											$day = trim($day);
+											$month = trim($month);
+											$year = trim($year);
+											$convertDate = $day . "-" . $month . "-" . $year;
+											?>
+										<tr class="table-light">
+											<td class="Data" align="center">1</td>
+											<td class="Data"><?php echo $GetMember->fields(report); ?></td>
+											<td class="Data" align="center"><?php echo $convertDate; ?></td>
+											<td class="Data" align="center"><?php echo $time; ?></td>
+											<td class="Data" align="center"><?php echo $GetMember->fields(byID); ?></td>
+											<td class="Data"><?php echo $GetMember->fields(activityBy); ?></td>
+										</tr>
+										<?php
+											$GetMember->MoveNext();
+											} ?>
+									</tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="textFont">Jumlah Rekod : <b>850</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </form>
+
+
+    <script language="JavaScript">
+      var allChecked = false;
+      function ITRViewSelectAll() {
+        e = document.MyForm.elements;
+        allChecked = !allChecked;
+        for (c = 0; c < e.length; c++) {
+          if (e[c].type == "checkbox" && e[c].name != "all") {
+            e[c].checked = allChecked;
+          }
+        }
+      }
+
+      function ITRActionButtonClick(v) {
+        e = document.MyForm;
+        if (e == null) {
+          alert('Sila pastikan nama form diwujudkan.!');
+        } else {
+          count = 0;
+          for (c = 0; c < e.elements.length; c++) {
+            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
+              count++;
+            }
+          }
+
+          if (count == 0) {
+            alert('Sila pilih rekod yang hendak di' + v + 'kan.');
+          } else {
+            if (confirm(count + ' rekod hendak di' + v + 'kan?')) {
+              e.action.value = v;
+              e.submit();
+            }
+          }
+        }
+      }
+
+      function ITRActionButtonClickStatus(v) {
+        var strStatus = "";
+        e = document.MyForm;
+        if (e == null) {
+          alert('Sila pastikan nama form diwujudkan.!');
+        } else {
+          count = 0;
+          j = 0;
+          for (c = 0; c < e.elements.length; c++) {
+            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
+              pk = e.elements[c].value;
+              strStatus = strStatus + ":" + pk;
+              count++;
+            }
+          }
+
+          if (count == 0) {
+            alert('Sila pilih rekod yang hendak di' + v + 'kan.');
+          } else {
+            if (confirm(count + ' rekod hendak di' + v + 'kan?')) {
+              //e.submit();
+              window.location.href = "memberStatus.php?pk=" + strStatus;
+            }
+          }
+        }
+      }
+
+      function ITRActionButtonStatus() {
+        e = document.MyForm;
+        if (e == null) {
+          alert('Sila pastikan nama form diwujudkan.!');
+        } else {
+          count = 0;
+          for (c = 0; c < e.elements.length; c++) {
+            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
+              count++;
+              pk = e.elements[c].value;
+            }
+          }
+
+          if (count != 1) {
+            alert('Sila pilih satu rekod sahaja untuk kemaskini status');
+          } else {
+            window.location.href = "memberStatus.php?pk=" + pk;
+          }
+        }
+      }
+      function doListAll() {
+        c = document.forms['MyForm'].pg;
+        document.location = "?vw=aktivitiLog&mn=901?&StartRec=1&pg=" + c.options[c.selectedIndex].value;
+      }
+    </script>
+  </div>
+</div>
+	<?php
 }
 
 

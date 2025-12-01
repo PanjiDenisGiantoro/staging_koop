@@ -41,6 +41,14 @@ if (get_session("Cookie_groupID") == 0) {
 	$objchk = " checked disabled ";
 }
 
+
+
+
+print '<div class="card">CARD WAJIB/POKOK</div>';
+
+
+
+
 //--- Prepare department list
 $deptList = array();
 $deptVal  = array();

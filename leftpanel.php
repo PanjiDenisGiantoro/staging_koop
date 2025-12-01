@@ -242,10 +242,10 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         TitleBarBlue("Informasi (NPF)", 'mdi mdi-credit-card-outline');
         echo '<ul class="sub-menu ' . $mn906 . '" aria-expanded="true">';
         MenuLink("memberProfilHL.php", "Profil", 906, @$_REQUEST['vw']);
-        MenuLink("loanTableHL.php", "Senarai Pembiayaan", 906, @$_REQUEST['vw']);
-        MenuLink("resitListHL.php", "Terima Pembiayaan (Resit)", 906, @$_REQUEST['vw']);
+        MenuLink("loanTableHL.php", "Daftar Pembiayaan", 906, @$_REQUEST['vw']);
+        MenuLink("resitListHL.php", "Terima Pembiayaan (Struk)", 906, @$_REQUEST['vw']);
         // MenuLink("blank.php", "Taqwid", 906, @$_REQUEST['vw']);
-        MenuLink("memberStmtHL.php", "Penyata", 906, @$_REQUEST['vw']);
+        MenuLink("memberStmtHL.php", "Laporan", 906, @$_REQUEST['vw']);
         echo '</ul></li>';
         // admin.hutangLapuk.Laporan
         if (@$mn == 907) {
