@@ -8,7 +8,7 @@ $DB_hostname = "localhost";
 $DB_username = "root";
 $DB_password = "";
 $DB_dbtype = "mysql";
-$DB_dbname = "sekatausermanual";
+$DB_dbname = "demokoop";
 
 // ====== START DATABASE CONFIG =======
 // Access

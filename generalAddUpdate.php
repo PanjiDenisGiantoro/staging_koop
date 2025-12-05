@@ -111,9 +111,41 @@ $sFileName = "generalAddUpdate.php";
 $sActionFileName = "index.php?vw=general&mn=903&selCode=$cat&cat=" . $cat;
 $title = $basicList[array_search($cat, $basicVal)];
 
+//--- Begin : Load Data untuk mode Kemaskini ---------------------------->
+$rs = false; // Initialize $rs
+if ($action == "kemaskini" && $pk <> "") {
+    //--- Begin : query database for information ---------------------------------------------
+    if ($cat == 'Y') {
+        // Untuk kategori Y, load dengan JOIN ke generalacc
+        $sWhere = "g.ID = " . tosql($pk, "Number");
+        $sSQL = "SELECT g.*, ga.name as loanName FROM general g LEFT JOIN generalacc ga ON g.loanCode = ga.code WHERE " . $sWhere;
+    } else {
+        // Untuk kategori lain, load biasa
+        $sWhere = "ID = " . tosql($pk, "Number");
+        $sSQL = "SELECT * FROM general WHERE " . $sWhere;
+    }
+
+    $rs = &$conn->Execute($sSQL);
+
+    // Check if query was successful
+    if (!$rs || $rs->EOF) {
+        print '<script>alert("Data tidak ditemukan!");window.close();</script>';
+        exit;
+    }
+    //--- End   : query database for information ---------------------------------------------
+
+    // Load data khusus untuk kategori Y
+    if ($cat == 'Y' && $rs && !$rs->EOF) {
+        $loanCode = $rs->fields('loanCode');
+        $loanName = $rs->fields('loanName');
+    }
+}
+//--- End : Load Data untuk mode Kemaskini ---------------------------->
+
 //--- Begin : Set Form Variables (you may insert here any new fields) ---------------------------->
 //--- FormCheck  = CheckBlank, CheckNumeric, CheckDate, CheckEmailAddress
 $strErrMsg = array();
+$FormCustomHTML = array(); // Initialize FormCustomHTML array
 
 $a = 1;
 $FormLabel[$a] = "* Kode";
@@ -545,14 +577,14 @@ if ($cat == "N") {
 
 if ($cat == "Y") {
 
+    // Inisialisasi variabel jika belum ada (mode tambah)
+    if (!isset($loanCode)) $loanCode = "";
+    if (!isset($loanName)) $loanName = "";
+
     $a = $a + 1;
     $FormLabel[$a]    	= "* Kode Ledger";
     $FormElement[$a] 	= "loanCode";
-    if (get_session("Cookie_groupID") == 0) {
-        $FormType[$a]     = "custom";
-    } else {
-        $FormType[$a]     = "custom";
-    }
+    $FormType[$a]     = "custom";
     $FormData[$a]    	= "";
     $FormDataValue[$a] = "";
     $FormCustomHTML[$a] = "
@@ -571,6 +603,36 @@ if ($cat == "Y") {
     $FormSize[$a]     	= "8";
     $FormLength[$a]   	= "20";
 
+    $a++;
+    $FormLabel[$a] = "* Jenis Simpanan";
+    $FormElement[$a] = "jenis_simpanan";
+    $FormType[$a] = "selectx";
+    $FormData[$a] = array("Simpanan Pokok", "Simpanan Wajib");
+    $FormDataValue[$a] = array("pokok", "wajib");
+    $FormCheck[$a] = array(CheckBlank);
+    $FormSize[$a] = "1";
+    $FormLength[$a] = "1";
+    $FormStyle[$a] = 'style="width:465px;"';
+
+    $a++;
+    $FormLabel[$a] = "* Setoran Simpanan Pokok";
+    $FormElement[$a] = "setoran_simpanan_pokok";
+    $FormType[$a] = "text-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array(CheckBlank, CheckDecimal);
+    $FormSize[$a] = "70";
+    $FormLength[$a] = "20";
+
+    $a++;
+    $FormLabel[$a] = "Deskripsi";
+    $FormElement[$a] = "deskripsi_simpanan";
+    $FormType[$a] = "textarea-sm";
+    $FormData[$a] = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a] = array();
+    $FormSize[$a] = "68";
+    $FormLength[$a] = "3";
 
     $a++;
     $FormLabel[$a] = "* Active";
@@ -693,6 +755,7 @@ if ($SubmitForm <> "") {
         $createdDate = date("Y-m-d H:i:s");
         $updatedBy = get_session("Cookie_userName");
         $updatedDate = date("Y-m-d H:i:s");
+        $created_at_simpanan = date("Y-m-d H:i:s");
         $sSQL = "";
         switch (strtolower($SubmitForm)) {
             case "simpan":
@@ -751,6 +814,9 @@ if ($SubmitForm <> "") {
                 if ($cat == 'Y'){
                     $sSQL .=
                         "loanCode,".
+                        "jenis_simpanan,".
+                        "setoran_simpanan_pokok,".
+                        "deskripsi_simpanan,".
                         "status_active_simpanan,".
                         "created_at_simpanan,";
                 }
@@ -814,6 +880,9 @@ if ($SubmitForm <> "") {
                 if ($cat == 'Y'){
                     $sSQL .=
                         tosql($loanCode, "Text") . "," .
+                        tosql($jenis_simpanan, "Text") . "," .
+                        tosql($setoran_simpanan_pokok, "Number") . "," .
+                        tosql($deskripsi_simpanan, "Text") . "," .
                         tosql($status_active_simpanan, "Text") . ","
                         .tosql($created_at_simpanan, "Text") . ",";
 //                        tosql($createdDate, "Text") . "," .
@@ -891,11 +960,11 @@ if ($SubmitForm <> "") {
                 }
                 if ($cat == 'Y'){
                     $sSQL .=
-                        ",nama_simpanan=" . tosql($nama_simpanan, "Text") .
-                        ",kode_simpanan=" . tosql($kode_simpanan, "Text") .
                         ",loanCode=" . tosql($loanCode, "Text") .
-                        ",status_active_simpanan=" . tosql($status_active_simpanan, "Text") .
-                        ",created_at_simpanan=" . tosql($create_at_simpanan, "Text") ;
+                        ",jenis_simpanan=" . tosql($jenis_simpanan, "Text") .
+                        ",setoran_simpanan_pokok=" . tosql($setoran_simpanan_pokok, "Number") .
+                        ",deskripsi_simpanan=" . tosql($deskripsi_simpanan, "Text") .
+                        ",status_active_simpanan=" . tosql($status_active_simpanan, "Text");
 
                 }
 
@@ -937,13 +1006,7 @@ if ($SubmitForm <> "") {
 
 if ($action == "kemaskini") {
     if ($pk <> "") {
-        //--- Begin : query database for information ---------------------------------------------
-        $sWhere = "ID = " . tosql($pk, "Number");
-        $sWhere = " WHERE (" . $sWhere . ")";
-        $sSQL = "SELECT * FROM general ";
-        $sSQL = $sSQL . $sWhere;
-        $rs = &$conn->Execute($sSQL);
-        //--- End   : query database for information ---------------------------------------------
+        // Data sudah di-load di bagian atas, jadi gunakan $rs yang sudah ada
 
         if ($cat == 'O') {
             //--- Prepare deduct list
@@ -991,12 +1054,18 @@ print '
 	<tr class="table-primary">
 		<td colspan="2">';
 
-if ($action == "simpan") print '<h6 class="card-subtitle">Input ' . $title;
-else print '<h6 class="card-subtitle">Data ' . $title . ' : ' . tohtml($rs->fields(name));
+if ($action == "simpan") {
+    print '<h6 class="card-subtitle">Input ' . $title;
+} else {
+    $displayName = ($rs && !$rs->EOF) ? tohtml($rs->fields('name')) : '';
+    print '<h6 class="card-subtitle">Data ' . $title . ' : ' . $displayName;
+}
 print '</h6></td></tr>';
 
 //--- Begin : Looping to display label -------------------------------------------------------------
+global $FormCustomHTML; // Make FormCustomHTML accessible in forms.php
 for ($i = 1; $i <= count($FormLabel); $i++) {
+    $GLOBALS['i'] = $i; // Make $i accessible in forms.php
     if ($action == "kemaskini") {
         if ($cat == "B") {
             if ($sub <> "0") {
@@ -1024,11 +1093,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
         if ($cat == "N") {
             if ($i == 5) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
-        if ($cat <> "B" and $cat <> "C" and $cat <> "D" and $cat <> "G" and $cat <> "M" and $cat <> "N" and $cat <> "J") {
+        if ($cat <> "B" and $cat <> "C" and $cat <> "D" and $cat <> "G" and $cat <> "M" and $cat <> "N" and $cat <> "J" and $cat <> "Y") {
             if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
         if ($cat == 'Y') {
-//            if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
+            if ($i == 7) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
     }
     print '<tr valign=top><td class=Data align=right>' . $FormLabel[$i] . '</td>';
@@ -1036,12 +1105,22 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
         print '<td class=errdata>';
     else
         print '<td class=Data>';
-    //--- Begin : Call function FormEntry ---------------------------------------------------------  
+    //--- Begin : Call function FormEntry ---------------------------------------------------------
     if ($action == "kemaskini") {
-        $strFormValue = tohtml($rs->fields($FormElement[$i]));
-        if ($FormType[$i] == 'textarea') {
-            $strFormValue = str_replace("<pre>", "", $rs->fields($FormElement[$i]));
-            $strFormValue = str_replace("</pre>", "", $strFormValue);
+        // For custom type, don't try to get value from $rs
+        if ($FormType[$i] == 'custom') {
+            $strFormValue = "";
+        } else {
+            // Safe access to $rs fields
+            if ($rs && !$rs->EOF) {
+                $strFormValue = tohtml($rs->fields($FormElement[$i]));
+                if ($FormType[$i] == 'textarea' || $FormType[$i] == 'textarea-sm') {
+                    $strFormValue = str_replace("<pre>", "", $rs->fields($FormElement[$i]));
+                    $strFormValue = str_replace("</pre>", "", $strFormValue);
+                }
+            } else {
+                $strFormValue = "";
+            }
         }
         if ($cat == "J") {
             //if ($i == 4) $strFormValue = dlookup("codegroup", "groupNo", "codeNo=" . tosql($rs->fields('code'), "Text"));

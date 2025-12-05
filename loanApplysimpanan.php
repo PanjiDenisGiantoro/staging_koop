@@ -7,22 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $UserID         = isset($_POST['UserID']) ? trim($_POST['UserID']) : '';
     $AccountNumber  = isset($_POST['AccountNumber']) ? trim($_POST['AccountNumber']) : '';
     $Code_simpanan  = isset($_POST['Code_simpanan']) ? trim($_POST['Code_simpanan']) : '';
+    $nominal_simpanan = isset($_POST['nominal_simpanan']) ? floatval($_POST['nominal_simpanan']) : 0;
+    $sumber_dana    = isset($_POST['sumber_dana']) ? trim($_POST['sumber_dana']) : '';
     $status         = isset($_POST['status']) ? intval($_POST['status']) : 1;
 
-    if ($UserID != '' && $AccountNumber == '' && $Code_simpanan != '') {
+    if ($UserID != '' && $AccountNumber == '' && $Code_simpanan != '' && $nominal_simpanan > 0 && $sumber_dana != '') {
 
-        // Generate AccountNumber otomatis
-        $prefix = date("Ymd"); // tahun bulan tanggal, contoh 20250825
-
-        // Cek nomor terakhir di hari ini
-        $cekAcc = "SELECT MAX(AccountNumber) as max_acc 
-               FROM depositoracc 
+        // Generate AccountNumber otomatis dengan format: 10ddmmyyyynourut5digit
+        $prefix = "10" . date("dmY"); // 10 + ddmmyyyy, contoh: 10051220251. Cek nomor terakhir di hari ini
+        $cekAcc = "SELECT MAX(AccountNumber) as max_acc
+               FROM depositoracc
                WHERE AccountNumber LIKE '" . $prefix . "%'";
         $rsAcc = $conn->Execute($cekAcc);
 
         $lastNumber = 0;
         if ($rsAcc && $rsAcc->fields['max_acc'] != null) {
-            $lastNumber = intval(substr($rsAcc->fields['max_acc'], 8)); // ambil 5 digit terakhir
+            $lastNumber = intval(substr($rsAcc->fields['max_acc'], 12)); // ambil 5 digit terakhir (setelah 10ddmmyyyy)
         }
 
         $newNumber = str_pad($lastNumber + 1, 5, "0", STR_PAD_LEFT);
@@ -42,17 +42,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Lanjut insert
-        $Balance        = 0;
+        $Balance        = $nominal_simpanan;
         $DateApply      = date("Y-m-d H:i:s");
         $UpdateUserID   = $UserID;
         $DateUpdateUserID = $DateApply;
 
-        $sql = "INSERT INTO depositoracc 
-        (UserID, AccountNumber, Code_simpanan, Balance, Status, DateApply, UpdateUserID, DateUpdateUserID)
+        $sql = "INSERT INTO depositoracc
+        (UserID, AccountNumber, Code_simpanan, Balance, nominal_simpanan, sumber_dana, Status, DateApply, UpdateUserID, DateUpdateUserID)
         VALUES (" . tosql($UserID, "Text") . ",
                 " . tosql($AccountNumber, "Text") . ",
                 " . tosql($Code_simpanan, "Text") . ",
                 " . $Balance . ",
+                " . $nominal_simpanan . ",
+                " . tosql($sumber_dana, "Text") . ",
                 " . $status . ",
                 " . tosql($DateApply, "Text") . ",
                 " . tosql($UpdateUserID, "Text") . ",
@@ -78,30 +80,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <h3>Tambah Rekening Simpanan</h3>
     <form method="post" action="" onsubmit="return confirm('Apakah Anda yakin ingin menyimpan data ini?')">
         <div class="form-group mb-3">
-            <label>Nama</label>
+            <label>Nama Anggota <span class="text-danger">*</span></label>
             <input type="hidden" name="UserID" id="UserID" value="<?php echo htmlspecialchars($UserID); ?>">
 
             <div class="mb-2">
                 <div class="input-group">
-                    <span class="input-group-text">Kode</span>
-                    <input type="text" name="loanCode" id="loanCode" class="form-control"
-                           value="<?php echo htmlspecialchars($loanCode); ?>" readonly>
-                    <button type="button" class="btn btn-sm btn-info"
-                            onclick="window.open('selMember.php','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')">
-                        Pilih
-                    </button>
-                </div>
-                <div class="input-group mt-2">
-                    <span class="input-group-text">Nama</span>
                     <input type="text" name="loanName" id="loanName" class="form-control"
-                           value="<?php echo htmlspecialchars($loanName); ?>" readonly>
+                           value="<?php echo htmlspecialchars($loanName); ?>" readonly placeholder="Klik tombol Pilih untuk memilih anggota">
+                    <button type="button" class="btn btn-info"
+                            onclick="window.open('selMember.php','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')">
+                        Pilih Anggota
+                    </button>
                 </div>
             </div>
 
         </div>
 
         <div class="form-group mb-3">
-            <label>Jenis Simpanan</label>
+            <label>Jenis Simpanan <span class="text-danger">*</span></label>
             <select name="Code_simpanan" class="form-control" required>
                 <option value="">-- Pilih Simpanan --</option>
                 <?php
@@ -113,6 +109,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $rsGen->MoveNext();
                 }
                 ?>
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Nominal Simpanan <span class="text-danger">*</span></label>
+            <input type="number" name="nominal_simpanan" class="form-control"
+                   placeholder="Masukkan nominal simpanan"
+                   step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Sumber Dana <span class="text-danger">*</span></label>
+            <select name="sumber_dana" class="form-control" required>
+                <option value="">-- Pilih Sumber Dana --</option>
+                <option value="Hasil Usaha">Hasil Usaha</option>
+                <option value="Pendapatan Bulanan">Pendapatan Bulanan</option>
+                <option value="Lain-lain">Lain-lain</option>
             </select>
         </div>
 
@@ -131,10 +144,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script>
 // Expose function globally so selMember popup can call it
 window.setSelectedMember = function(userId, userName) {
-  var codeEl = document.getElementById('loanCode');
   var nameEl = document.getElementById('loanName');
   var idEl   = document.getElementById('UserID');
-  if (codeEl) codeEl.value = userId;
   if (nameEl) nameEl.value = userName;
   if (idEl)   idEl.value   = userId;
 };

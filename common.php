@@ -26,7 +26,7 @@ if ($HTTP_COOKIE_VARS["selDB"] == "") {
     $DB_hostname = 'localhost';
     $DB_username = 'root';
     $DB_password = '';
-    $DB_dbname = $HTTP_COOKIE_VARS["selDB"];
+    $DB_dbname = $HTTP_COOKIE_VARS["demokoopo"];
 }
 
 $conn = &ADONEWConnection($DB_dbtype);
@@ -766,7 +766,7 @@ $senaraiList    = array(
 $senaraiVal    = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M');
 
 // Storing Status Information
-$statusList    =    array('Dalam Proses', 'Diluluskan', 'Ditolak', 'Berhenti', 'Bersara', 'Dibatalkan');
+$statusList    =    array('Dalam Proses', 'Disetujui', 'Ditolak', 'Berhenti', 'Bersara', 'Dibatalkan');
 $statusVal    =    array('0', '1', '2', '3', '4', '5');
 
 // Storing Caruman Status Information

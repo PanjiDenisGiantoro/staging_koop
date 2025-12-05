@@ -221,10 +221,10 @@ function listGeneral($id, $level) {
 	global $sFileRef;
 	global $RecNum;
 	global $cat;
-	
+
 	$GetGeneral	= '$GetGeneral'.$level;
 	$generalID	= '$generalID'.$level;
-	
+
 	$generalID = array();
 	$generalCode = array();
 	$generalName = array();
@@ -233,9 +233,12 @@ function listGeneral($id, $level) {
     $generalKodeSimpanan = array();
     $loanCode = array();
     $loanName = array();
+    $jenisSimpanan = array();
+    $setoranSimpananPokok = array();
+    $deskripsiSimpanan = array();
 	$GetGeneral = ctGeneral($id,$cat);
 	if ($GetGeneral->RowCount() <> 0) {
-		$RecNum = $RecNum + $GetGeneral->RowCount(); 
+		$RecNum = $RecNum + $GetGeneral->RowCount();
 		while (!$GetGeneral->EOF) {
 			array_push ($generalID, $GetGeneral->fields(ID));
 			array_push ($generalCode, $GetGeneral->fields(code));
@@ -246,61 +249,133 @@ function listGeneral($id, $level) {
             if ($cat == 'Y') {
                 array_push($generalActiveSimpanan, $GetGeneral->fields('status_active_simpanan'));
                 array_push($loanCode, $GetGeneral->fields('loanCode'));
-                array_push($loanName, $GetGeneral->fields('loanName')); // Add this line
+                array_push($loanName, $GetGeneral->fields('loanName'));
                 array_push($generalKodeSimpanan, $GetGeneral->fields('kode_simpanan'));
+                array_push($jenisSimpanan, $GetGeneral->fields('jenis_simpanan'));
+                array_push($setoranSimpananPokok, $GetGeneral->fields('setoran_simpanan_pokok'));
+                array_push($deskripsiSimpanan, $GetGeneral->fields('deskripsi_simpanan'));
             }
 			$GetGeneral->MoveNext();
 		}
-	}	
-
-	print '<ul>';
-	$level++;
-	$i = '$i'.$level;
-	for ($i=0;$i < count($generalID);$i++){
-		$IDName = get_session("Cookie_userName");
-
-        if ($IDName != 'superadmin'){
-            if ($cat == "C" || $cat == "J") {
-                $disableDelete = hasTransactions($generalID[$i]) || hasChildrenWithTransactions($generalID[$i]);
-                $class = $disableDelete ? ' nonDeletable' : '';
-            }
-        }
-
-        if ($id == "ALL") {
-            print '<li id="foldlist" class="' . $class . '"><b>';
-        } else {
-            print '<li id="node" class="' . $class . '"><b>';
-        }
-
-		if ($level <= $setLevel) {
-        // Add a title attribute for nonDeletable items to show the hover message
-        $title = $disableDelete ? ' title="Kode ini mempunyai transaksi"' : '';
-        	print '<input type="checkbox" class="form-check-input" name="pk[]" value="' . $generalID[$i] . '" data-disable-delete="' . ($disableDelete ? 'true' : 'false') . '"' . $title . '>';
-		} else {
-			print '&nbsp;&nbsp;&nbsp;';
-		}
-		print '
-		 <font class="redText"' . $title . '>'.$generalCode[$i].'</font>&nbsp;-&nbsp;
-		 <a ' . $title . ' onclick=Javascript:window.open("'. $sFileRef . '?action=kemaskini&amp;cat='.$cat.'&amp;pk='.$generalID[$i].'&amp;sub='.$generalParentID[$i].'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
-		 <font class="blueText">'.$generalName[$i].'</font></a></b>&nbsp;-&nbsp;
-		 ';
-            if($cat == 'Y'){
-            if($generalActiveSimpanan[$i] == 1){
-                print 'Aktif';
-            }else{
-                print 'Tidak Aktif';
-            }
-            print '&nbsp;-&nbsp;'.$loanName[$i];
-            }
-            '</font>
-            <font class="blueText">' . $generalParentID[$i] . '</font>
-            <font class="blueText">' . $generalID[$i] . '</font>
-		 </li>';
-		if 	($level <= $setLevel){
-			listGeneral($generalID[$i], $level);
-		}
 	}
-	print '</ul>';
+
+    // Untuk kategori Y, gunakan tampilan table
+    if ($cat == 'Y' && $id == 'ALL') {
+        print '
+        <table class="table table-bordered table-hover table-striped table-sm" style="font-size:10pt;">
+            <thead class="table-primary">
+                <tr>
+                    <th width="5%" class="text-center">
+                        <input type="checkbox" class="form-check-input" onclick="ITRViewSelectAll()">
+                    </th>
+                    <th width="10%">Kode</th>
+                    <th width="20%">Nama Simpanan</th>
+                    <th width="12%">Jenis</th>
+                    <th width="15%">Kode Ledger</th>
+                    <th width="13%" class="text-end">Setoran Pokok</th>
+                    <th width="15%">Deskripsi</th>
+                    <th width="10%" class="text-center">Status</th>
+                </tr>
+            </thead>
+            <tbody>';
+
+        for ($i=0; $i < count($generalID); $i++) {
+            $IDName = get_session("Cookie_userName");
+            $disableDelete = false;
+            $class = '';
+            $title = '';
+
+            $statusBadge = $generalActiveSimpanan[$i] == 1
+                ? '<span class="badge bg-success">Aktif</span>'
+                : '<span class="badge bg-secondary">Tidak Aktif</span>';
+
+            $jenisLabel = '';
+            if ($jenisSimpanan[$i] == 'pokok') {
+                $jenisLabel = '<span class="badge bg-primary">Simpanan Pokok</span>';
+            } elseif ($jenisSimpanan[$i] == 'wajib') {
+                $jenisLabel = '<span class="badge bg-info">Simpanan Wajib</span>';
+            }
+
+            $setoran = number_format($setoranSimpananPokok[$i], 2, ',', '.');
+            $deskripsi = $deskripsiSimpanan[$i] ? substr($deskripsiSimpanan[$i], 0, 50) . '...' : '-';
+
+            print '
+                <tr>
+                    <td class="text-center">
+                        <input type="checkbox" class="form-check-input" name="pk[]" value="' . $generalID[$i] . '" data-disable-delete="false">
+                    </td>
+                    <td><font class="redText">' . $generalCode[$i] . '</font></td>
+                    <td>
+                        <a href="#" onclick="window.open(\'' . $sFileRef . '?action=kemaskini&cat=' . $cat . '&pk=' . $generalID[$i] . '&sub=' . $generalParentID[$i] . '\',\'pop\',\'top=50,left=50,width=900,height=600,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no\'); return false;">
+                            <font class="blueText"><strong>' . $generalName[$i] . '</strong></font>
+                        </a>
+                    </td>
+                    <td>' . $jenisLabel . '</td>
+                    <td>
+                        <small class="text-muted">' . $loanCode[$i] . '</small><br>
+                        <small>' . $loanName[$i] . '</small>
+                    </td>
+                    <td class="text-end"><strong>Rp ' . $setoran . '</strong></td>
+                    <td><small class="text-muted">' . $deskripsi . '</small></td>
+                    <td class="text-center">' . $statusBadge . '</td>
+                </tr>';
+        }
+
+        print '
+            </tbody>
+        </table>';
+
+    } else {
+        // Tampilan list default untuk kategori lain
+        print '<ul>';
+        $level++;
+        $i = '$i'.$level;
+        for ($i=0;$i < count($generalID);$i++){
+            $IDName = get_session("Cookie_userName");
+
+            if ($IDName != 'superadmin'){
+                if ($cat == "C" || $cat == "J") {
+                    $disableDelete = hasTransactions($generalID[$i]) || hasChildrenWithTransactions($generalID[$i]);
+                    $class = $disableDelete ? ' nonDeletable' : '';
+                }
+            }
+
+            if ($id == "ALL") {
+                print '<li id="foldlist" class="' . $class . '"><b>';
+            } else {
+                print '<li id="node" class="' . $class . '"><b>';
+            }
+
+            if ($level <= $setLevel) {
+            // Add a title attribute for nonDeletable items to show the hover message
+            $title = $disableDelete ? ' title="Kode ini mempunyai transaksi"' : '';
+                print '<input type="checkbox" class="form-check-input" name="pk[]" value="' . $generalID[$i] . '" data-disable-delete="' . ($disableDelete ? 'true' : 'false') . '"' . $title . '>';
+            } else {
+                print '&nbsp;&nbsp;&nbsp;';
+            }
+            print '
+             <font class="redText"' . $title . '>'.$generalCode[$i].'</font>&nbsp;-&nbsp;
+             <a ' . $title . ' onclick=Javascript:window.open("'. $sFileRef . '?action=kemaskini&amp;cat='.$cat.'&amp;pk='.$generalID[$i].'&amp;sub='.$generalParentID[$i].'","pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no");>
+             <font class="blueText">'.$generalName[$i].'</font></a></b>&nbsp;-&nbsp;
+             ';
+                if($cat == 'Y'){
+                if($generalActiveSimpanan[$i] == 1){
+                    print 'Aktif';
+                }else{
+                    print 'Tidak Aktif';
+                }
+                print '&nbsp;-&nbsp;'.$loanName[$i];
+                }
+                '</font>
+                <font class="blueText">' . $generalParentID[$i] . '</font>
+                <font class="blueText">' . $generalID[$i] . '</font>
+             </li>';
+            if 	($level <= $setLevel){
+                listGeneral($generalID[$i], $level);
+            }
+        }
+        print '</ul>';
+    }
 }
 
 // Checks if there are any records in the transactionacc, transaction, and loans tables where deductID, MdeductID, JdeductID, and loanType match the given $generalID

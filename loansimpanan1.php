@@ -96,6 +96,8 @@ SELECT
     c.accountNumber,
     c.Code_simpanan,
     c.balance,
+    c.nominal_simpanan,
+    c.sumber_dana,
     c.status      AS depositor_status,
     c.dateApply,
     c.updateUserID,
@@ -231,6 +233,8 @@ SELECT
     c.accountNumber,
     c.Code_simpanan,
     c.balance,
+    c.nominal_simpanan,
+    c.sumber_dana,
     c.status      AS depositor_status,
     c.dateApply,
     c.updateUserID,
@@ -483,7 +487,9 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap align="left">Nomor Account</td>
 						<td nowrap align="left">Nama Simpanan</td>
-						<td nowrap align="left">Saldo</td>
+						<td nowrap align="right">Nominal Simpanan</td>
+						<td nowrap align="left">Sumber Dana</td>
+						<td nowrap align="right">Saldo</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center">Tanggal Pengajuan</td>';
     if (($IDName == 'superadmin') or ($IDName == 'admin')) {
@@ -514,12 +520,18 @@ if ($GetMember->RowCount() <> 0) {
             print '<img src="images/delete.jpg" width="15" height="15"> </td>';
         }
 
+        $nominalSimpanan = number_format($GetMember->fields('nominal_simpanan'), 2, ',', '.');
+        $sumberDana = $GetMember->fields('sumber_dana') ? $GetMember->fields('sumber_dana') : '-';
+        $saldo = number_format($GetMember->fields(balance), 2, ',', '.');
+
         print '
 						<td class="Data" align="center">' . $GetMember->fields(memberID) . '</td>
 						<td class="Data" align="center">' . convertNewIC($GetMember->fields(newIC)) . '</td>
-						<td class="Data" align="lfet">' . $GetMember->fields(accountNumber) . '</td>
-						<td class="Data" align="lfet">' . $namaSimpanan. '</td>
-						<td class="Data" align="lfet">' . $GetMember->fields(balance) . '</td>
+						<td class="Data" align="left">' . $GetMember->fields(accountNumber) . '</td>
+						<td class="Data" align="left">' . $namaSimpanan. '</td>
+						<td class="Data" align="right">Rp ' . $nominalSimpanan . '</td>
+						<td class="Data" align="left">' . $sumberDana . '</td>
+						<td class="Data" align="right">Rp ' . $saldo . '</td>
 						<td class="Data" align="center"><font class="' . $colorStatus . '">' . $statusList[$status] . '</font></td>
 						<td class="Data" align="center">' . toDate("d/m/Y", $GetMember->fields(applyDate)) . '</td>';
         if (($IDName == 'superadmin') or ($IDName == 'admin')) {
@@ -597,10 +609,10 @@ print '
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Dalam Proses', 'Disetujui', 'Ditolak', 'Berhenti'],
+            labels: ['Dalam Proses', 'Disetujui', 'Ditolak'],
             datasets: [{
                 data: [<?php echo $dalam_Proses; ?>, <?php echo $diluluskan; ?>, <?php echo $ditolak; ?>],
-                backgroundColor: ['#2196F3', '#4caf50', '#ff9800', '#f44336']
+                backgroundColor: ['#2196F3', '#4caf50', '#ff9800']
             }]
         },
         options: {
