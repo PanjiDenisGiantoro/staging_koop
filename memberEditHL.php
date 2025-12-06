@@ -851,7 +851,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORPASI BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
