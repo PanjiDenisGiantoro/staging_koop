@@ -1541,7 +1541,7 @@ $GetMember = &$conn->Execute($sSQL);
               </td>
             </tr>
             <tr>
-              <td class="textFont">Jumlah Rekod : <b>850</b></td>
+              <td class="textFont">Jumlah Data : <b>850</b></td>
             </tr>
           </tbody>
         </table>

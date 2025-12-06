@@ -1,7 +1,7 @@
 <?php
 include	("common.php");
 // Redirect //
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (!isset($mm))	$mm=date("m");
 if (!isset($yy))	$yy=date("Y");

@@ -17,7 +17,7 @@ if (!isset($yy))          $yy=date("Y");
 include("header.php");    
 include("koperasiQry.php");    
 include("koperasiList.php");  
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $db_koperasiID = dlookup("setup", "koperasiID", "1=1"); 
 
@@ -113,7 +113,7 @@ $FormCheck[$a]       = array(CheckBlank);
 $FormSize[$a]        = "50";
 $FormLength[$a]      = "5";
 
-$FormLabel[++$a]     = "* Tarikh Mula"; 
+$FormLabel[++$a]     = "* Tanggal Mula"; 
 $FormElement[$a]     = "startLeave"; 
 $FormType[$a]        = "date"; 
 $FormData[$a]        = ""; 
@@ -122,7 +122,7 @@ $FormCheck[$a]   	 = array(CheckBlank);
 $FormSize[$a]        = "20"; 
 $FormLength[$a]      = "10"; 
 
-$FormLabel[++$a]     = "* Tarikh Tamat "; 
+$FormLabel[++$a]     = "* Tanggal Tamat "; 
 $FormElement[$a]     = "endLeave"; 
 $FormType[$a]        = "date"; 
 $FormData[$a]        = ""; 

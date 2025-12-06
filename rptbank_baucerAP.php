@@ -18,7 +18,7 @@ $yr1 = $yr +1;
 if (!isset($yrmth));
 $mth1 = $mth + 1;
 
-$title  = 'Penyata Urusniaga Resit Mengikut Kod Akaun Bagi Bulan '.displayBulan($mth).' Tahun '.$yr ;
+$title  = 'Penyata Urusniaga Resit Mengikut Kode Akun Bagi Bulan '.displayBulan($mth).' Tahun '.$yr ;
 $sSQL = "SELECT c.ID,c.code as codeObj, c.name as name, c.c_Panel as codeAcc,a.pymtAmt as debit,b.kod_bank
 		FROM transaction a, vauchers b ,general c
 		WHERE 
@@ -58,7 +58,7 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Kod Objek</th>
 					<th nowrap>&nbsp;Keterangan</th>
-					<th nowrap>&nbsp;Kod Akaun</th>
+					<th nowrap>&nbsp;Kode Akun</th>
 					<th nowrap>&nbsp;Bank</th>
 					<th nowrap>&nbsp;Kredit</th>
 				</tr>';

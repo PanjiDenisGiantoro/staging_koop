@@ -12,7 +12,7 @@ if (!isset($dept))		$dept = "ALL";
 include("common.php");
 include("koperasiinfo.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y, g:i a");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -83,13 +83,13 @@ print '
 
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<td nowrap>&nbsp;</td>
-								<td nowrap align="center">Nombor Anggota</td>
+								<td nowrap align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama Anggota</td>
 								<td nowrap align="left">Nama Penama</td>
-								<td nowrap align="left">Kad Pengenalan Penama</td>
+								<td nowrap align="left">Kartu Identitas Penama</td>
 								<td nowrap align="left">Hubungan Penama</td>
 								<td nowrap align="left">Nombor Telefon Penama</td>
-								<td nowrap align="left">Alamat Kediaman Penama</td>
+								<td nowrap align="left">Alamat Rumah Penama</td>
 							</tr>';
 $bil = 0;
 

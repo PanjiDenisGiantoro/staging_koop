@@ -98,7 +98,7 @@ if ($basicListACC[array_search($cat, $basicValACC)] <> 'Kode Penghutang' && $bas
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>'.$RecNum.'</b></td>
+			<td class="textFont">Jumlah Data : <b>'.$RecNum.'</b></td>
 		</tr>';
 	} else {
 		print '

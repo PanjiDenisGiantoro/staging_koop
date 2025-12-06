@@ -8,7 +8,7 @@
 include("header.php");
 include("koperasiQry.php");
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -26,7 +26,7 @@ $strErrMsg = array();
 
 $a = 1;
 $a++;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a = $a + 1;
-$FormLabel[$a]   	= "* Nombor Anggota<br>(Staf Anggota)";
+$FormLabel[$a]   	= "* Nomor Anggota<br>(Staf Anggota)";
 $FormElement[$a] 	= "sellMemberID";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -115,7 +115,7 @@ if ($SubmitForm <> "") {
 		} else {
 			if (dlookup("userdetails", "userID", "memberID=" . tosql($sellMemberID, "Text")) == "") {
 				array_push($strErrMsg, 'sellMemberID');
-				print '- <font class=redText>Nombor Anggota - ' . $sellMemberID . ' tidak sah...!</font><br>';
+				print '- <font class=redText>Nomor Anggota - ' . $sellMemberID . ' tidak sah...!</font><br>';
 				$sellUserID = "";
 				$sellUserName = "";
 			} else {

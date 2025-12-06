@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Maklumat Gaji Staf";
 
 // $sFileName          = "?vw=staffIncome&mn=$mn";
@@ -257,7 +257,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
 <h5 class="card-title">' . strtoupper($title) . '</h5>
 <div class="table-responsive">
 <form id="MyForm" name="salary" method="post" action="">
-    <input type="hidden" name="action" value="Kira">
+    <input type="hidden" name="action" value="Hitung">
     <input type="hidden" name="StartRec" value="' . $StartRec . '">
     <input type="hidden" name="by" value="' . $by . '">
 
@@ -323,7 +323,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     if (($IDName == 'admin') || ($IDName == 'superadmin')) {
         print '<tr>
         <td colspan="2" align="center">
-            <button type="submit" name="action" value="Kira" class="btn btn-primary" style="margin-bottom: 10px;">Kira</button>
+            <button type="submit" name="action" value="Hitung" class="btn btn-primary" style="margin-bottom: 10px;">Kira</button>
         </td>
     </tr>';
     }

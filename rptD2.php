@@ -97,7 +97,7 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap>Bulan/Tahun</th>
 					<th nowrap>&nbsp;No Rujukan</th>
-					<th nowrap>&nbsp;Nombor Anggota</th>
+					<th nowrap>&nbsp;Nomor Anggota</th>
 					<th nowrap>&nbsp;Kod</th>
 					<th nowrap>&nbsp;Jenis Bayaran</th>
 					<th nowrap>&nbsp;Bayaran</th>

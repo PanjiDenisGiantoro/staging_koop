@@ -9,7 +9,7 @@
 require_once("common.php");
 include("koperasiQry.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 setlocale(LC_TIME, 'ms_MY');
 
 if ($screen == 'edit') {

@@ -61,7 +61,7 @@ print '
 <body>';
 print '
 <form name="MyForm" action=' . $PHP_SELF . ' method="post">
-<p class="textFont">Pilihan Cawangan/Zon
+<p class="textFont">Pilihan Cabang/Zona
 		<select name="dept" class="textFont" onchange="document.MyForm.submit();">
 			<option value="ALL">- Semua -';
 for ($i = 0; $i < count($deptList); $i++) {
@@ -98,28 +98,28 @@ if ($rs->RowCount() <> 0) {
 				}
 				print '
 							<tr><td colspan="7"  style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" height="30" valign="bottom">
-							Cawangan/Zon : ' . $rs->fields(department) . '</td></tr>
+							Cabang/Zona : ' . $rs->fields(department) . '</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<td nowrap>&nbsp;</td>
-								<td nowrap align="center">Nombor Anggota</td>
+								<td nowrap align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
-								<td nowrap align="center">Kad Pengenalan</td>
-								<td nowrap>Cawangan/Zon</td>
-								<td nowrap align="center">Tarikh Keanggotaan</td>
+								<td nowrap align="center">Kartu Identitas</td>
+								<td nowrap>Cabang/Zona</td>
+								<td nowrap align="center">Tanggal Keanggotaan</td>
 							</tr>';
 				$bil = 0;
 			}
 		} elseif ($bil == 0) {
 			print '
 							<tr><td colspan="7"  style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" height="30" valign="bottom">
-							Cawangan/Zon : ' . $rs->fields(department) . '</td></tr>
+							Cabang/Zona : ' . $rs->fields(department) . '</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<td nowrap>&nbsp;</td>
-								<td nowrap align="center">Nombor Anggota</td>
+								<td nowrap align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
-								<td nowrap align="center">Kad Pengenalan</td>
-								<td nowrap>Cawangan/Zon</td>
-								<td nowrap align="center">Tarikh Keanggotaan</td>
+								<td nowrap align="center">Kartu Identitas</td>
+								<td nowrap>Cabang/Zona</td>
+								<td nowrap align="center">Tanggal Keanggotaan</td>
 							</tr>';
 		}
 		$bil++;
@@ -163,12 +163,12 @@ if ($rs->RowCount() <> 0) {
 							Kategori : Bersara</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<th nowrap>&nbsp;</th>
-								<th nowrap width="100">&nbsp;Nombor Anggota</th>
+								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="80">&nbsp;Nombor KP Baru</th>
 								<th nowrap width="80">&nbsp;Jabatan/Cawangan</th>
 								<th nowrap width="150">&nbsp;Email</th>
-								<th nowrap align="center" width="150">&nbsp;Tarikh Keanggotaan</th>
+								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
 							</tr>';							
 							$bil=0;
 						}

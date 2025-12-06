@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 include("forms.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("' . $errPage . '");window.location="index.php";</script>';
 }
@@ -143,7 +143,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Kad Pengenalan<br>Tiada (-)";
+$FormLabel[$a]   	= "* Kartu Identitas<br>Tiada (-)";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -153,7 +153,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Lahir";
+$FormLabel[$a]   	= "Tanggal Lahir";
 $FormElement[$a] 	= "dateBirth";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -163,7 +163,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Rumah";
 $FormElement[$a] 	= "address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -173,7 +173,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Jabatan Pekerjaan";
 $FormElement[$a] 	= "job";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -183,7 +183,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Poskod Kediaman";
+$FormLabel[$a]   	= "Kode Pos Rumah";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -203,7 +203,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Bandar Kediaman";
+$FormLabel[$a]   	= "Kota Rumah";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -216,14 +216,14 @@ $a++;
 $FormLabel[$a]   	= "Jantina";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Lelaki', 'Perempuan');
+$FormData[$a]   	= array('Laki-laki', 'Perempuan');
 $FormDataValue[$a]	= array('0', '1');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Negeri Kediaman";
+$FormLabel[$a]   	= "Provinsi Rumah";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -233,10 +233,10 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Status Perkahwinan";
+$FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Bujang', 'Berkahwin', 'Janda/Duda');
+$FormData[$a]   	= array('Belum menikah', 'Menikah', 'Janda/Duda');
 $FormDataValue[$a]	= array('0', '1', '2');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
@@ -356,7 +356,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Jabatan Pekerjaan";
 $FormElement[$a] 	= "emergencyJob";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -366,7 +366,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Rumah";
 $FormElement[$a] 	= "emergencyContact_address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -386,7 +386,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Poskod Kediaman";
+$FormLabel[$a]   	= "Kode Pos Rumah";
 $FormElement[$a] 	= "emergencyContact_postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -406,7 +406,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Bandar Kediaman";
+$FormLabel[$a]   	= "Kota Rumah";
 $FormElement[$a] 	= "emergencyContact_city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -426,7 +426,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Negeri Kediaman";
+$FormLabel[$a]   	= "Provinsi Rumah";
 $FormElement[$a] 	= "emergencyStateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -573,8 +573,8 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1)  print '<div class="card-header mb-3">MAKLUMAT PENDAFTARAN ID</div>';
-	if ($i == 7)  print '<div class="card-header mb-3">A. BUTIR-BUTIR PERIBADI</div>';
+	if ($i == 1)  print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
+	if ($i == 7)  print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
 	if ($i == 25) print '<div class="card-header mb-3">B. HUBUNGAN KECEMASAN</div>';
 	if ($i == 37) {
 		print '<div class="card-header mb-3">C. DOKUMEN</div>';

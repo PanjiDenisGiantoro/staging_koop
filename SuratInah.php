@@ -70,12 +70,12 @@
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+          <td class="padding1" valign="top">Nombor Kartu Identitas</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[kp_penjamin1]</td>
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Anggota</td>
+          <td class="padding1" valign="top">Nomor Anggota</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[no_anggota_penjamin1]</td>
         </tr>
         <tr>
@@ -85,12 +85,12 @@
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+          <td class="padding1" valign="top">Nombor Kartu Identitas</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[kp_penjamin2]</td>
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Anggota</td>
+          <td class="padding1" valign="top">Nomor Anggota</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[no_anggota_penjamin2]</td>
         </tr>
         <tr>
@@ -100,12 +100,12 @@
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+          <td class="padding1" valign="top">Nombor Kartu Identitas</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[kp_penjamin3]</td>
         </tr>
         <tr>
           <td valign="top">&nbsp;</td>
-          <td class="padding1" valign="top">Nombor Anggota</td>
+          <td class="padding1" valign="top">Nomor Anggota</td>
           <td class="padding1" valign="top">&nbsp;:&nbsp;[no_anggota_penjamin3]</td>
         </tr>
       </table>
@@ -251,7 +251,7 @@ Setiausaha<br /><br /><i>Surat ini dicetak oleh komputer dan tidak memerlukan ta
         <td>[kp_baru]</td>
       </tr>
       <tr>
-        <td>Tarikh</td>
+        <td>Tanggal</td>
         <td>&nbsp;:&nbsp;</td>
         <td>[tarikh]</td>
       </tr>

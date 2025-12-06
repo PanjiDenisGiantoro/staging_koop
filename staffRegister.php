@@ -6,7 +6,7 @@
 include("header.php");	
 include("koperasiQry.php");	
 include("forms.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $Cookie_userID = get_session('Cookie_userID');
 $Cookie_userName = get_session("Cookie_userName");
@@ -102,7 +102,7 @@ if ($GetPymt->RowCount() <> 0){
 }	
 
 $a = 1;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "name";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -113,7 +113,7 @@ $FormLength[$a]  	= "50";
 
 
 $a++;
-$FormLabel[$a]   	= "* Kata Laluan<br>(Minimum 6 Aksara)";
+$FormLabel[$a]   	= "* Kata Sandi<br>(Minimum 6 Aksara)";
 $FormElement[$a] 	= "password";
 $FormType[$a]	  	= "password";
 $FormData[$a]   	= "";
@@ -135,7 +135,7 @@ $FormLength[$a]  	= "10";
 
 
 $a++;
-$FormLabel[$a]   	= "* Kenal Pasti Kata Laluan";
+$FormLabel[$a]   	= "* Identifikasi kata sandi";
 $FormElement[$a] 	= "password1";
 $FormType[$a]	  	= "password";
 $FormData[$a]   	= "";
@@ -146,7 +146,7 @@ $FormLength[$a]  	= "12";
 
 
 $a++;
-$FormLabel[$a]   	= "* Emel<br>(Pastikan Sah)";
+$FormLabel[$a]   	= "* Email<br><b>(Pastikan valid)</b>";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -167,7 +167,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";	
 
 $a++;
-$FormLabel[$a]   	= "* Kad Pengenalan<br>Tiada (-)";
+$FormLabel[$a]   	= "* Kartu Identitas<br>Tiada (-)";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -177,7 +177,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";	
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Lahir";
+$FormLabel[$a]   	= "Tanggal Lahir";
 $FormElement[$a] 	= "dateBirth";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -187,7 +187,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";	
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Rumah";
 $FormElement[$a] 	= "address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -197,7 +197,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Jabatan Pekerjaan";
 $FormElement[$a] 	= "job";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -207,7 +207,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";		
 
 $a++;
-$FormLabel[$a]   	= "Poskod Kediaman";
+$FormLabel[$a]   	= "Kode Pos Rumah";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -227,7 +227,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";	
 
 $a++;
-$FormLabel[$a]   	= "Bandar Kediaman";
+$FormLabel[$a]   	= "Kota Rumah";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -247,7 +247,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Negeri Kediaman";
+$FormLabel[$a]   	= "Provinsi Rumah";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -257,7 +257,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";	
 
 $a++;
-$FormLabel[$a]   	= "Status Perkahwinan";
+$FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Bujang','Berkahwin','Janda/Duda');
@@ -327,7 +327,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "* Tarikh Masuk";
+$FormLabel[$a]   	= "* Tanggal Masuk";
 $FormElement[$a] 	= "dateJoin";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -349,7 +349,7 @@ $FormLength[$a]  	= "10";
 ///////// Butir Kecemasan ////////
 // 25
 $a++;
-$FormLabel[$a]   	= "* Nama Penuh";
+$FormLabel[$a]   	= "* Nama Lengkap";
 $FormElement[$a] 	= "emergencyContact_name";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -379,7 +379,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Jawatan Pekerjaan";
+$FormLabel[$a]   	= "Jabatan Pekerjaan";
 $FormElement[$a] 	= "emergencyJob";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -389,7 +389,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Alamat Kediaman";
+$FormLabel[$a]   	= "Alamat Rumah";
 $FormElement[$a] 	= "emergencyContact_address";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -409,7 +409,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";	
 
 $a++;
-$FormLabel[$a]   	= "Poskod Kediaman";
+$FormLabel[$a]   	= "Kode Pos Rumah";
 $FormElement[$a] 	= "emergencyContact_postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -429,7 +429,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Bandar Kediaman";
+$FormLabel[$a]   	= "Kota Rumah";
 $FormElement[$a] 	= "emergencyContact_city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -449,7 +449,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Negeri Kediaman";
+$FormLabel[$a]   	= "Provinsi Rumah";
 $FormElement[$a] 	= "emergencyStateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -599,7 +599,7 @@ if (isset($_FILES['resume_img']) && $_FILES['resume_img']['error'] === UPLOAD_ER
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Laluan mesti sekurang-kurangnya ENAM [6] aksara.</strong> 
+                                                    <strong>* Kata Sandi mesti sekurang-kurangnya ENAM [6] aksara.</strong> 
                                                 </div>';
 	}	
 
@@ -609,7 +609,7 @@ if (isset($_FILES['resume_img']) && $_FILES['resume_img']['error'] === UPLOAD_ER
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                     </button>
-                                                    <strong>* Kata Laluan mesti sama dengan kenal pasti Kata Laluan.</strong> 
+                                                    <strong>* Kata Sandi mesti sama dengan kenal pasti Kata Laluan.</strong> 
                                                 </div>';
 	}	
 
@@ -619,7 +619,7 @@ if (isset($_FILES['resume_img']) && $_FILES['resume_img']['error'] === UPLOAD_ER
 		print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                         </button>
-                                                        <strong>* ID Pengguna sudah wujud. Sila pilih ID pengguna yang lain</strong> 
+                                                        <strong>* ID Pengguna sudah ada. Silakan pilih ID pengguna yang lain</strong> 
                                                     </div>';	
 	}
 
@@ -629,7 +629,7 @@ if (isset($_FILES['resume_img']) && $_FILES['resume_img']['error'] === UPLOAD_ER
 				print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                                                     </button>
-                                                                                    <strong>* IC telah wujud.</strong> 
+                                                                                    <strong>* Nomor KTP sudah terdaftar.</strong> 
                                                                                 </div>';
 			
 		}
@@ -746,8 +746,8 @@ if (count($strErrMsg) == 0) {
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
  	$cnt = $i % 2;
-	if ($i == 1) print '<div class="card-header mb-3">MAKLUMAT PENDAFTARAN ID</div>';
-	if ($i == 7) print '<div class="card-header mb-3">A. BUTIR-BUTIR PERIBADI</div>';
+	if ($i == 1) print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
+	if ($i == 7) print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
 	if ($i == 25) print '<div class="card-header mb-3">B. HUBUNGAN KECEMASAN</div>';
 	if ($i == 37) print '<div class="card-header mb-3">C. DOKUMEN</div>';
 	if ($i == 39) print '<div class="card-header mb-3">D. JENIS KUMPULAN PENGURUSAN</div>';

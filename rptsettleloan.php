@@ -55,7 +55,7 @@ print '
 	<table width="100%" border=0 align="center"  cellpadding="2" cellspacing="1">
 	<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 	<td nowrap align="center"><b>Bil</b></td>
-	<td nowrap align="center"><b>Nombor Anggota</b></td>
+	<td nowrap align="center"><b>Nomor Anggota</b></td>
 	<td align="center" nowrap><b>Nama Anggota</b></td>
 	<td align="center"><b>Nombor Bond</b></td>
 	<td align="center" nowrap align="center"><b>Tarikh Terakhir Loan</b></td>

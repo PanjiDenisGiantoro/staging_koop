@@ -99,7 +99,7 @@ if ($rsContent->RowCount() <> 0) {
 				} else {
 					$numPage = $TotalPage + 1;
 				}
-				print '<tr><td class="textFont" valign="top" align="left" "><div class="navmain">Rekod Dari : <br>';
+				print '<tr><td class="textFont" valign="top" align="left" "><div class="navmain">Data Dari : <br>';
 				for ($i=1; $i <= $numPage; $i++) {
 					print '<A href="'.$sFileName.'?&StartRec='.(($i * $pg) + 1 - $pg).'&pg='.$pg.'&filter='.$filter.'">';
 					print '<b><u>'.(($i * $pg) - $pg + 1).'-'.($i * $pg).'</u></b></a> &nbsp; &nbsp; ';
@@ -114,7 +114,7 @@ if ($rsContent->RowCount() <> 0) {
 	print $temp;
 
 	$temp =	'<div>&nbsp;</div>'
-			.'<div class="navmain">Jumlah Rekod : <b>' . $rsContent->RowCount() . '</b></div>';
+			.'<div class="navmain">Jumlah Data : <b>' . $rsContent->RowCount() . '</b></div>';
 	print $temp;
 
 	$temp =	'</td></tr>';
@@ -126,7 +126,7 @@ if ($rsContent->RowCount() <> 0) {
 } else {
 	if ($q == "") {
 		print '
-		<tr><td class="Data" align="center"><hr size=1"><div class="navmain"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b></div><hr size=1"></td></tr>';
+		<tr><td class="Data" align="center"><hr size=1"><div class="navmain"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b></div><hr size=1"></td></tr>';
 	} else {
 		print '
 		<tr><td class="Data" align="center"><hr size=1"><div class="navmain"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b></div><hr size=1"></td></tr>';

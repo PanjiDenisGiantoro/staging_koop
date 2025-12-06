@@ -42,7 +42,7 @@ print '
     function ADFActionButtonClick(v) {
 	      e = document.ADFViewResults;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {

@@ -93,11 +93,11 @@ print '
 print
 	'<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
-					<td nowrap align="center"><b>Nombor Anggota</b></td>
+					<td nowrap align="center"><b>Nomor Anggota</b></td>
 					<td nowrap align="left"><b>Nama</b></td>
-					<td nowrap align="center"><b>Kad Pengenalan</b></td>
-					<td nowrap align="left"><b>Cawangan/Zon</b></td>
-					<td nowrap align="center" width="150"><b>Tarikh Keanggotaan</b></td>
+					<td nowrap align="center"><b>Kartu Identitas</b></td>
+					<td nowrap align="left"><b>Cabang/Zona</b></td>
+					<td nowrap align="center" width="150"><b>Tanggal Keanggotaan</b></td>
 					<td nowrap align="center"><b>Status</b></td>
 				</tr>';
 if ($GetData->RowCount() <> 0) {

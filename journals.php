@@ -523,7 +523,7 @@ print
 			<tr class="table-primary">
 				<td nowrap="nowrap"><b>Bil</b></td>
 				<td nowrap="nowrap"><b>* Transaksi | No. Bond</b></td>
-				<td nowrap="nowrap"><b>Master Akaun</b></td>
+				<td nowrap="nowrap"><b>Master Akun</b></td>
 				<td nowrap="nowrap"><b>Keterangan</b></td>
 				<td nowrap="nowrap" align="right"><b>Debit (RP)</b></td>
 				<td nowrap="nowrap" align="right"><b>Kredit (RP)</b></td>
@@ -727,9 +727,9 @@ print' 	</table>
 	<td width="40%" align="right" valign="top">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr><td nowrap="nowrap" colspan="3">Maklumat dari Slip Bank</td></tr>
-			<tr><td nowrap="nowrap">Kod Cawangan</td><td valign="top"></td><td><input name="kod_caw" value="'.$kod_caw.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
-			<tr><td nowrap="nowrap">Nombor Siri</td><td valign="top"></td><td><input name="no_siri" value="'.$no_siri.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
-			<tr><td>* Tanggal Dikemaskini</td><td valign="top"></td>
+			<tr><td nowrap="nowrap">Kode Cabang</td><td valign="top"></td><td><input name="kod_caw" value="'.$kod_caw.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
+			<tr><td nowrap="nowrap">Nomor Seri</td><td valign="top"></td><td><input name="no_siri" value="'.$no_siri.'" type="text" class="form-controlx" size="20" maxlength="50" /></td></tr>
+			<tr><td>* Tanggal Diperbaharui</td><td valign="top"></td>
 			<td>
 			<div class="input-group" id="tarikh_bank">
 			<input type="text" name="tarikh_bank" class="form-control-sm" placeholder="dd/mm/yyyy"

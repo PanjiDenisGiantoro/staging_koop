@@ -80,11 +80,11 @@ if ($rs->RowCount() <> 0) {
 
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<td nowrap>&nbsp;</th>
-								<td nowrap width="100" align="center">Nombor Anggota</td>
+								<td nowrap width="100" align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
-								<td nowrap width="80" align="center">Kad Pengenalan</td>
+								<td nowrap width="80" align="center">Kartu Identitas</td>
 								<td nowrap width="150">Emel</td>
-								<td nowrap align="center" width="150">Tarikh Keanggotaan</td>
+								<td nowrap align="center" width="150">Tanggal Keanggotaan</td>
 							</tr>';
 			$bil = 0;
 		}

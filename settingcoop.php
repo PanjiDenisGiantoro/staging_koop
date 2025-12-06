@@ -10,7 +10,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $ssSQL = "SELECT * FROM setup WHERE setupID = 1";
 $rss = &$conn->Execute($ssSQL);

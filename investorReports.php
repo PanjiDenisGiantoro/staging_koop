@@ -27,7 +27,7 @@ $title     = "LAPORAN PELABURAN";
 	<tr>
 		<td class="Label" valign="top" colspan="3">
 		<h6 class="card-subtitle"><u><b>PROJEK PELABURAN</b></u></h6>
-		<li id="print" class="textFont"><a href="#" onclick="selectSyarikat('rptInvest1')">Senarai Projek Berdasarkan Nama Syarikat</a></li>
+		<li id="print" class="textFont"><a href="#" onclick="selectSyarikat('rptInvest1')">Senarai Projek Berdasarkan Nama Serikat</a></li>
 		<li id="print" class="textFont"><a href="#" onclick="selectPengurusan('rptInvestAll')">Senarai Projek Keseluruhan</a></li>
 		<li id="print" class="textFont"><a href="#" onclick="selectPembiayaan2('rptInvestComp')">Statement Of Account By Company</a></li>
 		<li id="print" class="textFont"><a href="#" onclick="selectPembiayaan2('rptInvestProject')">Statement Of Account By Project</a></li>
