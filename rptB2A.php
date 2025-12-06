@@ -54,8 +54,8 @@ print '
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Jabatan/Cawangan</th>
 					<th nowrap>&nbsp;Jumlah Pembiayaan</th>					
-					<th nowrap>&nbsp;Tarikh Permohonan</th>
-					<th nowrap>&nbsp;Tarikh Kelulusan</th>
+					<th nowrap>&nbsp;Tanggal Permohonan</th>
+					<th nowrap>&nbsp;Tanggal Kelulusan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

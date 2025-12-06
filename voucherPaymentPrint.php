@@ -202,15 +202,15 @@ foreach ($addressLines as $line) {
 
 /*----------Call Word total Ringgit-----------*/
 if ($jumlah <> 0) {
-    $clsRM->setValue($jumlah);
-    $strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+    $clsRP->setValue($jumlah);
+    $strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 $jumlah = number_format($jumlah, 2);
 print '
     </table>
     <!-------Bank Anggota ------->
     <div class="body-acc-num">Bank Anggota: ' . $accTabungan . ' (' . $bankname . ')</div>
-    <!-----div class="body-acc-num">Sebanyak RM <u><b>' . $jumlah . '</u></b> Ringgit <u><b>' . $strTotal . '</u></b></div>';
+    <!-----div class="body-acc-num">Sebanyak RP <u><b>' . $jumlah . '</u></b> Ringgit <u><b>' . $strTotal . '</u></b></div>';
 
 print '
     <!-------Table Kenakan Bayaran------->
@@ -240,8 +240,8 @@ if ($rsDetail->RowCount() <> 0) {
         $rsDetail->MoveNext();
     }
     if ($jumlah <> 0) {
-        $clsRM->setValue($jumlah);
-        $strTotal = ucwords($clsRM->getValue());
+        $clsRP->setValue($jumlah);
+        $strTotal = ucwords($clsRP->getValue());
     }
 }
 

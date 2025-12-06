@@ -16,7 +16,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Yuran';
+$title  = 'Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Wajib';
 
 
 $sSQL = "SELECT b.memberID as userID, c.name as name,

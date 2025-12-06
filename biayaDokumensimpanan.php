@@ -167,7 +167,7 @@ window.status="Sistem Keanggotaan Koperasi";
                     if (!isset($btindihUntung)) $btindihUntung = "0";
                     if (!isset($btindihCaj)) $btindihCaj = "0";
                     if (!isset($btindihBal)) $btindihBal = "0";
-                    if (!isset($newYuranVal)) $newYuranVal = "0";
+                    if (!isset($newWajibVal)) $newWajibVal = "0";
                     if (!isset($yuranSedia)) $yuranSedia = "0";
                     if (!isset($status)) $status = "0";
                     if (!isset($lpotAsal)) $lpotAsal = "0";
@@ -597,7 +597,7 @@ window.status="Sistem Keanggotaan Koperasi";
                             else $rs = &$conn->Execute($sSQL);
                             //}
 
-                            //newYuranVal yuranSedia
+                            //newWajibVal yuranSedia
                             if ($yuranBul > $yuranSedia) {
                                 $sSQL = "";
                                 $sWhere = "";
@@ -1165,7 +1165,7 @@ window.status="Sistem Keanggotaan Koperasi";
                     $loanTypeCode	= dlookup("general", "code", "ID=" . tosql($loanTypeID, "Number"));
                     $loanTypeCodeID	= dlookup("general", "c_Deduct", "ID=" . tosql($loanTypeID, "Number"));
                     $loanType		= dlookup("general", "name", "ID=" . tosql($loanTypeCodeID, "Text"));
-                    // FORMULIR PEMERIKSAAN KOMITE SIMPANAN
+                    // FORPULIR PEMERIKSAAN KOMITE SIMPANAN
 
                     $strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=loan">DAFTAR</a><b>&nbsp;>&nbsp;DOKUMEN PROSES SIMPANAN</b>';
 

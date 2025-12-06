@@ -314,8 +314,8 @@ print'
 			$rsDetail->MoveNext();
 			}
 			if($jumlah<>0){
-			$clsRM->setValue($jumlah);
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($jumlah);
+			$strTotal = ucwords($clsRP->getValue());
 			}
 		} 
 

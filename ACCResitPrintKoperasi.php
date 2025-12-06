@@ -199,8 +199,8 @@ if ($rsDetail->RowCount() <> 0){
 			$rsDetail->MoveNext();
 			}
 			if($jumlah1<>0){
-			$clsRM->setValue($jumlah1);
-			$strTotal1 = ucwords($clsRM->getValue()).' Ringgit Sahaja.';
+			$clsRP->setValue($jumlah1);
+			$strTotal1 = ucwords($clsRP->getValue()).' Ringgit Sahaja.';
 			}
 		}
 
@@ -230,8 +230,8 @@ print
 		<td nowrap="nowrap" align="left">&nbsp;</td>
 		<td nowrap="nowrap" align="left">&nbsp;</td>
 		<td nowrap="nowrap" align="left"><b>JUMLAH&nbsp;</b></td>
-		<td nowrap="nowrap" align="left"><b>&nbsp;RM '.number_format($jumlah,2).'&nbsp;</b></td>
-		<td nowrap="nowrap" align="left"><b>&nbsp;RM '.number_format($jumlah,2).'&nbsp;</b></td>
+		<td nowrap="nowrap" align="left"><b>&nbsp;RP '.number_format($jumlah,2).'&nbsp;</b></td>
+		<td nowrap="nowrap" align="left"><b>&nbsp;RP '.number_format($jumlah,2).'&nbsp;</b></td>
 	</tr>
 </table>
 
@@ -283,7 +283,7 @@ print
 				<td colspan="8">No IC :</td>
 			</tr>
 			<tr>
-				<td colspan="8">Tarikh 	:</td>
+				<td colspan="8">Tanggal 	:</td>
 			</tr>
 		</table>
 	</td></tr>

@@ -56,7 +56,7 @@ print '
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="2%" nowrap align="center">Bil</th>
-					<th nowrap align="center">Tarikh Transaksi</th>
+					<th nowrap align="center">Tanggal Transaksi</th>
 					<th nowrap align="center">Nomor Anggota</th>
 					<th nowrap align="left">Nama Anggota</th>
 					<th nowrap align="center">Nombor Kartu Identitas</th>

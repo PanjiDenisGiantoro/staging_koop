@@ -118,7 +118,7 @@ if ($member) {
 		<input type="hidden" name="pk" value="<? print implode(",", $pkall); ?>">
 		<table class="lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="left">
 			<!-- <tr>
-		<td class="borderallteal" align="left" valign="middle"><div class="headerteal"><b>STATUS PERMOHONAN BERHENTI ANGGOTA</b></div></td>
+		<td class="borderallteal" align="left" valign="middle"><div class="headerteal"><b>STATUS PERPOHONAN BERHENTI ANGGOTA</b></div></td>
 	</tr> -->
 			<tr class="card-body bg-light">
 				<td>
@@ -219,7 +219,7 @@ if ($member) {
 				</td>
 			</tr>
 			<tr>
-				<td>Tarikh Diluluskan</td>
+				<td>Tanggal Diluluskan</td>
 				<td>:</td>
 				<td><? print toDate("d/m/Y", $approvedDate); ?></td>
 			</tr>
@@ -234,7 +234,7 @@ if ($member) {
 				</td>
 			</tr>
 			<tr>
-				<td>Tarikh Ditolak</td>
+				<td>Tanggal Ditolak</td>
 				<td>:</td>
 				<td><? print toDate("d/m/Y", $rejectedDate); ?></td>
 			</tr>
@@ -254,7 +254,7 @@ if ($member) {
 									if (get_session("Cookie_groupID") <> "0") {
 		?>
 			<tr>
-				<td>Tarikh </td>
+				<td>Tanggal </td>
 				<td></td>
 				<td><input type="text" class="form-control-sm" name="strDate" value="<? print $strDate; ?>" size="15" maxlength="10"></td>
 			</tr>

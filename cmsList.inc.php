@@ -52,7 +52,7 @@ if ($rsContent->RowCount() <> 0) {
 				.'<tr>'
 					.'<td nowrap valign="middle" align="center" width="4"><img src="images/shade-logo-bkrm-03.gif" width="28" height="24" /></td>'
 					.'<td nowrap valign="middle" align="left" width="200"><div class="headerblue">Topik</div></td>'
-					.'<td nowrap valign="middle" align="center"><div class="headerblue">Tarikh</div></td>'
+					.'<td nowrap valign="middle" align="center"><div class="headerblue">Tanggal</div></td>'
 					.'<td nowrap valign="middle" align="center"><div class="headerblue">Oleh</div></td>';
 	print $temp;
 

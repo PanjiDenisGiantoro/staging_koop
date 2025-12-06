@@ -629,30 +629,30 @@ for ($i = 0; $i < count($id); $i++) {
 			$fLoanAmount		= floatval($GetDataL->fields('loanAmt'));
 			$fLoanProfitRate 	= floatval($GetDataL->fields('kadar_u') * 1.77);
 			$fLoanAmtProfit 	= floatval($GetDataL->fields('lpotBiayaN'));
-			$clsRM->setValue($fLoanAmount);
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($fLoanAmount);
+			$strTotal = ucwords($clsRP->getValue());
 			$letterObj->SetLoanAmount($fLoanAmount);
 			$letterObj->SetLoanProfitRate($fLoanProfitRate);
 			$letterObj->SetLoanAmtProfit($fLoanAmtProfit);
 			$letterObj->SetLoanAmountStr($strTotal);
-			$clsRM->setValue($fLoanAmtProfit);
-			$strTotal2 = ucwords($clsRM->getValue());
+			$clsRP->setValue($fLoanAmtProfit);
+			$strTotal2 = ucwords($clsRP->getValue());
 			$letterObj->SetLoanJualanStr($strTotal2);
 
-			$clsRM->setValue($GetDataL->fields('pokok'));
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($GetDataL->fields('pokok'));
+			$strTotal = ucwords($clsRP->getValue());
 			$letterObj->SetmonthlyStr($strTotal);
 
-			$clsRM->setValue($GetDataL->fields('pokokAkhir'));
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($GetDataL->fields('pokokAkhir'));
+			$strTotal = ucwords($clsRP->getValue());
 			$letterObj->SetlastmonthlyStr($strTotal);
 
-			$clsRM->setValue($GetDataL->fields('untung'));
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($GetDataL->fields('untung'));
+			$strTotal = ucwords($clsRP->getValue());
 			$letterObj->SetbenefitStr($strTotal);
 
-			$clsRM->setValue($GetDataL->fields('untungAkhir'));
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($GetDataL->fields('untungAkhir'));
+			$strTotal = ucwords($clsRP->getValue());
 			$letterObj->SetlastbenefitStr($strTotal);
 
 			$letterObj->SetmonthlyAmt($GetDataL->fields('pokok'));
@@ -724,11 +724,11 @@ for ($i = 0; $i < count($id); $i++) {
 			//$kenderaanID	=  $GetData->fields('ID');
 			//$noplat		=  dlookup("insurankenderaan", "NoKenderaan", "ID=" . tosql($kenderaanID, "Number"));
 
-			$sSQL = "SELECT * FROM insurankenderaan WHERE NoAnggota = '" . $userID . "' ORDER BY TarikhTamatInsuran DESC";
+			$sSQL = "SELECT * FROM insurankenderaan WHERE NoAnggota = '" . $userID . "' ORDER BY TanggalTamatInsuran DESC";
 
 			$GetDataK = &$conn->Execute($sSQL);
 
-			$letterObj->SetTarikhTamatInsuran(toDate('d/m/Y', $GetDataK->fields('TarikhTamatInsuran')));
+			$letterObj->SetTanggalTamatInsuran(toDate('d/m/Y', $GetDataK->fields('TanggalTamatInsuran')));
 			$letterObj->SetNoKenderaan($GetDataK->fields('NoKenderaan'));
 		}
 		$letterObj->InitSyntax();
@@ -913,7 +913,7 @@ function loanbalanceall($pk, $yr)
 			<td>' . $c_name . '</td>
 			<td>&nbsp;Bond Nombor ' . $nobond . '</td>
 			<td>&nbsp;</td>
-			<td>&nbsp;RM ' . number_format($loanbal, 2) . '</td>
+			<td>&nbsp;RP ' . number_format($loanbal, 2) . '</td>
 			</tr>';
 
 			$bil++;

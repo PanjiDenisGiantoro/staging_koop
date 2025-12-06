@@ -671,9 +671,9 @@ print	   '
 
 //bahagian bawah skali
 if($totalDb<>0){
-	$clsRM->setValue($baki);
-	$clsRM->setValue($totalDb);
-	$strTotal = ucwords($clsRM->getValue()).' Ringgit Sahaja.';
+	$clsRP->setValue($baki);
+	$clsRP->setValue($totalDb);
+	$strTotal = ucwords($clsRP->getValue()).' Ringgit Sahaja.';
 }
 
 $idname = get_session('Cookie_fullName');

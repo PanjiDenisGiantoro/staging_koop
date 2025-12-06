@@ -58,7 +58,7 @@ print
 					<td nowrap align="center">Kartu Identitas</td>
 					<td nowrap align="left">Cabang/Zona</td>
 					<td nowrap align="center">Tanggal Pengajuan</td>
-					<td nowrap align="center">Tarikh ' . $statusList[$status] . '</td>
+					<td nowrap align="center">Tanggal ' . $statusList[$status] . '</td>
 				</tr>';
 if ($GetData->RowCount() <> 0) {
 	while (!$GetData->EOF) {

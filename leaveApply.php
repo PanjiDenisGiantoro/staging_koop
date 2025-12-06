@@ -317,7 +317,7 @@ print '
             }
         } else {  // Normal Leave Validation
             if (endLeave === "") {
-                alert("Sila isi Tarikh Tamat.");
+                alert("Sila isi Tanggal Tamat.");
                 return false;
             }
         }

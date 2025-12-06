@@ -85,14 +85,14 @@ $sSQL = "
 $rs = &$conn->Execute($sSQL);
 
 //tak pakai
-$getYuranOpen   = "SELECT 
+$getWajibOpen   = "SELECT 
                     SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
                     SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
                     FROM transactionacc
                     WHERE
                     pymtRefer = '".$id."' 
                     GROUP BY pymtRefer";
-$rsYuranOpen    = $conn->Execute($getYuranOpen);
+$rsWajibOpen    = $conn->Execute($getWajibOpen);
 
 //kira beginning balance tahun sebelum
 // $getBegin   = "SELECT 
@@ -425,7 +425,7 @@ print'
 <!-------Table for other details ------->
 <table class="Open-Bal">
                 <tr>
-                    <td class="td-style" colspan="3">Ringkasan Akaun Mengikut Tarikh
+                    <td class="td-style" colspan="3">Ringkasan Akaun Mengikut Tanggal
                     <small style="display: block; padding-top: 0px; position: relative; top: -2px;">
                         <i style="font-weight: normal; font-size: 12px;">
                             Account Summary as of Date
@@ -443,7 +443,7 @@ print'
                     </small>
                     </td>
                     <td>: </br>&nbsp;</td>
-                    <td>&nbsp;RM '.$beginBalance.'</br>&nbsp;</td>
+                    <td>&nbsp;RP '.$beginBalance.'</br>&nbsp;</td>
                 </tr>
                 ';
                 if($cr <> '') {
@@ -457,7 +457,7 @@ print'
                     </small>
                     </td>
                     <td>:</br>&nbsp;</td>
-                    <td>&nbsp;RM '.number_format( $totalkredit,2).'</br>&nbsp;</td>
+                    <td>&nbsp;RP '.number_format( $totalkredit,2).'</br>&nbsp;</td>
                 </tr>
                 ';
                 } else {
@@ -471,7 +471,7 @@ print'
                     </small>
                     </td>
                     <td>:</br>&nbsp;</td>
-                    <td>&nbsp;RM '.number_format( $totaldebit,2).'</br>&nbsp;</td>
+                    <td>&nbsp;RP '.number_format( $totaldebit,2).'</br>&nbsp;</td>
                 </tr>
                 ';
                 }
@@ -486,7 +486,7 @@ print'
                     </small>
                     </td>
                     <td>:</br>&nbsp;</td>
-                        <td>&nbsp;RM '.number_format( $totaldebit,2).'</br>&nbsp;</td>
+                        <td>&nbsp;RP '.number_format( $totaldebit,2).'</br>&nbsp;</td>
                 </tr>
                 ';
                 } else {
@@ -500,7 +500,7 @@ print'
                     </small>
                     </td>
                     <td>:</br>&nbsp;</td>
-                        <td>&nbsp;RM '.number_format( $totalkredit,2).'</br>&nbsp;</td>
+                        <td>&nbsp;RP '.number_format( $totalkredit,2).'</br>&nbsp;</td>
                 </tr>
                 ';
                 }
@@ -514,7 +514,7 @@ print'
                     </small>
                     </td>
                     <td>:</br>&nbsp;</td>
-                    <td>&nbsp;RM '.$endingBalance.'</br>&nbsp;</td>
+                    <td>&nbsp;RP '.$endingBalance.'</br>&nbsp;</td>
                 </tr>
                 
 </table> 
@@ -567,7 +567,7 @@ print'
         <table class="table table-striped">
         <thead class="head-column">
             <tr>
-                <th scope="col" class="th-stylish-center">Tarikh<br><small><i style="font-weight: normal; font-size: 12px;">Date</i></small></th>
+                <th scope="col" class="th-stylish-center">Tanggal<br><small><i style="font-weight: normal; font-size: 12px;">Date</i></small></th>
                 <th scope="col" class="th-stylish-center">No Rujukan<br><small><i style="font-weight: normal; font-size: 12px;">Reference No</i></small></th>
                 <th scope="col" class="th-stylish-center">Keterangan<br><small><i style="font-weight: normal; font-size: 12px;">Description</i></small></th>
                 ';
@@ -646,7 +646,7 @@ print'
     <div class="state-Amount">Jumlah yang perlu dibayar (MYR)<br><small><i style="font-weight: normal; font-size: 12px;">Amount Due (MYR)</i></small></div>
     <table class="table-total_Amount">
     <tr>
-        <td class="td-style">RM</td>
+        <td class="td-style">RP</td>
         <td class="td-style">'.$endingBalance.'</td>
     </tr>
     </table>

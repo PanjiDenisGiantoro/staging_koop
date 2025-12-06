@@ -66,8 +66,8 @@ if ($ID) {
 	$code = dlookup("general", "code", "ID=" . tosql($rsDetail->fields('deductID'), "Number"));
 	$name = dlookup("general", "name", "ID=" . tosql($rsDetail->fields('deductID'), "Number"));
 	$jumlah = $rsDetail->fields(pymtAmt);
-	$clsRM->setValue($jumlah);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($jumlah);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 $header .=
@@ -94,11 +94,11 @@ print
 	<tr>
 		<td nowrap="nowrap">Lejer Nombor 046</td>
 		<td nowrap="nowrap" align="center">&nbsp;</td>
-		<td nowrap="nowrap" align="right">Tarikh : ' . date("d/m/Y") . '</td>
+		<td nowrap="nowrap" align="right">Tanggal : ' . date("d/m/Y") . '</td>
 	</tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3">Diterima daripada <u>' . $bayar_nama . ', ' . $alamat . '</u><br />
-	Sebanyak RM <u>' . $jumlah . '</u> Ringgit <u>' . $strTotal . '</u><br />
+	Sebanyak RP <u>' . $jumlah . '</u> Ringgit <u>' . $strTotal . '</u><br />
 	untuk bayaran :-</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3"><hr size="1px" /></td></tr>
@@ -131,7 +131,7 @@ print
 	</td></tr>
 	<tr><td colspan="3"><hr size="1px" /></td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
-	<tr><td nowrap="nowrap" width="33%">Cara bayaran : <u>' . $cara_bayar . '</u></td><td nowrap="nowrap" width="33%" align="center" >Nombor Ruj : <u>' . $kod_siri . '</u></td><td nowrap="nowrap" width="33%" align="right">Tarikh : <u>' . $tarikh . '</u></td></tr>
+	<tr><td nowrap="nowrap" width="33%">Cara bayaran : <u>' . $cara_bayar . '</u></td><td nowrap="nowrap" width="33%" align="center" >Nombor Ruj : <u>' . $kod_siri . '</u></td><td nowrap="nowrap" width="33%" align="right">Tanggal : <u>' . $tarikh . '</u></td></tr>
 	<tr><td colspan="3">Catatan :' . $catatan . '</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>

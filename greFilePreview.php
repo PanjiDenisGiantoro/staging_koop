@@ -94,7 +94,7 @@ print '<!--input type="submit" class="btn btn-sm btn-success" value="Refresh"-->
 					<td align="center">&nbsp;</td>
 					<td align="left"><b>Nama</b></td>
 					<td align="left" align="center"><b>Saiz</b></td>
-					<td align="left" align="center"><b>Tarikh Terkini</b></td>
+					<td align="left" align="center"><b>Tanggal Terkini</b></td>
 				</tr>';
 $cnt = 0;
 $ThisDir = opendir($dir);

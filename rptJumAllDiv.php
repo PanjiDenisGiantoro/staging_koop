@@ -68,9 +68,9 @@ print '
 					<th width="40" align="left" nowrap><div align="right">Nombor IC </th>
 					<th width="180" align="left" nowrap>Nama</th>
 					<th width="40" align="left" nowrap><div align="right">Nombor Akaun Tabungan </th>
-					<th width="80" align="left" nowrap><div align="right">Syer Terkumpul </th>
-					<th width="80" align="left" nowrap><div align="right">Yuran Awal Tahun ' . $yr . ' </th>
-					<th width="80" align="left" nowrap><div align="right">Yuran Akhir Tahun ' . $yr . ' </th>
+					<th width="80" align="left" nowrap><div align="right">Pokok Terkumpul </th>
+					<th width="80" align="left" nowrap><div align="right">Wajib Awal Tahun ' . $yr . ' </th>
+					<th width="80" align="left" nowrap><div align="right">Wajib Akhir Tahun ' . $yr . ' </th>
 					<th width="70" align="left" nowrap><div align="right">Dividen ' . $rsCheck->fields(amtFee) . '% </div>
 					<th width="70" align="left" nowrap><div align="right">Tunggakkan (RP)</div>
 					<th width="70" align="left" nowrap><div align="right">Upfront (RP)</div>
@@ -97,7 +97,7 @@ if ($rsCheck->RowCount() <= 0) {
 
 		while (!$GetMember->EOF) {
 			$yy = $yr + 1;
-			$getYuranOpen = "SELECT 
+			$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction
@@ -107,12 +107,12 @@ if ($rsCheck->RowCount() <= 0) {
 		AND year(createdDate) < 2018
 		GROUP BY userID";
 
-			$rsYuranOpen = $conn->Execute($getYuranOpen);
-			if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+			$rsWajibOpen = $conn->Execute($getWajibOpen);
+			if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 			else $bakiAwal = 0;
 			//$bakiAkhir = 0;
 
-			$getYuranOpenAkhir = "SELECT 
+			$getWajibOpenAkhir = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction
@@ -122,8 +122,8 @@ if ($rsCheck->RowCount() <= 0) {
 		AND year(createdDate) < 2018
 		GROUP BY userID";
 
-			$rsYuranOpenAkhir = $conn->Execute($getYuranOpenAkhir);
-			if ($rsYuranOpenAkhir->RowCount() == 1) $bakiAkhir = $rsYuranOpenAkhir->fields(yuranKt) - $rsYuranOpenAkhir->fields(yuranDb);
+			$rsWajibOpenAkhir = $conn->Execute($getWajibOpenAkhir);
+			if ($rsWajibOpenAkhir->RowCount() == 1) $bakiAkhir = $rsWajibOpenAkhir->fields(yuranKt) - $rsWajibOpenAkhir->fields(yuranDb);
 			else $bakiAkhir = 0;
 			//$bakiAkhir = 0;
 

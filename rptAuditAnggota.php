@@ -29,7 +29,7 @@ $rs = &$conn->Execute($sSQL);
 
 $sFee = "SELECT 
 		userID, 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE 
 		deductID in (1595,1607) 
@@ -43,7 +43,7 @@ $arrFee = array();
 if ($rsFee->RowCount() <> 0) {
 	while (!$rsFee->EOF) {
 		$userID = $rsFee->fields(userID);
-		$arrFee[$userID] = $rsFee->fields(totalYuran);
+		$arrFee[$userID] = $rsFee->fields(totalWajib);
 		$rsFee->MoveNext();
 	}
 }
@@ -83,7 +83,7 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap align="left">&nbsp;Nomor Anggota</th>
 					<th nowrap align="left">&nbsp;Nama</th>
-					<th nowrap align="left">&nbsp;Tarikh Masuk Anggota</th>
+					<th nowrap align="left">&nbsp;Tanggal Masuk Anggota</th>
 					<th nowrap align="left">&nbsp;Jumlah yuran</th>
 					<th nowrap align="left">&nbsp;Alamat</th>
 					<th nowrap align="left">&nbsp;Poskod</th>

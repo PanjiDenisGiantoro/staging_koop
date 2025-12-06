@@ -52,7 +52,7 @@ if ($edit) {
 	$IDtype = $_POST['IDtype'];
 	//$pymtRefer = $_POST['nobond'];
 	$pymt = $_POST['noAmt'];
-	$Fee = $_POST['YuranP'];
+	$Fee = $_POST['WajibP'];
 	$ID = $_REQUEST['ID'];
 
 	$sSQLUpd	= "UPDATE potbulanHL SET" .
@@ -170,7 +170,7 @@ $rs1 = &$conn->Execute($sSQL2);
 	  <td class="Data" nowrap >&nbsp;' . $rs->fields(bondNo) . '</td>
 	  <td class="Data" >&nbsp;';
 			if ($IDtype == $rs->fields(ID)) {
-				print '&nbsp;<input size="7" name="YuranP" value="' . $rs1->fields(monthFee) . '" >';
+				print '&nbsp;<input size="7" name="WajibP" value="' . $rs1->fields(monthFee) . '" >';
 			} else {
 				print '&nbsp;' . $rs1->fields(monthFee) . '';
 			}

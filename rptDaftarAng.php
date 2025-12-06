@@ -65,7 +65,7 @@ print '<table border="0" cellpadding="5" cellspacing="0" width="100%">
 								<th nowrap width="80">&nbsp;Bandar</th>
 								<th nowrap width="80">&nbsp;Negeri</th>
 								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
-							<th nowrap align="center" width="150">&nbsp;Tarikh Berhenti</th>
+							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';
 $tempDept = '';
 if ($rs->RowCount() <> 0) {
@@ -91,7 +91,7 @@ if ($rs->RowCount() <> 0) {
 								<th nowrap width="80">&nbsp;Bandar</th>
 								<th nowrap width="80">&nbsp;Negeri</th>
 								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
-							<th nowrap align="center" width="150">&nbsp;Tarikh Berhenti</th>
+							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';
 			$bil = 0;
 		}

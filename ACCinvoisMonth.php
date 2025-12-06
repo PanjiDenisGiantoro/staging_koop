@@ -81,7 +81,7 @@ print '
 		<td colspan="2">
 			<table cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-					<th nowrap>Tarikh</th>
+					<th nowrap>Tanggal</th>
 					<th nowrap>&nbsp;Nombor Invois</th>
 					<th nowrap>&nbsp;Akaun</th>
 					<th nowrap>&nbsp;Debit(RP)</th>

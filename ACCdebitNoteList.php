@@ -215,7 +215,7 @@ print '
 <div style="position: absolute; top: 70px; right: 25px;">
 	<table border="0" cellspacing="0" cellpadding="5" width="100%">
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 50%;"><u>Jumlah Pada ' . $stringDesc . ' Tahun ' . $yy . ':</u>&nbsp;<b>RM&nbsp;' . number_format($totalInvoice, 2) . '</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 50%;"><u>Jumlah Pada ' . $stringDesc . ' Tahun ' . $yy . ':</u>&nbsp;<b>RP&nbsp;' . number_format($totalInvoice, 2) . '</b></td>
 		</tr>
 	</table>
 </div>';
@@ -252,7 +252,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap><b>Nombor Nota Debit</b></td>
 						<td nowrap align="center"><b>Nama Batch</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap><b>Nama Serikat</b></td>
 						<td nowrap><b>Nomor Rujukan</b></td>
 						<td nowrap><b>Catatan</b></td>

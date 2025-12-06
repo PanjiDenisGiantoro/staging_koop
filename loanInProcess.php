@@ -98,7 +98,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap align="right">Jumlah Pinjaman (RP)</td>					
 						<td nowrap align="center">Jangka Waktu (Bulan)</td>
 						<td nowrap align="center">Status</td>									
-						<td nowrap align="center">Tarikh Mohon</td>	
+						<td nowrap align="center">Tanggal Mohon</td>	
 						<td nowrap>&nbsp;</td>			
 					</tr>';
 	while (!$GetLoan->EOF && $cnt <= $pg) {

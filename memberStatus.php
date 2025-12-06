@@ -160,7 +160,7 @@ unset($pk);
 					</td>
 				</tr>
 				<tr>
-					<td>Tarikh Diluluskan</td>
+					<td>Tanggal Diluluskan</td>
 					<td>:&nbsp;<? print toDate("d/m/Y", $approvedDate); ?></td>
 				</tr>
 			<?
@@ -173,7 +173,7 @@ unset($pk);
 					</td>
 				</tr>
 				<tr>
-					<td>Tarikh Ditolak</td>
+					<td>Tanggal Ditolak</td>
 					<td>:&nbsp;<? print toDate("d/m/Y", $rejectedDate); ?></td>
 				</tr>
 			<?

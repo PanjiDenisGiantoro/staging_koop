@@ -226,7 +226,7 @@ if ($getCI->RowCount() <> 0) {
 					<tr class="table-primary">
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap><b>Nombor Dokumen</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status e-Invois</b></td>
 						<td nowrap align="center"><b>Action</b></td>

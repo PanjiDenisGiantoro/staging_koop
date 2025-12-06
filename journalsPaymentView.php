@@ -234,16 +234,16 @@ if ($rsDetail->RowCount() <> 0) {
         $rsDetail->MoveNext();
     }
     if ($jumlah <> 0) {
-        $clsRM->setValue($jumlah);
-        $strTotal = ucwords($clsRM->getValue());
+        $clsRP->setValue($jumlah);
+        $strTotal = ucwords($clsRP->getValue());
     }
 }
 print '
 <tr><td colspan="5">&nbsp;</td></tr>
 <tr>				
     <td nowrap="nowrap" align="right" colspan="3"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM ' . number_format($jumlahDbt, 2) . '</b></td>
-    <td nowrap="nowrap" align="right"><b>RM ' . number_format($jumlahKrt, 2) . '</b></td>
+    <td nowrap="nowrap" align="right"><b>RP ' . number_format($jumlahDbt, 2) . '</b></td>
+    <td nowrap="nowrap" align="right"><b>RP ' . number_format($jumlahKrt, 2) . '</b></td>
 </tr>
 </table>
 <tr><td colspan="5">&nbsp;</td></tr>

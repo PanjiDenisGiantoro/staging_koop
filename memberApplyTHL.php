@@ -161,7 +161,7 @@ if ($SubmitForm <> "") {
 		<table class="lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
 			<tr>
 				<td class="borderallblue" align="left" valign="middle">
-					<div class="headerblue"><b>FORMULIR PENGAJUAN MENGUNDURKAN DIRI / PENSIUN DARI LAYANAN</b></div>
+					<div class="headerblue"><b>FORPULIR PENGAJUAN MENGUNDURKAN DIRI / PENSIUN DARI LAYANAN</b></div>
 				</td>
 			</tr>
 			<tr>

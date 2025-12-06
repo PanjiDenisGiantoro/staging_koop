@@ -86,7 +86,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap align="center">Jangka Waktu (Bulan)</td>
 						<td nowrap align="center">Jadual Bayaran</td>
 						<td nowrap align="center">Surat Tawaran</td>
-						<td nowrap align="center">Tarikh Kelulusan</td>
+						<td nowrap align="center">Tanggal Kelulusan</td>
 					</tr>';	 //<td nowrap align="center">&nbsp;Jadual Pembiayaan</td>
 	while (!$GetLoan->EOF && $cnt <= $pg) {
 		$jabatan = dlookup("userdetails", "departmentID", "userID=" . tosql($GetLoan->fields(userID), "Text"));

@@ -9,7 +9,7 @@ include("setupinfo.php");
 if(!isset($pk)) $pk = 0;
 
 $pk = get_session('Cookie_userID');
-$title     = 'Maklumat anggota';
+$title     = 'Informasi anggota';
 $max_size = "1048576"; // Max size in BYTES (1MB)
 
 if ($action == 'upload')

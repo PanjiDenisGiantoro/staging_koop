@@ -170,7 +170,7 @@ if (get_session("Cookie_groupID") > 0) {
 				$totalJumP = getJumlah($GetMember->fields(userID), $yrmthNow) * 12;
 				//$totalJumY = number_format(getJumlahY($GetMember->fields(userID)),2);
 				$totalJumY = $GetMember->fields(monthFee) * 12;
-				$jumALLYuran += $totalJumY;
+				$jumALLWajib += $totalJumY;
 				$jumALLPem += $totalJumP;
 
 
@@ -209,7 +209,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td colspan="7" height="30" valign="bottom">Jumlah Anggota : <b>' . $GetMember->RowCount() . '</b></td>
 					</tr>		
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="7" height="30" valign="bottom">Jumlah Wajib Setahun : <b>' . number_format($jumALLYuran, 2) . '</b></td>
+						<td colspan="7" height="30" valign="bottom">Jumlah Wajib Setahun : <b>' . number_format($jumALLWajib, 2) . '</b></td>
 					</tr>	
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 						<td colspan="7" height="30" valign="bottom">Jumlah Pembiayaan Setahun : <b>' . number_format($jumALLPem, 2) . '</b></td>

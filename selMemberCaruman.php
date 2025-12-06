@@ -138,8 +138,8 @@ if ($GetMember->RowCount() == 0) {
 						<td class="header" align="center"><b>Nomor Anggota</b></td>
 						<td class="header" ><b>Nama</b></td>
 						<td class="header" align="center"><b>Kartu Identitas</b></td>
-                        <td class="header" align="right"><b>Yuran Terkumpul(RP)</b></td>
-                        <td class="header" align="right"><b>Syer Terkumpul(RP)</b></td>
+                        <td class="header" align="right"><b>Wajib Terkumpul(RP)</b></td>
+                        <td class="header" align="right"><b>Pokok Terkumpul(RP)</b></td>
                         <!-- <td class="header" align="right"><b>Simpanan Khas Terkumpul(RP)</b></td> -->
 					</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {

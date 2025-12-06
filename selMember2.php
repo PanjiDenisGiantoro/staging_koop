@@ -117,7 +117,7 @@ if ($q == "" and $dept == "") {
 						<td class="header" >&nbsp;No KTP Baru</td>
 						<td class="header" >&nbsp;No KTP Lama</td>
 						<td class="header" >&nbsp;Jabatan</td>
-						<td class="header" align="center">&nbsp;Syer Dalam Tangan</td>
+						<td class="header" align="center">&nbsp;Pokok Dalam Tangan</td>
 					</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);

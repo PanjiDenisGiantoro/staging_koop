@@ -62,10 +62,10 @@ print '
 					<td nowrap><b>Nama</b></td>
 					<td nowrap align="center"><b>Kartu Identitas</b></td>
 					<td nowrap align="center"><b>No Pekerja</b></td>
-					<td nowrap align="right"><b>Yuran Bulanan (RP)</b></td>
+					<td nowrap align="right"><b>Wajib Bulanan (RP)</b></td>
 					<td nowrap><b>Cabang/Zona</b></td>
 					<td nowrap align="center"><b>Tanggal Pengajuan</b></td>
-					<td nowrap align="center"><b>Tarikh Diluluskan</b></td>
+					<td nowrap align="center"><b>Tanggal Diluluskan</b></td>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

@@ -174,7 +174,7 @@ if ($GetLoan->RowCount() == 0) {
 						<td	nowrap><b>No/Nama Serikat</b></td>
 						<td	nowrap align="left"><b>Alamat Billing</b></td>
 						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
-						<td	nowrap align="center"><b>Tarikh PO</b></td>
+						<td	nowrap align="center"><b>Tanggal PO</b></td>
 					</tr>';
 		$amtLoan = 0;
 		while (!$GetLoan->EOF && $cnt <= $pg) {

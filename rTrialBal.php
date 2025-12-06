@@ -170,8 +170,8 @@ print '
 print'	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
 		<td colspan="3" align="right"><b>&nbsp;JUMLAH KESELURUHAN (RP)</b></td>
-		<td align="right">RM&nbsp;'.number_format($totaldebit,2).'</td>
-		<td align="right">RM&nbsp;'.number_format($totalkredit,2).'</td>
+		<td align="right">RP&nbsp;'.number_format($totaldebit,2).'</td>
+		<td align="right">RP&nbsp;'.number_format($totalkredit,2).'</td>
 	</tr>';
 
 $baki = ($totaldebit - $totalkredit);
@@ -179,7 +179,7 @@ $baki = ($totaldebit - $totalkredit);
 print'	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
 		<td colspan="3" align="right"><b>&nbsp;SALDO (RP)</b></td>
-		<td colspan="2" align="right">RM&nbsp;'.number_format($baki,2).'</td>
+		<td colspan="2" align="right">RP&nbsp;'.number_format($baki,2).'</td>
 	</tr>';
 					
 	

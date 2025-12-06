@@ -15,7 +15,7 @@ if (isset($edthl)) {
         $xcstr = '';
 }
 
-$title     = 'Maklumat anggota';
+$title     = 'Informasi anggota';
 $max_size = "1048576"; // Max size in BYTES (1MB)
 
 if ($action == 'upload') {

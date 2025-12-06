@@ -114,8 +114,8 @@ if ($rs->RowCount() <> 0) {
 								<td nowrap colspan="2" align="center">&nbsp;Simpanan</td>
 							</tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-								<th nowrap align="center">&nbsp;Yuran</th>
-								<th nowrap align="center">&nbsp;Syer</th>
+								<th nowrap align="center">&nbsp;Wajib</th>
+								<th nowrap align="center">&nbsp;Pokok</th>
 							</tr>';
 			$bil = 0;
 			$amtFee = 0;

@@ -232,7 +232,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Syer bulanan";
+$FormLabel[$a]   	= "Pokok bulanan";
 $FormElement[$a] 	= "sahammonth";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -827,7 +827,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Yuran terkumpul";
+$FormLabel[$a]   	= "Wajib terkumpul";
 $FormElement[$a] 	= "";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -948,7 +948,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Yuran terkumpul";
+$FormLabel[$a]   	= "Wajib terkumpul";
 $FormElement[$a] 	= "";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -1070,7 +1070,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Yuran terkumpul";
+$FormLabel[$a]   	= "Wajib terkumpul";
 $FormElement[$a] 	= "";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -1201,7 +1201,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Diluluskan";
+$FormLabel[$a]  	= "Tanggal Diluluskan";
 $FormElement[$a] 	= "approvedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -1211,7 +1211,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Ditolak";
+$FormLabel[$a]  	= "Tanggal Ditolak";
 $FormElement[$a] 	= "rejectedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -1221,7 +1221,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Kemaskini";
+$FormLabel[$a]  	= "Tanggal Kemaskini";
 $FormElement[$a] 	= "updatedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";
@@ -1364,7 +1364,7 @@ if ($SubmitForm <> "") {
 		$activity = "Mengemaskini Maklumat Anggota - " . $pk;
 		if ($rs) activityLog($sSQL, $activity, get_session('Cookie_userID'), get_session("Cookie_userName"), 1);
 		print '<script>
-					alert ("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+					alert ("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 					window.location.href = "' . $sActionFileName . '";
 				</script>';
 	}
@@ -1381,7 +1381,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1) print '<tr><td class=Header colspan=4>A. BUTIR-BUTIR PERMOHONAN</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>A. BUTIR-BUTIR PERPOHONAN</td></tr>';
 	if ($i == 25) print '<tr><td class=Header colspan=4>B. BUTIR-BUTIR PEMBIAYAAN</td></tr>';
 	if ($i == 37) print '<tr><td class=Header colspan=4>C. PENYATA PENDAPATAN/PERBELANJAAN</td></tr>';
 	if ($i == 55) print '<tr><td class=Header colspan=4>D. MAKLUMAT KELAYAKAN PEMOHON</td></tr>';

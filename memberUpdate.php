@@ -489,7 +489,7 @@ if (@$tabb == 1) {
 
 // if (@$tabb == 2) {
 // 	$a = 1;
-// 	$FormLabel[$a]   	= "Yuran Bulanan (RP)";
+// 	$FormLabel[$a]   	= "Wajib Bulanan (RP)";
 // 	$FormElement[$a] 	= "monthFee";
 // 	$FormType[$a]	  	= "hidden";
 // 	$FormData[$a]   	= "";
@@ -499,7 +499,7 @@ if (@$tabb == 1) {
 // 	$FormLength[$a]  	= "10";
 
 // 	$a++;
-// 	$FormLabel[$a]   	= "Syer Bulanan (RP)";
+// 	$FormLabel[$a]   	= "Pokok Bulanan (RP)";
 // 	$FormElement[$a] 	= "unitShare";
 // 	$FormType[$a]	  	= "hidden";
 // 	$FormData[$a]   	= "";
@@ -609,7 +609,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota - $pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 		gopage("?vw=memberUpdate&mn=4&tabb=1", 1000);
 	}
 }
@@ -627,7 +627,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=1" class="nav-link <?php if (@$tabb == 1) {
 																		print "active";
-																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">INFORMASI PENDAFTARAN ID</a>
+																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">INFORPASI PENDAFTARAN ID</a>
 	</li>
 	<!--li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -647,7 +647,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORPASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -853,10 +853,10 @@ if (@$tabb == 2) {
 	print '
 </table>
 <div><hr class="1px"></div>
-		  <div>Jumlah Potongan Aktif : <b>RM ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
-		  <div>Jumlah Potongan Tamat : <b>RM ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div>Jumlah Potongan Aktif : <b>RP ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
+		  <div>Jumlah Potongan Tamat : <b>RP ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
 		  <div><hr class="1px"></div>
-		  <div><b>Jumlah Potongan : RM ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div><b>Jumlah Potongan : RP ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
 		  </div>';
 }
 

@@ -63,7 +63,7 @@ print '
 					<th nowrap>&nbsp;Jabatan/Cawangan</th>
 					<th nowrap>&nbsp;Jumlah Pembiayaan</th>					
 					<th nowrap>&nbsp;Tanggal Pengajuan</th>
-					<th nowrap>&nbsp;Tarikh Diluluskan</th>
+					<th nowrap>&nbsp;Tanggal Diluluskan</th>
 					<th nowrap>&nbsp;Beza Kelulusan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

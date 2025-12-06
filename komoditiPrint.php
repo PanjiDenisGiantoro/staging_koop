@@ -217,7 +217,7 @@ print
 	</tr>
     
 	<tr>
-		<td align="left" style="padding: 0 0 300px 0; width: 40%;" class="borderLeftTitle">&nbsp;Airtime credit (RM ' . $amount . ')-1 pcs&nbsp;</td>
+		<td align="left" style="padding: 0 0 300px 0; width: 40%;" class="borderLeftTitle">&nbsp;Airtime credit (RP ' . $amount . ')-1 pcs&nbsp;</td>
 		<td align="center" style="padding: 0 0 300px 0; width: 20%;" class="borderSideTitle">&nbsp;1&nbsp;</td>
 		<td align="center" style="padding: 0 0 300px 0; width: 30%;" class="borderRightTitle">&nbsp;FRH67O20240115-0029989807&nbsp;</td>
 		<td align="center" style="padding: 0 0 300px 0; width: 10%;" class="borderRightTitle">&nbsp;' . $amount . '&nbsp;</td>
@@ -227,7 +227,7 @@ print
 
 	<tr>
 	<td nowrap="nowrap" align="right" colspan="3" style="padding: 10px 40px 0 40px width: 90%;" class="borderSideTitle"><b>TOTAL AMOUNT (RP):&nbsp;</b></td>
-	<td nowrap="nowrap" align="right" style="padding: 10px 40px 0 40px width: 10%;" class="borderRightTitle"><b>RM&nbsp;' . number_format($jumlah, 2) . '&nbsp;</b></td>
+	<td nowrap="nowrap" align="right" style="padding: 10px 40px 0 40px width: 10%;" class="borderRightTitle"><b>RP&nbsp;' . number_format($jumlah, 2) . '&nbsp;</b></td>
 </tr>
     </table>
     </table>

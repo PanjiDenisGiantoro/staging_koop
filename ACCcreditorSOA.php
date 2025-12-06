@@ -91,14 +91,14 @@ $rs     = $conn->Execute($sSQL);
 
 
 
-$getYuranOpen   = "SELECT 
+$getWajibOpen   = "SELECT 
                     SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
                     SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
                     FROM transactionacc
                     WHERE
                     pymtRefer = '".$companyID."' 
                     GROUP BY pymtRefer";
-$rsYuranOpen    = $conn->Execute($getYuranOpen);
+$rsWajibOpen    = $conn->Execute($getWajibOpen);
 
 //kira beginning balance tahun sebelum
 // $getBegin   = "SELECT 
@@ -143,7 +143,7 @@ $rsBeginBal = $conn->Execute($getBegin);
 //     echo "SQL Error: " . $conn->ErrorMsg();
 //     echo "<pre>$getBegin</pre>";
 // } else {
-//     echo "Yuran Difference: " . $rsBeginBal->fields['yuranDifference'];
+//     echo "Wajib Difference: " . $rsBeginBal->fields['yuranDifference'];
 // }
 
 

@@ -113,7 +113,7 @@ print '
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	//$cnt = $i % 2;
 
-	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN TELAH LENGKAP DAN SEMPURNA SERTA PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
+	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN TELAH LENGKAP DAN SEMPURNA SERTA PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
 
 	if ($cnt == 1) print '<tr valign=top>';
 	print '<td class=Data align=right>' . $FormLabel[$i];

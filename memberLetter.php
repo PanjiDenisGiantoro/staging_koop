@@ -341,9 +341,9 @@ if ($page <> 'list') {
 			function selectSyntax($name, $group, $code = 0)
 			{
 
-				$arrSyntax = array('[no_rujukan]', '[alamat]', '[alamat_perjanjian]', '[alamat_majikan]', '[tuan/puan]', '[title]', '[no_anggota]', '[nama]', '[kp_baru]', '[kp_lama]', '[jab/caw]', '[tarikh]', '[hari]', '[bulan]', '[tahun]', '[sesi]', '[tarikh_diterima]', '[tarikh_lulus]', '[tarikh_ditolak]', '[tarikh_diterimaT]', '[tarikh_lulusT]', '[tarikh_ditolakT]', '[no_akaun_tabungan]', '[no_pekerja]', '[yuran_bulan]', '[jum_yuran_terkumpul]', '[jum_yuran_terkumpul_akhir]', '[jum_dividen]', '[dividen_bonus]', '[peratus_dividen]', '[TarikhTamatInsuran]', '[NoKenderaan]', '[no_sijil]', '[kadar_u]', '[itemType]');
+				$arrSyntax = array('[no_rujukan]', '[alamat]', '[alamat_perjanjian]', '[alamat_majikan]', '[tuan/puan]', '[title]', '[no_anggota]', '[nama]', '[kp_baru]', '[kp_lama]', '[jab/caw]', '[tarikh]', '[hari]', '[bulan]', '[tahun]', '[sesi]', '[tarikh_diterima]', '[tarikh_lulus]', '[tarikh_ditolak]', '[tarikh_diterimaT]', '[tarikh_lulusT]', '[tarikh_ditolakT]', '[no_akaun_tabungan]', '[no_pekerja]', '[yuran_bulan]', '[jum_yuran_terkumpul]', '[jum_yuran_terkumpul_akhir]', '[jum_dividen]', '[dividen_bonus]', '[peratus_dividen]', '[TanggalTamatInsuran]', '[NoKenderaan]', '[no_sijil]', '[kadar_u]', '[itemType]');
 
-				$arrSyntaxName = array('Nomor Rujukan', 'Alamat', 'Alamat Perjanjian', 'Alamat Surat', 'Tuan/Puan', 'Title', 'Nomor Anggota', 'Nama', 'Kp. Baru', 'Kp. Lama', 'Jab/Caw', 'Tarikh', 'Hari', 'Bulan', 'Tahun', 'Sesi', 'Tarikh. Diterima', 'Tarikh. Lulus', 'Tarikh. Ditolak', 'Tkh. Diterima Berhenti', 'Tkh. Lulus Berhenti', 'Tkh. Ditolak Berhenti', 'Nombor Akaun. Tabungan', 'Nomor Karyawan', 'Yuran Bulan', 'Jum. Wajib Terkumpul', 'Jum. Wajib Tkumpul Bakhir', 'Jum. Dividen', 'Dividen Bonus', 'Persentase Dividen', 'Tarikh Tamat Insuran', 'No Plat Kenderaan', 'No Sijil', 'Untung Loan', 'Barang Komoditi');
+				$arrSyntaxName = array('Nomor Rujukan', 'Alamat', 'Alamat Perjanjian', 'Alamat Surat', 'Tuan/Puan', 'Title', 'Nomor Anggota', 'Nama', 'Kp. Baru', 'Kp. Lama', 'Jab/Caw', 'Tanggal', 'Hari', 'Bulan', 'Tahun', 'Sesi', 'Tanggal. Diterima', 'Tanggal. Lulus', 'Tanggal. Ditolak', 'Tkh. Diterima Berhenti', 'Tkh. Lulus Berhenti', 'Tkh. Ditolak Berhenti', 'Nombor Akaun. Tabungan', 'Nomor Karyawan', 'Wajib Bulan', 'Jum. Wajib Terkumpul', 'Jum. Wajib Tkumpul Bakhir', 'Jum. Dividen', 'Dividen Bonus', 'Persentase Dividen', 'Tanggal Tamat Insuran', 'No Plat Kenderaan', 'No Sijil', 'Untung Loan', 'Barang Komoditi');
 
 				$arrLoanSyntax = array('[tarikh_diterimaL]', '[tarikh_lulusL]', '[tarikh_ditolakL]', '[no_rujukan]', '[no_bon_biaya]', '[nama_biaya]', '[tempoh_biaya]', '[tempoh_bulan_biaya]', '[tempoh_bulan_biaya-1]', '[jum_biaya]', '[kadar_untung]', '[jum_biayauntung]', '[jum_biaya_kata]', '[jum_jualan_kata]', '[bayar_bulan]', '[bayar_bulan_akhir]', '[bayar_faedah]', '[bayar_faedah_akhir]', '[jumlah_bayarbln]', '[jumlah_bayarbln_akhir]', '[bayar_bulanStr]', '[bayar_bulan_akhirStr]', '[bayar_faedah_akhirStr]', '[jum_bayar_balik]', '[baki_biaya]', '[baki_biaya_akhir]', '[bertindih_caj]', '[nama_penjamin1]', '[kp_penjamin1]', '[no_anggota_penjamin1]', '[nama_penjamin2]', '[kp_penjamin2]', '[no_anggota_penjamin2]', '[nama_penjamin3]', '[kp_penjamin3]', '[no_anggota_penjamin3]', '[no_sijil]', '[kadar_u]', '[itemType]');
 
@@ -1292,7 +1292,7 @@ function BeginDataField($bIsDataAvalaible_)
 		case 0:
 		case 1:
 		case 4:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tanggal Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
@@ -1302,12 +1302,12 @@ function BeginDataField($bIsDataAvalaible_)
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 3:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tanggal Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 5:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tanggal Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
@@ -1317,12 +1317,12 @@ function BeginDataField($bIsDataAvalaible_)
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
 		case 6:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tarikh Tamat Insuran</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tanggal Tamat Insuran</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center', 'center');
 			break;
 		default:
-			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tarikh Mohon</b>', '<b>Status</b>');
+			$strNameList_ = array($strCheckboxTemp_, '<b>Nomor Anggota/Nama</b>', '<b>Kartu Identitas</b>', '<b>Tanggal Mohon</b>', '<b>Status</b>');
 			$strWidthList_ = array('15', '', '', '', '');
 			$strAlignList_ = array('center', 'left', 'center', 'center', 'center');
 			break;
@@ -1439,7 +1439,7 @@ function ContentDataField($bIsDataAvalaible_)
 					$GetData->fields('NoAnggota'),
 					$strPageTemp_,
 					convertNewIC($GetData->fields('NoKP')),
-					toDate("d/m/Y", $GetData->fields('TarikhTamatInsuran')),
+					toDate("d/m/Y", $GetData->fields('TanggalTamatInsuran')),
 
 
 					$statusList[$GetData->fields('status')]

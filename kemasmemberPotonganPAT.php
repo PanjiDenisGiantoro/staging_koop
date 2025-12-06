@@ -30,7 +30,7 @@ if (
 
 $sFileName = 'KemasmemberPotonganPAT.php';
 $sFileRef  = '';
-$title     = "Kemaskini Potongan Gaji (PAT) Pembiayaan / Yuran";
+$title     = "Kemaskini Potongan Gaji (PAT) Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

@@ -58,7 +58,7 @@ print '<table border="0" cellpadding="5" cellspacing="0" width="100%">
 								<th nowrap width="">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="">&nbsp;Nombor KP</th>
-								<th nowrap width="">&nbsp;Yuran Terkumpul</th>
+								<th nowrap width="">&nbsp;Wajib Terkumpul</th>
 							</tr>';
 $tempDept = '';
 if ($rs->RowCount() <> 0) {
@@ -78,7 +78,7 @@ if ($rs->RowCount() <> 0) {
 								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="80">&nbsp;Nombor KP</th>
-								<th nowrap width="80">&nbsp;Yuran Terkumpul</th>
+								<th nowrap width="80">&nbsp;Wajib Terkumpul</th>
 							</tr>';
 			$bil = 0;
 		}

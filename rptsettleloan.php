@@ -58,7 +58,7 @@ print '
 	<td nowrap align="center"><b>Nomor Anggota</b></td>
 	<td align="center" nowrap><b>Nama Anggota</b></td>
 	<td align="center"><b>Nombor Bond</b></td>
-	<td align="center" nowrap align="center"><b>Tarikh Terakhir Loan</b></td>
+	<td align="center" nowrap align="center"><b>Tanggal Terakhir Loan</b></td>
 </tr>';
 if ($GetMember->RowCount() <> 0) {
 	$bil = 1;

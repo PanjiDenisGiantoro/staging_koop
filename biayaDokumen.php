@@ -167,7 +167,7 @@ Date 		: 	26/6/2006
 				if (!isset($btindihUntung)) $btindihUntung = "0";
 				if (!isset($btindihCaj)) $btindihCaj = "0";
 				if (!isset($btindihBal)) $btindihBal = "0";
-				if (!isset($newYuranVal)) $newYuranVal = "0";
+				if (!isset($newWajibVal)) $newWajibVal = "0";
 				if (!isset($yuranSedia)) $yuranSedia = "0";
 				if (!isset($status)) $status = "0";
 				if (!isset($lpotAsal)) $lpotAsal = "0";
@@ -597,7 +597,7 @@ Date 		: 	26/6/2006
 						else $rs = &$conn->Execute($sSQL);
 						//}
 
-						//newYuranVal yuranSedia
+						//newWajibVal yuranSedia
 						if ($yuranBul > $yuranSedia) {
 							$sSQL = "";
 							$sWhere = "";
@@ -1380,10 +1380,10 @@ Date 		: 	26/6/2006
 							$days = (substr($now, 0, 4) - substr($part, 0, 4)) . ' tahun ' . (substr($now, 5, 2) - substr($part, 5, 2)) . ' bulan ' . (substr($now, 8, 2) - substr($part, 8, 2)) . ' hari ';
 
 							print 	'
-			<div class="card-header mt-2"><b>Borang kelulusan jawatankuasa pembiayaan</b></div><br><br>
+			<div class="card-header mt-2"><b>Formulir persetujuan jawatankuasa pembiayaan</b></div><br><br>
 			<table cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="">
 
-			<tr><td class="padding1" colspan="2"><u><b>Maklumat anggota</b></u></td></tr>
+			<tr><td class="padding1" colspan="2"><u><b>Informasi anggota</b></u></td></tr>
 			<tr>
 				<td valign="top" width="60%">
 					<table cellpadding="0" cellspacing="0">
@@ -1406,7 +1406,7 @@ Date 		: 	26/6/2006
 							<td colspan="3">&nbsp;</td>
 						</tr>
 						<tr>
-							<td colspan="3"><u><b>Maklumat pembiayaan baru</b></u>&nbsp;</td>
+							<td colspan="3"><u><b>Informasi pembiayaan baru</b></u>&nbsp;</td>
 						</tr>
 						<tr>
 							<td colspan="3">&nbsp;</td>
@@ -1417,7 +1417,7 @@ Date 		: 	26/6/2006
 							<td>' . dlookup("loans", "loanNo", "loanID=" . tosql($pk, "Text")) . '</td>
 						</tr>
 						<tr>
-							<td>Jumlah Dipohon:&nbsp;</td>
+							<td>Jumlah Diminta:&nbsp;</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . number_format($amtLoan, 2) . '</td>
 						</tr>
@@ -1431,7 +1431,7 @@ Date 		: 	26/6/2006
 							<td>' . $memberNo . '</td>
 						</tr>
 						<tr>
-							<td>Yuran Terkumpul</td>
+							<td>Wajib Terkumpul</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . number_format(getFees($userID, date("Y")), 2) . '</td>
 						</tr>
@@ -1509,13 +1509,13 @@ Date 		: 	26/6/2006
 
 							print '</tr>
 						<tr>
-							<td width="34%">Jawatankuasa 1: ' . $ajk1 . '</td>
-							<td width="33%">Jawatankuasa 2: ' . $ajk2 . '</td>
+							<td width="34%">Penanggung Jawab 1: ' . $ajk1 . '</td>
+							<td width="33%">Penanggung Jawab 2: ' . $ajk2 . '</td>
 							<td width="33%">&nbsp;</td>
 						</tr>
 						<tr>
-							<td width="34%">Tarikh : ' . $ajkDate1 . '</td>
-							<td width="33%">Tarikh : ' . $ajkDate2 . '</td>
+							<td width="34%">Tanggal : ' . $ajkDate1 . '</td>
+							<td width="33%">Tanggal : ' . $ajkDate2 . '</td>
 							<td width="33%">&nbsp;</td>
 						</tr>						<tr>
 							<td width="34%"><input type="Submit" name="ajwk1" class="btn btn-sm btn-secondary" value="Disahkan 1" ' . $ctlajkStat1 . '></td>

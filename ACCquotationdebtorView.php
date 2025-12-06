@@ -221,15 +221,15 @@ print'
 			$rsDetail->MoveNext();
 			}
 			if($jumlah<>0){
-			$clsRM->setValue($jumlah);
-			$strTotal = strtoupper($clsRM->getValue());
+			$clsRP->setValue($jumlah);
+			$strTotal = strtoupper($clsRP->getValue());
 			}
 		}
 print '
 <tr><td colspan="7">&nbsp;</td></tr>
 <tr>				
     <td nowrap="nowrap" align="right" colspan="6"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM '.number_format($jumlah,2).'</b></td>
+    <td nowrap="nowrap" align="right"><b>RP '.number_format($jumlah,2).'</b></td>
 </tr>
 </table>
 <tr><td colspan="7">&nbsp;</td></tr>

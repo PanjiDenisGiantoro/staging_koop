@@ -29,7 +29,7 @@ if ($action == "Jana Laporan") {
 	$msg	= "";
 	$dtFrom = sprintf("%04d-%02d-%02d", $yyFrom, $mmFrom, $ddFrom);
 	$dtTo	= sprintf("%04d-%02d-%02d", $yyTo, $mmTo, $ddTo);
-	if ($dtFrom > $dtTo) $msg = "Tarikh Pada tidak boleh  melebihi dari Tarikh Hingga";
+	if ($dtFrom > $dtTo) $msg = "Tanggal Pada tidak boleh  melebihi dari Tanggal Hingga";
 	if ($msg <> "") {
 		print '<script>alert("'.$msg.'");</script>';
 	} else {
@@ -58,7 +58,7 @@ print '
 	<input type="hidden" name="rpt" value="'.$rpt.'">
 	<table border="0" cellpadding="3" cellspacing="0" class="table table-sm table-striped" style="padding: 1 0 0 0;font-size:9pt" height="100" width="100%">
 		<tr valign="top">
-			<td class=""><b>Tarikh Pada</b></td>
+			<td class=""><b>Tanggal Pada</b></td>
 			<td class="">
 				<select name="ddFrom" class="form-select-xs">';
 for ($i = 1; $i < 32; $i++) {
@@ -76,7 +76,7 @@ for ($j = 1; $j < 13; $j++) {
 print '			</select>
 				<input type="text" name="yyFrom" size="3" maxlength="4" value="'.$yyFrom.'" class="form-select-xs">
 			</td>
-			<td class="textFont"><b>Tarikh Hingga</b></td>
+			<td class="textFont"><b>Tanggal Hingga</b></td>
 			<td class="textFont">
 				<select name="ddTo" class="form-select-xs">';
 for ($i = 1; $i < 32; $i++) {

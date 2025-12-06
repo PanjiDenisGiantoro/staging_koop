@@ -111,7 +111,7 @@ if ($GetAdmin->RowCount() <> 0) {
 						<td nowrap>Emel</td>
 						<td nowrap align="center">Jenis Capaian</td>
 						<td nowrap align="center">Keanggotaan</td>
-						<td nowrap align="center">Tarikh Didaftar</td>
+						<td nowrap align="center">Tanggal Didaftar</td>
 						<td colspan="2" nowrap align="center">&nbsp;</td>
 					</tr>';
 	while (!$GetAdmin->EOF && $cnt <= $pg) {

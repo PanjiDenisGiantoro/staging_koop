@@ -117,7 +117,7 @@ function ctTransactionCode($q, $yymm, $status, $id)
 	return $rs;
 }
 
-function ctTransactionCodeYuran($q, $yymm, $status, $id)
+function ctTransactionCodeWajib($q, $yymm, $status, $id)
 {
 	global $conn;
 	$sSQL = "";
@@ -862,7 +862,7 @@ function ctUserSaving($yrmth, $userID)
 }
 //--- END   : USER SAVING -------------------------------------------------------------------------------
 
-//--- BEGIN : TERMINATION OF MEMBER ---------------------------------------------------------------------
+//--- BEGIN : TERPINATION OF MEMBER ---------------------------------------------------------------------
 // used by : memberT.php
 function ctMemberTerminate($q, $id)
 {
@@ -953,7 +953,7 @@ function ctMemberTerminateStatusOk($q, $by, $status, $dept)
 	$rs = &$conn->Execute($sSQL);
 	return $rs;
 }
-//--- END   : TERMINATION OF MEMBER ---------------------------------------------------------------------
+//--- END   : TERPINATION OF MEMBER ---------------------------------------------------------------------
 
 //--- BEGIN : LOAN PAYMENT -----------------------------------------------------------------------------
 function ctLoanPymtList($q, $by, $yymm, $dept)
@@ -1432,7 +1432,7 @@ function countPays($totalLoan, $totalInterest, $loanAmt, $loanCaj, $loanPeriod)
 //yuran kredit balance by member
 /*
 SELECT 
-SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 
 FROM transaction
 WHERE deductID =1595
@@ -1441,19 +1441,19 @@ AND year( createdDate ) <= '2006'
 AND month( createdDate ) <= '12' GROUP BY userID
 */
 
-function getYuranDiv($id, $yr)
+function getWajibDiv($id, $yr)
 {
 	global $conn;
-	$getYuranOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction 
 		WHERE 
 		deductID = 1595 
 		AND userID = '" . $id . "' 
 		AND year(createdDate) <= " . $yr . "
 		GROUP BY userID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(totalYuran); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(totalWajib); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -1463,16 +1463,16 @@ function getFeesAwalthn($id, $yr)
 {
 	global $conn;
 
-	$getYuranOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID in (1595,1780,1607) 
 		AND userID = '" . $id . "' 
 		AND year(createdDate) < " . $yr . "
 		GROUP BY userID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $bakiAwalSaham = $rsYuranOpen->fields(totalYuran); //$rsYuranOpen->fields(yuranKt) - 
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $bakiAwalSaham = $rsWajibOpen->fields(totalWajib); //$rsWajibOpen->fields(yuranKt) - 
 	else $bakiAwalSaham = 0;
 	return $bakiAwalSaham;
 }
@@ -1480,15 +1480,15 @@ function getFeesAwalthn($id, $yr)
 function getFees($id)
 {
 	global $conn;
-	$getYuranOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID IN (1595,1780,1607) 
 		AND userID = '" . $id . "' 
 		GROUP BY userID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $totalFees = $rsYuranOpen->fields(totalYuran);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $totalFees = $rsWajibOpen->fields(totalWajib);
 	else $totalFees = 0;
 	return $totalFees;
 }
@@ -1497,7 +1497,7 @@ function getShares($id, $yr)
 {
 	global $conn;
 	$getOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID IN (1596,1780) 
@@ -1505,7 +1505,7 @@ function getShares($id, $yr)
 		AND year(createdDate) <= " . $yr . "
 		GROUP BY userID";
 	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 	return $bakiAwal;
 }
@@ -1514,14 +1514,14 @@ function getSharesterkini($id, $yr)
 {
 	global $conn;
 	$getOpenTK = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID IN (1596,1780) 
 		AND userID = '" . $id . "' 
 		GROUP BY userID";
 	$rsOpenTK = $conn->Execute($getOpenTK);
-	if ($rsOpenTK->RowCount() == 1) $bakiAwalTK = $rsOpenTK->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+	if ($rsOpenTK->RowCount() == 1) $bakiAwalTK = $rsOpenTK->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwalTK = 0;
 	return $bakiAwalTK;
 }
@@ -1549,7 +1549,7 @@ function getFeesDiv($id, $yr)
 {
 	global $conn;
 
-	$getYuranOpen = "
+	$getWajibOpen = "
 SELECT  SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction 
@@ -1559,10 +1559,10 @@ SELECT  SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb,
 		AND yrmth = " . $yr . "
 		GROUP BY userID";
 
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) {
-		$DB = $rsYuranOpen->fields(yuranDb); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
-		$KT = $rsYuranOpen->fields(yuranKt);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) {
+		$DB = $rsWajibOpen->fields(yuranDb); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
+		$KT = $rsWajibOpen->fields(yuranKt);
 		$bakiAwal = ($KT - $DB);
 	} else $bakiAwal = 0;
 
@@ -1575,16 +1575,16 @@ function getFeesDivTable($id, $yr)
 {
 	global $conn;
 
-	$getYuranOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID in (1595,1780) 
 		AND userID = '" . $id . "' 
 		AND yrmth = " . $yr . "
 		GROUP BY userID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(totalYuran); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(totalWajib); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -1609,7 +1609,7 @@ function getSharesDiv($id, $yr)
 {
 	global $conn;
 	$getOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID = 1596 
@@ -1617,7 +1617,7 @@ function getSharesDiv($id, $yr)
 		AND year(createdDate) <= " . $yr . "
 		GROUP BY userID";
 	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 	return $bakiAwal;
 }
@@ -1628,7 +1628,7 @@ function getTotFees($id, $yr)
 	global $conn;
 
 	$getOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID in (1595,1607,1596,1780) 
@@ -1640,7 +1640,7 @@ function getTotFees($id, $yr)
 
 	if ($rsOpen->RowCount() == 1)
 
-		$bakiAwal = $rsOpen->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+		$bakiAwal = $rsOpen->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -1652,7 +1652,7 @@ function getFeeMonth($id, $yr, $mth)
 	$yrmth = $yr . $mth;
 
 	$getOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID in (1595,1607,1780) 
@@ -1661,7 +1661,7 @@ function getFeeMonth($id, $yr, $mth)
 		AND yrmth = '" . $yrmth . "'
 		GROUP BY userID";
 	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -1707,7 +1707,7 @@ function getBakiTunai($id, $yrmth, $bond)
 	$rsTunaiOpen = $conn->Execute($getTunaiOpen);
 
 	if ($rsTunaiOpen->RowCount() == 1) {
-		$DB = $rsTunaiOpen->fields(yuranDb); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+		$DB = $rsTunaiOpen->fields(yuranDb); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 		$KT = $rsTunaiOpen->fields(yuranKt);
 		$bakiAwalTunai = ($DB - $KT);
 	} else $bakiAwalTunai = 0;
@@ -1733,7 +1733,7 @@ function getBakiSBP($id, $yrmth, $bond)
 
 	$rsTunaiOpen = $conn->Execute($getTunaiOpen);
 	if ($rsTunaiOpen->RowCount() == 1) {
-		$DB = $rsTunaiOpen->fields(yuranDb); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+		$DB = $rsTunaiOpen->fields(yuranDb); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 		$KT = $rsTunaiOpen->fields(yuranKt);
 		$bakiAwalSBP = ($DB - $KT);
 	} else $bakiAwalSBP = 0;
@@ -2058,7 +2058,7 @@ function getBakiBulanY($id, $dtFrom, $dtTo)
 
 	$getOpen = "SELECT 
 			
-			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalYuran, 
+			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalWajib, 
 			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranKt
 			FROM transaction
 			WHERE
@@ -2067,7 +2067,7 @@ function getBakiBulanY($id, $dtFrom, $dtTo)
 			AND (createdDate BETWEEN '" . $dtFrom . "' AND '" . $dtTo . "')		
 			GROUP BY userID";
 	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran) - $rsOpen->fields(yuranKt);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib) - $rsOpen->fields(yuranKt);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -2079,7 +2079,7 @@ function getBakiBulanS($id, $dtFrom, $dtTo)
 
 	$getOpen = "SELECT 
 			
-			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalYuran, 
+			SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS totalWajib, 
 			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranKt
 			FROM transaction
 			WHERE
@@ -2088,7 +2088,7 @@ function getBakiBulanS($id, $dtFrom, $dtTo)
 			AND (createdDate BETWEEN '" . $dtFrom . "' AND '" . $dtTo . "')		
 			GROUP BY userID";
 	$rsOpen = $conn->Execute($getOpen);
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran) - $rsOpen->fields(yuranKt);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib) - $rsOpen->fields(yuranKt);
 	else $bakiAwal = 0;
 
 	return $bakiAwal;
@@ -2103,16 +2103,16 @@ function getFeesAwlDiv($id, $yy)
 {
 	global $conn;
 
-	$getYuranOpen = "SELECT 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE
 		deductID in (1595,1780,1607) 
 		AND userID = '" . $id . "' 
 		AND yrmth <= '" . $yy . "'
 		GROUP BY userID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $bakiAwalSaham = $rsYuranOpen->fields(totalYuran); //$rsYuranOpen->fields(yuranKt) - 
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $bakiAwalSaham = $rsWajibOpen->fields(totalWajib); //$rsWajibOpen->fields(yuranKt) - 
 	else $bakiAwalSaham = 0;
 	return $bakiAwalSaham;
 }
@@ -2121,11 +2121,11 @@ function getListDividen($id, $yy)
 {
 	global $conn;
 
-	$getYuranOpen = "SELECT * FROM DIVIDEN WHERE
+	$getWajibOpen = "SELECT * FROM DIVIDEN WHERE
  		userID = '" . $id . "' 
 		AND yearDiv = '" . $yy . "' 
 		Order by userID ";
-	$getDividenOpn = $conn->Execute($getYuranOpen);
+	$getDividenOpn = $conn->Execute($getWajibOpen);
 	return $getDividenOpn;
 }
 
@@ -2134,8 +2134,8 @@ function getSumDividen($yy)
 {
 	global $conn;
 
-	$getYuranOpen = "SELECT Sum(AmtDiv)as Amt FROM DIVIDEN WHERE yearDiv = '" . $yy . "'";
-	$getSumDividen = $conn->Execute($getYuranOpen);
+	$getWajibOpen = "SELECT Sum(AmtDiv)as Amt FROM DIVIDEN WHERE yearDiv = '" . $yy . "'";
+	$getSumDividen = $conn->Execute($getWajibOpen);
 	return $getSumDividen;
 }
 
@@ -2151,7 +2151,7 @@ AND yrmth <= '" . $yrmthNow . "'
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumP = 0;
 	return $totalJumP;
 }
@@ -2165,7 +2165,7 @@ FROM importspsn
 WHERE userID = '" . $id . "' 
 AND yrmth = '" . $yrmthNow . "'";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumPSpsn = $getPot->fields(AmountSP); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumPSpsn = $getPot->fields(AmountSP); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumPSpsn = 0;
 	return $totalJumPSpsn;
 }
@@ -2183,7 +2183,7 @@ AND yrmth < '" . $yrmthNow . "'
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumP = 0;
 	return $totalJumP;
 }
@@ -2199,7 +2199,7 @@ AND (lastyrmthPymt >= '" . $yrmthNow . "' AND yrmth <= '" . $yrmthNow . "')
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumP = 0;
 	return $totalJumP;
 }
@@ -2216,7 +2216,7 @@ AND (lastyrmthPymt >= '" . $yrmthNow . "' AND yrmth <= '" . $yrmthNow . "')
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumP = 0;
 	return $totalJumP;
 }
@@ -2235,7 +2235,7 @@ WHERE status = 2
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotP);
-	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumP = $getPot->fields(Jumlah); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumP = 0;
 	return $totalJumP;
 }
@@ -2245,13 +2245,13 @@ function getJumlahY($id)
 {
 	global $conn;
 
-	$getPotY = "SELECT YuranP
+	$getPotY = "SELECT WajibP
 FROM potbulan
 WHERE status = 1
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotY);
-	if ($getPot->RowCount() == 1) $totalJumY = $getPot->fields(YuranP); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumY = $getPot->fields(WajibP); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumY = 0;
 	return $totalJumY;
 }
@@ -2260,13 +2260,13 @@ function getJumlahYPAT($id)
 {
 	global $conn;
 
-	$getPotY = "SELECT YuranP
+	$getPotY = "SELECT WajibP
 FROM potbulan
 WHERE status = 2
 AND userID = '" . $id . "' 
 GROUP BY userID";
 	$getPot = $conn->Execute($getPotY);
-	if ($getPot->RowCount() == 1) $totalJumY = $getPot->fields(YuranP); //$rsYuranOpen->fields(yuranKt) - 
+	if ($getPot->RowCount() == 1) $totalJumY = $getPot->fields(WajibP); //$rsWajibOpen->fields(yuranKt) - 
 	else $totalJumY = 0;
 	return $totalJumY;
 }
@@ -3928,14 +3928,14 @@ function cbList($val)
 function getFeess($id)
 {
 	global $conn;
-	$getYuranOpen = "SELECT 
-			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE pymtAmt END ) AS totalYuran
+	$getWajibOpen = "SELECT 
+			SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE pymtAmt END ) AS totalWajib
 			FROM transactionacc
 			WHERE
 			pymtRefer = '" . $id . "' 
 			GROUP BY pymtRefer";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $totalFees = $rsYuranOpen->fields(totalYuran);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $totalFees = $rsWajibOpen->fields(totalWajib);
 	else $totalFees = 0;
 	return $totalFees;
 }
@@ -3944,7 +3944,7 @@ function getFe($id)
 {
 	global $conn;
 
-	$getYuranOpen = "
+	$getWajibOpen = "
 	SELECT  SUM(CASE WHEN a.addminus = '0' THEN -a.pymtAmt ELSE 0 END) AS yuranDb, 
 			SUM(CASE WHEN a.addminus = '1' THEN -a.pymtAmt ELSE 0 END) AS yuranKt
 			FROM transactionacc a, singleentry b
@@ -3952,10 +3952,10 @@ function getFe($id)
 			a.docNo=b.SENO AND a.batchNo = " . $id . "
 			GROUP BY a.batchNo";
 
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) {
-		$DB = $rsYuranOpen->fields(yuranDb); //$rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
-		$KT = $rsYuranOpen->fields(yuranKt);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) {
+		$DB = $rsWajibOpen->fields(yuranDb); //$rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
+		$KT = $rsWajibOpen->fields(yuranKt);
 		$bakiAwal = ($KT - $DB);
 	} else $bakiAwal = 0;
 

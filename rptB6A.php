@@ -57,8 +57,8 @@ print '
 					<th nowrap>Jenis Advance Payment</th>
 					<th nowrap>Jumlah Permohonan (RP)</th>		
 					<th nowrap>Jenis Pemprosesan</th>			
-					<th nowrap>Tarikh Permohonan</th>
-					<th nowrap>Tarikh Kelulusan</th>
+					<th nowrap>Tanggal Permohonan</th>
+					<th nowrap>Tanggal Kelulusan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {	
 		while(!$rs->EOF) {	

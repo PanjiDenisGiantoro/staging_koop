@@ -25,7 +25,7 @@ $sSQL = "select * from transaction
 		 ORDER BY createdDate";
 $rs = &$conn->Execute($sSQL);
 
-$getYuranOpen = "SELECT 
+$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction
@@ -33,7 +33,7 @@ $getYuranOpen = "SELECT
 		deductID in (1595,1780,1607) 
 		AND userID = '" . $id . "' 
 		GROUP BY userID";
-$rsYuranOpen = $conn->Execute($getYuranOpen);
+$rsWajibOpen = $conn->Execute($getWajibOpen);
 $bakiAwal = 0;
 $bakiAkhir = 0;
 
@@ -81,7 +81,7 @@ print '
 			<table border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><b>Bil</b></td>
-					<td nowrap><b>Tarikh</b></td>
+					<td nowrap><b>Tanggal</b></td>
 					<td nowrap><b>Nomor Rujukan</b></td>
 					<td nowrap><b>Item</b></td>
 					<td nowrap align="right"><b>Debit(RP)</b></td>

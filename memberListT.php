@@ -227,7 +227,7 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<td nowrap align="center">&nbsp;Status&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Tanggal Pengajuan&nbsp;</td>';
 				if ($filter == 1) {
-					$temp .=	'<td nowrap align="center">Tarikh Kelulusan&nbsp;</td>';
+					$temp .=	'<td nowrap align="center">Tanggal Kelulusan&nbsp;</td>';
 				}
 				$temp .=	'</tr>';
 

@@ -33,7 +33,7 @@ if (
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = '?vw=PreviewYuran&mn=' . $mn . '';
+$sFileName = '?vw=PreviewWajib&mn=' . $mn . '';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
 $title     = "Senarai Potongan Gaji Pembiayaan";
 

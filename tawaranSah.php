@@ -105,7 +105,7 @@ print '<table border="0" cellpadding="3" cellspacing="0" width="100%" align="cen
 <tr><td colspan="4" class="Data"><b class="maroonText">' . strtoupper($title) . '</b></td></tr>';
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<tr><td class=Header colspan=4>i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN DAN PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN DAN PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</td></tr>';
 
 	if ($cnt == 1) print '<tr valign=top>';
 	print '<td class=Data align=right>' . $FormLabel[$i];
@@ -329,7 +329,7 @@ function myFunction3() {
 function myFunction3Ra() {
 
     document.getElementById("button5").hidden = false;
-	document.getElementById("demosaham").innerHTML = "<b>Tawaran Pembelian Bagi Pokok Siarharga PIGTF Public Mutual (1 Unit Pokok = RM20.00 iaitu Bersamaan : RM ' . $loanAmt . '/20 Perunit = ' . $totalshare . ' unit)</b>";
+	document.getElementById("demosaham").innerHTML = "<b>Tawaran Pembelian Bagi Pokok Siarharga PIGTF Public Mutual (1 Unit Pokok = RP20.00 iaitu Bersamaan : RP ' . $loanAmt . '/20 Perunit = ' . $totalshare . ' unit)</b>";
 	document.getElementById("demosaham").hidden = false;
 	
 }
@@ -370,7 +370,7 @@ function myFunction5() {
 	document.getElementById("img3").hidden = false;
 }
 function myFunction6() {
-	document.getElementById("demo6").innerHTML = "6. Saya memohon untuk dikreditkan pembiayaan sebanyak RM ' . $loanAmt . '";
+	document.getElementById("demo6").innerHTML = "6. Saya memohon untuk dikreditkan pembiayaan sebanyak RP ' . $loanAmt . '";
 	document.getElementById("button1").disabled = true;
 	document.getElementById("button2").disabled = true;
     document.getElementById("button3").disabled = true;

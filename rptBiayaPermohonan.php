@@ -91,9 +91,9 @@ print '
 					<th nowrap colspan=2>&nbsp;Diluluskan</th>
 				</tr>
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-					<th nowrap>&nbsp;Tarikh</th>
+					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Jumlah</th>
-					<th nowrap>&nbsp;Tarikh</th>
+					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Jumlah</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

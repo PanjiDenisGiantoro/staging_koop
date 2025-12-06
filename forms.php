@@ -307,12 +307,12 @@ function FormValidation($strFormName, $strFormElement, $strFormValue, $strFormVa
 		if ($strFormValidMethod == "CheckDate") {
 			if (ValidDate($strFormValue) == "N") {
 				array_push ($strErrMsg, $strFormElement);
-				//print '- <font class=redText>Tarikh tidak sah.</font><br>';
+				//print '- <font class=redText>Tanggal tidak sah.</font><br>';
                                                                         echo '                                                     
                                                                             <div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                                             </button>
-                                                                            <strong>Tarikh tidak sah.</strong> 
+                                                                            <strong>Tanggal tidak sah.</strong> 
                                                                         </div>';
 			}
 		}

@@ -544,7 +544,7 @@ print '</label><label class="col-md-2 col-form-label"></label></div>';
 print '<div class="row m-3">
     <label class="col-md-2 col-form-label"></label>
     <label class="col-md-8 col-form-label">
-<textarea  rows="10" class="form-control" wrap="hard" name="syarat" readonly>Saya seperti nama dan alamat diatas dengan ini bersetuju menjadi penjamin kepada Encik/Cik ' . $nameB . ' dari jabatan/cawangan ' . $dept . ' untuk pembiayaan sebanyak RM ' . $amount . '.
+<textarea  rows="10" class="form-control" wrap="hard" name="syarat" readonly>Saya seperti nama dan alamat diatas dengan ini bersetuju menjadi penjamin kepada Encik/Cik ' . $nameB . ' dari jabatan/cawangan ' . $dept . ' untuk pembiayaan sebanyak RP ' . $amount . '.
 
 Saya mengaku bahawa segala maklumat yang terkandung di dalam borang ini adalah benar dan lengkap bagi menunjukkan kedudukan kewangan dan kemampuan kredit saya.</textarea>
 

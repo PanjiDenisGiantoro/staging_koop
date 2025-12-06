@@ -120,8 +120,8 @@ if($id){
 }
 
 if($jumlah<>0){
-	$clsRM->setValue($jumlah);
-	$strTotal = ucwords($clsRM->getValue()).' Sahaja.';
+	$clsRP->setValue($jumlah);
+	$strTotal = ucwords($clsRP->getValue()).' Sahaja.';
 }
 $jumlah = number_format($jumlah,2);
 
@@ -247,7 +247,7 @@ print'
         <tr>
             <td><b>AMAUN PO</b></td>
             <td>&nbsp;:&nbsp;</td>
-            <td>RM'.number_format($outstandingbalance,2).'</td>
+            <td>RP'.number_format($outstandingbalance,2).'</td>
         </tr>';
         }
     print'
@@ -297,9 +297,9 @@ print'
 			$rsDetail->MoveNext();
 			}
 			if($jumlah1<>0){
-			$clsRM->setValue($baki);
-			$clsRM->setValue($jumlah1);
-			$strTotal = strtoupper($clsRM->getValue());
+			$clsRP->setValue($baki);
+			$clsRP->setValue($jumlah1);
+			$strTotal = strtoupper($clsRP->getValue());
 			}
 		}
 
@@ -307,14 +307,14 @@ print '
 <tr><td colspan="5">&nbsp;</td></tr>
 <tr>				
     <td nowrap="nowrap" align="right" colspan="4"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM '.number_format($jumlah1,2).'</b></td>
+    <td nowrap="nowrap" align="right"><b>RP '.number_format($jumlah1,2).'</b></td>
 </tr>';
 
 if (dlookup("cb_purchaseinv", "purcNo", "PINo=" . tosql($PINo, "Text")) <> "") {
     print'
         <tr>				
             <td nowrap="nowrap" align="right" colspan="4"><b>JUMLAH BAKI PO</b></td>
-            <td nowrap="nowrap" align="right"><b>RM '.number_format($baki,2).'</b></td>
+            <td nowrap="nowrap" align="right"><b>RP '.number_format($baki,2).'</b></td>
         </tr>';
 }
 print'

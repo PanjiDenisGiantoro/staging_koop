@@ -191,7 +191,7 @@ if ($GetWelfare->RowCount() <> 0) {
 					<td nowrap align="left">&nbsp;<b>Nomor - Nama Anggota</b></td>
 					<td nowrap align="center">&nbsp;<b>Kartu Identitas</b></td>
 					<td	nowrap align="center"><b>Status</b></td>
-					<td	nowrap align="center"><b>Tarikh Kelulusan</b></td>
+					<td	nowrap align="center"><b>Tanggal Kelulusan</b></td>
 					<td	nowrap align="center"><b>Nombor Bond</b></td>
 					<td	nowrap align="center"><b>Rujukan Voucher</b></td>
 					<td nowrap align="center"><b>Tanggal Voucher</b></td>

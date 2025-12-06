@@ -36,7 +36,7 @@ while (!$rs2->EOF) {
 	$rs1 = &$conn->Execute($sSQL);
 	$jabatan = dlookup("userdetails", "departmentID", "userID='" . $rs2->fields(userID) . "'");
 
-	$getYuranOpen = "SELECT 
+	$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction
@@ -44,8 +44,8 @@ while (!$rs2->EOF) {
 		deductID in (1595,1607)
 		AND year(createdDate) < " . $yr . "
 		GROUP BY userID order by UserID";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
-	if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
+	if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 	$bakiAkhir = 0;
 
@@ -93,7 +93,7 @@ while (!$rs2->EOF) {
 			<table border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>Bil</th>
-					<th nowrap>Tarikh</th>
+					<th nowrap>Tanggal</th>
 					<th nowrap>&nbsp;Nombor rujukan</th>
 					<th nowrap>&nbsp;Item</th>
 					<th nowrap>&nbsp;Debit(RP)</th>

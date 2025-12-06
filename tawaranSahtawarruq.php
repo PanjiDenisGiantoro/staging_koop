@@ -105,7 +105,7 @@ print '<table border="0" cellpadding="3" cellspacing="0" width="100%" align="cen
 <tr><td colspan="4" class="Data"><b class="maroonText">' . strtoupper($title) . '</b></td></tr>';
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<tr><td class=Header colspan=4>i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN DAN PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>i. PENGESAHAN ON-LINE DOKUMEN PEMBIAYAAN DAN PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</td></tr>';
 
 	if ($cnt == 1) print '<tr valign=top>';
 	print '<td class=Data align=right>' . $FormLabel[$i];

@@ -13,7 +13,7 @@ $sFileName    = "bayaranOnline.php";
   $memberID   = $_GET['userID'];
   $amount     = $_GET['amount'];
   $paymentID  = $_GET['paymentName'];
-  $paymentName = "Syer (Saham)";
+  $paymentName = "Pokok (Saham)";
 
 //////token//////
 // $tokenUrl = "https://stg-identity.swittlelab.com/core/connect/token";

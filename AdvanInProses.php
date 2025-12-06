@@ -87,7 +87,7 @@ print '
 						<td nowrap align="right"><b>Jumlah Pinjaman (RP)</b></td>					
 						<td nowrap align="center"><b>Jangka Waktu (Bulan)</b></td>
 						<td nowrap align="center"><b>Status</b></td>									
-						<td nowrap align="center"><b>Tarikh Mohon</b></td>	
+						<td nowrap align="center"><b>Tanggal Mohon</b></td>	
 						<td nowrap>&nbsp;</td>			
 					</tr>';
 		while (!$GetLoan->EOF && $cnt <= $pg) {

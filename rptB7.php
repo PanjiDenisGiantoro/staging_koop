@@ -63,7 +63,7 @@ print '
 					<th nowrap>Jenis Advance Payment</th>
 					<th nowrap>Jumlah Advance Payment (RP)</th>					
 					<th nowrap>Tanggal Pengajuan</th>
-					<th nowrap>Tarikh Ditolak</th>
+					<th nowrap>Tanggal Ditolak</th>
 				</tr>';
 				if ($rs->RowCount() <> 0) {	
 					while(!$rs->EOF) {	

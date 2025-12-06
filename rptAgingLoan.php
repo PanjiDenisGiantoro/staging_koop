@@ -74,7 +74,7 @@ print '
 </style>
 <table border="0" cellspacing="0" cellpadding="3" width="50%" align="left">
 <tr>
-    <!--td>Dari Tarikh</td-->
+    <!--td>Dari Tanggal</td-->
     <td>Sehingga Tahun/Bulan</td>
 </tr>
 <tr>
@@ -119,7 +119,7 @@ print '
 						<td nowrap align="left">No Anggota</td>
 						<td nowrap align="left">Nama Anggota</td>
 						<td nowrap align="center">No Rujukan</td>	
-						<td nowrap align="center">Tarikh Baucer</td>		
+						<td nowrap align="center">Tanggal Baucer</td>		
 						<td nowrap align="center">No Bond</td>			
 						<td nowrap align="center">Mula Perlu Bayar</td>	
 						<td nowrap align="right">Ansuran Bulanan (RP)</td>

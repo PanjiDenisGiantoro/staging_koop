@@ -582,7 +582,7 @@ if ($cat == "Y") {
     if (!isset($loanName)) $loanName = "";
 
     $a = $a + 1;
-    $FormLabel[$a]    	= "* Kode Ledger";
+    $FormLabel[$a]    	= "* Kode Master Ledger";
     $FormElement[$a] 	= "loanCode";
     $FormType[$a]     = "custom";
     $FormData[$a]    	= "";
@@ -693,7 +693,7 @@ if ($cat == "Q") {
 
 if ($action == "kemaskini") {
     $a++;
-    $FormLabel[$a] = "Tarikh Diwujudkan";
+    $FormLabel[$a] = "Tanggal Diwujudkan";
     $FormElement[$a] = "createdDate";
     $FormType[$a] = "hiddenDate";
     $FormData[$a] = "";
@@ -713,7 +713,7 @@ if ($action == "kemaskini") {
     $FormLength[$a] = "1";
 
     $a++;
-    $FormLabel[$a] = "Tarikh Kemaskini";
+    $FormLabel[$a] = "Tanggal Kemaskini";
     $FormElement[$a] = "updatedDate";
     $FormType[$a] = "hiddenDate";
     $FormData[$a] = "";

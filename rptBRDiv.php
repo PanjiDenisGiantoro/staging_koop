@@ -69,7 +69,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="centre" nowrap>Bil</th>
 					<th width="150" align="left" nowrap>&nbsp;Nomor Anggota- Nama</th>
-					<th width="100" align="left" nowrap><div align="right">Yuran Bulan(RP) </div></th>
+					<th width="100" align="left" nowrap><div align="right">Wajib Bulan(RP) </div></th>
 					<th width="90" align="left" nowrap><div align="right">Dividen Pokok (RP) ' . $rsCheck->fields(amtFee) . '% </div></th>
 					<th nowrap align="center" width="90"><div align="right">Dividen Tabungan (RP) ' . $rsCheck->fields(amtShare) . '%</div></th>
 				</tr>';
@@ -99,7 +99,7 @@ if ($rsCheck->RowCount() <= 0) {
 			$rs6 = &$conn->Execute($sSQL5556);
 
 
-			$feekiraMonth = $rs6->fields(AmtYuranT);
+			$feekiraMonth = $rs6->fields(AmtWajibT);
 			//$feeMonth = number_format($feeKT - $feeDB,2);
 			$bil++;
 			$totalFee = $rs6->fields(AmtFeeD);

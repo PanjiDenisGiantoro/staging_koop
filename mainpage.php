@@ -191,7 +191,7 @@ if (get_session('Cookie_groupID') <> '') {
 				// 	// .'<center><img class="card-img-top mt-3" style="width: 5rem; height: 5rem;" src="images/fee.png" alt="Picture is missing"></center>'
 				// 	. '<div class="card-body">'
 				// 	. '<h5 class="card-title" align="center">Pendapatan Terkini</h5>'
-				// 	. '<h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $bil . '</font></h2>'
+				// 	. '<h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $bil . '</font></h2>'
 				// 	. '</div>'
 				// 	. '</div>'
 				// 	. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -199,7 +199,7 @@ if (get_session('Cookie_groupID') <> '') {
 				// 	//   .'<center><img class="card-img-top mt-3" style="width: 5rem; height: 5rem;" src="images/saving.png" alt="Picture is missing"></center>'
 				// 	. '<div class="card-body">'
 				// 	. '<h5 class="card-title" align="center">Perbelanjaan Terkini</h5>'
-				// 	. '<h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $penama . '</font></h2>'
+				// 	. '<h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $penama . '</font></h2>'
 				// 	. '</div>'
 				// 	. '</div>'
 				// 	. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -207,7 +207,7 @@ if (get_session('Cookie_groupID') <> '') {
 				// 	//   .'<center><img class="card-img-top mt-3" style="width: 5rem; height: 5rem;" src="images/saving.png" alt="Picture is missing"></center>'
 				// 	. '<div class="card-body">'
 				// 	. '<h5 class="card-title" align="center">Aset Terkini</h5>'
-				// 	. '<h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $penama . '</font></h2>'
+				// 	. '<h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $penama . '</font></h2>'
 				// 	. '</div>'
 				// 	. '</div>'
 				// 	. '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -215,7 +215,7 @@ if (get_session('Cookie_groupID') <> '') {
 				// 	//   .'<center><img class="card-img-top mt-3" style="width: 5rem; height: 5rem;" src="images/saving.png" alt="Picture is missing"></center>'
 				// 	. '<div class="card-body">'
 				// 	. '<h5 class="card-title" align="center">Equiti Terkini</h5>'
-				// 	. '<h2 class="card-text" align="center"><font color="black">RM&nbsp;' . $penama . '</font></h2>'
+				// 	. '<h2 class="card-text" align="center"><font color="black">RP&nbsp;' . $penama . '</font></h2>'
 				// 	. '</div>'
 				// 	. '</div>'
 				// 	. '</td>'
@@ -254,7 +254,7 @@ if (get_session('Cookie_groupID') <> '') {
 		}
 
 		if ($GetData->RowCount() <> 0) {
-			$strFieldNameList = array('&nbsp;', '<b>Perkara</b>', '<b>Tarikh</b>', '<b>Oleh</b>');
+			$strFieldNameList = array('&nbsp;', '<b>Perkara</b>', '<b>Tanggal</b>', '<b>Oleh</b>');
 			$strFieldWidthList = array('15', '', '10%', '10%');
 			$strFieldAlignList = array('right', 'left', 'center', 'center');
 

@@ -426,7 +426,7 @@ if ($Kira <> "") {
 	$picjwtn = dlookup("userloandetails", "jwtn_img", "userID=" . tosql($userID, "Text"));
 	$picic = dlookup("userloandetails", "ic_img", "userID=" . tosql($userID, "Text"));
 	$picccris = dlookup("userloandetails", "ccris_img", "userID=" . tosql($userID, "Text"));
-	$YuranBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
+	$WajibBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
 
 	$sqlGet = "select SUM(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'A'";
 	$GettotA =  &$conn->Execute($sqlGet);
@@ -442,7 +442,7 @@ if ($Kira <> "") {
 		//potongan gaji	
 		$sqlGetB = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'B'";
 		$GettotB =  &$conn->Execute($sqlGetB);
-		$totalB = $GettotB->fields(amt) + $YuranBlnan;
+		$totalB = $GettotB->fields(amt) + $WajibBlnan;
 
 		$sqlGetBKWSP = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payID IN ('1563','1564') and payType = 'B'";
 		$GettotBKWSP =  &$conn->Execute($sqlGetBKWSP);
@@ -480,19 +480,19 @@ if ($Kira <> "") {
 
 	}
 	if (($loanAmt > $loanAmtMax) or ($loanPeriod > $loanPeriodMax)) {
-		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
+		$layakSDesc = 'Pastikan JUMLAH PERPOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
 		$layakS = "N";
 	}
 
 	if ($houseLoan == 1) { // 75%
 
 		if ($loanAmt >= 100000) {
-			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERMOHONAN';
+			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERPOHONAN';
 		}
 
 
 		if ($monthlyPymt > $LayakPay75) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} //else{ 		
@@ -514,7 +514,7 @@ if ($Kira <> "") {
 	} else {
 
 		if ($monthlyPymt > $LayakPay50) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {

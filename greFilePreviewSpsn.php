@@ -88,7 +88,7 @@ print '
 					<td align="center">&nbsp;</td>
 					<td align="center"><b>Nama</b></td>
 					<td align="center" align="center"><b>Saiz</b></td>
-					<td align="center" align="center"><b>Tarikh Terkini</b></td>
+					<td align="center" align="center"><b>Tanggal Terkini</b></td>
 				</tr>';
 	$cnt = 0;
 	$ThisDir = opendir($dir); 

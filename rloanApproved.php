@@ -119,7 +119,7 @@ print '
                         <td nowrap>Cabang/Zona</td>
                         <td align="right" nowrap>Jumlah Pembiayaan (RP)</td>
                         <td align="center" nowrap>Tanggal Pengajuan</td>
-                        <td align="center" nowrap>Tarikh Diluluskan</td>
+                        <td align="center" nowrap>Tanggal Diluluskan</td>
                         <td align="center" nowrap>Beza Kelulusan</td>
                     </tr>';
 

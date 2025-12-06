@@ -92,8 +92,8 @@ $header .=
 
 print $header;
 if ($jumlah <> 0) {
-	$clsRM->setValue($jumlah);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($jumlah);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 $jumlah = number_format($jumlah, 2);
 
@@ -103,11 +103,11 @@ print
 	<tr>
 		<td nowrap="nowrap">&nbsp; </td>
 		<td nowrap="nowrap" align="center">&nbsp;</td>
-		<td nowrap="nowrap" align="right">Tarikh : ' . $tarikh_resit . '</td>
+		<td nowrap="nowrap" align="right">Tanggal : ' . $tarikh_resit . '</td>
 	</tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3">Diterima daripada: <br><u>' . $bayar_nama . '(' . $no_anggota . ')<br> ' . $alamat . '</u><br /><br>
-	Sebanyak RM <u>' . $jumlah . '</u> Ringgit <u>' . $strTotal . '</u><br />
+	Sebanyak RP <u>' . $jumlah . '</u> Ringgit <u>' . $strTotal . '</u><br />
 	untuk bayaran :-</td></tr>
 	<tr><td colspan="3">&nbsp;</td></tr>
 	<tr><td colspan="3"><hr size="1px" /></td></tr>

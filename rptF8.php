@@ -50,8 +50,8 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
 					<th nowrap align="left">&nbsp;Nama Jabatan</th>
-					<th nowrap align="center" width="200">&nbsp;Yuran</th>
-					<th nowrap align="center" width="200">&nbsp;Syer</th>
+					<th nowrap align="center" width="200">&nbsp;Wajib</th>
+					<th nowrap align="center" width="200">&nbsp;Pokok</th>
 				</tr>';
 $totalFee = 0;
 $totalShare = 0;

@@ -40,7 +40,7 @@ $rs = $conn->Execute($sql);
 <p>
 <table cellpadding="0" cellspacing="0">
 	<tr><td><b>Oleh</b></td><td>&nbsp;:&nbsp;</td><td><?=$rs->fields(postedBy);?></td></tr>
-	<tr><td><b>Tarikh</b></td><td>&nbsp;:&nbsp;</td><td><?=todate('/',$rs->fields(postedDate));?></td></tr>
+	<tr><td><b>Tanggal</b></td><td>&nbsp;:&nbsp;</td><td><?=todate('/',$rs->fields(postedDate));?></td></tr>
 </table>
 </p>
 </div>

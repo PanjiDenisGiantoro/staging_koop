@@ -310,7 +310,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "4";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mula Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Mula Insuran (dd/mm/yyyy)";
 $FormElement[$a] 	= "Tkh_Mula";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -319,8 +319,8 @@ $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 $a++;
-$FormLabel[$a]   	= "Tarikh Tamat Insuran (dd/mm/yyyy)";
-$FormElement[$a] 	= "TarikhTamatInsuran";
+$FormLabel[$a]   	= "Tanggal Tamat Insuran (dd/mm/yyyy)";
+$FormElement[$a] 	= "TanggalTamatInsuran";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
@@ -430,7 +430,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 */
 $a++;
-$FormLabel[$a]   	= "Tarikh Mohon";
+$FormLabel[$a]   	= "Tanggal Mohon";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -499,8 +499,8 @@ if ($SubmitForm <> "") {
 		$Tkh_Mula = $getdateStartIns[2] . '/' . sprintf("%02s",  $getdateStartIns[1]) . '/' . sprintf("%02s",  $getdateStartIns[0]);
 
 		//DateFormat:
-		$getdateIns = explode("/", $TarikhTamatInsuran);
-		$TarikhTamatInsuran = $getdateIns[2] . '/' . sprintf("%02s",  $getdateIns[1]) . '/' . sprintf("%02s",  $getdateIns[0]);
+		$getdateIns = explode("/", $TanggalTamatInsuran);
+		$TanggalTamatInsuran = $getdateIns[2] . '/' . sprintf("%02s",  $getdateIns[1]) . '/' . sprintf("%02s",  $getdateIns[0]);
 		//Check if Anggota?
 		if ($NoAnggota > 0) {
 			$Anggota = "Y";
@@ -526,7 +526,7 @@ if ($SubmitForm <> "") {
 			"Jum_Pre_Bersih," .
 			"Cover_Note," .
 			"Tkh_Mula," .
-			"TarikhTamatInsuran," .
+			"TanggalTamatInsuran," .
 			"insuranYear," .
 			//"Pemandu1,".
 			//"NoKPPemandu1,".
@@ -566,7 +566,7 @@ if ($SubmitForm <> "") {
 			tosql($Jum_Pre_Bersih, "Text") . "," .
 			tosql($Cover_Note, "Text") . "," .
 			tosql($Tkh_Mula, "Text") . "," .
-			tosql($TarikhTamatInsuran, "Text") . "," .
+			tosql($TanggalTamatInsuran, "Text") . "," .
 			tosql($insuranYear, "Text") . "," .
 			//tosql($carNCD , "Text") . ",".
 			//tosql($hpCompany , "Text") . ",".
@@ -629,7 +629,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	if ($FormElement[$i] == "applyDate") {
 		$strFormValue = date("d/m/Y");
 	} else {
-		if ($FormElement[$i] == "Tkh_Mula" ||  $FormElement[$i] == "TarikhTamatInsuran" || $FormElement[$i] == "JumlahPremium" || $FormElement[$i] == "insuranYear") {
+		if ($FormElement[$i] == "Tkh_Mula" ||  $FormElement[$i] == "TanggalTamatInsuran" || $FormElement[$i] == "JumlahPremium" || $FormElement[$i] == "insuranYear") {
 			$strFormValue = "";
 		} else {
 			$strFormValue = tohtml($GetInsuran->fields($FormElement[$i]));

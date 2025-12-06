@@ -9,7 +9,7 @@
 <p>Tuan/Puan,</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><b>Permohonan Kemudahan [nama_biaya] Sebanyak RM [jum_biaya] (No Bond : [no_bon_biaya]</b></p>
+<p><b>Permohonan Kemudahan [nama_biaya] Sebanyak RP [jum_biaya] (No Bond : [no_bon_biaya]</b></p>
 <p>Sukacita dimaklumkan bahawa Koperasi [NAMA KOPERASI] telah bersetuju meluluskan permohonan kemudahan <u><b>[nama_biaya]</b></u> tuan/puan dibawah konsep <u><b>Bai Al-Inah</b></u> tertakluk kepada syarat-syarat berikut:-</p>
 <p>
 <table cellpadding="0" cellspacing="0">
@@ -18,14 +18,14 @@
     <td>&nbsp;&nbsp;</td>
     <td class="padding1" valign="top" width="120" colspan="2"><b><u>HARGA JUALAN TANGGUH</u></b></td>
     <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-    <td class="padding1" valign="top"><b>RM [jum_biayauntung]</b></td>
+    <td class="padding1" valign="top"><b>RP [jum_biayauntung]</b></td>
   </tr>
   <tr>
     <td class="padding1" valign="top"><b>2.0</b></td>
     <td>&nbsp;&nbsp;</td>
     <td class="padding1" valign="top" width="120" colspan="2"><b><u>HARGA BELIAN TUNAI OLEH [NAMA KOPERASI]</u></b></td>
     <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-    <td class="padding1" valign="top"><b>RM [jum_biaya]</b></td>
+    <td class="padding1" valign="top"><b>RP [jum_biaya]</b></td>
   </tr>
   <tr>
     <td class="padding1" valign="top"><b>3.0</b></td>
@@ -39,7 +39,7 @@
     <td>&nbsp;&nbsp;</td>
     <td class="padding1" valign="top" width="120" colspan="2"><b><u>BAYAR BALIK</u></b></td>
     <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-    <td class="padding1" valign="top">Tuan/Puan dikehendaki membayar ansuran bulanan sebanyak RM [jumlah_bayarbln] sebulan dari bulan <b><u>1</u></b> ke bulan <b><u>[tempoh_bulan_biaya-1]</u></b> dan RM [jumlah_bayarbln_akhir] untuk bulan ke <b><u>[tempoh_bulan_biaya]</u></b>.<br /> Ansuran pertama bermula pada bulan berikutnya. Ansuran seterusnya hendaklah dibayar pada setiap bulan berikutnya seningga kesemua harga jualan dijelaskan sepenuhnya.
+    <td class="padding1" valign="top">Tuan/Puan dikehendaki membayar ansuran bulanan sebanyak RP [jumlah_bayarbln] sebulan dari bulan <b><u>1</u></b> ke bulan <b><u>[tempoh_bulan_biaya-1]</u></b> dan RP [jumlah_bayarbln_akhir] untuk bulan ke <b><u>[tempoh_bulan_biaya]</u></b>.<br /> Ansuran pertama bermula pada bulan berikutnya. Ansuran seterusnya hendaklah dibayar pada setiap bulan berikutnya seningga kesemua harga jualan dijelaskan sepenuhnya.
     </td>
   </tr>
   <tr>
@@ -54,7 +54,7 @@
     <td>&nbsp;&nbsp;</td>
     <td class="padding1" valign="top" width="120" colspan="2"><b><u>BAYARAN PERKHIDMATAN</u></b></td>
     <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-    <td class="padding1" valign="top">Tuan/Puan dikehendaki menjelaskan bayaran perkhidmatan sebanyak RM [bertindih_caj] pada masa menerima tawaran ini.</td>
+    <td class="padding1" valign="top">Tuan/Puan dikehendaki menjelaskan bayaran perkhidmatan sebanyak RP [bertindih_caj] pada masa menerima tawaran ini.</td>
   </tr>
   <tr>
     <td class="padding1" valign="top"><b>7.0</b></td>

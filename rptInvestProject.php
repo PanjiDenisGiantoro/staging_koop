@@ -100,7 +100,7 @@ print '
   <table width="100%">
     <tr class="font1">
       <td align="left">
-      <b>KOPERASI PERMODALAN FELDA MALAYSIA 2 BERHAD (KPF2)</b><br />
+      <b>KOPERASI PERPODALAN FELDA MALAYSIA 2 BERHAD (KPF2)</b><br />
       TINGKAT 1, BALAI FELDA,<br />
       JALAN GURNEY 1,<br />
       54000 KUALA LUMPUR,<br />
@@ -349,7 +349,7 @@ print '
   <div class="font5" align="right">Amount due (MYR)</div>
   <table width="10%" align="right">
     <tr class="font5">
-      <td align="left">RM</td>
+      <td align="left">RP</td>
       <td align="right">'.$endingBalance.'</td>
     </tr>
   </table>'; 

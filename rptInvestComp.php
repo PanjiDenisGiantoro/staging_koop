@@ -20,14 +20,14 @@ $sSQL = "SELECT * FROM transactionacc WHERE pymtRefer = ".$id." AND docID IN (6,
 
 $rs = &$conn->Execute($sSQL);
 
-$getYuranOpen = "SELECT 
+$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transactionacc
 		WHERE
 		pymtRefer = '".$id."' 
 		GROUP BY pymtRefer";
-$rsYuranOpen = $conn->Execute($getYuranOpen);
+$rsWajibOpen = $conn->Execute($getWajibOpen);
 
 $getInvest = "SELECT SUM(openbalpro) as balance, nameproject FROM investors WHERE compID = ".$id."";
 $rsInvest = $conn->Execute($getInvest);
@@ -176,7 +176,7 @@ print '
   <table width="100%">
     <tr class="font1">
       <td align="left">
-      <b>KOPERASI PERMODALAN FELDA MALAYSIA 2 BERHAD (KPF2)</b><br />
+      <b>KOPERASI PERPODALAN FELDA MALAYSIA 2 BERHAD (KPF2)</b><br />
       TINGKAT 1, BALAI FELDA,<br />
       JALAN GURNEY 1,<br />
       54000 KUALA LUMPUR,<br />
@@ -343,7 +343,7 @@ print '
   <div class="font5" align="right">Amount due (MYR)</div>
   <table width="10%" align="right">
     <tr class="font5">
-      <td align="left">RM</td>
+      <td align="left">RP</td>
       <td align="right">'.$endingBalance.'</td>
     </tr>
   </table>';

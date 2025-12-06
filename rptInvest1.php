@@ -57,8 +57,8 @@ print '
 					<th nowrap width="100" align="left">Nama Projek</th>
 					<th nowrap width="80" align="left">Lokasi</th>
 					<th align="center" nowrap width="80">Keluasan Tanah</th>
-					<th nowrap width="80">Tarikh Mula</th>	
-					<th nowrap width="80">Tarikh Akhir</th>
+					<th nowrap width="80">Tanggal Mula</th>	
+					<th nowrap width="80">Tanggal Akhir</th>
 					<th nowrap width="80">Tempoh Perjanjian (Bulan)</th>
 					<th align="right" nowrap width="80">Nilai Pelaburan (RP)</th>
 					<th align="center" nowrap width="80">Status</th>

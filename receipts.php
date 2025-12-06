@@ -216,8 +216,8 @@ if ($ID) {
 				<td class="Data" nowrap="nowrap" align="right"><input type="text" name="jumlah" class="Data" value="' . $jumlah . '" onfocus="this.blur()" size="10">&nbsp;</td>
 			</tr>';
 	if ($jumlah <> 0) {
-		$clsRM->setValue($jumlah);
-		$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+		$clsRP->setValue($jumlah);
+		$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 	}
 } else {
 	print 		'<tr>

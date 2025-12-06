@@ -33,7 +33,7 @@ $rs = &$conn->Execute($sSQL);
 
 $sFee = "SELECT 
 		userID, 
-		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalYuran
+		SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END ) AS totalWajib
 		FROM transaction
 		WHERE 
 		deductID in (1595,1607)
@@ -47,7 +47,7 @@ $arrFee = array();
 if ($rsFee->RowCount() <> 0) {
 	while (!$rsFee->EOF) {
 		$userID = $rsFee->fields(userID);
-		$arrFee[$userID] = $rsFee->fields(totalYuran);
+		$arrFee[$userID] = $rsFee->fields(totalWajib);
 		$rsFee->MoveNext();
 	}
 }
@@ -60,7 +60,7 @@ $fname = trim($fname);
 $fname = 'auditBiaya.csv';
 $filename = $dpath . '/' . $fname;
 $file = fopen($filename, 'w', 1);
-fwrite($file, "Bil, Nomor Anggota, Nama, Tarikh Masuk Anggota, Jumlah yuran, Kod pembiayaan, Jumlah pembiayaan, Tempoh, Kadar Keuntunggan, Jumlah ansuran bulanan, Tarikh mohon, Tarikh lulus, Tarikh pengeluaran, Baki Pembiayaan, Jumlah Tunggakan, Caj perkhidmatan, Penjamin 1, Penjamin 2, Penjamin 3, Tarikh terima LO");
+fwrite($file, "Bil, Nomor Anggota, Nama, Tanggal Masuk Anggota, Jumlah yuran, Kod pembiayaan, Jumlah pembiayaan, Tempoh, Kadar Keuntunggan, Jumlah ansuran bulanan, Tanggal mohon, Tanggal lulus, Tanggal pengeluaran, Baki Pembiayaan, Jumlah Tunggakan, Caj perkhidmatan, Penjamin 1, Penjamin 2, Penjamin 3, Tanggal terima LO");
 fwrite($file, "\r\n");
 
 print '
@@ -86,10 +86,10 @@ print '
 		<td>
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">';
-/*Bil	Nomor Anggota	Nama	Tarikh menjadi anggota	
+/*Bil	Nomor Anggota	Nama	Tanggal menjadi anggota	
 Jumlah Wajib Bulanan	Kod Pembiayaan	Jumlah Pembiayaan	Tempoh Pembiayaan	Kadar Keuntungan	Jumlah ansuran bulanan	
 
-Tarikh mohon	Tarikh Lulus	----Tarikh pengeluaran	Baki Pembiayaan @30/11/2006	Jumlah Tunggakan-----
+Tanggal mohon	Tanggal Lulus	----Tanggal pengeluaran	Baki Pembiayaan @30/11/2006	Jumlah Tunggakan-----
 
 Tambahan	
 
@@ -101,23 +101,23 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap align="left">&nbsp;Nomor Anggota</th>
 					<th nowrap align="left">&nbsp;Nama</th>
-					<th nowrap align="left">&nbsp;Tarikh Masuk Anggota</th>
+					<th nowrap align="left">&nbsp;Tanggal Masuk Anggota</th>
 					<th nowrap align="left">&nbsp;Jumlah yuran</th>
 					<th nowrap align="left">&nbsp;Kod pembiayaan</th>
 					<th nowrap align="left">&nbsp;Jumlah pembiayaan</th>
 					<th nowrap align="left">&nbsp;Tempoh</th>
 					<th nowrap align="left">&nbsp;Kadar Keuntunggan</th>
 					<th nowrap align="left">&nbsp;Jumlah ansuran bulanan</th>
-					<th nowrap align="left">&nbsp;Tarikh mohon</th>
-					<th nowrap align="left">&nbsp;Tarikh lulus</th>
-					<th nowrap align="left">&nbsp;Tarikh pengeluaran</th>
+					<th nowrap align="left">&nbsp;Tanggal mohon</th>
+					<th nowrap align="left">&nbsp;Tanggal lulus</th>
+					<th nowrap align="left">&nbsp;Tanggal pengeluaran</th>
 					<th nowrap align="left">&nbsp;Baki Pembiayaan</th>
 					<th nowrap align="left">&nbsp;Jumlah Tunggakan</th>
 					<th nowrap align="left">&nbsp;Caj perkhidmatan</th>
 					<th nowrap align="left">&nbsp;Penjamin 1</th>
 					<th nowrap align="left">&nbsp;Penjamin 2</th>
 					<th nowrap align="left">&nbsp;Penjamin 3</th>
-					<th nowrap align="left">&nbsp;Tarikh terima lo</th>
+					<th nowrap align="left">&nbsp;Tanggal terima lo</th>
 				</tr>';
 $total = 0;
 if ($rs->RowCount() <> 0) {

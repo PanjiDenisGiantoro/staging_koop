@@ -73,7 +73,7 @@ if ($page == 'list') {
 	$strTitle = $strTitle.' Anggota';
 }
 */
-$strHeaderTitle = '<b>&nbsp;INFORMASI PEMBIAYAAN HUTANG MACET&nbsp;</b>';
+$strHeaderTitle = '<b>&nbsp;INFORPASI PEMBIAYAAN HUTANG MACET&nbsp;</b>';
 
 if ($page == 'list') {
 	$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
@@ -141,7 +141,7 @@ if ($page <> 'list') {
 		. ' AND   a.loanID = b.loanID';
 	$GetData2 = $conn->Execute($sSQL2);
 
-	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tarikh Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tanggal Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
 
 	if ($GetData->RowCount() <> 0) {
 		$strStartDate = toDate('d/m/Y', $GetData->fields('approvedDate'));
@@ -204,7 +204,7 @@ if ($page <> 'list') {
 			strtoupper(dlookup("users", "name", "userID=" . tosql($GetData->fields('userID'), "Text"))),
 			dlookup("userdetails", "memberID", "userID=" . tosql($GetData->fields('userID'), "Text")),
 			$strLoanName,
-			'RM&nbsp;' . $fLoanAmount,
+			'RP&nbsp;' . $fLoanAmount,
 			$loanType,
 			$strStartDate,
 			$NoBond,

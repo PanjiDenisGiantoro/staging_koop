@@ -263,7 +263,7 @@ while (!$rsLoan->EOF) {
 	</tr>
 	<tr>
 		<td>Bayaran Bulanan <b>BB</b></td>
-		<td>:&nbsp;<b>RM ' . number_format($monthlyPymt, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($monthlyPymt, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td>No Bond</td>
@@ -271,11 +271,11 @@ while (!$rsLoan->EOF) {
 	</tr>
 	<tr>
 		<td>Jumlah Pembiayaan</td>
-		<td>:&nbsp;<b>RM ' . number_format($loanAmt, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($loanAmt, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td>Jumlah Keuntungan</td>
-		<td>:&nbsp;<b>RM ' . number_format($profit, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($profit, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td>Rate</td>
@@ -290,7 +290,7 @@ while (!$rsLoan->EOF) {
 		<td colspan="2">Akhir Bayaran Terkini <b>' . $monthEnd . ' / ' . $yearEnd . '</b></td>
 	</tr>	
 	<tr>
-		<td colspan="2">Jumlah Keseluruhan Bayaran : <b>RM ' . number_format($rsBayar->fields(dahBayar), 2) . '</b></td>
+		<td colspan="2">Jumlah Keseluruhan Bayaran : <b>RP ' . number_format($rsBayar->fields(dahBayar), 2) . '</b></td>
 	</tr>
     <!--tr>
 		<td colspan="2">' . dlookup("general", "name", "ID=" . tosql($loanType, "Text")) . ' / ' . $loanNo . '</td>
@@ -519,7 +519,7 @@ while (!$rsLoan->EOF) {
 	print '</table>
             <tr><td><br/></td></tr>
             <tr>
-                <td colspan="2">Total bayaran yang perlu di buat bayaran <i>full settlement</i> sebanyak (A) + (B) = <b>RM ' . number_format($bakiSemasa + $total_caj, 2) . '</b></td>
+                <td colspan="2">Total bayaran yang perlu di buat bayaran <i>full settlement</i> sebanyak (A) + (B) = <b>RP ' . number_format($bakiSemasa + $total_caj, 2) . '</b></td>
             </tr>
 		</td>
 	</tr>';

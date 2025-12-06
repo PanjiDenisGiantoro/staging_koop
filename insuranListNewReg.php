@@ -205,7 +205,7 @@ if ($q <> "") {
 	} else if ($by == 4) {
 		$sWhere .= " NoKenderaan like '%" . $q . "%'";
 	} else if ($by == 5) {
-		$sWhere .= "DATEDIFF(TarikhTamatInsuran,CURDATE()) <" . $q . "";
+		$sWhere .= "DATEDIFF(TanggalTamatInsuran,CURDATE()) <" . $q . "";
 	}
 }
 
@@ -213,7 +213,7 @@ if ($q <> "") {
 $sWhere = " WHERE (" . $sWhere . ")";
 
 $sSQL = "";
-$sSQL = "SELECT * ,DATEDIFF(TarikhTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
+$sSQL = "SELECT * ,DATEDIFF(TanggalTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
 if ($q <> "") {
 	$sSQL = $sSQL . $sWhere . ' and (status =0 or status is null) ORDER BY applyDate DESC';
 } else {
@@ -323,9 +323,9 @@ if ($GetListIns->RowCount() <>	0) {
 						<td	nowrap align="center"><b>Nombor Kenderaan</b></td>
 					    <td	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>						
 						<td	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
-						<td nowrap align="center"><b>Tarikh Mula Insuran</b></td>
-						<td	nowrap align="center"><b>Tarikh Tamat Insuran</b></td>						
-						<td	nowrap align="center"><b>Tarikh Mohon</b></td>
+						<td nowrap align="center"><b>Tanggal Mula Insuran</b></td>
+						<td	nowrap align="center"><b>Tanggal Tamat Insuran</b></td>						
+						<td	nowrap align="center"><b>Tanggal Mohon</b></td>
 						<td	nowrap align="right"><b>Edit</b></td>
 						<td	nowrap><b>&nbsp;</b></td>
 					</tr>';
@@ -343,11 +343,11 @@ if ($GetListIns->RowCount() <>	0) {
 		$Jum_Pre_Bersih = tohtml($GetListIns->fields(Jum_Pre_Bersih));
 		$Cover_Note = tohtml($GetListIns->fields(Cover_Note));
 		$Tkh_Mula = toDate("d/m/yy", $GetListIns->fields(Tkh_Mula));
-		$Tkh_Tamat = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
+		$Tkh_Tamat = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
 		$nokenderaan = tohtml($GetListIns->fields(NoKenderaan));
 		$status = tohtml($GetListIns->fields(Status));
 		$days = tohtml($GetListIns->fields(days));
-		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
+		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
 		$dateApply = toDate("d/m/yy", $GetListIns->fields(applyDate));
 		$idSedia = tohtml($GetListIns->fields(isPrepared));
 		$rpreparedby = dlookup("users", "name", "userID='" . $idSedia . "'");

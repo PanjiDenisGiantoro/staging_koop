@@ -108,7 +108,7 @@ print '<table border="0" cellpadding="3" cellspacing="0" width="100%" align="cen
 <h3 class="card-title">' . strtoupper($title) . '</h3>';
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN DAN PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
+	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN DAN PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
 
 	if ($cnt == 1) print '<tr valign=top>';
 	print '<td class=Data align=right>' . $FormLabel[$i];

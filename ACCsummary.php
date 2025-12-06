@@ -229,7 +229,7 @@ if (in_array($sourceMain, array("default", "debtor"))) {
                     <hr>
                     <div class="count" style="color: ' . $data['color'] . ';">' . $data['count'] . ' entri (' . ($totalEntries > 0 ? round(($data['count'] / $totalEntries) * 100) : 0) . '%)</div>
                     <div class="amount" style="color: ' . $data['color'] . ';">
-                        <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+                        <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
                     </div>
                 </div>';
             }
@@ -269,7 +269,7 @@ if (in_array($sourceMain, array("default", "debtor"))) {
                                 const counts = [' . intval($lateCount) . ', ' . intval($unpaidCount) . ', ' . intval($paidCount) . ', ' . intval($invalidCount) . '];
                                 const amounts = [' . intval($lateAmount) . ', ' . intval($unpaidAmount) . ', ' . intval($paidAmount) . ', ' . intval($invalidAmount) . '];
                                 const index = tooltipItem.dataIndex;
-                                return labels[index] + ": RM" + amounts[index] + " (" + counts[index] + " invois)";
+                                return labels[index] + ": RP" + amounts[index] + " (" + counts[index] + " invois)";
                             }
                         }
                     }
@@ -377,7 +377,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -501,7 +501,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -606,7 +606,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -731,7 +731,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -825,7 +825,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -922,7 +922,7 @@ foreach ($overallSummary as $key => $data) {
         <strong>' . $key . '</strong>
         <hr>
         <div class="amount" style="color: ' . $data['color'] . ';">
-            <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+            <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
         </div>
     </div>
 </div>
@@ -1024,7 +1024,7 @@ $unbalancedCount = $conn->Execute($sqlUnbalanced)->fields['count'];
                     <hr>
                     <div class="count" style="color: ' . $data['color'] . ';">' . $data['count'] . ' entri (' . ($totalEntries > 0 ? round(($data['count'] / $totalEntries) * 100) : 0) . '%)</div>
                     <div class="amount" style="color: ' . $data['color'] . ';">
-                        <span style="font-size: 0.8em; font-weight: normal;">RM </span>' . number_format($data['amount'], 2) . '
+                        <span style="font-size: 0.8em; font-weight: normal;">RP </span>' . number_format($data['amount'], 2) . '
                     </div>
                 </div>';
             }
@@ -1064,7 +1064,7 @@ $unbalancedCount = $conn->Execute($sqlUnbalanced)->fields['count'];
                                 const counts = [' . intval($lateCount) . ', ' . intval($unpaidCount) . ', ' . intval($paidCount) . ', ' . intval($invalidCount) . '];
                                 const amounts = [' . intval($lateAmount) . ', ' . intval($unpaidAmount) . ', ' . intval($paidAmount) . ', ' . intval($invalidAmount) . '];
                                 const index = tooltipItem.dataIndex;
-                                return labels[index] + ": RM" + amounts[index] + " (" + counts[index] + " invois)";
+                                return labels[index] + ": RP" + amounts[index] + " (" + counts[index] + " invois)";
                             }
                         }
                     }

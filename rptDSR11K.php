@@ -17,7 +17,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Kelulusan Pembiayaan RM10001 Dan Ke Atas Lulus';
+$title  = 'Kelulusan Pembiayaan RP10001 Dan Ke Atas Lulus';
 
 $sSQL = "";
 

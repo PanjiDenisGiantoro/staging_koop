@@ -148,7 +148,7 @@ while (!$rsLoan->EOF) {
 		<table border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 		<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 		<th nowrap>Bil</th>
-		<th width="15%">Tarikh</th>
+		<th width="15%">Tanggal</th>
 		<th width="10%" align="left">&nbsp;Nombor rujukan</th>
 		<th nowrap align="left">&nbsp;Item</th>
 		<th width="10%">&nbsp;Debit</th>

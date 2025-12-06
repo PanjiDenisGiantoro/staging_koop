@@ -491,7 +491,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Resit</td>
+				<td valign="top" align="right">Tanggal Resit</td>
 				<td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikh_resit">
@@ -566,7 +566,7 @@ print '
 			</tr>
 
 			<tr>
-				<td valign="top" align="right">Tarikh Terimaan</td><td valign="top"></td>
+				<td valign="top" align="right">Tanggal Terimaan</td><td valign="top"></td>
 				<td>
 				<div class="input-group" id="tarikhterima">
 				<input type="text" name="tarikhterima" class="form-control-sm" placeholder="dd/mm/yyyy"
@@ -833,8 +833,8 @@ if ($add) {
 }
 //bahagian bawah skali
 if ($totalKt <> 0) {
-    $clsRM->setValue($totalKt);
-    $strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+    $clsRP->setValue($totalKt);
+    $strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 $kerani = get_session('Cookie_fullName');
@@ -965,7 +965,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  if(act == \'Kemaskini\') {
   
 		  if(e.elements[c].name=="tarikh_resit" && e.elements[c].value==\'\') {
-			  alert(\'Pilih Tarikh Resit!\');
+			  alert(\'Pilih Tanggal Resit!\');
 			  count++;
 			}
 		  }
@@ -973,7 +973,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  if(act == \'Kemaskini\') {
 
 		  if(e.elements[c].name=="tarikhterima" && e.elements[c].value==\'\') {
-			alert(\'Pilih Tarikh Terimaan!\');
+			alert(\'Pilih Tanggal Terimaan!\');
 			count++;
 			}
 		  }
@@ -999,12 +999,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 
 		if(e.elements[c].name=="tarikh_resit" && e.elements[c].value==\'\') {
-			alert(\'Pilih Tarikh Resit!\');
+			alert(\'Pilih Tanggal Resit!\');
 			count++;
 		}
 
 		if(e.elements[c].name=="tarikhterima" && e.elements[c].value==\'\') {
-			alert(\'Pilih Tarikh Terimaan!\');
+			alert(\'Pilih Tanggal Terimaan!\');
 			count++;
 		}
 

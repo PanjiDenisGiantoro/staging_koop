@@ -198,7 +198,7 @@ print '
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header">INFORMASI ANGGOTA</div>';
+	if ($i == 1) print '<div class="card-header">INFORPASI ANGGOTA</div>';
 	if ($i == 3) {
 		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PENGAJUAN BANTUAN</div></td></tr>';
 	}

@@ -34,7 +34,7 @@ if (
 
 $sFileName = "?vw=memberPotonganHL&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmtPotonganHL&mn=$mn";
-$title     = "Senarai Potongan Gaji (PGB) Pembiayaan / Yuran";
+$title     = "Senarai Potongan Gaji (PGB) Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -178,7 +178,7 @@ print '		</select>
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap colspan="8" height="20"><b>JUMLAH POTONGAN RM : ' . $SUMALL . '</b></td>
+						<td nowrap colspan="8" height="20"><b>JUMLAH POTONGAN RP : ' . $SUMALL . '</b></td>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
 						<td nowrap><b>Nomor/Nama Anggota</b></td>

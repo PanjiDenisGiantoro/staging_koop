@@ -96,7 +96,7 @@ print '
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		} else if (rpt=="rptSenaraiBakiAkhirSBP"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
-		} else if (rpt=="rptPecahanPinYuran"){
+		} else if (rpt=="rptPecahanPinWajib"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		} else {
 			url = "selYear.php?rpt="+rpt+"&id=ALL";
@@ -107,7 +107,7 @@ print '
 	
 	function selectHotList(rpt) {
 	
-		if (rpt=="hotYuran" || rpt=="hotPembiayaan") {
+		if (rpt=="hotWajib" || rpt=="hotPembiayaan") {
 			url = "selTempoh.php?rpt="+rpt;
 			window.open(url ,"pop","top=100,left=100,width=500,height=100,scrollbars=no,resizable=no,toolbars=no,location=no,menubar=no");					
 		} else {

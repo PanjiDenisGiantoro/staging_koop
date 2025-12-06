@@ -60,7 +60,7 @@ print '
 	<td align="center">Nomor Rujukan</td>
 	<td align="center">Nombor Bond</td>
 	<td align="right">Jumlah Pembiayaan (RP)</td>
-	<td align="center">Tarikh Pembiayaan Diluluskan</td>
+	<td align="center">Tanggal Pembiayaan Diluluskan</td>
 </tr>';
 if ($GetMember->RowCount() <> 0) {
 	$bil = 1;

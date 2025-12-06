@@ -106,7 +106,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Yuran bulanan";
+$FormLabel[$a]   	= "Wajib bulanan";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -473,7 +473,7 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap>&nbsp;Nombor anggota</td>
 						<td nowrap>&nbsp;Nama</td>
 						<td nowrap align="center">&nbsp;Nombor bond</td>						
-						<td nowrap align="center">&nbsp;Yuran/Syer terkumpul</td>
+						<td nowrap align="center">&nbsp;Wajib/Pokok terkumpul</td>
 						<td nowrap align="center">&nbsp;Baki Pinjaman</td>
 						<td nowrap align="center">&nbsp;80% yuran/syer</td>
 						<td nowrap align="center">&nbsp;Baki sebenar</td>

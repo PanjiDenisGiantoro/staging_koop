@@ -240,7 +240,7 @@ if ($GetLoan->RowCount() <>	0) {
 		<td	nowrap>&nbsp;No kad pengenalan</td>
 		<td	nowrap align="center">&nbsp;Jumlah</td>
 		<td	nowrap align="center">&nbsp;Status</td>
-		<td	nowrap align="center">&nbsp;Tarikh ';
+		<td	nowrap align="center">&nbsp;Tanggal ';
 	if ($filter == "ALL" || $filter == "0") {
 		print ' Memohon';
 	} else {

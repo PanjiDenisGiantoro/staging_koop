@@ -271,7 +271,7 @@ function listGeneral($id, $level) {
                     <th width="10%">Kode</th>
                     <th width="20%">Nama Simpanan</th>
                     <th width="12%">Jenis</th>
-                    <th width="15%">Kode Ledger</th>
+                    <th width="15%">Kode Master Ledger</th>
                     <th width="13%" class="text-end">Setoran Pokok</th>
                     <th width="15%">Deskripsi</th>
                     <th width="10%" class="text-center">Status</th>

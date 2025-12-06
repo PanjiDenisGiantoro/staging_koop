@@ -17,7 +17,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Kelulusan Pembiayaan RM10001 Dan Ke Atas Lulus (<=40%)';
+$title  = 'Kelulusan Pembiayaan RP10001 Dan Ke Atas Lulus (<=40%)';
 
 $sSQL = "";
 $sSQL = "SELECT a.*,b.*,c.grossPay, DATEDIFF(a.applyDate,b.ajkDate2)as date1

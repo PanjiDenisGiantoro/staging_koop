@@ -77,7 +77,7 @@ print '
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Nomor Anggota</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
-					<th nowrap>&nbsp;Tarikh Keluar</th>
+					<th nowrap>&nbsp;Tanggal Keluar</th>
 					<th nowrap>&nbsp;Jumlah</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

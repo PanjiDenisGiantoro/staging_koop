@@ -112,7 +112,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Menjadi Staf";
+$FormLabel[$a]   	= "Tanggal Menjadi Staf";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -303,7 +303,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Masuk";
+$FormLabel[$a]   	= "Tanggal Masuk";
 $FormElement[$a] 	= "dateJoin";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -313,7 +313,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Tamat";
+$FormLabel[$a]   	= "Tanggal Tamat";
 $FormElement[$a] 	= "dateEnd";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -573,7 +573,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1)  print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
+	if ($i == 1)  print '<div class="card-header mb-3">INFORPASI PENDAFTARAN ID</div>';
 	if ($i == 7)  print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
 	if ($i == 25) print '<div class="card-header mb-3">B. HUBUNGAN KECEMASAN</div>';
 	if ($i == 37) {

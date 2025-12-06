@@ -90,8 +90,8 @@ $header .=
 
 print $header;
 if($jumlah<>0){
-	$clsRM->setValue($jumlah);
-	$strTotal = ucwords($clsRM->getValue()).' Ringgit Sahaja.';
+	$clsRP->setValue($jumlah);
+	$strTotal = ucwords($clsRP->getValue()).' Ringgit Sahaja.';
 }
 $jumlah = number_format($jumlah,2);
 
@@ -173,8 +173,8 @@ print
 			$rsDetail->MoveNext();
 			}
 			if($jumlah<>0){
-			$clsRM->setValue($jumlah);
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($jumlah);
+			$strTotal = ucwords($clsRP->getValue());
 			}
 		}
 
@@ -184,7 +184,7 @@ print '
 			<tr><td colspan="5">&nbsp;</td></tr>
 			<tr><td colspan="5"><hr size="1px" /></td></tr>
 			<tr>
-				<td nowrap="nowrap" valign="top" align="left"><b>&nbsp;JUMLAH: RM&nbsp;</b></td>
+				<td nowrap="nowrap" valign="top" align="left"><b>&nbsp;JUMLAH: RP&nbsp;</b></td>
 				<td nowrap="nowrap" align="left">&nbsp;</td>
 				<td nowrap="nowrap" align="left">&nbsp;</td>
 				<td nowrap="nowrap" align="center"><b>&nbsp;'.number_format($jumlah1,2).'&nbsp;</b></td>
@@ -203,7 +203,7 @@ print '
 	<br></br><br></br><br></br>
 		<table cellpadding="0" cellspacing="0" width="100%">
 			<tr>
-				<td nowrap="nowrap"><table cellpadding="0" cellspacing="0"><tr><td align="center">RM'.number_format($jumlah1,2).'<br />Tunai/Cheque</td></tr></table></td>
+				<td nowrap="nowrap"><table cellpadding="0" cellspacing="0"><tr><td align="center">RP'.number_format($jumlah1,2).'<br />Tunai/Cheque</td></tr></table></td>
 				<td nowrap="nowrap">&nbsp;</td>
 				<td nowrap="nowrap" align="right"><table cellpadding="0" cellspacing="0"><tr><td align="center">_____________________________<br />Disemak</td></tr></table></td>
 			</tr>

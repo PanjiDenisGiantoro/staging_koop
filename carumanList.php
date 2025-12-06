@@ -359,7 +359,7 @@ button:active{
 						<td class="Data" align="center">' . $bil . '</td>
 						<td class="Data" nowrap="nowrap"><input type="checkbox" class="form-check-input" name="pk[]" value="' . $carumanID . '" data-status="' . $status . '"></td>
 						<td class="Data">' . $GetMember->fields('memberID') . ' - ' . $GetMember->fields('name') . '</td>
-						<td class="Data" align="center">' . $carumanTypeList[$type] . '<br><div style="white-space: nowrap;">(Terkumpul: RM' . $tot . ')</div></td>
+						<td class="Data" align="center">' . $carumanTypeList[$type] . '<br><div style="white-space: nowrap;">(Terkumpul: RP' . $tot . ')</div></td>
 						<td class="Data" align="right">' . number_format($withdrawAmt, 2) . '</td>
 						<td class="Data" align="center">' . $colorStatus . '</td>
 						<td class="Data" align="center">' . toDate("d/m/Y", $GetMember->fields('applyDate')) . '</td>

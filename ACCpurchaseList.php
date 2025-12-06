@@ -208,7 +208,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap><b>Nombor Purchase Order</b></td>
 						<td nowrap align="center"><b>Nama Batch</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap><b>Nama Serikat | TIN LHDN</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Tindakan</b></td>

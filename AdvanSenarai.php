@@ -285,7 +285,7 @@ if (($IDName == 'superadmin') OR ($IDName == 'admin')) {
 						<td	nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td	nowrap align="center"><b>Status</b></td>
 						<!--td	nowrap align="center"><b>&nbsp;</b></td-->
-						<td	nowrap align="center"><b>Tarikh';
+						<td	nowrap align="center"><b>Tanggal';
 	if ($filter == "ALL" || $filter == "0") {
 		print ' Memohon</b>';
 	} else {

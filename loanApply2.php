@@ -356,7 +356,7 @@ if ($Semak <> "") {
 	$picjwtn = dlookup("userloandetails", "jwtn_img", "userID=" . tosql($userID, "Text"));
 	$picic = dlookup("userloandetails", "ic_img", "userID=" . tosql($userID, "Text"));
 	$picccris = dlookup("userloandetails", "ccris_img", "userID=" . tosql($userID, "Text"));
-	$YuranBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
+	$WajibBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
 
 	$sqlGet = "select SUM(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'A'";
 	$GettotA =  &$conn->Execute($sqlGet);
@@ -371,7 +371,7 @@ if ($Semak <> "") {
 		//potongan gaji	
 		$sqlGetB = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'B'";
 		$GettotB =  &$conn->Execute($sqlGetB);
-		$totalB = $GettotB->fields(amt) + $YuranBlnan; // total jumlah perbelanjaan
+		$totalB = $GettotB->fields(amt) + $WajibBlnan; // total jumlah perbelanjaan
 
 		$sqlGetBKWSP = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payID IN ('1563','1564') and payType = 'B'";
 		$GettotBKWSP =  &$conn->Execute($sqlGetBKWSP);
@@ -410,19 +410,19 @@ if ($Semak <> "") {
 		}
 	}
 	if (($loanAmt > $loanAmtMax) or ($loanPeriod > $loanPeriodMax)) { //amik lepas KIRA
-		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
+		$layakSDesc = 'Pastikan JUMLAH PERPOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
 		$layakS = "N";
 	}
 
 	if ($houseLoan == 1) { // 75%
 
 		if ($loanAmt >= 100000) {
-			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERMOHONAN';
+			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERPOHONAN';
 		}
 
 
 		if ($monthlyPymt > $LayakPay75) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {
@@ -434,7 +434,7 @@ if ($Semak <> "") {
 	} else {
 
 		if ($monthlyPymt > $LayakPay50) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {
@@ -450,7 +450,7 @@ if ($Semak <> "") {
 
 if ($Kira <> "") {
 	if ($maxAmount > $loanAmt) {
-		$layakSDesc = 'Jumlah Permohonan melebihi had maksimum yang ditetapkan. Jumlah maksimum yang layak dipohon adalah tidak melebihi RM ' . number_format($loanAmt, 2) . '<br><br>';
+		$layakSDesc = 'Jumlah Permohonan melebihi had maksimum yang ditetapkan. Jumlah maksimum yang layak dipohon adalah tidak melebihi RP ' . number_format($loanAmt, 2) . '<br><br>';
 		$layakS = "N";
 	} else {
 		$layakSDesc = 'Layak Mengajukan Permohonan (Dalam Proses) dan DSR' . $Nisbahdsr . '%';
@@ -460,7 +460,7 @@ if ($Kira <> "") {
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header">INFORMASI ANGGOTA</div>';
+	if ($i == 1) print '<div class="card-header">INFORPASI ANGGOTA</div>';
 	if ($i == 3) {
 		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PENGAJUAN PEMBIAYAAN</div></td></tr>';
 	}
@@ -589,7 +589,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	
 			if ($maxAmount > $loanAmt) {
 				print '<label><input type="text" name="maxAmount" class="form-controlx text-danger" id="maxAmount" value="' . $maxAmount . '" style="font-weight: bold;" ' . $readonly . '></label>';
-				print '<br/><i class="mdi mdi-information-outline text-danger"> Jumlah Maksima Permohonan tidak boleh melebihi jumlah pembiayaan yang dibenarkan iaitu sebanyak RM ' . number_format($loanAmt, 2) . '. <u>Sila tukar jumlah tersebut.</u></i>';
+				print '<br/><i class="mdi mdi-information-outline text-danger"> Jumlah Maksima Permohonan tidak boleh melebihi jumlah pembiayaan yang dibenarkan iaitu sebanyak RP ' . number_format($loanAmt, 2) . '. <u>Sila tukar jumlah tersebut.</u></i>';
 			} else {
 				print '<label><input type="text" name="maxAmount" class="form-controlx text-primary" id="maxAmount" value="' . $maxAmount . '" ' . $readonly . '></label>';
 			}
@@ -609,11 +609,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 			}
 
 			print '</td></tr>
-			<tr><td class="Data">Jumlah Pembiayaan ( Termasuk Untung )</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($totalLoan, 2, '.', ',') . '</b></td></tr>
-			<tr><td class="Data">Bayaran Pokok</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($monthlyPay, 2, '.', ',') . '</b></td></tr>
-			<tr><td class="Data">Bayaran Pokok Terakhir</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($lastmonthlyPay, 2, '.', ',') . '</b></td></tr>
-			<tr><td class="Data">Untung Bulanan</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($interestPay, 2, '.', ',') . '</b></td></tr>
-			<tr><td class="Data">Untung Bulanan Terakhir</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($lastinterestPay, 2, '.', ',') . '</b></td></tr>
+			<tr><td class="Data">Jumlah Pembiayaan ( Termasuk Untung )</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($totalLoan, 2, '.', ',') . '</b></td></tr>
+			<tr><td class="Data">Bayaran Pokok</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($monthlyPay, 2, '.', ',') . '</b></td></tr>
+			<tr><td class="Data">Bayaran Pokok Terakhir</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($lastmonthlyPay, 2, '.', ',') . '</b></td></tr>
+			<tr><td class="Data">Untung Bulanan</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($interestPay, 2, '.', ',') . '</b></td></tr>
+			<tr><td class="Data">Untung Bulanan Terakhir</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($lastinterestPay, 2, '.', ',') . '</b></td></tr>
 			</table></div>';
 		}
 	}

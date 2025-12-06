@@ -60,8 +60,8 @@ print '
 					<td nowrap><b>Nama</b></td>
 					<td nowrap><b>Kartu Identitas</b></td>
 					<td nowrap><b>Cabang/Zona</b></td>
-					<td nowrap align="center"><b>Tarikh Permohonan</b></td>
-					<td nowrap align="center"><b>Tarikh Ditolak</b></td>
+					<td nowrap align="center"><b>Tanggal Permohonan</b></td>
+					<td nowrap align="center"><b>Tanggal Ditolak</b></td>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

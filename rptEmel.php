@@ -55,7 +55,7 @@ print '
 					<th nowrap>&nbsp;Nombor KP Baru</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
 					<th nowrap>&nbsp;Jenis surat</th>
-					<th nowrap>&nbsp;Tarikh Hantar</th>
+					<th nowrap>&nbsp;Tanggal Hantar</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

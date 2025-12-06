@@ -52,7 +52,7 @@ print '
 						<td nowrap align="center"><b>Jangka Waktu (Bulan)</b></td>
 						<td nowrap align="center"><b>Status</b></td>
 						<td nowrap align="center"><b>Surat Tawaran</b></td>
-						<td nowrap align="center"><b>Tarikh Kelulusan</b></td>
+						<td nowrap align="center"><b>Tanggal Kelulusan</b></td>
 					</tr>';	
 		while (!$GetLoan->EOF && $cnt <= $pg) {
 			$jabatan = dlookup("userdetails", "departmentID", "userID=" . tosql($GetLoan->fields(userID), "Text"));

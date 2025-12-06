@@ -189,7 +189,7 @@ print'
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
 						<td nowrap><b>No. Invois</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap><b>Nama Serikat</b></td>
 						<td nowrap><b>Nama Projek</b></td>
 						<td nowrap align="center"><b>Catatan</b></td>

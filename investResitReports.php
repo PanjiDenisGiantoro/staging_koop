@@ -49,7 +49,7 @@ print '
 		if (rpt == "rptA4" || rpt == "rptA5" || rpt == "rptA6" || rpt == "rptA7" || rpt == "rptA8" || rpt == "rptA9" ||
 			rpt == "rptA10" || rpt == "rptA11" || rpt == "rptA12a" || rpt == "rptA12" || rpt == "rptA13" || rpt == "rptA14" || rpt == "rptA15" ||
 			rpt == "rptmbrBersara" ||rpt == "rptA19" ||rpt == "rptA20" || rpt == "rptDaftarAng" || rpt == "rptPembiayaanT" || rpt == "rptJumPotonganThn" ||
-			rpt == "rptElaunBank" || rpt == "rptElaunSyer")  {
+			rpt == "rptElaunBank" || rpt == "rptElaunPokok")  {
 			window.open(rpt+".php" ,"pop","scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=yes");					
 		} else {
 			s = "selDateOpt.php";
@@ -147,7 +147,7 @@ print '
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		} else if (rpt=="rptSenaraiBakiAkhirPem"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
-		} else if (rpt=="rptPecahanPinYuran"){
+		} else if (rpt=="rptPecahanPinWajib"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		}  else if (rpt=="rptACCbank_resit"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
@@ -174,7 +174,7 @@ print '
 	
 	function selectHotList(rpt) {
 	
-		if (rpt=="hotYuran" || rpt=="hotPembiayaan") {
+		if (rpt=="hotWajib" || rpt=="hotPembiayaan") {
 			url = "selTempoh.php?rpt="+rpt;
 			window.open(url ,"pop","top=100,left=100,width=500,height=100,scrollbars=no,resizable=no,toolbars=no,location=no,menubar=no");					
 		} else {

@@ -69,7 +69,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Kelulusan Mesyuarat (ALK)";
+$FormLabel[$a]   	= "Tanggal Kelulusan Mesyuarat (ALK)";
 $FormElement[$a] 	= "lulusDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -79,7 +79,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mula (Perjanjian/Penubuhan)";
+$FormLabel[$a]   	= "Tanggal Mula (Perjanjian/Penubuhan)";
 $FormElement[$a] 	= "startDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -89,7 +89,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Akhir (Perjanjian)";
+$FormLabel[$a]   	= "Tanggal Akhir (Perjanjian)";
 $FormElement[$a] 	= "endDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -295,8 +295,8 @@ print '<div class="card-header mt-3 mb-3">PERATUSAN TARIKH PERJANJIAN</div>';
 	<form name="addRate" method="post" action='.$sActionFileName .'>
 		<table class="table table-sm table-striped">
 			<tr valign="top" class="table-secondary">
-				<td><b>Tarikh Mula</b></td>
-				<td><b>Tarikh Tamat</b></td>
+				<td><b>Tanggal Mula</b></td>
+				<td><b>Tanggal Tamat</b></td>
 				<td><b>Kadar</b></td>
 				<td><b>Terma Bayaran</b></td>
 				<td><div align="center"><b></b></div></td>
@@ -388,8 +388,8 @@ print '
   <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
     <tr valign="top" class="table-primary">
       <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
-      <td width="10%" nowrap><b>Tarikh Mula</b></td>
-      <td width="10%" nowrap><b>Tarikh Tamat</b></td>
+      <td width="10%" nowrap><b>Tanggal Mula</b></td>
+      <td width="10%" nowrap><b>Tanggal Tamat</b></td>
       <td width="10%" nowrap><b>Kadar</b> </td>
       <td width="10%" nowrap><b>Terma Bayaran</b> </td>
       <td colspan="1" nowrap><div align="center"><b>Hapus</b></div></td>

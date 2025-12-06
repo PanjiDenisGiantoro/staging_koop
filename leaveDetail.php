@@ -58,10 +58,10 @@ if ($GetLeave->RowCount() <> 0) {
 					<tr class="table-primary">
 					<td nowrap align="center"><b>Bil</b></td>
 					<td nowrap>&nbsp;<b>Jenis Cuti</b></td>
-					<td nowrap align="center"><b>Tarikh Mula</b></td>
-					<td	nowrap align="center"><b>Tarikh Tamat</b></td>
+					<td nowrap align="center"><b>Tanggal Mula</b></td>
+					<td	nowrap align="center"><b>Tanggal Tamat</b></td>
                     <td	nowrap align="center"><b>Status</b></td>
-					<td nowrap align="center">&nbsp;<b>Tarikh Mohon</b></td>
+					<td nowrap align="center">&nbsp;<b>Tanggal Mohon</b></td>
 					</tr>';
 	while (!$GetLeave->EOF && $cnt <= $pg) {
 		$leaveName    = dlookup("general", "name", "ID=" . tosql($GetLeave->fields(leaveType), "Text"));

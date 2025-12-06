@@ -176,7 +176,7 @@ print' <!--input type="button" class="but" value="Status" onClick="ITRActionButt
 					<tr class="table-primary">
 						<td nowrap align="center"><b>Bil</b></td>
 						<td nowrap align="left"><b>No. Voucher</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap align="left"><b>Bank</b></td>
 						<td nowrap align="left"><b>Keterangan</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>					

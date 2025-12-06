@@ -210,7 +210,7 @@ if ($GetLoan->RowCount() == 0) {
 		';
 		}
 		print'
-						<td	nowrap align="center"><b>Tarikh Invois</b></td>
+						<td	nowrap align="center"><b>Tanggal Invois</b></td>
 				</tr>
 		';
 

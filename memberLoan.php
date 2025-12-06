@@ -112,8 +112,8 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap height="20">&nbsp;</td>
 						<td nowrap>&nbsp;No Rujukan ID</td>
 						<td nowrap>&nbsp;Jenis Pinjaman</td>
-						<td nowrap align="center">&nbsp;Tarikh Kelulusan</td>
-						<td nowrap align="center">&nbsp;Tarikh Mula Bayar</td>
+						<td nowrap align="center">&nbsp;Tanggal Kelulusan</td>
+						<td nowrap align="center">&nbsp;Tanggal Mula Bayar</td>
 						<td nowrap align="center">&nbsp;Jumlah</td>						
 						<td nowrap align="center">&nbsp;Tempoh</td>
 						<td nowrap align="center">&nbsp;Jadual Pembayaran Balik</td>

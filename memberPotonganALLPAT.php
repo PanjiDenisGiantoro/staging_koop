@@ -35,7 +35,7 @@ if (
 
 $sFileName = 'memberPotonganALLPAT.php';
 $sFileRef  = 'Edit_memberStmtPotonganPAT.php';
-$title     = "Senarai Potongan Akaun Tabungan (PAT) Pembiayaan / Yuran";
+$title     = "Senarai Potongan Akaun Tabungan (PAT) Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

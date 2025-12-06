@@ -52,7 +52,7 @@ if ($action == "finish") {
 				exit;
 			}
 		}
-		echo '<script>alert("PERMOHONAN TELAH SELESAI"); window.location.href = $sFileName;</script>';
+		echo '<script>alert("PERPOHONAN TELAH SELESAI"); window.location.href = $sFileName;</script>';
 	} else {
 		echo "No user selected for updating.";
 	}
@@ -165,7 +165,7 @@ if ($action == "batal") {
 				}
 
 				$conn->CommitTrans();
-				echo '<script>alert("PERMOHONAN BERJAYA DIBATALKAN"); window.location.href = "?vw=leave&mn=933";</script>';
+				echo '<script>alert("PERPOHONAN BERJAYA DIBATALKAN"); window.location.href = "?vw=leave&mn=933";</script>';
 			} catch (Exception $e) {
 				$conn->RollbackTrans();
 				echo '<script>alert("Error: ' . $e->getMessage() . '");</script>';
@@ -347,8 +347,8 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="left">Jenis Cuti</td>
 						<td nowrap align="center">Dokumen</td>
 						<td nowrap align="center">Jabatan</td>
-						<td nowrap align="center">Tarikh Mula</td>
-						<td	nowrap align="center">Tarikh Tamat</td>
+						<td nowrap align="center">Tanggal Mula</td>
+						<td	nowrap align="center">Tanggal Tamat</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center"></td> 
 						

@@ -111,7 +111,7 @@ print
 					<th nowrap width="80">Bangsa</th>
 					<th nowrap width="80">Tanggal Lahir</th>
 					<th nowrap align="center" width="150">Tanggal Keanggotaan</th>
-					<th nowrap align="center" width="150">Tarikh Berhenti</th>
+					<th nowrap align="center" width="150">Tanggal Berhenti</th>
 					<th nowrap width="80">Nomor Anggota</th>
 					<th nowrap width="80">No Pekerja</th>
 				</tr>';

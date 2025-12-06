@@ -222,7 +222,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "4";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mula Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Mula Insuran (dd/mm/yyyy)";
 $FormElement[$a] 	= "Tkh_Mula";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -233,7 +233,7 @@ $FormLength[$a]  	= "20";
 
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Tamat Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Tamat Insuran (dd/mm/yyyy)";
 $FormElement[$a] 	= "carDateEndIns";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -243,7 +243,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mohon";
+$FormLabel[$a]   	= "Tanggal Mohon";
 $FormElement[$a] 	= "tarikhMohon";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -335,7 +335,7 @@ if ($SubmitForm <> "") {
 			"Jum_Pre_Bersih," .
 			"Cover_Note," .
 			"Tkh_Mula," .
-			"TarikhTamatInsuran," .
+			"TanggalTamatInsuran," .
 			"insuranYear," .
 			"status," .
 			"applyDate)" .

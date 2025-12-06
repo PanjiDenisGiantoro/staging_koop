@@ -93,7 +93,7 @@ print '
 <div class="table-responsive">    
 <table class="" border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
 <div><h5 class="card-title"><i class="fas fa-chart-line"></i>&nbsp;' . strtoupper($title) . '
-<div align="right">Syer&nbsp;<input type="button" class="btn btn-primary waves-effect waves-light" onClick="window.location.href=\'index.php?vw=bayaranOnline&mn=9\'" value="+" size="50"></div></h5></a></div>';
+<div align="right">Pokok&nbsp;<input type="button" class="btn btn-primary waves-effect waves-light" onClick="window.location.href=\'index.php?vw=bayaranOnline&mn=9\'" value="+" size="50"></div></h5></a></div>';
 
 if (get_session("Cookie_groupID") > 0) {
 	print '<tr valign="top" class="Header"><td align="left" >
@@ -316,7 +316,7 @@ Cari Berdasarkan <select name="by" class="Data">';
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<i class="mdi mdi-arrow-right"></i>&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Yuran</a>
+		<i class="mdi mdi-arrow-right"></i>&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'feesYearly\')">Wajib</a>
 		</td>
 	</tr>
     ';
@@ -324,7 +324,7 @@ Cari Berdasarkan <select name="by" class="Data">';
 	print '
 	<tr>
 		<td class="Label" valign="top">
-		<i class="mdi mdi-arrow-right"></i>&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Syer</a>
+		<i class="mdi mdi-arrow-right"></i>&nbsp;&nbsp;<a href="#" onclick="selectPenyata(\'shareYearly\')">Pokok</a>
 		</td>
 	</tr>
 	';

@@ -57,7 +57,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;Bil</th>
 					<th nowrap>&nbsp;Nomor Rujukan</th>
-					<th nowrap>&nbsp;Tarikh Rujukan</th>
+					<th nowrap>&nbsp;Tanggal Rujukan</th>
 					<th nowrap align="center">&nbsp;Kode Akun</th>
 					<th nowrap align="left">&nbsp;Perkara / Nama Akaun</th>
 					<th nowrap align="left">&nbsp;Keterangan Perkara</th>

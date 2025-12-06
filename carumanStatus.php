@@ -184,7 +184,7 @@ if ($staff) {
 		<tr>
 			<td nowrap>Amaun/Jenis Pengeluaran</td>
 			<td></td>
-			<td><b>RM ' . $withdrawAmt . ' (' . $carumanTypeList[$typeCaruman] . ')</b></td>
+			<td><b>RP ' . $withdrawAmt . ' (' . $carumanTypeList[$typeCaruman] . ')</b></td>
 		</tr>								
 		<tr>
 			<td nowrap>Tanggal Pengajuan</td>
@@ -195,7 +195,7 @@ if ($staff) {
 				if ($status == 1) {
 					print '
 		<tr>
-			<td nowrap>Tarikh Diluluskan</td>
+			<td nowrap>Tanggal Diluluskan</td>
 			<td></td>
 			<td><b>' . toDate("d/m/Y", $GetUser->fields(approvedDate)) . '</b></td>
 		</tr>
@@ -209,7 +209,7 @@ if ($staff) {
 				if ($status == 3) {
 					print '
 		<tr>
-			<td nowrap>Tarikh Diluluskan</td>
+			<td nowrap>Tanggal Diluluskan</td>
 			<td></td>
 			<td><b>' . toDate("d/m/Y", $GetUser->fields(approvedDate)) . '</b></td>
 		</tr>
@@ -223,7 +223,7 @@ if ($staff) {
 				if ($status == 2) {
 					print '
 		<tr>
-			<td nowrap>Tarikh Ditolak</td>
+			<td nowrap>Tanggal Ditolak</td>
 			<td></td>
 			<td><b>' . toDate("d/m/Y", $GetUser->fields(rejectedDate)) . '</b></td>
 		</tr>
@@ -282,7 +282,7 @@ if ($staff) {
 		if ($status == 0) {
 			print '
 			<tr>
-				<td>Tarikh </td>
+				<td>Tanggal </td>
 				<td></td>
 				<td><input type="text" class="form-control-sm" name="strDate" value="' . $strDate . '" size="15" maxlength="10"></td>
 			</tr>	
@@ -422,11 +422,11 @@ if (!$staff) {
     <tr class="table-primary">
         <td nowrap><b>Bil</b></td>
         <td nowrap><b>Pengeluaran</b></td>
-        <td nowrap><b>Tarikh Mohon</b></td>
+        <td nowrap><b>Tanggal Mohon</b></td>
         <td nowrap align="right"><b>Jumlah (Rp)</b></td>
         <td nowrap><b>Status</b></td>
-        <td nowrap><b>Tarikh Lulus (Jika Ada)</b></td>
-		<td nowrap><b>Tarikh Ditolak (Jika Ada)</b></td>
+        <td nowrap><b>Tanggal Lulus (Jika Ada)</b></td>
+		<td nowrap><b>Tanggal Ditolak (Jika Ada)</b></td>
         <td nowrap><b>Catatan</b></td>
 
     </tr>';
@@ -443,7 +443,7 @@ if (!$staff) {
         <td nowrap class="Data">' . $cnt . '</td>
         <td nowrap class="Data">' . $carumanTypeList[$typeCaruman] . '</td>
 		<td nowrap class="Data">' . $applyDate . '</td>
-		<td nowrap class="Data" align="right">RM ' . $withdrawAmt . '</td>
+		<td nowrap class="Data" align="right">RP ' . $withdrawAmt . '</td>
         <td nowrap class="Data">' . $carumanStatusList[$status] . '</td>
 		<td nowrap class="Data">' . $approvedDate . '</td>
         <td nowrap class="Data">' . $rejectedDate . '</td>

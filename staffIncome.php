@@ -365,7 +365,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
                 <td align="center">' . $count . '</td>
                 <td align="left">Potongan</td>
                 <td align="left">' . $gajiName . '</td>
-                <td align="right">RM ' . number_format($gajiAmount, 2) . '</td>
+                <td align="right">RP ' . number_format($gajiAmount, 2) . '</td>
                 <td align="center">';
                 if ($groupID == 1 || $groupID == 2) {
                     print '<form method="POST" action="">
@@ -408,7 +408,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
                 <td align="center">' . $count . '</td>
                 <td align="left">Elaun</td>
                 <td align="left">' . $gajiName . '</td>
-                <td align="right">RM ' . number_format($gajiAmount, 2) . '</td>
+                <td align="right">RP ' . number_format($gajiAmount, 2) . '</td>
                 <td align="center">';
                 if ($groupID == 1 || $groupID == 2) {
                     print '<form method="POST" action="">
@@ -432,7 +432,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     //     print '<tr class="table-warning">
     //         <td align="center"><b>-</b></td>
     //         <td align="center"><b>Gaji Pokok</b></td>
-    //         <td align="center"><b>RM ' . number_format($gajiPokok, 2) . '</b></td>
+    //         <td align="center"><b>RP ' . number_format($gajiPokok, 2) . '</b></td>
     //         <td align="center"><b>-</b></td>
     //     </tr>';
     // }
@@ -449,13 +449,13 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     $groupID = get_session("Cookie_groupID");
 
     print '<div><hr class="1px"></div>';
-    print '<div>Gaji Pokok : <b>RM ' . number_format($gaji_pokok, 2) . '</b></div>';
-    print '<div>Jumlah Elaun : <b>RM ' . number_format($totalElaun, 2) . '</b></div>';
-    print '<div>Gaji Kasar : <b>RM ' . number_format($totalGross, 2) . '</b></div>';
-    print '<div>Jumlah Potongan : <b>RM ' . number_format($totalPotongan, 2) . '</b></div>';
+    print '<div>Gaji Pokok : <b>RP ' . number_format($gaji_pokok, 2) . '</b></div>';
+    print '<div>Jumlah Elaun : <b>RP ' . number_format($totalElaun, 2) . '</b></div>';
+    print '<div>Gaji Kasar : <b>RP ' . number_format($totalGross, 2) . '</b></div>';
+    print '<div>Jumlah Potongan : <b>RP ' . number_format($totalPotongan, 2) . '</b></div>';
     print '<div><hr class="1px"></div>';
     print '<div style="display: flex; align-items: center; gap: 10px;">';
-    print '<div>Gaji Bersih : <b>RM ' . number_format($gajiBersih, 2) . '</b></div>';
+    print '<div>Gaji Bersih : <b>RP ' . number_format($gajiBersih, 2) . '</b></div>';
 
     if (($groupID != 0 && $groupID != 99) && $gajiBersih > 0) {
         print '<form method="POST" action="" style="margin: 0;">

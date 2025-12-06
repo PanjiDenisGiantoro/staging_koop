@@ -34,7 +34,7 @@ if (
 
 $sFileName = 'PreviewPGB.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Potongan Gaji Pembiayaan / Yuran";
+$title     = "Senarai Potongan Gaji Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

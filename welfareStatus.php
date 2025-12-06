@@ -143,7 +143,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 									<td>&nbsp;<b><? print $name; ?></b></td>
 								</tr>
 								<tr>
-									<td>Tarikh Mohon</td>
+									<td>Tanggal Mohon</td>
 									<td>&nbsp;<b><? print toDate("d/m/Y", $applyDate); ?></b></td>
 								<tr>
 									<td colspan="2">
@@ -192,7 +192,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 					</td>
 				</tr>
 				<tr>
-					<td>Tarikh Diluluskan</td>
+					<td>Tanggal Diluluskan</td>
 					<td>:&nbsp;&nbsp;<? print toDate("d/m/Y", $GetWelfare->fields(approvedDate)); ?></td>
 				</tr>
 			<?
@@ -205,7 +205,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 					</td>
 				</tr>
 				<tr>
-					<td>Tarikh Ditolak</td>
+					<td>Tanggal Ditolak</td>
 					<td>:&nbsp;<? print toDate("d/m/Y", $GetWelfare->fields(rejectedDate)); ?></td>
 				</tr>
 			<?
@@ -222,7 +222,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 						if ($status == 0) {
 			?>
 			<tr>
-				<td>Tarikh Kemaskini</td>
+				<td>Tanggal Kemaskini</td>
 				<td><input type="text" class="form-controlx" name="strDate" value="<? print $strDate; ?>" size="15" maxlength="10"></td>
 			</tr>
 

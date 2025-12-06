@@ -196,8 +196,8 @@ print '		</select>
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap colspan="5" height="20"><b>Jumlah Bayaran Dividen Tunai Tahun ' . $yy . ' RM (' . $dividenAll . ')</b></td>
-						<td nowrap colspan="3" align="center"><b>Dividen / Yuran</b></td>
+						<td nowrap colspan="5" height="20"><b>Jumlah Bayaran Dividen Tunai Tahun ' . $yy . ' RP (' . $dividenAll . ')</b></td>
+						<td nowrap colspan="3" align="center"><b>Dividen / Wajib</b></td>
 					</tr>
 					<tr class="table-primary">
 						<td nowrap rowspan="1" height="20">&nbsp;</td>
@@ -205,7 +205,7 @@ print '		</select>
 						<td nowrap align="center"><b>Kartu Identitas</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
 						<td nowrap align="right"><b>Dividen Tunai ' . $yy . ' (RP)</b></td>
-						<td nowrap align="right"><b>Yuran Terkini (RP)</b></td>
+						<td nowrap align="right"><b>Wajib Terkini (RP)</b></td>
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;

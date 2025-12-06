@@ -246,8 +246,8 @@ if ($rsDetail->RowCount() <> 0) {
         $rsDetail->MoveNext();
     }
     if ($jumlah1 <> 0) {
-        $clsRM->setValue($jumlah1);
-        $strTotal1 = ucwords($clsRM->getValue());
+        $clsRP->setValue($jumlah1);
+        $strTotal1 = ucwords($clsRP->getValue());
     }
 }
 
@@ -255,7 +255,7 @@ print '
         <tr><td colspan="6">&nbsp;</td></tr>
         <tr>				
             <td nowrap="nowrap" align="right" colspan="2"><b>JUMLAH</b></td>
-            <td nowrap="nowrap" align="right"><b>RM ' . number_format($jumlah1, 2) . '</b></td>
+            <td nowrap="nowrap" align="right"><b>RP ' . number_format($jumlah1, 2) . '</b></td>
         </tr>
         </table>
         <tr><td colspan="5">&nbsp;</td></tr>

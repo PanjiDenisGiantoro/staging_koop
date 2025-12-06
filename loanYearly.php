@@ -259,7 +259,7 @@ while (!$rsLoan->EOF) {
 	</tr>
 	<tr>
 		<td width="23%">Bayaran Bulanan</td>
-		<td>:&nbsp;<b>RM ' . number_format($monthlyPymt, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($monthlyPymt, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td width="23%">Tempoh Pembiayaan</td>
@@ -271,11 +271,11 @@ while (!$rsLoan->EOF) {
 	</tr>
 	<tr>
 		<td width="23%">Jumlah Pembiayaan</td>
-		<td>:&nbsp;<b>RM ' . number_format($loanAmt, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($loanAmt, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td width="23%">Jumlah Keuntungan</td>
-		<td>:&nbsp;<b>RM ' . number_format($profit, 2) . '</b></td>
+		<td>:&nbsp;<b>RP ' . number_format($profit, 2) . '</b></td>
 	</tr>
 	<tr>
 		<td width="23%">Rate</td>
@@ -294,7 +294,7 @@ while (!$rsLoan->EOF) {
 		<table class="table table-striped" border=1  cellpadding="2" cellspacing="0" style="font-size: 12pt;">
 		<tr>
 					<td nowrap align="center">Bil<br/><i style="font-size: 9pt;">Nombor</i></td>
-					<td nowrap align="left">Tarikh<br/><i style="font-size: 9pt;">Date</i></td>
+					<td nowrap align="left">Tanggal<br/><i style="font-size: 9pt;">Date</i></td>
 					<td nowrap>No Rujukan<br/><i style="font-size: 9pt;">Nombor Ref</i></td>
 					<td nowrap>Keterangan<br/><i style="font-size: 9pt;">Descriptions</i></td>
 					<!--td nowrap align="right">Untung (RP)</td-->
@@ -393,19 +393,19 @@ while (!$rsLoan->EOF) {
 	print '		</table> 
 			<tr>
 				<td>Jumlah Debit (Masuk)</td>
-				<td>: <b>RM ' . number_format($sumDebit, 2) . '</b><td>
+				<td>: <b>RP ' . number_format($sumDebit, 2) . '</b><td>
 			</tr>
 			<tr>
 				<td>Jumlah Kredit (Bayaran)</td>
-				<td>: <b>RM ' . number_format($totalkredit, 2) . '</b></td>
+				<td>: <b>RP ' . number_format($totalkredit, 2) . '</b></td>
 			</tr>
 			<!--tr>
 				<td>Jumlah Principal</td>
-				<td>: <b>RM ' . number_format($totalkredit, 2) . '</b></td>
+				<td>: <b>RP ' . number_format($totalkredit, 2) . '</b></td>
 			</tr>
 			<tr>
 				<td>Jumlah Profit</td>
-				<td>: <b>RM ' . number_format($totalkredit, 2) . '</b></td>
+				<td>: <b>RP ' . number_format($totalkredit, 2) . '</b></td>
 			</tr-->
 		</td>
 	</tr>';
