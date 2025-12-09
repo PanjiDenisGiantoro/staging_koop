@@ -114,9 +114,9 @@ if ($GetData->RowCount() <> 0) {
                 <th align="left" nowrap width="20%">Nama Projek</th>
                 <th align="left" nowrap width="15%">Lokasi</th>
                 <th align="left" nowrap width="10%">Keluasan Tanah</th>
-                <th nowrap width="5%">Tarikh Lulus</th>  
-                <th nowrap width="5%">Tarikh Mula</th>  
-                <th nowrap width="5%">Tarikh Akhir</th>
+                <th nowrap width="5%">Tanggal Lulus</th>  
+                <th nowrap width="5%">Tanggal Mula</th>  
+                <th nowrap width="5%">Tanggal Akhir</th>
                 <th nowrap width="5%">Tempoh Perjanjian (Bulan)</th>
                 <th align="right" nowrap width="10%">Nilai Pelaburan (RP)</th>
                 <th align="right" nowrap width="10%">Nilai Disbursement (RP)</th>

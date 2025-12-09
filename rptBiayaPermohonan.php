@@ -69,31 +69,31 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<!--th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Nama</th>
-					<th nowrap>&nbsp;Nombor Anggota</th>
+					<th nowrap>&nbsp;Nomor Anggota</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
 					<th nowrap colspan=2>
 					<table>
 					<tr><td colspan=2>Diterima</td><tr>
-					<tr><td>Tarikh</td><td>Jumlah</td><tr>
+					<tr><td>Tanggal</td><td>Jumlah</td><tr>
 					</table>
 					</th>
 					<th nowrap colspan=2>
 					<table>
 					<tr><td colspan=2>Diterima</td><tr>
-					<tr><td>Tarikh</td><td>Jumlah</td><tr>
+					<tr><td>Tanggal</td><td>Jumlah</td><tr>
 					</table>
 					</th-->
 					<th nowrap rowspan=2>&nbsp;</th>
 					<th nowrap rowspan=2>&nbsp;Nama</th>
-					<th nowrap rowspan=2>&nbsp;Nombor Anggota</th>
+					<th nowrap rowspan=2>&nbsp;Nomor Anggota</th>
 					<th nowrap rowspan=2>&nbsp;Cawangan/Jabatan</th>
 					<th nowrap colspan=2>&nbsp;Diterima</th>
 					<th nowrap colspan=2>&nbsp;Diluluskan</th>
 				</tr>
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-					<th nowrap>&nbsp;Tarikh</th>
+					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Jumlah</th>
-					<th nowrap>&nbsp;Tarikh</th>
+					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Jumlah</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {

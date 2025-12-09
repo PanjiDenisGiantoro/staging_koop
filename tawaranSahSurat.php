@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -38,7 +38,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "No KP Baru";
+$FormLabel[$a]   	= "No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -58,7 +58,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Rujukan";
+$FormLabel[$a]   	= "Nomor Rujukan";
 $FormElement[$a] 	= "loanNo";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -114,7 +114,7 @@ print '
 <h3 class="card-title">' . strtoupper($title) . '</h3>';
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN TELAH LENGKAP DAN SEMPURNA SERTA PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
+	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN TELAH LENGKAP DAN SEMPURNA SERTA PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
 
 	if ($cnt == 1) print '<tr>';
 	print '<td class=Data>' . $FormLabel[$i];
@@ -203,7 +203,7 @@ print '
 
 print '<center><tr>
 <td colspan=4 class=data align=center>
-<b><u>PERMOHONAN KEMUDAHAN PEMBIAYAAN PERIBADI-i SEBANYAK RM ' . $loanAmt . '</u></b>
+<b><u>PERPOHONAN KEMUDAHAN PEMBIAYAAN PERIBADI-i SEBANYAK RP ' . $loanAmt . '</u></b>
 
 <br>Sukacita dimaklumkan bahawa [NAMA KOPERASI] (selepas ini disebut sebagai "Koperasi") akan menawarkan kemudahan ' . $namaloan . ' tertakluk kepada syarat seperti berikut:-</br></center>
 <br>
@@ -219,7 +219,7 @@ print '<center><tr>
   <td>&nbsp;</td>
   <td class="padding1" valign="top" colspan="2"><b><u>JUMLAH PEMBIAYAAN</u></b></td>
   <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-  <td class="padding1" valign="top" ><b>RM  ' . $loanAmt . '</b></td>
+  <td class="padding1" valign="top" ><b>RP  ' . $loanAmt . '</b></td>
 </tr>
 <br/><br/>
 <tr>
@@ -234,7 +234,7 @@ print '<center><tr>
 <td class="padding1" valign="top"><b>4.0</b></td><td>&nbsp;&nbsp;</td>
 <td class="padding1" valign="top" width="120" colspan="2"><b><u>HARGA JUALAN</u></b></td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-<td class="padding1" valign="top"><b>RM ' . number_format($jum_biayauntungtotal, 2) . '</b></td>
+<td class="padding1" valign="top"><b>RP ' . number_format($jum_biayauntungtotal, 2) . '</b></td>
 </tr>
 <br/><br/>
 <tr>
@@ -257,7 +257,7 @@ print '<center><tr>
 <td>&nbsp;&nbsp;</td>
 <td class="padding1" valign="top" width="120" colspan="2"><b><u>BAYARAN</u></b></td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-<td class="padding1" valign="top">Tuan/Puan dikehendaki membayar ansuran bulanan sebanyak RM ' . $monthlyPymt . ' sebulan dari bulan <b><u>1</u></b> ke bulan <b><u>' . $loanperiod2ndlast . '</u></b> dan RM ' . $jumlah_bayarbln_akhir . ' untuk bulan ke <b><u>' . $loanperiodlast . '</u></b>.<br /> 
+<td class="padding1" valign="top">Tuan/Puan dikehendaki membayar ansuran bulanan sebanyak RP ' . $monthlyPymt . ' sebulan dari bulan <b><u>1</u></b> ke bulan <b><u>' . $loanperiod2ndlast . '</u></b> dan RP ' . $jumlah_bayarbln_akhir . ' untuk bulan ke <b><u>' . $loanperiodlast . '</u></b>.<br /> 
 Ansuran pertama bermula pada bulan berikutnya jika pembiayaan dikeluarkan selepas/pada 16 haribulan ansuran seterusnya hendaklah dibayar pada bulan berikutnya sehingga kesemua harga jualan dijelaskan sepenuhnya.</td>
 </tr>
 <br/><br/>
@@ -274,7 +274,7 @@ Ansuran pertama bermula pada bulan berikutnya jika pembiayaan dikeluarkan selepa
 <td>&nbsp;&nbsp;</td>
 <td class="padding1" valign="top" width="120" colspan="2"><b><u>BAYARAN PERKHIDMATAN</u></b></td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;</td>
-<td class="padding1" valign="top">Tuan/Puan dikehendaki menjelaskan bayaran perkhidmatan sebanyak RM ' . $btindihCaj . ' pada masa menerima tawaran ini.</td>
+<td class="padding1" valign="top">Tuan/Puan dikehendaki menjelaskan bayaran perkhidmatan sebanyak RP ' . $btindihCaj . ' pada masa menerima tawaran ini.</td>
 </tr>
 <br/><br/>
 <tr>
@@ -291,13 +291,13 @@ Ansuran pertama bermula pada bulan berikutnya jika pembiayaan dikeluarkan selepa
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+<td class="padding1" valign="top">Nombor Kartu Identitas</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $kppenjamin1 . '</td>
 </tr>
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Anggota</td>
+<td class="padding1" valign="top">Nomor Anggota</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $userpenjamin1 . '</td>
 </tr>
 <br/><br/>
@@ -309,13 +309,13 @@ Ansuran pertama bermula pada bulan berikutnya jika pembiayaan dikeluarkan selepa
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+<td class="padding1" valign="top">Nombor Kartu Identitas</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $kppenjamin2 . '</td>
 </tr>
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Anggota</td>
+<td class="padding1" valign="top">Nomor Anggota</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $userpenjamin2 . '</td>
 </tr>
 <br/><br/>
@@ -327,13 +327,13 @@ Ansuran pertama bermula pada bulan berikutnya jika pembiayaan dikeluarkan selepa
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Kad Pengenalan</td>
+<td class="padding1" valign="top">Nombor Kartu Identitas</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $kppenjamin3 . '</td>
 </tr>
 <br/>
 <tr>
 <td valign="top">&nbsp;</td>
-<td class="padding1" valign="top">Nombor Anggota</td>
+<td class="padding1" valign="top">Nomor Anggota</td>
 <td class="padding1" valign="top">&nbsp;:&nbsp;' . $userpenjamin3 . '</td>
 </tr>
 </td>
@@ -438,7 +438,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -451,7 +451,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          //alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          //alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          //if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          e.submit();

@@ -74,7 +74,7 @@ if ($loanAmt) {
         <div class="table-responsive">
 	<table class="table table-sm table-striped m-0 mt-3" >
 		<tr class="table-primary">
-			<td nowrap><b>Tarikh</b></td>
+			<td nowrap><b>Tanggal</b></td>
 			<td nowrap><b>Nombor Pembayaran</b></td>
 			<td nowrap align="right"><span align="center"><b>Pokok (RP)</b></span></td>
 			<td nowrap align="right"><b>Untung (RP)</b></td>

@@ -38,7 +38,7 @@ print '
         <table border="0" cellpadding="0" cellspacing="6" width="100%" align="center">
           <tr>
            <br>
-            <div align="center"><h5 class="text-primary">PERMOHONAN ANDA UNTUK MENJADI ANGGOTA BERJAYA DIHANTAR</h5></div>
+            <div align="center"><h5 class="text-primary">PERPOHONAN ANDA UNTUK MENJADI ANGGOTA BERJAYA DIHANTAR</h5></div>
             <div align="center"><h5 class="text-danger">!! SILA BUAT PEMBAYARAN PENDAFTARAN UNTUK PERCEPATKAN PROSES KELULUSAN !!</h5></div><br/>';
 print $kandungan;
 print '

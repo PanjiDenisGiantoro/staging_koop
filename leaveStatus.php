@@ -8,7 +8,7 @@
 include("header.php");	
 include("koperasiQry.php");	
 include ("koperasiList.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 if (get_session("Cookie_koperasiID") <> 0 ) {
 	print '<script>alert("'.$errPage.'"); parent.location.href = "index.php";</script>';
@@ -141,14 +141,14 @@ for ($s = 0; $s < count($pkall); $s++) {
 
         echo "<tr><td>Nombor Staf</td><td>&nbsp;" . dlookup("users", "staffID", "userID=" . tosql($GetMember->fields['userID'], "Text")) . "</td></tr>";
         echo "<tr><td>Nama Staf</td><td>&nbsp;" . dlookup("users", "name", "userID=" . tosql($GetMember->fields['userID'], "Text")) . "</td></tr>";
-        echo "<tr><td>Tarikh Mohon</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['applyDate']) . "</td></tr>";
+        echo "<tr><td>Tanggal Mohon</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['applyDate']) . "</td></tr>";
         echo "<tr><td>Jenis Cuti Dipohon</td><td>&nbsp;" . dlookup("general", "name", "ID=" . tosql($GetMember->fields['leaveType'], "Text")) . "</td></tr>";
-        echo "<tr><td>Tarikh Mula</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['startLeave']) . "</td></tr>";
+        echo "<tr><td>Tanggal Mula</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['startLeave']) . "</td></tr>";
 
         $leaveEndInfo = ($GetMember->fields['leaveType'] == 2063) 
             ? $GetMember->fields['total_hour'] . " Jam" 
             : toDate("d/m/Y", $GetMember->fields['endLeave']);
-        echo "<tr><td>" . (($GetMember->fields['leaveType'] == 2063) ? "Jumlah Jam" : "Tarikh Tamat") . "</td><td>&nbsp;" . $leaveEndInfo . "</td></tr>";
+        echo "<tr><td>" . (($GetMember->fields['leaveType'] == 2063) ? "Jumlah Jam" : "Tanggal Tamat") . "</td><td>&nbsp;" . $leaveEndInfo . "</td></tr>";
 
         echo "<tr><td>Keterangan</td><td>&nbsp;" . $GetMember->fields['reason'] . "</td></tr>";
         echo "<tr><td colspan='2'><hr size=1></td></tr>";
@@ -186,7 +186,7 @@ if (count($cutiList) <> 0) {
 </td>
 </tr>
 <tr>
-<td>Tarikh Diluluskan</td>
+<td>Tanggal Diluluskan</td>
 <td>:&nbsp;&nbsp;<?php echo date("d/m/Y", strtotime($GetMember->fields('approvedDate'))); ?></td>
 </tr>
 <?php
@@ -198,7 +198,7 @@ if (count($cutiList) <> 0) {
 <td>:&nbsp;<font class="redText"><?php print $cutiList[$status];?></font></td>
 </tr>
 <tr>
-<td>Tarikh Ditolak</td>
+<td>Tanggal Ditolak</td>
 <td>:&nbsp;&nbsp;<?php echo date("d/m/Y", strtotime($GetMember->fields('rejectedDate'))); ?></td>
 </tr>
 <?php
@@ -215,7 +215,7 @@ if (count($cutiList) <> 0) {
 	if ($status == 0) {
 ?>
 <tr>
-<td>Tarikh Kemaskini</td>
+<td>Tanggal Kemaskini</td>
 <td><input type="text" class="form-controlx" name="strDate" value="<?php print $strDate;?>" size="15" maxlength="10"></td>
 </tr>
 <tr>

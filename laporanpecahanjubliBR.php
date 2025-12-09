@@ -16,7 +16,7 @@ $yymm = substr($yrmth,0,4).substr($yrmth,4,2);
 
 include("header.php");	
 include("sekataQry.php"); 
-date_default_timezone_set("Asia/Kuala_Lumpur");	
+date_default_timezone_set("Asia/Jakarta");	
 
 if (get_session("Cookie_groupID") <> 1 
 AND get_session("Cookie_groupID") <> 2) {
@@ -68,7 +68,7 @@ if ($GetMember->RowCount() <> 0) {
 print ' <table border="0" id="example" cellspacing="1" cellpadding="2" width="100%" class="lineBG" >
 		<tr class="header">
 		<tr class="header">
-		<td nowrap rowspan="1" height="20">Bil</td>
+		<td nowrap rowspan="1" height="20">No</td>
 		<td nowrap>MEMBER</td>
 		<td nowrap>Nama Anggota</td>
 		<td nowrap>BOND 36</td>
@@ -99,7 +99,7 @@ print '</tr>';
 	} else {
 		if ($q == "") {
 			print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk '.$title.'  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk '.$title.'  -</b><hr size=1"></td></tr>';
 		} else {
 			print '
 			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "'.$q.'" tidak jumpa  -</b><hr size=1"></td></tr>';
@@ -138,7 +138,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

@@ -516,7 +516,7 @@ print '
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Invois</td>
+				<td valign="top" align="right">Tanggal Invois</td>
 				<td valign="top"></td>
 				<td>
 					<div class="input-group" id="tarikh_inv">
@@ -928,8 +928,8 @@ if ($add) {
 }
 
 if ($totalDb <> 0) {
-	$clsRM->setValue($totalDb);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($totalDb);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 print 		'<tr>

@@ -2,7 +2,7 @@
 session_start();
 include("common.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $today = date('Y-m-d');
 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <table class="table table-sm table-striped">
                 <tr class="table-primary">
                     <td><b>Nama Penama</b></td>
-                    <td><b>No Kad Pengenalan</b></td>
+                    <td><b>No Kartu Identitas</b></td>
                     <td><b>No Telefon</b></td>
                     <td align="left"><b>Alamat Rumah</b></td>
                     <td><b>Peratus (%)</b></td>

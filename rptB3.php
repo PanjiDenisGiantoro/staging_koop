@@ -62,8 +62,8 @@ print '
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Jabatan/Cawangan</th>
 					<th nowrap>&nbsp;Jumlah Pinjaman</th>					
-					<th nowrap>&nbsp;Tarikh Memohon</th>
-					<th nowrap>&nbsp;Tarikh Dibatalkan</th>
+					<th nowrap>&nbsp;Tanggal Pengajuan</th>
+					<th nowrap>&nbsp;Tanggal Dibatalkan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

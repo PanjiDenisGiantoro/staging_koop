@@ -195,7 +195,7 @@ if (get_session("Cookie_groupID") > 0) {
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 					<tr class="header">
-						<td nowrap colspan="5" height="20">&nbsp; Jumlah Bayaran Dividen Tunai Tahun ' . $yy . ' RM(' . $dividenAll . ') </td>
+						<td nowrap colspan="5" height="20">&nbsp; Jumlah Bayaran Dividen Tunai Tahun ' . $yy . ' RP(' . $dividenAll . ') </td>
 						<td nowrap colspan="3" align="center">&nbsp;Dividen / Wajib</td>
 					</tr>
 					<tr class="header">
@@ -204,7 +204,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>&nbsp;No KTP Baru</td>
 						<td nowrap colspan="2">&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Dividen Tunai ' . $yy . '</td>
-						<td nowrap align="center">&nbsp;Yuran Terkini</td>
+						<td nowrap align="center">&nbsp;Wajib Terkini</td>
 					</tr>';
 			$totalFee = 0;
 			$totalShare = 0;

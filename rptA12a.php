@@ -53,12 +53,12 @@ print '
 print
 	'<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
-					<td nowrap  align="center" width="100">Nombor Anggota</td>
+					<td nowrap  align="center" width="100">Nomor Anggota</td>
 					<td nowrap align="left">Nama</td>
-					<td nowrap align="center">Kad Pengenalan</td>
-					<td nowrap align="left">Cawangan/Zon</td>
-					<td nowrap align="center">Tarikh Memohon</td>
-					<td nowrap align="center">Tarikh ' . $statusList[$status] . '</td>
+					<td nowrap align="center">Kartu Identitas</td>
+					<td nowrap align="left">Cabang/Zona</td>
+					<td nowrap align="center">Tanggal Pengajuan</td>
+					<td nowrap align="center">Tanggal ' . $statusList[$status] . '</td>
 				</tr>';
 if ($GetData->RowCount() <> 0) {
 	while (!$GetData->EOF) {

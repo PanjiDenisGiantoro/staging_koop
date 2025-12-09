@@ -160,7 +160,7 @@ if ($action == 'Kemaskini') {
 							<td colspan="2"><? echo $name ?></td>
 						</tr>
 						<tr>
-							<td>Tarikh Akhir Bayaran</td>
+							<td>Tanggal Akhir Bayaran</td>
 							<td><strong>:</strong></td>
 							<td><? echo $tarikhAkhirByr ?></td>
 							<td>&nbsp;</td>

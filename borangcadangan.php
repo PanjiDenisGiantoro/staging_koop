@@ -632,7 +632,7 @@ if ($SubmitForm <> "") {
 			}
 		} // end loop update
 		print '<script>
-					alert ("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+					alert ("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 					window.location.href = "' . $sActionFileName . '";
 				</script>';
 	}
@@ -649,7 +649,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1) print '<tr><td class=Header colspan=4>INFORMASI PENDAFTARAN ID :</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>INFORPASI PENDAFTARAN ID :</td></tr>';
 	if ($i == 9) print '<tr><td class=Header colspan=4>A. DETAIL PRIBADI :</td></tr>';
 	if ($i == 33) print '<tr><td class=Header colspan=4>B. BAYARAN MASUK/YURAN :</td></tr>';
 	$addr = str_replace("<pre>", "", $GetMember->fields('w_address1'));

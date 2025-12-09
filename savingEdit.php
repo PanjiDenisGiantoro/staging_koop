@@ -35,7 +35,7 @@ $FormSize[$a]    	= "50";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Simpanan Yuran";
+$FormLabel[$a]   	= "Simpanan Wajib";
 $FormElement[$a] 	= "yuranAmt";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -45,7 +45,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "13";
 
 $a++;
-$FormLabel[$a]   	= "Simpanan Syer";
+$FormLabel[$a]   	= "Simpanan Pokok";
 $FormElement[$a] 	= "shareAmt";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

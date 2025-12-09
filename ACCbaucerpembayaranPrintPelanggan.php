@@ -281,8 +281,8 @@ if ($rsDetail->RowCount() <> 0) {
         $rsDetail->MoveNext();
     }
     if ($jumlah1 <> 0) {
-        $clsRM->setValue($jumlah1);
-        $strTotal1 = strtoupper($clsRM->getValue()) . ' RINGGIT SAHAJA.';
+        $clsRP->setValue($jumlah1);
+        $strTotal1 = strtoupper($clsRP->getValue()) . ' RINGGIT SAHAJA.';
     }
 }
 
@@ -296,7 +296,7 @@ print '
     <tr>
     <td nowrap="nowrap" align="left"></td>
     <td nowrap="nowrap" align="right"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM ' . number_format($jumlah1, 2) . '</b></td> 
+    <td nowrap="nowrap" align="right"><b>RP ' . number_format($jumlah1, 2) . '</b></td> 
 	</tr>
     </table>
     

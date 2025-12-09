@@ -58,11 +58,11 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap>&nbsp;</td>
 					<td nowrap><b>Nama</b></td>
-					<td nowrap align="center"><b>Nombor Anggota</b></td>
-					<td nowrap align="center"><b>Kad Pengenalan</b></td>
-					<td nowrap align="left"><b>Cawangan/Zon</b></td>
+					<td nowrap align="center"><b>Nomor Anggota</b></td>
+					<td nowrap align="center"><b>Kartu Identitas</b></td>
+					<td nowrap align="left"><b>Cabang/Zona</b></td>
 					<td nowrap align="center"><b>Bekas Anggota</b></td>
-					<td nowrap align="center"><b>Tarikh Memohon</b></td>
+					<td nowrap align="center"><b>Tanggal Pengajuan</b></td>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

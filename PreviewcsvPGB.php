@@ -30,7 +30,7 @@ OR get_session("Cookie_koperasiID") <> $koperasiID) {
 
 $sFileName = 'PreviewcsvPGB.php'; 
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Kemaskini Potongan Gaji (PGB) Pembiayaan / Yuran";
+$title     = "Kemaskini Potongan Gaji (PGB) Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");

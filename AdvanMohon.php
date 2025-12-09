@@ -388,7 +388,7 @@ print '
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header">INFORMASI ANGGOTA</div>';
+	if ($i == 1) print '<div class="card-header">INFORPASI ANGGOTA</div>';
 	if ($i == 3) {
 		print '<tr><td colspan=2><div class="card-header">PRA KELAYAKAN PENGAJUAN PEMBIAYAAN</div></td></tr>';
 	}
@@ -444,7 +444,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 									<input type="radio" name="radio" value="3">
 								</div>
 								<div class="card-body">
-									<h5 class="card-title">RM' . number_format($monthlyPymt1, 2) . '</h5>
+									<h5 class="card-title">RP' . number_format($monthlyPymt1, 2) . '</h5>
 									<p class="card-text text-danger">x 3 Bulan</p>
 								</div>
 							</div>
@@ -456,7 +456,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 									<input type="radio" name="radio" value="6">
 								</div>
 								<div class="card-body">
-									<h5 class="card-title">RM' . number_format($monthlyPymt2, 2) . '</h5>
+									<h5 class="card-title">RP' . number_format($monthlyPymt2, 2) . '</h5>
 									<p class="card-text text-danger">x 6 Bulan</p>
 								</div>
 							</div>
@@ -468,7 +468,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 									<input type="radio" name="radio" value="12">
 								</div>
 								<div class="card-body">
-									<h5 class="card-title">RM' . number_format($monthlyPymt3, 2) . '</h5>
+									<h5 class="card-title">RP' . number_format($monthlyPymt3, 2) . '</h5>
 									<p class="card-text text-danger">x 12 Bulan</p>
 								</div>
 							</div>
@@ -501,11 +501,11 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	// 	}
 
 	// 	print '</td></tr>
-	// 	<tr><td class="Data">Jumlah Pembiayaan ( Termasuk Untung )</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($totalLoan, 2, '.', ',') . '</b></td></tr>
-	// 	<tr><td class="Data">Bayaran Pokok</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($monthlyPay, 2, '.', ',') . '</b></td></tr>
-	// 	<tr><td class="Data">Bayaran Pokok Terakhir</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($lastmonthlyPay, 2, '.', ',') . '</b></td></tr>
-	// 	<tr><td class="Data">Untung Bulanan</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($interestPay, 2, '.', ',') . '</b></td></tr>
-	// 	<tr><td class="Data">Untung Bulanan Terakhir</td><td class="Label"> &nbsp;<b>RM&nbsp;' . number_format($lastinterestPay, 2, '.', ',') . '</b></td></tr>
+	// 	<tr><td class="Data">Jumlah Pembiayaan ( Termasuk Untung )</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($totalLoan, 2, '.', ',') . '</b></td></tr>
+	// 	<tr><td class="Data">Bayaran Pokok</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($monthlyPay, 2, '.', ',') . '</b></td></tr>
+	// 	<tr><td class="Data">Bayaran Pokok Terakhir</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($lastmonthlyPay, 2, '.', ',') . '</b></td></tr>
+	// 	<tr><td class="Data">Untung Bulanan</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($interestPay, 2, '.', ',') . '</b></td></tr>
+	// 	<tr><td class="Data">Untung Bulanan Terakhir</td><td class="Label"> &nbsp;<b>RP&nbsp;' . number_format($lastinterestPay, 2, '.', ',') . '</b></td></tr>
 	// 	</table></div>';
 	// }
 
@@ -516,10 +516,10 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 if ($Kira <> "") {
 	print ' <tr><td colspan=2>             
 				<div class="row "><center>                                                                                   
-					<textarea class="form-control" cols="" rows="7" wrap="hard" name="syarat" readonly>Dengan ini saya bersetuju bahawa segala maklumat yang diberikan adalah benar. Saya juga mengesahkan bahawa saya telah membuat permohonan advance payment sebanyak RM '.number_format($loanAmt, 2).'.</textarea>
+					<textarea class="form-control" cols="" rows="7" wrap="hard" name="syarat" readonly>Dengan ini saya bersetuju bahawa segala maklumat yang diberikan adalah benar. Saya juga mengesahkan bahawa saya telah membuat permohonan advance payment sebanyak RP '.number_format($loanAmt, 2).'.</textarea>
 				</center></div>
 				<div class="row m-3"><center>                                                                                   
-					<input type="checkbox" class="form-check-input" name="pk[]" id="pk[]" onchange="toggleSubmitButton();">&nbsp;Saya bersetuju dengan TERMA & SYARAT</a>
+					<input type="checkbox" class="form-check-input" name="pk[]" id="pk[]" onchange="toggleSubmitButton();">&nbsp;Saya bersetuju dengan TERPA & SYARAT</a>
 				</center></div>
 				<div class="row m-2 mb-4"><center>																			
 					<div class="col-md-3"><input type="Submit" class="btn btn-primary w-md waves-effect waves-light" id="submit" name="SubmitForm"  value="Mohon Pembiayaan" size="50" onClick="ITRActionButtonClickStatus(\'submit\');" disabled>																			
@@ -534,7 +534,7 @@ if ($Kira <> "") {
 	$picjwtn = dlookup("userloandetails", "jwtn_img", "userID=" . tosql($userID, "Text"));
 	$picic = dlookup("userloandetails", "ic_img", "userID=" . tosql($userID, "Text"));
 	$picccris = dlookup("userloandetails", "ccris_img", "userID=" . tosql($userID, "Text"));
-	$YuranBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
+	$WajibBlnan = dlookup("userdetails", "monthFee", "userID=" . tosql($userID, "Text"));
 
 	$sqlGet = "select SUM(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'A'";
 	$GettotA =  &$conn->Execute($sqlGet);
@@ -550,7 +550,7 @@ if ($Kira <> "") {
 		//potongan gaji
 		$sqlGetB = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payType = 'B'";
 		$GettotB =  &$conn->Execute($sqlGetB);
-		$totalB = $GettotB->fields(amt) + $YuranBlnan;
+		$totalB = $GettotB->fields(amt) + $WajibBlnan;
 
 		$sqlGetBKWSP = "select sum(amt) as amt from userstates where userID = '" . $userID . "' and payID IN ('1563','1564') and payType = 'B'";
 		$GettotBKWSP =  &$conn->Execute($sqlGetBKWSP);
@@ -588,19 +588,19 @@ if ($Kira <> "") {
 
 	}
 	if (($loanAmt > $loanAmtMax) or ($loanPeriod > $loanPeriodMax)) {
-		$layakSDesc = 'Pastikan JUMLAH PERMOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
+		$layakSDesc = 'Pastikan JUMLAH PERPOHONAN (RP) / JANGKA WAKTU PEMBAYARAN (BULAN) tidak melebihi JUMLAH PEMBIAYAAN (RP) / JANGKA WAKTU PEMBIAYAAN (BULAN) yang telah ditetapkan.<br><br>';
 		$layakS = "N";
 	}
 
 	if ($houseLoan == 1) { // 75%
 
 		if ($loanAmt >= 100000) {
-			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERMOHONAN';
+			$layakCCRIS = 'SILAKAN AJUKAN LAPORAN CCRIS DARI BANK INDONESIA UNTUK MEMUDAHKAN PROSES PERPOHONAN';
 		}
 
 
 		if ($monthlyPymt > $LayakPay75) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 75%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . number_format($LayakPay75, 2) . ' dan DSR ' . number_format($Nisbahdsr, 2) . '%<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} //else{
@@ -622,7 +622,7 @@ if ($Kira <> "") {
 	} else {
 
 		if ($monthlyPymt > $LayakPay50) {
-			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORMASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RM' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
+			$layakSDesc = 'Tidak Layak Mengajukan Permohonan. Rasio DSR melebihi 50%. / (SILAKAN PERBARUI INFORPASI PEMBIAYAAN ATAU GAJI TERBARU) Jumlah Maksimum Pembayaran Bulanan yang diizinkan RP' . $LayakPay50 . ' dan DSR ' . number_format($Nisbahdsr, 2) . ' %<br><br>';
 			$layakS = "N";
 			print '<input type="hidden" name="Nisbahdsr" value="' . $Nisbahdsr . '">';
 		} else {

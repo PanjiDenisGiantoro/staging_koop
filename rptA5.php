@@ -106,7 +106,7 @@ if ($rs->RowCount() <> 0) {
 							Jabatan : ' . $rs->fields(department) . '</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<td nowrap rowspan="2" >&nbsp;</td>
-								<td nowrap rowspan="2" width="100">&nbsp;Nombor Anggota</td>
+								<td nowrap rowspan="2" width="100">&nbsp;Nomor Anggota</td>
 								<td nowrap rowspan="2" align="left">&nbsp;Nama</td>
 								<td nowrap rowspan="2" width="80">&nbsp;Nombor KP Baru</td>
 								<td nowrap rowspan="2" width="80">&nbsp;Nombor KP Lama</td>
@@ -114,8 +114,8 @@ if ($rs->RowCount() <> 0) {
 								<td nowrap colspan="2" align="center">&nbsp;Simpanan</td>
 							</tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-								<th nowrap align="center">&nbsp;Yuran</th>
-								<th nowrap align="center">&nbsp;Syer</th>
+								<th nowrap align="center">&nbsp;Wajib</th>
+								<th nowrap align="center">&nbsp;Pokok</th>
 							</tr>';
 			$bil = 0;
 			$amtFee = 0;

@@ -154,7 +154,7 @@ if ($GetVouchers->RowCount() <> 0) {
 						<td nowrap align ="center"><b>Bil</b></td>
 						<td nowrap align ="center"><b>Nomor Rujukan</b></td>
 						<td nowrap><b>Bank</b></td>
-						<td nowrap align ="center"><b>Tarikh</b></td>
+						<td nowrap align ="center"><b>Tanggal</b></td>
 						<td nowrap align ="right"><b>Debit (RP)</b></td>
 						<td nowrap align ="right"><b>Kredit (RP)</b></td>
 						<td nowrap align ="right"><b>Saldo (RP)</b></td>

@@ -48,7 +48,7 @@ print '
 						<td nowrap align="center">&nbsp;Surat Tawaran</td>
 						<!--td nowrap align="center">&nbsp;Setuju Pembiayaan</td-->
 						<td nowrap align="center">&nbsp;Tanggal Pengajuan</td>
-						<td nowrap align="center">&nbsp;Tarikh Kelulusan</td>
+						<td nowrap align="center">&nbsp;Tanggal Kelulusan</td>
 						<!--td nowrap align="center">&nbsp;Jadual Bayar Balik</td-->
 					</tr>';	
 		while (!$GetLoan->EOF && $cnt <= $pg) {

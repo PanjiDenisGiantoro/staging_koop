@@ -80,7 +80,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "30";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Kemaskini";
+$FormLabel[$a]  	= "Tanggal Kemaskini";
 $FormElement[$a] 	= "updatedDate";
 $FormType[$a]  		= "hiddenDate";
 $FormData[$a]    	= "";

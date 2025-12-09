@@ -84,21 +84,21 @@ while (!$rsLoan->EOF) {
 	if ($rsOpen->fields(addminus) == 0) $amaunD = $rsOpen->fields('pymtAmt');
 	if ($rsOpen->fields(addminus) == 1) $amaunK = $rsOpen->fields('pymtAmt');
 
-	$getYuranOpen = "SELECT 
+	$getWajibOpen = "SELECT 
 	SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 	SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 	FROM transactionacc
 	WHERE
 	deductID = '" . $id . "' AND docID NOT IN (15) 
 	AND tarikh_doc < '" . $dtFrom . "'";
-	$rsYuranOpen = $conn->Execute($getYuranOpen);
+	$rsWajibOpen = $conn->Execute($getWajibOpen);
 
 	$balanced = 0;
 	$balancek = 0;
 
 	//OP + transaction sebelum dtFrom
-	$balanced = $rsYuranOpen->fields(yuranDb) + $amaunD;
-	$balancek = $rsYuranOpen->fields(yuranKt) + $amaunK;
+	$balanced = $rsWajibOpen->fields(yuranDb) + $amaunD;
+	$balancek = $rsWajibOpen->fields(yuranKt) + $amaunK;
 
 	//baki = OP sahaja
 	$totBal = ($amaunD - $amaunK);
@@ -119,7 +119,7 @@ while (!$rsLoan->EOF) {
 			<table border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>Bil</th>
-					<th nowrap align="center">Tarikh</th>
+					<th nowrap align="center">Tanggal</th>
 					<th nowrap align="left">Batch</th>
 					<th nowrap align="left">Nomor Rujukan</th>
 					<th nowrap align="left">Perkara</th>

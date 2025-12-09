@@ -117,8 +117,8 @@ print '
                         <td nowrap>Nama Anggota</td>
                         <td nowrap>Cabang/Zona</td>
                         <td align="right" nowrap>Jumlah Pembiayaan (RP)</td>					
-                        <td align="center" nowrap>Tarikh Permohonan</td>
-                        <td align="center" nowrap>Tarikh Kelulusan</td>
+                        <td align="center" nowrap>Tanggal Permohonan</td>
+                        <td align="center" nowrap>Tanggal Kelulusan</td>
                     </tr>';
 
 if ($GetLoan->RowCount() <> 0) {

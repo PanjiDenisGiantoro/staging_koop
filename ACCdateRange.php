@@ -48,7 +48,7 @@ document.getElementById("ok").addEventListener("click", function() {
     var dtTo = document.getElementById("dtTo").value;
 
     if (dtFrom > dtTo) {
-        alert("Tarikh Pada tidak boleh melebihi dari Tarikh Hingga");
+        alert("Tanggal Pada tidak boleh melebihi dari Tanggal Hingga");
     } else {
         window.location.href = "' . $sFileRef . '&dtFrom=" + dtFrom + "&dtTo=" + dtTo;
     }

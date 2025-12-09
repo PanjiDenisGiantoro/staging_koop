@@ -511,7 +511,7 @@ print
 	<td width="48%" align="right">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td valign="top" align="right">Tarikh Resit</td>
+				<td valign="top" align="right">Tanggal Resit</td>
 				<td valign="top">:</td>
 				<td><input class="form-controlx" name="tarikh_resit" value="' . $tarikh_resit . '" type="text" size="20" maxlength="10" /></td>
 			</tr>
@@ -689,8 +689,8 @@ if ($add) {
 }
 //bahagian bawah skali
 if ($totalKt <> 0) {
-	$clsRM->setValue($totalKt);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($totalKt);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 $kerani = get_session('Cookie_fullName');

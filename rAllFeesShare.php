@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=rAllFeesShare&mn=902';
-$title       = "Keseluruhan Wajib & Syer";
+$title       = "Keseluruhan Wajib & Pokok";
 
 if (isset($_POST['dtTo'])) {
     $dtTo = $_POST['dtTo'];
@@ -49,7 +49,7 @@ function getFees1($id, $dtTo)
 {
     global $conn;
 
-    $getYuranOpen = "SELECT 
+    $getWajibOpen = "SELECT 
         SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END) AS jumlahyuran
         FROM transaction
         WHERE
@@ -58,10 +58,10 @@ function getFees1($id, $dtTo)
         AND createdDate <= '" . $dtTo . "'
         GROUP BY userID";
 
-    $rsYuranOpen = $conn->Execute($getYuranOpen);
+    $rsWajibOpen = $conn->Execute($getWajibOpen);
 
-    if ($rsYuranOpen->RowCount() == 1) {
-        $totalFees = $rsYuranOpen->fields['jumlahyuran'];
+    if ($rsWajibOpen->RowCount() == 1) {
+        $totalFees = $rsWajibOpen->fields['jumlahyuran'];
     } else {
         $totalFees = 0;
     }
@@ -155,9 +155,9 @@ print '<div class="table-responsive">
                         <td nowrap align="center">Nomor Anggota</td>
                         <td nowrap align="left">Nama Anggota</td>
                         <td nowrap align="center">Peratusan Wajib (%)</td>
-					    <td nowrap align="right">Yuran Terkumpul (RP)</td>
+					    <td nowrap align="right">Wajib Terkumpul (RP)</td>
                         <td nowrap align="center">Peratusan syer (%)</td>
-                        <td nowrap align="right">Syer Terkumpul (RP)</td>
+                        <td nowrap align="right">Pokok Terkumpul (RP)</td>
                     </tr>';
 
 if ($GetMember->RowCount() <> 0) {
@@ -176,8 +176,8 @@ if ($GetMember->RowCount() <> 0) {
 
     // Kembali ke permulaan dan kira peratusan berdasarkan jumlah keseluruhan
     $GetMember->MoveFirst();
-    $peratusYuranAll = 0;
-    $peratusSyerAll = 0;
+    $peratusWajibAll = 0;
+    $peratusPokokAll = 0;
 
     $bil = 0;
     while (!$GetMember->EOF) {
@@ -186,20 +186,20 @@ if ($GetMember->RowCount() <> 0) {
         $totalSharesTK = getSharesterkini1($GetMember->fields('userID'), $dtTo);
 
         // Elakkan pembahagian dengan 0 (dalam kes jika totalsumFee atau totalsumShare adalah 0)
-        $peratusYuran = ($totalsumFee > 0) ? ($totalFees / $totalsumFee) * 100 : 0;
-        $peratusSyer = ($totalsumShare > 0) ? ($totalSharesTK / $totalsumShare) * 100 : 0;
+        $peratusWajib = ($totalsumFee > 0) ? ($totalFees / $totalsumFee) * 100 : 0;
+        $peratusPokok = ($totalsumShare > 0) ? ($totalSharesTK / $totalsumShare) * 100 : 0;
 
         // Update jumlah peratusan
-        $peratusYuranAll += $peratusYuran;
-        $peratusSyerAll += $peratusSyer;
+        $peratusWajibAll += $peratusWajib;
+        $peratusPokokAll += $peratusPokok;
 
         print '<tr style="font-family: Poppins, sans-serif; font-size: 9pt;">
              <td align="center">' . $bil . '.</td>
              <td align="center">' . $GetMember->fields('userID') . '</td>
              <td align="left">' . $GetMember->fields('name') . '</td>
-             <td nowrap align="center">' . number_format($peratusYuran, 2) . '</td>
+             <td nowrap align="center">' . number_format($peratusWajib, 2) . '</td>
              <td align="right">' . number_format($totalFees, 2) . '</td>
-             <td nowrap align="center">' . number_format($peratusSyer, 2) . '</td>
+             <td nowrap align="center">' . number_format($peratusPokok, 2) . '</td>
              <td align="right">' . number_format($totalSharesTK, 2) . '</td>
          </tr>';
 
@@ -209,9 +209,9 @@ if ($GetMember->RowCount() <> 0) {
     // Untuk jumlah keseluruhan
     print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
          <td colspan="3">Jumlah Keseluruhan:</td>
-         <td nowrap align="center">' . number_format($peratusYuranAll, 2) . '</td>
+         <td nowrap align="center">' . number_format($peratusWajibAll, 2) . '</td>
          <td align="right">' . number_format($totalsumFee, 2) . '</td>
-         <td nowrap align="center">' . number_format($peratusSyerAll, 2) . '</td>
+         <td nowrap align="center">' . number_format($peratusPokokAll, 2) . '</td>
          <td align="right">' . number_format($totalsumShare, 2) . '</td>
      </tr>';
 } else {

@@ -95,8 +95,8 @@ if ($rs->RowCount() <> 0) {
 	print '	
 	<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 		<td colspan="4" align="right">&nbsp;JUMLAH KESELURUHAN</td>
-		<td align="right">RM&nbsp;' . number_format($totaldebit, 2) . '</td>
-		<td align="right">RM&nbsp;' . number_format($totalkredit, 2) . '</td>
+		<td align="right">RP&nbsp;' . number_format($totaldebit, 2) . '</td>
+		<td align="right">RP&nbsp;' . number_format($totalkredit, 2) . '</td>
 	</tr>';
 } else {
 	print '

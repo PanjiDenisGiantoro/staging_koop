@@ -26,16 +26,16 @@ function getFees1()
 {
     global $conn;
 
-    $getYuranOpen = "SELECT 
+    $getWajibOpen = "SELECT 
         SUM(CASE WHEN t.addminus = '0' THEN -t.pymtAmt ELSE t.pymtAmt END) AS jumlahyuran
         FROM transaction t
         INNER JOIN userdetails u ON t.userID = u.userID
         WHERE u.status IN (1,4)
         AND t.deductID IN (1595,1780,1607)";
 
-    $rsYuranOpen = $conn->Execute($getYuranOpen);
+    $rsWajibOpen = $conn->Execute($getWajibOpen);
 
-    return ($rsYuranOpen && $rsYuranOpen->fields['jumlahyuran']) ? $rsYuranOpen->fields['jumlahyuran'] : 0;
+    return ($rsWajibOpen && $rsWajibOpen->fields['jumlahyuran']) ? $rsWajibOpen->fields['jumlahyuran'] : 0;
 }
 
 function getSharesterkini1()
@@ -126,7 +126,7 @@ $entries = array(
             <div class="col-md-4">
                 <div class="card p-3 h-100">
                     <h6>JUMLAH TERKUMPUL YURAN & SYER</h6>
-                    <h3 class="text-info">RM <?echo number_format($totalsumFeeShare, 2)?></h3>
+                    <h3 class="text-info">RP <?echo number_format($totalsumFeeShare, 2)?></h3>
                     <canvas id="yuran_syerChart"></canvas>
                 </div>
             </div>
@@ -144,11 +144,11 @@ $entries = array(
             <div class="col-md-4">
                 <div class="card p-3 h-100">
                     <h6>JUMLAH PEMBIAYAAN DILULUSKAN</h6>
-                    <h3 class="text-info">RM <?echo number_format($jumLulus, 2)?></h3>
+                    <h3 class="text-info">RP <?echo number_format($jumLulus, 2)?></h3>
                     <div class="progress">
                         <div class="progress-bar bg-warning" style="width: 100%"><?php echo $diluluskan ?></div>
                     </div>
-                    <p class="mt-2">Sebanyak <?php echo $diluluskan ?> data pembiayaan telah direkodkan dengan jumlah keseluruhan RM <?echo number_format($jumLulus, 2)?>.</p>
+                    <p class="mt-2">Sebanyak <?php echo $diluluskan ?> data pembiayaan telah direkodkan dengan jumlah keseluruhan RP <?echo number_format($jumLulus, 2)?>.</p>
                 </div>
             </div>
 
@@ -161,7 +161,7 @@ $entries = array(
                         <div class="progress-bar bg-info" style="width: 50%">1 Pending</div>
                         <div class="progress-bar bg-secondary" style="width: 50%">1 Closed</div>
                     </div>
-                    <p class="mt-2">RM 7,888 Total Deal</p>
+                    <p class="mt-2">RP 7,888 Total Deal</p>
                 </div>
             </div>
         
@@ -171,7 +171,7 @@ $entries = array(
             <div class="col-md-4">
                 <div class="card p-3 h-100">
                     <h6>PROFIT AND LOSS</h6>
-                    <h3>RM 7,838</h3>
+                    <h3>RP 7,838</h3>
                     <div class="progress">
                         <div class="progress-bar bg-success" style="width: 99%">Income</div>
                         <div class="progress-bar bg-warning" style="width: 1%">Expenses</div>
@@ -184,9 +184,9 @@ $entries = array(
                 <div class="card p-3 h-100">
                     <h6>BANK ACCOUNTS</h6>
                     <ul>
-                        <li>CASH AT BANK: RM 1,300.00</li>
-                        <li>CASH IN HAND: -RM 7,000.00</li>
-                        <li>MAYBANK: -RM 450.00</li>
+                        <li>CASH AT BANK: RP 1,300.00</li>
+                        <li>CASH IN HAND: -RP 7,000.00</li>
+                        <li>MAYBANK: -RP 450.00</li>
                     </ul>
                 </div>
             </div>
@@ -199,7 +199,7 @@ $entries = array(
         new Chart(ctx1, {
             type: 'bar',
             data: {
-                labels: ['Yuran', 'Syer'],
+                labels: ['Wajib', 'Pokok'],
                 datasets: [{
                     label: 'Jumlah Terkumpul (RP)',
                     data: [<?php echo $totalsumFee; ?>, <?php echo $totalsumShare; ?>],

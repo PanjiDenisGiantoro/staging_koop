@@ -173,7 +173,7 @@ print '  <tr valign="top" >
 						<td nowrap align="center"> No</td>
 						<td nowrap>&nbsp;No/Nama Anggota</td>
 						<td nowrap>&nbsp;No KTP Baru</td>
-						<td nowrap align="center">&nbsp;Yuran '.$yyr.'</td>
+						<td nowrap align="center">&nbsp;Wajib '.$yyr.'</td>
 						<td nowrap align="center">&nbsp;Dividen Pokok '.$yy.'</td>
 					</tr>';	
 		$totalFee = 0;
@@ -204,8 +204,8 @@ print '  <tr valign="top" >
 			$feeDB = $rsFee->fields(yuranDb);
 			$feeKT = $rsFee->fields(yuranKt);
 			
-			$feeYuranTkini = $feeKT- $feeDB;
-			$feeYuranTkiniP = number_format($feeKT- $feeDB,2);
+			$feeWajibTkini = $feeKT- $feeDB;
+			$feeWajibTkiniP = number_format($feeKT- $feeDB,2);
 					  	
 			$sSQL14 = "SELECT *
 			FROM dividenyear
@@ -238,7 +238,7 @@ $sSQL = "SELECT   b.name, a.UserID, a.yrmth,
 		
 			$feeDB2 = $rsFee3->fields(yuranDb);
 			$feeKT2 = $rsFee3->fields(yuranKt);
-			$feeYuranTkini2 = $feeKT2- $feeDB2;
+			$feeWajibTkini2 = $feeKT2- $feeDB2;
 
 
 $DocDiv = $yy;
@@ -253,13 +253,13 @@ $sSQL11 = "SELECT *
 		   // $yrmth = $yy.$mm;
 			$userID = $GetMember->fields(userID);
 			$deductID ='1607';
-			$DivAmt = ($feeYuranTkini2 * $MYA)/100 * 1 ;
-			$tbgAmt = ($feeYuranTkini2 * $tbg)/100 * 1 ;
+			$DivAmt = ($feeWajibTkini2 * $MYA)/100 * 1 ;
+			$tbgAmt = ($feeWajibTkini2 * $tbg)/100 * 1 ;
 		
 			
 			
 if($rsChecking->RowCount() <= 0)	{				
-if ($feeYuranTkini2 > 0) {			
+if ($feeWajibTkini2 > 0) {			
 
 $sSQL4	= "INSERT INTO dividenyear (" . 
 				
@@ -272,7 +272,7 @@ $sSQL4	= "INSERT INTO dividenyear (" .
 				  "approvedBy," .
 				  "createdDate," .  
 				  "createdBy," .
-				  "AmtYuranT," . 
+				  "AmtWajibT," . 
 				  "userID," . 
 				  "YEAR)" . 
 				  " VALUES (" . 
@@ -285,7 +285,7 @@ $sSQL4	= "INSERT INTO dividenyear (" .
 				"'". $updatedBy . "', ".
 				"'". $updatedDate . "', ".
 				"'". $updatedBy . "', ".
-				"'". $feeYuranTkini2 . "', ".
+				"'". $feeWajibTkini2 . "', ".
 				"'". $userID . "', ".
 				"'". $yy . "')";
 				
@@ -315,7 +315,7 @@ $GetMember->MoveNext();
 						<td class="Data">'.$GetMember->fields('memberID').' - '.$GetMember->fields(name).'</td>
 						<td class="Data">&nbsp;'.$GetMember->fields('newIC').'</td>						
 				
-						<td class="Data" align="right">'.$feeYuranTkiniP.'&nbsp;</td>
+						<td class="Data" align="right">'.$feeWajibTkiniP.'&nbsp;</td>
 						<td class="Data" align="right">'.$feeYearDiv.'&nbsp;</td>
 					</tr>';
 				$cnt++;

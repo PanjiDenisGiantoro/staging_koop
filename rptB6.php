@@ -60,7 +60,7 @@ print '
 					<th nowrap>Jenis Advance Payment</th>
 					<th nowrap>Jumlah Advance Payment (RP)</th>					
 					<th nowrap>Tanggal Pengajuan</th>
-					<th nowrap>Tarikh Diluluskan</th>
+					<th nowrap>Tanggal Diluluskan</th>
 					<th nowrap>Beza Kelulusan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {	

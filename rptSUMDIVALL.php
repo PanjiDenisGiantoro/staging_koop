@@ -79,7 +79,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="center" nowrap>Bil</th>
 					<th width="150" align="left" nowrap>&nbsp;Nomor Anggota- Nama</th>
-					<th width="40" align="left" nowrap><div align="right">Dividen Tahun (Yuran) ' . $yr . ' &nbsp;' . $rsCheck->fields(yuranRate) . '% </div></th>
+					<th width="40" align="left" nowrap><div align="right">Dividen Tahun (Wajib) ' . $yr . ' &nbsp;' . $rsCheck->fields(yuranRate) . '% </div></th>
 					<th width="30" align="left" nowrap><div align="right">Dividen Tahun (Tabung) ' . $yr . '&nbsp;' . $rsCheck->fields(TbgRate) . '% </div></th>
 					<th width="45"><div align="right">Jumlah Pembayaran Dividen ' . $yr . ' (RP)</div></th>
 				</tr>';
@@ -108,13 +108,13 @@ if ($rsCheck->RowCount() <= 0) {
 		while (!$GetMember->EOF) {
 
 
-			$sSQLDividenYearYuran = "SELECT *
+			$sSQLDividenYearWajib = "SELECT *
 			FROM dividenyear
 			WHERE YEAR = " . $yr . "
 			AND UserID = " . $GetMember->fields(userID) . " ";
-			$rsDividenYear = &$conn->Execute($sSQLDividenYearYuran);
+			$rsDividenYear = &$conn->Execute($sSQLDividenYearWajib);
 
-			$TotalDivYearYuran = $rsDividenYear->fields(yuranAmtIssue);
+			$TotalDivYearWajib = $rsDividenYear->fields(yuranAmtIssue);
 			$TotalDivYearTbg = $rsDividenYear->fields(TbgAmtIssue);
 
 			/*	
@@ -142,7 +142,7 @@ if ($rsCheck->RowCount() <= 0) {
 		
 		*/
 
-			$TOTAL = ($TotalDivYearYuran + $TotalDivYearTbg);
+			$TOTAL = ($TotalDivYearWajib + $TotalDivYearTbg);
 
 
 
@@ -151,13 +151,13 @@ if ($rsCheck->RowCount() <= 0) {
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
 						<td class="Data" align="center">' . $bil . '</td>
 						<td >' . $GetMember->fields('memberID') . ' - ' . $GetMember->fields(name) . '</td>
-						<td align="right" >' . number_format($TotalDivYearYuran, 2) . '</td>						
+						<td align="right" >' . number_format($TotalDivYearWajib, 2) . '</td>						
 						<td align="right">' . number_format($TotalDivYearTbg, 2) . '&nbsp;</td>
 					    <td align="right">' . number_format($TOTAL, 2) . '&nbsp;</td>
 					</tr>';
 
 			$bil++;
-			$totalDivY += $TotalDivYearYuran;
+			$totalDivY += $TotalDivYearWajib;
 			$totalDivT += $TotalDivYearTbg;
 			//$totalDivBln += $TotalDivBulan ;
 			//$totalDivR += $TotalDivResit ;

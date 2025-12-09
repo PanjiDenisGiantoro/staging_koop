@@ -1015,9 +1015,9 @@ if ($add) {
 
 //bahagian bawah skali
 if ($totalKt <> 0) {
-	$clsRM->setValue($totalBal);
-	$clsRM->setValue($totalKt);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($totalBal);
+	$clsRP->setValue($totalKt);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 $idname = get_session('Cookie_fullName');

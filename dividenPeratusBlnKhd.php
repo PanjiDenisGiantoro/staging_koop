@@ -174,7 +174,7 @@ if (get_session("Cookie_groupID") > 0) {
 						<td nowrap>Nomor - Nama Anggota</td>
 						<td nowrap align="center">Kartu Identitas</td>
 
-						<td nowrap align="right">Saldo Awal Tahun ' . $yy . ' (Yuran)</td>
+						<td nowrap align="right">Saldo Awal Tahun ' . $yy . ' (Wajib)</td>
 						<td nowrap align="right">Pokok</td>
 					</tr>';
 		$totalFees = 0;
@@ -210,57 +210,57 @@ if (get_session("Cookie_groupID") > 0) {
 
 						$mm1 = 01;
 						$yymm1 = sprintf("%04d%02d", $yy, $mm1);
-						$feeYuranTkiniBln1 = getFeesAwlDiv($GetMember->fields(userID), $yymm1);
-						$DivAmtBln1 = number_format(($feeYuranTkiniBln1 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln1 = getFeesAwlDiv($GetMember->fields(userID), $yymm1);
+						$DivAmtBln1 = number_format(($feeWajibTkiniBln1 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm2 = 02;
 						$yymm2 = sprintf("%04d%02d", $yy, $mm2);
-						$feeYuranTkiniBln2 = getFeesAwlDiv($GetMember->fields(userID), $yymm2);
-						$DivAmtBln2 = number_format(($feeYuranTkiniBln2 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln2 = getFeesAwlDiv($GetMember->fields(userID), $yymm2);
+						$DivAmtBln2 = number_format(($feeWajibTkiniBln2 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm3 = 03;
 						$yymm3 = sprintf("%04d%02d", $yy, $mm3);
-						$feeYuranTkiniBln3 = getFeesAwlDiv($GetMember->fields(userID), $yymm3);
-						$DivAmtBln3 = number_format(($feeYuranTkiniBln3 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln3 = getFeesAwlDiv($GetMember->fields(userID), $yymm3);
+						$DivAmtBln3 = number_format(($feeWajibTkiniBln3 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm4 = 04;
 						$yymm4 = sprintf("%04d%02d", $yy, $mm4);
-						$feeYuranTkiniBln4 = getFeesAwlDiv($GetMember->fields(userID), $yymm4);
-						$DivAmtBln4 = number_format(($feeYuranTkiniBln4 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln4 = getFeesAwlDiv($GetMember->fields(userID), $yymm4);
+						$DivAmtBln4 = number_format(($feeWajibTkiniBln4 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm5 = 05;
 						$yymm5 = sprintf("%04d%02d", $yy, $mm5);
-						$feeYuranTkiniBln5 = getFeesAwlDiv($GetMember->fields(userID), $yymm5);
-						$DivAmtBln5 = number_format(($feeYuranTkiniBln5 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln5 = getFeesAwlDiv($GetMember->fields(userID), $yymm5);
+						$DivAmtBln5 = number_format(($feeWajibTkiniBln5 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm6 = 06;
 						$yymm6 = sprintf("%04d%02d", $yy, $mm6);
-						$feeYuranTkiniBln6 = getFeesAwlDiv($GetMember->fields(userID), $yymm6);
-						$DivAmtBln6 = number_format(($feeYuranTkiniBln6 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln6 = getFeesAwlDiv($GetMember->fields(userID), $yymm6);
+						$DivAmtBln6 = number_format(($feeWajibTkiniBln6 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm7 = 07;
 						$yymm7 = sprintf("%04d%02d", $yy, $mm7);
-						$feeYuranTkiniBln7 = getFeesAwlDiv($GetMember->fields(userID), $yymm7);
-						$DivAmtBln7 = number_format(($feeYuranTkiniBln7 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln7 = getFeesAwlDiv($GetMember->fields(userID), $yymm7);
+						$DivAmtBln7 = number_format(($feeWajibTkiniBln7 + $totalShares) * $jumDiv, 2, '.', '');
 
 
 						$yymm8 = $yy . '08';
-						$feeYuranTkiniBln8 = getFeesAwlDiv($GetMember->fields(userID), $yymm8);
-						$DivAmtBln8 = number_format(($feeYuranTkiniBln8 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln8 = getFeesAwlDiv($GetMember->fields(userID), $yymm8);
+						$DivAmtBln8 = number_format(($feeWajibTkiniBln8 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$yymm9 = $yy . '09';
-						$feeYuranTkiniBln9 = getFeesAwlDiv($GetMember->fields(userID), $yymm9);
-						$DivAmtBln9 = number_format(($feeYuranTkiniBln9 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln9 = getFeesAwlDiv($GetMember->fields(userID), $yymm9);
+						$DivAmtBln9 = number_format(($feeWajibTkiniBln9 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm10 = 10;
 						$yymm10 = sprintf("%04d%02d", $yy, $mm10);
-						$feeYuranTkiniBln10 = getFeesAwlDiv($GetMember->fields(userID), $yymm10);
-						$DivAmtBln10 = number_format(($feeYuranTkiniBln10 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln10 = getFeesAwlDiv($GetMember->fields(userID), $yymm10);
+						$DivAmtBln10 = number_format(($feeWajibTkiniBln10 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$mm11 = 11;
 						$yymm11 = sprintf("%04d%02d", $yy, $mm11);
-						$feeYuranTkiniBln11 = getFeesAwlDiv($GetMember->fields(userID), $yymm11);
-						$DivAmtBln11 = number_format(($feeYuranTkiniBln11 + $totalShares) * $jumDiv, 2, '.', '');
+						$feeWajibTkiniBln11 = getFeesAwlDiv($GetMember->fields(userID), $yymm11);
+						$DivAmtBln11 = number_format(($feeWajibTkiniBln11 + $totalShares) * $jumDiv, 2, '.', '');
 
 						$JumDivAll = number_format(($DivAmtAwalBln + $DivAmtBln1 + $DivAmtBln2 + $DivAmtBln3 + $DivAmtBln4 + $DivAmtBln5 + $DivAmtBln6 + $DivAmtBln7 + $DivAmtBln8 + $DivAmtBln9 + $DivAmtBln10 + $DivAmtBln11), 2, '.', '');
 
@@ -283,7 +283,7 @@ if (get_session("Cookie_groupID") > 0) {
 								"updatedBy," .
 								"status," .
 								"AmtDiv," .
-								"AmtYuranT," .
+								"AmtWajibT," .
 								"statusKhd," .
 								"AmtShareD)" .
 								" VALUES (" .
@@ -300,7 +300,7 @@ if (get_session("Cookie_groupID") > 0) {
 								"'" . $updatedBy . "', " .
 								"'" . 1 . "', " .
 								"'" . $JumDivAll . "', " .
-								"'" . $feeYuranTkiniBln11 . "', " .
+								"'" . $feeWajibTkiniBln11 . "', " .
 								"'" . 1 . "', " .
 								"'" . $totalShares . "')";
 

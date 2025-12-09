@@ -71,7 +71,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "12";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mula Bayar Mengikut Jadual";
+$FormLabel[$a]   	= "Tanggal Mula Bayar Mengikut Jadual";
 $FormElement[$a] 	= "startPymtDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -251,7 +251,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Diluluskan";
+$FormLabel[$a]  	= "Tanggal Diluluskan";
 $FormElement[$a] 	= "approvedDate";
 $FormType[$a]  		= "date";
 $FormData[$a]    	= "";
@@ -261,7 +261,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Ditolak";
+$FormLabel[$a]  	= "Tanggal Ditolak";
 $FormElement[$a] 	= "rejectedDate";
 $FormType[$a]  		= "date";
 $FormData[$a]    	= "";
@@ -271,7 +271,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]  	= "Tarikh Kemaskini";
+$FormLabel[$a]  	= "Tanggal Kemaskini";
 $FormElement[$a] 	= "updatedDate";
 $FormType[$a]  		= "date";
 $FormData[$a]    	= "";

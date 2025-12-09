@@ -180,7 +180,7 @@ if ($page <> 'list') {
 			strtoupper(dlookup("users", "name", "userID=" . tosql($GetData->fields('userID'), "Text"))),
 			dlookup("userdetails", "memberID", "userID=" . tosql($GetData->fields('userID'), "Text")),
 			$strLoanName,
-			'RM&nbsp;' . $fLoanAmount
+			'RP&nbsp;' . $fLoanAmount
 		);
 	} else {
 		$strFieldDataList = array('- Tiada -', '- Tiada -', '- Tiada -', '- Tiada -', '- Tiada -');
@@ -221,7 +221,7 @@ if ($page <> 'list') {
 	$tableList[0][3] = array('<div align="left">Kadar Keuntungan</div>', '', $fProfitRate . '%');
 	$tableList[0][4] = array('<div align="left">Jumlah Keuntungan</div>', '', Currency($fProfitAmount));
 	$tableList[0][5] = array('<div align="left">Bayaran Bulanan</div>', '', Currency($fMonthPayment));
-	$tableList[0][6] = array('<div align="left">Yuran Proses (' . $fProcessFeeRate . '%)</div>', '', Currency($fProcessFee));
+	$tableList[0][6] = array('<div align="left">Wajib Proses (' . $fProcessFeeRate . '%)</div>', '', Currency($fProcessFee));
 	$tableList[0][7] = array('<div align="left">Jumlah + Untung</div>', '', Currency($fPaymentAmount));
 
 	$fMonthPayment = RoundCurrency($fMonthPayment);

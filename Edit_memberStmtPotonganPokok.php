@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Kemaskini Potongan Bulanan ( Pokok & Untung )";
 
 $sFileName = "?vw=Edit_memberStmtPotonganPokok&mn=$mn";
@@ -110,7 +110,7 @@ $name = $rs1->fields(name);
       <td>' . $name . '</td>
     </tr>
     <tr>
-      <td>Nombor Anggota  :</td>
+      <td>Nomor Anggota  :</td>
       <td>' . $rs->fields(userID) . '</td>
     </tr>
     <tr>

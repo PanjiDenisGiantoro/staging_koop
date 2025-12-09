@@ -9,7 +9,7 @@ include ("header.php");
 print '
 <table cellspacing="0" cellpadding="0">
   <tr>
-    <td > <b class="maroonText">LANGKAH-LANGKAH UNTUK MEMBOLEHKAN PERMOHONAN PEMBIAYAAN DIPROSES DENGAN SEGERA OLEH :<b></td>
+    <td > <b class="maroonText">LANGKAH-LANGKAH UNTUK MEMBOLEHKAN PERPOHONAN PEMBIAYAAN DIPROSES DENGAN SEGERA OLEH :<b></td>
   </tr>
   <tr>
     <td><p><p>Bagi membolehkan kami memberikan perkhidmatan yang terbaik kepada anggota, sila pastikan langkah-langkah berikut diikuti, iaitu :-</p>

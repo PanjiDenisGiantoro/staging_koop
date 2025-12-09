@@ -162,7 +162,7 @@ $rowCounter = 1;
 
 <table width="100%" class="tableContent">
     <tr class="font5 tableTitle" >
-      <th class="thData">Tarikh<br><small><i style="font-weight: normal; font-size: 10px;">Date</i></small></th>
+      <th class="thData">Tanggal<br><small><i style="font-weight: normal; font-size: 10px;">Date</i></small></th>
       <th class="thData">No Rujukan<br><small><i style="font-weight: normal; font-size: 10px;">Reference No</i></small></th>
       <th align="right" class="thData">Invois (RP)<br><small><i style="font-weight: normal; font-size: 10px; white-space: nowrap;">Invoiced (RP)</i></small></th>
       <th align="right" class="thData">Baki Semasa (RP)<br><small><i style="font-weight: normal; font-size: 10px;">Current Balance (RP)</i></small></th>

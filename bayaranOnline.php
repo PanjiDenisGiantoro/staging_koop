@@ -17,7 +17,7 @@ if (get_session('Cookie_userID') == "" OR get_session("Cookie_koperasiID") <> $k
 
 $sFileName    = "?vw=bayaranOnline&mn=9";
 $sActionFileName= "testapi2.php?userID=".$userID."&amount=".$amount."&paymentName=".$paymentName."";
-$title        = "Permohonan Penambahan Syer";
+$title        = "Permohonan Penambahan Pokok";
 
 $strErrMsg = Array();
 
@@ -52,10 +52,10 @@ print '
       <p> 2. Pastikan juga nombor telefon telah dikemaskini dengan meletakkan <b>angka 6 dihadapan nombor telefon.</b><br>
         </p>
       
-      <p> 3. Penambahan minima yang boleh dibuat adalah sebanyak <b>RM 100.00</b>. Manakala penambahan maksima yang boleh dibuat adalah sebanyak RM20,000 <br>
+      <p> 3. Penambahan minima yang boleh dibuat adalah sebanyak <b>RP 100.00</b>. Manakala penambahan maksima yang boleh dibuat adalah sebanyak RP20,000 <br>
         </p>
       
-      <p> 4. Caj transaksi sebanyak <b>RM 1.00</b> akan dikenakan untuk setiap transaksi yang dilakukan.<br>
+      <p> 4. Caj transaksi sebanyak <b>RP 1.00</b> akan dikenakan untuk setiap transaksi yang dilakukan.<br>
         </p>
       
       <p> 5. Setelah bayaran dibuat, penyata anggota akan dikemaskini dalam dua hari bekerja. Sila semak di menu pengguna setelah dua hari membuat pembayaran. Sekiranya penyata tidak dikemaskini, sila hubungi pihak <b>'.$abbreviation.'</b> untuk tindakan lanjut.</p>
@@ -126,7 +126,7 @@ $a++;
 $FormLabel[$a]    = "Pilihan Bayaran";
 $FormElement[$a]  = "paymentName";
 $FormType[$a]     = "radio";
-$FormData[$a]     = array('Syer');
+$FormData[$a]     = array('Pokok');
 $FormDataValue[$a]= array('1596');
 $FormCheck[$a]    = array();
 $FormSize[$a]     = "1";
@@ -171,7 +171,7 @@ if ($SubmitForm <> "") {
     print '<div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
             </button>
-            <strong>Amaun maksimum yang dibenarkan ialah RM20,000.</strong> 
+            <strong>Amaun maksimum yang dibenarkan ialah RP20,000.</strong> 
             </div>';
     }
 
@@ -211,7 +211,7 @@ if ($SubmitForm <> "") {
 <form name="MyForm" action=<?php print $sFileName;?> method="POST">
 <table class="table lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
 <tr>
-<td class="borderallteal" align="left" valign="middle"><div class="headerteal"><b>Permohonan Penambahan Syer</b></div></td>
+<td class="borderallteal" align="left" valign="middle"><div class="headerteal"><b>Permohonan Penambahan Pokok</b></div></td>
 </tr>
 <tr>
 <td class="borderleftrightbottomteal">

@@ -183,10 +183,10 @@ print '  <tr valign="top" >
 						<td nowrap height="8" align="center"><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama</b></td>
 						<td nowrap><b>Nomor Karyawan</b></td>
-						<td nowrap colspan="2" align="right"><b>Yuran (RP)</b></td>
+						<td nowrap colspan="2" align="right"><b>Wajib (RP)</b></td>
 						<td nowrap colspan="2" align="right"><b>Pembiayaan (RP)</b></td>
 						<td nowrap colspan="2" align="right"><b>Jumlah Tunggakkan (RP)</b></td>
-					    <td nowrap colspan="2" align="right"><b>Yuran Terkini (RP)</b></td>
+					    <td nowrap colspan="2" align="right"><b>Wajib Terkini (RP)</b></td>
 
 					</tr>';
 $totalFee = 0;
@@ -204,10 +204,10 @@ while (!$GetMember->EOF) {
 	$jumALL = $totalJumP + $totalJumY;
 	$jumSPSN = getJumlahPGBALLSPSN($GetMember->fields(userID), $yrmthNow);
 	$bakiPem1 = $totalJumP - $jumSPSN;
-	$bakiYuran1 = $totalJumY - $jumSPSN;
+	$bakiWajib1 = $totalJumY - $jumSPSN;
 	$bakiPemb = number_format($totalJumP - $jumSPSN, 2);
-	$BakiYuran = number_format($totalJumY - $jumSPSN, 2);
-	$jumTgg =  number_format($bakiPem1 + $bakiYuran1, 2);
+	$BakiWajib = number_format($totalJumY - $jumSPSN, 2);
+	$jumTgg =  number_format($bakiPem1 + $bakiWajib1, 2);
 	$totalShares = number_format(getFeesAwlDiv($GetMember->fields(userID), $yrmthNow), 2);
 	//sprintf(number_format($GetMember->fields('totalShare'),2,'.',','))
 
@@ -217,7 +217,7 @@ while (!$GetMember->EOF) {
 						<td class="Data" align="center">' . $GetMember->fields('memberID') . '</td>
 						<td class="Data">' . $GetMember->fields(name) . '</td>
      					<td class="Data">' . $GetMember->fields('staftNo') . '</td>						
-						<td class="Data" align="right" colspan="2">' . $BakiYuran . '</td>	
+						<td class="Data" align="right" colspan="2">' . $BakiWajib . '</td>	
 						<td class="Data" align="right" colspan="2">' . $bakiPemb . '</td>
 						<td class="Data" align="right" colspan="2">' . $jumTgg . '</td>	
 						<td class="Data" align="right" colspan="2">' . $totalShares . '</td>						

@@ -11,7 +11,7 @@ if (!isset($q))			$q = "";
 if (!isset($by))		$by = "0";
 if (!isset($filter))	$filter = "0";
 if (!isset($jabatan))	$jabatan = "";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 include("koperasiQry.php");
@@ -52,7 +52,7 @@ if ($action == "finish") {
 				exit;
 			}
 		}
-		echo '<script>alert("PERMOHONAN TELAH SELESAI"); window.location.href = $sFileName;</script>';
+		echo '<script>alert("PERPOHONAN TELAH SELESAI"); window.location.href = $sFileName;</script>';
 	} else {
 		echo "No user selected for updating.";
 	}
@@ -165,7 +165,7 @@ if ($action == "batal") {
 				}
 
 				$conn->CommitTrans();
-				echo '<script>alert("PERMOHONAN BERJAYA DIBATALKAN"); window.location.href = "?vw=leave&mn=933";</script>';
+				echo '<script>alert("PERPOHONAN BERJAYA DIBATALKAN"); window.location.href = "?vw=leave&mn=933";</script>';
 			} catch (Exception $e) {
 				$conn->RollbackTrans();
 				echo '<script>alert("Error: ' . $e->getMessage() . '");</script>';
@@ -264,8 +264,8 @@ if ($by == 1)	print '<option value="1" selected>Nombor Staf</option>';
 else print '<option value="1">Nombor Staf</option>';
 if ($by == 2)	print '<option value="2" selected>Nama Staf</option>';
 else print '<option value="2">Nama Staf</option>';
-if ($by == 3)	print '<option value="3" selected>Kad Pengenalan</option>';
-else print '<option value="3">Kad Pengenalan</option>';
+if ($by == 3)	print '<option value="3" selected>Kartu Identitas</option>';
+else print '<option value="3">Kartu Identitas</option>';
 print '		</select>
 			<input type="text" name="q" value="" maxlength="50" size="20" class="form-control-sm mt-3">
  			<input type="submit" class="btn btn-sm btn-secondary" value="Cari">&nbsp;&nbsp;&nbsp;		
@@ -309,7 +309,7 @@ print '
 				<table width="100%">
 					<tr>
 						<!-- 
-						<td class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Select All</td>					
+						<td class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>					
 						<td align="right" class="textFont">Paparan 
 							<SELECT name="pg" class="form-select-xs" onchange="doListAll();">';
 if ($pg == 5)	print '<option value="5" selected>5</option>';
@@ -326,7 +326,7 @@ if ($pg == 50)	print '<option value="50" selected>50</option>';
 else print '<option value="50">50</option>';
 if ($pg == 100)	print '<option value="100" selected>100</option>';
 else print '<option value="100">100</option>';
-print '				</select> setiap mukasurat.
+print '				</select> setiap halaman..
 						</td>
 						-->
 				</tr>
@@ -347,8 +347,8 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="left">Jenis Cuti</td>
 						<td nowrap align="center">Dokumen</td>
 						<td nowrap align="center">Jabatan</td>
-						<td nowrap align="center">Tarikh Mula</td>
-						<td	nowrap align="center">Tarikh Tamat</td>
+						<td nowrap align="center">Tanggal Mula</td>
+						<td	nowrap align="center">Tanggal Tamat</td>
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center"></td> 
 						
@@ -440,7 +440,7 @@ if ($GetMember->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $jabatan . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -453,13 +453,13 @@ if ($GetMember->RowCount() <> 0) {
 				</td>
 			</tr>
 			<tr>
-				<td class="textFont">Jumlah Rekod : <b>' . $GetMember->RowCount() . '</b></td>
+				<td class="textFont">Jumlah Data : <b>' . $GetMember->RowCount() . '</b></td>
 			</tr>';
 } else {
 	if ($q == '') {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size="1"></td></tr>';
 	} else {
-		print '<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size="1"></td></tr>';
+		print '<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size="1"></td></tr>';
 	}
 }
 print ' 
@@ -487,7 +487,7 @@ print '
 		function ITRActionButtonClick(v) {
 				e = document.MyForm;
 				if(e==null) {
-				alert(\'Sila pastikan nama form diwujudkan.!\');
+				alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 				} else {
 				count=0;
 				for(c=0; c<e.elements.length; c++) {
@@ -497,7 +497,7 @@ print '
 				}
 				
 				if(count==0) {
-					alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+					alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 				} else {
 					if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 					e.action.value = v;
@@ -542,7 +542,7 @@ print '
 		function ITRActionButtonFinish(v) {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

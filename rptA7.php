@@ -99,12 +99,12 @@ if ($rs->RowCount() <> 0) {
 							Jabatan : ' . $rs->fields(department) . '</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<th nowrap>&nbsp;</th>
-								<th nowrap width="100">&nbsp;Nombor Anggota</th>
+								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="80">&nbsp;Nombor KP Baru</th>
 								<th nowrap width="80">&nbsp;Nombor KP Lama</th>
 								<th nowrap width="150">&nbsp;Email</th>
-								<th nowrap align="center" width="150">&nbsp;Tarikh Keanggotaan</th>
+								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
 							</tr>';
 			$bil = 0;
 		}

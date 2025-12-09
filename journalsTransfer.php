@@ -4,7 +4,7 @@
  *			Project		: iKOOP.com.my
  *			Filename	: journalsTransfer.php
  *			Date 		: 27/7/2006
- *			Description	: Jurnal Pindahan Syer/Yuran/Simpanan Anggota
+ *			Description	: Jurnal Pindahan Pokok/Wajib/Simpanan Anggota
  *			Keywords 	: duplicate (to prevent user fault)
  *********************************************************************************/
 include("header.php");

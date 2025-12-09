@@ -72,7 +72,7 @@ print '
 
 print '
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td width="12%" align="left">&nbsp; <= RM 3,000</td>';
+							<td width="12%" align="left">&nbsp; <= RP 3,000</td>';
 
 if ($rs->RowCount() <> 0) {
 
@@ -171,7 +171,7 @@ if ($rs->RowCount() <> 0) {
 }
 print '
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td width="12%" align="left">&nbsp; RM 3,001 hingga RM 5,000</td>';
+							<td width="12%" align="left">&nbsp; RP 3,001 hingga RP 5,000</td>';
 
 if ($rs->RowCount() <> 0) {
 	$getterima3001 = getterima3001($dtFrom, $dtTo);
@@ -272,7 +272,7 @@ if ($rs->RowCount() <> 0) {
 }
 print '
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td width="12%" align="left">&nbsp; RM 5,001 hingga RM 10,000</td>';
+							<td width="12%" align="left">&nbsp; RP 5,001 hingga RP 10,000</td>';
 
 if ($rs->RowCount() <> 0) {
 
@@ -373,7 +373,7 @@ if ($rs->RowCount() <> 0) {
 }
 print '
 						<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td width="12%" align="left">&nbsp; RM 10,000 Dan Ke Atas</td>';
+							<td width="12%" align="left">&nbsp; RP 10,000 Dan Ke Atas</td>';
 
 if ($rs->RowCount() <> 0) {
 

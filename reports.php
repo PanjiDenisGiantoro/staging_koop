@@ -59,11 +59,11 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF5')">Ringkasan Keseluruhan Anggota Mengikut Skala Umur</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF6')">Ringkasan Keseluruhan Anggota Mengikut Skala Gaji</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF7')">Ringkasan Keseluruhan Anggota Mengikut Negeri</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesC')">Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Yuran</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesC')">Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Wajib</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesKhas')">Ringkasan Keseluruhan Simpanan Anggota Mengikut Pegangan Simpanan Khas (Deposit)</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesSHM')">Ringkasan Keseluruhan Saham Anggota Mengikut Nombor Keanggotaan</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAnggota('rptmbrSahBaki')">Senarai Baki (Yuran & Syer) Terkumpul Berdasarkan Tarikh Pilihan</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptPecahanPinYuran')">Ringkasan Baki Akhir & Baki Awal Bagi Tahun</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAnggota('rptmbrSahBaki')">Senarai Baki (Wajib & Pokok) Terkumpul Berdasarkan Tanggal Pilihan</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptPecahanPinWajib')">Ringkasan Baki Akhir & Baki Awal Bagi Tahun</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptPecahanPin')">Jumlah Dan Pecahan Pinjaman Yang Dikeluarkan</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptBakiAwlAkhir')">Jumlah Pecahan Baki Awal dan Baki Akhir Pembiayaan Bagi Tahun</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptSenaraiBakiAwlAkhir')">Senarai Baki Akhir Keanggotaan Bagi Tahun</a></li>
@@ -76,7 +76,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 				</tr>
 				<tr>
 					<td class="Label" valign="top" colspan="3">
-						<h6 class="card-subtitle"><u><b>INFORMASI ASAS</b></u></h6>
+						<h6 class="card-subtitle"><u><b>INFORPASI ASAS</b></u></h6>
 						<?
 						for ($i = 0; $i < count($basicList); $i++) {
 							print '	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAsas(\'' . $basicVal[$i] . '\')">' . $basicList[$i] . '</a></li>';
@@ -97,7 +97,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 			</tr>
 			<tr>
 				<td class="Label" valign="top">
-					<h6 class="card-subtitle"><u>PERMOHONAN</u></h6>
+					<h6 class="card-subtitle"><u>PERPOHONAN</u></h6>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptB1')">Permohonan Pembiayaan</a>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptB2')">Kelulusan Pembiayaan</a>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptB3')">Pembatalan Pembiayaan</a>
@@ -204,8 +204,8 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectDept('rptACCBS2')">Laporan Balance Sheet Berdasarkan Jabatan</a>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankSah('rptACCbank_recon')">Laporan Transaksi Rekonsilasi Bank Ada Pengesahan</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankTakSah('rptACCbank_recon')">Laporan Transaksi Rekonsilasi Bank Tiada Pengesahan</a></li>
-					<!-- <li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankSah('rptACCbank_recon2')">Laporan Transaksi Rekonsilasi Bank Ada Pengesahan TRY FORMAT BARU</a></li> -->
-					<!-- <li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankTakSah('rptACCbank_recon2')">Laporan Transaksi Rekonsilasi Bank Tiada Pengesahan TRY FORMAT BARU</a></li> -->
+					<!-- <li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankSah('rptACCbank_recon2')">Laporan Transaksi Rekonsilasi Bank Ada Pengesahan TRY FORPAT BARU</a></li> -->
+					<!-- <li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectBankTakSah('rptACCbank_recon2')">Laporan Transaksi Rekonsilasi Bank Tiada Pengesahan TRY FORPAT BARU</a></li> -->
 					<!-- <li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptACCcashFlow')">Laporan Cash Flow Template SKM</a></li> -->
 			</tr>
 
@@ -340,7 +340,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		} else if (rpt=="rptSenaraiBakiAkhirPem"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
-		} else if (rpt=="rptPecahanPinYuran"){
+		} else if (rpt=="rptPecahanPinWajib"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";
 		}  else if (rpt=="rptACCbank_resit"){
 			url = "selMthYear.php?rpt="+rpt+"&id=ALL";

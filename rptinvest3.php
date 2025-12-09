@@ -61,7 +61,7 @@ print '
 				'<tr bgcolor="#C0C0C0" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
 					<th align="left" nowrap width="40">No. Baucer</th>
-					<th align="center" nowrap width="40">Tarikh</th>
+					<th align="center" nowrap width="40">Tanggal</th>
 					<th align="left" nowrap width="80">Bank</th>
 					<th align="left" nowrap width="80">Keterangan</th>	
 					<th align="right" nowrap width="50">Jumlah (RP)</th>

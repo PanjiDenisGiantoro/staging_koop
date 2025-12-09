@@ -42,7 +42,7 @@ if ($_POST["action"] == "CEK") {
 					'<form name="MyForm" action="?vw=memberApply" method="post">'
 					. '<table class="table lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">'
 					. '<tr>'
-					. '<td class="borderallgreen" align="center" valign="middle"><div class="headerred"><b>INFORMASI ANGGOTA TERDAFTAR</b></div></td>'
+					. '<td class="borderallgreen" align="center" valign="middle"><div class="headerred"><b>INFORPASI ANGGOTA TERDAFTAR</b></div></td>'
 					. '</tr>'
 					. '<tr>'
 					. '<td class="borderleftrightbottomred">'
@@ -67,7 +67,7 @@ if ($_POST["action"] == "CEK") {
 				$detail .=
 					'<table class="table lightgrey" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">'
 					. '<tr class="table-primary">'
-					. '<td class="borderall" align="center" valign="middle"><div class="headerred"><b>INFORMASI ANGGOTA TERDAFTAR</b></div></td>'
+					. '<td class="borderall" align="center" valign="middle"><div class="headerred"><b>INFORPASI ANGGOTA TERDAFTAR</b></div></td>'
 					. '</tr>'
 					. '<tr class="table-light">'
 					. '<td class="borderleftrightbottomred">'

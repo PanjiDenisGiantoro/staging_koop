@@ -7,7 +7,7 @@
  *********************************************************************************/
 include("common.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $today = date("F j, Y");
 if (get_session("Cookie_koperasiID") <> 0) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
@@ -54,8 +54,8 @@ print '
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Jabatan/Cawangan</th>
 					<th nowrap>&nbsp;Jumlah Pembiayaan</th>					
-					<th nowrap>&nbsp;Tarikh Permohonan</th>
-					<th nowrap>&nbsp;Tarikh Kelulusan</th>
+					<th nowrap>&nbsp;Tanggal Permohonan</th>
+					<th nowrap>&nbsp;Tanggal Kelulusan</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {

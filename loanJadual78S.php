@@ -139,7 +139,7 @@ if ($page <> 'list') {
 		. ' AND   a.loanID = b.loanID';
 	$GetData2 = $conn->Execute($sSQL2);
 
-	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tarikh Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
+	$strFieldNameList = array('Nama', 'Nomor Anggota', 'Jenis', 'Jumlah', 'No Loan', 'Tanggal Kelulusan', 'Nombor Bond', 'Tahun Potongan', 'Bulan Potongan');
 
 	if ($GetData->RowCount() <> 0) {
 		$strStartDate = toDate('', $GetData->fields('approvedDate'));
@@ -202,7 +202,7 @@ if ($page <> 'list') {
 			strtoupper(dlookup("users", "name", "userID=" . tosql($GetData->fields('userID'), "Text"))),
 			dlookup("userdetails", "memberID", "userID=" . tosql($GetData->fields('userID'), "Text")),
 			$strLoanName,
-			'RM&nbsp;' . $fLoanAmount,
+			'RP&nbsp;' . $fLoanAmount,
 			$loanType,
 			$strStartDate,
 			$NoBond,

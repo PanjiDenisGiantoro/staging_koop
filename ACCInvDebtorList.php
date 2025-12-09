@@ -169,7 +169,7 @@ print' <!--input type="button" class="but" value="Status" onClick="ITRActionButt
 					<tr class="table-primary">
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap align="left"><b>No. Bayaran</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap align="left"><b>Nama Serikat</b></td>						
 						<td nowrap align="center"><b>No. Invois</b></td>
 						<td nowrap align="right"><b>Amaun Invois (RP)</b></td>

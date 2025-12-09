@@ -134,7 +134,7 @@ if ($GetListIns->RowCount() <>	0) {
 					<tr class="table-primary">
 						<td	nowrap><b>Bil</b></td>											
 						<td	width="20" nowrap><b>Cover Note (C.N)</b></td>					
-						<td width="20" nowrap><b>Tarikh Keluar (C.N)</b></td>
+						<td width="20" nowrap><b>Tanggal Keluar (C.N)</b></td>
 						<td	nowrap><b>Nama Peserta</b></td>
 						<td	nowrap><b>Nombor Pendafaran</b></td>
 						<td	nowrap align="right"><b>Jumlah Premium (RP)</b></td>

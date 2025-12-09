@@ -28,14 +28,14 @@ if ($action <> 'print') //$bgcolor = 'bgcolor="#f0f0f0"';
 							<td>' . $memberName . '</td>
 						</tr>
 						<tr>
-							<td>Jenis Pembiayaan Dipohon</td>
+							<td>Jenis Pembiayaan Diminta</td>
 							<td>&nbsp;:&nbsp;</td>
 							<td>' . $loanType . '</td>
 						</tr>
 						<tr>
 							<td>Jumlah</td>
 							<td>&nbsp;:&nbsp;</td>
-							<td>RM&nbsp;' . number_format($amtLoan, 2) . '</td>
+							<td>RP&nbsp;' . number_format($amtLoan, 2) . '</td>
 						</tr>
 					</table>
 				</td>
@@ -299,7 +299,7 @@ function writeDataVal($val)
 {
 	print '
 	<tr>
-	<td>RM</td>
+	<td>RP</td>
 	<td align="right">&nbsp;' . formatVal($val) . '</td>
 	</tr>';
 }
@@ -386,14 +386,14 @@ print '
 							<td colspan="2">&nbsp;</td>
 							<td colspan="4">
 								<table cellpadding="0" cellspacing="0">';
-function biayaYuran($index, $name, $check, $action, $row = 0)
+function biayaWajib($index, $name, $check, $action, $row = 0)
 {
 	global $amtLoan;
 	global $yuranSedia;
-	global $newYuranVal;
+	global $newWajibVal;
 	$style1 = 'style="border-top:#000000 solid 1px;border-bottom:#000000 solid 1px;border-right:#000000 solid 1px;border-left:#000000 solid 1px" width="30" align="center"';
 	$style2 = 'style="border-bottom:#000000 solid 1px;border-right:#000000 solid 1px;border-left:#000000 solid 1px" width="30" align="center"';
-	$arrYuran = array(20, 30, 50, 80, 100);
+	$arrWajib = array(20, 30, 50, 80, 100);
 	$arrLoan1 = array(0, 5, 10, 30, 40);
 	$arrLoan2 = array(5, 10, 30, 40, 50);
 
@@ -402,12 +402,12 @@ function biayaYuran($index, $name, $check, $action, $row = 0)
 	$val2 = $arrLoan2[$index] * 1000;
 	$name = 'yuran' . $name;
 
-	$newYuran = '';
+	$newWajib = '';
 	if ($amtLoan >= $val1 && $amtLoan <= $val2) {
 		//print 'check '.$val1.'-'.$amtLoan.'-'.$val2.' '.$yuranSedia;
-		if ($arrYuran[$index] > $yuranSedia) {
-			$newYuran = 'X';
-			$newYuranVal = $arrYuran[$index];
+		if ($arrWajib[$index] > $yuranSedia) {
+			$newWajib = 'X';
+			$newWajibVal = $arrWajib[$index];
 		}
 	}
 
@@ -425,11 +425,11 @@ function selectCheck2($name, $type, $action)
 	elseif ($type) $val = 'X';
 	return $val;
 }
-biayaYuran(0, 'a', $yurana, $action, 1);
-biayaYuran(1, 'b', $yuranb, $action);
-biayaYuran(2, 'c', $yuranc, $action);
-biayaYuran(3, 'd', $yurand, $action);
-biayaYuran(4, 'e', $yurane, $action);
+biayaWajib(0, 'a', $yurana, $action, 1);
+biayaWajib(1, 'b', $yuranb, $action);
+biayaWajib(2, 'c', $yuranc, $action);
+biayaWajib(3, 'd', $yurand, $action);
+biayaWajib(4, 'e', $yurane, $action);
 
 print '</table></td></tr></table></td></tr>';
 
@@ -480,8 +480,8 @@ print '
 							<td width="33%">Disemak Oleh:' . dlookup("users", "name", "loginID=" . tosql($reviewBy, "Text")) . '</td>
 						</tr>
 						<tr>
-							<td>Tarikh:' . $prepareDate . '</td>
-							<td>Tarikh:' . $reviewDate . '</td>
+							<td>Tanggal:' . $prepareDate . '</td>
+							<td>Tanggal:' . $reviewDate . '</td>
 						</tr>';
 if ($action <> 'print') {
 	print '					<tr>
@@ -490,9 +490,9 @@ if ($action <> 'print') {
 						</tr>';
 }
 
-if ($newYuranVal > $yuranSedia) {
-	$lpotBulan = $lpotBulan - $yuranSedia + $newYuranVal;
-	$lpotBulanM = $lpotBulanM - $yuranSedia + $newYuranVal;
+if ($newWajibVal > $yuranSedia) {
+	$lpotBulan = $lpotBulan - $yuranSedia + $newWajibVal;
+	$lpotBulanM = $lpotBulanM - $yuranSedia + $newWajibVal;
 }
 
 print '				</table>
@@ -532,7 +532,7 @@ print '				</table>
 				</td>
 			</tr>';
 
-$yuranBul =  $newYuranVal;
+$yuranBul =  $newWajibVal;
 if ($action <> 'print') {
 	print		'<input type="hidden" name = "totalA15" value = "' . $totalA15 . '">
 			<input type="hidden" name = "totalFee" value = "' . $totalFee . '">
@@ -561,7 +561,7 @@ if ($action <> 'print') {
 			<input type="hidden" name = "btindihUntung" value = "' . $btindihUntung . '">
 			<input type="hidden" name = "btindihCaj" value = "' . $btindihCaj . '">
 			<input type="hidden" name = "btindihBal" value = "' . $btindihBal . '">
-			<input type="hidden" name = "yuranBul" value = "' . $newYuranVal . '">
+			<input type="hidden" name = "yuranBul" value = "' . $newWajibVal . '">
 			<input type="hidden" name = "yuranSedia" value = "' . $yuranSedia . '">
 			<input type="hidden" name = "status" value = "' . $status . '">
 			<input type="hidden" name = "lpotAsal" value = "' . $lpotAsal . '">
@@ -611,7 +611,7 @@ print '
 						</tr>
 						<tr>
 							<td width="34%">
-                                                                                                                              <table width="100%"><tr><td width="40%">Tarikh Dikeluarkan:&nbsp;</td><td>' . $rno3 . '</td></tr></table>
+                                                                                                                              <table width="100%"><tr><td width="40%">Tanggal Dikeluarkan:&nbsp;</td><td>' . $rno3 . '</td></tr></table>
                                                                                                                                   </td>
 							<td width="33%">Disediakan Oleh:&nbsp;' . $rpreparedby . '</td>
 							<td width="33%">Disahkan Oleh:&nbsp;' . $approvedBy . '</td>';

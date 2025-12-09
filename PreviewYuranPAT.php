@@ -32,7 +32,7 @@ if (
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = 'PreviewYuran.php';
+$sFileName = 'PreviewWajib.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
 $title     = "Senarai Potongan Gaji Pembiayaan";
 

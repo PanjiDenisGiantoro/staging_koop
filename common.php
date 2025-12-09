@@ -676,7 +676,7 @@ class clsStringValue
     }
 } //end this class
 
-$clsRM = new clsStringValue();
+$clsRP = new clsStringValue();
 
 function thousand($val)
 {
@@ -755,12 +755,12 @@ $senaraiList    = array(
     'Permohonan Pembiayaan',
     'Kelulusan Pembiayaan',
     'Pembatalan Pembiayaan',
-    'Permohonan Syer',
-    'Kelulusan Permohonan Syer',
-    'Pembatalan Permohonan Syer',
-    'Permohonan Penjualan Syer',
-    'Kelulusan Penjualan Syer',
-    'Pembatalan Penjualan Syer',
+    'Permohonan Pokok',
+    'Kelulusan Permohonan Pokok',
+    'Pembatalan Permohonan Pokok',
+    'Permohonan Penjualan Pokok',
+    'Kelulusan Penjualan Pokok',
+    'Pembatalan Penjualan Pokok',
     'Urusniaga Bulanan'
 );
 $senaraiVal    = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M');
@@ -774,7 +774,7 @@ $carumanStatusList    =    array('Proses Semakan', 'Lulus & Proses Baucer', 'Dit
 $carumanStatusVal    =    array('0', '1', '2', '3');
 
 // Storing Caruman Type Information
-$carumanTypeList    =    array('placeholder', 'Yuran', 'Syer');
+$carumanTypeList    =    array('placeholder', 'Wajib', 'Pokok');
 $carumanTypeVal        =    array('0', '1', '2');
 
 // Storing Terminate Information
@@ -790,7 +790,7 @@ $postList    =    array('Dalam Proses', 'Diposkan', 'Ditolak');
 $postVal    =    array('0', '1', '2');
 
 // Storing Dividen Information
-$dividenList    =    array('Yuran', 'Syer');
+$dividenList    =    array('Wajib', 'Pokok');
 $dividenVal        =    array('0', '1');
 
 // Storing Status Information

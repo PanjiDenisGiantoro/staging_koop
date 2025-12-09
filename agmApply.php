@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 include("forms.php");
 
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -40,7 +40,7 @@ if ($GetPymt->RowCount() <> 0) {
 }
 
 $a = 1;
-$FormLabel[$a]   	= "Tajuk Mesyuarat";
+$FormLabel[$a]   	= "Judul Rapat";
 $FormElement[$a] 	= "title";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -50,7 +50,7 @@ $FormSize[$a]    	= "100";
 $FormLength[$a]  	= "255";
 
 $a++;
-$FormLabel[$a]   	= "Kandungan Mesyuarat";
+$FormLabel[$a]   	= "Isi Rapat";
 $FormElement[$a] 	= "content";
 $FormType[$a]	  	= "textarea";
 $FormData[$a]   	= "";
@@ -60,7 +60,7 @@ $FormSize[$a]    	= "50";
 $FormLength[$a]  	= "4";
 
 $a++;
-$FormLabel[$a]      = "Tarikh Mesyuarat";
+$FormLabel[$a]      = "Tanggal Rapat";
 $FormElement[$a]    = "applyDate";
 $FormType[$a]       = "date";
 $FormData[$a]       = "";
@@ -204,7 +204,7 @@ print '</div>
 <div class="mb-3 mt-3 row">
 	<label class="col-md-2 col-form-label"></label>
 	<div class="col-md-8">
-		<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Hantar">
+		<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="Kirim">
 	</div>
 </div>
 

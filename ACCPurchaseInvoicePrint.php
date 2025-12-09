@@ -252,10 +252,10 @@ $Gambar= "upload_images/".$pic;
 
 if ($note) {
     $subject        = "Nota Debit"; 
-    $subjectTarikh  = "TARIKH"; 
+    $subjectTanggal  = "TARIKH"; 
 } else {
     $subject        = "Purchase Invoice";
-    $subjectTarikh  = "TARIKH PI"; 
+    $subjectTanggal  = "TARIKH PI"; 
 } 
 
 print'
@@ -280,7 +280,7 @@ print'
     </table>
     <table class="stylish-date">
         <tr>
-            <td><b>'.$subjectTarikh.'</b></td>
+            <td><b>'.$subjectTanggal.'</b></td>
             <td>:&nbsp;</td>
             <td>'.$tarikh_PI.'</td>
         </tr>';
@@ -299,7 +299,7 @@ print'
 		<tr>
 			<td><b>AMAUN PO</b></td>
 			<td>:&nbsp;</td>
-			<td>RM'.number_format($outstandingbalance,2).'</td>
+			<td>RP'.number_format($outstandingbalance,2).'</td>
 		</tr>
         ';
         }
@@ -363,9 +363,9 @@ print'
 			$rsDetail->MoveNext();
 			}
 			if($jumlah1<>0){
-			$clsRM->setValue($baki);
-			$clsRM->setValue($jumlah1);
-			$strTotal = strtoupper($clsRM->getValue());
+			$clsRP->setValue($baki);
+			$clsRP->setValue($jumlah1);
+			$strTotal = strtoupper($clsRP->getValue());
 			}
 		}
 
@@ -373,13 +373,13 @@ print '
 <tr><td colspan="5">&nbsp;</td></tr>
 <tr>				
     <td nowrap="nowrap" align="right" colspan="4"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM '.number_format($jumlah1,2).'</b></td>
+    <td nowrap="nowrap" align="right"><b>RP '.number_format($jumlah1,2).'</b></td>
 </tr>';
 if (dlookup("cb_purchaseinv", "purcNo", "PINo=" . tosql($PINo, "Text")) <> "") {
 print'
 <tr>				
     <td nowrap="nowrap" align="right" colspan="4"><b>JUMLAH BAKI PO</b></td>
-    <td nowrap="nowrap" align="right"><b>RM '.number_format($baki,2).'</b></td>
+    <td nowrap="nowrap" align="right"><b>RP '.number_format($baki,2).'</b></td>
 </tr>';
 }
 print'

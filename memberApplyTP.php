@@ -186,7 +186,7 @@ if ($SubmitForm <> "") {
 	for ($i = 0; $i < count($FormLabel); $i++) {
 		//print '<div class="card-header mb-3">DOKUMEN BERHENTI / BERSARA</div>';
 		if ($i == 0) print '<div class="card-header mb-3">DOKUMEN PENGUNDURAN / PENSIUN</div>';
-		if ($i == 1) print '<div class="card-header mb-3">INFORMASI ANGGOTA</div>';
+		if ($i == 1) print '<div class="card-header mb-3">INFORPASI ANGGOTA</div>';
 
 		print '<div class="mb-2 row"><label class="col-md-2 col-form-label">' . $FormLabel[$i] . '</label>';
 		if (in_array($FormElement[$i], $strErrMsg))

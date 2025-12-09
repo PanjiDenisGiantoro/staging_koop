@@ -77,7 +77,7 @@ print '
 	<tr class="table-primary">
 					<td width="5" align="center" nowrap><b>Bil<b></td>
 					<td width="250" align="left" nowrap><b>Nomor Anggota- Nama<b></td>
-					<td width="100" align="left" nowrap><div align="right"><b>Yuran Bulanan (RP)<b></div></td>
+					<td width="100" align="left" nowrap><div align="right"><b>Wajib Bulanan (RP)<b></div></td>
 					<td width="70" align="left" nowrap><div align="right"><b>Bayaran Dividen Pokok (RP)' . $rsCheck->fields(amtFee) . '%<b></div></td>
 					<td nowrap align="center" width="70"><div align="right"><b>Bayaran Dividen Tabungan (RP)  ' . $rsCheck->fields(amtShare) . '%<b></div></td>
 				</tr>';
@@ -109,7 +109,7 @@ if ($rsCheck->RowCount() <= 0) {
 
 
 
-			$feekiraMonth = $rs6->fields(AmtYuranT);
+			$feekiraMonth = $rs6->fields(AmtWajibT);
 			//$feeMonth = number_format($feeKT - $feeDB,2);
 			$bil++;
 			$totalFee = $rs6->fields(AmtFeeD);

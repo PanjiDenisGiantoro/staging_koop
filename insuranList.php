@@ -76,13 +76,13 @@ if ($q <> "") {
 	} else if ($by == 4) {
 		$sWhere .= " NoKenderaan like '%" . $q . "%'";
 	} else if ($by == 5) {
-		$sWhere .= "DATEDIFF(TarikhTamatInsuran,CURDATE()) <" . $q . "";
+		$sWhere .= "DATEDIFF(TanggalTamatInsuran,CURDATE()) <" . $q . "";
 	}
 }
 $sWhere = " WHERE (" . $sWhere . ")";
 
 $sSQL = "";
-$sSQL = "SELECT * ,DATEDIFF(TarikhTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
+$sSQL = "SELECT * ,DATEDIFF(TanggalTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
 if ($q <> "") {
 	$sSQL = $sSQL . $sWhere . ' and (status is null or status=1) ORDER BY applyDate DESC';
 } else {
@@ -186,8 +186,8 @@ if ($GetListIns->RowCount() <>	0) {
 						  <td width="15"	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>
 						  <td width="15"	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
 					    <td width="15"	nowrap align="right"><b>Jumlah Insuran (RP)</b></td>			
-						<td width="15"	nowrap align="center"><b>Tarikh Mula Insuran</b></td>
-						<td width="15"	nowrap align="center"><b>Tarikh Tamat Insuran</b></td>						
+						<td width="15"	nowrap align="center"><b>Tanggal Mula Insuran</b></td>
+						<td width="15"	nowrap align="center"><b>Tanggal Tamat Insuran</b></td>						
 					</tr>';
 	$amtLoan = 0;
 	while (!$GetListIns->EOF && $cnt <= $pg) {
@@ -205,7 +205,7 @@ if ($GetListIns->RowCount() <>	0) {
 		$status = tohtml($GetListIns->fields(Status));
 		$days = tohtml($GetListIns->fields(days));
 		$dateStartIns = toDate("d/m/yy", $GetListIns->fields(Tkh_Mula));
-		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
+		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
 		print '	<tr>
 						<td	class="Data" align="right">' . $bil	. '</td>
 						<td	class="Data" align="right"><input	type="checkbox" class="form-check-input"	name="pk[]"	value="' . tohtml($GetListIns->fields(ID)) . '"></td>

@@ -2,7 +2,7 @@
 // Enable error reporting
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 // Log to a file for debugging
 $log_file = 'adjustment_debug.log';

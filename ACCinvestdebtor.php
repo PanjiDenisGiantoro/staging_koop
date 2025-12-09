@@ -662,8 +662,8 @@ print	   '
 }
 
 if($totalDb<>0){
-	$clsRM->setValue($totalDb);
-	$strTotal = ucwords($clsRM->getValue()).' Sahaja.';
+	$clsRP->setValue($totalDb);
+	$strTotal = ucwords($clsRP->getValue()).' Sahaja.';
 }
 
 print 		'<tr>

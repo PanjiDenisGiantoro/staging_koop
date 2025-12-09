@@ -869,8 +869,8 @@ if ($add) {
 }
 
 if ($totalKt <> 0) {
-    $clsRM->setValue($totalKt);
-    $strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+    $clsRP->setValue($totalKt);
+    $strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 print         '<tr class="table-secondary">
 				<td class="Data" colspan="5" align="right"><b>Jumlah (RP)</b></td>

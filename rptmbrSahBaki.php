@@ -80,11 +80,11 @@ if ($GetData->RowCount() <> 0) {
 
 	while (!$GetData->EOF) {
 
-		$totalYuransTK = getBakiBulanY($GetData->fields(userID), $dtFrom, $dtTo);
+		$totalWajibsTK = getBakiBulanY($GetData->fields(userID), $dtFrom, $dtTo);
 		$totalSharesTK = getBakiBulanS($GetData->fields(userID), $dtFrom, $dtTo);
 
 
-		$total1 += $totalYuransTK;
+		$total1 += $totalWajibsTK;
 		$total2 += $totalSharesTK;
 
 		// $jabatan = $GetData->fields('departmentID');
@@ -100,7 +100,7 @@ if ($GetData->RowCount() <> 0) {
 							<td valign="top" align="left" nowrap>' . strtoupper($GetData->fields('name')) . '</td>
 							<td valign="top" align="center">' . convertNewIC($GetData->fields('newIC')) . '</td>
 							<td valign="top" align="left">' . $GetData->fields('mobileNo') . '</td>
-							<td align="right" valign="top">' . number_format($totalYuransTK, 2) . '</td>
+							<td align="right" valign="top">' . number_format($totalWajibsTK, 2) . '</td>
 							<td align="right" valign="top">' . number_format($totalSharesTK, 2) . '</td>
 						</tr>';
 

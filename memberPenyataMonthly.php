@@ -171,13 +171,13 @@ print '
   
   <tr class="font5">
     <td align="center">1</td>
-    <td>Yuran Bulanan</td>
+    <td>Wajib Bulanan</td>
     <td align="right">' . dlookup("userdetails", "monthFee", "userID=" . tosql($id, "Text")) . '</td>
   </tr>
   
   <tr class="font5">
     <td align="center">2</td>
-    <td>Syer Bulanan</td>
+    <td>Pokok Bulanan</td>
     <td align="right">' . dlookup("userdetails", "monthDepo", "userID=" . tosql($id, "Text")) . '</td>
   </tr>
   

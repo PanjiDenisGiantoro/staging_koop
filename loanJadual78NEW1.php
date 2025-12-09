@@ -62,7 +62,7 @@ if ($type == 'vehicle') {
 	$strLoanTypeList = $idloan; //array(1552, 1550, 1548, 1546, 1538);
 }
 
-$strHeaderTitle = '<b>&nbsp;INFORMASI PEMBIAYAAN&nbsp;</b>';
+$strHeaderTitle = '<b>&nbsp;INFORPASI PEMBIAYAAN&nbsp;</b>';
 
 if ($page == 'list') {
 	$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');
@@ -199,7 +199,7 @@ if ($page <> 'list') {
 			strtoupper(dlookup("users", "name", "userID=" . tosql($GetData->fields('userID'), "Text"))),
 			dlookup("userdetails", "memberID", "userID=" . tosql($GetData->fields('userID'), "Text")),
 			$strLoanName,
-			'RM&nbsp;' . $fLoanAmount,
+			'RP&nbsp;' . $fLoanAmount,
 			$loanType,
 			$strStartDate,
 			$NoBond,

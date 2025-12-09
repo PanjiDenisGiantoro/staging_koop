@@ -148,15 +148,15 @@ print '
 				<td align="left" class="borderSideTitle">'.$area.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Tarikh Kelulusan Mesyuarat (ALK):</b></td>
+				<td align="right" class="borderSideTitle"><b>Tanggal Kelulusan Mesyuarat (ALK):</b></td>
 				<td align="left" class="borderSideTitle">'.$lulusDate.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Tarikh Mula (Perjanjian/Penubuhan):</b></td>
+				<td align="right" class="borderSideTitle"><b>Tanggal Mula (Perjanjian/Penubuhan):</b></td>
 				<td align="left" class="borderSideTitle">'.$startDate.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Tarikh Akhir (Perjanjian):</b></td>
+				<td align="right" class="borderSideTitle"><b>Tanggal Akhir (Perjanjian):</b></td>
 				<td align="left" class="borderSideTitle">'.$endDate.'</td>
 			</tr>
 			<tr>

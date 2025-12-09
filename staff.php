@@ -219,7 +219,7 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;Kartu Identitas</td>
 						<td nowrap align="center">&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Status</td>
-						<td nowrap align="center">&nbsp;Tarikh Daftar</td>
+						<td nowrap align="center">&nbsp;Tanggal Daftar</td>
 						<td nowrap align="center"></td> 
 					</tr>';
 	while (!$GetMember->EOF && $cnt <= $pg) {

@@ -77,9 +77,9 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th width="4" align="center" nowrap>Bil</th>
 					<th width="180" align="left" nowrap>&nbsp;Nomor Anggota- Nama</th>
-					<th width="80" align="left" nowrap><div align="right">Syer Terkumpul </th>
-					<th width="80" align="left" nowrap><div align="right">Yuran Awal Tahun ' . $yr . ' </th>
-					<th width="80" align="left" nowrap><div align="right">Yuran Akhir Tahun ' . $yr . ' </th>
+					<th width="80" align="left" nowrap><div align="right">Pokok Terkumpul </th>
+					<th width="80" align="left" nowrap><div align="right">Wajib Awal Tahun ' . $yr . ' </th>
+					<th width="80" align="left" nowrap><div align="right">Wajib Akhir Tahun ' . $yr . ' </th>
 					<th width="70" align="left" nowrap><div align="right">Dividen ' . $rsCheck->fields(amtFee) . '% </div>
 				</tr>';
 //$total = 0;

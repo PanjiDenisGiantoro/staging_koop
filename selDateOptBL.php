@@ -44,7 +44,7 @@ if ($action == "Jana Laporan") {
 	$dtFrom = sprintf("%02d-%02d-%04d", $ddFrom, $mmFrom, $yyFrom);
 	$dtTo	= sprintf("%02d-%02d-%04d", $ddTo, $mmTo, $yyTo);
 
-	if ($dtFrom > $dtTo) $msg = "Tarikh Pada tidak boleh  melebihi dari Tarikh Hingga";
+	if ($dtFrom > $dtTo) $msg = "Tanggal Pada tidak boleh  melebihi dari Tanggal Hingga";
 	if ($msg <> "") {
 		print '<script>alert("'.$msg.'");</script>';
 
@@ -80,7 +80,7 @@ print '
 		</tr>
 
 		<tr valign="top">
-			<td class="textFont"><b>Tarikh Pada :</b></td>
+			<td class="textFont"><b>Tanggal Pada :</b></td>
 			<td class="textFont">
 				<select name="ddFrom" class="data">';
 		for ($i = 1; $i < 32; $i++) {
@@ -104,7 +104,7 @@ print '
 
 
 
-			<td class="textFont"><b>Tarikh Hingga :</b></td>
+			<td class="textFont"><b>Tanggal Hingga :</b></td>
 			<td class="textFont">
 				<select name="ddTo" class="data">';
 

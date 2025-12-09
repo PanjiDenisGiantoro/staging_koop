@@ -217,7 +217,7 @@ if ($GetSB->RowCount() <> 0) {
 						<td nowrap align="center">&nbsp;</td>
 						<td nowrap><b>Nombor Self Bill Doc</b></td>
 						<td nowrap align="center"><b>Nama Batch</b></td>
-						<td nowrap align="center"><b>Tarikh</b></td>
+						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap><b>Nama Serikat | TIN LHDN</b></td>
 						<td nowrap align="right"><b>Jumlah (RP)</b></td>
 						<td nowrap align="center"><b>Status e-Invois</b></td>

@@ -50,7 +50,7 @@ print '	</th>
 					<th nowrap>&nbsp;No Sijil</th>
 					<th nowrap>&nbsp;Komoditi</th>
 					<th nowrap>&nbsp;Jumlah Pembiayaan (RP)</th>
-					<th nowrap>&nbsp;Tarikh Sijil</th>
+					<th nowrap>&nbsp;Tanggal Sijil</th>
 					<th nowrap>&nbsp;Pengesahan</th>
 					<th nowrap>&nbsp;Status Pemilikan</th>
 				</tr>';
@@ -99,7 +99,7 @@ if ($rs->RowCount() <> 0) {
 		$rs->MoveNext();
 	}
 	print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td colspan="6">&nbsp;Jumlah Keseluruhan: <b>RM</b></td>
+							<td colspan="6">&nbsp;Jumlah Keseluruhan: <b>RP</b></td>
 							<td align="center">&nbsp;' . number_format($totalA, 2) . '&nbsp;</td>
 							<td align="right">&nbsp;</td>
 							<td align="right">&nbsp;</td>

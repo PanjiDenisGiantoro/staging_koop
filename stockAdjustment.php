@@ -96,7 +96,7 @@ print '
             </div>
           </div>
           <div class="form-group">
-            <label for="tarikh_adj">Tarikh Pelarasan</label>
+            <label for="tarikh_adj">Tanggal Pelarasan</label>
             <div class="col-sm-2">
               <input type="date" class="form-control" id="tarikh_adj" name="tarikh_adj" value="' . $today . '">
             </div>

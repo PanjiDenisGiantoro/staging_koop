@@ -165,7 +165,7 @@ print '  <tr valign="top" >
 						<td nowrap>&nbsp;No/Nama Anggota</td>
 						<td nowrap>&nbsp;No KTP Baru</td>
 
-						<td nowrap align="center">&nbsp;Yuran Bulan</td>
+						<td nowrap align="center">&nbsp;Wajib Bulan</td>
 						<td nowrap align="center">&nbsp;Dividen Pokok '.$peratusaham.'</td>
 					</tr>';	
 		$totalFee = 0;
@@ -211,8 +211,8 @@ print '  <tr valign="top" >
 		$peratusaham = $rsFeeDiv->fields(amtFee);
 		
 	        $feeMonthDiv = number_format($rsFeeDiv->fields(AmtFeeD),2);	
-			$feeYuranTkini = $feeKT  - $feeDB;
-			$feeYuranTkiniP = number_format($feeKT  - $feeDB,2);
+			$feeWajibTkini = $feeKT  - $feeDB;
+			$feeWajibTkiniP = number_format($feeKT  - $feeDB,2);
 // ................... Apply Insert .................
 
 
@@ -256,7 +256,7 @@ $rsCheck2 = &$conn->Execute($sSQL);
 			$feekiraMonth2 = $feeKT2 - $feeDB2;
 		   
 		    $feeMonthDiv2 = number_format($rsCheck2->fields(AmtFeeD),2);	
-			$feeYuranTkini2 = $feeKT2  - $feeDB2;
+			$feeWajibTkini2 = $feeKT2  - $feeDB2;
 
 			$userID = $Get->fields(memberID);
 			$deductID ='1607';
@@ -264,8 +264,8 @@ $rsCheck2 = &$conn->Execute($sSQL);
 			if ($mm<=11){
 			
 			$divMth = (12-$mm)/ 12 ;
-			$DivAmt = ($feeYuranTkini2 * $MYA)/100 * $divMth ;
-			$DivAmtShare = ($feeYuranTkini2 * $tbg)/100 * $divMth ;   
+			$DivAmt = ($feeWajibTkini2 * $MYA)/100 * $divMth ;
+			$DivAmtShare = ($feeWajibTkini2 * $tbg)/100 * $divMth ;   
 			
 			}
 
@@ -289,7 +289,7 @@ $sSQL4	= "INSERT INTO dividen (" .
 				  "updatedBy," . 
 				  "status,".
 				  "AmtFeeD," .
-				  "AmtYuranT," .
+				  "AmtWajibT," .
 				  "AmtShareD)" . 
 				  " VALUES (" . 
 				"'". $yymm. "', ".
@@ -304,7 +304,7 @@ $sSQL4	= "INSERT INTO dividen (" .
 				"'". $updatedBy . "', ".
 				"'". 2 . "', ".
 				"'". $DivAmt . "', ".
-				"'". $feeYuranTkini2 . "', ".
+				"'". $feeWajibTkini2 . "', ".
 				"'". $DivAmtShare . "')";
 				
 $rsInstDiv = &$conn->Execute($sSQL4);							
@@ -330,7 +330,7 @@ $Get->MoveNext();
 						<td class="Data">'.$Get->fields(memberID).' - '.$Get->fields('name').'</td>
 						<td class="Data">&nbsp;'.$Get->fields(newIC).'</td>						
 					
-						<td class="Data" align="right">'.$feeYuranTkiniP.'&nbsp;</td>
+						<td class="Data" align="right">'.$feeWajibTkiniP.'&nbsp;</td>
 						<td class="Data" align="right">'.$feeMonthDiv.'&nbsp;</td>
 					</tr>';
 				$cnt++;

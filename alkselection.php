@@ -41,7 +41,7 @@ $rs = $conn->Execute($sql);
             <thead class="table-primary">
                 <tr>
                     <td style="width: 50px;">&nbsp;</td>
-                    <td align="center">Nombor Anggota</td>
+                    <td align="center">Nomor Anggota</td>
                     <td>Nama</td>
                 </tr>
             </thead>

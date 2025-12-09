@@ -220,7 +220,7 @@ print '
 <div style="position: absolute; top: 70px; right: 25px;">
 	<table border="0" cellspacing="0" cellpadding="5" width="100%">
 		<tr class="table-warning">
-			<td nowrap align="right" style="padding-right: 5px; width: 50%;"><u>Jumlah Pada ' . $stringDesc . ' Tahun ' . $yy . ':</u>&nbsp;<b>RM&nbsp;' . number_format($totalInvoice, 2) . '</b></td>
+			<td nowrap align="right" style="padding-right: 5px; width: 50%;"><u>Jumlah Pada ' . $stringDesc . ' Tahun ' . $yy . ':</u>&nbsp;<b>RP&nbsp;' . number_format($totalInvoice, 2) . '</b></td>
 		</tr>
 	</table>
 </div>';

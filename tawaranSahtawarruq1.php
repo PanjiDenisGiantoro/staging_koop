@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 include("forms.php");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
@@ -37,7 +37,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "No KP Baru";
+$FormLabel[$a]   	= "No KTP Baru";
 $FormElement[$a] 	= "newIC";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -57,7 +57,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Rujukan";
+$FormLabel[$a]   	= "Nomor Rujukan";
 $FormElement[$a] 	= "loanNo";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -108,7 +108,7 @@ print '<table border="0" cellpadding="3" cellspacing="0" width="100%" align="cen
 <h3 class="card-title">' . strtoupper($title) . '</h3>';
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN DAN PERMOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
+	if ($i == 1) print '<div class="card-header mb-3 mt-3">i. PENGESAHAN ATAS TALIAN DOKUMEN PEMBIAYAAN DAN PERPOHONAN UNTUK MENGELUARKAN PEMBIAYAAN</div>';
 
 	if ($cnt == 1) print '<tr valign=top>';
 	print '<td class=Data align=right>' . $FormLabel[$i];
@@ -239,7 +239,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;
@@ -252,7 +252,7 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          //alert(\'Sila pilih rekod yang hendak di\' + v + \'kan.\');
+	          //alert(\'Silakan pilih data/rekaman yang ingin di\' + v + \'kan.\');
 	        } else {
 	          //if(confirm(count + \' rekod hendak di\' + v + \'kan?\')) {
 	          e.submit();

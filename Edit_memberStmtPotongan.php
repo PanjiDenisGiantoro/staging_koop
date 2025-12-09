@@ -62,7 +62,7 @@ if ($edit) {
 	$pymt = $_POST['noAmt'];
 	$lastyrmthPymt = $_POST['lastyrmthPymt'];
 	$ptjID = $_POST['ptjID'];
-	$Fee = $_POST['YuranP'];
+	$Fee = $_POST['WajibP'];
 	$ID = $_REQUEST['ID'];
 
 	// Get current values from the database
@@ -186,15 +186,15 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
 	<tr><td colspan="2"><hr class="1px"></td></tr>
 	<tr>
       <td>Gaji Pokok :</td>
-      <td><b>RM ' . number_format($gaji_pokok, 2) . '</b></td>
+      <td><b>RP ' . number_format($gaji_pokok, 2) . '</b></td>
     </tr>
 	<tr>
       <td>Potongan :</td>
-      <td><b>RM ' . number_format($jumALL, 2) . '</b></td>
+      <td><b>RP ' . number_format($jumALL, 2) . '</b></td>
     </tr>
 	<tr>
       <td>Jumlah NKPG :</td>
-      <td><b>RM ' . number_format($jumlah_nkpg, 2) . '</b></td>
+      <td><b>RP ' . number_format($jumlah_nkpg, 2) . '</b></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -371,10 +371,10 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
 	print '
 		  </table>
 		  <div><hr class="1px"></div>
-		  <div>Jumlah Potongan Aktif : <b>RM ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
-		  <div>Jumlah Potongan Tamat : <b>RM ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div>Jumlah Potongan Aktif : <b>RP ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
+		  <div>Jumlah Potongan Tamat : <b>RP ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
 		  <div><hr class="1px"></div>
-		  <div><b>Jumlah Potongan : RM ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div><b>Jumlah Potongan : RP ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
 		  <div><hr class="1px"></div>
 		</form></div>
 <p>&nbsp;</p> '; ?>

@@ -199,8 +199,8 @@ print '<div class="card-header mb-3">SENARAI PROJEK&nbsp;&nbsp;<input type="butt
 					<tr class="table-primary">
 						<td nowrap align="center"><b>Bil</b></td>
 						<td nowrap align="left"><b>Nama Projek</b></td>
-						<td nowrap align="center"><b>Tarikh Mula</b></td>
-						<td nowrap align="center"><b>Tarikh Akhir</b></td>
+						<td nowrap align="center"><b>Tanggal Mula</b></td>
+						<td nowrap align="center"><b>Tanggal Akhir</b></td>
 						<td nowrap align="right"><b>Nilai Pelaburan (RP)</b></td>
 						<td nowrap align="left"><b>Person In Charge</b></td>
 					</tr>';	

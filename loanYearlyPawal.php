@@ -150,7 +150,7 @@ $bakiAwal = $jumlahPembiayaan - $jumlahBayar;
 			<table border=1  cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>Bil</th>
-					<th nowrap>Tarikh</th>
+					<th nowrap>Tanggal</th>
 					<th nowrap>&nbsp;Nombor rujukan</th>
 					<th nowrap>&nbsp;Item</th>
 					<th nowrap>&nbsp;Untung</th>

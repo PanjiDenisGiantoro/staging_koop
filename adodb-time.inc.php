@@ -34,7 +34,7 @@ not handled currently.
 This library is independant of the rest of ADOdb, and can be used
 as standalone code.
 
-PERFORMANCE
+PERFORPANCE
 
 For high speed, this library uses the native date functions where
 possible, and only switches to PHP code when the dates fall outside 

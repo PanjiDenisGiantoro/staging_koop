@@ -203,7 +203,7 @@ print '		</table>
 			<td nowrap align="right">&nbsp;Jumlah (Rp)</td> 
 		</tr>
 		<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt; font-weight: bold; ">
-			<td nowrap colspan="2" align="left">Cadangan Dividen (10% x RM800,000 modal syer)</td> 	
+			<td nowrap colspan="2" align="left">Cadangan Dividen (10% x RP800,000 modal syer)</td> 	
 			<td nowrap align="right">80,000.00</td> <!-- Amaun1 -->
 		</tr>
 		<!-- Bil starts at 1 -->

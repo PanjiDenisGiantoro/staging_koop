@@ -42,7 +42,7 @@ print '
     function ADFActionButtonClick(v) {
 	      e = document.ADFViewResults;
 	      if(e==null) {
-			alert(\'Sila pastikan nama form diwujudkan.!\');
+			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -88,7 +88,7 @@ print '
 					<td align="center">&nbsp;</td>
 					<td align="center"><b>Nama</b></td>
 					<td align="center" align="center"><b>Saiz</b></td>
-					<td align="center" align="center"><b>Tarikh Terkini</b></td>
+					<td align="center" align="center"><b>Tanggal Terkini</b></td>
 				</tr>';
 	$cnt = 0;
 	$ThisDir = opendir($dir); 

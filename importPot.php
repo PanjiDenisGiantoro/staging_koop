@@ -90,7 +90,7 @@ print '
 						<tr><td class="textFont" align="center">
 							&nbsp;Pilih Jenis 
 							<select name="jenis" class="form-select-sm">';
-$arrJenis = array('Yuran & Pokok & Simpanan Khas', 'Pembiayaan', 'Dividen');
+$arrJenis = array('Wajib & Pokok & Simpanan Khas', 'Pembiayaan', 'Dividen');
 for ($j = 0; $j < 3; $j++) {
 	print '<option value="' . $j . '"';
 	if ($jenis == $j) print 'selected';

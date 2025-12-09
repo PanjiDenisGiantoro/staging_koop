@@ -80,11 +80,11 @@ if ($q <> "") {
 $sWhere = " WHERE (" . $sWhere . ")";
 
 $sSQL = "";
-$sSQL = "SELECT * ,DATEDIFF(TarikhTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan  ";
+$sSQL = "SELECT * ,DATEDIFF(TanggalTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan  ";
 if ($q <> "") {
-	$sSQL = $sSQL . $sWhere . ' and status=\'1\' AND DATEDIFF(TarikhTamatInsuran,CURDATE()) < 60 ORDER BY applyDate DESC';
+	$sSQL = $sSQL . $sWhere . ' and status=\'1\' AND DATEDIFF(TanggalTamatInsuran,CURDATE()) < 60 ORDER BY applyDate DESC';
 } else {
-	$sSQL = $sSQL . ' where status=\'1\' AND DATEDIFF(TarikhTamatInsuran,CURDATE()) < 60 ORDER BY applyDate DESC';
+	$sSQL = $sSQL . ' where status=\'1\' AND DATEDIFF(TanggalTamatInsuran,CURDATE()) < 60 ORDER BY applyDate DESC';
 }
 $GetListIns = &$conn->Execute($sSQL);
 $GetListIns->Move($StartRec - 1);
@@ -203,9 +203,9 @@ if ($GetListIns->RowCount() <>	0) {
 						  <td	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>
 						  <td	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
 				    <td	nowrap align="right"><b>Jumlah Insuran (RP)</b></td>			
-						<td	nowrap align="center"><b>Tarikh Mula Insuran</b></td>
-						<td	nowrap align="center"><b>Tarikh Tamat Insuran</b></td>						
-						<td	nowrap align="center"><b>Tarikh Mohon</b></td>
+						<td	nowrap align="center"><b>Tanggal Mula Insuran</b></td>
+						<td	nowrap align="center"><b>Tanggal Tamat Insuran</b></td>						
+						<td	nowrap align="center"><b>Tanggal Mohon</b></td>
 					</tr>';
 	$amtLoan = 0;
 	while (!$GetListIns->EOF && $cnt <= $pg) {
@@ -224,7 +224,7 @@ if ($GetListIns->RowCount() <>	0) {
 		$status = tohtml($GetListIns->fields(Status));
 		$days = tohtml($GetListIns->fields(days));
 		$dateStartIns = toDate("d/m/yy", $GetListIns->fields(Tkh_Mula));
-		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
+		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
 		$dateApply = toDate("d/m/yy", $GetListIns->fields(applyDate));
 		print '	<tr>
 						<td	class="Data" align="right">' . $bil	. '&nbsp;</td>	

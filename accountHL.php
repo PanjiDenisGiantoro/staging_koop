@@ -212,7 +212,7 @@ if ($SubmitForm <> "") {
 			"Tkh_Mula," .
 			"KelayakanNCD," .
 			"HPCompany," .
-			"TarikhTamatInsuran," .
+			"TanggalTamatInsuran," .
 			"Pemandu1," .
 			"NoKPPemandu1," .
 			"Pemandu2," .

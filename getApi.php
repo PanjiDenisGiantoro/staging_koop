@@ -5,7 +5,7 @@ include("koperasiQry.php");
 
 $sFileName = "index.php";
 
-  date_default_timezone_set("Asia/Kuala_Lumpur"); 
+  date_default_timezone_set("Asia/Jakarta"); 
   $date = date("Y-m-d H:i:s"); 
   $today = date("Y-m-d"); 
 

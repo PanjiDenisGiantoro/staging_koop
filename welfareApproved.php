@@ -55,8 +55,8 @@ if ($GetWelfare->RowCount() <> 0) {
 					<td nowrap>&nbsp;</td>
 					<td nowrap>Nomor Rujukan/Kebajikan</td>
 					<td	nowrap align="center">Status</td>
-					<td nowrap align="center">Tarikh Mohon</td>
-                    <td nowrap align="center">Tarikh Kelulusan</td>
+					<td nowrap align="center">Tanggal Mohon</td>
+                    <td nowrap align="center">Tanggal Kelulusan</td>
 					</tr>';
 	while (!$GetWelfare->EOF && $cnt <= $pg) {
 		$welfareName = dlookup("general", "name", "ID=" . tosql($GetWelfare->fields(welfareType), "Text"));

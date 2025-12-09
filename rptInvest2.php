@@ -62,7 +62,7 @@ print '
 				'<tr bgcolor="#C0C0C0" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
 					<th align="left" nowrap width="40">No. Invois</th>
-					<th nowrap width="40">Tarikh</th>
+					<th nowrap width="40">Tanggal</th>
 					<th align="left" nowrap width="120">Nama Serikat</th>
 					<th align="left" nowrap width="80">Keterangan</th>	
 					<th align="right" nowrap width="50">Jumlah Invois (RP)</th>

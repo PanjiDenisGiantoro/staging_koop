@@ -178,7 +178,7 @@ print '		</select>
 						<td nowrap><b>Kartu Identitas ' . $mth . '</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>
 						<td nowrap colspan="2"><b>Jumlah Potongan Pembiayaan (RP)</b></td>
-					    <td nowrap colspan="2"><b>Potongan Yuran</b></td>
+					    <td nowrap colspan="2"><b>Potongan Wajib</b></td>
 
 					</tr>';
 			$totalFee = 0;

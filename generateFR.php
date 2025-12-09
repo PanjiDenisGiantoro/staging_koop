@@ -34,7 +34,7 @@ if (
 
 $sFileName = 'generateFR.php';
 $sFileRef  = 'Edit_memberStmtPotongan.php';
-$title     = "Senarai Potongan Floating Rate Pembiayaan / Yuran";
+$title     = "Senarai Potongan Floating Rate Pembiayaan / Wajib";
 
 if (get_session("Cookie_groupID") == 0) {
 	$ID = get_session("Cookie_userID");
@@ -185,7 +185,7 @@ if (get_session("Cookie_groupID") > 0) {
 		<td valign="top">
 		<table border="0" cellspacing="1" cellpadding="2" width="100%" class="lineBG">
 		<tr class="header">
-			<td nowrap colspan="8" height="20">JUMLAH POTONGAN RM : ' . $SUMALL . '</td>
+			<td nowrap colspan="8" height="20">JUMLAH POTONGAN RP : ' . $SUMALL . '</td>
 			<tr class="header">
 			<td nowrap rowspan="1" height="20">&nbsp;</td>
 			<td nowrap>&nbsp;No/Nama Anggota</td>

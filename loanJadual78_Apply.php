@@ -160,7 +160,7 @@ if ($page <> 'list') {
 			strtoupper(dlookup("users", "name", "userID=" . tosql($GetData->fields('userID'), "Text"))),
 			dlookup("userdetails", "memberID", "userID=" . tosql($GetData->fields('userID'), "Text")),
 			$strLoanName,
-			'RM&nbsp;' . $fLoanAmount
+			'RP&nbsp;' . $fLoanAmount
 		);
 	} else {
 		$strFieldDataList = array('- Tiada -', '- Tiada -', '- Tiada -', '- Tiada -', '- Tiada -');

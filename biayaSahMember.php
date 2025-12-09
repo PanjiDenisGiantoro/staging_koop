@@ -70,11 +70,11 @@ if ($GetLoan->RowCount() <> 0) {
 						<td nowrap align="left">Nomor - Nama Anggota</td>
 						<td nowrap align="center">Kartu Identitas</td>
 						<td nowrap align="right">Jumlah Pembiayaan (RP)</td>
-						<td nowrap align="center">Tarikh Pengesahan</td>			
+						<td nowrap align="center">Tanggal Pengesahan</td>			
 						<td nowrap align="center">
 						';
 	if ($filter <> 1) print 'Status';
-	else print 'Tarikh Diluluskan';
+	else print 'Tanggal Diluluskan';
 	print '</td>
 					</tr>';
 	$amtLoan = 0;

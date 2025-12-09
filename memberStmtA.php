@@ -81,7 +81,7 @@ print '<div class="card">
 		<center><img class="card-img-top mt-3" style="width: 3rem; height: 3rem;" src="images/saving.png" alt="Picture is missing"></center>
 			<div class="card-body">
 				<h5 class="card-title" align="center">SIMPANAN</h5>
-				<h2 class="card-text" align="center"><font color="black">RM&nbsp;</font></h2>
+				<h2 class="card-text" align="center"><font color="black">RP&nbsp;</font></h2>
 				</div>
 		</div> -->
 

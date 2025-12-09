@@ -76,12 +76,12 @@ $bil = 0;
 print '
 							<tr><td colspan="7"  style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;" height="30" valign="bottom">
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-								<td nowrap>Bil</td>
-								<td nowrap align="center">Nombor Anggota</td>
+								<td nowrap>No</td>
+								<td nowrap align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
-								<td nowrap align="center">Kad Pengenalan (Baru)</td>
+								<td nowrap align="center">Kartu Identitas (Baru)</td>
 								<td nowrap>Emel</td>
-								<td nowrap align="center">Tarikh Keanggotaan</td>
+								<td nowrap align="center">Tanggal Keanggotaan</td>
 							</tr>';
 
 

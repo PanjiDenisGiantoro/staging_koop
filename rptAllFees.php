@@ -72,17 +72,17 @@ if ($rs->RowCount() <> 0) {
 	}
 	//--------------------------------
 
-	$getDeptYuran = "SELECT 
-		SUM(CASE WHEN a.addminus = '0' THEN -a.pymtAmt ELSE a.pymtAmt END ) AS totalYuran
+	$getDeptWajib = "SELECT 
+		SUM(CASE WHEN a.addminus = '0' THEN -a.pymtAmt ELSE a.pymtAmt END ) AS totalWajib
 		FROM transaction a, userdetails b
 		WHERE
 		a.userID = b.userID
 		AND a.deductID in (1595,1607) 
 		AND b.status = 4";
 
-	$rsOpen = $conn->Execute($getDeptYuran);
+	$rsOpen = $conn->Execute($getDeptWajib);
 
-	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalYuran); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
+	if ($rsOpen->RowCount() == 1) $bakiAwal = $rsOpen->fields(totalWajib); //$rsOpen->fields(yuranKt) - $rsOpen->fields(yuranDb);
 	else $bakiAwal = 0;
 
 

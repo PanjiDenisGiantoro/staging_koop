@@ -118,7 +118,7 @@ print '
 						<td	align="center" nowrap>Bond Pembiayaan</td>
 					    <td	align="right" nowrap>Baki Pokok (RP)</td>						
 						<td	align="right" nowrap>Jumlah Terakhir Pembayaran (RP)</td>
-						<td	align="center" nowrap>Tarikh Akhir Bayar</td>
+						<td	align="center" nowrap>Tanggal Akhir Bayar</td>
 						<td	align="center" nowrap>Beza (Bulan)</td>
 						<td	align="center" nowrap>NPL (Status)</td>
                     </tr>';

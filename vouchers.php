@@ -376,8 +376,8 @@ if ($action == "view") {
 	if ($rsDetail->RowCount() <> 0) {
 		$strTotal = '';
 		if ($total) {
-			$clsRM->setValue($total);
-			$strTotal = ucwords($clsRM->getValue()) . ' Sahaja';
+			$clsRP->setValue($total);
+			$strTotal = ucwords($clsRP->getValue()) . ' Sahaja';
 		}
 	}
 }

@@ -968,9 +968,9 @@ if ($add) {
 }
 //bahagian bawah skali
 if ($totalKt <> 0) {
-	$clsRM->setValue($baki);
-	$clsRM->setValue($totalKt);
-	$strTotal = ucwords($clsRM->getValue()) . ' Sahaja.';
+	$clsRP->setValue($baki);
+	$clsRP->setValue($totalKt);
+	$strTotal = ucwords($clsRP->getValue()) . ' Sahaja.';
 }
 
 // $kerani = get_session('Cookie_fullName');

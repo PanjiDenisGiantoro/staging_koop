@@ -18,7 +18,7 @@ if ($rsNo) {
     $ciNo 	= 'CI000001';
 }
 
-$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=ACCconsolidateList&mn=' . $mn . '">SENARAI</a><b>' . '&nbsp;>&nbsp;PERMOHONAN BARU CONSOLIDATED INVOICE</b>&nbsp;[TARIKH DIPILIH: '.$dtFrom.' - '.$dtTo.']';
+$strHeaderTitle = '&nbsp;</b><a class="maroon" href="?vw=ACCconsolidateList&mn=' . $mn . '">SENARAI</a><b>' . '&nbsp;>&nbsp;PERPOHONAN BARU CONSOLIDATED INVOICE</b>&nbsp;[TARIKH DIPILIH: '.$dtFrom.' - '.$dtTo.']';
 print' <div class="maroon" align="left">' . $strHeaderTitle . '</div>
 <div style="width: 100%; text-align:left">
 <div>&nbsp;</div>';
@@ -74,7 +74,7 @@ if ($GetVouchers->RowCount() <> 0) {
                 <tr class="table-primary">
                     <td nowrap>&nbsp;</td>
                     <td nowrap><b>No. Dokumen</b></td>
-                    <td nowrap align="center"><b>Tarikh</b></td>
+                    <td nowrap align="center"><b>Tanggal</b></td>
                     <td nowrap><b>Nama Serikat | TIN LHDN</b></td>
                     <td nowrap align="left"><b>Catatan</b></td>
                     <td nowrap align="right"><b>Jumlah (RP)</b></td>

@@ -14,7 +14,7 @@ if (!isset($yy)) $yy	= date("Y");
 if (!isset($mm)) $mm	= date("m");
 if (!isset($filter))	$filter = "ALL";
 if (!isset($dept))		$dept = "";
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 include("header.php");
 include("koperasiQry.php");
@@ -58,10 +58,10 @@ if ($GetLeave->RowCount() <> 0) {
 					<tr class="table-primary">
 					<td nowrap align="center"><b>Bil</b></td>
 					<td nowrap>&nbsp;<b>Jenis Cuti</b></td>
-					<td nowrap align="center"><b>Tarikh Mula</b></td>
-					<td	nowrap align="center"><b>Tarikh Tamat</b></td>
+					<td nowrap align="center"><b>Tanggal Mula</b></td>
+					<td	nowrap align="center"><b>Tanggal Tamat</b></td>
                     <td	nowrap align="center"><b>Status</b></td>
-					<td nowrap align="center">&nbsp;<b>Tarikh Mohon</b></td>
+					<td nowrap align="center">&nbsp;<b>Tanggal Mohon</b></td>
 					</tr>';
 	while (!$GetLeave->EOF && $cnt <= $pg) {
 		$leaveName    = dlookup("general", "name", "ID=" . tosql($GetLeave->fields(leaveType), "Text"));
@@ -107,7 +107,7 @@ if ($GetLeave->RowCount() <> 0) {
 		} else {
 			$numPage = $TotalPage + 1;
 		}
-		print '<tr><td class="textFont" valign="top" align="left">Rekod Dari : <br>';
+		print '<tr><td class="textFont" valign="top" align="left">Data Dari : <br>';
 		for ($i = 1; $i <= $numPage; $i++) {
 			print '<A href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&dept=' . $dept . '&filter=' . $filter . '">';
 			print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a> &nbsp; &nbsp;';
@@ -120,15 +120,15 @@ if ($GetLeave->RowCount() <> 0) {
 			</td>
 		</tr>
 		<tr>
-			<td class="textFont">Jumlah Rekod : <b>' . $GetLeave->RowCount() . '</b></td>
+			<td class="textFont">Jumlah Data : <b>' . $GetLeave->RowCount() . '</b></td>
 		</tr>';
 } else {
 	if ($q == "") {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Tiada Rekod Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Tidak Ada Data Untuk ' . $title . '  -</b><hr size=1"></td></tr>';
 	} else {
 		print '
-			<tr><td align="center"><hr size=1"><b class="textFont">- Carian rekod "' . $q . '" tidak jumpa  -</b><hr size=1"></td></tr>';
+			<tr><td align="center"><hr size=1"><b class="textFont">- Pencarian data "' . $q . '" tidak ditemukan  -</b><hr size=1"></td></tr>';
 	}
 }
 print ' 

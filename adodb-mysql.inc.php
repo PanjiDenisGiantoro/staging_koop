@@ -135,7 +135,7 @@ class ADODB_mysql extends ADOConnection {
 	function SQLDate($fmt, $col=false)
 	{	
 		if (!$col) $col = $this->sysTimeStamp;
-		$s = 'DATE_FORMAT('.$col.",'";
+		$s = 'DATE_FORPAT('.$col.",'";
 		$concat = false;
 		$len = strlen($fmt);
 		for ($i=0; $i < $len; $i++) {
@@ -149,7 +149,7 @@ class ADODB_mysql extends ADOConnection {
 			case 'q':
 				$s .= "'),Quarter($col)";
 				
-				if ($len > $i+1) $s .= ",DATE_FORMAT($col,'";
+				if ($len > $i+1) $s .= ",DATE_FORPAT($col,'";
 				else $s .= ",('";
 				$concat = true;
 				break;

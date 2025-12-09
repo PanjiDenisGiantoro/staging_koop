@@ -56,7 +56,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Kelulusan Mesyuarat (ALK)";
+$FormLabel[$a]   	= "Tanggal Kelulusan Mesyuarat (ALK)";
 $FormElement[$a] 	= "lulusDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -66,7 +66,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Mula (Perjanjian/Penubuhan)";
+$FormLabel[$a]   	= "Tanggal Mula (Perjanjian/Penubuhan)";
 $FormElement[$a] 	= "startDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";
@@ -76,7 +76,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Tarikh Akhir (Perjanjian)";
+$FormLabel[$a]   	= "Tanggal Akhir (Perjanjian)";
 $FormElement[$a] 	= "endDate";
 $FormType[$a]	  	= "date";
 $FormData[$a]   	= "";

@@ -87,7 +87,7 @@ print '
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Nombor Ahli</th>
-					<th nowrap>&nbsp;Tarikh</th>
+					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Nama Anggota</th>
 					<th nowrap>&nbsp;Cawangan/Jabatan</th>
 					<th nowrap>&nbsp;Nomor Rujukan</th>
@@ -96,7 +96,7 @@ print '
 					<th nowrap>&nbsp;Jenis Loan</th>
 					
 					<th nowrap>&nbsp;Jumlah Lulus(RP)</th>
-					<th nowrap>&nbsp;Tarikh Surat Tawaran Keluar</th>
+					<th nowrap>&nbsp;Tanggal Surat Tawaran Keluar</th>
 					<th nowrap>&nbsp;Masalah</th>
 					<th nowrap>&nbsp;Tempoh Dari Terima<br> Hingga Masuk Komiti</th>
 					<th nowrap>&nbsp;Tempoh Diambil Dari Terima<br> Hingga Surat Tawaran Komiti <br>Hingga Surat Tawaran Dikeluarkan</th>

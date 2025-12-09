@@ -249,8 +249,8 @@ if ($GetReceipts->RowCount() <> 0) {
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
 						<td nowrap>&nbsp;</td>
-						<td nowrap>Nombor Resit</td>
-						<td nowrap align="center">Tarikh</td>
+						<td nowrap>Nomor Voucher</td>
+						<td nowrap align="center">Tanggal</td>
 						<td nowrap align="center">Nomor Anggota</td>
 						<td nowrap>Nama</td>
 						<td nowrap>Catatan</td>

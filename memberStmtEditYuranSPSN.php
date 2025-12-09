@@ -31,7 +31,7 @@ if (
 	print '<script>alert("' . $errPage . '");parent.location.href = "index.php";</script>';
 }
 
-$sFileName = "?vw=memberStmtEditYuranSPSN&mn=$mn";
+$sFileName = "?vw=memberStmtEditWajibSPSN&mn=$mn";
 $sFileRef  = "?vw=Edit_memberStmtPotongan&mn=$mn";
 $title     = "Daftar Potongan Gaji Pembiayaan";
 
@@ -155,7 +155,7 @@ print '		</select>
 			<td>
 				<table width="100%">
 					<tr>
-						<td  class="textFont">&nbsp;Jum Anggota PGB &nbsp' . $TotalRec . '</td><input type="button" class="btn btn-secondary" value="Preview Yuran" onclick="window.location.href=\'?vw=PreviewYuran&mn=' . $mn . '\'">
+						<td  class="textFont">&nbsp;Jum Anggota PGB &nbsp' . $TotalRec . '</td><input type="button" class="btn btn-secondary" value="Preview Wajib" onclick="window.location.href=\'?vw=PreviewWajib&mn=' . $mn . '\'">
 						<td align="right" class="textFont">';
 			echo papar_ms($pg);
 			print '</td>

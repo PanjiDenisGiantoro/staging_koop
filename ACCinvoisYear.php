@@ -27,7 +27,7 @@ $sSQL =
 		 ORDER BY createdDate";
 $rs = &$conn->Execute($sSQL);
 
-$getYuranOpen =
+$getWajibOpen =
 	"SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
@@ -38,9 +38,9 @@ $getYuranOpen =
 		AND year(createdDate) < " . $yr . "
 		GROUP BY pymtRefer";
 
-$rsYuranOpen = $conn->Execute($getYuranOpen);
+$rsWajibOpen = $conn->Execute($getWajibOpen);
 
-if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 else $bakiAwal = 0;
 $bakiAkhir = 0;
 
@@ -92,7 +92,7 @@ print '
 		<td colspan="2">
 			<table   cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-					<th nowrap>Tarikh</th>
+					<th nowrap>Tanggal</th>
 					<th nowrap>&nbsp;Nombor Invois</th>
 					<th nowrap>&nbsp;Akaun</th>
 					<th nowrap>&nbsp;Debit(RP)</th>

@@ -14,7 +14,7 @@ if (!isset($dept))		$dept="";
 
 include("header.php");	
 include("koperasiQry.php");	
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 
 $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 
@@ -55,11 +55,11 @@ $result = preg_replace('/\s*\(.*\)$/', '', $name);
 						<div style="display: table-cell; padding: 8px">: <b>Platinum</b></div>
 					</div>
 					<div style="display: table-row;">
-						<div style="display: table-cell; padding: 8px"><i class="mdi mdi-calendar-blank"></i> Tarikh Mula Langganan</div>
+						<div style="display: table-cell; padding: 8px"><i class="mdi mdi-calendar-blank"></i> Tanggal Mula Langganan</div>
 						<div style="display: table-cell; padding: 8px">: <b></b></div>
 					</div>
 					<div style="display: table-row;">
-						<div style="display: table-cell; padding: 8px"><i class="mdi mdi-calendar"></i> Tarikh Tamat Langganan</div>
+						<div style="display: table-cell; padding: 8px"><i class="mdi mdi-calendar"></i> Tanggal Tamat Langganan</div>
 						<div style="display: table-cell; padding: 8px">: <b></b></div>
 					</div>
 					<div style="display: table-row;">

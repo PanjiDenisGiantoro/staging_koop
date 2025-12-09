@@ -79,7 +79,7 @@ if ($rs->RowCount() <> 0) {
 		$rs->MoveNext();
 	}
 	print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td colspan="6" align="right">&nbsp;Jumlah Keseluruhan: <b>RM</b></td>
+							<td colspan="6" align="right">&nbsp;Jumlah Keseluruhan: <b>RP</b></td>
 							<td align="center">&nbsp;' . number_format($totalA, 2) . '&nbsp;</td>
 							<td align="right">&nbsp;</td>
 							<td align="right">&nbsp;</td>
@@ -89,7 +89,7 @@ if ($rs->RowCount() <> 0) {
 						</tr>';
 	$totalB = ($totalA * 0.000015);
 	print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-							<td colspan="6" align="right">&nbsp;Jumlah BSAS: <b>RM</b></td>';
+							<td colspan="6" align="right">&nbsp;Jumlah BSAS: <b>RP</b></td>';
 
 
 	print '

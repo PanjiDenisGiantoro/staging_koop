@@ -8,7 +8,7 @@
 session_start();
 include("header.php");
 include("koperasiQry.php");
-date_default_timezone_set("Asia/Kuala_Lumpur");
+date_default_timezone_set("Asia/Jakarta");
 $title     = "Maklumat Gaji Staf";
 
 // $sFileName          = "?vw=staffIncome&mn=$mn";
@@ -257,7 +257,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
 <h5 class="card-title">' . strtoupper($title) . '</h5>
 <div class="table-responsive">
 <form id="MyForm" name="salary" method="post" action="">
-    <input type="hidden" name="action" value="Kira">
+    <input type="hidden" name="action" value="Hitung">
     <input type="hidden" name="StartRec" value="' . $StartRec . '">
     <input type="hidden" name="by" value="' . $by . '">
 
@@ -323,7 +323,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     if (($IDName == 'admin') || ($IDName == 'superadmin')) {
         print '<tr>
         <td colspan="2" align="center">
-            <button type="submit" name="action" value="Kira" class="btn btn-primary" style="margin-bottom: 10px;">Kira</button>
+            <button type="submit" name="action" value="Hitung" class="btn btn-primary" style="margin-bottom: 10px;">Kira</button>
         </td>
     </tr>';
     }
@@ -365,7 +365,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
                 <td align="center">' . $count . '</td>
                 <td align="left">Potongan</td>
                 <td align="left">' . $gajiName . '</td>
-                <td align="right">RM ' . number_format($gajiAmount, 2) . '</td>
+                <td align="right">RP ' . number_format($gajiAmount, 2) . '</td>
                 <td align="center">';
                 if ($groupID == 1 || $groupID == 2) {
                     print '<form method="POST" action="">
@@ -408,7 +408,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
                 <td align="center">' . $count . '</td>
                 <td align="left">Elaun</td>
                 <td align="left">' . $gajiName . '</td>
-                <td align="right">RM ' . number_format($gajiAmount, 2) . '</td>
+                <td align="right">RP ' . number_format($gajiAmount, 2) . '</td>
                 <td align="center">';
                 if ($groupID == 1 || $groupID == 2) {
                     print '<form method="POST" action="">
@@ -432,7 +432,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     //     print '<tr class="table-warning">
     //         <td align="center"><b>-</b></td>
     //         <td align="center"><b>Gaji Pokok</b></td>
-    //         <td align="center"><b>RM ' . number_format($gajiPokok, 2) . '</b></td>
+    //         <td align="center"><b>RP ' . number_format($gajiPokok, 2) . '</b></td>
     //         <td align="center"><b>-</b></td>
     //     </tr>';
     // }
@@ -449,13 +449,13 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
     $groupID = get_session("Cookie_groupID");
 
     print '<div><hr class="1px"></div>';
-    print '<div>Gaji Pokok : <b>RM ' . number_format($gaji_pokok, 2) . '</b></div>';
-    print '<div>Jumlah Elaun : <b>RM ' . number_format($totalElaun, 2) . '</b></div>';
-    print '<div>Gaji Kasar : <b>RM ' . number_format($totalGross, 2) . '</b></div>';
-    print '<div>Jumlah Potongan : <b>RM ' . number_format($totalPotongan, 2) . '</b></div>';
+    print '<div>Gaji Pokok : <b>RP ' . number_format($gaji_pokok, 2) . '</b></div>';
+    print '<div>Jumlah Elaun : <b>RP ' . number_format($totalElaun, 2) . '</b></div>';
+    print '<div>Gaji Kasar : <b>RP ' . number_format($totalGross, 2) . '</b></div>';
+    print '<div>Jumlah Potongan : <b>RP ' . number_format($totalPotongan, 2) . '</b></div>';
     print '<div><hr class="1px"></div>';
     print '<div style="display: flex; align-items: center; gap: 10px;">';
-    print '<div>Gaji Bersih : <b>RM ' . number_format($gajiBersih, 2) . '</b></div>';
+    print '<div>Gaji Bersih : <b>RP ' . number_format($gajiBersih, 2) . '</b></div>';
 
     if (($groupID != 0 && $groupID != 99) && $gajiBersih > 0) {
         print '<form method="POST" action="" style="margin: 0;">

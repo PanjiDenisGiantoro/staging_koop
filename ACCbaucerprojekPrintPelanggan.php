@@ -135,8 +135,8 @@ $header .=
 
 print $header;
 if($jumlah<>0){
-	$clsRM->setValue($jumlah);
-	$strTotal = ucwords($clsRM->getValue()).' Ringgit Sahaja.';
+	$clsRP->setValue($jumlah);
+	$strTotal = ucwords($clsRP->getValue()).' Ringgit Sahaja.';
 }
 $jumlah = number_format($jumlah,2);
 
@@ -233,8 +233,8 @@ print
 			$rsDetail->MoveNext();
 			}
 			if($jumlah1<>0){
-			$clsRM->setValue($jumlah1);
-			$strTotal1 = strtoupper($clsRM->getValue()).' RINGGIT SAHAJA.';
+			$clsRP->setValue($jumlah1);
+			$strTotal1 = strtoupper($clsRP->getValue()).' RINGGIT SAHAJA.';
 			}
 		}
 
@@ -251,7 +251,7 @@ print '	<tr><td  colspan="5"><br></td></tr>
 	<tr>
 		<td nowrap="nowrap" align="left">&nbsp;</td>
 		<td nowrap="nowrap" align="left">&nbsp;</td>
-		<td nowrap="nowrap" align="right"><b>&nbsp;RM '.number_format($jumlah1,2).'&nbsp;</b></td>
+		<td nowrap="nowrap" align="right"><b>&nbsp;RP '.number_format($jumlah1,2).'&nbsp;</b></td>
 	</tr>
 
 		<tr>
@@ -263,7 +263,7 @@ print '	<tr><td  colspan="5"><br></td></tr>
 		<tr>
 			<td nowrap="nowrap" align="left"></td>
         	<td nowrap="nowrap" align="center"><b>&nbsp;JUMLAH&nbsp;</b></td>
-        	<td nowrap="nowrap" align="right"><b>&nbsp;RM '.number_format($jumlah1,2).'&nbsp;</b></td>   
+        	<td nowrap="nowrap" align="right"><b>&nbsp;RP '.number_format($jumlah1,2).'&nbsp;</b></td>   
     	</tr>
 	</table>
 

@@ -61,7 +61,7 @@ print '
             '<tr bgcolor="#C0C0C0" style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
                 <th nowrap>&nbsp;</th>
                 <th align="left" nowrap width="80">No. Bayaran</th>
-                <th align="center" nowrap width="80">Tarikh</th>
+                <th align="center" nowrap width="80">Tanggal</th>
                 <th align="left" nowrap width="120">Nama Serikat</th>
                 <th nowrap width="80">No. Invois</th>    
                 <th nowrap width="80" align="right">Amaun Invois (RP)</th>

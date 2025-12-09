@@ -142,7 +142,7 @@ $rs1 = &$conn->Execute($sSQL2);
 	  <td class="Data" nowrap >&nbsp;' . $rs->fields(bondNo) . '</td>
 	  <td class="Data" >&nbsp;';
       if ($IDtype == $rs->fields(ID)) {
-        print '&nbsp;<input size="7" onChange="javascript:this.value=this.value.toUpperCase();" name="YuranP" value="' . $rs1->fields(monthFee) . '" >';
+        print '&nbsp;<input size="7" onChange="javascript:this.value=this.value.toUpperCase();" name="WajibP" value="' . $rs1->fields(monthFee) . '" >';
       } else {
         print '&nbsp;' . $rs1->fields(monthFee) . '';
       }

@@ -229,7 +229,7 @@ print'
     <tr>
         <td nowrap="nowrap"><b>AMAUN PEMBUKA</b></td>
         <td>&nbsp;:&nbsp;</td>
-        <td>RM&nbsp;'.number_format($amt,2).'</td>
+        <td>RP&nbsp;'.number_format($amt,2).'</td>
     </tr>
 ';
 } else { // if this resit is normal resit
@@ -249,7 +249,7 @@ print'
         <tr>
             <td nowrap="nowrap"><b>AMAUN INVOIS</b></td>
             <td>&nbsp;:&nbsp;</td>
-            <td nowrap="nowrap">RM&nbsp;'.number_format($amt,2).'</td>
+            <td nowrap="nowrap">RP&nbsp;'.number_format($amt,2).'</td>
         </tr>
 
         <tr><td colspan="8"><br></td></tr>
@@ -376,9 +376,9 @@ print'
 			$rsDetail->MoveNext();
 			}
 			if($jumlah1<>0){
-			$clsRM->setValue($baki);
-			$clsRM->setValue($jumlah1);
-			$strTotal = ucwords($clsRM->getValue());
+			$clsRP->setValue($baki);
+			$clsRP->setValue($jumlah1);
+			$strTotal = ucwords($clsRP->getValue());
 			}
 		}
 
@@ -390,7 +390,7 @@ $colspan = in_array($RVNo, $rvBulkList) ? 4 : 3;
 print '
 <tr>				
     <td nowrap="nowrap" align="right" colspan="' . $colspan . '"><b>JUMLAH</b></td>
-    <td nowrap="nowrap" align="right"><b>RM ' . number_format($jumlah1, 2) . '</b></td>
+    <td nowrap="nowrap" align="right"><b>RP ' . number_format($jumlah1, 2) . '</b></td>
 </tr>
 ';
 
@@ -399,7 +399,7 @@ if (in_array($RVNo, $rvBulkList)) {
 print'
 <tr>
 <td nowrap="nowrap" align="right" colspan="3"><b>JUMLAH BAKI</b></td>
-<td nowrap="nowrap" align="right"><b>RM '.number_format($baki,2).'</b></td>
+<td nowrap="nowrap" align="right"><b>RP '.number_format($baki,2).'</b></td>
 </tr>
 ';
 }

@@ -333,12 +333,12 @@ if (!defined('_ADODB_LAYER')) {
 
 		// create temp directories
 		function createdir($hash, $debug) {
-			global $ADODB_CACHE_PERMS;
+			global $ADODB_CACHE_PERPS;
 
 			$dir = $this->getdirname($hash);
 			if ($this->notSafeMode && !file_exists($dir)) {
 				$oldu = umask(0);
-				if (!@mkdir($dir, empty($ADODB_CACHE_PERMS) ? 0771 : $ADODB_CACHE_PERMS)) {
+				if (!@mkdir($dir, empty($ADODB_CACHE_PERPS) ? 0771 : $ADODB_CACHE_PERPS)) {
 					if(!is_dir($dir) && $debug) {
 						ADOConnection::outp("Cannot create $dir");
 					}
@@ -5239,7 +5239,7 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
 					#mysqli
 					case 'socket': $obj->socket = $v; break;
 					#oci8
-					case 'nls_date_format': $obj->NLS_DATE_FORMAT = $v; break;
+					case 'nls_date_format': $obj->NLS_DATE_FORPAT = $v; break;
 					case 'cachesecs': $obj->cacheSecs = $v; break;
 					case 'memcache':
 						$varr = explode(':',$v);

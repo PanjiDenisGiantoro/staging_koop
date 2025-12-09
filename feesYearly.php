@@ -29,7 +29,7 @@ $sSQL = "select * from transaction
 		 and year(createdDate) = " . $yr . "
 		 ORDER BY createdDate";
 $rs = &$conn->Execute($sSQL);
-$getYuranOpen = "SELECT 
+$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transaction
@@ -38,8 +38,8 @@ $getYuranOpen = "SELECT
 		AND userID = '" . $id . "' 
 		AND year(createdDate) < " . $yr . "
 		GROUP BY userID";
-$rsYuranOpen = $conn->Execute($getYuranOpen);
-if ($rsYuranOpen->RowCount() == 1) $bakiAwal = $rsYuranOpen->fields(yuranKt) - $rsYuranOpen->fields(yuranDb);
+$rsWajibOpen = $conn->Execute($getWajibOpen);
+if ($rsWajibOpen->RowCount() == 1) $bakiAwal = $rsWajibOpen->fields(yuranKt) - $rsWajibOpen->fields(yuranDb);
 else $bakiAwal = 0;
 $bakiAkhir = 0;
 

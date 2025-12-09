@@ -56,7 +56,7 @@ print '<table border="0" cellpadding="5" cellspacing="0" width="100%">
 			<table border="0" cellpadding="2" cellspacing="1" align=left width="100%">
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<th nowrap>&nbsp;</th>
-								<th nowrap width="100">&nbsp;Nombor Anggota</th>
+								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="80">&nbsp;Nombor KP</th>
 								<th nowrap width="80">&nbsp;Pekerjaan</th>
@@ -64,8 +64,8 @@ print '<table border="0" cellpadding="5" cellspacing="0" width="100%">
 								<th nowrap width="80">&nbsp;Poskod</th>
 								<th nowrap width="80">&nbsp;Bandar</th>
 								<th nowrap width="80">&nbsp;Negeri</th>
-								<th nowrap align="center" width="150">&nbsp;Tarikh Keanggotaan</th>
-							<th nowrap align="center" width="150">&nbsp;Tarikh Berhenti</th>
+								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
+							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';
 $tempDept = '';
 if ($rs->RowCount() <> 0) {
@@ -82,7 +82,7 @@ if ($rs->RowCount() <> 0) {
 							Jabatan : ' . $rs->fields(department) . '</td></tr>
 							<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 								<th nowrap>&nbsp;</th>
-								<th nowrap width="100">&nbsp;Nombor Anggota</th>
+								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
 								<th nowrap width="80">&nbsp;Nombor KP</th>
 								<th nowrap width="80">&nbsp;Pekerjaan</th>
@@ -90,8 +90,8 @@ if ($rs->RowCount() <> 0) {
 								<th nowrap width="80">&nbsp;Poskod</th>
 								<th nowrap width="80">&nbsp;Bandar</th>
 								<th nowrap width="80">&nbsp;Negeri</th>
-								<th nowrap align="center" width="150">&nbsp;Tarikh Keanggotaan</th>
-							<th nowrap align="center" width="150">&nbsp;Tarikh Berhenti</th>
+								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
+							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';
 			$bil = 0;
 		}

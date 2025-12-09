@@ -79,7 +79,7 @@ if ($SubmitForm <> "") {
 			$tlog  = ", updatedDate=" . tosql($updatedDate, "Text") .
 				", updatedBy=" . tosql($updatedBy, "Text");
 			$isApproved = 1;
-			$msgSelect = "Maklumat anggota telah dikemaskini.";
+			$msgSelect = "Informasi anggota telah dikemaskini.";
 		}
 		if ($w_address1 <> "") $w_address1 = '<pre>' . $w_address1 . '</pre>';
 		$sSQL = "";
@@ -195,7 +195,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 print '<div class="m-3 row">
                                     <center>
                                             <input type="hidden" name="pk" value="' . $pk . '">
-			<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="PERMOHONAN PENUKARAN">
+			<input type="Submit" name="SubmitForm" class="btn btn-primary w-md waves-effect waves-light" value="PERPOHONAN PENUKARAN">
                                     </center>
                                 </div>    
 

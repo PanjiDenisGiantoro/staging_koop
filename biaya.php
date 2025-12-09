@@ -131,7 +131,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Yuran Bulanan (RP)";
+$FormLabel[$a]   	= "Wajib Bulanan (RP)";
 $FormElement[$a] 	= "monthFee";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -352,7 +352,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1) print '<tr><td colspan=4><div class="card-header">A. BUTIR-BUTIR PERMOHONAN</div></td></tr>';
+	if ($i == 1) print '<tr><td colspan=4><div class="card-header">A. BUTIR-BUTIR PERPOHONAN</div></td></tr>';
 	if ($i == 17) print '<tr><td colspan=4><div class="card-header">B. BUTIR-BUTIR PEMBIAYAAN</div></td></tr>';
 	if ($i == 21) print '<tr><td colspan=4><div class="card-header">C. PENYATA PENDAPATAN/PERBELANJAAN</div></td></tr>';
 	if ($i == 39) print '<tr><td colspan=4><div class="card-header">&nbsp;* UNTUK KEGUNAAN PEJABAT</div></td></tr>';
@@ -439,27 +439,27 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 			}
 		}
 		$amt1 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt1) $strFormValue = "(" . $bList[$i] . ") RM " . $amt1;
+		if ($amt1) $strFormValue = "(" . $bList[$i] . ") RP " . $amt1;
 	}
 
 	if ($i == 46) {
 		$amt2 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RM " . $amt2;
+		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RP " . $amt2;
 	}
 
 	if ($i == 48) {
 		$amt3 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RM " . $amt3;
+		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RP " . $amt3;
 	}
 
 	if ($i == 50) {
 		$amt4 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RM " . $amt4;
+		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RP " . $amt4;
 	}
 
 	if ($i == 52) {
 		$amt5 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RM " . $amt5;
+		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RP " . $amt5;
 	}
 
 	if ($i == 53) {
@@ -531,28 +531,28 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 				}
 			}
 			$amt1 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-			$strFormValue = "(" . $bList[$i] . ") RM " . $amt1;
+			$strFormValue = "(" . $bList[$i] . ") RP " . $amt1;
 		}
 	}
 
 	if ($i == 62) {
 		$amt2 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RM " . $amt2;
+		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RP " . $amt2;
 	}
 
 	if ($i == 64) {
 		$amt3 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RM " . $amt3;
+		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RP " . $amt3;
 	}
 
 	if ($i == 66) {
 		$amt4 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RM " . $amt4;
+		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RP " . $amt4;
 	}
 
 	if ($i == 68) {
 		$amt5 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RM " . $amt5;
+		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RP " . $amt5;
 	}
 
 	if ($i == 70) {
@@ -619,28 +619,28 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 				}
 			}
 			$amt1 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-			$strFormValue = "(" . $bList[$i] . ") RM " . $amt1;
+			$strFormValue = "(" . $bList[$i] . ") RP " . $amt1;
 		}
 	}
 
 	if ($i == 80) {
 		$amt2 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RM " . $amt2;
+		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RP " . $amt2;
 	}
 
 	if ($i == 82) {
 		$amt3 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RM " . $amt3;
+		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RP " . $amt3;
 	}
 
 	if ($i == 84) {
 		$amt4 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RM " . $amt4;
+		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RP " . $amt4;
 	}
 
 	if ($i == 86) {
 		$amt5 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RM " . $amt5;
+		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RP " . $amt5;
 	}
 
 	if ($i == 88) {
@@ -707,28 +707,28 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 				}
 			}
 			$amt1 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-			$strFormValue = "(" . $bList[$i] . ") RM " . $amt1;
+			$strFormValue = "(" . $bList[$i] . ") RP " . $amt1;
 		}
 	}
 
 	if ($i == 98) {
 		$amt2 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RM " . $amt2;
+		if ($amt2) $strFormValue = "(" . $bList[$i] . ") RP " . $amt2;
 	}
 
 	if ($i == 100) {
 		$amt3 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RM " . $amt3;
+		if ($amt3) $strFormValue = "(" . $bList[$i] . ") RP " . $amt3;
 	}
 
 	if ($i == 102) {
 		$amt4 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RM " . $amt4;
+		if ($amt4) $strFormValue = "(" . $bList[$i] . ") RP " . $amt4;
 	}
 
 	if ($i == 104) {
 		$amt5 = dlookup("loans", "loanAmt", "loanID='" . $bList[$i] . "'");
-		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RM " . $amt5;
+		if ($amt5) $strFormValue = "(" . $bList[$i] . ") RP " . $amt5;
 	}
 
 	if ($i == 106) {

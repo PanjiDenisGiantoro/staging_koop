@@ -86,7 +86,7 @@ print '
 			<table border="1" cellpadding="2" cellspacing="0" align=left width="100%">
 				<tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
 					<td nowrap><b>Bil</b></td>
-					<td nowrap><b>Tarikh</b></td>
+					<td nowrap><b>Tanggal</b></td>
 					<td nowrap><b>Nomor Rujukan</b></td>
 					<td nowrap><b>Item</b></td>
 					<td nowrap align="right"><b>Debit(RP)</b></td>

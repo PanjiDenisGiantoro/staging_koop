@@ -283,9 +283,9 @@ if ($page <> 'list') {
 	//deduction header 
 	//deduction table variable
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList	= array($strCheckboxTemp, 'Jenis Potongan', 'Tarikh Mula', 'Tarikh Akhir', 'Jumlah', 'Caj');
+		$strFieldNameList	= array($strCheckboxTemp, 'Jenis Potongan', 'Tanggal Mula', 'Tanggal Akhir', 'Jumlah', 'Caj');
 	} else {
-		$strFieldNameList	= array('&nbsp;', 'Jenis Potongan', 'Tarikh Mula', 'Tarikh Akhir', 'Jumlah', 'Caj');
+		$strFieldNameList	= array('&nbsp;', 'Jenis Potongan', 'Tanggal Mula', 'Tanggal Akhir', 'Jumlah', 'Caj');
 	}
 	$strFieldWidthList	= array('15', '', '10%', '10%', '10%', '10%');
 	$strFieldAlignList	= array('center', 'left', 'right', 'right', 'right', 'right');

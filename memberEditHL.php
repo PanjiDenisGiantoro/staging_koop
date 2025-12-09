@@ -736,7 +736,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota - $pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 		gopage("?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=1", 1000);
 	} else if (@$tabb == 2) {
 		$updatedBy 	= get_session("Cookie_userName");
@@ -762,7 +762,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota - $pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 		gopage("?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=2", 1000);
 	} else if (@$tabb == 4) {
 		$updatedBy 	= get_session("Cookie_userName");
@@ -784,7 +784,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota -$pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 		gopage("?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=4", 1000);
 	} else if (@$tabb == 7) {
 		$updatedBy 	= get_session("Cookie_userName");
@@ -812,7 +812,7 @@ if ($SubmitForm <> "") {
 			" VALUES ('Mengemaskini Maklumat Peribadi Anggota -$pk', 'UPDATE', '" . str_replace("'", "", $sSQL) . "', '" . get_session('Cookie_userID') . "','" . $updatedDate . "', '" . $updatedBy . "', '1')";
 		$rs = &$conn->Execute($sqlAct);
 
-		alert("Maklumat anggota telah dikemaskinikan ke dalam sistem.");
+		alert("Informasi anggota telah dikemaskinikan ke dalam sistem.");
 		gopage("?vw=memberEditHL&mn=" . $mn . "&pk=" . $pk . "&tabb=7", 1000);
 	}
 }
@@ -955,7 +955,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	}
 
 
-	if ($i == 35) print '<div class="card-header mt-3">INFORMASI BANK</div>';
+	if ($i == 35) print '<div class="card-header mt-3">INFORPASI BANK</div>';
 
 	if ($cnt == 1) print '<div class="m-1 row">';
 	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];
@@ -1141,10 +1141,10 @@ if (@$tabb == 2) {
 	print '
 </table>
 <div><hr class="1px"></div>
-		  <div>Jumlah Potongan Aktif : <b>RM ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
-		  <div>Jumlah Potongan Tamat : <b>RM ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div>Jumlah Potongan Aktif : <b>RP ' . number_format(array_sum($jumlah['aktif']), 2) . '</b></div>
+		  <div>Jumlah Potongan Tamat : <b>RP ' . number_format(array_sum($jumlah['tamat']), 2) . '</b></div>
 		  <div><hr class="1px"></div>
-		  <div><b>Jumlah Potongan : RM ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
+		  <div><b>Jumlah Potongan : RP ' . number_format(array_sum($jumlah['aktif']) + array_sum($jumlah['tamat']), 2) . '</b></div>
 		  </div>';
 }
 

@@ -36,14 +36,14 @@ $rs = &$conn->Execute($sSQL);
 
 
 
-$getYuranOpen = "SELECT 
+$getWajibOpen = "SELECT 
 		SUM(CASE WHEN addminus = '0' THEN pymtAmt ELSE 0 END) AS yuranDb, 
 		SUM(CASE WHEN addminus = '1' THEN pymtAmt ELSE 0 END) AS yuranKt
 		FROM transactionacc
 		WHERE
 		pymtRefer = '" . $id . "' 
 		GROUP BY pymtRefer";
-$rsYuranOpen = $conn->Execute($getYuranOpen);
+$rsWajibOpen = $conn->Execute($getWajibOpen);
 
 $totaldebit = 0;
 $totalkredit = 0;
@@ -133,9 +133,9 @@ print '
 
 <table border=0  cellpadding="2" cellspacing="1" align=left width="100%" bgcolor="999999">
   <tr bgcolor="#C0C0C0" style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt; font-weight: bold;">
-      <th width="10%">Tarikh</th>
+      <th width="10%">Tanggal</th>
       <th width="10%">No Rujukan</th>
-      <th width="10%">Tarikh Tamat Tempoh</th>
+      <th width="10%">Tanggal Tamat Tempoh</th>
       <th width="10%" align="right">Saldo (RP)</th>
       <th width="10%" align="right">Semasa (RP)</th>
       <th width="10%" align="right">Hari Ke 31-60 (RP)</th>

@@ -72,7 +72,7 @@ print '
         <div>Masukkan nombor telefon yang telah didaftarkan ke dalam sistem iKOOP.</div>
         <div><input type="text" class="form-controlx" placeholder="6013xxxxxxx" size="30" maxlength="50" value="'.$mobileNo.'" name="mobileNo" id="mobileNo"/></div>
         &nbsp;
-        <div><input type="submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Hantar"></div>
+        <div><input type="submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitForm" value="Kirim"></div>
     </div>
 </div>';
 

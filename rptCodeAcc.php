@@ -15,7 +15,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Penyata Urusniaga mengikut Kod Akaun';
+$title  = 'Penyata Urusniaga mengikut Kode Akun';
 $sSQL = "SELECT c.code as codeObj, c.name as name, c.c_Panel as codeAcc, d.kod_bank,
 		SUM(CASE WHEN a.addminus = '0' THEN a.pymtAmt ELSE 0 END) AS debit,
 		SUM(CASE WHEN a.addminus = '1' THEN a.pymtAmt ELSE 0 END) AS kredit
@@ -51,7 +51,7 @@ print '	</th>
 					<th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Kod Objek</th>
 					<th nowrap>&nbsp;Keterangan</th>
-					<th nowrap>&nbsp;Kod Akaun</th>
+					<th nowrap>&nbsp;Kode Akun</th>
 					<th nowrap>&nbsp;Debit</th>
 					<th nowrap>&nbsp;Kredit</th>
 					<th nowrap>&nbsp;Bank</th>
