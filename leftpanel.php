@@ -75,6 +75,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<ul class="sub-menu ' . $mn902 . '" aria-expanded="true">';
         MenuLink("memberStmtA.php", "Info Modal", 902, @$_REQUEST['vw']);
         MenuLink("loansimpanan1.php", "Info Simpanan", 902, @$_REQUEST['vw']);
+        MenuLink("transactionSimpanan.php", "Transaksi Simpanan", 902, @$_REQUEST['vw']);
         // // MenuLink("blank.php", "Jurnal Pindahan", 902, @$_REQUEST['vw']);
         //     // admin.anggota.modalSimpanan.pengeluaran
         //     echo '<li>';

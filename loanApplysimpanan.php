@@ -13,8 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($UserID != '' && $AccountNumber == '' && $Code_simpanan != '' && $nominal_simpanan > 0 && $sumber_dana != '') {
 
-        // Generate AccountNumber otomatis dengan format: 10ddmmyyyynourut5digit
-        $prefix = "10" . date("dmY"); // 10 + ddmmyyyy, contoh: 10051220251. Cek nomor terakhir di hari ini
+        // Generate AccountNumber otomatis dengan format: 8810tahunbulannourut4digit
+        $prefix = "8810" . date("Ym"); // 8810 + YYYYmm, contoh: 8810202512
         $cekAcc = "SELECT MAX(AccountNumber) as max_acc
                FROM depositoracc
                WHERE AccountNumber LIKE '" . $prefix . "%'";
@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $lastNumber = 0;
         if ($rsAcc && $rsAcc->fields['max_acc'] != null) {
-            $lastNumber = intval(substr($rsAcc->fields['max_acc'], 12)); // ambil 5 digit terakhir (setelah 10ddmmyyyy)
+            $lastNumber = intval(substr($rsAcc->fields['max_acc'], 10)); // ambil 4 digit terakhir (setelah 8810YYYYmm)
         }
 
-        $newNumber = str_pad($lastNumber + 1, 5, "0", STR_PAD_LEFT);
+        $newNumber = str_pad($lastNumber + 1, 4, "0", STR_PAD_LEFT);
         $AccountNumber = $prefix . $newNumber;
 
         // 🔎 Cek apakah sudah ada user dengan kombinasi UserID + Code_simpanan

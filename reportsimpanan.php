@@ -24,7 +24,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=reportsimpanan&mn=902';
-$title = "Laporan Rekening Simpanan";
+$title = "Laporan Transaksi Simpanan";
 
 print '<div class="table-responsive">
 <form name="MyForm" action=' . $sFileName . ' method="post">
@@ -36,7 +36,7 @@ print '<div class="table-responsive">
 ?>
 
     <head>
-        <title>Laporan Simpanan</title>
+        <title>Laporan Transaksi Simpanan</title>
         <style>
             body {
                 font-family: Poppins, sans-serif;
@@ -71,6 +71,14 @@ print '<div class="table-responsive">
                 font-size: 1.8em;
                 font-weight: bold;
                 color: #007bff;
+            }
+
+            .summary-box.setor .amount {
+                color: #28a745;
+            }
+
+            .summary-box.tarik .amount {
+                color: #dc3545;
             }
 
             .filter-section {
@@ -123,30 +131,35 @@ print '<div class="table-responsive">
         <h6 class="mb-3">Filter Laporan</h6>
         <div class="filter-row">
             <div class="filter-item">
+                <label>Tanggal Dari</label>
+                <input type="date" name="filter_dari" id="filter_dari" class="form-control"
+                       value="<?php echo date('Y-m-01'); ?>">
+            </div>
+            <div class="filter-item">
+                <label>Tanggal Sampai</label>
+                <input type="date" name="filter_sampai" id="filter_sampai" class="form-control"
+                       value="<?php echo date('Y-m-d'); ?>">
+            </div>
+            <div class="filter-item">
+                <label>Jenis Transaksi</label>
+                <select name="filter_jenis" id="filter_jenis" class="form-control">
+                    <option value="ALL">Semua</option>
+                    <option value="SETOR">Setor</option>
+                    <option value="TARIK">Tarik</option>
+                </select>
+            </div>
+            <div class="filter-item">
                 <label>Status</label>
                 <select name="filter_status" id="filter_status" class="form-control">
                     <option value="ALL">Semua Status</option>
-                    <option value="1">Aktif</option>
-                    <option value="0">Tidak Aktif</option>
+                    <option value="1" selected>Berhasil</option>
+                    <option value="0">Batal</option>
                 </select>
             </div>
             <div class="filter-item">
-                <label>Jenis Simpanan</label>
-                <select name="filter_jenis" id="filter_jenis" class="form-control">
-                    <option value="ALL">Semua Jenis</option>
-                    <?php
-                    $sSQL_jenis = "SELECT DISTINCT ID, name FROM general WHERE category = 'simpanan' ORDER BY name";
-                    $rs_jenis = &$conn->Execute($sSQL_jenis);
-                    while (!$rs_jenis->EOF) {
-                        echo '<option value="' . $rs_jenis->fields['ID'] . '">' . htmlspecialchars($rs_jenis->fields['name']) . '</option>';
-                        $rs_jenis->MoveNext();
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Cari Nama/IC</label>
-                <input type="text" name="search" id="search" class="form-control" placeholder="Nama atau No IC">
+                <label>Cari</label>
+                <input type="text" name="search" id="search" class="form-control"
+                       placeholder="Nama/Rekening/No Jurnal">
             </div>
             <div class="filter-item">
                 <button type="button" class="btn btn-primary" onclick="applyFilter()">Tampilkan</button>
@@ -159,42 +172,56 @@ print '<div class="table-responsive">
     <!-- Summary Section -->
     <div class="summary-container">
         <?php
-        // Total Rekening Aktif
-        $sSQL_aktif = "SELECT COUNT(*) as total FROM depositoracc WHERE status = 1";
-        $rs_aktif = &$conn->Execute($sSQL_aktif);
-        $total_aktif = $rs_aktif->fields['total'];
+        // Ambil parameter filter
+        $tanggal_dari = isset($_GET['dari']) ? $_GET['dari'] : date('Y-m-01');
+        $tanggal_sampai = isset($_GET['sampai']) ? $_GET['sampai'] : date('Y-m-d');
 
-        // Total Rekening Tidak Aktif
-        $sSQL_tidak_aktif = "SELECT COUNT(*) as total FROM depositoracc WHERE status = 0";
-        $rs_tidak_aktif = &$conn->Execute($sSQL_tidak_aktif);
-        $total_tidak_aktif = $rs_tidak_aktif->fields['total'];
+        // Total Transaksi Setor
+        $sSQL_setor = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
+                       FROM transactionsimpanan
+                       WHERE JenisTransaksi = 'SETOR' AND Status = 1
+                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
+                       AND " . tosql($tanggal_sampai, "Text");
+        $rs_setor = &$conn->Execute($sSQL_setor);
+        $total_setor = $rs_setor->fields['total'] ? $rs_setor->fields['total'] : 0;
+        $nominal_setor = $rs_setor->fields['total_nominal'] ? $rs_setor->fields['total_nominal'] : 0;
 
-        // Total Saldo Keseluruhan
-        $sSQL_saldo = "SELECT SUM(balance) as total_saldo FROM depositoracc WHERE status = 1";
-        $rs_saldo = &$conn->Execute($sSQL_saldo);
-        $total_saldo = $rs_saldo->fields['total_saldo'] ? $rs_saldo->fields['total_saldo'] : 0;
+        // Total Transaksi Tarik
+        $sSQL_tarik = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
+                       FROM transactionsimpanan
+                       WHERE JenisTransaksi = 'TARIK' AND Status = 1
+                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
+                       AND " . tosql($tanggal_sampai, "Text");
+        $rs_tarik = &$conn->Execute($sSQL_tarik);
+        $total_tarik = $rs_tarik->fields['total'] ? $rs_tarik->fields['total'] : 0;
+        $nominal_tarik = $rs_tarik->fields['total_nominal'] ? $rs_tarik->fields['total_nominal'] : 0;
 
-        // Total Nominal Simpanan
-        $sSQL_nominal = "SELECT SUM(nominal_simpanan) as total_nominal FROM depositoracc WHERE status = 1";
-        $rs_nominal = &$conn->Execute($sSQL_nominal);
-        $total_nominal = $rs_nominal->fields['total_nominal'] ? $rs_nominal->fields['total_nominal'] : 0;
+        // Total Semua Transaksi
+        $total_transaksi = $total_setor + $total_tarik;
+
+        // Selisih (Setor - Tarik)
+        $selisih = $nominal_setor - $nominal_tarik;
         ?>
 
-        <div class="summary-box">
-            <strong>Total Rekening Aktif</strong>
-            <div class="amount"><?php echo number_format($total_aktif, 0); ?></div>
+        <div class="summary-box setor">
+            <strong>Total Transaksi Setor</strong>
+            <div class="amount"><?php echo number_format($total_setor, 0); ?> Trx</div>
+            <small>Rp <?php echo number_format($nominal_setor, 0, ',', '.'); ?></small>
+        </div>
+        <div class="summary-box tarik">
+            <strong>Total Transaksi Tarik</strong>
+            <div class="amount"><?php echo number_format($total_tarik, 0); ?> Trx</div>
+            <small>Rp <?php echo number_format($nominal_tarik, 0, ',', '.'); ?></small>
         </div>
         <div class="summary-box">
-            <strong>Total Rekening Tidak Aktif</strong>
-            <div class="amount"><?php echo number_format($total_tidak_aktif, 0); ?></div>
+            <strong>Total Semua Transaksi</strong>
+            <div class="amount"><?php echo number_format($total_transaksi, 0); ?> Trx</div>
         </div>
         <div class="summary-box">
-            <strong>Total Saldo Keseluruhan</strong>
-            <div class="amount">Rp <?php echo number_format($total_saldo, 2, ',', '.'); ?></div>
-        </div>
-        <div class="summary-box">
-            <strong>Total Nominal Simpanan</strong>
-            <div class="amount">Rp <?php echo number_format($total_nominal, 2, ',', '.'); ?></div>
+            <strong>Selisih (Setor - Tarik)</strong>
+            <div class="amount" style="color: <?php echo $selisih >= 0 ? '#28a745' : '#dc3545'; ?>">
+                Rp <?php echo number_format($selisih, 0, ',', '.'); ?>
+            </div>
         </div>
     </div>
 
@@ -203,54 +230,69 @@ print '<div class="table-responsive">
         <thead class="table-dark">
         <tr>
             <th>No</th>
-            <th>Nama</th>
-            <th>No IC</th>
-            <th>Nomor Rekening</th>
+            <th>Tanggal</th>
+            <th>No Jurnal</th>
+            <th>Teller</th>
+            <th>Nama Anggota</th>
+            <th>No Rekening</th>
             <th>Jenis Simpanan</th>
-            <th>Nominal Simpanan</th>
-            <th>Saldo</th>
-            <th>Sumber Dana</th>
-            <th>Tanggal Buka</th>
+            <th>Jenis</th>
+            <th>Nominal</th>
+            <th>Saldo Sebelum</th>
+            <th>Saldo Sesudah</th>
+            <th>Keterangan</th>
             <th>Status</th>
         </tr>
         </thead>
         <tbody>
         <?php
         $sSQL = "
-SELECT *,
-       A.status as status_depositacc,
-       A.id as id_unique,
-       A.created_at as tanggal_buka,
-       c.name as name_user,
-       D.name as nama_simpanan
-FROM depositoracc A
-         JOIN userdetails B
-              ON A.UserID COLLATE latin1_general_ci = B.UserID COLLATE latin1_general_ci
-         JOIN users C
-              ON B.UserID COLLATE latin1_general_ci = C.UserID COLLATE latin1_general_ci
-         JOIN general D
-              ON CAST(A.Code_simpanan AS CHAR CHARACTER SET latin1) COLLATE latin1_general_ci
-                  = CAST(D.ID AS CHAR CHARACTER SET latin1) COLLATE latin1_general_ci
-ORDER BY A.created_at DESC";
+        SELECT
+            ID,
+            TellerID,
+            TellerName,
+            UserID,
+            NamaAnggota,
+            AccountNumber,
+            NamaAkun,
+            TanggalTransaksi,
+            JenisTransaksi,
+            Nominal,
+            SaldoSebelum,
+            SaldoSesudah,
+            NoJurnal,
+            Keterangan,
+            Status,
+            CreatedDate
+        FROM transactionsimpanan
+        ORDER BY TanggalTransaksi DESC, ID DESC
+        ";
 
         $result = &$conn->Execute($sSQL);
 
         if ($result && !$result->EOF) {
             $no = 1;
             while (!$result->EOF) {
-                $status = ($result->fields['status_depositacc'] == 1) ? "Aktif" : "Tidak Aktif";
-                $status_class = ($result->fields['status_depositacc'] == 1) ? "badge bg-success" : "badge bg-secondary";
+                $status = ($result->fields['Status'] == 1) ? "Berhasil" : "Batal";
+                $status_class = ($result->fields['Status'] == 1) ? "badge bg-success" : "badge bg-danger";
 
-                echo "<tr>";
+                $jenis_class = ($result->fields['JenisTransaksi'] == 'SETOR') ? "badge bg-success" : "badge bg-warning text-dark";
+
+                echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TanggalTransaksi'])) . "'
+                          data-jenis='" . $result->fields['JenisTransaksi'] . "'
+                          data-status='" . $result->fields['Status'] . "'>";
                 echo "<td>" . $no . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['name_user']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['newIC']) . "</td>";
+                echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['NoJurnal']) . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['TellerName']) . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['NamaAnggota']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['AccountNumber']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['nama_simpanan']) . "</td>";
-                echo "<td align='right'>Rp " . number_format($result->fields['nominal_simpanan'], 2, ',', '.') . "</td>";
-                echo "<td align='right'>Rp " . number_format($result->fields['balance'], 2, ',', '.') . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['sumber_dana']) . "</td>";
-                echo "<td>" . date('d/m/Y', strtotime($result->fields['tanggal_buka'])) . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['NamaAkun']) . "</td>";
+                echo "<td><span class='" . $jenis_class . "'>" . $result->fields['JenisTransaksi'] . "</span></td>";
+                echo "<td align='right'><strong>Rp " . number_format($result->fields['Nominal'], 0, ',', '.') . "</strong></td>";
+                echo "<td align='right'>Rp " . number_format($result->fields['SaldoSebelum'], 0, ',', '.') . "</td>";
+                echo "<td align='right'>Rp " . number_format($result->fields['SaldoSesudah'], 0, ',', '.') . "</td>";
+                echo "<td>" . htmlspecialchars($result->fields['Keterangan']) . "</td>";
                 echo "<td><span class='" . $status_class . "'>" . $status . "</span></td>";
                 echo "</tr>";
 
@@ -258,7 +300,7 @@ ORDER BY A.created_at DESC";
                 $result->MoveNext();
             }
         } else {
-            echo "<tr><td colspan='10' class='text-center'>Tidak ada data</td></tr>";
+            echo "<tr><td colspan='13' class='text-center'>Tidak ada data transaksi</td></tr>";
         }
         ?>
         </tbody>
@@ -266,8 +308,10 @@ ORDER BY A.created_at DESC";
 
     <script>
         function applyFilter() {
-            const status = document.getElementById('filter_status').value;
+            const tanggalDari = document.getElementById('filter_dari').value;
+            const tanggalSampai = document.getElementById('filter_sampai').value;
             const jenis = document.getElementById('filter_jenis').value;
+            const status = document.getElementById('filter_status').value;
             const search = document.getElementById('search').value.toLowerCase();
             const table = document.getElementById('tableData');
             const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
@@ -277,34 +321,53 @@ ORDER BY A.created_at DESC";
                 const cells = row.getElementsByTagName('td');
 
                 if (cells.length > 0) {
-                    const nama = cells[1].textContent.toLowerCase();
-                    const ic = cells[2].textContent.toLowerCase();
-                    const jenisSimpanan = cells[4].textContent;
-                    const statusCell = cells[9].textContent;
+                    const tanggalTrx = row.getAttribute('data-tanggal');
+                    const jenisTrx = row.getAttribute('data-jenis');
+                    const statusTrx = row.getAttribute('data-status');
+
+                    const namaAnggota = cells[4].textContent.toLowerCase();
+                    const noRekening = cells[5].textContent.toLowerCase();
+                    const noJurnal = cells[2].textContent.toLowerCase();
 
                     let showRow = true;
 
+                    // Filter tanggal
+                    if (tanggalDari && tanggalTrx < tanggalDari) showRow = false;
+                    if (tanggalSampai && tanggalTrx > tanggalSampai) showRow = false;
+
+                    // Filter jenis transaksi
+                    if (jenis !== 'ALL' && jenisTrx !== jenis) showRow = false;
+
                     // Filter status
-                    if (status !== 'ALL') {
-                        if (status === '1' && statusCell !== 'Aktif') showRow = false;
-                        if (status === '0' && statusCell !== 'Tidak Aktif') showRow = false;
-                    }
+                    if (status !== 'ALL' && statusTrx !== status) showRow = false;
 
                     // Filter search
-                    if (search !== '' && !nama.includes(search) && !ic.includes(search)) {
+                    if (search !== '' && !namaAnggota.includes(search) &&
+                        !noRekening.includes(search) && !noJurnal.includes(search)) {
                         showRow = false;
                     }
 
                     row.style.display = showRow ? '' : 'none';
                 }
             }
+
+            updateRowNumbers();
         }
 
         function resetFilter() {
-            document.getElementById('filter_status').value = 'ALL';
+            document.getElementById('filter_dari').value = '<?php echo date('Y-m-01'); ?>';
+            document.getElementById('filter_sampai').value = '<?php echo date('Y-m-d'); ?>';
             document.getElementById('filter_jenis').value = 'ALL';
+            document.getElementById('filter_status').value = 'ALL';
             document.getElementById('search').value = '';
-            applyFilter();
+
+            const table = document.getElementById('tableData');
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].style.display = '';
+            }
+
+            updateRowNumbers();
         }
 
         // Auto number after filter
