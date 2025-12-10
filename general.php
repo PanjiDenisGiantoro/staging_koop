@@ -236,11 +236,27 @@ function listGeneral($id, $level) {
     $jenisSimpanan = array();
     $setoranSimpananPokok = array();
     $deskripsiSimpanan = array();
-	$GetGeneral = ctGeneral($id,$cat);
+	$universalData = array();
+
+    $GetGeneral = ctGeneral($id,$cat);
+
+
 	if ($GetGeneral->RowCount() <> 0) {
 		$RecNum = $RecNum + $GetGeneral->RowCount();
 		while (!$GetGeneral->EOF) {
-			array_push ($generalID, $GetGeneral->fields(ID));
+            $fieldList = array();
+            foreach ($GetGeneral->fields as $key => $value) {
+                if (!is_numeric($key)) {
+                    $fieldList[$key] = $value;
+                }
+            }
+            // $fieldList = array_keys($fieldList);
+            // $fieldList = str_Replace('_', ' ', $fieldList);
+            // array_push();
+            $universalData[$GetGeneral->fields(ID)] = $fieldList;
+            // dd($fieldList);
+			
+            array_push ($generalID, $GetGeneral->fields(ID));
 			array_push ($generalCode, $GetGeneral->fields(code));
 			array_push ($generalName, $GetGeneral->fields(name));
 			array_push ($generalParentID, $GetGeneral->fields(parentID));
@@ -325,8 +341,113 @@ function listGeneral($id, $level) {
             </tbody>
         </table>';
 
+    } else if ($cat == 'A' || $cat == 'B') {
+        $fieldsToRemove = array('ID', 'b_Address', 'b_ContactPerson');
+
+        foreach($universalData as &$row){
+            foreach($fieldsToRemove as $f){
+                if(isset($row[$f])){
+                    unset($row[$f]);
+                }
+            }
+        }
+        unset($row);
+
+        print '<div style="display:block; max-width:70vw; overflow-x:auto; white-space:nowrap;">';
+        print '<table class="table table-bordered table-hover table-striped table-sm">';
+
+        if(!empty($universalData)){
+            $firstRow = reset($universalData);
+
+            if(is_array($firstRow)){
+                print '<thead class="table-primary"><tr>';
+                foreach(array_keys($firstRow) as $field){ 
+                    print '<th>'.htmlspecialchars(ucfirst(str_replace('_',' ',$field))).'</th>';
+                }
+                print '</tr></thead>';
+
+                print '<tbody>';
+                foreach($universalData as $row){
+                    print '<tr>';
+                    foreach($row as $value){ 
+                        print '<td>'.htmlspecialchars($value).'</td>';
+                    }
+                    print '</tr>';
+                }
+                print '</tbody>';
+            } else {
+                print '<tbody><tr><td>No valid rows</td></tr></tbody>';
+            }
+        } else {
+            print '<tbody><tr><td>No data</td></tr></tbody>';
+        }
+
+        print '</table>';
+        print '</div>';
+
+
+
+
     } else {
         // Tampilan list default untuk kategori lain
+        // print_r($generalID); die;
+
+        // print '<ul>';
+        // $level++;
+        // foreach ($generalID as $i => $idVal) {
+        //     // dd($universalData[$idVal]);
+
+        //     $IDName = get_session("Cookie_userName");
+        //     $disableDelete = false;
+        //     $class = '';
+
+        //     // Hitung disable delete
+        //     if ($IDName != 'superadmin' && ($cat == "C" || $cat == "J")) {
+        //         $disableDelete = hasTransactions($idVal) || hasChildrenWithTransactions($idVal);
+        //         $class = $disableDelete ? ' nonDeletable' : '';
+        //     }
+
+        //     $isAll = ($id == "ALL");
+        //     $liType = $isAll ? 'foldlist' : 'node';
+        //     $title = $disableDelete ? ' title="Kode ini mempunyai transaksi"' : '';
+
+        //     echo '<li id="'. $liType .'" class="'. $class .'"><b>';
+
+        //     // Checkbox
+        //     if ($level <= $setLevel) {
+        //         echo '<input type="checkbox" class="form-check-input"
+        //             name="pk[]" value="'. $idVal .'"
+        //             data-disable-delete="'. ($disableDelete ? 'true' : 'false') .'"'. $title .'>';
+        //     } else {
+        //         echo '&nbsp;&nbsp;&nbsp;';
+        //     }
+
+        //     // Teks kode & link
+        //     echo '
+        //         <font class="redText"'. $title .'>'. $generalCode[$i] .'</font>&nbsp;-&nbsp;
+        //         <a '. $title .' onclick="window.open(
+        //             \''. $sFileRef .'?action=kemaskini&cat='.$cat.'&pk='. $idVal .'&sub='. $generalParentID[$i] .'\',
+        //             \'pop\', \'top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes\'
+        //         );">
+        //             <font class="blueText">'. $generalName[$i] .'</font>
+        //         </a>
+        //     ';
+
+        //     // Category Y special
+        //     if ($cat == 'Y') {
+        //         echo ($generalActiveSimpanan[$i] == 1 ? 'Aktif' : 'Tidak Aktif');
+        //         echo '&nbsp;-&nbsp;'. $loanName[$i];
+        //     }
+
+        //     echo '</b></li>';
+
+        //     // Rekursi
+        //     if ($level <= $setLevel) {
+        //         listGeneral($idVal, $level);
+        //     }
+        // }
+        // print '</ul>';
+
         print '<ul>';
         $level++;
         $i = '$i'.$level;
@@ -375,6 +496,7 @@ function listGeneral($id, $level) {
             }
         }
         print '</ul>';
+
     }
 }
 

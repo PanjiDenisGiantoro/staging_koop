@@ -870,4 +870,10 @@ while (!$rsKod->EOF) {
     $i++;
 }
 $kodPrbd = $kodPotongan;
+
+function dd($data) {
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
 ?>

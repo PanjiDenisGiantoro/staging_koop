@@ -737,7 +737,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
                 $mu903 = '';
             }
             echo '<li class="' . $mu903 . '">';
-            TitleBarBlue("INFORPASI ASAS", 'mdi mdi-book-information-variant');
+            TitleBarBlue("INFORMASI ASAS", 'mdi mdi-book-information-variant');
             echo '<ul class="sub-menu ' . $mn903 . '" aria-expanded="false">';
 ?>
             <li>
