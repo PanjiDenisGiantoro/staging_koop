@@ -171,7 +171,7 @@ $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "20";
-$FormLength[$a]  	= "12";
+$FormLength[$a]  	= "16";
 
 $a++;
 $FormLabel[$a]   	= "* Tanggal Lahir";
@@ -254,7 +254,7 @@ $FormLength[$a]  	= "1";
 // $FormLength[$a]  	= "25";	
 
 $a++;
-$FormLabel[$a]   	= "* Nomor Telepon<br><b>(601XXXXXXXX)</b>";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>(621XXXXXXXX)</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

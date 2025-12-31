@@ -254,7 +254,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* Nomor Telepon<br><b>(601XXXXXXXX)</b>";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>(621XXXXXXXX)</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

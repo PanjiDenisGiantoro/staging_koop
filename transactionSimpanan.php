@@ -308,7 +308,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">&nbsp;</label>
-                        <button type="submit" class="btn btn-primary w-100">Pilih Rekening</button>
+                        <button type="submit" class="btn btn-info w-100">Pilih Rekening</button>
                     </div>
                 </div>
             </form>
@@ -391,7 +391,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     <small class="text-muted">Keterangan akan terisi otomatis, namun Anda dapat mengeditnya jika diperlukan</small>
                 </div>
 
-                <button type="submit" class="btn btn-success">Proses Transaksi</button>
+                <button type="submit" class="btn btn-primary">Proses Transaksi</button>
                 <a href="?vw=transactionSimpanan&mn=903" class="btn btn-secondary">Reset</a>
             </form>
         </div>

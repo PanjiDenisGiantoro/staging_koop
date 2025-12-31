@@ -174,7 +174,7 @@ $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
 $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "20";
-$FormLength[$a]  	= "12";	
+$FormLength[$a]  	= "16";	
 
 $a++;
 $FormLabel[$a]   	= "Tanggal Lahir";

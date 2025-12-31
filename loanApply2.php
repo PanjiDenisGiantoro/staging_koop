@@ -74,7 +74,7 @@ $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "12";
-$FormLength[$a]  	= "12";
+$FormLength[$a]  	= "16";
 
 /*
 $a = $a + 1;

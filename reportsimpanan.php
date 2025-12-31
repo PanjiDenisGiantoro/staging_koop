@@ -162,9 +162,9 @@ print '<div class="table-responsive">
                        placeholder="Nama/Rekening/No Jurnal">
             </div>
             <div class="filter-item">
-                <button type="button" class="btn btn-primary" onclick="applyFilter()">Tampilkan</button>
-                <button type="button" class="btn btn-secondary" onclick="resetFilter()">Reset</button>
-                <button type="button" class="btn btn-success" onclick="window.print()">Cetak</button>
+                <button type="button" class="btn btn-info" onclick="applyFilter()">Tampilkan</button>
+                <button type="button" class="btn btn-danger" onclick="resetFilter()">Reset</button>
+                <button type="button" class="btn btn-secondary" onclick="window.print()">Cetak</button>
             </div>
         </div>
     </div>

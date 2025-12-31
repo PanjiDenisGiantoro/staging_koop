@@ -407,7 +407,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "5";
 
 	$a++;
-	$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
+	$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6211XXXXXXXX</b>";
 	$FormElement[$a] 	= "mobileNo";
 	$FormType[$a]	  	= "textx";
 	$FormData[$a]   	= "";

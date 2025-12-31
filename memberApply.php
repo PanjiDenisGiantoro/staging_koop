@@ -183,7 +183,7 @@ $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
 $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "20";
-$FormLength[$a]  	= "12";
+$FormLength[$a]  	= "16";
 
 $a++;
 $FormLabel[$a]   	= "Tanggal Lahir";
@@ -266,14 +266,14 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6011XXXXXXXX</b>";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 6211XXXXXXXX</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
 $FormCheck[$a]   	= array(CheckBlank);
 $FormSize[$a]    	= "20";
-$FormLength[$a]  	= "12";
+$FormLength[$a]  	= "15";
 
 $a++;
 $FormLabel[$a]   	= "Provinsi";
