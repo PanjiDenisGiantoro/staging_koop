@@ -341,54 +341,193 @@ function listGeneral($id, $level) {
             </tbody>
         </table>';
 
-    } else if ($cat == 'A' || $cat == 'B') {
-        $fieldsToRemove = array('ID', 'b_Address', 'b_ContactPerson');
+    } else if ($cat == 'A' || $cat == 'B' || $cat == 'U' || $cat == 'J' || $cat == 'E'
+     || $cat == 'F' || $cat == 'L' || $cat == 'H' || $cat == 'Z' || $cat == 'S' || $cat == 'X'
+     || $cat == 'P' || $cat == 'Q' || $cat == 'M' || $cat == 'N') {
 
-        foreach($universalData as &$row){
-            foreach($fieldsToRemove as $f){
-                if(isset($row[$f])){
-                    unset($row[$f]);
-                }
-            }
-        }
-        unset($row);
+        $basicListShow = array(
+            'A'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'B'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'b_Address'=> 'Alamat',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'U'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'J'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'E'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'F'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'L'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'H'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'Z'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'S'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'X'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'P'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'Q'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'M'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'm_Start'=> 'Mulai',
+                'm_End'=> 'Akhir',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+            'N'=> array(
+                'code'=> 'Kode', 
+                'name'=> 'Nama',
+                'n_Start'=> 'Mulai',
+                'n_End'=> 'Akhir',
+                'createdDate'=> 'Dibuat Pada',
+                'createdBy'=> 'Dibuat Oleh',
+                'updatedDate'=> 'Diubah Pada',
+                'updatedBy'=> 'Diubah Oleh',
+            ),
+        );
 
-        print '<div style="display:block; max-width:70vw; overflow-x:auto; white-space:nowrap;">';
-        print '<table class="table table-bordered table-hover table-striped table-sm">';
+        // echo '<pre>';
+        // print_r($universalData);
+        // die;
+
+        print'<div style="display:block;max-width:70vw;overflow-x:auto;white-space:nowrap;">';
+        print'<table class="table table-bordered table-hover table-striped table-sm">';
 
         if(!empty($universalData)){
-            $firstRow = reset($universalData);
+            $firstRow=reset($universalData);
 
-            if(is_array($firstRow)){
-                print '<thead class="table-primary"><tr>';
-                foreach(array_keys($firstRow) as $field){ 
-                    print '<th>'.htmlspecialchars(ucfirst(str_replace('_',' ',$field))).'</th>';
+            if(is_array($firstRow) && isset($basicListShow[$cat]) && is_array($basicListShow[$cat])){
+
+                // ambil field dari DATA, bukan dari config
+                $dataFields=array_keys($firstRow);
+                $allowedFields=array_keys($basicListShow[$cat]);
+                $fields=array_intersect($dataFields,$allowedFields);
+
+                // THEAD
+                print'<thead class="table-primary"><tr>';
+                print'<th width="10%">Aksi</th>';
+                foreach($fields as $f){
+                    print'<th>'.htmlspecialchars($basicListShow[$cat][$f]).'</th>';
                 }
-                print '</tr></thead>';
+                print'</tr></thead>';
 
-                print '<tbody>';
+                // TBODY
+                print'<tbody>';
                 foreach($universalData as $row){
-                    print '<tr>';
-                    foreach($row as $value){ 
-                        print '<td>'.htmlspecialchars($value).'</td>';
+                    if(!is_array($row))continue;
+                    print'<tr>';
+                    print'<td>
+                        <a href="javascript:void(0)"
+                        onclick=\'window.open("'.$sFileRef.'?action=kemaskini&cat='.$cat.'&pk='.$row['ID'].'&sub=0",
+                        "pop","top=50,left=50,width=700,height=450,scrollbars=yes,resizable=yes");\'
+                        class="btn btn-sm btn-primary">
+                        Lihat
+                        </a>
+                    </td>';
+                    foreach($fields as $f){
+                        print'<td>'.htmlspecialchars(isset($row[$f])?$row[$f]:'-').'</td>';
                     }
-                    print '</tr>';
+                    print'</tr>';
                 }
-                print '</tbody>';
-            } else {
-                print '<tbody><tr><td>No valid rows</td></tr></tbody>';
+                print'</tbody>';
+
+            }else{
+                print'<tbody><tr><td>No valid rows</td></tr></tbody>';
             }
-        } else {
-            print '<tbody><tr><td>No data</td></tr></tbody>';
+        }else{
+            print'<tbody><tr><td>No data</td></tr></tbody>';
         }
+        print'</table></div>';
 
-        print '</table>';
-        print '</div>';
-
-
-
-
-    } else {
+    } 
+    else {
         // Tampilan list default untuk kategori lain
         // print_r($generalID); die;
 
