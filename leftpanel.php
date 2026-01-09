@@ -294,12 +294,12 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
                 $mu904 = '';
             }
             echo '<li class="' . $mu904 . '">';
-            TitleBarBlue("INFORPASI Akun", 'mdi mdi-chart-areaspline');
+            TitleBarBlue("INFORMASI AKUN", 'mdi mdi-chart-areaspline');
             echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="false">';
         ?>
             <li>
 
-                <form method="post" action="?vw=generalACC&mn=904" style="margin-left: 3.5em;">
+                <form method="post" action="?vw=generalACC&mn=908" style="margin-left: 3.5em;">
 
 
                     <select name="selCodeACC" class="button btn-light form-select-sm" onchange="this.form.submit()">
@@ -319,7 +319,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             </li>
         <?php echo '</ul></li>'; }
 
-        MenuLink("ACCLejerList.php", "Pembukaan Akaun", 908, @$_REQUEST['vw']);
+        MenuLink("ACCLejerList.php", "Pembukaan Akun", 908, @$_REQUEST['vw']);
         MenuLink("ACCSingleEntryList.php", "Jurnal Entry", 908, @$_REQUEST['vw']);
         MenuLink("ACCGeneralejer.php", "General Ledger", 908, @$_REQUEST['vw']);
         MenuLink("ACCBankrecon.php", "Bank Rekonsilasi", 908, @$_REQUEST['vw']);
