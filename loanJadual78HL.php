@@ -73,7 +73,7 @@ if ($page == 'list') {
 	$strTitle = $strTitle.' Anggota';
 }
 */
-$strHeaderTitle = '<b>&nbsp;INFORPASI PEMBIAYAAN HUTANG MACET&nbsp;</b>';
+$strHeaderTitle = '<b>&nbsp;INFORMASI PEMBIAYAAN HUTANG MACET&nbsp;</b>';
 
 if ($page == 'list') {
 	$strTypeNameList	= array('Nomor Anggota', 'Nama Anggota', 'No KTP Baru');

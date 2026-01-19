@@ -76,7 +76,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 				</tr>
 				<tr>
 					<td class="Label" valign="top" colspan="3">
-						<h6 class="card-subtitle"><u><b>INFORPASI ASAS</b></u></h6>
+						<h6 class="card-subtitle"><u><b>INFORMASI ASAS</b></u></h6>
 						<?
 						for ($i = 0; $i < count($basicList); $i++) {
 							print '	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAsas(\'' . $basicVal[$i] . '\')">' . $basicList[$i] . '</a></li>';

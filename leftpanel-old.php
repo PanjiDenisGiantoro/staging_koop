@@ -36,7 +36,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
                 $mu903 = '';
             }
             echo '<li class="' . $mu903 . '">';
-            TitleBarBlue("INFORPASI ASAS", 'mdi mdi-book-information-variant');
+            TitleBarBlue("INFORMASI ASAS", 'mdi mdi-book-information-variant');
             echo '<ul class="sub-menu ' . $mn903 . '" aria-expanded="false">';
 ?>
             <li>
@@ -70,7 +70,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
                 $mu904 = '';
             }
             echo '<li class="' . $mu904 . '">';
-            TitleBarBlue("INFORPASI Akun", 'mdi mdi-chart-areaspline');
+            TitleBarBlue("INFORMASI Akun", 'mdi mdi-chart-areaspline');
 
             echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="false">';
         ?>

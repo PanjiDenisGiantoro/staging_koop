@@ -521,7 +521,7 @@ if ($SubmitForm <> "") {
 		//--- Begin : Looping to display label -------------------------------------------------------------
 		for ($i = 1; $i <= count($FormLabel); $i++) {
 			$cnt = $i % 2;
-			if ($i == 1) print '<div class="card-header mb-3">INFORPASI PENDAFTARAN ID</div>';
+			if ($i == 1) print '<div class="card-header mb-3">INFORMASI PENDAFTARAN ID</div>';
 			if ($i == 7) print '<div class="card-header mb-3">A. DETAIL PRIBADI</div>';
 			if ($i == 23) print '<div class="card-header mb-3 mt-3">B. PENGUSUL : (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</div>';
 
