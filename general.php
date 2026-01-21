@@ -492,10 +492,11 @@ function listGeneral($id, $level) {
 
                 // THEAD
                 print'<thead class="table-primary"><tr>';
-                print'<th width="10%">Aksi</th>';
+                print'<th width="5%"></th>';
                 foreach($fields as $f){
                     print'<th>'.htmlspecialchars($basicListShow[$cat][$f]).'</th>';
                 }
+                print'<th width="10%">Aksi</th>';
                 print'</tr></thead>';
 
                 // TBODY
@@ -503,6 +504,13 @@ function listGeneral($id, $level) {
                 foreach($universalData as $row){
                     if(!is_array($row))continue;
                     print'<tr>';
+                    // echo'<pre>';print_r($row['ID']); die;
+                    print'<td class="text-center">
+                        <input type="checkbox" class="form-check-input" name="pk[]" value="' . $row['ID'] . '" data-disable-delete="false">
+                    </td>';
+                    foreach($fields as $f){
+                        print'<td>'.htmlspecialchars(isset($row[$f])?$row[$f]:'-').'</td>';
+                    }
                     print'<td>
                         <a href="javascript:void(0)"
                         onclick=\'window.open("'.$sFileRef.'?action=kemaskini&cat='.$cat.'&pk='.$row['ID'].'&sub=0",
@@ -511,9 +519,6 @@ function listGeneral($id, $level) {
                         Lihat
                         </a>
                     </td>';
-                    foreach($fields as $f){
-                        print'<td>'.htmlspecialchars(isset($row[$f])?$row[$f]:'-').'</td>';
-                    }
                     print'</tr>';
                 }
                 print'</tbody>';

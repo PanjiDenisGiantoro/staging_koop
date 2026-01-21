@@ -815,7 +815,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=7" class="nav-link <?php if (@$tabb == 7) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MODAL SIMPANAN</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">MODAL</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=8" class="nav-link <?php if (@$tabb == 8) {
@@ -1438,13 +1438,25 @@ if ((get_session("Cookie_groupID") == 2)) {
 
 
 
-// ----------------------------------------- Bahagian simpanan -----------------------------------------
+// ----------------------------------------- Bahagian modal -----------------------------------------
 if (@$tabb == 7) {
-	print '<div class="mb-3">';
-	print '<div class="py-4">';
-	print 'MODAL SIMPANAN';
-	print '</div>';
-	print '</div>';
+// $sWhere = " ID is not null and (byID > 0 or byID like 'a%') and report <> ''";
+// $sWhere = " WHERE `byID` = " . tosql($pk, "Text") . " ";
+$sWhere = " WHERE byID = " . tosql($pk, "Text") . " ";
+$sSQL   = "SELECT * FROM `activitylog`";
+$sSQL   = $sSQL . $sWhere . " ORDER BY `activityDate` DESC";
+$GetMember = &$conn->Execute($sSQL);
+// $GetMember = $conn->SelectLimit($sSQL, 30, 0);
+
+// print_r(tosql($pk, "Text")); die;
+// echo '<pre>'; var_dump($GetMember); die;
+
+?><div class="card">
+  <div class="card-body">
+
+  </div>
+</div>
+	<?php
 }
 
 // ----------------------------------------- Bahagian simpanan -----------------------------------------
@@ -1582,94 +1594,6 @@ $GetDepositAcc = &$conn->Execute($sSQL);
       </div>
     </form>
 
-
-    <script language="JavaScript">
-      var allChecked = false;
-      function ITRViewSelectAll() {
-        e = document.MyForm.elements;
-        allChecked = !allChecked;
-        for (c = 0; c < e.length; c++) {
-          if (e[c].type == "checkbox" && e[c].name != "all") {
-            e[c].checked = allChecked;
-          }
-        }
-      }
-
-      function ITRActionButtonClick(v) {
-        e = document.MyForm;
-        if (e == null) {
-          alert('Sila pastikan nama form diwujudkan.!');
-        } else {
-          count = 0;
-          for (c = 0; c < e.elements.length; c++) {
-            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
-              count++;
-            }
-          }
-
-          if (count == 0) {
-            alert('Sila pilih rekod yang hendak di' + v + 'kan.');
-          } else {
-            if (confirm(count + ' rekod hendak di' + v + 'kan?')) {
-              e.action.value = v;
-              e.submit();
-            }
-          }
-        }
-      }
-
-      function ITRActionButtonClickStatus(v) {
-        var strStatus = "";
-        e = document.MyForm;
-        if (e == null) {
-          alert('Sila pastikan nama form diwujudkan.!');
-        } else {
-          count = 0;
-          j = 0;
-          for (c = 0; c < e.elements.length; c++) {
-            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
-              pk = e.elements[c].value;
-              strStatus = strStatus + ":" + pk;
-              count++;
-            }
-          }
-
-          if (count == 0) {
-            alert('Sila pilih rekod yang hendak di' + v + 'kan.');
-          } else {
-            if (confirm(count + ' rekod hendak di' + v + 'kan?')) {
-              //e.submit();
-              window.location.href = "memberStatus.php?pk=" + strStatus;
-            }
-          }
-        }
-      }
-
-      function ITRActionButtonStatus() {
-        e = document.MyForm;
-        if (e == null) {
-          alert('Sila pastikan nama form diwujudkan.!');
-        } else {
-          count = 0;
-          for (c = 0; c < e.elements.length; c++) {
-            if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
-              count++;
-              pk = e.elements[c].value;
-            }
-          }
-
-          if (count != 1) {
-            alert('Sila pilih satu rekod sahaja untuk kemaskini status');
-          } else {
-            window.location.href = "memberStatus.php?pk=" + pk;
-          }
-        }
-      }
-      function doListAll() {
-        c = document.forms['MyForm'].pg;
-        document.location = "?vw=aktivitiLog&mn=901?&StartRec=1&pg=" + c.options[c.selectedIndex].value;
-      }
-    </script>
   </div>
 </div>
 <?php
@@ -1855,6 +1779,7 @@ $GetMember = &$conn->Execute($sSQL);
         document.location = "?vw=aktivitiLog&mn=901?&StartRec=1&pg=" + c.options[c.selectedIndex].value;
       }
     </script>
+
   </div>
 </div>
 	<?php
