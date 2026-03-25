@@ -26,7 +26,7 @@ if ($HTTP_COOKIE_VARS["selDB"] == "") {
     $DB_hostname = 'localhost';
     $DB_username = 'root';
     $DB_password = '';
-    $DB_dbname = $HTTP_COOKIE_VARS["demokoopo"];
+    $DB_dbname = $HTTP_COOKIE_VARS["demokoop"];
 }
 
 $conn = &ADONEWConnection($DB_dbtype);

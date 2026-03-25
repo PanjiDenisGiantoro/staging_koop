@@ -1,0 +1,161 @@
+DASHBOARD
+  Papan Utama
+    Koperasi
+    Panduan
+
+ANGGOTA
+  Informasi
+    Pengajuan
+    Profil
+    Berhenti
+    Laporan
+      Umum
+
+  Modal & Simpanan
+    Info Modal
+    Info Simpanan
+    Transaksi Simpanan
+    Laporan
+      Keseluruhan Wajib & Pokok
+      Simpanan
+      Umum
+
+  Simpan Berjangka
+    Laporan
+
+  Transaksi
+    Jurnal Pindahan
+    Tarik Tunai(voucher)
+    Setor Tunai(struk)
+    Laporan
+
+  PEMBIAYAAN
+  Informasi
+    Daftar Pengajuan
+    Senarai (diluluskan)
+    Senarai (selesai)
+    Advance Payment
+      Daftar Baru
+      Lulusan
+      Selesai
+    Potongan Gaji
+
+  Transaksi
+    Belian Sijil Komoditi
+    Keluaran(voucher)
+    Terimaan(struk)
+
+  Laporan
+    Umum
+    Kelulusan
+    Aging
+
+HUTANG MACET
+  Informasi (npf)
+    Profil
+    Daftar Pembiayaan
+    Terima Pembiayaan (struk)
+    Laporan
+
+  Laporan
+    > 12
+    < 12
+
+AKUN & KEUANGAN
+  Master
+    Informasi Akun
+    Pembukaan Akun
+    Jurnal Entry
+    General Ledger
+    Bank Rekonsilasi
+
+  Asset Tetap
+  Stok
+
+  Buku Tunai
+    Pembayaran
+    Terimaan(resit)
+
+  Penghutang
+    Penawaran Harga
+    Invoice
+    Terima(invoice)
+    Terima(bulk Payments)
+    Nota Kredit
+    Laporan
+      Aging
+
+  Pemiutang
+    Surat Pesanan(order)
+    Faktur Pembelian(invoice)
+    Pembayaran(voucher Pi)
+    Nota Debit
+    Laporan
+      Aging
+
+  Investasi
+    Daftar Projek
+    Tarik Tunai(voucher)
+    Invoice
+    Setor Tunai(struk)
+    Laporan
+
+  Simpanan Bank
+    Laporan
+
+  E-invoice(lhdn)
+  Pengurusan Kewangan
+
+  Consolidate
+    Laporan
+
+  Sumber Manusia
+    Senarai Staf
+    Permohonan Cuti
+
+  Dividen
+    Kiraan
+    Laporan
+
+  Laporan Kewangan
+    Umum
+
+  PENGURUSAN
+  Surat/email
+    Kandungan Surat
+    Senarai Surat
+
+  Alk/agm
+    Senarai Minit Mesyuarat
+    Senarai Dokumen Agm
+    Laporan
+
+ASURANSI & TABUNGAN
+  Asuransi
+    Motor
+      Jualan
+      Senarai Takaful
+      Senarai Tamat
+    Perlindungan
+
+  Tabung
+
+  IMPORT/EXPORT
+  Import File
+  Export File
+    Laporan
+
+TATAPAN
+  Anggota
+    Laman Utama
+    Buletin
+    Senarai Kakitangan
+    Kelayakan Anggota
+    Info Pembayaran
+    Tetapan Koperasi
+    Tukar Katalaluan
+    Log Aktiviti
+
+  Admin
+    Informasi Asas
+    Api
