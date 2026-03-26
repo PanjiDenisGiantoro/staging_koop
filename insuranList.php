@@ -76,20 +76,30 @@ if ($q <> "") {
 	} else if ($by == 4) {
 		$sWhere .= " NoKenderaan like '%" . $q . "%'";
 	} else if ($by == 5) {
-		$sWhere .= "DATEDIFF(TanggalTamatInsuran,CURDATE()) <" . $q . "";
+		$sWhere .= "DATEDIFF(TarikhTamatInsuran,CURDATE()) <" . $q . "";
 	}
 }
 $sWhere = " WHERE (" . $sWhere . ")";
 
 $sSQL = "";
-$sSQL = "SELECT * ,DATEDIFF(TanggalTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
+$sSQL = "SELECT * ,DATEDIFF(TarikhTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
 if ($q <> "") {
 	$sSQL = $sSQL . $sWhere . ' and (status is null or status=1) ORDER BY applyDate DESC';
 } else {
 	$sSQL = $sSQL . ' where (status is null or status=1) ORDER BY applyDate DESC';
 }
-$GetListIns = &$conn->Execute($sSQL);
-$GetListIns->Move($StartRec - 1);
+// $GetListIns = &$conn->Execute($sSQL);
+// $GetListIns->Move($StartRec - 1);
+$GetListIns = $conn->Execute($sSQL);
+if (!$GetListIns) {
+	die("Query error: " . $conn->ErrorMsg());
+}
+if ($GetListIns->EOF) {
+	echo "Data kosong 😢";
+} else {
+	echo "Data ada nih 😏";
+}
+
 
 $TotalRec =	$GetListIns->RowCount();
 $TotalPage =  ($TotalRec / $pg);
@@ -205,7 +215,7 @@ if ($GetListIns->RowCount() <>	0) {
 		$status = tohtml($GetListIns->fields(Status));
 		$days = tohtml($GetListIns->fields(days));
 		$dateStartIns = toDate("d/m/yy", $GetListIns->fields(Tkh_Mula));
-		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
+		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
 		print '	<tr>
 						<td	class="Data" align="right">' . $bil	. '</td>
 						<td	class="Data" align="right"><input	type="checkbox" class="form-check-input"	name="pk[]"	value="' . tohtml($GetListIns->fields(ID)) . '"></td>

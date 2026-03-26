@@ -218,7 +218,7 @@ $FormLength[$a]  	= "20";
 
 $a++;
 $FormLabel[$a]   	= "Tanggal Tamat Insuran (dd/mm/yyyy)";
-$FormElement[$a] 	= "TanggalTamatInsuran";
+$FormElement[$a] 	= "TarikhTamatInsuran";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
@@ -281,9 +281,9 @@ if ($SubmitForm <> "") {
 		$getdateStartIns = explode("/", $Tkh_Mula);
 		$Tkh_Mula = $getdateStartIns[2] . '/' . sprintf("%02s",  $getdateStartIns[1]) . '/' . sprintf("%02s",  $getdateStartIns[0]);
 
-		//DateFormat:TanggalTamatInsuran	
-		$getdateIns = explode("/", $TanggalTamatInsuran);
-		$TanggalTamatInsuran = $getdateIns[2] . '/' . sprintf("%02s",  $getdateIns[1]) . '/' . sprintf("%02s",  $getdateIns[0]);
+		//DateFormat:TarikhTamatInsuran	
+		$getdateIns = explode("/", $TarikhTamatInsuran);
+		$TarikhTamatInsuran = $getdateIns[2] . '/' . sprintf("%02s",  $getdateIns[1]) . '/' . sprintf("%02s",  $getdateIns[0]);
 
 		$sSQL = "";
 		$sWhere = "";
@@ -306,7 +306,7 @@ if ($SubmitForm <> "") {
 			", Cover_Note=" . tosql($Cover_Note, "Text") .
 			", JumlahPerlindungan=" . tosql($JumlahPerlindungan, "Text") .
 			", Tkh_Mula=" . tosql($Tkh_Mula, "Text") .
-			", TanggalTamatInsuran=" . tosql($TanggalTamatInsuran, "Text") .
+			", TarikhTamatInsuran=" . tosql($TarikhTamatInsuran, "Text") .
 			", insuranYear=" . tosql($insuranYear, "Text") .
 			", updatedDate=" . tosql($updatedDate, "Text") .
 			", updatedBy=" . tosql($updatedBy, "Text");
@@ -345,8 +345,8 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 		print '<td class=Data>';
 	//--- Begin : Call function FormEntry ---------------------------------------------------------  
 	//DateFormat:
-	if ($FormElement[$i] == "TanggalTamatInsuran") {
-		$strFormValue = toDate("d/m/yy", $GetInsuran->fields('TanggalTamatInsuran'));
+	if ($FormElement[$i] == "TarikhTamatInsuran") {
+		$strFormValue = toDate("d/m/yy", $GetInsuran->fields('TarikhTamatInsuran'));
 	} else if ($FormElement[$i] == "Tkh_Mula") {
 		$strFormValue = toDate("d/m/yy", $GetInsuran->fields('Tkh_Mula'));
 	} else if ($FormElement[$i] == "applyDate") {

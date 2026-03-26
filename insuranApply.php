@@ -335,7 +335,7 @@ if ($SubmitForm <> "") {
 			"Jum_Pre_Bersih," .
 			"Cover_Note," .
 			"Tkh_Mula," .
-			"TanggalTamatInsuran," .
+			"TarikhTamatInsuran," .
 			"insuranYear," .
 			"status," .
 			"applyDate)" .
