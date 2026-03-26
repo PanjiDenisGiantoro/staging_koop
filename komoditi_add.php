@@ -187,7 +187,7 @@ if ($SubmitForm <> "") {
 	}
 	//--- Begin : Looping to display label -------------------------------------------------------------
 	for ($i = 0; $i <= count($FormLabel); $i++) {
-		//Print Header Maklumat Pemohon
+		//Print Header Informasi Pemohon
 		if ($i == 0) print '<div class="card-header mt-3 mb-3">Dokumen Sertifikat Komoditas</div>';
 		if ($i == 1) print '<div class="card-header mt-3 mb-3">Informasi Komoditas</div>';
 		print '<div class="mb-2 row"><label class="col-md-2 col-form-label">' . $FormLabel[$i] . '</label>';

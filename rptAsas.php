@@ -73,7 +73,7 @@ if ($code == 'D') {
 	print '			<td nowrap><b>Jenis</b></td>
 					<td nowrap><b>Alamat</b></td>
 					<td nowrap><b>Dihubungi</b></td>
-					<td nowrap><b>Nombor Telefon</b></td>';
+					<td nowrap><b>Nomor Telepon</b></td>';
 }
 if ($code == 'G') {
 	$noSpan = 6;

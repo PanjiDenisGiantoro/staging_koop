@@ -141,7 +141,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "* Poskod";
+$FormLabel[$a]   	= "* Kode Pos";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -151,7 +151,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "Bandar";
+$FormLabel[$a]   	= "Kota";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -161,7 +161,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Negeri";
+$FormLabel[$a]   	= "* Provinsi";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -303,7 +303,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "* Poskod";
+$FormLabel[$a]   	= "* Kode Pos";
 $FormElement[$a] 	= "postcodeSurat";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -313,7 +313,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "Bandar";
+$FormLabel[$a]   	= "Kota";
 $FormElement[$a] 	= "citySurat";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -323,7 +323,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Negeri";
+$FormLabel[$a]   	= "* Provinsi";
 $FormElement[$a] 	= "stateIDSurat";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;

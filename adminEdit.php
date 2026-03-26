@@ -46,7 +46,7 @@ $FormSize[$a]    	= "15";
 $FormLength[$a]  	= "10";
 
 $a++;
-$FormLabel[$a]   	= "Emel";
+$FormLabel[$a]   	= "Email";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";

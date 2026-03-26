@@ -724,11 +724,11 @@ for ($i = 0; $i < count($id); $i++) {
 			//$kenderaanID	=  $GetData->fields('ID');
 			//$noplat		=  dlookup("insurankenderaan", "NoKenderaan", "ID=" . tosql($kenderaanID, "Number"));
 
-			$sSQL = "SELECT * FROM insurankenderaan WHERE NoAnggota = '" . $userID . "' ORDER BY TanggalTamatInsuran DESC";
+			$sSQL = "SELECT * FROM insurankenderaan WHERE NoAnggota = '" . $userID . "' ORDER BY TarikhTamatInsuran DESC";
 
 			$GetDataK = &$conn->Execute($sSQL);
 
-			$letterObj->SetTanggalTamatInsuran(toDate('d/m/Y', $GetDataK->fields('TanggalTamatInsuran')));
+			$letterObj->SetTarikhTamatInsuran(toDate('d/m/Y', $GetDataK->fields('TarikhTamatInsuran')));
 			$letterObj->SetNoKenderaan($GetDataK->fields('NoKenderaan'));
 		}
 		$letterObj->InitSyntax();
@@ -826,7 +826,7 @@ if ($type == 'SURAT') {
 
 			print $temp;
 		} else {
-			$activity[$i] .= 'E-mel Gagal Dihantar! - Tiada Emel';
+			$activity[$i] .= 'E-mel Gagal Dihantar! - Tiada Email';
 			$temp = '<hr size="1" />' . $activity[$i] . '<hr size="1" /><br />';
 			activityLog('NONE no sql', $activity[$i], get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
 

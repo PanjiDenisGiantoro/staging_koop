@@ -646,7 +646,7 @@ if ($SubmitForm <> "") {
 		//--- Begin : Looping to display label -------------------------------------------------------------
 		for ($i = 1; $i <= count($FormLabel); $i++) {
 			$cnt = $i % 2;
-			if ($i == 1) print '<tr><td class="headerteal" colspan="4">INFORMASI PENDAFTARAN ID :</td></tr>';
+			if ($i == 1) print '<tr><td class="headerteal" colspan="4">INFORPASI PENDAFTARAN ID :</td></tr>';
 			if ($i == 9) print '<tr><td class="headerteal" colspan="4">A. DETAIL PRIBADI :</td></tr>';
 			if ($i == 25) print '<tr><td class="headerteal" colspan="4">B. BIAYA MASUK/IURAN :</td></tr>';
 			if ($i == 27) {
@@ -675,7 +675,7 @@ if ($SubmitForm <> "") {
 			   </tr>
 		       <tr><td class="headerteal" colspan="4">D. PENGUSUL: (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</td></tr>';
 			}
-			if ($i == 31) print '<tr><td class="headerteal" colspan="4">E. INFORMASI BANK :</td></tr>';
+			if ($i == 31) print '<tr><td class="headerteal" colspan="4">E. INFORPASI BANK :</td></tr>';
 
 			if ($cnt == 1) print '<tr valign=top>';
 			print '<td class=Data align=right>' . $FormLabel[$i];

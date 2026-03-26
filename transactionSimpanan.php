@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $AccountNumber = isset($_POST['AccountNumber']) ? trim($_POST['AccountNumber']) : '';
         $JenisTransaksi = isset($_POST['JenisTransaksi']) ? trim($_POST['JenisTransaksi']) : '';
         $Nominal = isset($_POST['Nominal']) ? floatval($_POST['Nominal']) : 0;
-        $TanggalTransaksi = isset($_POST['TanggalTransaksi']) ? trim($_POST['TanggalTransaksi']) : date('Y-m-d');
+        $TarikhTransaksi = isset($_POST['TarikhTransaksi']) ? trim($_POST['TarikhTransaksi']) : date('Y-m-d');
         $Referensi = isset($_POST['Referensi']) ? trim($_POST['Referensi']) : '';
         $Keterangan = isset($_POST['Keterangan']) ? trim($_POST['Keterangan']) : '';
         $Code_simpanan = isset($_POST['Code_simpanan']) ? trim($_POST['Code_simpanan']) : '';
@@ -195,7 +195,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                 $sqlInsert = "INSERT INTO transactionsimpanan
                     (TellerID, TellerName, SaldoKas, UserID, NamaAnggota,
                      AccountNumber, Code_simpanan, NamaAkun, NIK, NamaCabang, GLRAK,
-                     JenisTransaksi, Nominal, SaldoSebelum, SaldoSesudah, TanggalTransaksi,
+                     JenisTransaksi, Nominal, SaldoSebelum, SaldoSesudah, TarikhTransaksi,
                      NoJurnal, Referensi, Keterangan, Status, CreatedBy, CreatedDate)
                 VALUES (
                     " . tosql($TellerID, "Text") . ",
@@ -213,7 +213,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     " . $Nominal . ",
                     " . $SaldoSebelum . ",
                     " . $SaldoSesudah . ",
-                    " . tosql($TanggalTransaksi, "Text") . ",
+                    " . tosql($TarikhTransaksi, "Text") . ",
                     " . tosql($NoJurnal, "Text") . ",
                     " . tosql($Referensi, "Text") . ",
                     " . tosql($Keterangan, "Text") . ",

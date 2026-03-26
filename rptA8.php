@@ -80,7 +80,7 @@ print '
 								<td nowrap align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
 								<td nowrap align="center">Kartu Identitas (Baru)</td>
-								<td nowrap>Emel</td>
+								<td nowrap>Email</td>
 								<td nowrap align="center">Tanggal Keanggotaan</td>
 							</tr>';
 

@@ -83,7 +83,7 @@ if ($rs->RowCount() <> 0) {
 								<td nowrap width="100" align="center">Nomor Anggota</td>
 								<td nowrap align="left">Nama</td>
 								<td nowrap width="80" align="center">Kartu Identitas</td>
-								<td nowrap width="150">Emel</td>
+								<td nowrap width="150">Email</td>
 								<td nowrap align="center" width="150">Tanggal Keanggotaan</td>
 							</tr>';
 			$bil = 0;

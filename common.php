@@ -116,8 +116,8 @@ function carianheader($by, $opt = array(1, 2, 3), $dept = '', $deptList = '', $d
     else print '<option value="4">Peringkat</option>';
     if (in_array(5, $opt)) if ($by == 5) print '<option value="5" selected>Nomor Rujukan</option>';
     else print '<option value="5">Nomor Rujukan</option>';
-    if (in_array(6, $opt)) if ($by == 6) print '<option value="6" selected>Nombor Kenderaan</option>';
-    else print '<option value="6">Nombor Kenderaan</option>';
+    if (in_array(6, $opt)) if ($by == 6) print '<option value="6" selected>Nomor Kendaraan</option>';
+    else print '<option value="6">Nomor Kendaraan</option>';
     if (in_array(7, $opt)) if ($by == 7) print '<option value="7" selected>Jumlah Hari Tempoh Tamat Insuran</option>';
     else print '<option value="7">Jumlah Hari Tempoh Tamat Insuran</option>';
 
@@ -809,7 +809,7 @@ $activeVal = array('1', '0');
 $lapList    = array(
     'Laporan Anggota',
     'Laporan Pembiayaan',
-    'Laporan Surat/Emel',
+    'Laporan Surat/Email',
     'Laporan Akaun'
 );
 $lapVal    = array('A', 'B', 'C', 'D');

@@ -108,7 +108,7 @@ if ($GetAdmin->RowCount() <> 0) {
 						<td nowrap>&nbsp;</td>
 						<td nowrap>Nama</td>
 						<td nowrap>Id Log Masuk</td>
-						<td nowrap>Emel</td>
+						<td nowrap>Email</td>
 						<td nowrap align="center">Jenis Capaian</td>
 						<td nowrap align="center">Keanggotaan</td>
 						<td nowrap align="center">Tanggal Didaftar</td>

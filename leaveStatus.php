@@ -141,7 +141,7 @@ for ($s = 0; $s < count($pkall); $s++) {
 
         echo "<tr><td>Nombor Staf</td><td>&nbsp;" . dlookup("users", "staffID", "userID=" . tosql($GetMember->fields['userID'], "Text")) . "</td></tr>";
         echo "<tr><td>Nama Staf</td><td>&nbsp;" . dlookup("users", "name", "userID=" . tosql($GetMember->fields['userID'], "Text")) . "</td></tr>";
-        echo "<tr><td>Tanggal Mohon</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['applyDate']) . "</td></tr>";
+        echo "<tr><td>Tanggal Pengajuan</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['applyDate']) . "</td></tr>";
         echo "<tr><td>Jenis Cuti Dipohon</td><td>&nbsp;" . dlookup("general", "name", "ID=" . tosql($GetMember->fields['leaveType'], "Text")) . "</td></tr>";
         echo "<tr><td>Tanggal Mula</td><td>&nbsp;" . toDate("d/m/Y", $GetMember->fields['startLeave']) . "</td></tr>";
 

@@ -86,8 +86,8 @@ print '
 					<th nowrap align="left">&nbsp;Tanggal Masuk Anggota</th>
 					<th nowrap align="left">&nbsp;Jumlah yuran</th>
 					<th nowrap align="left">&nbsp;Alamat</th>
-					<th nowrap align="left">&nbsp;Poskod</th>
-					<th nowrap align="left">&nbsp;Bandar</th>
+					<th nowrap align="left">&nbsp;Kode Pos</th>
+					<th nowrap align="left">&nbsp;Kota</th>
 					<th nowrap align="left">&nbsp;Tel Rumah</th>
 					<th nowrap align="left">&nbsp;Tel. Bimbit</th>
 					<th nowrap align="left">&nbsp;Nama Waris</th>

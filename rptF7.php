@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptF6.php
- *		   Description	:	Report Ringkasan Keseluruhan Anggota Mengikut Negeri
+ *		   Description	:	Report Ringkasan Keseluruhan Anggota Mengikut Provinsi
  *          Date 		: 	01/04/2004
  *********************************************************************************/
 session_start();
@@ -34,7 +34,7 @@ if ($GetType->RowCount() <> 0) {
 	}
 }
 
-$title  = 'Ringkasan Keseluruhan Anggota Mengikut Negeri';
+$title  = 'Ringkasan Keseluruhan Anggota Mengikut Provinsi';
 $sSQL = "";
 $sSQL = "SELECT	b.name as department " . $strSQL . ", count(a.stateID) AS jumlahAnggota
 		 FROM 	userdetails a, general b

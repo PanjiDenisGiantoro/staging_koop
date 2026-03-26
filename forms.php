@@ -295,12 +295,12 @@ function FormValidation($strFormName, $strFormElement, $strFormValue, $strFormVa
 		if ($strFormValidMethod == "CheckEmailAddress") {
 			if (!ereg("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@([0-9a-z][0-9a-z-]*[0-9a-z]\.)+[a-z]{2}[mtgvu]?$", $strFormValue)) {
 				array_push ($strErrMsg, $strFormElement);
-				//print '- <font class=redText>Pastikan Alamat Emel adalah sah.</font><br>';
+				//print '- <font class=redText>Pastikan Alamat Email adalah sah.</font><br>';
                                                                         echo '                                                     
                                                                             <div class="alert alert-danger alert-dismissible fade show mb-2" role="alert">
                                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                                                             </button>
-                                                                            <strong>Pastikan Alamat Emel adalah sah.</strong> 
+                                                                            <strong>Pastikan Alamat Email adalah sah.</strong> 
                                                                         </div>';
 			}
 		}

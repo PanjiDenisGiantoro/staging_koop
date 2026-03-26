@@ -192,11 +192,11 @@ if ($SubmitForm <> "") {
 			"NoAnggota ," .
 			"NoKP," .
 			"Nama," .
-			"Emel," .
+			"Email," .
 			"Alamat," .
-			"Poskod ," .
-			"Bandar," .
-			"Negeri," .
+			"Kode Pos ," .
+			"Kota," .
+			"Provinsi," .
 			"TelRumah," .
 			"TelBimbit," .
 			"NoKenderaan," .
@@ -212,7 +212,7 @@ if ($SubmitForm <> "") {
 			"Tkh_Mula," .
 			"KelayakanNCD," .
 			"HPCompany," .
-			"TanggalTamatInsuran," .
+			"TarikhTamatInsuran," .
 			"Pemandu1," .
 			"NoKPPemandu1," .
 			"Pemandu2," .
@@ -285,12 +285,12 @@ print '
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	//Print Header Maklumat Pemohon
+	//Print Header Informasi Pemohon
 	if ($i == 1) print '<tr><td class=Header colspan=2>Maklumat Hutang Lapuk:</td></tr>';
 	//Print Header Maklumat kenderaan
-	if ($i == 12) print '<tr><td class=Header colspan=2>Maklumat Kenderaan :</td></tr>';
-	//Print Header Maklumat Tambahan
-	if ($i == 24) print '<tr><td class=Header colspan=2>Maklumat Tambahan:</td></tr>';
+	if ($i == 12) print '<tr><td class=Header colspan=2>Informasi Kendaraan :</td></tr>';
+	//Print Header Informasi Tambahan
+	if ($i == 24) print '<tr><td class=Header colspan=2>Informasi Tambahan:</td></tr>';
 
 	print '<tr valign=top><td class=Data align=right width="250">' . $FormLabel[$i] . ' :</td>';
 	if (in_array($FormElement[$i], $strErrMsg))

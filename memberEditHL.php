@@ -561,7 +561,7 @@ if (@$tabb == 7) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Pengadilan Negeri";
+	$FormLabel[$a]   	= "Pengadilan Provinsi";
 	$FormElement[$a] 	= "sesyen";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Ya', 'Tidak');
@@ -851,7 +851,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORPASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -955,7 +955,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 	}
 
 
-	if ($i == 35) print '<div class="card-header mt-3">INFORMASI BANK</div>';
+	if ($i == 35) print '<div class="card-header mt-3">INFORPASI BANK</div>';
 
 	if ($cnt == 1) print '<div class="m-1 row">';
 	print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];

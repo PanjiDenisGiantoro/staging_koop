@@ -194,14 +194,14 @@ print '
 for ($i = 1; $i <= count($FormLabel); $i++) {
  	$cnt = $i % 2;
 	if ($i == 1) print '<tr><td class="headerteal" colspan=4>1. PEMOHON</td></tr>
-		<tr><td class="headerteal" colspan=4><b class="redText"><h4>UNTUK MEMILIH PENGELUARAN DIVIDEN, PASTIKAN INFORMASI BANK DIKEMASKINI KEPADA MAKLUMAT TERKINI! (UNTUK MEMUDAHKAN PIHAK KOPERASI MENGURUSKAN PEMINDAHAN DIVIDEN)</h4></b></td></tr>';
+		<tr><td class="headerteal" colspan=4><b class="redText"><h4>UNTUK MEMILIH PENGELUARAN DIVIDEN, PASTIKAN INFORPASI BANK DIKEMASKINI KEPADA MAKLUMAT TERKINI! (UNTUK MEMUDAHKAN PIHAK KOPERASI MENGURUSKAN PEMINDAHAN DIVIDEN)</h4></b></td></tr>';
 	//if (($i == 7) AND ($test = 1))
 	//if ($i == 7)
 	if ($test == 0) {
 	
 		if ($i == 7) print '<tr>
 	<td colspan=4 align=center class=Data>
-	<input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitApplication" class="but" value="PENGESAHAN INFORMASI BANK">
+	<input type="Submit" class="btn btn-primary w-md waves-effect waves-light" name="SubmitApplication" class="but" value="PENGESAHAN INFORPASI BANK">
 	</td>
 	</tr>';
 	}

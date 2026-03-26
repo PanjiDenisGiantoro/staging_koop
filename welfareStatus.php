@@ -143,7 +143,7 @@ FROM welfares a WHERE ID = '" . $pk . "'";
 									<td>&nbsp;<b><? print $name; ?></b></td>
 								</tr>
 								<tr>
-									<td>Tanggal Mohon</td>
+									<td>Tanggal Pengajuan</td>
 									<td>&nbsp;<b><? print toDate("d/m/Y", $applyDate); ?></b></td>
 								<tr>
 									<td colspan="2">

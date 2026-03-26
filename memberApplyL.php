@@ -594,7 +594,7 @@ if ($SubmitForm <> "") {
 			//--- Begin : Looping to display label -------------------------------------------------------------
 			for ($i = 1; $i <= count($FormLabel); $i++) {
 				$cnt = $i % 2;
-				if ($i == 1) print '<div class="card-header mb-3 mt-3">INFORMASI PENDAFTARAN ID</div>';
+				if ($i == 1) print '<div class="card-header mb-3 mt-3">INFORPASI PENDAFTARAN ID</div>';
 				if ($i == 7) print '<div class="card-header mb-3 mt-3">DETAIL PRIBADI</div>';
 				if ($i == 23) print '<div class="card-header mb-3 mt-3">BIAYA MASUK/IURAN</div>';
 				if ($i == 25) {
@@ -615,7 +615,7 @@ if ($SubmitForm <> "") {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom04">Nombor Telefon Bimbit</label>
+                                                            <label class="form-label" for="validationCustom04">Nomor Telepon Bimbit</label>
                                                             <input type="text" class="form-control' . $penamaerr . '" name="w_contact1" value="' . $w_contact1 . '" size=15 maxlength=14 id="validationCustom04" placeholder="(6XXXXXXXXXX)">
                                                         </div>
                                                     </div>
@@ -635,7 +635,7 @@ if ($SubmitForm <> "") {
 
 					print '<div class="card-header mb-3 mt-3">PENGUSUL: (NOMOR ANGGOTA YANG SUDAH TERDAFTAR DI KOPERASI)</div>';
 				}
-				if ($i == 27) print '<div class="card-header mb-3 mt-3">INFORMASI BANK</div>';
+				if ($i == 27) print '<div class="card-header mb-3 mt-3">INFORPASI BANK</div>';
 
 				if ($cnt == 1) print '<div class="m-1 row">';
 				print '<label class="col-md-2 col-form-label">' . $FormLabel[$i];

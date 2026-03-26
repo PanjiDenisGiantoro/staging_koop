@@ -74,7 +74,7 @@ print '
 </style>
 <table border="0" cellspacing="0" cellpadding="3" width="50%" align="left">
 <tr>
-    <!--td>Dari Tanggal</td-->
+    <!--td>Dari Tarikh</td-->
     <td>Sehingga Tahun/Bulan</td>
 </tr>
 <tr>

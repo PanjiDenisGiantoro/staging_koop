@@ -192,7 +192,7 @@ print'
         <tr class="tr-space"><td>Resit Rasmi</td></tr>
         <tr class="tr-kod-rujukan"><td>'.$no_resit.'</td></tr>
     </table>
-    <!---------Tanggal---------->
+    <!---------Tarikh---------->
     <table class="date-stylish">
     <tr>
         <td>Tanggal Resit : </td>

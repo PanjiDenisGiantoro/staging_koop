@@ -35,8 +35,8 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptPembiayaanT')">Senarai Anggota Yang Mempunyai Loan / Tiada Loan</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptJumPotonganThn')">Senarai Potongan Pembiayaan / Wajib Bagi Tahunan </a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA4')">Senarai Anggota Masih Berkhidmat</a></li>
-					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA8')">Senarai Anggota Ada Emel</a></li>
-					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA9')">Senarai Anggota Tiada Emel</a></li>
+					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA8')">Senarai Anggota Ada Email</a></li>
+					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA9')">Senarai Anggota Tiada Email</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA10')">Senarai Anggota Ada Penama</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA11')">Senarai Anggota Tiada Penama</a></li>
 					<li id="print" class="textFont"><a href="#" onclick="selectAnggota('rptA19')">Senarai Anggota Ada Maklumat Bank</a></li>
@@ -58,11 +58,11 @@ $title     = $lapList[array_search($cat, $lapVal)];
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF4')">Ringkasan Keseluruhan Anggota Mengikut Agama</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF5')">Ringkasan Keseluruhan Anggota Mengikut Skala Umur</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF6')">Ringkasan Keseluruhan Anggota Mengikut Skala Gaji</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF7')">Ringkasan Keseluruhan Anggota Mengikut Negeri</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF7')">Ringkasan Keseluruhan Anggota Mengikut Provinsi</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesC')">Ringkasan Keseluruhan Wajib Anggota Mengikut Pegangan Wajib</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesKhas')">Ringkasan Keseluruhan Simpanan Anggota Mengikut Pegangan Simpanan Khas (Deposit)</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptAllFeesSHM')">Ringkasan Keseluruhan Saham Anggota Mengikut Nombor Keanggotaan</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAnggota('rptmbrSahBaki')">Senarai Baki (Wajib & Pokok) Terkumpul Berdasarkan Tanggal Pilihan</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAnggota('rptmbrSahBaki')">Senarai Baki (Wajib & Pokok) Terkumpul Berdasarkan Tarikh Pilihan</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptPecahanPinWajib')">Ringkasan Baki Akhir & Baki Awal Bagi Tahun</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptPecahanPin')">Jumlah Dan Pecahan Pinjaman Yang Dikeluarkan</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPenyata('rptBakiAwlAkhir')">Jumlah Pecahan Baki Awal dan Baki Akhir Pembiayaan Bagi Tahun</a></li>
@@ -76,7 +76,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 				</tr>
 				<tr>
 					<td class="Label" valign="top" colspan="3">
-						<h6 class="card-subtitle"><u><b>INFORMASI ASAS</b></u></h6>
+						<h6 class="card-subtitle"><u><b>INFORPASI ASAS</b></u></h6>
 						<?
 						for ($i = 0; $i < count($basicList); $i++) {
 							print '	<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectAsas(\'' . $basicVal[$i] . '\')">' . $basicList[$i] . '</a></li>';
@@ -128,7 +128,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 			<tr>
 				<td class="Label" valign="top">
 					<h6 class="card-subtitle"><u>EMEL KOPERASI</u></h6>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptEmel')">Senarai Emel Dihantar</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPembiayaan('rptEmail')">Senarai Email Dihantar</a></li>
 				</td>
 			</tr>
 			<tr>

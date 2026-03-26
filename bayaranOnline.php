@@ -103,7 +103,7 @@ $FormSize[$a]     = "12";
 $FormLength[$a]   = "12";
 
 $a++;
-$FormLabel[$a]    = "Nombor Telefon (Tiada '-')";
+$FormLabel[$a]    = "Nomor Telepon (Tiada '-')";
 $FormElement[$a]  = "mobileNo";
 $FormType[$a]     = "text";
 $FormData[$a]     = "";
@@ -113,7 +113,7 @@ $FormSize[$a]     = "20";
 $FormLength[$a]   = "12";
 
 $a++;
-$FormLabel[$a]    = "Emel Anggota";
+$FormLabel[$a]    = "Email Anggota";
 $FormElement[$a]  = "email";
 $FormType[$a]     = "hiddentext";
 $FormData[$a]     = "";

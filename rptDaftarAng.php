@@ -61,9 +61,9 @@ print '<table border="0" cellpadding="5" cellspacing="0" width="100%">
 								<th nowrap width="80">&nbsp;Nombor KP</th>
 								<th nowrap width="80">&nbsp;Pekerjaan</th>
 								<th nowrap width="200">&nbsp;Alamat</th>
-								<th nowrap width="80">&nbsp;Poskod</th>
-								<th nowrap width="80">&nbsp;Bandar</th>
-								<th nowrap width="80">&nbsp;Negeri</th>
+								<th nowrap width="80">&nbsp;Kode Pos</th>
+								<th nowrap width="80">&nbsp;Kota</th>
+								<th nowrap width="80">&nbsp;Provinsi</th>
 								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
 							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';
@@ -87,9 +87,9 @@ if ($rs->RowCount() <> 0) {
 								<th nowrap width="80">&nbsp;Nombor KP</th>
 								<th nowrap width="80">&nbsp;Pekerjaan</th>
 								<th nowrap width="200">&nbsp;Alamat</th>
-								<th nowrap width="80">&nbsp;Poskod</th>
-								<th nowrap width="80">&nbsp;Bandar</th>
-								<th nowrap width="80">&nbsp;Negeri</th>
+								<th nowrap width="80">&nbsp;Kode Pos</th>
+								<th nowrap width="80">&nbsp;Kota</th>
+								<th nowrap width="80">&nbsp;Provinsi</th>
 								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
 							<th nowrap align="center" width="150">&nbsp;Tanggal Berhenti</th>
 							</tr>';

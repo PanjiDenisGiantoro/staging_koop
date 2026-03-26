@@ -22,7 +22,7 @@ class CLetter {
 	var $strRejectedDate;
 	var $strReceivedDateT;
 	var $strApprovedDateT;
-	var $strTanggalTamatInsuran;
+	var $strTarikhTamatInsuran;
 	var $strNoKenderaan;
 	var $strRejectedDateT;
 	var $strName;
@@ -81,7 +81,7 @@ class CLetter {
 	 $this->strState  	= '';
 	 $this->strInitial  = '';
 	 $this->strTitle  	= '';
-	 //$this->strTanggalTamatInsuran='';
+	 //$this->strTarikhTamatInsuran='';
 	 $this->strGreeting  = 'Salam Sejahtera';
 
 	 // Fee
@@ -140,8 +140,8 @@ class CLetter {
 	function SetApprovedDateT($strValue_) { $this->strApprovedDateT = $strValue_; }
 	function GetApprovedDateT()   { return $this->strApprovedDateT; }
 //NoKenderaan
-	function SetTanggalTamatInsuran($strValue_) { $this->strTanggalTamatInsuran = $strValue_; }
-	function GetTanggalTamatInsuran()   { return $this->strTanggalTamatInsuran; }
+	function SetTarikhTamatInsuran($strValue_) { $this->strTarikhTamatInsuran = $strValue_; }
+	function GetTarikhTamatInsuran()   { return $this->strTarikhTamatInsuran; }
 	
 	
 	/*
@@ -448,8 +448,8 @@ class CLetter {
 	$this->strSyntaxLibList[] = '[peratus_dividen]';
 	$this->strDataLibList[] = number_format($this->GetDividenPercentage(),2);
 	//NoKenderaan
-	$this->strSyntaxLibList[] = '[TanggalTamatInsuran]';
-	$this->strDataLibList[] = $this->GetTanggalTamatInsuran();
+	$this->strSyntaxLibList[] = '[TarikhTamatInsuran]';
+	$this->strDataLibList[] = $this->GetTarikhTamatInsuran();
 
 	$this->strSyntaxLibList[] = '[NoKenderaan]';
 	$this->strDataLibList[] = $this->GetNoKenderaan();

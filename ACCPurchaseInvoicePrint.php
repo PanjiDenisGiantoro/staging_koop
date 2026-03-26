@@ -252,10 +252,10 @@ $Gambar= "upload_images/".$pic;
 
 if ($note) {
     $subject        = "Nota Debit"; 
-    $subjectTanggal  = "TARIKH"; 
+    $subjectTarikh  = "TARIKH"; 
 } else {
     $subject        = "Purchase Invoice";
-    $subjectTanggal  = "TARIKH PI"; 
+    $subjectTarikh  = "TARIKH PI"; 
 } 
 
 print'
@@ -280,7 +280,7 @@ print'
     </table>
     <table class="stylish-date">
         <tr>
-            <td><b>'.$subjectTanggal.'</b></td>
+            <td><b>'.$subjectTarikh.'</b></td>
             <td>:&nbsp;</td>
             <td>'.$tarikh_PI.'</td>
         </tr>';

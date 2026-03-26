@@ -88,7 +88,7 @@ print '
 								<td nowrap align="left">Nama Penama</td>
 								<td nowrap align="left">Kartu Identitas Penama</td>
 								<td nowrap align="left">Hubungan Penama</td>
-								<td nowrap align="left">Nombor Telefon Penama</td>
+								<td nowrap align="left">Nomor Telepon Penama</td>
 								<td nowrap align="left">Alamat Rumah Penama</td>
 							</tr>';
 $bil = 0;

@@ -179,7 +179,7 @@ print '
         <tr class="tr-space"><td>Voucher Bayaran Anggota</td></tr>
         <tr class="tr-kod-rujukan"><td>' . $no_baucer . '</td></tr>
     </table>
-    <!---------Tanggal---------->
+    <!---------Tarikh---------->
     <table class="date-stylish">
     <tr>
         <td>Tanggal : </td>
@@ -255,7 +255,7 @@ print number_format($jumlah, 2);
 print '</td>
 	</tr>
     </table>
-    <!-----------Cara Bayar/No. Siri/Tanggal Bayaran------------->
+    <!-----------Cara Bayar/No. Siri/Tanggal Pembayaran------------->
     <table class="position-table">
 	    <tr><td colspan="4">Catatan : ' . $catatan . '</td></tr>
         <tr><td colspan="4">&nbsp;</td></tr>

@@ -118,13 +118,13 @@ $Gambar = "upload_images/" . $pic;
             </div>
         </div>
         <div class="row m-2">
-            <label class="col-md-3 col-form-label">Nombor Telefon Koperasi</label>
+            <label class="col-md-3 col-form-label">Nomor Telepon Koperasi</label>
             <div class="col-md-9">
                 <input id="noPhone" type="text" class="form-control" name="noPhone" value="<?= $noPhone ?>" maxlength="15">
             </div>
         </div>
         <div class="row m-2">
-            <label class="col-md-3 col-form-label">Emel Koperasi</label>
+            <label class="col-md-3 col-form-label">Email Koperasi</label>
             <div class="col-md-9">
                 <input id="email" type="email" class="form-control" name="email" value="<?= $email ?>" maxlength="50">
             </div>

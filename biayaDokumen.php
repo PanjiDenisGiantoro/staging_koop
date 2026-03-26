@@ -1185,7 +1185,7 @@ Date 		: 	26/6/2006
 					<li class="nav-item" role="presentation">
 						<a href="<?php echo $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
 																						echo "active";
-																					} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">KELULUSAN JAWATANKUASA</a>
+																					} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">KELULUSAN PENANGGUNG JAWAB</a>
 					</li>
 				</ul>
 				<br>
@@ -1193,7 +1193,7 @@ Date 		: 	26/6/2006
 				<!--<div id="ddtabs" class="basictab">
 <ul>
 <li><a href="?vw=biayaDokumen&pk=<?= $pk ?>&mn=906" onMouseover="expandcontent('sc1', this)">DOKUMEN PROSES</a></li>
-<li><a href="?vw=biayaDokumen&view=AJK&pk=<?= $pk ?>&mn=906" onMouseover="expandcontent('sc2', this)">KELULUSAN JAWATANKUASA</a></li>
+<li><a href="?vw=biayaDokumen&view=AJK&pk=<?= $pk ?>&mn=906" onMouseover="expandcontent('sc2', this)">KELULUSAN PENANGGUNG JAWAB</a></li>
 </ul>
 </div>-->
 
@@ -1371,7 +1371,7 @@ Date 		: 	26/6/2006
 												} ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 						<p class="mb-0">
 							<?php
-							//module kelulusan jawatankuasa pembiayaan
+							//module kelulusan penanggung jawab pembiayaan
 							//$now = date("Y-m-d");
 							$part = substr(dlookup("userdetails", "approvedDate", "userID=" . tosql($userID, "Text")), 0, 10);
 							$days = (strtotime(date("Y-m-d")) - strtotime($part)); // / (60 * 60 * 24);
@@ -1380,7 +1380,7 @@ Date 		: 	26/6/2006
 							$days = (substr($now, 0, 4) - substr($part, 0, 4)) . ' tahun ' . (substr($now, 5, 2) - substr($part, 5, 2)) . ' bulan ' . (substr($now, 8, 2) - substr($part, 8, 2)) . ' hari ';
 
 							print 	'
-			<div class="card-header mt-2"><b>Formulir persetujuan jawatankuasa pembiayaan</b></div><br><br>
+			<div class="card-header mt-2"><b>Formulir persetujuan penanggung jawab pembiayaan</b></div><br><br>
 			<table cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="">
 
 			<tr><td class="padding1" colspan="2"><u><b>Informasi anggota</b></u></td></tr>

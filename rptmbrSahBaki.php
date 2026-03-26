@@ -67,7 +67,7 @@ print
 					<th nowrap align="center">Nomor Anggota</th>
 					<th nowrap align="left">Nama Anggota</th>
 					<th nowrap align="center">Nombor Kartu Identitas</th>
-					<th nowrap align="left">Nombor Telefon</th>
+					<th nowrap align="left">Nomor Telepon</th>
 					<th nowrap align="right">Baki Terkumpul Wajib (RP)</th>
 					<th nowrap align="right">Baki Terkumpul Pokok (RP)</th>
 				</tr>';

@@ -180,7 +180,7 @@ print '<div class="table-responsive">
         $sSQL_setor = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
                        FROM transactionsimpanan
                        WHERE JenisTransaksi = 'SETOR' AND Status = 1
-                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
+                       AND DATE(TarikhTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
                        AND " . tosql($tanggal_sampai, "Text");
         $rs_setor = &$conn->Execute($sSQL_setor);
         $total_setor = $rs_setor->fields['total'] ? $rs_setor->fields['total'] : 0;
@@ -190,7 +190,7 @@ print '<div class="table-responsive">
         $sSQL_tarik = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
                        FROM transactionsimpanan
                        WHERE JenisTransaksi = 'TARIK' AND Status = 1
-                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
+                       AND DATE(TarikhTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
                        AND " . tosql($tanggal_sampai, "Text");
         $rs_tarik = &$conn->Execute($sSQL_tarik);
         $total_tarik = $rs_tarik->fields['total'] ? $rs_tarik->fields['total'] : 0;
@@ -255,7 +255,7 @@ print '<div class="table-responsive">
             NamaAnggota,
             AccountNumber,
             NamaAkun,
-            TanggalTransaksi,
+            TarikhTransaksi,
             JenisTransaksi,
             Nominal,
             SaldoSebelum,
@@ -265,7 +265,7 @@ print '<div class="table-responsive">
             Status,
             CreatedDate
         FROM transactionsimpanan
-        ORDER BY TanggalTransaksi DESC, ID DESC
+        ORDER BY TarikhTransaksi DESC, ID DESC
         ";
 
         $result = &$conn->Execute($sSQL);
@@ -278,11 +278,11 @@ print '<div class="table-responsive">
 
                 $jenis_class = ($result->fields['JenisTransaksi'] == 'SETOR') ? "badge bg-success" : "badge bg-warning text-dark";
 
-                echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TanggalTransaksi'])) . "'
+                echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TarikhTransaksi'])) . "'
                           data-jenis='" . $result->fields['JenisTransaksi'] . "'
                           data-status='" . $result->fields['Status'] . "'>";
                 echo "<td>" . $no . "</td>";
-                echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . "</td>";
+                echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TarikhTransaksi'])) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['NoJurnal']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['TellerName']) . "</td>";
                 echo "<td>" . htmlspecialchars($result->fields['NamaAnggota']) . "</td>";

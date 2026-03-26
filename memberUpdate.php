@@ -287,7 +287,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "20";
 
 	$a++;
-	$FormLabel[$a]   	= "Emel";
+	$FormLabel[$a]   	= "Email";
 	$FormElement[$a] 	= "email";
 	$FormType[$a]	  	= "text";
 	$FormData[$a]   	= "";
@@ -627,7 +627,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=1" class="nav-link <?php if (@$tabb == 1) {
 																		print "active";
-																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">INFORMASI PENDAFTARAN ID</a>
+																	} ?>" id="home-tab" aria-controls="home" aria-selected="true">INFORPASI PENDAFTARAN ID</a>
 	</li>
 	<!--li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {
@@ -647,7 +647,7 @@ print '
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=5" class="nav-link <?php if (@$tabb == 5) {
 																		print "active";
-																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORMASI BANK</a>
+																	} ?>" id="profile-tab" aria-controls="profile" aria-selected="false">INFORPASI BANK</a>
 	</li>
 	<li class="nav-item" role="presentation">
 		<a href="<?php print $sFileName; ?>&tabb=2" class="nav-link <?php if (@$tabb == 2) {

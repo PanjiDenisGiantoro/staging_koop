@@ -223,7 +223,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Poskod";
+$FormLabel[$a]   	= "Kode Pos";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -233,7 +233,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "Bandar";
+$FormLabel[$a]   	= "Kota";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -243,7 +243,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Negeri";
+$FormLabel[$a]   	= "Provinsi";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "select";
 $FormData[$a]   	= $stateList;
@@ -649,7 +649,7 @@ print '
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
 	$cnt = $i % 2;
-	if ($i == 1) print '<tr><td class=Header colspan=4>INFORMASI PENDAFTARAN ID :</td></tr>';
+	if ($i == 1) print '<tr><td class=Header colspan=4>INFORPASI PENDAFTARAN ID :</td></tr>';
 	if ($i == 9) print '<tr><td class=Header colspan=4>A. DETAIL PRIBADI :</td></tr>';
 	if ($i == 33) print '<tr><td class=Header colspan=4>B. BAYARAN MASUK/YURAN :</td></tr>';
 	$addr = str_replace("<pre>", "", $GetMember->fields('w_address1'));

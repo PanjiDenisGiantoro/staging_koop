@@ -52,7 +52,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Nombor Telefon";
+$FormLabel[$a]   	= "Nomor Telepon";
 $FormElement[$a] 	= "b_contact";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -72,7 +72,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "50";	
 
 $a++;
-$FormLabel[$a]   	= "Emel";
+$FormLabel[$a]   	= "Email";
 $FormElement[$a] 	= "b_email";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";

@@ -61,7 +61,7 @@ if ($GetLeave->RowCount() <> 0) {
 					<td nowrap align="center"><b>Tanggal Mula</b></td>
 					<td	nowrap align="center"><b>Tanggal Tamat</b></td>
                     <td	nowrap align="center"><b>Status</b></td>
-					<td nowrap align="center">&nbsp;<b>Tanggal Mohon</b></td>
+					<td nowrap align="center">&nbsp;<b>Tanggal Pengajuan</b></td>
 					</tr>';
 	while (!$GetLeave->EOF && $cnt <= $pg) {
 		$leaveName    = dlookup("general", "name", "ID=" . tosql($GetLeave->fields(leaveType), "Text"));

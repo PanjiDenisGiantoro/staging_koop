@@ -54,8 +54,8 @@ print '
 					<th nowrap>No Anggota</th>
 					<th nowrap>Nama</th>
 					<th nowrap>Alamat</th>
-					<th nowrap>Nombor Telefon</th>
-					<th nowrap>Emel</th>
+					<th nowrap>Nomor Telepon</th>
+					<th nowrap>Email</th>
 					<th nowrap>No Rujukan ID</th>
 					<th nowrap>Jenis Advance Payment</th>
 					<th nowrap>Jumlah Advance Payment (RP)</th>					

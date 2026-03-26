@@ -101,9 +101,9 @@ print
 					<th nowrap align="left">Nama</th>
 					
 					<th nowrap width="200">Alamat</th>
-					<th nowrap width="80">Poskod</th>
-					<th nowrap width="80">Bandar</th>
-					<th nowrap width="80">Negeri</th>
+					<th nowrap width="80">Kode Pos</th>
+					<th nowrap width="80">Kota</th>
+					<th nowrap width="80">Provinsi</th>
 					
 					<th nowrap width="80">Nombor KP</th>
 					<th nowrap width="80">Pekerjaan</th>

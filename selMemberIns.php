@@ -127,7 +127,7 @@ if ($GetMember->RowCount() == 0) {
 			<td align="center"><b>Nomor Anggota</b></td>
 			<td align="left"><b>Nama</b></td>
 			<td align="center"><b>Kartu Identitas</b></td>
-			<td align="left"><b>Emel</b></td>';
+			<td align="left"><b>Email</b></td>';
 		print '</tr>';
 		while (!$GetMember->EOF && $cnt <= $pg) {
 			$userid		= $GetMember->fields(userID);

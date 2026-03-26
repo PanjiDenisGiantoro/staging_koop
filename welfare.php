@@ -210,7 +210,7 @@ if ($GetWelfare->RowCount() <> 0) {
 						<td nowrap align="center">Kartu Identitas</td>
 						<!--td nowrap align="center">Dokumen</td-->
 						<td	nowrap align="center">Status</td>
-						<td nowrap align="center">Tanggal Mohon</td>
+						<td nowrap align="center">Tanggal Pengajuan</td>
 						<td nowrap align="center">Tanggal Kelulusan</td>
 					</tr>';
 	while (!$GetWelfare->EOF && $cnt <= $pg) {

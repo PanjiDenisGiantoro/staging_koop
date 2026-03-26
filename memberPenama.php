@@ -143,7 +143,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="mb-2">
-                                                            <label class="form-label" for="validationCustom04">Nombor Telefon</label>
+                                                            <label class="form-label" for="validationCustom04">Nomor Telepon</label>
                                                             <input type="text" name="w_relation1" value="' . tohtml($GetMember->fields('w_relation1')) . '" class="form-control" size=15 maxlength=15 id="validationCustom04" placeholder="(6011XXXXXXXX)">
                                                         </div>
                                                     </div>
