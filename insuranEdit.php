@@ -75,7 +75,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Emel<br>(Pastikan sah)";
+$FormLabel[$a]   	= "Email<br>(Pastikan valid)";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -95,8 +95,8 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "* Poskod";
-$FormElement[$a] 	= "Poskod";
+$FormLabel[$a]   	= "* Kode Pos";
+$FormElement[$a] 	= "Kode Pos";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
@@ -105,8 +105,8 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* Bandar";
-$FormElement[$a] 	= "Bandar";
+$FormLabel[$a]   	= "* Kota";
+$FormElement[$a] 	= "Kota";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
 $FormDataValue[$a]	= "";
@@ -115,8 +115,8 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Negeri";
-$FormElement[$a] 	= "Negeri";
+$FormLabel[$a]   	= "* Provinsi";
+$FormElement[$a] 	= "Provinsi";
 $FormType[$a]	  	= "selectx";
 $FormData[$a]   	= $stateList;
 $FormDataValue[$a]	= $stateVal;
@@ -125,7 +125,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Telefon (Rumah)";
+$FormLabel[$a]   	= "Nomor Telepon (Rumah)";
 $FormElement[$a] 	= "TelRumah";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -135,7 +135,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Telefon";
+$FormLabel[$a]   	= "Nomor Telepon";
 $FormElement[$a] 	= "TelBimbit";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -145,7 +145,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Kenderaan";
+$FormLabel[$a]   	= "Nomor Kendaraan";
 $FormElement[$a] 	= "NoKenderaan";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -207,7 +207,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "4";
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Mula Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Mulai Asuransi (dd/mm/yyyy)";
 $FormElement[$a] 	= "Tkh_Mula";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -217,7 +217,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Tamat Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Berakhir Asuransi (dd/mm/yyyy)";
 $FormElement[$a] 	= "TarikhTamatInsuran";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -227,7 +227,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Mohon";
+$FormLabel[$a]   	= "Tanggal Pengajuan";
 $FormElement[$a] 	= "applyDate";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -294,9 +294,9 @@ if ($SubmitForm <> "") {
 			", Nama=" . tosql($Nama, "Text") .
 			", email=" . tosql($email, "Text") .
 			", Alamat=" . tosql($Alamat, "Text") .
-			", Poskod =" . tosql($Poskod, "Text") .
-			", Bandar=" . tosql($Bandar, "Text") .
-			", Negeri=" . tosql($Negeri, "Text") .
+			", Kode Pos =" . tosql($Kode Pos, "Text") .
+			", Kota=" . tosql($Kota, "Text") .
+			", Provinsi=" . tosql($Provinsi, "Text") .
 			", TelRumah=" . tosql($TelRumah, "Text") .
 			", TelBimbit=" . tosql($TelBimbit, "Text") .
 			", NoKenderaan=" . tosql($NoKenderaan, "Text") .
@@ -330,13 +330,13 @@ print '<div class="table-responsive">
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	//Print Header Maklumat Pemohon
-	if ($i == 1) print '<tr><td colspan=2><div class="card-header">Maklumat Pemohon</div></td></tr>';
+	//Print Header Informasi Pemohon
+	if ($i == 1) print '<tr><td colspan=2><div class="card-header">Informasi Pemohon</div></td></tr>';
 	//Print Header Maklumat kenderaan
-	if ($i == 11) print '<tr><td colspan=2><div class="card-header">Maklumat Kenderaan</div></td></tr>';
+	if ($i == 11) print '<tr><td colspan=2><div class="card-header">Informasi Kendaraan</div></td></tr>';
 	//	if ($i == 17) print '<tr><td class=Data align=right width="250">Kira Perlu dibayar :</td><td class=Data ><a href="javascript:jKira();">Kira</a></td></tr>';
-	//Print Header Maklumat Tambahan
-	if ($i == 16) print '<tr><td colspan=2><div class="card-header">Maklumat Tambahan</div></td></tr>';
+	//Print Header Informasi Tambahan
+	if ($i == 16) print '<tr><td colspan=2><div class="card-header">Informasi Tambahan</div></td></tr>';
 
 	print '<tr valign=top><td class=Data align=right width="250">' . $FormLabel[$i] . '</td>';
 	if (in_array($FormElement[$i], $strErrMsg))

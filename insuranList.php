@@ -100,7 +100,6 @@ if ($GetListIns->EOF) {
 	echo "Data ada nih 😏";
 }
 
-
 $TotalRec =	$GetListIns->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
@@ -191,13 +190,13 @@ if ($GetListIns->RowCount() <>	0) {
 						<td	nowrap><b>Nomor Rujukan</b></td>
 						<td	width="10" nowrap align="center"><b>Tahun Perlindungan</b></td>
 						<td width="80"	nowrap><b>Nama</b></td>
-						<td	 width="15" nowrap align="center"><b>Nombor Kenderaan</b></td>
+						<td	 width="15" nowrap align="center"><b>Nomor Kendaraan</b></td>
 						  <td width="15"	nowrap align="right"><b>Jumlah Premium (RP)</b></td>
 						  <td width="15"	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>
 						  <td width="15"	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
 					    <td width="15"	nowrap align="right"><b>Jumlah Insuran (RP)</b></td>			
-						<td width="15"	nowrap align="center"><b>Tanggal Mula Insuran</b></td>
-						<td width="15"	nowrap align="center"><b>Tanggal Tamat Insuran</b></td>						
+						<td width="15"	nowrap align="center"><b>Tanggal Mulai Asuransi</b></td>
+						<td width="15"	nowrap align="center"><b>Tanggal Berakhir Asuransi</b></td>						
 					</tr>';
 	$amtLoan = 0;
 	while (!$GetListIns->EOF && $cnt <= $pg) {

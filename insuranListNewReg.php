@@ -205,7 +205,7 @@ if ($q <> "") {
 	} else if ($by == 4) {
 		$sWhere .= " NoKenderaan like '%" . $q . "%'";
 	} else if ($by == 5) {
-		$sWhere .= "DATEDIFF(TanggalTamatInsuran,CURDATE()) <" . $q . "";
+		$sWhere .= "DATEDIFF(TarikhTamatInsuran,CURDATE()) <" . $q . "";
 	}
 }
 
@@ -213,7 +213,7 @@ if ($q <> "") {
 $sWhere = " WHERE (" . $sWhere . ")";
 
 $sSQL = "";
-$sSQL = "SELECT * ,DATEDIFF(TanggalTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
+$sSQL = "SELECT * ,DATEDIFF(TarikhTamatInsuran,CURDATE()) as days FROM 	insuranKenderaan ";
 if ($q <> "") {
 	$sSQL = $sSQL . $sWhere . ' and (status =0 or status is null) ORDER BY applyDate DESC';
 } else {
@@ -242,8 +242,8 @@ if ($by	== 2)	print '<option value="2" selected>Nama</option>';
 else print '<option	value="2">Nama</option>';
 if ($by	== 3)	print '<option value="3" selected>Kartu Identitas</option>';
 else print '<option	value="3">Kartu Identitas</option>';
-if ($by	== 4)	print '<option value="4" selected>Nombor Kenderaan</option>';
-else print '<option	value="4">Nombor Kenderaan</option>';
+if ($by	== 4)	print '<option value="4" selected>Nomor Kendaraan</option>';
+else print '<option	value="4">Nomor Kendaraan</option>';
 //	if ($by	== 5)	print '<option value="5" selected>Jum.Hari Tempoh Tamat Insuran</option>';		else print '<option	value="5">Jum.Hari Tempoh Tamat Insuran</option>';
 print '	</select>
 			<input type="text" name="q"	value="" maxlength="50"	size="20" class="form-control-sm">
@@ -320,12 +320,12 @@ if ($GetListIns->RowCount() <>	0) {
 						<td	nowrap><b>Nomor Rujukan</b></td>					
 						<td	nowrap><b>Nama</b></td>
 						<td	nowrap align="center"><b>Kartu Identitas</b></td>
-						<td	nowrap align="center"><b>Nombor Kenderaan</b></td>
+						<td	nowrap align="center"><b>Nomor Kendaraan</b></td>
 					    <td	nowrap align="right"><b>Jumlah Premium Kasar (RP)</b></td>						
 						<td	nowrap align="right"><b>Jumlah Premium Bersih (RP)</b></td>
-						<td nowrap align="center"><b>Tanggal Mula Insuran</b></td>
-						<td	nowrap align="center"><b>Tanggal Tamat Insuran</b></td>						
-						<td	nowrap align="center"><b>Tanggal Mohon</b></td>
+						<td nowrap align="center"><b>Tanggal Mulai Asuransi</b></td>
+						<td	nowrap align="center"><b>Tanggal Berakhir Asuransi</b></td>						
+						<td	nowrap align="center"><b>Tanggal Pengajuan</b></td>
 						<td	nowrap align="right"><b>Edit</b></td>
 						<td	nowrap><b>&nbsp;</b></td>
 					</tr>';
@@ -343,11 +343,11 @@ if ($GetListIns->RowCount() <>	0) {
 		$Jum_Pre_Bersih = tohtml($GetListIns->fields(Jum_Pre_Bersih));
 		$Cover_Note = tohtml($GetListIns->fields(Cover_Note));
 		$Tkh_Mula = toDate("d/m/yy", $GetListIns->fields(Tkh_Mula));
-		$Tkh_Tamat = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
+		$Tkh_Tamat = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
 		$nokenderaan = tohtml($GetListIns->fields(NoKenderaan));
 		$status = tohtml($GetListIns->fields(Status));
 		$days = tohtml($GetListIns->fields(days));
-		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TanggalTamatInsuran));
+		$dateEndIns = toDate("d/m/yy", $GetListIns->fields(TarikhTamatInsuran));
 		$dateApply = toDate("d/m/yy", $GetListIns->fields(applyDate));
 		$idSedia = tohtml($GetListIns->fields(isPrepared));
 		$rpreparedby = dlookup("users", "name", "userID='" . $idSedia . "'");

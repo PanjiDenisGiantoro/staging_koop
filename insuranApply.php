@@ -92,7 +92,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "50";
 
 $a++;
-$FormLabel[$a]   	= "Emel<br>(Pastikan sah)";
+$FormLabel[$a]   	= "Email<br>(Pastikan valid)";
 $FormElement[$a] 	= "email";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -112,7 +112,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "* Poskod";
+$FormLabel[$a]   	= "* Kode Pos";
 $FormElement[$a] 	= "postcode";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -122,7 +122,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* Bandar";
+$FormLabel[$a]   	= "* Kota";
 $FormElement[$a] 	= "city";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -132,7 +132,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "* Negeri";
+$FormLabel[$a]   	= "* Provinsi";
 $FormElement[$a] 	= "stateID";
 $FormType[$a]	  	= "selectx";
 $FormData[$a]   	= $stateList;
@@ -142,7 +142,7 @@ $FormSize[$a]    	= "1";
 $FormLength[$a]  	= "1";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Telefon Rumah";
+$FormLabel[$a]   	= "Nomor Telepon Rumah";
 $FormElement[$a] 	= "homeNo";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -152,7 +152,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Telefon";
+$FormLabel[$a]   	= "Nomor Telepon";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -162,7 +162,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "15";
 
 $a++;
-$FormLabel[$a]   	= "Nombor Kenderaan";
+$FormLabel[$a]   	= "Nomor Kendaraan";
 $FormElement[$a] 	= "carNo";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -222,7 +222,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "4";
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Mula Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Mulai Asuransi (dd/mm/yyyy)";
 $FormElement[$a] 	= "Tkh_Mula";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -233,7 +233,7 @@ $FormLength[$a]  	= "20";
 
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Tamat Insuran (dd/mm/yyyy)";
+$FormLabel[$a]   	= "Tanggal Berakhir Asuransi (dd/mm/yyyy)";
 $FormElement[$a] 	= "carDateEndIns";
 $FormType[$a]	  	= "textx";
 $FormData[$a]   	= "";
@@ -243,7 +243,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "20";
 
 $a++;
-$FormLabel[$a]   	= "Tanggal Mohon";
+$FormLabel[$a]   	= "Tanggal Pengajuan";
 $FormElement[$a] 	= "tarikhMohon";
 $FormType[$a]	  	= "hidden";
 $FormData[$a]   	= "";
@@ -324,9 +324,9 @@ if ($SubmitForm <> "") {
 			"Nama," .
 			"email," .
 			"Alamat," .
-			"Poskod ," .
-			"Bandar," .
-			"Negeri," .
+			"Kode Pos ," .
+			"Kota," .
+			"Provinsi," .
 			"TelRumah," .
 			"TelBimbit," .
 			"NoKenderaan," .
@@ -383,13 +383,13 @@ print '<div class="table-responsive">
 
 //--- Begin : Looping to display label -------------------------------------------------------------
 for ($i = 1; $i <= count($FormLabel); $i++) {
-	//Print Header Maklumat Pemohon
-	if ($i == 1) print '<tr><td class=card-header colspan=2>Maklumat Pemohon</td></tr>';
+	//Print Header Informasi Pemohon
+	if ($i == 1) print '<tr><td class=card-header colspan=2>Informasi Pemohon</td></tr>';
 	if ($i == 2) print '<tr><td></td><td>(** Masukkan Nomor Anggota sekiranya pemohon adalah Anggota Koperasi)</td></tr>';
 	//Print Header Maklumat kenderaan
-	if ($i == 12) print '<tr><td class=card-header colspan=2>Maklumat Kenderaan</td></tr>';
-	//Print Header Maklumat Tambahan
-	if ($i == 17) print '<tr><td class=card-header colspan=2>Maklumat Tambahan</td></tr>';
+	if ($i == 12) print '<tr><td class=card-header colspan=2>Informasi Kendaraan</td></tr>';
+	//Print Header Informasi Tambahan
+	if ($i == 17) print '<tr><td class=card-header colspan=2>Informasi Tambahan</td></tr>';
 
 	print '<tr valign=top><td class=Data align=right width="250">' . $FormLabel[$i] . '</td>';
 	if (in_array($FormElement[$i], $strErrMsg))
