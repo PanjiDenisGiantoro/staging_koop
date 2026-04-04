@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $AccountNumber = isset($_POST['AccountNumber']) ? trim($_POST['AccountNumber']) : '';
         $JenisTransaksi = isset($_POST['JenisTransaksi']) ? trim($_POST['JenisTransaksi']) : '';
         $Nominal = isset($_POST['Nominal']) ? floatval($_POST['Nominal']) : 0;
-        $TarikhTransaksi = isset($_POST['TarikhTransaksi']) ? trim($_POST['TarikhTransaksi']) : date('Y-m-d');
+        $TanggalTransaksi = isset($_POST['TanggalTransaksi']) ? trim($_POST['TanggalTransaksi']) : date('Y-m-d');
         $Referensi = isset($_POST['Referensi']) ? trim($_POST['Referensi']) : '';
         $Keterangan = isset($_POST['Keterangan']) ? trim($_POST['Keterangan']) : '';
         $Code_simpanan = isset($_POST['Code_simpanan']) ? trim($_POST['Code_simpanan']) : '';
@@ -191,11 +191,11 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     exit;
                 }
 
-                // Insert ke transactionsimpanan (dengan semua kolom lengkap)
+                // Insert ke transactionsimpanan
                 $sqlInsert = "INSERT INTO transactionsimpanan
-                    (TellerID, TellerName, SaldoKas, UserID, NamaAnggota,
+                    (TellerID, TellerName, SaldoKas, UserID, NamaAnggota, NoAnggota,
                      AccountNumber, Code_simpanan, NamaAkun, NIK, NamaCabang, GLRAK,
-                     JenisTransaksi, Nominal, SaldoSebelum, SaldoSesudah, TarikhTransaksi,
+                     JenisTransaksi, Nominal, SaldoSebelum, SaldoSesudah, TanggalTransaksi,
                      NoJurnal, Referensi, Keterangan, Status, CreatedBy, CreatedDate)
                 VALUES (
                     " . tosql($TellerID, "Text") . ",
@@ -203,6 +203,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     " . $SaldoKas . ",
                     " . tosql($UserID, "Text") . ",
                     " . tosql($NamaAnggota, "Text") . ",
+                    " . tosql($NoAnggota, "Text") . ",
                     " . tosql($AccountNumber, "Text") . ",
                     " . tosql($Code_simpanan_db, "Text") . ",
                     " . tosql($NamaAkun, "Text") . ",
@@ -213,7 +214,7 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                     " . $Nominal . ",
                     " . $SaldoSebelum . ",
                     " . $SaldoSesudah . ",
-                    " . tosql($TarikhTransaksi, "Text") . ",
+                    " . tosql($TanggalTransaksi, "Text") . ",
                     " . tosql($NoJurnal, "Text") . ",
                     " . tosql($Referensi, "Text") . ",
                     " . tosql($Keterangan, "Text") . ",
@@ -240,14 +241,77 @@ WHERE d.AccountNumber = " . tosql($AccountNumber, "Text") . " and d.Status = 1 "
                 $resultUpdate = $conn->Execute($sqlUpdate);
 
                 if (!$resultUpdate) {
-                    // Tampilkan error jika UPDATE gagal
                     $errorMsg = $conn->ErrorMsg();
                     echo "<script>alert('Error saat update saldo:\\n" . addslashes($errorMsg) . "'); window.history.back();</script>";
                     exit;
                 }
 
+                // --- Insert ke transaction & transactionacc (pola resit.php) ---
+                $yrmth       = date('Ym', strtotime($TanggalTransaksi));
+                $addminus    = ($JenisTransaksi == 'SETOR') ? 1 : 0;
+                $createdDate = date('Y-m-d H:i:s');
+                $updatedBy   = $TellerID;
+
+                // Ambil Master, Master2, coreID dari general/generalacc
+                $Master  = dlookup("general",    "c_master", "ID = " . tosql($Code_simpanan_db, "Number"));
+                $Master2 = dlookup("generalacc", "parentID", "ID = " . tosql($Master, "Number"));
+                $coreID  = dlookup("generalacc", "coreID",   "ID = " . tosql($Master, "Number"));
+
+                // 1. INSERT ke transaction
+                $sqlTrans = "INSERT INTO `transaction` (" .
+                    "docNo, userID, yrmth, deductID, addminus, pymtID, pymtRefer, pymtAmt, cajAmt, " .
+                    "createdDate, createdBy, updatedDate, updatedBy) VALUES (" .
+                    tosql($NoJurnal, "Text") . ", " .
+                    tosql($UserID,   "Text") . ", " .
+                    tosql($yrmth,    "Text") . ", " .
+                    tosql($Code_simpanan_db, "Number") . ", " .
+                    "'" . $addminus . "', " .
+                    "66, " .
+                    tosql($Referensi, "Text") . ", " .
+                    "'" . $Nominal . "', " .
+                    "0, " .
+                    tosql($createdDate, "Text") . ", " .
+                    tosql($TellerID, "Text") . ", " .
+                    tosql($createdDate, "Text") . ", " .
+                    tosql($updatedBy, "Text") . ")";
+
+                $conn->Execute($sqlTrans);
+                $last_id = $conn->Insert_ID();
+
+                // 2. INSERT ke transactionacc
+                $desc_akaun = $NamaAkun . ' - ' . $JenisTransaksi;
+                $sqlTransAcc = "INSERT INTO transactionacc (" .
+                    "docNo, docID, IDtrans, tarikh_doc, userID, yrmth, " .
+                    "JdeductID, deductID, MdeductID, addminus, pymtID, pymtRefer, pymtAmt, coreID, " .
+                    "desc_akaun, createdDate, createdBy, updatedDate, updatedBy) VALUES (" .
+                    tosql($NoJurnal, "Text") . ", " .
+                    "10, " .
+                    "'" . $last_id . "', " .
+                    tosql($TanggalTransaksi, "Text") . ", " .
+                    tosql($UserID,  "Text") . ", " .
+                    tosql($yrmth,   "Text") . ", " .
+                    tosql($Code_simpanan_db, "Text") . ", " .
+                    tosql($Master,  "Text") . ", " .
+                    "'" . (int)$Master2 . "', " .
+                    "'" . $addminus . "', " .
+                    "66, " .
+                    tosql($Referensi, "Text") . ", " .
+                    "'" . $Nominal . "', " .
+                    "'" . (int)$coreID . "', " .
+                    tosql($desc_akaun, "Text") . ", " .
+                    tosql($createdDate, "Text") . ", " .
+                    tosql($TellerID, "Text") . ", " .
+                    tosql($createdDate, "Text") . ", " .
+                    tosql($updatedBy, "Text") . ")";
+
+                $conn->Execute($sqlTransAcc);
+
+                $strActivity = 'Transaksi Simpanan ' . $JenisTransaksi . ' - ' . $NoJurnal;
+                activityLog($sqlTrans, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
+                // --- End insert transaction & transactionacc ---
+
                 echo "<script>alert('Transaksi " . $JenisTransaksi . " berhasil!\\nNo. Jurnal: " . $NoJurnal . "');
-                      window.location.href='?vw=transactionSimpanan&mn=903';</script>";
+                      window.location.href='?vw=transactionSimpanan&mn=902';</script>";
                 exit;
             } else {
                 echo "<script>alert('Rekening tidak ditemukan!'); window.history.back();</script>";

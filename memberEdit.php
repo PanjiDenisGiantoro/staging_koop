@@ -1535,62 +1535,101 @@ LEFT JOIN general g
 $sSQL = $sSQL . $sWhere . " ORDER BY c.dateApply DESC";
 $GetDepositAcc = &$conn->Execute($sSQL);
 
+// Hitung ringkasan status simpanan untuk anggota ini
+$sum_dalam_proses = $conn->Execute("SELECT COUNT(*) AS cnt FROM depositoracc WHERE status = 0 AND userID = " . tosql($pk, "Text"))->fields['cnt'];
+$sum_disetujui    = $conn->Execute("SELECT COUNT(*) AS cnt FROM depositoracc WHERE status = 1 AND userID = " . tosql($pk, "Text"))->fields['cnt'];
+$sum_ditolak      = $conn->Execute("SELECT COUNT(*) AS cnt FROM depositoracc WHERE status = 2 AND userID = " . tosql($pk, "Text"))->fields['cnt'];
+$sum_total        = $sum_dalam_proses + $sum_disetujui + $sum_ditolak;
 ?>
+<style>
+.simpanan-summary { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:20px; }
+.simpanan-summary-box { flex:1; min-width:160px; padding:12px 16px; border-radius:8px; background:#fafafa; border:1px solid #eee; }
+.simpanan-summary-box strong { display:block; margin-bottom:6px; font-size:.85rem; color:#555; }
+.simpanan-summary-box .amount { font-size:1.6rem; font-weight:700; }
+</style>
 <div class="card">
   <div class="card-body">
+
+    <h5 class="card-title">SIMPANAN</h5>
+
+    <!-- Ringkasan status -->
+    <div class="simpanan-summary">
+      <div class="simpanan-summary-box">
+        <strong>Dalam Proses</strong>
+        <div class="amount" style="color:#2196F3;"><?php echo $sum_dalam_proses; ?></div>
+        <div style="font-size:.8rem;color:#777;"><?php echo $sum_total > 0 ? round(($sum_dalam_proses/$sum_total)*100) : 0; ?>% dari total</div>
+      </div>
+      <div class="simpanan-summary-box">
+        <strong>Disetujui</strong>
+        <div class="amount" style="color:#4caf50;"><?php echo $sum_disetujui; ?></div>
+        <div style="font-size:.8rem;color:#777;"><?php echo $sum_total > 0 ? round(($sum_disetujui/$sum_total)*100) : 0; ?>% dari total</div>
+      </div>
+      <div class="simpanan-summary-box">
+        <strong>Ditolak</strong>
+        <div class="amount" style="color:#ff9800;"><?php echo $sum_ditolak; ?></div>
+        <div style="font-size:.8rem;color:#777;"><?php echo $sum_total > 0 ? round(($sum_ditolak/$sum_total)*100) : 0; ?>% dari total</div>
+      </div>
+      <div class="simpanan-summary-box">
+        <strong>Total</strong>
+        <div class="amount" style="color:#333;"><?php echo $sum_total; ?></div>
+        <div style="font-size:.8rem;color:#777;">rekening simpanan</div>
+      </div>
+    </div>
 
     <form name="MyForm" action="?vw=aktivitiLog&amp;mn=901" method="post">
       <input type="hidden" name="action">
       <input type="hidden" name="pk" value="">
       <input type="hidden" name="filter" value="0">
       <div class="table-responsive">
-        <h5 class="card-title">SIMPANAN &nbsp;</h5>
-        <table border="0" cellspacing="1" cellpadding="3" width="100%" align="center">
+        <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
+          <thead>
+            <tr class="table-primary">
+              <th nowrap align="center">NO</th>
+              <th nowrap>Nama Simpanan</th>
+              <th nowrap align="center">No Rekening</th>
+              <th nowrap align="right">Nominal Simpanan</th>
+              <th nowrap align="left">Sumber Dana</th>
+              <th nowrap align="right">Saldo</th>
+              <th nowrap align="center">Status</th>
+              <th nowrap align="center">Tanggal Pengajuan</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr valign="top">
-              <td valign="top">
-                <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
-									<tbody>
-										<tr class="table-primary">
-											<td nowrap="" align="center">NO</td>
-											<td nowrap="">Nama Simpanan</td>
-											<td nowrap="" align="center">No Rekening</td>
-											<td nowrap="" align="center">Saldo</td>
-											<td nowrap="" align="center">Status</td>
-										</tr>
-										<?php 
-											while (!$GetDepositAcc->EOF) {
-
-												$status = '';
-												if ($GetDepositAcc->fields(depositor_status) == 0) {
-													$status = '<b class="text-secondary">Dalam Proses</b>';
-												}else if ($GetDepositAcc->fields(depositor_status) == 1) {
-													$status = '<b class="text-primary">Disetujui</b>';
-												}else if ($GetDepositAcc->fields(depositor_status) == 2) {
-													$status = '<b class="text-danger">Ditolak</b>';
-												}
-
-												$balance = number_format($GetDepositAcc->fields(balance), 2);
-										?>
-										<tr class="table-light">
-											<td class="Data" align="center">1</td>
-											<td class="Data"><?php echo $GetDepositAcc->fields(namaSimpanan); ?></td>
-											<td class="Data"><?php echo $GetDepositAcc->fields(accountNumber); ?></td>
-											<td class="Data">Rp <?php echo $balance ?></td>
-											<td class="Data"><?php echo $status; ?></td>
-										</tr>
-										<?php
-												$GetDepositAcc->MoveNext();
-											} ?>
-									</tbody>
-                </table>
-              </td>
+            <?php
+            $bil = 1;
+            while (!$GetDepositAcc->EOF) {
+              $dep_status = $GetDepositAcc->fields('depositor_status');
+              if ($dep_status == 0) {
+                $statusLabel = '<b class="text-secondary">Dalam Proses</b>';
+              } elseif ($dep_status == 1) {
+                $statusLabel = '<b class="text-success">Disetujui</b>';
+              } elseif ($dep_status == 2) {
+                $statusLabel = '<b class="text-danger">Ditolak</b>';
+              } else {
+                $statusLabel = '-';
+              }
+              $balance       = number_format($GetDepositAcc->fields('balance'), 2, ',', '.');
+              $nominal       = number_format($GetDepositAcc->fields('nominal_simpanan'), 2, ',', '.');
+              $sumberDana    = $GetDepositAcc->fields('sumber_dana') ? $GetDepositAcc->fields('sumber_dana') : '-';
+              $dateApply     = toDate("d/m/Y", $GetDepositAcc->fields('dateApply'));
+            ?>
+            <tr class="table-light">
+              <td class="Data" align="center"><?php echo $bil; ?></td>
+              <td class="Data"><?php echo $GetDepositAcc->fields('namaSimpanan'); ?></td>
+              <td class="Data" align="center"><?php echo $GetDepositAcc->fields('accountNumber'); ?></td>
+              <td class="Data" align="right">Rp <?php echo $nominal; ?></td>
+              <td class="Data"><?php echo $sumberDana; ?></td>
+              <td class="Data" align="right">Rp <?php echo $balance; ?></td>
+              <td class="Data" align="center"><?php echo $statusLabel; ?></td>
+              <td class="Data" align="center"><?php echo $dateApply; ?></td>
             </tr>
-            <tr>
-              <td class="textFont">Jumlah Data : <b>850</b></td>
-            </tr>
+            <?php
+              $bil++;
+              $GetDepositAcc->MoveNext();
+            } ?>
           </tbody>
         </table>
+        <div class="textFont">Jumlah Data : <b><?php echo $sum_total; ?></b></div>
       </div>
     </form>
 

@@ -450,20 +450,20 @@ print '		</select>&nbsp;</div>
 <div>
 Filter Status
 			<select name="filter" class="form-select-sm" onchange="document.MyForm.submit();">
-				<option value="">- Semua -</option>';
-
+				<option value=""' . ($filter === "" ? ' selected' : '') . '>- Semua -</option>';
 for ($i = 0; $i <= 2; $i++) {
-    print '<option value="' . $statusVal[$i] . '"';
-    if ((string)$filter === (string)$statusVal[$i]) print ' selected';
+    print '	<option value="' . $statusVal[$i] . '"';
+    if ($filter == $statusVal[$i] && $filter !== "") print ' selected';
     print '>' . $statusList[$i] . '</option>';
 }
+print '	</select>&nbsp;
 
-print '	</select>
-&nbsp;&nbsp;&nbsp; Jenis Proses
+&nbsp;&nbsp; Jenis Proses
 			<select name="jenis_proses" class="form-select-sm">
 				<option value="1">Setujui</option>
 				<option value="2">Tolak</option>
 			</select>&nbsp;
+
 			<input type="button" class="btn btn-sm btn-primary" value="Proses" onClick="ITRActionButtonClickStatus(\'proses\');"></div>
 </div>';
 
@@ -537,7 +537,7 @@ if ($GetMember->RowCount() <> 0) {
 
         print ' <tr>
 						<td class="Data" align="right">' . $bil . '</td>
-						<td class="Data"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetMember->fields(depositorID)) . '">
+						<td class="Data"><input type="checkbox" class="form-check-input" name="pk[]" value="' . tohtml($GetMember->fields(userID)) . '">
 							<a href="' . $sFileRef . '&pk=' . tohtml($GetMember->fields(userID)) . '">
 							' . strtoupper($GetMember->fields(name)) . '</a>';
         if ($GetMember->fields(BlackListID) == 1) {
@@ -689,23 +689,27 @@ print '
 	    }
 		
 	function ITRActionButtonClickStatus(v) {
+	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
 			alert(\'Tolong pastikan nama form dibuat.!\');
 	      } else {
 	        count=0;
+	        j=0;
 			for(c=0; c<e.elements.length; c++) {
 	          if(e.elements[c].name=="pk[]" && e.elements[c].checked) {
+				pk = e.elements[c].value;
+				strStatus = strStatus + ":" + pk;
 				count++;
 	          }
 	        }
-
+	        
 	        if(count==0) {
 	          alert(\'Tolong pilih data yang mau di\' + v + \'kan.\');
 	        } else {
 	          if(confirm(count + \' data dipilih ingin di\' + v + \'kan?\')) {
-	          	e.action.value = v;
-	          	e.submit();
+	          //e.submit();
+	          window.location.href ="?vw=memberStatus&pk=" + strStatus;
 			  }
 	        }
 	      }
