@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(echo:*)",
-      "Bash(php:*)"
+      "Bash(php:*)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root demokoop)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe:*)",
+      "Bash(ls /c/xampp/htdocs/staging_koop/assets/js/*.js)"
     ],
     "deny": [],
     "ask": []

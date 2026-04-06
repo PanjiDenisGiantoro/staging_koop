@@ -645,6 +645,23 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '</ul></li>';
 
 
+        // admin.serbaUsaha
+        SubTitleBar("SERBA USAHA & POS");
+        if (@$mn == 950) {
+            $mn950 = "mm-collapse mm-show";
+            $mu950 = "mm-active";
+        } else {
+            $mn950 = '';
+            $mu950 = '';
+        }
+        echo '<li class="' . $mu950 . '">';
+        TitleBarBlue("Usaha Anggota", 'mdi mdi-store');
+        echo '<ul class="sub-menu ' . $mn950 . '" aria-expanded="true">';
+        MenuLink("usahaList.php", "Senarai Usaha", 950, @$_REQUEST['vw']);
+        MenuLink("posOrderList.php", "Senarai Order POS", 950, @$_REQUEST['vw']);
+        echo '<li><a href="pos.php" target="_blank"><i class="mdi mdi-cart"></i> <span>Buka POS</span></a></li>';
+        echo '</ul></li>';
+
         // admin.import/export
         SubTitleBar("IMPORT/EXPORT");
         // admin.import/export.importFile
@@ -993,6 +1010,25 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<ul class="sub-menu ' . $mn10 . '" aria-expanded="false">';
         MenuLink("memberStmtN.php", "Senarai Penyata", 10, @$_REQUEST['vw']);
         echo '</ul></li>';
+
+        // anggota.serbaUsaha
+        if (!$berhenti && $status != 0) {
+            if (@$mn == 15) {
+                $mn15 = "mm-collapse mm-show";
+                $mu15 = "mm-active";
+            } else {
+                $mn15 = '';
+                $mu15 = '';
+            }
+            echo '<li class="' . $mu15 . '">';
+            TitleBarBlue("SERBA USAHA", 'mdi mdi-store');
+            echo '<ul class="sub-menu ' . $mn15 . '" aria-expanded="false">';
+            MenuLink("usahaList.php", "Usaha Saya", 15, @$_REQUEST['vw']);
+            MenuLink("posOrderList.php", "Order Masuk", 15, @$_REQUEST['vw']);
+            echo '<li><a href="pos.php" target="_blank"><i class="mdi mdi-cart"></i> <span>Buka POS</span></a></li>';
+            echo '</ul></li>';
+        }
+
     } ///////////  Kumpulan Pengurusan: Tiada  /////////////////////////
 
     else if (get_session("Cookie_groupID") == '99') {
