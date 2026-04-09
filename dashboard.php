@@ -122,74 +122,78 @@ $entries = array(
     <h3 class="text-center mt-4">Dashboard Koperasi</h3>
     <div class="container mt-4">
         <div class="row g-4">
-            <!-- JUMLAH TERKUMPUL YURAN & SYER -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>JUMLAH TERKUMPUL YURAN & SYER</h6>
-                    <h3 class="text-info">RP <?echo number_format($totalsumFeeShare, 2)?></h3>
-                    <canvas id="yuran_syerChart"></canvas>
-                </div>
-            </div>
 
-            <!-- STATUS PEMBIAYAAN -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>STATUS PEMBIAYAAN</h6>
-                    <h3><?php echo $totalEntries ?></h3>
-                    <canvas id="pembiayaanChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Invoices -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>JUMLAH PEMBIAYAAN DILULUSKAN</h6>
-                    <h3 class="text-info">RP <?echo number_format($jumLulus, 2)?></h3>
-                    <div class="progress">
-                        <div class="progress-bar bg-warning" style="width: 100%"><?php echo $diluluskan ?></div>
+            <div class="col-md-5">
+                <!-- STATUS PEMBIAYAAN -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>STATUS PEMBIAYAAN</h6>
+                        <h3 style="color: #00AB04 !important"><?php echo $totalEntries ?></h3>
+                        <canvas id="pembiayaanChart"></canvas>
                     </div>
-                    <p class="mt-2">Sebanyak <?php echo $diluluskan ?> data pembiayaan telah direkodkan dengan jumlah keseluruhan RP <?echo number_format($jumLulus, 2)?>.</p>
+                </div>
+                <!-- JUMLAH TERKUMPUL YURAN & SYER -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>JUMLAH TERKUMPUL YURAN & SYER</h6>
+                        <h3 style="color: #00AB04 !important">RP <?echo number_format($totalsumFeeShare, 2)?></h3>
+                        <canvas id="yuran_syerChart"></canvas>
+                    </div>
                 </div>
             </div>
 
-            <!-- Quotations -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>QUOTATIONS</h6>
-                    <p>2 Quotations (Last 365 days)</p>
-                    <div class="progress">
-                        <div class="progress-bar bg-info" style="width: 50%">1 Pending</div>
-                        <div class="progress-bar bg-secondary" style="width: 50%">1 Closed</div>
+            <div class="col-md-7">
+                <!-- Invoices -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>JUMLAH PEMBIAYAAN DILULUSKAN</h6>
+                        <h3 style="color: #00AB04 !important">RP <?echo number_format($jumLulus, 2)?></h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: 100%;"><?php echo $diluluskan ?></div>
+                        </div>
+                        <p class="mt-2">Sebanyak <?php echo $diluluskan ?> data pembiayaan telah direkodkan dengan jumlah keseluruhan RP <?echo number_format($jumLulus, 2)?>.</p>
                     </div>
-                    <p class="mt-2">RP 7,888 Total Deal</p>
                 </div>
+                
+                <!-- Quotations -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>QUOTATIONS</h6>
+                        <p>2 Quotations (Last 365 days)</p>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: 50%; background-color: #35a989 !important">1 Pending</div>
+                            <div class="progress-bar bg-secondary" style="width: 50%">1 Closed</div>
+                        </div>
+                        <p class="mt-2">RP 7,888 Total Deal</p>
+                    </div>
+                </div>
+                
+                <!-- Profit and Loss -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>PROFIT AND LOSS</h6>
+                        <h3 style="color: #00AB04 !important">RP 7,838</h3>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 99%; background-color: #35a989 !important">Income</div>
+                            <div class="progress-bar bg-warning" style="width: 1%">Expenses</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bank Accounts -->
+                <div class="mb-4">
+                    <div class="card p-3 h-100 border">
+                        <h6>BANK ACCOUNTS</h6>
+                        <ul>
+                            <li>CASH AT BANK: <b style="color: #00AB04 !important">RP 1,300.00</b></li>
+                            <li>CASH IN HAND: <b style="color: #00AB04 !important">-RP 7,000.00</b></li>
+                            <li>MAYBANK: <b style="color: #00AB04 !important">-RP 450.00</b></li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         
-
-        <!-- <div class="row g-4 mt-2"> -->
-            <!-- Profit and Loss -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>PROFIT AND LOSS</h6>
-                    <h3>RP 7,838</h3>
-                    <div class="progress">
-                        <div class="progress-bar bg-success" style="width: 99%">Income</div>
-                        <div class="progress-bar bg-warning" style="width: 1%">Expenses</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bank Accounts -->
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h6>BANK ACCOUNTS</h6>
-                    <ul>
-                        <li>CASH AT BANK: RP 1,300.00</li>
-                        <li>CASH IN HAND: -RP 7,000.00</li>
-                        <li>MAYBANK: -RP 450.00</li>
-                    </ul>
-                </div>
-            </div>
         </div>
         <!-- </div> -->
 
@@ -203,7 +207,7 @@ $entries = array(
                 datasets: [{
                     label: 'Jumlah Terkumpul (RP)',
                     data: [<?php echo $totalsumFee; ?>, <?php echo $totalsumShare; ?>],
-                    backgroundColor: ['#F7A8B8', '#F7A8B8']
+                    backgroundColor: ['#35a989', '#495057']
                 }]
             },
             options: {
@@ -223,7 +227,7 @@ $entries = array(
                     labels: ['Dalam Proses','Diluluskan'],
                     datasets: [{
 					data: [<?php echo $dalam_Proses; ?>, <?php echo $diluluskan; ?>],
-					backgroundColor: ['#C5E0F9', '#E0BBE4']
+					backgroundColor: [ '#495057', '#35a989' ]
 				}]
                 },
             });
