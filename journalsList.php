@@ -390,7 +390,7 @@ print '
             if(count==0) {
               alert(\'Silakan pilih data yang ingin dihapus.\');
             } else {
-              if(confirm(count + ' data ingin dihapus?')) {
+              if(confirm(count + \' data ingin dihapus?\')) {
                 e.action.value = v;
                 e.submit();
               }
