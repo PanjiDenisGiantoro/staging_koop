@@ -63,7 +63,7 @@ print '
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-12">
-            <h4>Pilih Akaun Ledger</h4>
+            <h4>Pilih Akun Ledger</h4>
             <form onsubmit="return searchLedger();" class="form-inline mb-3">
                 <div class="input-group">
                     <input type="text" id="searchText" name="q" value="'.htmlspecialchars($q).'" class="form-control form-control-sm" placeholder="Cari kod atau nama...">
@@ -81,7 +81,7 @@ print '
                     <thead class="table-light">
                         <tr>
                             <th>Kod</th>
-                            <th>Nama Akaun</th>
+                            <th>Nama Akun</th>
                             <th>Tindakan</th>
                         </tr>
                     </thead>
