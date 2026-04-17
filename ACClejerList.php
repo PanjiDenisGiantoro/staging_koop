@@ -32,7 +32,7 @@ $updatedDate = date("Y-m-d H:i:s");
 $sFileName = "?vw=ACClejerList&mn=$mn";
 // $sFileRef  = "?vw=ACClejerListEdit&mn=$mn";
 $sFileRef  = "ACClejerListEdit.php?";
-$title     = "Pengurusan Carta Akaun (Balance Sheet)";
+$title     = "Pengelolaan Bagan Akun (Balance Sheet)";
 $IDName = get_session("Cookie_userName");
 
 $sSQL = "";

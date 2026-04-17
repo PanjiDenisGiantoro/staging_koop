@@ -32,7 +32,7 @@ $updatedDate = date("Y-m-d H:i:s");
 $sFileName = "?vw=ACCprofitDivisionList&mn=$mn";
 // $sFileRef  = "?vw=ACCprofitDivisionListEdit&mn=$mn";
 $sFileRef  = "ACCprofitDivisionListEdit.php?";
-$title     = "Pengurusan Carta Akaun (Pembahagian Keuntungan)";
+$title     = "Pengelolaan Bagan Akun (Pembahagian Keuntungan)";
 $IDName = get_session("Cookie_userName");
 
 $sSQL = "";
