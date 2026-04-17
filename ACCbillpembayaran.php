@@ -582,7 +582,7 @@ print
 	<td width="48%">
 		<table border="0" cellspacing="1" cellpadding="2">
 			<tr>
-				<td>Nombor Bill</td>
+				<td>No</td>
 				<td valign="top"></td>
 				<td>
 					<input  name="no_bill" value="' . $no_bill . '" type="text" size="20" maxlength="50" class="form-controlx" readonly/>
@@ -657,13 +657,13 @@ print '&nbsp;
 </tr>
 
  <tr>
- <td valign="top">Amaun Purchase Invoice (RP)</td>
+ <td valign="top">Jumlah Faktur Pembelian (Rp)</td>
  <td valign="top"></td>
  <td><input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-controlx" readonly/></td>
  </tr>
 
  <tr>
- <td valign="top">Nombor Purchase Invoice</td>
+ <td valign="top">Nomor Faktur Pembelian</td>
  <td valign="top"></td>
  <td><input name="PINo" value="' . $PINo . '" size="20" maxlength="50"  class="form-controlx" readonly /></td>
  </tr>

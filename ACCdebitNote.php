@@ -569,7 +569,7 @@ print'
 </tr>
 
 <tr>
-	<td valign="top">Amaun Purchase Invoice (RP)</td>
+	<td valign="top">Jumlah Faktur Pembelian (Rp)</td>
 	<td valign="top"></td>
 	<td><input name="amt"  value="' . $amt . '" size="10" maxlength="50"  class="form-controlx" readonly/></td>
 </tr>
