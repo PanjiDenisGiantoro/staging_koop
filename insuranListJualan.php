@@ -132,7 +132,7 @@ if ($GetListIns->RowCount() <>	0) {
 			<td	valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td	nowrap><b>Bil</b></td>											
+						<td	nowrap><b>No</b></td>											
 						<td	width="20" nowrap><b>Cover Note (C.N)</b></td>					
 						<td width="20" nowrap><b>Tanggal Keluar (C.N)</b></td>
 						<td	nowrap><b>Nama Peserta</b></td>

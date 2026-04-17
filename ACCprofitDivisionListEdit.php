@@ -180,7 +180,7 @@ if ($code == 1) {
       <td colspan="9" class="Header"><strong>' . strtoupper($title) . '</strong></td>
     </tr>
     <tr valign="top" class="table-primary">
-      <td width="2%" align="center"  nowrap rowspan="1" ><b>Bil</b></td>
+      <td width="2%" align="center"  nowrap rowspan="1" ><b>No</b></td>
       <td width="11%"align="left" nowrap><b>Kode Akun - Nama Bagan Akun</b></td>
       <td width="8%" align="center" nowrap><b>Tahun & Bulan</b></td>
       <td width="11%"align="right" nowrap><div align="right"><b>Jumlah (Rp)</b></div></td>

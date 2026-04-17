@@ -263,7 +263,7 @@ print
 	<td colspan="3">
 		<table border="0" cellspacing="1" cellpadding="4" width="100%" class="table table-striped table-sm">
 			<tr class="table-primary">
-				<td nowrap="nowrap"><b>Bil</b></td>
+				<td nowrap="nowrap"><b>No</b></td>
 				<td nowrap="nowrap"><b>Nombor Ahli</b></td>
 				<td nowrap="nowrap" align="center"><b>Kartu Identitas</b></td>
 				<td nowrap="nowrap"><b>Nama</b></td>

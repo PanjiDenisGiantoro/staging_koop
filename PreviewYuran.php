@@ -104,7 +104,7 @@ print '  <tr valign="top" >
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 				<tr class="table-primary">
-						<td nowrap rowspan="1" height="20" align="center"><b>Bil</b></td>
+						<td nowrap rowspan="1" height="20" align="center"><b>No</b></td>
 						<td nowrap><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama Anggota</b></td>
 						<td nowrap colspan="2"><b>Cabang/Zona</b></td>

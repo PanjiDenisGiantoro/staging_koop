@@ -210,7 +210,7 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
 
 <table class="table table-striped table-sm">
 <tr class="table-primary">
-      <td nowrapalign="center"><b>Bil</b></td>
+      <td nowrapalign="center"><b>No</b></td>
       <td nowrap align="center"><b>Mula Potongan<br/>(Tahun/Bulan)</b></td>
 	  <td nowrap align="center"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
 	  <td nowrap align="center"><b>Baki Bulan</b></td>

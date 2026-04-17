@@ -126,7 +126,7 @@ $rs1 = &$conn->Execute($sSQL2);
       <td colspan="10" class="Header"><strong>' . strtoupper($title) . '</strong></td>
     </tr>
     <tr class="table-primary">
-      <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
+      <td width="2%" nowrap rowspan="1" ><b>No</b></td>
       <td width="20%" nowrap ><b>Nomor Anggota - Nama</b></td>
       <td width="5%" nowrap><b>Tahun</b></td>
       <td width="8%" nowrap align="right"><b>Dividen (RP)</b></td>

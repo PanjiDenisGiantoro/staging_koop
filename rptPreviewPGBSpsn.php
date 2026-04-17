@@ -179,7 +179,7 @@ print '  <tr valign="top" >
 					</tr>
 
 						<tr class="table-primary">
-						<td nowrap height="8" align="center"><b>Bil</b></td>
+						<td nowrap height="8" align="center"><b>No</b></td>
 						<td nowrap height="8" align="center"><b>Nomor Anggota</b></td>
 						<td nowrap><b>Nama</b></td>
 						<td nowrap><b>Nomor Karyawan</b></td>

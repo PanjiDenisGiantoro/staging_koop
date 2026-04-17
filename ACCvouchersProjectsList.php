@@ -174,7 +174,7 @@ print' <!--input type="button" class="but" value="Status" onClick="ITRActionButt
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap align="center"><b>Bil</b></td>
+						<td nowrap align="center"><b>No</b></td>
 						<td nowrap align="left"><b>No. Voucher</b></td>
 						<td nowrap align="center"><b>Tanggal</b></td>
 						<td nowrap align="left"><b>Bank</b></td>

@@ -197,7 +197,7 @@ print '<div class="card-header mb-3">SENARAI PROJEK&nbsp;&nbsp;<input type="butt
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
 					<tr class="table-primary">
-						<td nowrap align="center"><b>Bil</b></td>
+						<td nowrap align="center"><b>No</b></td>
 						<td nowrap align="left"><b>Nama Projek</b></td>
 						<td nowrap align="center"><b>Tanggal Mula</b></td>
 						<td nowrap align="center"><b>Tanggal Akhir</b></td>

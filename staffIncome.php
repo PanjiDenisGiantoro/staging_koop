@@ -338,7 +338,7 @@ $jenis_gaji = dlookup("general", "type_gaji", "ID=" . tosql($gajiVal[$index]));
 
     print '<table class="table table-striped table-sm">
 <tr class="table-primary">
-    <td nowrap align="center"><b>Bil</b></td>
+    <td nowrap align="center"><b>No</b></td>
     <td nowrap align="left"><b>Jenis</b></td>
     <td nowrap align="left"><b>Nama</b></td>
     <td nowrap align="right"><b>Amaun</b></td>

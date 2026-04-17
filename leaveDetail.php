@@ -56,7 +56,7 @@ if ($GetLeave->RowCount() <> 0) {
 			<td valign="top">
 				<table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">                             
 					<tr class="table-primary">
-					<td nowrap align="center"><b>Bil</b></td>
+					<td nowrap align="center"><b>No</b></td>
 					<td nowrap>&nbsp;<b>Jenis Cuti</b></td>
 					<td nowrap align="center"><b>Tanggal Mula</b></td>
 					<td	nowrap align="center"><b>Tanggal Tamat</b></td>

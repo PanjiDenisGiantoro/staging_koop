@@ -387,7 +387,7 @@ print '
 
   <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
     <tr valign="top" class="table-primary">
-      <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
+      <td width="2%" nowrap rowspan="1" ><b>No</b></td>
       <td width="10%" nowrap><b>Tanggal Mula</b></td>
       <td width="10%" nowrap><b>Tanggal Tamat</b></td>
       <td width="10%" nowrap><b>Kadar</b> </td>

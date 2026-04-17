@@ -420,7 +420,7 @@ if (!$staff) {
 		print '
 <table border="0" cellspacing="1" cellpadding="2" width="100%" class="table table-sm table-striped">
     <tr class="table-primary">
-        <td nowrap><b>Bil</b></td>
+        <td nowrap><b>No</b></td>
         <td nowrap><b>Pengeluaran</b></td>
         <td nowrap><b>Tanggal Pengajuan</b></td>
         <td nowrap align="right"><b>Jumlah (Rp)</b></td>

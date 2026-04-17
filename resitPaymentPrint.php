@@ -232,7 +232,7 @@ print'
     <table class="table table-striped" style="margin-bottom:2%;">
     <thead>
             <tr>
-                <td><b>Bil</b></td>
+                <td><b>No</b></td>
                 <td><b>Perkara</b></td>
                 <td colspan="2" align="right"><b>Jumlah (RP)</b></td>
             </tr>

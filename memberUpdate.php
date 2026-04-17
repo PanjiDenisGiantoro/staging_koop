@@ -764,7 +764,7 @@ if (@$tabb == 2) {
 			<div class="table-responsive" style="overflow-x: auto;">
 			<table class="table table-striped table-sm mt-3" style="table-layout: auto; width: 100%;">
 				<tr class="table-primary">
-					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Bil</b></td>
+					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>No</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Mula Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="center" style="white-space: nowrap; text-align: center;"><b>Akhir Potongan<br/>(Tahun/Bulan)</b></td>
 					<td nowrap align="left" style="white-space: nowrap;"><b>Jenis/Kod Potongan</b></td>
@@ -892,7 +892,7 @@ if (@$tabb == 3) {
 		<div>
             <table class="table table-sm table-striped mt-1">
                 <tr class="table-primary">
-                    <td align="center"><b>Bil</b></td>
+                    <td align="center"><b>No</b></td>
                     <td align="left"><b>Nama Penama</b></td>
 					<td align="center"><b>No Kartu Identitas</b></td>
                     <td align="center"><b>No Telefon</b></td>
@@ -994,7 +994,7 @@ if (@$tabb == 5) {
     <div>
         <table class="table table-sm table-striped mt-3">
             <tr class="table-primary">
-                <td align="center"><b>Bil</b></td>
+                <td align="center"><b>No</b></td>
                 <td align="left"><b>Nama Bank</b></td>
                 <td align="center"><b>Nombor Akaun Bank</b></td>
                 <td align="center" colspan="3"><b>&nbsp;</b></td>

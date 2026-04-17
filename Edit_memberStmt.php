@@ -124,7 +124,7 @@ print '
       <td colspan="9" class="Header"><strong>' . strtoupper($title) . '</strong></td>
     </tr>
     <tr valign="top" class="table-primary">
-      <td width="2%" nowrap rowspan="1" ><b>Bil</b></td>
+      <td width="2%" nowrap rowspan="1" ><b>No</b></td>
       <td width="20%" nowrap ><b>Nama Dokumen</b></td>
       <td width="11%" nowrap><b>Bulan Tahun</b></td>
       <td width="18%" nowrap><b>Jenis Pembiayaan</b> </td>

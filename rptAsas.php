@@ -50,7 +50,7 @@ print '
 		<td>
 			<table border=0  cellpadding="2" cellspacing="1" align=left width="50%" class="table table-sm table-striped" style="font-size: 10pt;">
 				<tr class="table-primary">
-					<td><b>Bil</b></td>
+					<td><b>No</b></td>
 					<td nowrap width="150" align="left"><b>Kod</b></td>
 					<td nowrap align="left"><b>Nama</b></td>';
 $noSpan = 3;
