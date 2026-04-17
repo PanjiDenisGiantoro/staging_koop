@@ -256,9 +256,9 @@ print '
 		  }
 		  
 		  if(count==0) {
-			alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+			alert(\'Silakan pilih data yang ingin dihapus.\');
 		  } else {
-			if(confirm(count + \' rekod hendak dihapuskan?\')) {
+			if(confirm(count + ' data ingin dihapus?')) {
 			  e.action.value = v;
 			  e.submit();
 			}

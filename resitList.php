@@ -274,7 +274,7 @@ if ($GetReceipts->RowCount() <> 0) {
         $tarikh_resit     = toDate("d/m/y", $GetReceipts->fields('tarikh_resit'));
         $catatan         = $GetReceipts->fields('catatan');
         $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentPrint.php?id=' . $GetReceipts->fields('no_resit') . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_resit=' . tohtml($GetReceipts->fields['no_resit']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_resit=' . tohtml($GetReceipts->fields['no_resit']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentView.php?id=' . $GetReceipts->fields('no_resit') . '\')"></i>';
         $hapus             = '<a href="'.$sFileName.'&action=delete&pk=' . $GetReceipts->fields['no_resit'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus resit ini?\')" title="Hapus"><i class="fa fa-trash-alt text-danger" style="font-size: 1.2rem; position: relative; top: -1.5px; left: 3.5px;"></i></a>';
 
@@ -387,9 +387,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

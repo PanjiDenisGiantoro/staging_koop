@@ -347,7 +347,7 @@ $jumlah_nkpg = ($gaji_pokok * 0.60) - $jumALL;
 			  </td>	  	  
 			  <td class="Data" nowrap align="center">' . $priority . '</td>  
 			  <td class="Data" nowrap align="center">' . $status . '</td>
-			  <td class="Data" align="center" width="5%"><a href="' . $sFileName . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="kemaskini"><i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>';
+			  <td class="Data" align="center" width="5%"><a href="' . $sFileName . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="perbarui"><i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>';
 
 			if (($IDName == 'admin') or ($IDName == 'superadmin')) {
 				print '  <td class="Data" align="center" valign="middle" width="5%"><a href="' . $sFileNameDel . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=1" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false} else {window.Edittrans.submit();};"><i class="fas fa-trash-alt text-danger" style="font-size: 1.1rem;"></i></td>';

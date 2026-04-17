@@ -167,7 +167,7 @@ function papar_ms($pg)
     else $ms = $ms . '<option value="500">500</option>';
     if ($pg == 1000) $ms = $ms . '<option value="1000" selected>1000</option>';
     else $ms = $ms . '<option value="1000">1000</option>';
-    $ms = $ms . '</select>&nbsp;&nbsp;per mukasurat.';
+    $ms = $ms . '</select>&nbsp;&nbsp;setiap halaman.';
     return $ms;
 }
 

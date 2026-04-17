@@ -182,7 +182,7 @@ $rs1 = &$conn->Execute($sSQL2);
 				print '&nbsp;' . $rs->fields(jumBlnP) . '';
 			}
 			print '</td>
-      <td class="Data" align="center" width="5%">&nbsp;<a href="' . $sFileName . '?IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="kemaskini"><img src="b_edit.png"></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>
+      <td class="Data" align="center" width="5%">&nbsp;<a href="' . $sFileName . '?IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="perbarui"><img src="b_edit.png"></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>
       <td class="Data" align="center"  width="5%">&nbsp;<a href="' . $sFileNameDel . '?IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=1" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false} else {window.Edittrans.submit();};"><img src="b_drop.png"></td>
       <td class="Data" align="center" width="5%">';
 			if ($IDtype == $rs->fields(ID)) {

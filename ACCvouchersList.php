@@ -222,7 +222,7 @@ if ($GetVouchers->RowCount() <> 0) {
         $batchName         = dlookup("generalacc", "name", "ID=" . tosql($GetVouchers->fields(batchNo), "Text"));
         $amount         = $GetVouchers->fields(pymtAmt);
         $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetVouchers->fields(no_baucer) . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['no_baucer']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetVouchers->fields(no_baucer) . '\')"></i>';
 
         if ($noTran == false) {
@@ -331,9 +331,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

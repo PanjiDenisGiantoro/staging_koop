@@ -424,7 +424,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef2 . '&action=view&SENO=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCSingleEntryView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -469,7 +469,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef3 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCbaucerpembayaranView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -514,7 +514,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitPrintCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef4 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitViewCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -558,7 +558,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef5 . '&action=view&invNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCinvoicedebtorView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -602,7 +602,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef6 . '&action=view&RVNo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCDebtorPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -646,7 +646,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoicePrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef8 . '&action=view&PINo=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoiceView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -690,7 +690,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillPrintCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef9 . '&action=view&no_bill=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillViewCustomer.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -733,7 +733,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentPrint.php?ID=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef10 . '&action=view&no_resit=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'resitPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -781,7 +781,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef12 . '&action=view&no_jurnal=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
             $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentView.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
 
@@ -826,7 +826,7 @@ if ($GetVouchers->RowCount() <> 0) {
             }
 
             $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'voucherPaymentPrint.php?id=' . $GetVouchers->fields('docNo') . '\')"></i>';
-            $edit         = '<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+            $edit         = '<a href="' . $sFileRef13 . '&action=view&no_baucer=' . tohtml($GetVouchers->fields['docNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
             $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
 
             if ($rsDetail && ($rsDetail->fields['g_lockstat'] == 1) && ($GetVouchers->fields('batchNo') <> "")) {
@@ -924,9 +924,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

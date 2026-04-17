@@ -278,7 +278,7 @@ if ($GetJournals->RowCount() <> 0) {
         $nama           = $GetName->fields(name);
         $tarikh_jurnal  = toDate("d/m/y", $GetJournals->fields(tarikh_jurnal));
         $cetak          = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentPrint.php?id=' . $GetJournals->fields(no_jurnal) . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_jurnal=' . tohtml($GetJournals->fields['no_jurnal']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_jurnal=' . tohtml($GetJournals->fields['no_jurnal']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'journalsPaymentView.php?id=' . $GetJournals->fields(no_jurnal) . '\')"></i>';
 
         if ($noTran == false) {
@@ -388,9 +388,9 @@ print '
             }
             
             if(count==0) {
-              alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+              alert(\'Silakan pilih data yang ingin dihapus.\');
             } else {
-              if(confirm(count + \' rekod hendak dihapuskan?\')) {
+              if(confirm(count + ' data ingin dihapus?')) {
                 e.action.value = v;
                 e.submit();
               }

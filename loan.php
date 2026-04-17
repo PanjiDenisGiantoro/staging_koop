@@ -668,7 +668,7 @@ $entries = array(
 								 onclick="printContent(\'?vw=biayaDokumen&mn=904&pk=\' + encodeURIComponent(\'' . $GetLoan->fields(loanID) . '\'));">
 								 <i class="mdi mdi-printer text-primary" style="font-size: 24px;"></i>
 							 </button></td>
-							&nbsp;<td class="Data" align="center"><i class="mdi mdi-lead-pencil text-warning" title="kemaskini" style="font-size: 1.4rem; cursor: pointer;" onClick="window.location.href=\'?vw=biayaDokumen&mn=904&pk=' . $GetLoan->fields(loanID) . '\'"></i></td>';
+							&nbsp;<td class="Data" align="center"><i class="mdi mdi-lead-pencil text-warning" title="perbarui" style="font-size: 1.4rem; cursor: pointer;" onClick="window.location.href=\'?vw=biayaDokumen&mn=904&pk=' . $GetLoan->fields(loanID) . '\'"></i></td>';
 				if (($IDName == 'superadmin') or ($IDName == 'admin')) {
 					print '<td align="center">
 							<a href="?vw=loan&mn=904&action=delete&pk=' . $GetLoan->fields['loanID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">

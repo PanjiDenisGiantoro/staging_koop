@@ -281,7 +281,7 @@ if ($GetVouchers->RowCount() <> 0) {
             $pi     = $sFileRefPI . '&action=view&PINo=' . $knockoff . '&yy=' . $yy . '&mm=' . $mm;
 
         $cetak         = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoicePrint.php?id=' . $GetVouchers->fields('noteNo') . '&note=1\')"></i>';
-        $edit         = '<a href="' . $sFileRef . '&action=view&noteNo=' . tohtml($GetVouchers->fields['noteNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $edit         = '<a href="' . $sFileRef . '&action=view&noteNo=' . tohtml($GetVouchers->fields['noteNo']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $editLock     = '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
         $view         = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCPurchaseInvoiceView.php?id=' . $GetVouchers->fields('noteNo') . '&note=1\')"></i>';
 
@@ -424,9 +424,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

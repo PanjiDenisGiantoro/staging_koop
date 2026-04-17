@@ -271,7 +271,7 @@ if ($GetReceipts->RowCount() <> 0) {
 		$balance 		= $amaun - $bayaran;
 
 		$cetak 		= '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillPrintCustomer.php?id=' . $GetReceipts->fields('no_bill') . '\')"></i>';
-		$edit 		= '<a href="' . $sFileRef . '&action=view&no_bill=' . tohtml($GetReceipts->fields['no_bill']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+		$edit 		= '<a href="' . $sFileRef . '&action=view&no_bill=' . tohtml($GetReceipts->fields['no_bill']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
 		$editLock 	= '<span style="cursor: not-allowed; color: gray; opacity: 0.5;"><i class="mdi mdi-lead-pencil" style="font-size: 1.4rem; opacity: 0.5;"></i></span>';
 		$view 		= '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCBillViewCustomer.php?id=' . $GetReceipts->fields('no_bill') . '\')"></i>';
 
@@ -399,9 +399,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

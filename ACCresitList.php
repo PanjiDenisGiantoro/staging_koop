@@ -228,7 +228,7 @@ if ($GetReceipts->RowCount() <> 0) {
         $akaun             = dlookup("generalacc", "name", "ID=" . tosql($GetReceipts->fields(deductID), "Text"));
         $akaunno         = dlookup("generalacc", "code", "ID=" . tosql($GetReceipts->fields(deductID), "Text"));
         $cetak             = '<i class="mdi mdi-printer text-primary" title="cetak" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitPrintCustomer.php?id=' . $GetReceipts->fields(no_resit) . '\')"></i>';
-        $edit             = '<a href="' . $sFileRef . '&action=view&no_resit=' . tohtml($GetReceipts->fields['no_resit']) . '&yy=' . $yy . '&mm=' . $mm . '" title="kemaskini"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
+        $edit             = '<a href="' . $sFileRef . '&action=view&no_resit=' . tohtml($GetReceipts->fields['no_resit']) . '&yy=' . $yy . '&mm=' . $mm . '" title="perbarui"><i class="mdi mdi-lead-pencil text-warning" style="font-size: 1.4rem;"></i></a>';
         $view             = '<i class="mdi mdi-file-document text-muted" title="lihat" style="font-size: 1.4rem; cursor: pointer;" onClick="open_(\'ACCResitViewCustomer.php?id=' . $GetReceipts->fields(no_resit) . '\')"></i>';
 
         $sSQL2 = "SELECT g_lockstat FROM generalacc WHERE ID = " . $GetReceipts->fields(batchNo) . " ORDER BY ID";
@@ -352,9 +352,9 @@ print '
 	        }
 	        
 	        if(count==0) {
-	          alert(\'Sila pilih rekod yang hendak dihapuskan.\');
+	          alert(\'Silakan pilih data yang ingin dihapus.\');
 	        } else {
-	          if(confirm(count + \' rekod hendak dihapuskan?\')) {
+	          if(confirm(count + ' data ingin dihapus?')) {
 	            e.action.value = v;
 	            e.submit();
 	          }

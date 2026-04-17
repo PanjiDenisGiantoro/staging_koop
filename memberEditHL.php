@@ -1228,7 +1228,7 @@ if (@$tabb == 3) {
 			}
 			print '</td>
 			<td class="Data" align="center">
-				<a href="' . $sFileName . '&tabb=3&IDtype=' . $rs->fields['ID'] . '&code=2" title="kemaskini">
+				<a href="' . $sFileName . '&tabb=3&IDtype=' . $rs->fields['ID'] . '&code=2" title="perbarui">
 					<i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i>
 				</a>
 			</td>
@@ -1314,7 +1314,7 @@ if (@$tabb == 5) {
 
 			print '</td>
 						<td class="Data" align="center">
-							<a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=4" title="kemaskini">
+							<a href="' . $sFileName . '&tabb=5&IDtype=' . $rs->fields['ID'] . '&code=4" title="perbarui">
 								<i class="mdi mdi-lead-pencil text-primary" style="font-size: 1.4rem;"></i>
 							</a>
 						</td>

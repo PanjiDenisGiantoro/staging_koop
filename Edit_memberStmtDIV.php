@@ -174,7 +174,7 @@ $rs1 = &$conn->Execute($sSQL2);
 			}
 
 			print '</td>	
-      <td class="Data" align="center" width="5%">&nbsp;<a href="' . $sFileName . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="kemaskini"><i class="bx bx-edit"></i></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>';
+      <td class="Data" align="center" width="5%">&nbsp;<a href="' . $sFileName . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=2" title="perbarui"><i class="bx bx-edit"></i></a> <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '" ><input size="7" type="hidden" name="ID" value="' . $ID . '" ></td>';
 
 			if (($IDName == 'admin') or ($IDName == 'superadmin')) {
 				print '  <td class="Data" align="center"  width="5%">&nbsp;<a href="' . $sFileNameDel . '&IDtype=' . $rs->fields(ID) . '&ID=' . $ID . '&code=1" title="Hapus" onClick="if(!confirm(\'Adakah ada pasti untuk hapus file ini?\')) {return false} else {window.Edittrans.submit();};"><i class="mdi mdi-close text-danger"></i></td>';

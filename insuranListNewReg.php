@@ -395,7 +395,7 @@ if ($GetListIns->RowCount() <>	0) {
 			} else {
 				$sFileName = $sFileName . "&";
 			}
-			print '<a href="' . $sFileName . 'ID=' . $insuranID . '&code=2" title="kemaskini"><i class="dripicons dripicons-document-edit"></i></a> <input size="7" type="hidden" name="ID" value="' . $insuranID . '" >';
+			print '<a href="' . $sFileName . 'ID=' . $insuranID . '&code=2" title="perbarui"><i class="dripicons dripicons-document-edit"></i></a> <input size="7" type="hidden" name="ID" value="' . $insuranID . '" >';
 		}
 		print '  </td>
 						  <td class="Data" align="center">';
