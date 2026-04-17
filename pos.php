@@ -154,6 +154,7 @@ while ($rsProduk && !$rsProduk->EOF) {
 <title>POS - <?= $coopName ?></title>
 <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="assets/css/icons.min.css" rel="stylesheet">
+<link rel="shortcut icon" href="assets/images/favicon.png">
 <style>
   body { background: #f4f6f9; font-size: 14px; }
 
