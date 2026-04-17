@@ -53,7 +53,7 @@ $title     = $lapList[array_search($cat, $lapVal)];
 				<td class="Label" valign="top" colspan="3">
 					<h6 class="card-subtitle"><u><b>PENGURUSAN</b></u></h6>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF1')">Ringkasan Keseluruhan Anggota Mengikut Jabatan/Cawangan</a></li>
-					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF2')">Ringkasan Keseluruhan Anggota Mengikut Jantina</a></li>
+					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF2')">Ringkasan Keseluruhan Anggota Mengikut Jenis Kelamin</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF3')">Ringkasan Keseluruhan Anggota Mengikut Bangsa</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF4')">Ringkasan Keseluruhan Anggota Mengikut Agama</a></li>
 					<li id="print" class="textFont">&nbsp;&nbsp;<a href="#" onclick="selectPengurusan('rptF5')">Ringkasan Keseluruhan Anggota Mengikut Skala Umur</a></li>

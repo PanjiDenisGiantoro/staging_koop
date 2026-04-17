@@ -107,7 +107,7 @@ print
 					
 					<th nowrap width="80">Nombor KP</th>
 					<th nowrap width="80">Pekerjaan</th>
-					<th nowrap width="80">Jantina</th>
+					<th nowrap width="80">Jenis Kelamin</th>
 					<th nowrap width="80">Bangsa</th>
 					<th nowrap width="80">Tanggal Lahir</th>
 					<th nowrap align="center" width="150">Tanggal Keanggotaan</th>

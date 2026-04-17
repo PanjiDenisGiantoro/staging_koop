@@ -953,7 +953,7 @@ if ($page == 'list') {
 	function SendData(v) {'
 		. 'frm = document.MyForm;'
 		. 'if (frm==null) {'
-		. 'alert(\'Silakan pastikan nama form dibuat/tersedia.!\');'
+		. 'alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');'
 		. 'return false;'
 		. '} else {'
 		. 'count=0;'

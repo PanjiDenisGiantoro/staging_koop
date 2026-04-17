@@ -3,7 +3,7 @@
 /*********************************************************************************
  *          Project		:	iKOOP.com.my
  *          Filename		: 	rptF2.php
- *		   Description	:	Report Ringkasan Keseluruhan Anggota Mengikut Jantina
+ *		   Description	:	Report Ringkasan Keseluruhan Anggota Mengikut Jenis Kelamin
  *          Date 		: 	29/03/2004
  *********************************************************************************/
 session_start();
@@ -16,7 +16,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Ringkasan Keseluruhan Anggota Mengikut Jantina';
+$title  = 'Ringkasan Keseluruhan Anggota Mengikut Jenis Kelamin';
 $sSQL = "";
 $sSQL = "SELECT	b.name as department, 
 	SUM(CASE WHEN a.sex = '0' THEN 1 ELSE 0 END) AS jumlahP,

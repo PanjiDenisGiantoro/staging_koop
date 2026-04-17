@@ -193,7 +193,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* No. Telefon<br>Cth: 6011XXXXXXXX";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 62899XXXXXXX</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -213,7 +213,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Jantina";
+$FormLabel[$a]   	= "Jenis Kelamin";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Laki-laki', 'Perempuan');

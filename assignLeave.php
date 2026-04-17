@@ -136,7 +136,7 @@ if ($member) {
                                 <td><b><?= strtoupper($name); ?></b></td>
                             </tr>
                             <tr>
-                                <td>Jantina</td>
+                                <td>Jenis Kelamin</td>
                                 <td>:</td>
                                 <td><b><?= strtoupper($genderText); ?></b></td>
                             </tr>

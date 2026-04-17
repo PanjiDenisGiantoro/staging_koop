@@ -217,7 +217,7 @@ $FormSize[$a]    	= "10";
 $FormLength[$a]  	= "5";
 
 $a++;
-$FormLabel[$a]   	= "* No. Telefon<br>Cth: 6011XXXXXXXX";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 62899XXXXXXX</b>";
 $FormElement[$a] 	= "mobileNo";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -237,7 +237,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";	
 
 $a++;
-$FormLabel[$a]   	= "Jantina";
+$FormLabel[$a]   	= "Jenis Kelamin";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Lelaki','Perempuan');
@@ -260,7 +260,7 @@ $a++;
 $FormLabel[$a]   	= "Status Pernikahan";
 $FormElement[$a] 	= "maritalID";
 $FormType[$a]	  	= "radio";
-$FormData[$a]   	= array('Bujang','Berkahwin','Janda/Duda');
+$FormData[$a]   	= array('Belum Menikah','Menikah','Janda/Duda');
 $FormDataValue[$a]	= array('0','1','2');
 $FormCheck[$a]   	= array();
 $FormSize[$a]    	= "1";
@@ -399,7 +399,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";	
 
 $a++;
-$FormLabel[$a]   	= "* No. Telefon<br>Cth: 6011XXXXXXXX";
+$FormLabel[$a]   	= "* Nomor Telepon<br><b>Cth: 62899XXXXXXX</b>";
 $FormElement[$a] 	= "emergencyContact_phone";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

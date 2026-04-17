@@ -254,7 +254,7 @@ print '
 	      var strStatus="";
 		  e = document.MyForm;
 	      if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        j=0;

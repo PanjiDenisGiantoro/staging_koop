@@ -477,7 +477,7 @@ if (@$tabb == 1) {
 	$FormLength[$a]  	= "1";
 
 	$a++;
-	$FormLabel[$a]   	= "Jantina";
+	$FormLabel[$a]   	= "Jenis Kelamin";
 	$FormElement[$a] 	= "sex";
 	$FormType[$a]	  	= "select";
 	$FormData[$a]   	= array('Laki-laki', 'Perempuan');

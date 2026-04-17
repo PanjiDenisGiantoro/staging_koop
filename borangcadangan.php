@@ -325,7 +325,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "25";
 
 $a++;
-$FormLabel[$a]   	= "Jantina";
+$FormLabel[$a]   	= "Jenis Kelamin";
 $FormElement[$a] 	= "sex";
 $FormType[$a]	  	= "radio";
 $FormData[$a]   	= array('Laki-laki', 'Perempuan');

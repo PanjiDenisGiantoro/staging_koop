@@ -284,7 +284,7 @@ $FormLength[$a]  	= "15";
 // $FormLength[$a]  	= "25";	
 
 // $a++;
-// $FormLabel[$a]   	= "Jantina";
+// $FormLabel[$a]   	= "Jenis Kelamin";
 // $FormElement[$a] 	= "sex";
 // $FormType[$a]	  	= "radio";
 // $FormData[$a]   	= array('Lelaki','Perempuan');
@@ -307,7 +307,7 @@ $FormLength[$a]  	= "15";
 // $FormLabel[$a]   	= "Status Pernikahan";
 // $FormElement[$a] 	= "maritalID";
 // $FormType[$a]	  	= "radio";
-// $FormData[$a]   	= array('Bujang','Berkahwin','Janda/Duda');
+// $FormData[$a]   	= array('Belum Menikah','Menikah','Janda/Duda');
 // $FormDataValue[$a]	= array('0','1','2');
 // $FormCheck[$a]   	= array();
 // $FormSize[$a]    	= "1";

@@ -180,7 +180,7 @@ for ($i = 0; $i < count($jenisList); $i++) {
 if ($jenis == '') {
     print '<script>
 	function pilihError() {
-	  window.alert("Sila pilih jenis resit terlebih dahulu.");
+	  window.alert("Silakan pilih jenis resi terlebih dahulu.");
 	}
   </script>
   </select> &nbsp;	
@@ -377,7 +377,7 @@ print '
 	function ITRActionButtonClick(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
@@ -400,7 +400,7 @@ print '
 	function ITRActionButtonStatus() {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {

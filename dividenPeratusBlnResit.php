@@ -448,7 +448,7 @@ print '
 	function ITRActionButtonClick(v) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 		} else {
 	          if(confirm(\'Adakah Anda Pasti Untuk Di Rekodkan?\')) {
 	            e.action.value = v;

@@ -534,7 +534,7 @@ print '
 	function ITRActionButtonClick(rpt) {
 	e = document.MyForm;
 		if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -559,7 +559,7 @@ print '
 	function ITRActionButtonClick_o(v) {
 		e = document.MyForm;
 		if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 		} else {
 			count=0;
 			for(c=0; c<e.elements.length; c++) {
@@ -583,7 +583,7 @@ print '
 	function ITRActionButtonFinish(v) {
 	      e = document.MyForm;
 	      if(e==null) {
-			alert(\'Silakan pastikan nama form dibuat/tersedia.!\');
+			alert(\'Silakan pastikan nama form sudah dibuat/tersedia.!\');
 	      } else {
 	        count=0;
 	        for(c=0; c<e.elements.length; c++) {
