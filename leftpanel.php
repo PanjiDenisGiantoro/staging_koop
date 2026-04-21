@@ -294,7 +294,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
                 $mu904 = '';
             }
             echo '<li class="' . $mu904 . '">';
-            TitleBarBlue("INFORPASI AKUN", 'mdi mdi-chart-areaspline');
+            TitleBarBlue("INFORMASI AKUN", 'mdi mdi-chart-areaspline');
             echo '<ul class="sub-menu ' . $mn904 . '" aria-expanded="false">';
         ?>
             <li>
