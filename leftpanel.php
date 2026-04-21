@@ -662,6 +662,24 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         echo '<li><a href="pos.php" target="_blank"><i class="mdi mdi-cart"></i> <span>Buka POS</span></a></li>';
         echo '</ul></li>';
 
+        // admin.pendanaanUsaha
+        if (@$mn == 951) {
+            $mn951 = "mm-collapse mm-show";
+            $mu951 = "mm-active";
+        } else {
+            $mn951 = '';
+            $mu951 = '';
+        }
+        echo '<li class="' . $mu951 . '">';
+        TitleBarBlue("Pendanaan Usaha", 'mdi mdi-cash-multiple');
+        echo '<ul class="sub-menu ' . $mn951 . '" aria-expanded="true">';
+        MenuLink("pendanaanMonitoring.php", "Dashboard Monitoring", 951, @$_REQUEST['vw']);
+        MenuLink("pendanaanList.php", "Senarai Pengajuan", 951, @$_REQUEST['vw']);
+        MenuLink("pendanaanKreditList.php", "Akun Kredit", 951, @$_REQUEST['vw']);
+        MenuLink("pendanaanPool.php", "Pool Dana", 951, @$_REQUEST['vw']);
+        MenuLink("pendanaanJurnal.php", "Jurnal Akuntansi", 951, @$_REQUEST['vw']);
+        echo '</ul></li>';
+
         // admin.import/export
         SubTitleBar("IMPORT/EXPORT");
         // admin.import/export.importFile
@@ -1026,6 +1044,22 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
             MenuLink("usahaList.php", "Usaha Saya", 15, @$_REQUEST['vw']);
             MenuLink("posOrderList.php", "Order Masuk", 15, @$_REQUEST['vw']);
             echo '<li><a href="pos.php" target="_blank"><i class="mdi mdi-cart"></i> <span>Buka POS</span></a></li>';
+            echo '</ul></li>';
+
+            // anggota.pendanaanUsaha
+            if (@$mn == 16) {
+                $mn16 = "mm-collapse mm-show";
+                $mu16 = "mm-active";
+            } else {
+                $mn16 = '';
+                $mu16 = '';
+            }
+            echo '<li class="' . $mu16 . '">';
+            TitleBarBlue("PENDANAAN USAHA", 'mdi mdi-cash-multiple');
+            echo '<ul class="sub-menu ' . $mn16 . '" aria-expanded="false">';
+            MenuLink("pendanaanMonitoring.php", "Monitoring Kredit", 16, @$_REQUEST['vw']);
+            MenuLink("pendanaanList.php", "Pengajuan Saya", 16, @$_REQUEST['vw']);
+            MenuLink("pendanaanPenyata.php", "Penyata Bulanan", 16, @$_REQUEST['vw']);
             echo '</ul></li>';
         }
 

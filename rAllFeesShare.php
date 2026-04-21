@@ -45,45 +45,22 @@ $GetMember->Move($StartRec - 1);
 $TotalRec =    $GetMember->RowCount();
 $TotalPage =  ($TotalRec / $pg);
 
-// Ambil deductID wajib dari general (jenis_simpanan='wajib', status_active_simpanan=1)
-$rsWajibIDs = $conn->Execute("SELECT ID FROM general WHERE jenis_simpanan = 'wajib' AND status_active_simpanan = 1");
-$wajibIDs = array();
-if ($rsWajibIDs) {
-    while (!$rsWajibIDs->EOF) {
-        $wajibIDs[] = (int)$rsWajibIDs->fields['ID'];
-        $rsWajibIDs->MoveNext();
-    }
-}
-if (empty($wajibIDs)) $wajibIDs = array(1595, 1780, 1607); // fallback hardcoded
-$wajibIDStr = implode(',', $wajibIDs);
-
-// Ambil deductID pokok dari general (jenis_simpanan='pokok', status_active_simpanan=1)
-$rsPokokIDs = $conn->Execute("SELECT ID FROM general WHERE jenis_simpanan = 'pokok' AND status_active_simpanan = 1");
-$pokokIDs = array();
-if ($rsPokokIDs) {
-    while (!$rsPokokIDs->EOF) {
-        $pokokIDs[] = (int)$rsPokokIDs->fields['ID'];
-        $rsPokokIDs->MoveNext();
-    }
-}
-if (empty($pokokIDs)) $pokokIDs = array(1596, 1780); // fallback hardcoded
-$pokokIDStr = implode(',', $pokokIDs);
-
 function getFees1($id, $dtTo)
 {
-    global $conn, $wajibIDStr;
+    global $conn;
 
-    $getWajibOpen = "SELECT
+    $getWajibOpen = "SELECT 
         SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END) AS jumlahyuran
         FROM transaction
-        WHERE deductID IN (" . $wajibIDStr . ")
-        AND userID = '" . $id . "'
+        WHERE
+        deductID IN (1595,1780,1607)
+        AND userID = '" . $id . "' 
         AND createdDate <= '" . $dtTo . "'
         GROUP BY userID";
 
     $rsWajibOpen = $conn->Execute($getWajibOpen);
 
-    if ($rsWajibOpen && $rsWajibOpen->RowCount() == 1) {
+    if ($rsWajibOpen->RowCount() == 1) {
         $totalFees = $rsWajibOpen->fields['jumlahyuran'];
     } else {
         $totalFees = 0;
@@ -94,18 +71,18 @@ function getFees1($id, $dtTo)
 
 function getSharesterkini1($id, $dtTo)
 {
-    global $conn, $pokokIDStr;
+    global $conn;
 
-    $getOpenTK = "SELECT
+    $getOpenTK = "SELECT 
         SUM(CASE WHEN addminus = '0' THEN -pymtAmt ELSE pymtAmt END) AS jumlahsyer
         FROM transaction
-        WHERE deductID IN (" . $pokokIDStr . ")
+        WHERE
+        deductID IN (1596,1780)
         AND userID = '" . $id . "'
         AND createdDate <= '" . $dtTo . "'";
-
     $rsOpenTK = $conn->Execute($getOpenTK);
 
-    if ($rsOpenTK && $rsOpenTK->RowCount() == 1) {
+    if ($rsOpenTK->RowCount() == 1) {
         $bakiAwalTK = $rsOpenTK->fields['jumlahsyer'];
     } else {
         $bakiAwalTK = 0;

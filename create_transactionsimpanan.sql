@@ -1,3 +1,5 @@
+-- Tabel untuk transaksi setor dan tarik simpanan
+
 CREATE TABLE transactionsimpanan (
     ID BIGINT AUTO_INCREMENT PRIMARY KEY,
     TellerID VARCHAR(50) NOT NULL COMMENT 'ID Kasir/Teller',
@@ -36,4 +38,5 @@ CREATE TABLE transactionsimpanan (
     INDEX idx_user (UserID),
     INDEX idx_tanggal (TanggalTransaksi),
     INDEX idx_jenis (JenisTransaksi)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tabel transaksi setor dan tarik simpanan';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Tabel transaksi setor dan tarik simpanan';
+
