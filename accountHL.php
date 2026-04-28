@@ -46,7 +46,7 @@ $FormLength[$a]  	= "12";
 
 
 $a++;
-$FormLabel[$a]   	= "Baki Pokok (RP)";
+$FormLabel[$a]   	= "Sisa Pokok (RP)";
 $FormElement[$a] 	= "ByrnPokok";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

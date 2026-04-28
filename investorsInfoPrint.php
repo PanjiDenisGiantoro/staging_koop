@@ -144,7 +144,7 @@ print '
 				<td align="left" class="borderSideTitle">'.$location.'</td>
 			</tr>
 			<tr>
-				<td align="right" class="borderSideTitle"><b>Keluasan Tanah:</b></td>
+				<td align="right" class="borderSideTitle"><b>Luas Tanah:</b></td>
 				<td align="left" class="borderSideTitle">'.$area.'</td>
 			</tr>
 			<tr>

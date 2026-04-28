@@ -22,7 +22,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=rpthutanglapuk1&mn=907';
-$title       = "Laporan Tertunggak Yang Belum Dihapuskira (Kurang 12 Bulan)";
+$title       = "Laporan tunggakan yang belum dihapuskan (Kurang 12 Bulan)";
 
 // Menangani tarikh dari borang
 if (isset($_POST['dtFrom']) && isset($_POST['dtTo'])) {
@@ -92,7 +92,7 @@ print '
 
 print '
 <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 10px;">
-    <button id="downloadExcel" class="btn btn-primary" title="Muat Turun Excel">
+    <button id="downloadExcel" class="btn btn-primary" title="Unduh Excel">
         <i class="mdi mdi-microsoft-excel"></i>
     </button>
 
@@ -116,7 +116,7 @@ print '
 						<td	nowrap>Jenis Pembiayaan</td>		
 						<td	align="center" nowrap>Rujukan Pembiayaan</td>	
 						<td	align="center" nowrap>Bond Pembiayaan</td>
-					    <td	align="right" nowrap>Baki Pokok (RP)</td>						
+					    <td	align="right" nowrap>Sisa Pokok (RP)</td>						
 						<td	align="right" nowrap>Jumlah Terakhir Pembayaran (RP)</td>
 						<td	align="center" nowrap>Tanggal Akhir Bayar</td>
 						<td	align="center" nowrap>Beza (Bulan)</td>
@@ -157,7 +157,7 @@ if ($GetLoan->RowCount() <> 0) {
         $averageDaysPerMonth = 30.44;
         $diffInMonths = round($diffInDays / $averageDaysPerMonth);
 
-        /////////////////////////////Dapatkan Baki Pokok////////////////////////////////////
+        /////////////////////////////Dapatkan Sisa Pokok////////////////////////////////////
         $getJumlahLoan = "SELECT loanAmt + (loanAmt * kadar_u/100 * loanPeriod/12) AS jumlahPembiayaan FROM loans WHERE status ='7' AND loanID = " . $GetLoan->fields(loanID);
         $rsJumlahLoan = $conn->Execute($getJumlahLoan);
         $jumlahPembiayaan = $rsJumlahLoan->fields(jumlahPembiayaan);
@@ -194,7 +194,7 @@ if ($GetLoan->RowCount() <> 0) {
         $bakipembayaran = $balanceHL - $baki;
         $bakiterakhir = $bakipembayaran - $bakiloop;
 
-        /////////////////////////////Tutup Baki Pokok////////////////////////////////////
+        /////////////////////////////Tutup Sisa Pokok////////////////////////////////////
 
         if ($diffInMonths > 12) {
             $status = "Hutang Lapuk";
@@ -230,7 +230,7 @@ if ($GetLoan->RowCount() <> 0) {
         </tr>';
 } else {
     print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
-            <td colspan="10" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+            <td colspan="10" align="center"><b>- Tidak data yang dicetak-</b></td>
         </tr>';
 }
 print '        </table> 
@@ -246,7 +246,7 @@ print '
     var allChecked = false;
     
     document.forms[\'MyForm\'].onsubmit = function() {
-        console.log("Borang dihantar!");
+        console.log("Formulir dikirim!");
     }
 
    document.addEventListener(\'DOMContentLoaded\', function() {

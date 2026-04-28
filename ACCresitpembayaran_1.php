@@ -150,7 +150,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCresitpembayaran&mn=' . $mn . '&action=view&no_resit=' . $no_resit . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun || $projecting || $jabatan1) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun || $projecting || $jabatan1) {
 	$updatedBy 	= get_session("Cookie_userName");
 	$updatedDate = date("Y-m-d H:i:s");
 	$sSQL = "";
@@ -721,7 +721,7 @@ print 		'<tr>
 print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" type="hidden" value="S112"><input name="tarikh" type="hidden" value="01/10/2006"></tr>';
 
 if ($no_resit) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

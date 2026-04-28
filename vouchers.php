@@ -147,7 +147,7 @@ if ($action == "Hapus") {
 	window.location = "vouchers.php?action=view&no_baucer=' . $no_baucer . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $kod_akaun) {
+} elseif ($action == "Perbarui" || $kod_akaun) {
 	$updatedBy 	= get_session("Cookie_userName");
 	$updatedDate = date("Y-m-d H:i:s");
 	$bayar_nama = strtoupper(dlookup("users", "name", "userID=" . tosql($bayar_kod, "Text")));
@@ -428,7 +428,7 @@ print 		'<tr>
 <tr><td>&nbsp;</td></tr>';
 
 if ($no_baucer) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr><td>&nbsp;<input type="submit" name="action" value="' . $straction . '" class="but"> ';
 	if ($bayar_kod)  print '&nbsp;<input type="button" name="print" value="Cetak" class="but" onClick="print_(\'voucherPaymentPrint.php?id=' . $no_baucer . '\')">';

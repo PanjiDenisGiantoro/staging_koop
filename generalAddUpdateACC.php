@@ -1730,7 +1730,7 @@ if ($action == "tambah") {
 	<input type=hidden name=ID class="textFont" value='.$pk.'>
 	<input type="hidden" name="cat" value="'.$cat.'">
 	<input type="hidden" name="sub" value="'.$sub.'">
-	<input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-effect waves-light" value="Kemaskini">';
+	<input type=Submit name=SubmitForm class="btn btn-primary btn-md waves-effect waves-light" value="Perbarui">';
 	}
 }
 print '		</td>

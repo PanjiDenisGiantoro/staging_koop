@@ -23,7 +23,7 @@ if (!isset($yy))    $yy     = date("Y");
 
 $IDName = get_session("Cookie_userName");
 
-$Kemaskini  = $_POST['Kemaskini'];
+$Kemaskini  = $_POST['Perbarui'];
 $Tambah     = $_POST['Tambah'];
 $code = $_REQUEST['code'];
 
@@ -270,7 +270,7 @@ if ($code == 1) {
 
       print '</td>      
 
-    <a href="' . $sFileName . '?IDtype=' . $IDtype . '&ID=' . $ID . '&yrmth=' . $yrmth . '" title="Kemaskini"></a> 
+    <a href="' . $sFileName . '?IDtype=' . $IDtype . '&ID=' . $ID . '&yrmth=' . $yrmth . '" title="Perbarui"></a> 
 
     <input size="7" type="hidden" name="IDtype" value="' . $IDtype . '">
     <input size="7" type="hidden" name="ID" value="' . $ID . '" >
@@ -282,7 +282,7 @@ if ($code == 1) {
       if ($pymtAmt != "") {
 
         if ($IDtype == $rs1->fields(ID)) {
-          print '<input type="submit" size="3" onClick="if(!confirm(\'Adakah anda pasti untuk mengemaskini amaun tersebut?\')) {return false} else {window.Edittrans.submit();};" name="Kemaskini" class="btn btn-sm btn-primary" value="Kemaskini" />';
+          print '<input type="submit" size="3" onClick="if(!confirm(\'Adakah anda pasti untuk mengemaskini amaun tersebut?\')) {return false} else {window.Edittrans.submit();};" name="Perbarui" class="btn btn-sm btn-primary" value="Perbarui" />';
         }
       }
 

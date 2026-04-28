@@ -178,7 +178,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=resitHL&action=view&no_resit=' . $no_resit . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara) {
+} elseif ($action == "Perbarui" || $perkara) {
 	$updatedBy 	= get_session("Cookie_userName");
 	$statusHL1 = 1;
 	$updatedDate = date("Y-m-d H:i:s");
@@ -583,7 +583,7 @@ print 		'<tr class="table-light">
 </tr>';
 
 if ($no_resit) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

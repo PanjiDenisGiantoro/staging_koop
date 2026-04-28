@@ -46,7 +46,7 @@ $FormSize[$a]    	= "30";
 $FormLength[$a]  	= "3";
 
 $a++;
-$FormLabel[$a]   	= "Keluasan Tanah";
+$FormLabel[$a]   	= "Luas Tanah";
 $FormElement[$a] 	= "area";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";

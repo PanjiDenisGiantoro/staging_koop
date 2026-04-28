@@ -310,7 +310,7 @@ $firstParentPrinted = false;; // Flag to track if the first parent has been prin
     } else {
         print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="6" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+        <td colspan="6" align="center"><b>- Tidak data yang dicetak-</b></td>
         </tr>';
     }
 
@@ -447,7 +447,7 @@ $totalkredit=0;
     } else {
         print '
         <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="6" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+        <td colspan="6" align="center"><b>- Tidak data yang dicetak-</b></td>
         </tr>';
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -628,7 +628,7 @@ print '<table width="100%" class="table table-striped">
         } else {
             print '
             <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-            <td colspan="6" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+            <td colspan="6" align="center"><b>- Tidak data yang dicetak-</b></td>
             </tr>';
         }
     

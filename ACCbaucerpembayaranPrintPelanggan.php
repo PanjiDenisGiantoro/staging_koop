@@ -300,7 +300,7 @@ print '
 	</tr>
     </table>
     
-    <!-----------Disediakan Oleh/Disemak Oleh/Disahkan Oleh------------->
+    <!-----------Disediakan Oleh/Diperiksa oleh/Disahkan Oleh------------->
     <table cellpadding="0" cellspacing="0" width="100%" >
         <tr><td colspan="4">&nbsp;</td></tr>
         <tr><td colspan="4">&nbsp;</td></tr>

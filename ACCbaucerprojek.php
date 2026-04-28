@@ -158,7 +158,7 @@ if($action=="Hapus"){
 	}
 }
 
-elseif($action == "Kemaskini" || $perkara || $desc_akaun|| $projecting || $jabatan1) {
+elseif($action == "Perbarui" || $perkara || $desc_akaun|| $projecting || $jabatan1) {
 		$updatedBy 	= get_session("Cookie_userName");
 		$updatedDate = date("Y-m-d H:i:s");               
 		$sSQL = "";
@@ -723,7 +723,7 @@ print
 		</table>
 	</td>';
 
-$straction = ($action=='view'?'Kemaskini':'Simpan');
+$straction = ($action=='view'?'Perbarui':'Simpan');
 print '
 <tr>
 	<td>

@@ -70,7 +70,7 @@ print '
 					<!--th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Nomor Anggota</th>
-					<th nowrap>&nbsp;Cawangan/Jabatan</th>
+					<th nowrap>&nbsp;Cabang/Departemen</th>
 					<th nowrap colspan=2>
 					<table>
 					<tr><td colspan=2>Diterima</td><tr>
@@ -86,7 +86,7 @@ print '
 					<th nowrap rowspan=2>&nbsp;</th>
 					<th nowrap rowspan=2>&nbsp;Nama</th>
 					<th nowrap rowspan=2>&nbsp;Nomor Anggota</th>
-					<th nowrap rowspan=2>&nbsp;Cawangan/Jabatan</th>
+					<th nowrap rowspan=2>&nbsp;Cabang/Departemen</th>
 					<th nowrap colspan=2>&nbsp;Diterima</th>
 					<th nowrap colspan=2>&nbsp;Diluluskan</th>
 				</tr>
@@ -129,7 +129,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="8" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="8" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

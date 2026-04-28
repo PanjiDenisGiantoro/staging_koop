@@ -263,7 +263,7 @@ if ($id <> "") {
 			<td class="Label">:&nbsp;<b>' . $loanCaj . '</b></td>
 		</tr>
 		<!--tr>
-			<td class="textFont" width="150">Baki Pokok</td>
+			<td class="textFont" width="150">Sisa Pokok</td>
 			<td class="Label">:&nbsp;<b>' . $GetLoanDet->fields('outstandingAmt') . '</b></td>
 		</tr>
 		<tr>

@@ -165,7 +165,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCselfBill&mn=' . $mn . '&action=view&sbNo=' . $sbNo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
 	$updatedBy 	    = get_session("Cookie_userName");
 	$updatedDate    = date("Y-m-d H:i:s");
 	$Master2 		= dlookup("generalacc", "parentID", "ID = '" . $b_kodGL . "'");
@@ -563,7 +563,7 @@ print '<tr>
 </tr>
 <tr><td>&nbsp;</td></tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -875,7 +875,7 @@ print 		'<tr>
 
 
 			<tr><td nowrap="nowrap">Disediakan Oleh</td><td valign="top"></td><td>' . selectAdmin($disedia, 'disedia') . '</td></tr>
-			<tr><td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td><td>' . selectAdmin($disemak, 'disemak') . '</td></tr>
+			<tr><td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td><td>' . selectAdmin($disemak, 'disemak') . '</td></tr>
 			<tr>
 				<td nowrap="nowrap" valign="top">Catatan</td><td valign="top"></td><td valign="top">
 					<textarea class="form-controlx" name="catatan" cols="50" rows="4">' . $catatan . '</textarea>
@@ -885,7 +885,7 @@ print 		'<tr>
 	</td>
 </tr>';
 
-$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 print '
 <tr>
 	<td>

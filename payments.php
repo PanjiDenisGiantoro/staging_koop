@@ -137,7 +137,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=payments&mn=908&action=view&no_bayar=' . $no_bayar . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $no_anggota) {
+} elseif ($action == "Perbarui" || $no_anggota) {
 	$updatedBy 	= get_session("Cookie_userName");
 	$updatedDate = date("Y-m-d H:i:s");
 	$tarikh_bayar = saveDateDb($tarikh_bayar);
@@ -370,13 +370,13 @@ print 		'<tr class="table-secondary">
 
 /*
 if($no_bayar) { 
-$straction = ($action=='view'?'Kemaskini':'Simpan');
+$straction = ($action=='view'?'Perbarui':'Simpan');
 print '
 <tr><td>&nbsp;<input type="submit" name="action" value="'.$straction.'" class="but">&nbsp;<input type="button" name="generate" value="Generate" class="but" onclick= "Javascript:(window.location.href=\'payments.php?action=view&no_bayar='.$no_bayar.'&generate=y\')"> </td></tr>';
 }*/
 
 if ($no_bayar) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>&nbsp;

@@ -243,7 +243,7 @@ if ($page <> 'list') {
 	$strFieldNameList[0]	= array('&nbsp;<br>&nbsp;', '&nbsp;', '&nbsp;');
 	$strFieldWidthList[0]	= array('', '80', '80');
 
-	$strFieldNameList[1]	= array('<b>Tahun</b>', '<b>Bulan</b>', '<b>Bulanan ke</b>', '<b>Untung Tahunan</b>', '<b>Untung Bulanan</b>', '<b>Pokok Tahunan</b>', '<b>Pokok Bulanan</b>', '<b>Bayaran Bulanan</b>', '<b>Baki Pokok</b>', '<b>Baki keseluruhan</b>', '<b>Keuntungan TerAkru</b>');
+	$strFieldNameList[1]	= array('<b>Tahun</b>', '<b>Bulan</b>', '<b>Bulanan ke</b>', '<b>Untung Tahunan</b>', '<b>Untung Bulanan</b>', '<b>Pokok Tahunan</b>', '<b>Pokok Bulanan</b>', '<b>Bayaran Bulanan</b>', '<b>Sisa Pokok</b>', '<b>Baki keseluruhan</b>', '<b>Keuntungan TerAkru</b>');
 	$strFieldWidthList[1]	= array('50', '50', '50', '80', '80', '80', '80', '80', '80', '80', '80');
 
 	// Begin Table...
@@ -408,9 +408,9 @@ if ($page <> 'list') {
 	}
 
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList = array($strCheckboxTemp, 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
+		$strFieldNameList = array($strCheckboxTemp, 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nomor KTP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
 	} else {
-		$strFieldNameList = array('&nbsp;', 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
+		$strFieldNameList = array('&nbsp;', 'NomborRujukan/Pembiayaan', 'NomborAnggota/Nama', 'Nomor KTP Baru', 'Jabatan/Cawangan', 'Jumlah (RP)', 'Tanggal Pembayaran');
 	}
 	$strFieldWidthList = array('15', '', '', '10%', '10%', '10%', '10%');
 	$strFieldAlignList = array('right', 'left', 'left', 'left', 'left', 'right', 'right');

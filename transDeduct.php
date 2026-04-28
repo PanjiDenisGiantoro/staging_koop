@@ -48,7 +48,7 @@ if ($page <> 'list') {
 $strHeaderTitle = '<a class="maroon" href="index.php">LAMAN UTAMA</a><b>' . '&nbsp;>&nbsp;' . $strHeaderTitle . '</b>';
 
 if (isset($_POST['submit'])) {
-	if ($_POST['submit'] == 'Kemaskini') {
+	if ($_POST['submit'] == 'Perbarui') {
 		for ($i = 0; $i < count($deduct_id); $i++) {
 			if ($checkbox_id[$i]) {
 				$sSQL =
@@ -319,9 +319,9 @@ if ($page <> 'list') {
 
 	//set list header 
 	if ($GetData->RowCount() <> 0) {
-		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+		$strFieldNameList = array($strCheckboxTemp, 'NomborAnggota/Nama', 'Nomor KTP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	} else {
-		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nombor KP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
+		$strFieldNameList = array('&nbsp;', 'NomborAnggota/Nama', 'Nomor KTP Baru', 'Jabatan/Cawangan', 'Tanggal Anggota', 'Bil. Rekod', 'Jumlah (RP)');
 	}
 	$strFieldWidthList = array('15', '', '10%', '20%', '10%', '10%', '8%');
 	$strFieldAlignList = array('right', 'left', 'left', 'left', 'center', 'right', 'right');
@@ -583,7 +583,7 @@ if ($page <> 'list') {
 	if ($page == 'add') {
 		$strTemp .= '<input name="submit" type="submit" value="Simpan" />&nbsp;';
 	} else if ($page == 'edit' and $nCount > 1) {
-		$strTemp .= '<input name="submit" type="submit" value="Kemaskini" onclick="ConfirmUpdate()" />&nbsp;';
+		$strTemp .= '<input name="submit" type="submit" value="Perbarui" onclick="ConfirmUpdate()" />&nbsp;';
 	}
 
 	if ($nCount > 1) {

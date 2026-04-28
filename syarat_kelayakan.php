@@ -86,7 +86,7 @@ if (get_session('Cookie_groupID') <> '') {
 			$bPass = false;
 
 
-			if ($_POST['Submit'] == 'Kemaskini' and $id <> '' and $id === '999') {
+			if ($_POST['Submit'] == 'Perbarui' and $id <> '' and $id === '999') {
 
 				$updatedDate = date("Y-m-d H:i:s");
 				$sSQL = "";
@@ -194,7 +194,7 @@ if (get_session('Cookie_groupID') <> '') {
 		  </script>';
 
 			$strTemp .= '<tr><td>';
-			$strTemp .= '<input type="submit" class="btn btn-sm btn-primary" name="Submit" value="Kemaskini">';
+			$strTemp .= '<input type="submit" class="btn btn-sm btn-primary" name="Submit" value="Perbarui">';
 
 
 			if (get_session('Cookie_groupID') <> 0 and $id <> 999) {

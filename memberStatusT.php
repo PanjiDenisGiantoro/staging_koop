@@ -25,7 +25,7 @@ $title = "Status Pengajuan Berhenti";
 
 
 
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 	$pk = explode(",", $pk);
 	$str = array();
 	foreach ($pk as $val) {
@@ -266,7 +266,7 @@ if ($member) {
 			<tr>
 				<td colspan="3" align="center">
 					<div>&nbsp;</div>
-					<input type="submit" name="action" value="Kemaskini" class="btn btn-primary">
+					<input type="submit" name="action" value="Perbarui" class="btn btn-primary">
 					<div>&nbsp;</div>
 				</td>
 			</tr>

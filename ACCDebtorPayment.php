@@ -249,7 +249,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCDebtorPayment&mn=' . $mn . '&action=view&RVNo=' . $RVNo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $carabayar || $desc_akaun) {
+} elseif ($action == "Perbarui" || $carabayar || $desc_akaun) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$tarikh_RV 		= saveDateDb($tarikh_RV);
@@ -643,7 +643,7 @@ print '
 	<td>&nbsp;</td>
 </tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -927,7 +927,7 @@ print 		'<tr class="table-secondary">
 			</tr>
 
 			<tr>
-				<td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td>
+				<td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td>
 				<td>' . selectAdmin($disemak, 'disemak') . '</td>
 			</tr>
 			
@@ -943,7 +943,7 @@ print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" typ
 
 
 if ($RVNo) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

@@ -176,7 +176,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCdebitNote&mn=' . $mn . '&action=view&noteNo=' . $noteNo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$tarikh_note 	= saveDateDb($tarikh_note);
@@ -929,7 +929,7 @@ print '
 			</tr>
 
 			<tr>
-				<td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td>
+				<td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td>
 				<td>' . selectAdmin($disemak, 'disemak') . '</td>
 			</tr>
 			
@@ -943,7 +943,7 @@ print '
 	</td>';
 
 if ($noteNo) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

@@ -59,7 +59,7 @@ $FormSize[$a]    	= "20";
 $FormLength[$a]  	= "3";	
 
 $a++;
-$FormLabel[$a]   	= "Keluasan Tanah";
+$FormLabel[$a]   	= "Luas Tanah";
 $FormElement[$a] 	= "area";
 $FormType[$a]	  	= "text";
 $FormData[$a]   	= "";
@@ -226,14 +226,14 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
 print '
 	<div class="mt-3 mb-3 row">
     	<center>
-        	<button type="submit" class="btn btn-primary w-md waves-effect waves-light" name="action" value="Kemaskini" onclick="window.location.href=\''.$sActionFileName.'&action=Kemaskini\';">KEMASKINI</button>
+        	<button type="submit" class="btn btn-primary w-md waves-effect waves-light" name="action" value="Perbarui" onclick="window.location.href=\''.$sActionFileName.'&action=Kemaskini\';">KEMASKINI</button>
     	</center>
 	</div>';
 
 print'
 </form>';
 
-if ($action == "Kemaskini") {
+if ($action == "Perbarui") {
 
 	//--- Begin : Call function FormValidation ---  
 	for ($i = 1; $i <= count($FormLabel); $i++) {

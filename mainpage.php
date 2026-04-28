@@ -455,7 +455,7 @@ if (get_session('Cookie_groupID') <> '') {
 
 				$bPass = true;
 				$page = 'view';
-			} else if ($_POST['Submit'] == 'Kemaskini' and $id <> '') {
+			} else if ($_POST['Submit'] == 'Perbarui' and $id <> '') {
 
 				$updatedDate = date("Y-m-d H:i:s");
 				$sSQL = "";
@@ -575,7 +575,7 @@ if (get_session('Cookie_groupID') <> '') {
 			if ($page == 'add') {
 				$strTemp .= '<input type="submit" class="btn btn-sm btn-primary" name="Submit" value="Simpan">';
 			} else {
-				$strTemp .= '<input type="submit" class="btn btn-sm btn-primary" name="Submit" value="Kemaskini">';
+				$strTemp .= '<input type="submit" class="btn btn-sm btn-primary" name="Submit" value="Perbarui">';
 			}
 
 			if (get_session('Cookie_groupID') <> 0 and $page <> 'add' and $id <> '999') {

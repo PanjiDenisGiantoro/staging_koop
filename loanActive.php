@@ -9,7 +9,7 @@ include("header.php");
 include("koperasiQry.php");
 date_default_timezone_set("Asia/Jakarta");
 if (!isset($strDate))	$strDate = date("d/m/Y");
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 	$pk = explode(":", $pk);
 	$str = array();
 	foreach ($pk as $val) {
@@ -127,7 +127,7 @@ print '		</select>
 				<tr>
 					<td colspan="2" align="center">
 					<input type="hidden" name="pk" value="' . $strpk . '">
-					<input type="submit" name="action" value="Kemaskini" class="but">&nbsp;<input type="button" name="batal" value="Batal" class="but"  onclick= "Javascript:(window.location.href=\'memberProfil.php\')"></td>
+					<input type="submit" name="action" value="Perbarui" class="but">&nbsp;<input type="button" name="batal" value="Batal" class="but"  onclick= "Javascript:(window.location.href=\'memberProfil.php\')"></td>
 				</tr>';
 print ' <tr>
 					<td class="Data">&nbsp;</td>

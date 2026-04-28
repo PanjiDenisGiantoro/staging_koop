@@ -162,7 +162,7 @@ if ($GetLoan->RowCount() == 0) {
 						<td class="headerteal" nowrap>&nbsp;</td>
 						<td class="headerteal">&nbsp;<b>Nombor ruj. Pinjaman</b></td>
 						<td	>&nbsp;<b>No/Nama Anggota</b></td>
-						<td	>&nbsp;<b>Nombor KP Baru</b></td>
+						<td	>&nbsp;<b>Nomor KTP Baru</b></td>
 						<td	>&nbsp;<b>Jumlah</b></td>
 						<td	>&nbsp;<b>Status</b></td>
 						<td	>&nbsp;<b>Tanggal Pengajuan</b></td>

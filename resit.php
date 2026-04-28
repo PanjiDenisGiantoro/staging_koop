@@ -207,7 +207,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=resit&mn=945&action=view&no_resit=' . $no_resit . '";
 	</script>';
     }
-} elseif ($action == "Kemaskini" || $perkara) {
+} elseif ($action == "Perbarui" || $perkara) {
     $updatedBy         = get_session("Cookie_userName");
     $updatedDate     = date("Y-m-d H:i:s");
     $tarikh_resit     = saveDateDb($tarikh_resit);
@@ -604,7 +604,7 @@ print '&nbsp;<input name="loan_no" type="hidden" value="">&nbsp;</td>
 </tr>		
 <tr><td>&nbsp;</td></tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -902,7 +902,7 @@ print         '<tr class="table-secondary">
 </tr>';
 
 if ($no_resit) {
-    $straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+    $straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
     print '
 <tr>
 	<td>

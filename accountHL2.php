@@ -57,7 +57,7 @@ $catatan = $_POST['catatan'];
 $BakiHutang = $_POST['BakiHutang'];
 $status = 1;
 
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 	if ($rsaccount->RowCount() > 0) {
 
 		$ID = $rsaccount->fields(ID);
@@ -216,7 +216,7 @@ if ($action == 'Kemaskini') {
 						<tr>
 							<td>&nbsp;</td>
 							<td>&nbsp;</td>
-							<td><input type="submit" class="btn btn-secondary" name="action" value="Kemaskini">&nbsp;</td>
+							<td><input type="submit" class="btn btn-secondary" name="action" value="Perbarui">&nbsp;</td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr>

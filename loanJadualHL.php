@@ -168,7 +168,7 @@ if ($id <> "") {
 			<td class="Label">:&nbsp;' . $loanCaj . '</td>
 		</tr>
 		<!--tr>
-			<td class="textFont" width="150">Baki Pokok</td>
+			<td class="textFont" width="150">Sisa Pokok</td>
 			<td class="Label">:&nbsp;' . $GetLoanDet->fields('outstandingAmt') . '</td>
 		</tr>
 		<tr>

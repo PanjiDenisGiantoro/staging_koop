@@ -92,7 +92,7 @@ if ($rsCheck->RowCount() <= 0) {
 
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 } else {
 
@@ -176,7 +176,7 @@ if ($rsCheck->RowCount() <= 0) {
 	} else {
 		print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 	}
 	/*	
@@ -203,7 +203,7 @@ if ($rsCheck->RowCount() <= 0) {
 
 					print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 
 				}*/

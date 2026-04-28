@@ -19,7 +19,7 @@ if (get_session("Cookie_koperasiID") <> $koperasiID) {
 
 
 if (!isset($strDate))	$strDate = date("d/m/Y");
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 	$pk = explode(",", $pk);
 	$str = array();
 	foreach ($pk as $val) {
@@ -200,7 +200,7 @@ unset($pk);
 			<tr>
 				<td colspan="2" align="center">
 					<div>&nbsp;</div>
-					<input type="submit" name="action" class="btn btn-md btn-primary" value="Kemaskini">
+					<input type="submit" name="action" class="btn btn-md btn-primary" value="Perbarui">
 					&nbsp;
 					<input type="button" name="batal" value="Batal" class="btn btn-md btn-danger" onclick="Javascript:(window.location.href='?vw=member')">
 					<div>&nbsp;</div>

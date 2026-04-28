@@ -56,7 +56,7 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap width="100" align="left">Nama Projek</th>
 					<th nowrap width="80" align="left">Lokasi</th>
-					<th align="center" nowrap width="80">Keluasan Tanah</th>
+					<th align="center" nowrap width="80">Luas Tanah</th>
 					<th nowrap width="80">Tanggal Mula</th>	
 					<th nowrap width="80">Tanggal Akhir</th>
 					<th nowrap width="80">Tempoh Perjanjian (Bulan)</th>
@@ -93,7 +93,7 @@ print '
 				} else {
 					print '
 					<tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 				}
 

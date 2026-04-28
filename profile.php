@@ -142,7 +142,7 @@ if ($action <> '') {
 
             <label class="col-md-2 col-form-label"></label>
             <div class="col-md-5">
-                <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Kemaskini">
+                <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Perbarui">
                 <!-- <input type="reset" name="action"  class="btn btn-secondary w-md waves-effect waves-light" value="Isi semula"> -->
             </div>
 
@@ -183,7 +183,7 @@ if ($action <> '') {
     <td></td>
     <td></td>
     <td colspan="2" align="left">
-    <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Kemaskini">
+    <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Perbarui">
     <input type="reset" name="action"  class="btn btn-primary w-md waves-effect waves-light" value="Isi semula">    
     </td>
 </tr>							

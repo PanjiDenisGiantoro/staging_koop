@@ -155,7 +155,7 @@ if ($action == "Hapus") {
     }
 
     ///////////////////////////////////////////////////////
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
     $updatedBy         = get_session("Cookie_userName");
     $updatedDate     = date("Y-m-d H:i:s");
     $tarikh_entry     = saveDateDb($tarikh_entry);
@@ -707,7 +707,7 @@ print '
 
 
 if ($SENO) {
-    $straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+    $straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
     // $stractionN = ($action=='view'?'Semak':'Simpan');
     print '
 <tr>
@@ -717,7 +717,7 @@ if ($SENO) {
 
 	';
 
-    // if ($straction=='Kemaskini' && $totalALL == 0) {
+    // if ($straction=='Perbarui' && $totalALL == 0) {
     // 	print'<input type="button" name="action" value="'.$stractionN.'" class="btn btn-sm btn-primary" onclick="CheckField(\''. $straction.'\')">';
     // }
 
@@ -792,7 +792,7 @@ print '
 		if(crt==krt){
 	          f.submit();
 		}else{
-	         alert(\'Sila pastikan jumlah debit dan kredit sepadan.\');
+	         alert(\'Harap pastikan jumlah debit dan kredit seimbang.\');
 		}
 
 	}
@@ -880,7 +880,7 @@ print '
 
 		if(debit_kredit==1){
 			if(debit && kredit){
-				alert(\'Sila masukkan salah satu ruang amaun sahaja!\');
+				alert(\'Harap masukkan hanya salah satu kolom jumlah saja!\');
 				count++;
 			} else if(!debit && !kredit){
 				alert(\'Sila masukkan salah satu ruang amaun!\');
@@ -917,7 +917,7 @@ print '
 		//if((dbt==krt && (!dbt==0 && !krt==0)) || act == \'Simpan\'){
 		//	e.submit();
 		//}else{
-		//	alert(\'Sila pastikan jumlah debit dan kredit sepadan.\');
+		//	alert(\'Harap pastikan jumlah debit dan kredit seimbang.\');
 		//}
 
 	}

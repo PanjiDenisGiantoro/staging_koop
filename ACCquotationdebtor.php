@@ -166,7 +166,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCquotationdebtor&mn=' . $mn . '&action=view&quoteNo=' . $quoteNo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
 	$updatedBy 	 = get_session("Cookie_userName");
 	$updatedDate = date("Y-m-d H:i:s");
 	$sSQL   = "";
@@ -558,7 +558,7 @@ print '<input type="button" class="btn btn-sm btn-info" id="pilihButton" value="
 </tr>
 <tr><td>&nbsp;</td></tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -897,7 +897,7 @@ print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" typ
 
 <input name="tarikh_bayar" type="hidden" value="01/10/2006"></tr>';
 
-$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 print '
 <tr>
 	<td>

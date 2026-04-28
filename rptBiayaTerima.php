@@ -89,7 +89,7 @@ print '
 					<th nowrap>&nbsp;Nombor Ahli</th>
 					<th nowrap>&nbsp;Tanggal</th>
 					<th nowrap>&nbsp;Nama Anggota</th>
-					<th nowrap>&nbsp;Cawangan/Jabatan</th>
+					<th nowrap>&nbsp;Cabang/Departemen</th>
 					<th nowrap>&nbsp;Nomor Rujukan</th>
 					<th nowrap>&nbsp;Jumlah Dipohon(RP)</th>
 					<th nowrap>&nbsp;Tempoh(Bulan)</th>
@@ -148,7 +148,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="14" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="14" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

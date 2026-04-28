@@ -155,7 +155,7 @@ if($action=="Hapus"){
 	}
 }
 
-elseif($action == "Kemaskini" || $perkara || $desc_akaun ) {
+elseif($action == "Perbarui" || $perkara || $desc_akaun ) {
 		$updatedBy 	= get_session("Cookie_userName");
 		$updatedDate = date("Y-m-d H:i:s");               
 		$sSQL = "";
@@ -705,7 +705,7 @@ print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" typ
 
 <input name="tarikh_bayar" type="hidden" value="01/10/2006"></tr>';
 
-$straction = ($action=='view'?'Kemaskini':'Simpan');
+$straction = ($action=='view'?'Perbarui':'Simpan');
 print '
 <tr>
 	<td>

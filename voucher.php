@@ -15,7 +15,7 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 	print '<script>alert("' . $errPage . '");top.location="index.php";</script>';
 }
 
-$strHeaderTitle = '<a class="maroon" href="index.php">LAMAN UTAMA</a><b>' . '&nbsp;>&nbsp;BAUCER JURNAL</b>';
+$strHeaderTitle = '<a class="maroon" href="index.php">LAMAN UTAMA</a><b>' . '&nbsp;>&nbsp;VOUCHER JURNAL</b>';
 
 $strTemp .=
 	'<div class="maroon" align="left">' . $strHeaderTitle . '</div>'

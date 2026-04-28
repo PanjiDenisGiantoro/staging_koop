@@ -163,8 +163,8 @@ print '<script>
 }
 //--- End   : Form Validation Field / Add / Update ---------------------------------------------->
 
-if ($SubmitDpt == 'Kemaskini' || $SubmitBlj == 'Kemaskini') {
-    if ($SubmitDpt == 'Kemaskini') {
+if ($SubmitDpt == 'Perbarui' || $SubmitBlj == 'Perbarui') {
+    if ($SubmitDpt == 'Perbarui') {
         if ($valueD) {
 
             $totJ = count($stateIDd);
@@ -209,7 +209,7 @@ if ($SubmitDpt == 'Kemaskini' || $SubmitBlj == 'Kemaskini') {
         }
     }
     //--------------------------
-    if ($SubmitBlj == 'Kemaskini') {
+    if ($SubmitBlj == 'Perbarui') {
         if ($valueJ) {
             foreach ($valueJ as $key => $value) {
                 $sSQL = "";

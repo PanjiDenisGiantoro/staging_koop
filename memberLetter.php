@@ -144,7 +144,7 @@ if (isset($_POST['Submit'])) {
 
 			$bPass = true;
 			$page = 'view';
-		} else if ($_POST['Submit'] == 'Kemaskini' and $code <> '') {
+		} else if ($_POST['Submit'] == 'Perbarui' and $code <> '') {
 			$sSQL =
 				'UPDATE letters'
 				. ' SET'
@@ -409,7 +409,7 @@ if ($page <> 'list') {
 		if ($page == 'add') {
 			$strHtml .= '<input name="Submit" type="submit" value="Simpan" class="btn btn-primary" />&nbsp;';
 		} else if ($page == 'edit') {
-			$strHtml .= '<input name="Submit" type="submit" value="Kemaskini" class="btn btn-primary" />&nbsp;';
+			$strHtml .= '<input name="Submit" type="submit" value="Perbarui" class="btn btn-primary" />&nbsp;';
 		}
 		// if ($page == 'edit') {
 		// 	$strHtml .= '<input name="Submit" type="submit" value="Duplicate" class="btn btn-primary" onclick="return ConfirmDuplicate();" />&nbsp;';

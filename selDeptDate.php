@@ -12,7 +12,7 @@ $today = date("F j, Y, g:i a");
 
 if ($rpt == "") {
 	print '	<script>
-				alert ("'.$rpt.' - Nama laporan ini tidak wujud...!");
+				alert ("'.$rpt.' - Nama laporan ini tidak ada...!");
 				window.close();
 			</script>';
 }

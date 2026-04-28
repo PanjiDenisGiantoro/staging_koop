@@ -343,7 +343,7 @@ if ($id <> "") {
 			<td nowrap align="right"><b>Pokok</td>
 			<td nowrap align="right"><b>Untung</td>
 			<td nowrap align="right"><b>Bulanan</td>
-			<td nowrap align="right"><b>Baki Pokok(RP)</td>
+			<td nowrap align="right"><b>Sisa Pokok(RP)</td>
 			<td nowrap align="right"><b>Baki Pembiayaan(RP)</td>					
 		</tr>
 		';

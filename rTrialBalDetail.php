@@ -109,7 +109,7 @@ function laporan() {
 
 print '
 <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 10px;">
-    <button id="downloadExcel" class="btn btn-primary" title="Muat Turun Excel">
+    <button id="downloadExcel" class="btn btn-primary" title="Unduh Excel">
         <i class="mdi mdi-microsoft-excel"></i>
     </button>
 
@@ -190,7 +190,7 @@ print'
 	
 } else {
     print '<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 9pt;">
-            <td colspan="10" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+            <td colspan="10" align="center"><b>- Tidak data yang dicetak-</b></td>
         </tr>';
 }
 print '        </table> 
@@ -206,7 +206,7 @@ print '
     var allChecked = false;
     
     document.forms[\'MyForm\'].onsubmit = function() {
-        console.log("Borang dihantar!");
+        console.log("Formulir dikirim!");
     }
 
    document.addEventListener(\'DOMContentLoaded\', function() {

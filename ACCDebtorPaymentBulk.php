@@ -327,7 +327,7 @@ if ($action == "Hapus") {
 		window.location = "?vw=ACCDebtorPaymentBulk&mn=' . $mn . '&action=view&RVNo=' . $RVNo . '";
 		</script>';
 	}
-} elseif ($action == "Kemaskini" || $carabayar || $desc_akaun || $invNo2) {
+} elseif ($action == "Perbarui" || $carabayar || $desc_akaun || $invNo2) {
 
 	$updatedBy 	= get_session("Cookie_userName");
 	$updatedDate = date("Y-m-d H:i:s");
@@ -1065,7 +1065,7 @@ print 		'<tr class="table-secondary">
 			</tr>
 
 			<tr>
-				<td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td>
+				<td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td>
 				<td>' . selectAdmin($disemak, 'disemak') . '</td>
 			</tr>
 			
@@ -1080,7 +1080,7 @@ print 		'<tr class="table-secondary">
 print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" type="hidden" value="S112"><input name="tarikh" type="hidden" value="01/10/2006"></tr>';
 
 if ($RVNo) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

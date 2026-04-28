@@ -241,7 +241,7 @@ $rs = &$conn->Execute($sSQL);
             <div class="row m-2 mt-4 mb-4">
                 <label class="col-md-2 col-form-label"></label>
                 <div class="col-md-5">
-                    <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Kemaskini">
+                    <input type="submit" name="action" class="btn btn-primary w-md waves-effect waves-light" value="Perbarui">
                 </div>
             </div>
         <?

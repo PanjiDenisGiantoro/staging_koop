@@ -147,7 +147,7 @@ if ($GetList->RowCount() <> 0) {
 					<tr class="header">
 						<td nowrap height="20">&nbsp;</td>
 						<td nowrap>&nbsp;No / Nama Anggota </td>
-						<td nowrap align="center">&nbsp;Nombor KP Baru</td>
+						<td nowrap align="center">&nbsp;Nomor KTP Baru</td>
 						<td nowrap>&nbsp;Jabatan</td>
 						<td nowrap align="center">&nbsp;Wajib</td>						
 						<td nowrap align="center">&nbsp;Pokok</td>						

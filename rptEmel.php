@@ -52,10 +52,10 @@ print '
 					<th nowrap>&nbsp;</th>
 					<th nowrap>&nbsp;Nama</th>
 					<th nowrap>&nbsp;Nomor Anggota</th>
-					<th nowrap>&nbsp;Nombor KP Baru</th>
-					<th nowrap>&nbsp;Cawangan/Jabatan</th>
+					<th nowrap>&nbsp;Nomor KTP Baru</th>
+					<th nowrap>&nbsp;Cabang/Departemen</th>
 					<th nowrap>&nbsp;Jenis surat</th>
-					<th nowrap>&nbsp;Tanggal Hantar</th>
+					<th nowrap>&nbsp;Tanggal Kirim</th>
 				</tr>';
 if ($rs->RowCount() <> 0) {
 	while (!$rs->EOF) {
@@ -76,7 +76,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="7" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="7" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

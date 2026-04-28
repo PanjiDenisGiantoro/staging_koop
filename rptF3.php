@@ -176,7 +176,7 @@ $rs = &$conn->Execute($sSQL);
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="3" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="3" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

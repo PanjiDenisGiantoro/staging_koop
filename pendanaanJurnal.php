@@ -216,7 +216,7 @@ $namaBulan = isset($bulanNama[$mmPad]) ? $bulanNama[$mmPad] : $mm;
                 <tr>
                     <th width="5%" class="ps-4"></th>
                     <th width="12%">No. Akaun</th>
-                    <th>Nama Akaun</th>
+                    <th>Nama Akun</th>
                     <th class="text-end" width="14%">Debit (Rp)</th>
                     <th class="text-end" width="14%">Kredit (Rp)</th>
                     <th width="20%">Keterangan</th>

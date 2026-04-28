@@ -236,7 +236,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCbillpembayaran&mn=' . $mn . '&action=view&no_bill=' . $no_bill . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $jabatan1 || $desc_akaun || $projecting) {
+} elseif ($action == "Perbarui" || $jabatan1 || $desc_akaun || $projecting) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$tarikh_bill 	= saveDateDb($tarikh_bill);
@@ -731,7 +731,7 @@ print '<tr>
 	<td>&nbsp;</td>
 </tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -1021,7 +1021,7 @@ print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" typ
 
 
 if ($no_bill) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

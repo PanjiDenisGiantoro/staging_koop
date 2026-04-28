@@ -28,7 +28,7 @@ $title     		= "Kemaskini Maklumat Pembiayaan Peribadi";
 $updatedBy 	= get_session("Cookie_userName");
 $updatedDate = date("Y-m-d H:i:s");   
 
-if($SubmitForm == 'Kemaskini'){
+if($SubmitForm == 'Perbarui'){
 	foreach($valueD as $key => $value){
 
 	$checkStates = "SELECT * FROM userstates 

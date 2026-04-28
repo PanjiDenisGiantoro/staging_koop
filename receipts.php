@@ -31,7 +31,7 @@ if ($action == 'add') {
 $display = 0;
 $updatedBy 	= get_session("Cookie_userName");
 $updatedDate = date("Y-m-d H:i:s");
-if ($action == "Kemaskini") {
+if ($action == "Perbarui") {
 	$sSQL = "";
 	$sWhere = "";
 	$sWhere = "transID=" . tosql($ID, "Text");
@@ -254,7 +254,7 @@ print
 </tr>';
 
 if ($no_resit) {
-	$straction = ($type ? 'Kemaskini' : 'Simpan');
+	$straction = ($type ? 'Perbarui' : 'Simpan');
 	$cetak = dlookup("resit", "no_resit", "transID=" . tosql($ID, "Text"));
 	print '
 <tr><td><input type="submit" name="action" value="' . $straction . '" class="but">';

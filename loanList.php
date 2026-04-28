@@ -243,7 +243,7 @@ $TotalPage =  ($TotalRec / $pg);
 					. '<td nowrap>&nbsp;</td>'
 					. '<td nowrap>&nbsp;Nombor Pinjaman&nbsp;</td>'
 					. '<td nowrap>&nbsp;Nomor Anggota/Nama Anggota&nbsp;</td>'
-					. '<td nowrap align="center">&nbsp;Nombor KP Baru&nbsp;</td>'
+					. '<td nowrap align="center">&nbsp;Nomor KTP Baru&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Jabatan/Cawangan&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Jumlah&nbsp;</td>'
 					. '<td nowrap align="center">&nbsp;Tanggal Pengajuan&nbsp;</td>';

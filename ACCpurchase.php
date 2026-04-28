@@ -169,7 +169,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCpurchase&mn=' . $mn . '&action=view&purcNo=' . $purcNo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$tarikh_purc 	= saveDateDb($tarikh_purc);
@@ -744,7 +744,7 @@ print 		'<tr class="table-secondary">
 			</td></tr>
 
 			<tr><td nowrap="nowrap">Disediakan Oleh</td><td valign="top"></td><td>' . selectAdmin($disedia, 'disedia') . '</td></tr>
-			<tr><td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td><td>' . selectAdmin($disemak, 'disemak') . '</td></tr>
+			<tr><td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td><td>' . selectAdmin($disemak, 'disemak') . '</td></tr>
 			<tr><td nowrap="nowrap">Disahkan Oleh</td><td valign="top"></td><td>' . selectAdmin($disahkan, 'disahkan') . '</td></tr>
 			<tr>
 				<td nowrap="nowrap" valign="top">Catatan</td><td valign="top"></td><td valign="top">
@@ -759,7 +759,7 @@ print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" typ
 <input name="tarikh_bayar" type="hidden" value="01/10/2006"></tr>';
 
 
-$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 print '
 <tr>
 	<td>

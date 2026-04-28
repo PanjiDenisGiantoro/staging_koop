@@ -89,7 +89,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="8" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="8" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

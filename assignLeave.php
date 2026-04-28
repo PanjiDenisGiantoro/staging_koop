@@ -34,7 +34,7 @@ if ($GetCuti->RowCount() != 0) {
 
 $userID = dlookup("users", "userID", "staffID=" . $pk);
 
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 
     $staffIDs = explode(",", $pk);
     $sanitizedIDs = array();
@@ -197,7 +197,7 @@ if ($member) {
                         <tr>
                             <td colspan="3" align="center">
                                 <div class="mt-3">
-                                    <input type="submit" name="action" value="Kemaskini" class="btn btn-primary" onclick="return validateForm();">
+                                    <input type="submit" name="action" value="Perbarui" class="btn btn-primary" onclick="return validateForm();">
                                 </div>
                             </td>
                         </tr>

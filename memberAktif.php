@@ -11,7 +11,7 @@ include("koperasiQry.php");
 date_default_timezone_set("Asia/Jakarta");
 include("koperasiList.php");
 if (!isset($strDate))	$strDate = date("d/m/Y");
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
 	$pk = explode(":", $pk);
 	$str = array();
 	foreach ($pk as $val) {
@@ -120,7 +120,7 @@ print '		</select>
 				<tr class="table-light">
 					<td colspan="2" align="center">
 					<input type="hidden" name="pk" value="' . $strpk . '">
-					<input type="submit" name="action" value="Kemaskini" class="btn btn-primary">&nbsp;<input type="button" name="batal" value="Batal" class="btn btn-danger"  onclick= "Javascript:(window.location.href=\'?vw=memberProfil&mn=901\')"></td>
+					<input type="submit" name="action" value="Perbarui" class="btn btn-primary">&nbsp;<input type="button" name="batal" value="Batal" class="btn btn-danger"  onclick= "Javascript:(window.location.href=\'?vw=memberProfil&mn=901\')"></td>
 				</tr>';
 
 

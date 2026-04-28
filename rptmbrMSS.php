@@ -81,7 +81,7 @@ if ($rs->RowCount() <> 0) {
 								<th nowrap>&nbsp;</th>
 								<th nowrap width="100">&nbsp;Nomor Anggota</th>
 								<th nowrap align="left">&nbsp;Nama</th>
-								<th nowrap width="80">&nbsp;Nombor KP Baru</th>
+								<th nowrap width="80">&nbsp;Nomor KTP Baru</th>
 								<th nowrap width="150">&nbsp;Email</th>
 								<th nowrap align="center" width="150">&nbsp;Tanggal Keanggotaan</th>
 							</tr>';
@@ -110,7 +110,7 @@ if ($rs->RowCount() <> 0) {
 } else {
 	print '
 					<tr style="font-family: Poppins, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-						<td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+						<td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
 					</tr>';
 }
 print '		</table> 

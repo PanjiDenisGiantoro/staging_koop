@@ -177,7 +177,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCpurchaseInvoice&mn=' . $mn . '&action=view&PINo=' . $PINo . '";
 	</script>';
 	}
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$Master2 		= dlookup("generalacc", "parentID", "ID = '" . $kodGL . "'");
@@ -952,7 +952,7 @@ print '
 			</tr>
 
 			<tr>
-				<td nowrap="nowrap">Disemak Oleh</td><td valign="top"></td>
+				<td nowrap="nowrap">Diperiksa oleh</td><td valign="top"></td>
 				<td>' . selectAdmin($keranisemak, 'keranisemak') . '</td>
 			</tr>
 			
@@ -966,7 +966,7 @@ print '
 	</td>';
 
 if ($PINo) {
-	$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+	$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 	print '
 <tr>
 	<td>

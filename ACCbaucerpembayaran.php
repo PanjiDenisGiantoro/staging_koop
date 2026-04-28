@@ -161,7 +161,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCbaucerpembayaran&mn=' . $mn . '&action=view&no_baucer=' . $no_baucer . '";
 	</script>';
     }
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun || $projecting || $jabatan1) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun || $projecting || $jabatan1) {
     $updatedBy         = get_session("Cookie_userName");
     $updatedDate     = date("Y-m-d H:i:s");
     $tarikh_baucer     = saveDateDb($tarikh_baucer);
@@ -873,7 +873,7 @@ print
 		</table>
 	</td>';
 
-$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 print '
 <tr>
 	<td>

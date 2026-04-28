@@ -38,7 +38,7 @@ function ctMemberCarumanLocal($id)
 	return $rs;
 }
 
-if (isset($_POST['action']) && $_POST['action'] == 'Kemaskini') {
+if (isset($_POST['action']) && $_POST['action'] == 'Perbarui') {
 	$pk = explode(",", $pk);
 	$str = array();
 	foreach ($pk as $val) {
@@ -294,7 +294,7 @@ if ($staff) {
 				<tr>
 				<td colspan="3" align="center">
 				<div>&nbsp;</div>
-				<input type="submit" name="action" value="Kemaskini" class="btn btn-primary">
+				<input type="submit" name="action" value="Perbarui" class="btn btn-primary">
 				<div>&nbsp;</div>
 				</td>
 			</tr>
@@ -327,7 +327,7 @@ if ($staff) {
 					<tr>
 					<td colspan="3" align="center">
 					<div>&nbsp;</div>
-                		<input type="submit" name="action" value="Kemaskini" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
+                		<input type="submit" name="action" value="Perbarui" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
 					<div>&nbsp;</div>
 					</td>
 				</tr>
@@ -360,7 +360,7 @@ if ($staff) {
 					<tr>
 					<td colspan="3" align="center">
 					<div>&nbsp;</div>
-                		<input type="submit" name="action" value="Kemaskini" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
+                		<input type="submit" name="action" value="Perbarui" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
 					<div>&nbsp;</div>
 					</td>
 				</tr>
@@ -393,7 +393,7 @@ if ($staff) {
 					<tr>
 					<td colspan="3" align="center">
 					<div>&nbsp;</div>
-                		<input type="submit" name="action" value="Kemaskini" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
+                		<input type="submit" name="action" value="Perbarui" class="btn btn-primary" onclick="return CheckField(event, \'Kemaskini\')">
 					<div>&nbsp;</div>
 					</td>
 				</tr>

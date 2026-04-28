@@ -19,7 +19,7 @@ if (!isset($strDate)) {
 }
 
 
-if ($action == 'Kemaskini') {
+if ($action == 'Perbarui') {
     $pk = explode(",", $pk);  
     $str = array();
     $updatedBy = get_session("Cookie_userName");
@@ -227,7 +227,7 @@ if (count($cutiList) <> 0) {
 <tr>
 <td colspan="2" align="center">
 <div>&nbsp;</div>
-<input type="submit" name="action" class="btn btn-md btn-primary" value="Kemaskini">
+<input type="submit" name="action" class="btn btn-md btn-primary" value="Perbarui">
 &nbsp;
 <input type="button" name="batal" value="Kembali"  class="btn btn-md btn-danger" onclick= "Javascript:(window.location.href='?vw=leave&mn=933')">
 <div>&nbsp;</div>

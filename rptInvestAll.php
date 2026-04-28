@@ -113,7 +113,7 @@ if ($GetData->RowCount() <> 0) {
                 <th nowrap>&nbsp;</th>
                 <th align="left" nowrap width="20%">Nama Projek</th>
                 <th align="left" nowrap width="15%">Lokasi</th>
-                <th align="left" nowrap width="10%">Keluasan Tanah</th>
+                <th align="left" nowrap width="10%">Luas Tanah</th>
                 <th nowrap width="5%">Tanggal Lulus</th>  
                 <th nowrap width="5%">Tanggal Mula</th>  
                 <th nowrap width="5%">Tanggal Akhir</th>
@@ -225,7 +225,7 @@ if ($GetData->RowCount() <> 0) {
 } else {
     print '
     <tr style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt;" bgcolor="FFFFFF">
-        <td colspan="5" align="center"><b>- Tiada Rekod Dicetak-</b></td>
+        <td colspan="5" align="center"><b>- Tidak data yang dicetak-</b></td>
     </tr>';
 }
 

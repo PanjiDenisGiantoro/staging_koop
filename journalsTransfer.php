@@ -154,7 +154,7 @@ if ($perkara2) {
         $rs = &$conn->Execute($sSQL);
     }
 
-    $strActivity = $_POST['Submit'] . 'Kemaskini Jurnal Pindahan - ' . $no_jurnal;
+    $strActivity = $_POST['Submit'] . 'Perbarui Jurnal Pindahan - ' . $no_jurnal;
     activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 3);
 
     print '<script>
@@ -192,7 +192,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=journalsTransfer&mn=' . $mn . '&action=view&no_jurnal=' . $no_jurnal . '";
 	</script>';
     }
-} elseif ($action == "Kemaskini" || $perkara) {
+} elseif ($action == "Perbarui" || $perkara) {
     $updatedBy         = get_session("Cookie_userName");
     $updatedDate     = date("Y-m-d H:i:s");
     $tarikh_jurnal     = saveDateDb($tarikh_jurnal);
@@ -663,7 +663,7 @@ print ' 	</table>
 			<td><input class="form-controlx" name="disediakan" value="' . $idname . '" type="text" size="20" maxlength="15"/></td>
 			</tr>
 			<tr>
-			<td nowrap="nowrap">Disemak Oleh</td>
+			<td nowrap="nowrap">Diperiksa oleh</td>
 			<td valign="top"></td>
 			<td>' . selectAdmin($disemak, 'disemak') . '</td>
 			</tr>
@@ -682,7 +682,7 @@ print ' 	</table>
 	<td>&nbsp;</td>
 </tr>';
 if ($no_jurnal) {
-    $straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+    $straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
     print '
 <tr><td>
 	<input type="button" name="print" value="Cetakan" class="btn btn-secondary" onClick= "print_(\'journalsTransferPrint.php?id=' . $no_jurnal . '\')">&nbsp;
@@ -755,7 +755,7 @@ print '
 		if(crt==krt){
 	          f.submit();
 		}else{
-	         alert(\'Sila pastikan jumlah debit dan kredit sepadan.\');
+	         alert(\'Harap pastikan jumlah debit dan kredit seimbang.\');
 		}
 
 	}
@@ -836,7 +836,7 @@ print '
 
 		if(debit_kredit==1){
 			if(debit && kredit){
-				alert(\'Sila masukkan salah satu ruang amaun sahaja!\');
+				alert(\'Harap masukkan hanya salah satu kolom jumlah saja!\');
 				count++;
 			} else if(!debit && !kredit){
 				alert(\'Sila masukkan salah satu ruang amaun!\');
@@ -873,7 +873,7 @@ print '
 		//if((dbt==krt && (!dbt==0 && !krt==0)) || act == \'Simpan\'){
 		//	e.submit();
 		//}else{
-		//	alert(\'Sila pastikan jumlah debit dan kredit sepadan.\');
+		//	alert(\'Harap pastikan jumlah debit dan kredit seimbang.\');
 		//}
 
 	}

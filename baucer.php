@@ -374,7 +374,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=baucer&mn=945&action=view&no_baucer=' . $no_baucer . '";
 	</script>';
     }
-} elseif ($action == "Kemaskini" || $perkara) {
+} elseif ($action == "Perbarui" || $perkara) {
 	$updatedBy 		= get_session("Cookie_userName");
 	$updatedDate 	= date("Y-m-d H:i:s");
 	$tarikh_baucer 	= saveDateDb($tarikh_baucer);
@@ -761,7 +761,7 @@ print '</tr>
 </tr>
 <tr><td>&nbsp;</td></tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -1093,7 +1093,7 @@ print         '<tr class="table-secondary">
 print '<input name="kod_caw" type="hidden" value="321"><input name="no_siri" type="hidden" value="S112"><input name="tarikh_bank" type="hidden" value="01/10/2006"></tr>';
 
 if ($no_baucer) {
-    $straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+    $straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
     print '
 <tr>
 	<td>

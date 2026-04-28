@@ -477,7 +477,7 @@ print '
 						</tr>
 						<tr>
 							<td width="34%">Disediakan Oleh:' . dlookup("users", "name", "loginID=" . tosql($prepareBy, "Text")) . '</td>
-							<td width="33%">Disemak Oleh:' . dlookup("users", "name", "loginID=" . tosql($reviewBy, "Text")) . '</td>
+							<td width="33%">Diperiksa oleh:' . dlookup("users", "name", "loginID=" . tosql($reviewBy, "Text")) . '</td>
 						</tr>
 						<tr>
 							<td>Tanggal:' . $prepareDate . '</td>

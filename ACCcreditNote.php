@@ -171,7 +171,7 @@ if ($action == "Hapus") {
 	window.location = "?vw=ACCcreditNote&mn=' . $mn . '&action=view&noteNo=' . $noteNo . '";
 	</script>';
     }
-} elseif ($action == "Kemaskini" || $perkara || $desc_akaun) {
+} elseif ($action == "Perbarui" || $perkara || $desc_akaun) {
     $updatedBy         = get_session("Cookie_userName");
     $updatedDate    = date("Y-m-d H:i:s");
     $Master2         = dlookup("generalacc", "parentID", "ID = '" . $b_kodGL . "'");
@@ -640,7 +640,7 @@ print '<tr>
 </tr>
 <tr><td>&nbsp;</td></tr>';
 
-//implement a visual effect css for button 'Kemaskini' and 'Tambah' to guide user what to do
+//implement a visual effect css for button 'Perbarui' and 'Tambah' to guide user what to do
 //------------- START
 print '
 <style>
@@ -984,7 +984,7 @@ print         '<tr>
 	</td>
 </tr>';
 
-$straction = ($action == 'view' ? 'Kemaskini' : 'Simpan');
+$straction = ($action == 'view' ? 'Perbarui' : 'Simpan');
 print '
 <tr>
 	<td>
