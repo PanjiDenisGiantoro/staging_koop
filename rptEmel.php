@@ -13,7 +13,7 @@ $koperasiID = dlookup("setup", "koperasiID", "setupID=" . tosql(1, "Text"));
 if (get_session("Cookie_koperasiID") <> $koperasiID) {
 	print '<script>alert("' . $errPage . '"); parent.location.href = "index.php";</script>';
 }
-$title  = 'Senarai Email Dihantar';
+$title  = 'Daftar Email Dikirim';
 
 $sSQL = "";
 $sSQL = "SELECT distinct a.sendDate, b.name, c.memberID, c.newIC, d.name as department, e.title
