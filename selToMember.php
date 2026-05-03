@@ -95,7 +95,7 @@ print '
 		if(type == "f"){
 		window.opener.document.MyForm.no_anggota.value = memberid;
 		window.opener.document.MyForm.nama_anggota.value = name;
-		if (typeof window.opener.onMemberSelected === 'function') window.opener.onMemberSelected(memberid);
+		if (typeof window.opener.onMemberSelected === \'function\') window.opener.onMemberSelected(memberid);
 		window.close();
 		}
 		if(type == "g"){
