@@ -185,17 +185,21 @@ if ($action == 'Bayar' && $isAdmin && $cicilanID) {
         }
 
         // Post jurnal akuntansi: Bayar Cicilan
-        $nominal_bunga_rsCil = $rsCil->fields('nominal_bunga');
-        $jrnKet = "Bayar cicilan ke-$angsuran_ke dari $dist_noDist ($dist_namaUsaha)";
+        $nominal_bunga_rsCil   = $rsCil->fields('nominal_bunga');
+        $jrnKet                = "Bayar cicilan ke-$angsuran_ke dari $dist_noDist ($dist_namaUsaha)";
         $totalPiutangBerkurang = $nominal_pokok + $nominal_bunga_rsCil + $nominal_denda;
+        $coaKas   = getCOASetting('pendanaan', 'KAS_POOL');
+        $coaBunga = getCOASetting('pendanaan', 'PENDAPATAN_BUNGA');
+        $coaDenda = getCOASetting('pendanaan', 'PENDAPATAN_DENDA');
+        $coaPiutang = getCOASetting('pendanaan', 'PIUTANG');
         $jrnLines = array(
-            array('1-1001', 'Kas Pool Pendanaan',           $nominal_pokok,       0,                      'Pengembalian pokok'),
-            array('4-1001', 'Pendapatan Bunga Pendanaan',   $nominal_bunga_rsCil, 0,                      'Bunga cicilan ke-'.$angsuran_ke),
+            array($coaKas['code'],   $coaKas['name'],   $nominal_pokok,       0, 'Pengembalian pokok'),
+            array($coaBunga['code'], $coaBunga['name'], $nominal_bunga_rsCil, 0, 'Bunga cicilan ke-'.$angsuran_ke),
         );
         if ($nominal_denda > 0) {
-            $jrnLines[] = array('4-1002', 'Pendapatan Denda Pendanaan', $nominal_denda, 0, 'Denda '.$hari_telat.' hari');
+            $jrnLines[] = array($coaDenda['code'], $coaDenda['name'], $nominal_denda, 0, 'Denda '.$hari_telat.' hari');
         }
-        $jrnLines[] = array('1-2001', 'Piutang Pendanaan Usaha', 0, $totalPiutangBerkurang, $jrnKet);
+        $jrnLines[] = array($coaPiutang['code'], $coaPiutang['name'], 0, $totalPiutangBerkurang, $jrnKet);
 
         $jrnJenis = ($nominal_denda > 0) ? 'BAYAR_DENDA' : 'BAYAR_CICILAN';
         postJurnalPendanaan($conn, $jrnJenis, 'pendanaan_cicilan', $cicilanID, $jrnKet, $tgl_bayar, $jrnLines, $by_user);

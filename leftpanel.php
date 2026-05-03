@@ -678,6 +678,7 @@ if (get_session("Cookie_koperasiID") == $koperasiID) {
         MenuLink("pendanaanKreditList.php", "Akun Kredit", 951, @$_REQUEST['vw']);
         MenuLink("pendanaanPool.php", "Pool Dana", 951, @$_REQUEST['vw']);
         MenuLink("pendanaanJurnal.php", "Jurnal Akuntansi", 951, @$_REQUEST['vw']);
+        MenuLink("settingCOA.php", "Setting COA Ledger", 951, @$_REQUEST['vw']);
         echo '</ul></li>';
 
         // admin.import/export

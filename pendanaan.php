@@ -205,6 +205,7 @@ if ($isView && $pengajuanID) {
                 &nbsp;
                 <input type="button" class="btn btn-sm btn-info" value="Pilih"
                        onclick="window.open('selToMember.php?refer=f','sel','top=10,left=10,width=950,height=500,scrollbars=yes,resizable=yes,toolbars=no,location=no,menubar=no');">
+                <span id="usahaLoading" style="display:none;font-size:11px;color:#888"> &nbsp;<i class="mdi mdi-loading mdi-spin"></i> Memuat usaha...</span>
             </td>
         </tr>
         <tr>
@@ -335,6 +336,49 @@ if ($isView && $pengajuanID) {
 </tbody>
 </table>
 </form>
+
+<?php if ($isNew && $isAdmin): ?>
+<script>
+function onMemberSelected(memberID) {
+    var sel = document.getElementById('usahaID_sel');
+    var loading = document.getElementById('usahaLoading');
+    if (!sel) return;
+
+    loading.style.display = 'inline';
+    sel.disabled = true;
+    sel.innerHTML = '<option value="">Memuat...</option>';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'getUsahaByMember.php?memberID=' + encodeURIComponent(memberID), true);
+    xhr.onload = function() {
+        loading.style.display = 'none';
+        sel.disabled = false;
+        var data = [];
+        try { data = JSON.parse(xhr.responseText); } catch(e) {}
+
+        if (data.length === 0) {
+            sel.innerHTML = '<option value="">- Tidak ada usaha aktif -</option>';
+        } else {
+            var html = '<option value="">- Pilih Usaha -</option>';
+            for (var i = 0; i < data.length; i++) {
+                html += '<option value="' + data[i].usahaID + '">' + data[i].nama_usaha + '</option>';
+            }
+            sel.innerHTML = html;
+            // Auto-select jika hanya satu usaha
+            if (data.length === 1) {
+                sel.value = data[0].usahaID;
+                document.getElementById('usahaID').value = data[0].usahaID;
+            }
+        }
+    };
+    xhr.onerror = function() {
+        loading.style.display = 'none';
+        sel.disabled = false;
+    };
+    xhr.send();
+}
+</script>
+<?php endif; ?>
 
 <?php if ($isView && $pengajuanID && isset($rsApv) && !$rsApv->EOF): ?>
 <div class="mt-3">

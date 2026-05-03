@@ -91,8 +91,6 @@ $statusText = array('0' => 'Pending', '1' => 'Confirmed', '2' => 'Selesai', '3' 
     Status:
     <select name="filterStatus" class="form-select-sm d-inline w-auto" onchange="document.MyForm.submit()">
       <option value="">- Semua -</option>
-      <option value="0" <?= $filterStatus==='0'?'selected':'' ?>>Pending</option>
-      <option value="1" <?= $filterStatus==='1'?'selected':'' ?>>Confirmed</option>
       <option value="2" <?= $filterStatus==='2'?'selected':'' ?>>Selesai</option>
       <option value="3" <?= $filterStatus==='3'?'selected':'' ?>>Batal</option>
     </select>
@@ -153,11 +151,8 @@ $statusText = array('0' => 'Pending', '1' => 'Confirmed', '2' => 'Selesai', '3' 
     <td><?= $oDate ?></td>
     <td nowrap>
       <a href="#" class="btn btn-sm btn-info" onclick="showDetail(<?= $oid ?>); return false;">Detail</a>
-      <?php if ($oStatus == 0): ?>
-        <button class="btn btn-sm btn-primary" onclick="ubahStatus(<?= $oid ?>, 1)">Confirm</button>
+      <?php if ($oStatus != 3): ?>
         <button class="btn btn-sm btn-danger" onclick="ubahStatus(<?= $oid ?>, 3)">Batal</button>
-      <?php elseif ($oStatus == 1): ?>
-        <button class="btn btn-sm btn-success" onclick="ubahStatus(<?= $oid ?>, 2)">Selesai</button>
       <?php endif; ?>
     </td>
   </tr>
@@ -209,7 +204,7 @@ echo "</div></div>";
 <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
 function ubahStatus(orderID, newStatus) {
-  var labels = {1:'Confirm',2:'Selesai',3:'Batal'};
+  var labels = {2:'Selesai',3:'Batal'};
   if (!confirm('Tukar status order ke: ' + labels[newStatus] + '?')) return;
   document.getElementById('orderID').value = orderID;
   document.getElementById('newStatus').value = newStatus;

@@ -15,6 +15,8 @@ $customerPhone = isset($_POST['customerPhone']) ? trim($_POST['customerPhone']) 
 $metodeBayar   = isset($_POST['metodeBayar'])   ? $_POST['metodeBayar']   : 'Tunai';
 $uangBayar     = isset($_POST['uangBayar'])     ? floatval(str_replace('.','',str_replace(',','.',$_POST['uangBayar']))) : 0;
 $catatan       = isset($_POST['catatan'])       ? trim($_POST['catatan'])       : '';
+$memberType    = isset($_POST['memberType'])    ? $_POST['memberType']    : 'non_anggota';
+$memberNo      = isset($_POST['memberNo'])      ? trim($_POST['memberNo'])      : '';
 $usahaFilter   = isset($_GET['usahaFilter'])    ? $_GET['usahaFilter']    : '';
 
 $coopName = dlookup("setup", "name", "setupID=" . tosql(1, "Text"));
@@ -44,13 +46,15 @@ if ($action == 'checkout') {
         foreach ($cartItems as $item) { $totalAmt += floatval($item['subtotal']); }
 
         $conn->Execute("INSERT INTO pos_order
-            (orderNo, customerName, customerPhone, catatan, totalAmt, status, createdDate, createdBy)
+            (orderNo, customerName, customerPhone, member_type, member_no, catatan, totalAmt, status, createdDate, createdBy)
             VALUES ("
             . tosql($orderNo, "Text") . ","
             . tosql($customerName, "Text") . ","
             . tosql($customerPhone, "Text") . ","
+            . tosql($memberType, "Text") . ","
+            . tosql($memberNo, "Text") . ","
             . tosql($catatan, "Text") . ","
-            . tosql($totalAmt, "Number") . ",0,'$now',"
+            . tosql($totalAmt, "Number") . ",2,'$now',"
             . tosql($by, "Text") . ")");
         $orderID = $conn->Insert_ID();
 
@@ -102,7 +106,7 @@ $sWhere = "WHERE p.status=1 AND u.status=1";
 if ($usahaFilter) $sWhere .= " AND p.usahaID=" . tosql($usahaFilter, "Number");
 
 $rsProduk = $conn->Execute(
-    "SELECT p.produkID, p.usahaID, p.nama_produk, p.harga_jual, p.kategori, p.deskripsi,
+    "SELECT p.produkID, p.usahaID, p.nama_produk, p.harga_jual, p.harga_anggota, p.harga_non_anggota, p.kategori, p.deskripsi, p.barcode,
             u.nama_usaha,
             COALESCE((SELECT SUM(CASE WHEN jenis='masuk' THEN qty ELSE -qty END)
                       FROM stok_usaha WHERE produkID=p.produkID),0) AS stok
@@ -116,14 +120,17 @@ $categories = array();
 while ($rsProduk && !$rsProduk->EOF) {
     $kat = $rsProduk->fields('kategori');
     $products[] = array(
-        'produkID'    => $rsProduk->fields('produkID'),
-        'usahaID'     => $rsProduk->fields('usahaID'),
-        'nama_produk' => $rsProduk->fields('nama_produk'),
-        'harga_jual'  => floatval($rsProduk->fields('harga_jual')),
-        'kategori'    => $kat,
-        'deskripsi'   => $rsProduk->fields('deskripsi'),
-        'nama_usaha'  => $rsProduk->fields('nama_usaha'),
-        'stok'        => floatval($rsProduk->fields('stok'))
+        'produkID'         => $rsProduk->fields('produkID'),
+        'usahaID'          => $rsProduk->fields('usahaID'),
+        'nama_produk'      => $rsProduk->fields('nama_produk'),
+        'harga_jual'       => floatval($rsProduk->fields('harga_jual')),
+        'harga_anggota'    => floatval($rsProduk->fields('harga_anggota')),
+        'harga_non_anggota'=> floatval($rsProduk->fields('harga_non_anggota')),
+        'kategori'         => $kat,
+        'deskripsi'        => $rsProduk->fields('deskripsi'),
+        'nama_usaha'       => $rsProduk->fields('nama_usaha'),
+        'stok'             => floatval($rsProduk->fields('stok')),
+        'barcode'          => $rsProduk->fields('barcode'),
     );
     if ($kat && !in_array($kat, $categories)) $categories[] = $kat;
     $rsProduk->MoveNext();
@@ -226,6 +233,31 @@ body {
 .search-wrap .ico {
   position: absolute;
   left: 11px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,.5);
+  font-size: 15px;
+  pointer-events: none;
+}
+.barcode-wrap {
+  position: relative;
+  width: 200px;
+}
+.barcode-wrap input {
+  width: 100%;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 6px 12px 6px 34px;
+  font-size: 13px;
+  outline: none;
+  transition: background .2s;
+}
+.barcode-wrap input::placeholder { color: rgba(255,255,255,.5); }
+.barcode-wrap input:focus { background: rgba(255,255,255,.2); border-color: var(--orange); }
+.barcode-wrap .ico {
+  position: absolute;
+  left: 10px; top: 50%;
   transform: translateY(-50%);
   color: rgba(255,255,255,.5);
   font-size: 15px;
@@ -384,6 +416,16 @@ body {
   font-weight: 800;
   color: var(--dark);
   margin-bottom: 4px;
+}
+.prod-barcode {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: monospace;
+  letter-spacing: .5px;
 }
 .prod-stok {
   font-size: 10.5px;
@@ -698,6 +740,10 @@ body {
     <i class="mdi mdi-magnify ico"></i>
     <input type="text" id="searchInput" placeholder="Cari produk... (F2)" autocomplete="off">
   </div>
+  <div class="barcode-wrap">
+    <i class="mdi mdi-barcode-scan ico"></i>
+    <input type="text" id="barcodeInput" placeholder="Scan barcode... (F3)" autocomplete="off">
+  </div>
   <div class="spacer"></div>
   <div class="time-badge" id="liveClock"></div>
 </div>
@@ -764,7 +810,11 @@ body {
         <div class="prod-card <?= $habis ? 'sold-out' : '' ?>"
              data-name="<?= strtolower(htmlspecialchars($p['nama_produk'])) ?>"
              data-kat="<?= htmlspecialchars($p['kategori']) ?>"
-             data-usaha="<?= htmlspecialchars($p['nama_usaha']) ?>">
+             data-usaha="<?= htmlspecialchars($p['nama_usaha']) ?>"
+             data-barcode="<?= htmlspecialchars($p['barcode']) ?>"
+             data-harga-anggota="<?= $p['harga_anggota'] ?>"
+             data-harga-non="<?= $p['harga_non_anggota'] ?>"
+             data-harga-jual="<?= $p['harga_jual'] ?>">
           <div class="prod-thumb" style="background:<?= $bgColor ?>">
             <i class="mdi <?= $icoClass ?>"></i>
             <?php if ($p['kategori']): ?>
@@ -774,14 +824,20 @@ body {
           <div class="prod-info">
             <div class="prod-name"><?= htmlspecialchars($p['nama_produk']) ?></div>
             <div class="prod-usaha"><i class="mdi mdi-store" style="font-size:10px"></i> <?= htmlspecialchars($p['nama_usaha']) ?></div>
-            <div class="prod-price">Rp <?= number_format($p['harga_jual'], 0, ',', '.') ?></div>
+            <div class="prod-price" id="price_<?= $p['produkID'] ?>">Rp <?= number_format($p['harga_jual'], 0, ',', '.') ?></div>
+            <?php if ($p['barcode']): ?>
+            <div class="prod-barcode">
+              <i class="mdi mdi-barcode" style="font-size:10px"></i>
+              <?= htmlspecialchars($p['barcode']) ?>
+            </div>
+            <?php endif; ?>
             <div class="prod-stok <?= $stokCls ?>">
               <i class="mdi <?= $habis ? 'mdi-close-circle' : ($stokLow ? 'mdi-alert-circle' : 'mdi-check-circle') ?>"></i>
               <?= $stokTxt ?>
             </div>
             <?php if (!$habis): ?>
             <button class="btn-add can-add" id="btn_<?= $p['produkID'] ?>"
-                    onclick="addToCart(<?= $p['produkID'] ?>,<?= $p['usahaID'] ?>,'<?= addslashes($p['nama_produk']) ?>',<?= $p['harga_jual'] ?>,'<?= addslashes($p['nama_usaha']) ?>',<?= $p['stok'] ?>,'<?= $bgColor ?>')">
+                    onclick="addToCartAuto(<?= $p['produkID'] ?>,<?= $p['usahaID'] ?>,'<?= addslashes($p['nama_produk']) ?>','<?= addslashes($p['nama_usaha']) ?>',<?= $p['stok'] ?>,'<?= $bgColor ?>')">
               <i class="mdi mdi-cart-plus"></i> Tambah
             </button>
             <?php else: ?>
@@ -808,6 +864,16 @@ body {
     <div class="cart-head">
       <span><i class="mdi mdi-cart"></i> Keranjang</span>
       <span class="cart-count" id="cartCount">0 item</span>
+    </div>
+    <!-- Member toggle -->
+    <div style="background:#f8fafc;border-bottom:1px solid var(--border);padding:8px 14px;display:flex;align-items:center;gap:8px">
+      <span style="font-size:11px;font-weight:600;color:var(--muted)">Pelanggan:</span>
+      <button class="metode-btn active" id="btnNonAnggota" style="flex:1;padding:4px 6px;font-size:11px" onclick="setMemberType('non_anggota')">
+        <i class="mdi mdi-account-outline"></i> Bukan Anggota
+      </button>
+      <button class="metode-btn" id="btnAnggota" style="flex:1;padding:4px 6px;font-size:11px" onclick="setMemberType('anggota')">
+        <i class="mdi mdi-account-check"></i> Anggota
+      </button>
     </div>
 
     <div class="cart-items-wrap" id="cartWrap">
@@ -880,6 +946,8 @@ body {
   <input type="hidden" name="metodeBayar" id="fMetodeBayar">
   <input type="hidden" name="uangBayar" id="fUangBayar">
   <input type="hidden" name="catatan" id="fCatatan">
+  <input type="hidden" name="memberType" id="fMemberType" value="non_anggota">
+  <input type="hidden" name="memberNo" id="fMemberNo" value="">
 </form>
 
 <!-- Modal Konfirmasi -->
@@ -900,6 +968,12 @@ body {
           <div class="col-4">
             <label class="form-label mb-1" style="font-size:12px">No. HP</label>
             <input type="text" class="form-control form-control-sm" id="mCustomerPhone" placeholder="08xx...">
+          </div>
+          <div class="col-12" id="memberNoRow" style="display:none">
+            <label class="form-label fw-bold mb-1" style="font-size:12px;color:var(--accent)">
+              <i class="mdi mdi-account-check"></i> No. Anggota
+            </label>
+            <input type="text" class="form-control form-control-sm" id="mMemberNo" placeholder="Masukkan nomor anggota...">
           </div>
           <div class="col-12">
             <label class="form-label mb-1" style="font-size:12px">Catatan</label>
@@ -922,6 +996,7 @@ body {
 <script>
 var cart = {};
 var activeMetode = 'Tunai';
+var activeMemberType = 'non_anggota';
 var cartColor = {};  // produkID → bgColor
 
 /* ── HELPERS ── */
@@ -959,7 +1034,28 @@ var activeCat = '';
 document.getElementById('searchInput').addEventListener('input', filterProducts);
 document.addEventListener('keydown', function(e) {
   if (e.key === 'F2') { e.preventDefault(); document.getElementById('searchInput').focus(); }
-  if (e.key === 'Escape') document.getElementById('searchInput').value = '', filterProducts();
+  if (e.key === 'F3') { e.preventDefault(); document.getElementById('barcodeInput').focus(); }
+  if (e.key === 'Escape') {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('barcodeInput').value = '';
+    filterProducts();
+  }
+});
+
+document.getElementById('barcodeInput').addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter') return;
+  var bc = this.value.trim();
+  this.value = '';
+  if (!bc) return;
+  var found = false;
+  document.querySelectorAll('.prod-card').forEach(function(card) {
+    if (card.getAttribute('data-barcode') === bc) {
+      var btn = card.querySelector('.btn-add.can-add');
+      if (btn) { btn.click(); found = true; }
+      else { toast('Stok habis untuk barcode: ' + bc); found = true; }
+    }
+  });
+  if (!found) toast('Barcode tidak ditemukan: ' + bc);
 });
 
 document.querySelectorAll('.cat-tab').forEach(function(tab) {
@@ -988,14 +1084,65 @@ function filterProducts() {
   if (noRes) noRes.style.display = (visible === 0) ? 'block' : 'none';
 }
 
+/* ── MEMBER TYPE ── */
+function setMemberType(type) {
+  activeMemberType = type;
+  document.getElementById('btnAnggota').classList.toggle('active', type === 'anggota');
+  document.getElementById('btnNonAnggota').classList.toggle('active', type === 'non_anggota');
+  updateAllPriceLabels();
+  rebuildCartPrices();
+}
+
+function getCardPrice(card) {
+  var hA  = parseFloat(card.getAttribute('data-harga-anggota')) || 0;
+  var hN  = parseFloat(card.getAttribute('data-harga-non'))     || 0;
+  var hJ  = parseFloat(card.getAttribute('data-harga-jual'))    || 0;
+  if (activeMemberType === 'anggota')     return hA > 0 ? hA : hJ;
+  if (activeMemberType === 'non_anggota') return hN > 0 ? hN : hJ;
+  return hJ;
+}
+
+function updateAllPriceLabels() {
+  document.querySelectorAll('.prod-card').forEach(function(card) {
+    var pid = card.querySelector('.btn-add') ? card.querySelector('.btn-add').id.replace('btn_','') : null;
+    if (!pid) return;
+    var priceEl = document.getElementById('price_' + pid);
+    if (priceEl) priceEl.textContent = 'Rp ' + fmtPlain(getCardPrice(card));
+  });
+}
+
+function rebuildCartPrices() {
+  Object.keys(cart).forEach(function(key) {
+    var item = cart[key];
+    var card = document.querySelector('.prod-card[data-name]');
+    // Find the card matching this produkID
+    document.querySelectorAll('.prod-card').forEach(function(c) {
+      var btn = c.querySelector('#btn_' + item.produkID);
+      if (btn) {
+        var newHarga = getCardPrice(c);
+        item.harga   = newHarga;
+        item.subtotal = item.qty * newHarga;
+      }
+    });
+  });
+  renderCart();
+}
+
 /* ── CART ── */
+function addToCartAuto(produkID, usahaID, nama, namaUsaha, stok, color) {
+  var card = document.getElementById('btn_' + produkID);
+  var parentCard = card ? card.closest('.prod-card') : null;
+  var harga = parentCard ? getCardPrice(parentCard) : 0;
+  addToCart(produkID, usahaID, nama, harga, namaUsaha, stok, color);
+}
+
 function addToCart(produkID, usahaID, nama, harga, namaUsaha, stok, color) {
   var key = 'p' + produkID;
   cartColor[produkID] = color || '#475569';
   if (cart[key]) {
     if (cart[key].qty >= stok) { toast('Stok tidak cukup!'); return; }
     cart[key].qty++;
-    cart[key].subtotal = cart[key].qty * harga;
+    cart[key].subtotal = cart[key].qty * cart[key].harga;
     toast('+ ' + nama + ' (' + cart[key].qty + ')');
   } else {
     cart[key] = { produkID: produkID, usahaID: usahaID, nama_produk: nama,
@@ -1130,8 +1277,14 @@ function submitCheckout() {
   }
   html += '<div class="order-item-row" style="margin-top:4px">'
     + '<span class="text-muted">Metode</span><span>' + activeMetode + '</span></div>';
+  html += '<div class="order-item-row">'
+    + '<span class="text-muted">Pelanggan</span>'
+    + '<span style="font-weight:600;color:' + (activeMemberType === 'anggota' ? 'var(--accent)' : 'var(--muted)') + '">'
+    + (activeMemberType === 'anggota' ? '<i class="mdi mdi-account-check"></i> Anggota' : 'Bukan Anggota')
+    + '</span></div>';
 
   document.getElementById('modalSummary').innerHTML = html;
+  document.getElementById('memberNoRow').style.display = activeMemberType === 'anggota' ? 'block' : 'none';
   var modal = new bootstrap.Modal(document.getElementById('modalCheckout'));
   modal.show();
   setTimeout(function() { document.getElementById('mCustomerName').focus(); }, 400);
@@ -1150,6 +1303,8 @@ function doCheckout() {
   document.getElementById('fMetodeBayar').value = activeMetode;
   document.getElementById('fUangBayar').value = document.getElementById('uangBayarInput').value.replace(/[^0-9]/g,'');
   document.getElementById('fCatatan').value = document.getElementById('mCatatan').value;
+  document.getElementById('fMemberType').value = activeMemberType;
+  document.getElementById('fMemberNo').value = activeMemberType === 'anggota' ? document.getElementById('mMemberNo').value : '';
   document.getElementById('checkoutForm').submit();
 }
 

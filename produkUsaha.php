@@ -34,8 +34,13 @@ if ($action == 'view' || $action == 'edit') {
     if ($rs && !$rs->EOF) {
         $nama_produk = $rs->fields('nama_produk');
         $sku         = $rs->fields('sku');
-        $harga_jual  = $rs->fields('harga_jual');
-        $harga_beli  = $rs->fields('harga_beli');
+        $barcode     = $rs->fields('barcode');
+        $ledger_code = $rs->fields('ledger_code');
+        $ledger_name = $rs->fields('ledger_name');
+        $harga_jual        = $rs->fields('harga_jual');
+        $harga_anggota     = $rs->fields('harga_anggota');
+        $harga_non_anggota = $rs->fields('harga_non_anggota');
+        $harga_beli        = $rs->fields('harga_beli');
         $kategori    = $rs->fields('kategori');
         $deskripsi   = $rs->fields('deskripsi');
         $status      = $rs->fields('status');
@@ -50,12 +55,17 @@ if ($action == 'Simpan') {
     } else {
         $now = date("Y-m-d H:i:s");
         $by  = get_session("Cookie_userName");
-        $sSQL = "INSERT INTO produk_usaha (usahaID, nama_produk, sku, harga_jual, harga_beli, kategori, deskripsi, status, createdDate, createdBy, updatedDate, updatedBy)
+        $sSQL = "INSERT INTO produk_usaha (usahaID, nama_produk, sku, barcode, ledger_code, ledger_name, harga_jual, harga_anggota, harga_non_anggota, harga_beli, kategori, deskripsi, status, createdDate, createdBy, updatedDate, updatedBy)
                  VALUES ("
                . tosql($usahaID, "Number") . ","
                . tosql($nama_produk, "Text") . ","
                . tosql($sku, "Text") . ","
+               . tosql($barcode, "Text") . ","
+               . tosql($ledger_code, "Text") . ","
+               . tosql($ledger_name, "Text") . ","
                . tosql($harga_jual ? $harga_jual : '0', "Number") . ","
+               . tosql($harga_anggota ? $harga_anggota : '0', "Number") . ","
+               . tosql($harga_non_anggota ? $harga_non_anggota : '0', "Number") . ","
                . tosql($harga_beli ? $harga_beli : '0', "Number") . ","
                . tosql($kategori, "Text") . ","
                . tosql($deskripsi, "Text") . ","
@@ -75,7 +85,12 @@ if ($action == 'Perbarui') {
     $sSQL = "UPDATE produk_usaha SET "
            . "nama_produk=" . tosql($nama_produk, "Text") . ","
            . "sku=" . tosql($sku, "Text") . ","
+           . "barcode=" . tosql($barcode, "Text") . ","
+           . "ledger_code=" . tosql($ledger_code, "Text") . ","
+           . "ledger_name=" . tosql($ledger_name, "Text") . ","
            . "harga_jual=" . tosql($harga_jual ? $harga_jual : '0', "Number") . ","
+           . "harga_anggota=" . tosql($harga_anggota ? $harga_anggota : '0', "Number") . ","
+           . "harga_non_anggota=" . tosql($harga_non_anggota ? $harga_non_anggota : '0', "Number") . ","
            . "harga_beli=" . tosql($harga_beli ? $harga_beli : '0', "Number") . ","
            . "kategori=" . tosql($kategori, "Text") . ","
            . "deskripsi=" . tosql($deskripsi, "Text") . ","
@@ -134,6 +149,37 @@ if ($produkID) {
                     value="<?= $sku ?>" size="20" maxlength="50" <?= $readOnly ?>></td>
             </tr>
             <tr>
+                <td>Barcode</td><td></td>
+                <td><input class="form-control-sm" type="text" name="barcode"
+                    value="<?= htmlspecialchars($barcode) ?>" size="30" maxlength="100" <?= $readOnly ?>
+                    placeholder="Scan atau ketik barcode..."></td>
+            </tr>
+            <tr>
+                <td valign="top">Kode Ledger (COA)</td><td></td>
+                <td>
+                <?php if ($isView): ?>
+                    <input class="form-control-sm" type="text" value="<?= htmlspecialchars($ledger_code) ?>" readonly size="15">
+                    <?= $ledger_name ? ' &mdash; ' . htmlspecialchars($ledger_name) : '' ?>
+                <?php else: ?>
+                    <div class="input-group input-group-sm" style="max-width:400px">
+                        <input type="text" name="ledger_code" id="ledger_code" class="form-control form-control-sm"
+                               value="<?= htmlspecialchars($ledger_code) ?>" readonly placeholder="Pilih akun...">
+                        <button type="button" class="btn btn-sm btn-info"
+                                onclick="window.open('listledger.php?targetCode=ledger_code&targetName=ledger_name','selLedger','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')">Pilih</button>
+                        <?php if ($ledger_code): ?>
+                        <button type="button" class="btn btn-sm btn-outline-secondary"
+                                onclick="document.getElementById('ledger_code').value='';document.getElementById('ledger_name').value='';">
+                            &times;
+                        </button>
+                        <?php endif; ?>
+                    </div>
+                    <input type="text" name="ledger_name" id="ledger_name" class="form-control form-control-sm mt-1"
+                           value="<?= htmlspecialchars($ledger_name) ?>" readonly placeholder="Nama akun"
+                           style="max-width:400px">
+                <?php endif; ?>
+                </td>
+            </tr>
+            <tr>
                 <td>* Kategori</td><td></td>
                 <td>
                 <?php if ($isView): ?>
@@ -154,6 +200,18 @@ if ($produkID) {
                 <td><b class="<?= $saldo <= 0 ? 'text-danger' : 'text-success' ?>"><?= number_format($saldo, 2) ?></b></td>
             </tr>
             <?php endif; ?>
+            <?php if ($isView && $barcode): ?>
+            <tr>
+                <td valign="top">Barcode</td><td></td>
+                <td>
+                    <svg id="barcodeDisplay"></svg>
+                    <br>
+                    <button type="button" class="btn btn-sm btn-outline-dark mt-1" onclick="printBarcode()">
+                        <i class="mdi mdi-printer"></i> Cetak Barcode
+                    </button>
+                </td>
+            </tr>
+            <?php endif; ?>
         </table>
     </td>
     <td width="50%" valign="top">
@@ -162,6 +220,18 @@ if ($produkID) {
                 <td width="160">Harga Jual (Rp)</td><td></td>
                 <td><input class="form-control-sm" type="text" name="harga_jual"
                     value="<?= $harga_jual ?>" size="20" maxlength="20" <?= $readOnly ?>
+                    style="text-align:right"></td>
+            </tr>
+            <tr>
+                <td>Harga Jual Anggota (Rp)</td><td></td>
+                <td><input class="form-control-sm" type="text" name="harga_anggota"
+                    value="<?= $harga_anggota ?>" size="20" maxlength="20" <?= $readOnly ?>
+                    style="text-align:right"></td>
+            </tr>
+            <tr>
+                <td>Harga Jual Bukan Anggota (Rp)</td><td></td>
+                <td><input class="form-control-sm" type="text" name="harga_non_anggota"
+                    value="<?= $harga_non_anggota ?>" size="20" maxlength="20" <?= $readOnly ?>
                     style="text-align:right"></td>
             </tr>
             <tr>
@@ -216,3 +286,35 @@ if ($produkID) {
 </tbody>
 </table>
 </form>
+
+<?php if ($isView && $barcode): ?>
+<script src="assets/libs/JsBarcode.all.min.js"></script>
+<script>
+JsBarcode("#barcodeDisplay", <?= json_encode($barcode) ?>, {
+    format: "CODE128",
+    width: 2,
+    height: 60,
+    displayValue: true,
+    fontSize: 14,
+    margin: 8
+});
+
+function printBarcode() {
+    var win = window.open('', '_blank', 'width=400,height=320,top=100,left=100');
+    win.document.write('<!DOCTYPE html><html><head><title>Cetak Barcode</title><style>');
+    win.document.write('body{font-family:Arial,sans-serif;text-align:center;padding:20px;margin:0}');
+    win.document.write('.prod-label{font-size:13px;font-weight:bold;margin-bottom:4px}');
+    win.document.write('.prod-price{font-size:12px;color:#555;margin-bottom:8px}');
+    win.document.write('@media print{button{display:none}}');
+    win.document.write('</style></head><body>');
+    win.document.write('<div class="prod-label"><?= addslashes(htmlspecialchars($nama_produk)) ?></div>');
+    win.document.write('<div class="prod-price">Rp <?= number_format($harga_jual, 0, ",", ".") ?></div>');
+    win.document.write('<svg id="bcPrint"></svg>');
+    win.document.write('<br><br><button onclick="window.print()">&#128438; Print</button>');
+    win.document.write('<script src="<?= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on'?'https':'http').'://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']) ?>/assets/libs/JsBarcode.all.min.js"><\/script>');
+    win.document.write('<script>JsBarcode("#bcPrint",<?= json_encode($barcode) ?>,{format:"AUTO",width:2,height:70,displayValue:true,fontSize:14,margin:8});window.onload=function(){setTimeout(function(){window.print();},500)};<\/script>');
+    win.document.write('</body></html>');
+    win.document.close();
+}
+</script>
+<?php endif; ?>

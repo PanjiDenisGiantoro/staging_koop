@@ -26,6 +26,9 @@ $sSQL .= " ORDER BY code";
 
 $GetLedger = &$conn->Execute($sSQL);
 
+$jsTargetCode = isset($_GET['targetCode']) ? htmlspecialchars($_GET['targetCode'], ENT_QUOTES) : 'loanCode';
+$jsTargetName = isset($_GET['targetName']) ? htmlspecialchars($_GET['targetName'], ENT_QUOTES) : 'loanName';
+
 print '
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
@@ -33,7 +36,7 @@ print '
     <title>'.$emaNetis.' - Pilih Akaun Ledger</title>
     <meta name="GENERATOR" content="'.$yVZcSz2OuGE5U.'">
     <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="0"> 
+    <meta http-equiv="expires" content="0">
     <meta http-equiv="cache-control" content="no-cache">
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <style>
@@ -44,18 +47,26 @@ print '
     </style>
 </head>
 <script language="JavaScript">
+    var targetCode = \''.$jsTargetCode.'\';
+    var targetName = \''.$jsTargetName.'\';
+
     function selectLedger(id, code, name) {
         if (window.opener && !window.opener.closed) {
-            window.opener.document.MyForm.loanCode.value = code;
-            window.opener.document.getElementById("loanCode").value = code;
-            window.opener.document.getElementById("loanName").value = name;
+            var codeEl = window.opener.document.getElementById(targetCode);
+            var nameEl = window.opener.document.getElementById(targetName);
+            if (codeEl) codeEl.value = code;
+            if (nameEl) nameEl.value = name;
+            if (window.opener.document.MyForm && window.opener.document.MyForm[targetCode])
+                window.opener.document.MyForm[targetCode].value = code;
             window.close();
         }
     }
-    
+
     function searchLedger() {
         var q = document.getElementById("searchText").value;
-        window.location.href = "listledger.php?q=" + encodeURIComponent(q);
+        var extra = (targetCode !== "loanCode" ? "&targetCode=" + encodeURIComponent(targetCode) : "") +
+                    (targetName !== "loanName" ? "&targetName=" + encodeURIComponent(targetName) : "");
+        window.location.href = "listledger.php?q=" + encodeURIComponent(q) + extra;
         return false;
     }
 </script>

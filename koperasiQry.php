@@ -4526,3 +4526,22 @@ function selectTermPayment($code,$name){
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Ambil kode/nama ledger dari tabel setting_coa
+function getCOASetting($modul, $kode_setting) {
+    global $conn;
+    $rs = $conn->Execute("SELECT ledger_code, ledger_name FROM setting_coa WHERE modul=" . tosql($modul,"Text") . " AND kode_setting=" . tosql($kode_setting,"Text") . " LIMIT 1");
+    if ($rs && !$rs->EOF && $rs->fields('ledger_code') != '') {
+        return array('code' => $rs->fields('ledger_code'), 'name' => $rs->fields('ledger_name'));
+    }
+    $defaults = array(
+        'pendanaan' => array(
+            'KAS_POOL'         => array('code'=>'1-1001','name'=>'Kas Pool Pendanaan'),
+            'MODAL_DANA'       => array('code'=>'3-1001','name'=>'Modal / Dana Pendanaan'),
+            'PIUTANG'          => array('code'=>'1-2001','name'=>'Piutang Pendanaan Usaha'),
+            'PENDAPATAN_BUNGA' => array('code'=>'4-1001','name'=>'Pendapatan Bunga Pendanaan'),
+            'PENDAPATAN_DENDA' => array('code'=>'4-1002','name'=>'Pendapatan Denda Pendanaan'),
+        ),
+    );
+    if (isset($defaults[$modul][$kode_setting])) return $defaults[$modul][$kode_setting];
+    return array('code'=>'','name'=>'');
+}

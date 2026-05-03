@@ -97,9 +97,11 @@ if ($action == 'TambahDana') {
 
         // Post jurnal akuntansi
         $jrnKet = ($keterangan_tambah ? $keterangan_tambah : 'Penambahan dana manual') . ' — Rp ' . number_format($nominalTambah, 0, ',', '.');
+        $coaKas   = getCOASetting('pendanaan', 'KAS_POOL');
+        $coaModal = getCOASetting('pendanaan', 'MODAL_DANA');
         $jrnLines = array(
-            array('1-1001', 'Kas Pool Pendanaan',      $nominalTambah, 0,              $jrnKet),
-            array('3-1001', 'Modal / Dana Pendanaan',  0,              $nominalTambah, $jrnKet),
+            array($coaKas['code'],   $coaKas['name'],   $nominalTambah, 0,              $jrnKet),
+            array($coaModal['code'], $coaModal['name'], 0,              $nominalTambah, $jrnKet),
         );
         postJurnalPendanaan($conn, 'TAMBAH_POOL', 'pendanaan_pool', 1, $jrnKet, date('Y-m-d'), $jrnLines, $by_user);
 

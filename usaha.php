@@ -19,17 +19,21 @@ $kategoriList = array('Makanan & Minuman', 'Pakaian & Aksesori', 'Elektronik', '
 if ($action == 'view' || $action == 'edit') {
     $rs = $conn->Execute("SELECT * FROM usaha WHERE usahaID=" . tosql($usahaID, "Number"));
     if ($rs && !$rs->EOF) {
-        $memberID    = $rs->fields('memberID');
-        $nama_usaha  = $rs->fields('nama_usaha');
-        $kategori    = $rs->fields('kategori');
-        $deskripsi   = $rs->fields('deskripsi');
-        $alamat      = $rs->fields('alamat');
-        $no_telefon  = $rs->fields('no_telefon');
-        $status      = $rs->fields('status');
-        $createdDate = toDate("d/m/Y", $rs->fields('createdDate'));
+        $memberID      = $rs->fields('memberID');
+        $jenis_pemilik = $rs->fields('jenis_pemilik') ? $rs->fields('jenis_pemilik') : 'anggota';
+        $nama_pemilik  = $rs->fields('nama_pemilik');
+        $no_hp_pemilik = $rs->fields('no_hp_pemilik');
+        $nama_usaha    = $rs->fields('nama_usaha');
+        $kategori      = $rs->fields('kategori');
+        $deskripsi     = $rs->fields('deskripsi');
+        $alamat        = $rs->fields('alamat');
+        $no_telefon    = $rs->fields('no_telefon');
+        $status        = $rs->fields('status');
+        $createdDate   = toDate("d/m/Y", $rs->fields('createdDate'));
 
-        // Nama anggota dari tabel users
-        $namaAnggota = dlookup("users", "name", "userID=(SELECT userID FROM userdetails WHERE memberID=" . tosql($memberID, "Text") . " LIMIT 1)");
+        if ($jenis_pemilik == 'anggota' && $memberID) {
+            $namaAnggota = dlookup("users", "name", "userID=(SELECT userID FROM userdetails WHERE memberID=" . tosql($memberID, "Text") . " LIMIT 1)");
+        }
 
         // Keselamatan: anggota biasa hanya boleh lihat/edit usaha sendiri
         if (!$isAdmin && $memberID != $myMemberID) {
@@ -39,39 +43,68 @@ if ($action == 'view' || $action == 'edit') {
     }
 }
 
+if (!isset($jenis_pemilik)) $jenis_pemilik = isset($_POST['jenis_pemilik']) ? $_POST['jenis_pemilik'] : 'anggota';
+
 // --- Simpan Baru ---
 if ($action == 'Simpan') {
     $updatedBy   = get_session("Cookie_userName");
     $updatedDate = date("Y-m-d H:i:s");
+    $statusBaru  = $isAdmin ? 1 : 0;
 
-    // Admin pilih anggota via popup (no_anggota), anggota biasa pakai ID sendiri
-    $saveMemberID = $isAdmin ? $no_anggota : $myMemberID;
-    $statusBaru   = $isAdmin ? 1 : 0; // Admin langsung Aktif, anggota perlu approval
-
-    if (!$saveMemberID || !$nama_usaha) {
-        $errMsg = "No. Anggota dan Nama Usaha wajib diisi.";
+    if ($jenis_pemilik == 'non_anggota') {
+        // Bukan anggota: wajib nama pemilik
+        if (!$nama_pemilik || !$nama_usaha) {
+            $errMsg = "Nama Pemilik dan Nama Usaha wajib diisi.";
+        } else {
+            $sSQL = "INSERT INTO usaha (memberID, jenis_pemilik, nama_pemilik, no_hp_pemilik, nama_usaha, kategori, deskripsi, alamat, no_telefon, status, createdDate, createdBy, updatedDate, updatedBy)
+                     VALUES (NULL,"
+                   . tosql('non_anggota', "Text") . ","
+                   . tosql($nama_pemilik, "Text") . ","
+                   . tosql($no_hp_pemilik, "Text") . ","
+                   . tosql($nama_usaha, "Text") . ","
+                   . tosql($kategori, "Text") . ","
+                   . tosql($deskripsi, "Text") . ","
+                   . tosql($alamat, "Text") . ","
+                   . tosql($no_telefon, "Text") . ","
+                   . tosql($statusBaru, "Number") . ","
+                   . "'" . $updatedDate . "',"
+                   . tosql($updatedBy, "Text") . ","
+                   . "'" . $updatedDate . "',"
+                   . tosql($updatedBy, "Text") . ")";
+            $conn->Execute($sSQL);
+            $newID = $conn->Insert_ID();
+            activityLog($sSQL, "Daftar Usaha Bukan Anggota: $nama_usaha", get_session('Cookie_userID'), $updatedBy, 3);
+            $msg = $isAdmin ? "Usaha berhasil didaftarkan." : "Usaha berhasil didaftarkan. Mohon tunggu persetujuan admin.";
+            print '<script>alert("' . $msg . '");window.location="?vw=usaha&mn=' . $mn . '&action=view&usahaID=' . $newID . '";</script>';
+            exit;
+        }
     } else {
-        $sSQL = "INSERT INTO usaha (memberID, nama_usaha, kategori, deskripsi, alamat, no_telefon, status, createdDate, createdBy, updatedDate, updatedBy)
-                 VALUES ("
-               . tosql($saveMemberID, "Text") . ","
-               . tosql($nama_usaha, "Text") . ","
-               . tosql($kategori, "Text") . ","
-               . tosql($deskripsi, "Text") . ","
-               . tosql($alamat, "Text") . ","
-               . tosql($no_telefon, "Text") . ","
-               . tosql($statusBaru, "Number") . ","
-               . "'" . $updatedDate . "',"
-               . tosql($updatedBy, "Text") . ","
-               . "'" . $updatedDate . "',"
-               . tosql($updatedBy, "Text") . ")";
-
-        $conn->Execute($sSQL);
-        $newID = $conn->Insert_ID();
-        activityLog($sSQL, "Daftar Usaha Baru: $nama_usaha", get_session('Cookie_userID'), $updatedBy, 3);
-
-        $msg = $isAdmin ? "Usaha berhasil didaftarkan." : "Usaha berhasil didaftarkan. Mohon tunggu persetujuan admin.";
-        print '<script>alert("' . $msg . '");window.location="?vw=usaha&mn=' . $mn . '&action=view&usahaID=' . $newID . '";</script>';
-        exit;
+        // Anggota: pakai memberID
+        $saveMemberID = $isAdmin ? $no_anggota : $myMemberID;
+        if (!$saveMemberID || !$nama_usaha) {
+            $errMsg = "No. Anggota dan Nama Usaha wajib diisi.";
+        } else {
+            $sSQL = "INSERT INTO usaha (memberID, jenis_pemilik, nama_usaha, kategori, deskripsi, alamat, no_telefon, status, createdDate, createdBy, updatedDate, updatedBy)
+                     VALUES ("
+                   . tosql($saveMemberID, "Text") . ","
+                   . tosql('anggota', "Text") . ","
+                   . tosql($nama_usaha, "Text") . ","
+                   . tosql($kategori, "Text") . ","
+                   . tosql($deskripsi, "Text") . ","
+                   . tosql($alamat, "Text") . ","
+                   . tosql($no_telefon, "Text") . ","
+                   . tosql($statusBaru, "Number") . ","
+                   . "'" . $updatedDate . "',"
+                   . tosql($updatedBy, "Text") . ","
+                   . "'" . $updatedDate . "',"
+                   . tosql($updatedBy, "Text") . ")";
+            $conn->Execute($sSQL);
+            $newID = $conn->Insert_ID();
+            activityLog($sSQL, "Daftar Usaha Baru: $nama_usaha", get_session('Cookie_userID'), $updatedBy, 3);
+            $msg = $isAdmin ? "Usaha berhasil didaftarkan." : "Usaha berhasil didaftarkan. Mohon tunggu persetujuan admin.";
+            print '<script>alert("' . $msg . '");window.location="?vw=usaha&mn=' . $mn . '&action=view&usahaID=' . $newID . '";</script>';
+            exit;
+        }
     }
 }
 
@@ -127,10 +160,33 @@ $statusLabel = array('0' => 'Pending', '1' => 'Aktif', '2' => 'Tidak Aktif');
     <td width="50%" valign="top">
         <table border="0" cellspacing="1" cellpadding="3">
 
-            <?php if ($isNew && $isAdmin): ?>
-            <!-- Admin: pilih anggota via popup -->
+            <?php if ($isNew): ?>
+            <!-- Toggle Anggota / Bukan Anggota -->
             <tr>
-                <td width="180">* No. Anggota</td>
+                <td width="180">Jenis Pemilik</td>
+                <td></td>
+                <td>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" id="btnAnggota"
+                                class="btn <?= $jenis_pemilik=='anggota' ? 'btn-primary' : 'btn-outline-primary' ?>"
+                                onclick="setJenisPemilik('anggota')">
+                            <i class="mdi mdi-account-check"></i> Anggota
+                        </button>
+                        <button type="button" id="btnNonAnggota"
+                                class="btn <?= $jenis_pemilik=='non_anggota' ? 'btn-warning' : 'btn-outline-warning' ?>"
+                                onclick="setJenisPemilik('non_anggota')">
+                            <i class="mdi mdi-account-outline"></i> Bukan Anggota
+                        </button>
+                    </div>
+                    <input type="hidden" name="jenis_pemilik" id="jenis_pemilik" value="<?= $jenis_pemilik ?>">
+                </td>
+            </tr>
+
+            <!-- Anggota: pilih via popup (admin) atau otomatis (non-admin) -->
+            <tbody id="rowAnggota" <?= $jenis_pemilik=='non_anggota' ? 'style="display:none"' : '' ?>>
+            <?php if ($isAdmin): ?>
+            <tr>
+                <td>* No. Anggota</td>
                 <td></td>
                 <td>
                     <input class="form-control-sm" type="text" name="no_anggota" id="no_anggota"
@@ -148,17 +204,67 @@ $statusLabel = array('0' => 'Pending', '1' => 'Aktif', '2' => 'Tidak Aktif');
                            value="<?= $nama_anggota ?>" size="35" maxlength="100" readonly>
                 </td>
             </tr>
+            <?php else: ?>
+            <tr>
+                <td>No. Anggota</td>
+                <td></td>
+                <td><input class="form-control-sm" type="text" value="<?= $myMemberID ?>" readonly size="15"></td>
+            </tr>
+            <?php endif; ?>
+            </tbody>
+
+            <!-- Bukan Anggota: isi nama & no HP -->
+            <tbody id="rowNonAnggota" <?= $jenis_pemilik=='anggota' ? 'style="display:none"' : '' ?>>
+            <tr>
+                <td>* Nama Pemilik</td>
+                <td></td>
+                <td><input class="form-control-sm" type="text" name="nama_pemilik"
+                           value="<?= htmlspecialchars($nama_pemilik) ?>" size="35" maxlength="100"
+                           placeholder="Nama lengkap pemilik..."></td>
+            </tr>
+            <tr>
+                <td>No. HP Pemilik</td>
+                <td></td>
+                <td><input class="form-control-sm" type="text" name="no_hp_pemilik"
+                           value="<?= htmlspecialchars($no_hp_pemilik) ?>" size="20" maxlength="30"
+                           placeholder="08xx..."></td>
+            </tr>
+            </tbody>
 
             <?php elseif (!$isNew): ?>
-            <!-- View/Edit: tampilkan no anggota -->
+            <!-- View/Edit: tampilkan info pemilik -->
             <tr>
-                <td width="180">No. Anggota</td>
+                <td width="180">Jenis Pemilik</td>
+                <td></td>
+                <td>
+                    <?php if ($jenis_pemilik == 'non_anggota'): ?>
+                        <span class="badge bg-warning text-dark">Bukan Anggota</span>
+                    <?php else: ?>
+                        <span class="badge bg-primary">Anggota</span>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php if ($jenis_pemilik == 'non_anggota'): ?>
+            <tr>
+                <td>Nama Pemilik</td>
+                <td></td>
+                <td><b><?= htmlspecialchars($nama_pemilik) ?></b></td>
+            </tr>
+            <tr>
+                <td>No. HP Pemilik</td>
+                <td></td>
+                <td><?= htmlspecialchars($no_hp_pemilik) ?></td>
+            </tr>
+            <?php else: ?>
+            <tr>
+                <td>No. Anggota</td>
                 <td></td>
                 <td>
                     <input class="form-control-sm" type="text" value="<?= $memberID ?>" readonly size="15">
                     &nbsp;<b><?= $namaAnggota ?></b>
                 </td>
             </tr>
+            <?php endif; ?>
             <?php endif; ?>
 
             <tr>
@@ -241,3 +347,18 @@ $statusLabel = array('0' => 'Pending', '1' => 'Aktif', '2' => 'Tidak Aktif');
 </tbody>
 </table>
 </form>
+
+<?php if ($isNew): ?>
+<script>
+function setJenisPemilik(jenis) {
+    document.getElementById('jenis_pemilik').value = jenis;
+    var isNon = jenis === 'non_anggota';
+
+    document.getElementById('rowAnggota').style.display    = isNon ? 'none' : '';
+    document.getElementById('rowNonAnggota').style.display = isNon ? '' : 'none';
+
+    document.getElementById('btnAnggota').className    = isNon ? 'btn btn-outline-primary btn-sm' : 'btn btn-primary btn-sm';
+    document.getElementById('btnNonAnggota').className = isNon ? 'btn btn-warning btn-sm'         : 'btn btn-outline-warning btn-sm';
+}
+</script>
+<?php endif; ?>

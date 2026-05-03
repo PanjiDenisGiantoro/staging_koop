@@ -209,10 +209,12 @@ if ($action == 'Distribusi') {
             . "'$now')");
 
         // Post jurnal akuntansi: Distribusi
-        $jrnKet = "Distribusi $no_dist kepada $peng_nama_usaha — Rp " . number_format($nominal, 0, ',', '.');
+        $jrnKet    = "Distribusi $no_dist kepada $peng_nama_usaha — Rp " . number_format($nominal, 0, ',', '.');
+        $coaKas    = getCOASetting('pendanaan', 'KAS_POOL');
+        $coaPiutang= getCOASetting('pendanaan', 'PIUTANG');
         $jrnLines = array(
-            array('1-2001', 'Piutang Pendanaan Usaha', $nominal, 0,       $jrnKet),
-            array('1-1001', 'Kas Pool Pendanaan',      0,        $nominal, $jrnKet),
+            array($coaPiutang['code'], $coaPiutang['name'], $nominal, 0,       $jrnKet),
+            array($coaKas['code'],     $coaKas['name'],     0,        $nominal, $jrnKet),
         );
         postJurnalPendanaan($conn, 'DISTRIBUSI', 'pendanaan_distribusi', $distribusiID, $jrnKet, $tgl_dist, $jrnLines, $by_user);
 
