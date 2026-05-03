@@ -13,15 +13,27 @@ if (!$isAdmin) {
     exit;
 }
 
+// --- Helper: tulis log ke file ---
+function writeCoaLog($msg) {
+    $logDir  = dirname(__FILE__) . '/logs';
+    if (!is_dir($logDir)) @mkdir($logDir, 0755, true);
+    $logFile = $logDir . '/settingCOA_debug.log';
+    $line    = '[' . date('Y-m-d H:i:s') . '] ' . $msg . "\n";
+    @file_put_contents($logFile, $line, FILE_APPEND);
+}
+
 // --- Simpan ---
 if ($action == 'Simpan') {
     $by  = get_session("Cookie_userName");
     $now = date("Y-m-d H:i:s");
     $ids = isset($_POST['settingID']) ? $_POST['settingID'] : array();
+
+    writeCoaLog("=== SIMPAN oleh $by | IDs: " . implode(',', $ids));
     foreach ($ids as $sid) {
         $sid  = intval($sid);
         $code = isset($_POST['ledger_code_' . $sid]) ? trim($_POST['ledger_code_' . $sid]) : '';
         $name = isset($_POST['ledger_name_' . $sid]) ? trim($_POST['ledger_name_' . $sid]) : '';
+        writeCoaLog("  settingID=$sid | code='$code' | name='$name'");
         $conn->Execute("UPDATE setting_coa SET ledger_code=" . tosql($code,"Text") . ", ledger_name=" . tosql($name,"Text") . ", updatedDate='$now', updatedBy=" . tosql($by,"Text") . " WHERE settingID=$sid");
     }
     activityLog('', 'Simpan Setting COA', get_session('Cookie_userID'), $by, 3);
@@ -154,7 +166,9 @@ foreach ($allIDs as $sid):
 <input type="hidden" name="settingID[]" value="<?= $sid ?>">
 <?php endforeach; ?>
 
-<?php foreach ($jurnal_map as $modul => $transaksiList):
+<?php
+$renderedSIDs = array(); // track settingID yang sudah dirender input-nya
+foreach ($jurnal_map as $modul => $transaksiList):
     $coaMod = isset($coa[$modul]) ? $coa[$modul] : array();
 ?>
 <div class="card mb-4">
@@ -184,10 +198,12 @@ foreach ($allIDs as $sid):
             </thead>
             <tbody>
             <?php foreach ($trx['lines'] as $line):
-                $kode = $line['kode'];
-                $row  = isset($coaMod[$kode]) ? $coaMod[$kode] : array('settingID'=>'','ledger_code'=>'','ledger_name'=>'','updatedDate'=>'','updatedBy'=>'');
-                $sid  = $row['settingID'];
+                $kode    = $line['kode'];
+                $row     = isset($coaMod[$kode]) ? $coaMod[$kode] : array('settingID'=>'','ledger_code'=>'','ledger_name'=>'','updatedDate'=>'','updatedBy'=>'');
+                $sid     = $row['settingID'];
                 $isDebit = $line['posisi'] === 'debit';
+                $isDupe  = $sid && in_array($sid, $renderedSIDs);
+                if ($sid && !$isDupe) $renderedSIDs[] = $sid;
             ?>
             <tr>
                 <td class="text-center">
@@ -199,31 +215,36 @@ foreach ($allIDs as $sid):
                 </td>
                 <td style="color:#555"><?= htmlspecialchars($line['role']) ?></td>
                 <td>
-                    <?php if ($sid): ?>
+                    <?php if ($sid && !$isDupe): ?>
                     <input type="text"
                            name="ledger_code_<?= $sid ?>"
                            id="lc_<?= $sid ?>"
                            class="form-control form-control-sm"
                            value="<?= htmlspecialchars($row['ledger_code']) ?>"
                            readonly style="font-family:monospace;font-size:12px">
+                    <?php elseif ($sid && $isDupe): ?>
+                    <span style="font-family:monospace;font-size:12px;color:#555"><?= htmlspecialchars($row['ledger_code']) ?></span>
                     <?php else: ?>
                     <span class="text-muted" style="font-size:11px">—</span>
                     <?php endif; ?>
                 </td>
                 <td>
-                    <?php if ($sid): ?>
+                    <?php if ($sid && !$isDupe): ?>
                     <input type="text"
                            name="ledger_name_<?= $sid ?>"
                            id="ln_<?= $sid ?>"
                            class="form-control form-control-sm"
                            value="<?= htmlspecialchars($row['ledger_name']) ?>"
                            readonly style="font-size:12px">
+                    <?php elseif ($sid && $isDupe): ?>
+                    <span style="font-size:12px;color:#555"><?= htmlspecialchars($row['ledger_name']) ?>
+                        <small class="text-muted">(sama dengan atas)</small></span>
                     <?php else: ?>
                     <span class="text-muted" style="font-size:11px">—</span>
                     <?php endif; ?>
                 </td>
                 <td class="text-center">
-                    <?php if ($sid): ?>
+                    <?php if ($sid && !$isDupe): ?>
                     <button type="button" class="btn btn-xs btn-info py-0 px-2"
                             onclick="piliLedger(<?= $sid ?>)">
                         <i class="mdi mdi-magnify"></i>
@@ -232,10 +253,14 @@ foreach ($allIDs as $sid):
                     <button type="button" class="btn btn-xs btn-outline-secondary py-0 px-1"
                             onclick="clearLedger(<?= $sid ?>)" title="Hapus">&times;</button>
                     <?php endif; ?>
+                    <?php elseif ($sid && $isDupe): ?>
+                    <small class="text-muted">—</small>
                     <?php endif; ?>
                 </td>
                 <td style="font-size:10px;color:#999">
+                    <?php if (!$isDupe): ?>
                     <?= (isset($row['updatedBy']) && $row['updatedBy']) ? htmlspecialchars($row['updatedBy']) . '<br>' . toDate("d/m/Y H:i", $row['updatedDate']) : '-' ?>
+                    <?php endif; ?>
                 </td>
             </tr>
             <?php endforeach; ?>
