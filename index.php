@@ -30,7 +30,7 @@ print '
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="expires" content="0"> 
 <meta http-equiv="cache-control" content="no-cache">
-<link rel="shortcut icon" href="assets/images/favicon.png">
+<link rel="shortcut icon" href="assets/images/favicon.ico">
 
 <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />        
@@ -55,19 +55,19 @@ print '
                     <!-- <div class="navbar-brand-box" style="background-color: #181818ff;"> -->
                         <a href="index.php" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="assets/images/logo-text-white-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/Logo-colored-1x.png" alt="logo" height="auto" width="30%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo-text-white-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/Logo-colored-1x.png" alt="logo" height="auto" width="30%">
                             </span>
                         </a>
 
                         <a href="index.php" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="assets/images/logo-text-black-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/logo-colored-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo-text-black-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/logo-colored-1x.png" alt="logo" height="auto" width="80%">
                             </span>
                         </a>
                     </div>
