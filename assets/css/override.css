@@ -1,0 +1,60 @@
+
+.table th,
+.table td {
+  white-space: nowrap;
+}
+
+.table-dark {
+    --bs-table-bg: #2b3a4a;
+    --bs-table-striped-bg: #334455;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #3b4e61;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #36495c;
+    --bs-table-hover-color: #fff;
+    color: #fff;
+    border-color: #3b4e61;
+}
+
+
+.btn-info {
+    color: #fff;
+    background-color: #1A928C;
+    border-color: #1A928C;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #167d78;
+    border-color: #14726d;
+}
+
+.btn-info:focus,
+.btn-info.focus {
+    color: #fff;
+    background-color: #167d78;
+    border-color: #14726d;
+    box-shadow: 0 0 0 0.2rem rgba(26, 146, 140, 0.5);
+}
+
+.btn-info:not(:disabled):not(.disabled):active,
+.btn-info:not(:disabled):not(.disabled).active,
+.show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: #14726d;
+    border-color: #126864;
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus,
+.btn-info:not(:disabled):not(.disabled).active:focus,
+.show > .btn-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(26, 146, 140, 0.5);
+}
+
+.btn-info.disabled,
+.btn-info:disabled {
+    color: #fff;
+    background-color: #1A928C;
+    border-color: #1A928C;
+}
+

@@ -47,7 +47,7 @@ print '<div class="table-responsive">
 
             .summary-container {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 20px;
                 margin-bottom: 30px;
             }
@@ -70,11 +70,11 @@ print '<div class="table-responsive">
             .summary-box .amount {
                 font-size: 1.8em;
                 font-weight: bold;
-                color: #007bff;
+                color: var(--bs-primary);
             }
 
             .summary-box.setor .amount {
-                color: #28a745;
+                color: var(--bs-success);
             }
 
             .summary-box.tarik .amount {
@@ -219,92 +219,95 @@ print '<div class="table-responsive">
         </div>
         <div class="summary-box">
             <strong>Selisih (Setor - Tarik)</strong>
-            <div class="amount" style="color: <?php echo $selisih >= 0 ? '#28a745' : '#dc3545'; ?>">
+            <div class="amount" style="color: <?php echo $selisih >= 0 ? '#41cf62' : '#dc3545'; ?>">
                 Rp <?php echo number_format($selisih, 0, ',', '.'); ?>
             </div>
         </div>
     </div>
 
     <!-- Table Section -->
-    <table class="table table-striped table-hover table-bordered" id="tableData">
-        <thead class="table-dark">
-        <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>No Jurnal</th>
-            <th>Teller</th>
-            <th>Nama Anggota</th>
-            <th>No Rekening</th>
-            <th>Jenis Simpanan</th>
-            <th>Jenis</th>
-            <th>Nominal</th>
-            <th>Saldo Sebelum</th>
-            <th>Saldo Sesudah</th>
-            <th>Keterangan</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $sSQL = "
-        SELECT
-            ID,
-            TellerID,
-            TellerName,
-            UserID,
-            NamaAnggota,
-            AccountNumber,
-            NamaAkun,
-            TanggalTransaksi,
-            JenisTransaksi,
-            Nominal,
-            SaldoSebelum,
-            SaldoSesudah,
-            NoJurnal,
-            Keterangan,
-            Status,
-            CreatedDate
-        FROM transactionsimpanan
-        ORDER BY TanggalTransaksi DESC, ID DESC
-        ";
-
-        $result = &$conn->Execute($sSQL);
-
-        if ($result && !$result->EOF) {
-            $no = 1;
-            while (!$result->EOF) {
-                $status = ($result->fields['Status'] == 1) ? "Berhasil" : "Batal";
-                $status_class = ($result->fields['Status'] == 1) ? "badge bg-success" : "badge bg-danger";
-
-                $jenis_class = ($result->fields['JenisTransaksi'] == 'SETOR') ? "badge bg-success" : "badge bg-warning text-dark";
-
-                echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TanggalTransaksi'])) . "'
-                          data-jenis='" . $result->fields['JenisTransaksi'] . "'
-                          data-status='" . $result->fields['Status'] . "'>";
-                echo "<td>" . $no . "</td>";
-                echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['NoJurnal']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['TellerName']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['NamaAnggota']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['AccountNumber']) . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['NamaAkun']) . "</td>";
-                echo "<td><span class='" . $jenis_class . "'>" . $result->fields['JenisTransaksi'] . "</span></td>";
-                echo "<td align='right'><strong>Rp " . number_format($result->fields['Nominal'], 0, ',', '.') . "</strong></td>";
-                echo "<td align='right'>Rp " . number_format($result->fields['SaldoSebelum'], 0, ',', '.') . "</td>";
-                echo "<td align='right'>Rp " . number_format($result->fields['SaldoSesudah'], 0, ',', '.') . "</td>";
-                echo "<td>" . htmlspecialchars($result->fields['Keterangan']) . "</td>";
-                echo "<td><span class='" . $status_class . "'>" . $status . "</span></td>";
-                echo "</tr>";
-
-                $no++;
-                $result->MoveNext();
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered" id="tableData">
+            <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Status</th>
+                <th>No Jurnal</th>
+                <th>Teller</th>
+                <th>Nama Anggota</th>
+                <th>No Rekening</th>
+                <th>Jenis Simpanan</th>
+                <th class="text-center">Jenis</th>
+                <th class="text-end">Nominal</th>
+                <th class="text-end">Saldo Sebelum</th>
+                <th class="text-end">Saldo Sesudah</th>
+                <th>Keterangan</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $sSQL = "
+            SELECT
+                ID,
+                TellerID,
+                TellerName,
+                UserID,
+                NamaAnggota,
+                AccountNumber,
+                NamaAkun,
+                TanggalTransaksi,
+                JenisTransaksi,
+                Nominal,
+                SaldoSebelum,
+                SaldoSesudah,
+                NoJurnal,
+                Keterangan,
+                Status,
+                CreatedDate
+            FROM transactionsimpanan
+            ORDER BY TanggalTransaksi DESC, ID DESC
+            ";
+    
+            $result = &$conn->Execute($sSQL);
+    
+            if ($result && !$result->EOF) {
+                $no = 1;
+                while (!$result->EOF) {
+                    $status = ($result->fields['Status'] == 1) ? "Berhasil" : "Batal";
+                    $status_class = ($result->fields['Status'] == 1) ? "badge bg-success" : "badge bg-danger";
+    
+                    $jenis_class = ($result->fields['JenisTransaksi'] == 'SETOR') ? "badge bg-success" : "badge bg-warning text-dark";
+    
+                    echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TanggalTransaksi'])) . "'
+                              data-jenis='" . $result->fields['JenisTransaksi'] . "'
+                              data-status='" . $result->fields['Status'] . "'>";
+                    echo "<td>" . $no . "</td>";
+                    echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . "</td>";
+                    echo "<td><span class='" . $status_class . "'>" . $status . "</span></td>";
+                    echo "<td>" . htmlspecialchars($result->fields['NoJurnal']) . "</td>";
+                    echo "<td>" . htmlspecialchars($result->fields['TellerName']) . "</td>";
+                    echo "<td>" . htmlspecialchars($result->fields['NamaAnggota']) . "</td>";
+                    echo "<td>" . htmlspecialchars($result->fields['AccountNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($result->fields['NamaAkun']) . "</td>";
+                    echo "<td><span class='" . $jenis_class . "'>" . $result->fields['JenisTransaksi'] . "</span></td>";
+                    echo "<td align='right'><strong>Rp " . number_format($result->fields['Nominal'], 0, ',', '.') . "</strong></td>";
+                    echo "<td align='right'>Rp " . number_format($result->fields['SaldoSebelum'], 0, ',', '.') . "</td>";
+                    echo "<td align='right'>Rp " . number_format($result->fields['SaldoSesudah'], 0, ',', '.') . "</td>";
+                    echo "<td>" . htmlspecialchars($result->fields['Keterangan']) . "</td>";
+                    echo "</tr>";
+    
+                    $no++;
+                    $result->MoveNext();
+                }
+            } else {
+                echo "<tr><td colspan='13' class='text-center'>Tidak ada data transaksi</td></tr>";
             }
-        } else {
-            echo "<tr><td colspan='13' class='text-center'>Tidak ada data transaksi</td></tr>";
-        }
-        ?>
-        </tbody>
-    </table>
+            ?>
+            </tbody>
+        </table>
+
+    </div>
 
     <script>
         function applyFilter() {
