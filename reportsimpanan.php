@@ -205,15 +205,15 @@ print '<div class="table-responsive">
 
         <div class="summary-box setor">
             <strong>Total Transaksi Setor</strong>
-            <div class="amount"><?php echo number_format($total_setor, 0); ?> Trx</div>
+            <div class="amount text-success"><?php echo number_format($total_setor, 0); ?> Trx</div>
             <small>Rp <?php echo number_format($nominal_setor, 0, ',', '.'); ?></small>
         </div>
         <div class="summary-box tarik">
             <strong>Total Transaksi Tarik</strong>
-            <div class="amount"><?php echo number_format($total_tarik, 0); ?> Trx</div>
+            <div class="amount text-danger"><?php echo number_format($total_tarik, 0); ?> Trx</div>
             <small>Rp <?php echo number_format($nominal_tarik, 0, ',', '.'); ?></small>
         </div>
-        <div class="summary-box">
+        <div class="summary-box text-primary">
             <strong>Total Semua Transaksi</strong>
             <div class="amount"><?php echo number_format($total_transaksi, 0); ?> Trx</div>
         </div>
