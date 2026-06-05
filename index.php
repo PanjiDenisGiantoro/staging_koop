@@ -57,19 +57,19 @@ print '
                     <!-- <div class="navbar-brand-box" style="background-color: #181818ff;"> -->
                         <a href="index.php" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="assets/images/Logo-colored-1x.png" alt="logo" height="auto" width="30%">
+                                <img src="assets/images/patch.png" alt="logo" height="auto" width="100%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/Logo-colored-1x.png" alt="logo" height="auto" width="30%">
+                                <img src="assets/images/patch.png" alt="logo" height="auto" width="100%">
                             </span>
                         </a>
 
                         <a href="index.php" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="assets/images/logo-colored-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/patch.png" alt="logo" height="auto" width="100%">
                             </span>
                             <span class="logo-lg">
-                                <img src="assets/images/logo-colored-1x.png" alt="logo" height="auto" width="80%">
+                                <img src="assets/images/patch.png" alt="logo" height="auto" width="100%">
                             </span>
                         </a>
                     </div>
