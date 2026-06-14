@@ -155,7 +155,7 @@ if ($produkID) {
                     placeholder="Scan atau ketik barcode..."></td>
             </tr>
             <tr>
-                <td valign="top">Kode Ledger (COA)</td><td></td>
+                <td valign="top">Kode Master Ledger (COA)</td><td></td>
                 <td>
                 <?php if ($isView): ?>
                     <input class="form-control-sm" type="text" value="<?= htmlspecialchars($ledger_code) ?>" readonly size="15">
