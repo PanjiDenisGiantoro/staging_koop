@@ -20,13 +20,13 @@ if ($HTTP_COOKIE_VARS["selDB"] == "") {
     $DB_username = 'root';
     $DB_password = '';
     // $DB_dbname = 'demotri';
-   $DB_dbname = 'demokoop';
+   $DB_dbname = 'apexkoop';
 } else {
     $DB_dbtype = 'mysql';
     $DB_hostname = 'localhost';
     $DB_username = 'root';
     $DB_password = '';
-    $DB_dbname = $HTTP_COOKIE_VARS["demokoop"];
+    $DB_dbname = $HTTP_COOKIE_VARS["apexkoop"];
 }
 
 $conn = &ADONEWConnection($DB_dbtype);

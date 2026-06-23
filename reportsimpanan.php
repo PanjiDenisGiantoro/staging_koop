@@ -2,15 +2,15 @@
 
 /*********************************************************************************
  *           Project        :    iKOOP.com.my
- *           Filename        :    reportsimpanan.php
- *           Date            :    06/12/2024
+ *           Filename       :    reportsimpanan.php
  *********************************************************************************/
 if (!isset($StartRec)) $StartRec = 1;
-if (!isset($pg)) $pg = 10;
+if (!isset($pg)) $pg = 50;
 if (!isset($q)) $q = "";
-if (!isset($by)) $by = "0";
-if (!isset($filter)) $filter = "ALL";
-if (!isset($dept)) $dept = "";
+if (!isset($by)) $by = "1";
+if (!isset($filter_status)) $filter_status = "ALL";
+if (!isset($filter_dari)) $filter_dari = date('Y-m-01');
+if (!isset($filter_sampai)) $filter_sampai = date('Y-m-d');
 
 include("header.php");
 include("koperasiQry.php");
@@ -24,371 +24,326 @@ if (get_session("Cookie_groupID") <> 1 and get_session("Cookie_groupID") <> 2 or
 $IDName = get_session("Cookie_userName");
 
 $sFileName = '?vw=reportsimpanan&mn=902';
-$title = "Laporan Transaksi Simpanan";
+$title = "Transaksi Simpanan";
 
-print '<div class="table-responsive">
+// Limit date range max 1 year
+$maxDate = date('Y-m-d');
+$minDate = date('Y-m-d', strtotime('-1 year'));
+if ($filter_dari < $minDate) $filter_dari = $minDate;
+if ($filter_sampai > $maxDate) $filter_sampai = $maxDate;
+
+//--- Begin : Proses update status -----------------------------------------------------------
+if (isset($_POST['action']) && $_POST['action'] == "proses" && isset($_POST['pk']) && is_array($_POST['pk'])) {
+    $newStatus = isset($_POST['jenis_proses']) ? (int)$_POST['jenis_proses'] : null;
+
+    if ($newStatus !== null && in_array($newStatus, array(3, 9))) {
+        foreach ($_POST['pk'] as $trxID) {
+            $trxID = (int)$trxID;
+            if ($trxID <= 0) continue;
+
+            $rsTrx = $conn->Execute("SELECT * FROM transactionsimpanan WHERE ID = " . tosql($trxID, "Number") . " AND Status = 1");
+            if (!$rsTrx || $rsTrx->EOF) continue;
+
+            $trxData = $rsTrx->fields;
+
+            if ($newStatus == 3) {
+                // Status PAID: update transaksi + save ke GL (transactionacc)
+                $conn->Execute("UPDATE transactionsimpanan SET Status = 3, UpdatedBy = " . tosql(get_session('Cookie_userName'), "Text") . ", UpdatedDate = NOW() WHERE ID = " . tosql($trxID, "Number"));
+
+                // Update balance di depositoracc
+                if ($trxData['JenisTransaksi'] == 'SETOR') {
+                    $conn->Execute("UPDATE depositoracc SET Balance = Balance + " . $trxData['Nominal'] . " WHERE AccountNumber = " . tosql($trxData['AccountNumber'], "Text"));
+                } else {
+                    $conn->Execute("UPDATE depositoracc SET Balance = Balance - " . $trxData['Nominal'] . " WHERE AccountNumber = " . tosql($trxData['AccountNumber'], "Text"));
+                }
+
+                // Save ke GL (transactionacc)
+                $addminus = ($trxData['JenisTransaksi'] == 'SETOR') ? 1 : 0;
+                $yrmth = date('Ym', strtotime($trxData['TanggalTransaksi']));
+                $glCode = dlookup("general", "loanCode", "ID=" . tosql($trxData['Code_simpanan'], "Number"));
+
+                $sqlGL = "INSERT INTO transactionacc (docNo, userID, yrmth, deductID, addminus, pymtAmt, pymtRefer, desc_akaun, status, createdBy, createdDate) VALUES ("
+                    . tosql($trxData['NoJurnal'], "Text") . ","
+                    . tosql($trxData['UserID'], "Text") . ","
+                    . tosql($yrmth, "Text") . ","
+                    . tosql($glCode, "Text") . ","
+                    . $addminus . ","
+                    . $trxData['Nominal'] . ","
+                    . tosql($trxData['AccountNumber'], "Text") . ","
+                    . tosql('Simpanan ' . $trxData['NamaAkun'] . ' - ' . $trxData['JenisTransaksi'], "Text") . ","
+                    . "1,"
+                    . tosql(get_session('Cookie_userName'), "Text") . ","
+                    . tosql(date("Y-m-d H:i:s"), "Text") . ")";
+                $conn->Execute($sqlGL);
+
+                $strActivity = 'Paid transaksi simpanan ' . $trxData['NoJurnal'] . ' - ' . $trxData['NamaAnggota'];
+                activityLog($sqlGL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
+
+            } elseif ($newStatus == 9) {
+                // Status TOLAK
+                $conn->Execute("UPDATE transactionsimpanan SET Status = 9, UpdatedBy = " . tosql(get_session('Cookie_userName'), "Text") . ", UpdatedDate = NOW() WHERE ID = " . tosql($trxID, "Number"));
+
+                $strActivity = 'Tolak transaksi simpanan ' . $trxData['NoJurnal'] . ' - ' . $trxData['NamaAnggota'];
+                activityLog("", $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
+            }
+        }
+        $labelMsg = ($newStatus == 3) ? 'dibayar (paid)' : 'ditolak';
+        echo '<script>alert("Status berhasil ' . $labelMsg . '."); window.location.href="' . $sFileName . '";</script>';
+        exit;
+    }
+}
+//--- End : Proses update status -----------------------------------------------------------
+
+//--- Build query ---
+$sWhere = " 1=1 ";
+
+if ($filter_dari != '') {
+    $sWhere .= " AND DATE(TanggalTransaksi) >= " . tosql($filter_dari, "Text");
+}
+if ($filter_sampai != '') {
+    $sWhere .= " AND DATE(TanggalTransaksi) <= " . tosql($filter_sampai, "Text");
+}
+if ($filter_status !== "" && $filter_status !== "ALL") {
+    $sWhere .= " AND Status = " . tosql($filter_status, "Number");
+}
+if ($q != '') {
+    if ($by == 1) {
+        $sWhere .= " AND NoAnggota LIKE '%" . $q . "%'";
+    } elseif ($by == 2) {
+        $sWhere .= " AND NIK LIKE '%" . $q . "%'";
+    } elseif ($by == 3) {
+        $sWhere .= " AND NamaAnggota LIKE '%" . $q . "%'";
+    }
+}
+
+$sSQL = "SELECT * FROM transactionsimpanan WHERE " . $sWhere . " ORDER BY TanggalTransaksi DESC, ID DESC";
+$result = &$conn->Execute($sSQL);
+$TotalRec = $result->RowCount();
+$result->Move($StartRec - 1);
+$TotalPage = ($TotalRec / $pg);
+
+// Summary counts
+$cntDalamProses = $conn->Execute("SELECT COUNT(*) as c FROM transactionsimpanan WHERE Status = 1 AND " . $sWhere)->fields['c'];
+$cntPaid = $conn->Execute("SELECT COUNT(*) as c FROM transactionsimpanan WHERE Status = 3 AND " . $sWhere)->fields['c'];
+$cntTolak = $conn->Execute("SELECT COUNT(*) as c FROM transactionsimpanan WHERE Status = 9 AND " . $sWhere)->fields['c'];
+$sumMasuk = $conn->Execute("SELECT COALESCE(SUM(Nominal),0) as s FROM transactionsimpanan WHERE JenisTransaksi='SETOR' AND " . $sWhere)->fields['s'];
+$sumKeluar = $conn->Execute("SELECT COALESCE(SUM(Nominal),0) as s FROM transactionsimpanan WHERE JenisTransaksi='TARIK' AND " . $sWhere)->fields['s'];
+
+print '
 <form name="MyForm" action=' . $sFileName . ' method="post">
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
 </div>';
-
 ?>
 
-    <head>
-        <title>Laporan Transaksi Simpanan</title>
-        <style>
-            body {
-                font-family: Poppins, sans-serif;
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+<style>
+    .summary-row { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+    .summary-card { flex: 1; min-width: 150px; padding: 15px; border-radius: 8px; background: #f8f9fa; border: 1px solid #dee2e6; }
+    .summary-card .label { font-size: 12px; color: #6c757d; margin-bottom: 5px; }
+    .summary-card .value { font-size: 1.4em; font-weight: bold; }
+</style>
 
-            .summary-container {
-                display: grid;
-                grid-template-columns: repeat(4, minmax(0, 1fr));
-                gap: 20px;
-                margin-bottom: 30px;
-            }
-
-            .summary-box {
-                padding: 20px;
-                border-radius: 8px;
-                background: #f8f9fa;
-                border: 1px solid #dee2e6;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-
-            .summary-box strong {
-                display: block;
-                margin-bottom: 8px;
-                color: #495057;
-                font-size: 14px;
-            }
-
-            .summary-box .amount {
-                font-size: 1.8em;
-                font-weight: bold;
-                color: var(--bs-primary);
-            }
-
-            .summary-box.setor .amount {
-                color: var(--bs-success);
-            }
-
-            .summary-box.tarik .amount {
-                color: #dc3545;
-            }
-
-            .filter-section {
-                background: #f8f9fa;
-                padding: 20px;
-                border-radius: 8px;
-                margin-bottom: 20px;
-            }
-
-            .filter-row {
-                display: flex;
-                gap: 15px;
-                flex-wrap: wrap;
-                align-items: end;
-            }
-
-            .filter-item {
-                flex: 1;
-                min-width: 200px;
-            }
-
-            .filter-item label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: 500;
-            }
-
-            .filter-item input,
-            .filter-item select {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ced4da;
-                border-radius: 4px;
-            }
-
-            @media print {
-                .filter-section,
-                .no-print {
-                    display: none;
-                }
-            }
-
-        </style>
-    </head>
-
-    <body>
-
-    <!-- Filter Section -->
-    <div class="filter-section no-print">
-        <h6 class="mb-3">Filter Laporan</h6>
-        <div class="filter-row">
-            <div class="filter-item">
-                <label>Tanggal Dari</label>
-                <input type="date" name="filter_dari" id="filter_dari" class="form-control"
-                       value="<?php echo date('Y-m-01'); ?>">
-            </div>
-            <div class="filter-item">
-                <label>Tanggal Sampai</label>
-                <input type="date" name="filter_sampai" id="filter_sampai" class="form-control"
-                       value="<?php echo date('Y-m-d'); ?>">
-            </div>
-            <div class="filter-item">
-                <label>Jenis Transaksi</label>
-                <select name="filter_jenis" id="filter_jenis" class="form-control">
-                    <option value="ALL">Semua</option>
-                    <option value="SETOR">Setor</option>
-                    <option value="TARIK">Tarik</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Status</label>
-                <select name="filter_status" id="filter_status" class="form-control">
-                    <option value="ALL">Semua Status</option>
-                    <option value="1" selected>Berhasil</option>
-                    <option value="0">Batal</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Cari</label>
-                <input type="text" name="search" id="search" class="form-control"
-                       placeholder="Nama/Rekening/No Jurnal">
-            </div>
-            <div class="filter-item">
-                <button type="button" class="btn btn-info" onclick="applyFilter()">Tampilkan</button>
-                <button type="button" class="btn btn-danger" onclick="resetFilter()">Reset</button>
-                <button type="button" class="btn btn-secondary" onclick="window.print()">Cetak</button>
-            </div>
-        </div>
+<!-- Summary -->
+<div class="summary-row">
+    <div class="summary-card">
+        <div class="label">Dalam Proses</div>
+        <div class="value text-warning"><?php echo $cntDalamProses; ?></div>
     </div>
-
-    <!-- Summary Section -->
-    <div class="summary-container">
-        <?php
-        // Ambil parameter filter
-        $tanggal_dari = isset($_GET['dari']) ? $_GET['dari'] : date('Y-m-01');
-        $tanggal_sampai = isset($_GET['sampai']) ? $_GET['sampai'] : date('Y-m-d');
-
-        // Total Transaksi Setor
-        $sSQL_setor = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
-                       FROM transactionsimpanan
-                       WHERE JenisTransaksi = 'SETOR' AND Status = 1
-                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
-                       AND " . tosql($tanggal_sampai, "Text");
-        $rs_setor = &$conn->Execute($sSQL_setor);
-        $total_setor = $rs_setor->fields['total'] ? $rs_setor->fields['total'] : 0;
-        $nominal_setor = $rs_setor->fields['total_nominal'] ? $rs_setor->fields['total_nominal'] : 0;
-
-        // Total Transaksi Tarik
-        $sSQL_tarik = "SELECT COUNT(*) as total, SUM(Nominal) as total_nominal
-                       FROM transactionsimpanan
-                       WHERE JenisTransaksi = 'TARIK' AND Status = 1
-                       AND DATE(TanggalTransaksi) BETWEEN " . tosql($tanggal_dari, "Text") . "
-                       AND " . tosql($tanggal_sampai, "Text");
-        $rs_tarik = &$conn->Execute($sSQL_tarik);
-        $total_tarik = $rs_tarik->fields['total'] ? $rs_tarik->fields['total'] : 0;
-        $nominal_tarik = $rs_tarik->fields['total_nominal'] ? $rs_tarik->fields['total_nominal'] : 0;
-
-        // Total Semua Transaksi
-        $total_transaksi = $total_setor + $total_tarik;
-
-        // Selisih (Setor - Tarik)
-        $selisih = $nominal_setor - $nominal_tarik;
-        ?>
-
-        <div class="summary-box setor">
-            <strong>Total Transaksi Setor</strong>
-            <div class="amount text-success"><?php echo number_format($total_setor, 0); ?> Trx</div>
-            <small>Rp <?php echo number_format($nominal_setor, 0, ',', '.'); ?></small>
-        </div>
-        <div class="summary-box tarik">
-            <strong>Total Transaksi Tarik</strong>
-            <div class="amount text-danger"><?php echo number_format($total_tarik, 0); ?> Trx</div>
-            <small>Rp <?php echo number_format($nominal_tarik, 0, ',', '.'); ?></small>
-        </div>
-        <div class="summary-box text-primary">
-            <strong>Total Semua Transaksi</strong>
-            <div class="amount"><?php echo number_format($total_transaksi, 0); ?> Trx</div>
-        </div>
-        <div class="summary-box">
-            <strong>Selisih (Setor - Tarik)</strong>
-            <div class="amount" style="color: <?php echo $selisih >= 0 ? '#41cf62' : '#dc3545'; ?>">
-                Rp <?php echo number_format($selisih, 0, ',', '.'); ?>
-            </div>
-        </div>
+    <div class="summary-card">
+        <div class="label">Paid</div>
+        <div class="value text-success"><?php echo $cntPaid; ?></div>
     </div>
-
-    <!-- Table Section -->
-    <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered" id="tableData">
-            <thead class="table-dark">
-            <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Status</th>
-                <th>No Jurnal</th>
-                <th>Teller</th>
-                <th>Nama Anggota</th>
-                <th>No Rekening</th>
-                <th>Jenis Simpanan</th>
-                <th class="text-center">Jenis</th>
-                <th class="text-end">Nominal</th>
-                <th class="text-end">Saldo Sebelum</th>
-                <th class="text-end">Saldo Sesudah</th>
-                <th>Keterangan</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            $sSQL = "
-            SELECT
-                ID,
-                TellerID,
-                TellerName,
-                UserID,
-                NamaAnggota,
-                AccountNumber,
-                NamaAkun,
-                TanggalTransaksi,
-                JenisTransaksi,
-                Nominal,
-                SaldoSebelum,
-                SaldoSesudah,
-                NoJurnal,
-                Keterangan,
-                Status,
-                CreatedDate
-            FROM transactionsimpanan
-            ORDER BY TanggalTransaksi DESC, ID DESC
-            ";
-    
-            $result = &$conn->Execute($sSQL);
-    
-            if ($result && !$result->EOF) {
-                $no = 1;
-                while (!$result->EOF) {
-                    $status = ($result->fields['Status'] == 1) ? "Berhasil" : "Batal";
-                    $status_class = ($result->fields['Status'] == 1) ? "badge bg-success" : "badge bg-danger";
-    
-                    $jenis_class = ($result->fields['JenisTransaksi'] == 'SETOR') ? "badge bg-success" : "badge bg-warning text-dark";
-    
-                    echo "<tr data-tanggal='" . date('Y-m-d', strtotime($result->fields['TanggalTransaksi'])) . "'
-                              data-jenis='" . $result->fields['JenisTransaksi'] . "'
-                              data-status='" . $result->fields['Status'] . "'>";
-                    echo "<td>" . $no . "</td>";
-                    echo "<td>" . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . "</td>";
-                    echo "<td><span class='" . $status_class . "'>" . $status . "</span></td>";
-                    echo "<td>" . htmlspecialchars($result->fields['NoJurnal']) . "</td>";
-                    echo "<td>" . htmlspecialchars($result->fields['TellerName']) . "</td>";
-                    echo "<td>" . htmlspecialchars($result->fields['NamaAnggota']) . "</td>";
-                    echo "<td>" . htmlspecialchars($result->fields['AccountNumber']) . "</td>";
-                    echo "<td>" . htmlspecialchars($result->fields['NamaAkun']) . "</td>";
-                    echo "<td><span class='" . $jenis_class . "'>" . $result->fields['JenisTransaksi'] . "</span></td>";
-                    echo "<td align='right'><strong>Rp " . number_format($result->fields['Nominal'], 0, ',', '.') . "</strong></td>";
-                    echo "<td align='right'>Rp " . number_format($result->fields['SaldoSebelum'], 0, ',', '.') . "</td>";
-                    echo "<td align='right'>Rp " . number_format($result->fields['SaldoSesudah'], 0, ',', '.') . "</td>";
-                    echo "<td>" . htmlspecialchars($result->fields['Keterangan']) . "</td>";
-                    echo "</tr>";
-    
-                    $no++;
-                    $result->MoveNext();
-                }
-            } else {
-                echo "<tr><td colspan='13' class='text-center'>Tidak ada data transaksi</td></tr>";
-            }
-            ?>
-            </tbody>
-        </table>
-
+    <div class="summary-card">
+        <div class="label">Ditolak</div>
+        <div class="value text-danger"><?php echo $cntTolak; ?></div>
     </div>
+    <div class="summary-card">
+        <div class="label">Total Masuk (Setor)</div>
+        <div class="value text-success">Rp <?php echo number_format($sumMasuk, 0, ',', '.'); ?></div>
+    </div>
+    <div class="summary-card">
+        <div class="label">Total Keluar (Tarik)</div>
+        <div class="value text-danger">Rp <?php echo number_format($sumKeluar, 0, ',', '.'); ?></div>
+    </div>
+</div>
 
-    <script>
-        function applyFilter() {
-            const tanggalDari = document.getElementById('filter_dari').value;
-            const tanggalSampai = document.getElementById('filter_sampai').value;
-            const jenis = document.getElementById('filter_jenis').value;
-            const status = document.getElementById('filter_status').value;
-            const search = document.getElementById('search').value.toLowerCase();
-            const table = document.getElementById('tableData');
-            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                const row = rows[i];
-                const cells = row.getElementsByTagName('td');
-
-                if (cells.length > 0) {
-                    const tanggalTrx = row.getAttribute('data-tanggal');
-                    const jenisTrx = row.getAttribute('data-jenis');
-                    const statusTrx = row.getAttribute('data-status');
-
-                    const namaAnggota = cells[4].textContent.toLowerCase();
-                    const noRekening = cells[5].textContent.toLowerCase();
-                    const noJurnal = cells[2].textContent.toLowerCase();
-
-                    let showRow = true;
-
-                    // Filter tanggal
-                    if (tanggalDari && tanggalTrx < tanggalDari) showRow = false;
-                    if (tanggalSampai && tanggalTrx > tanggalSampai) showRow = false;
-
-                    // Filter jenis transaksi
-                    if (jenis !== 'ALL' && jenisTrx !== jenis) showRow = false;
-
-                    // Filter status
-                    if (status !== 'ALL' && statusTrx !== status) showRow = false;
-
-                    // Filter search
-                    if (search !== '' && !namaAnggota.includes(search) &&
-                        !noRekening.includes(search) && !noJurnal.includes(search)) {
-                        showRow = false;
-                    }
-
-                    row.style.display = showRow ? '' : 'none';
-                }
-            }
-
-            updateRowNumbers();
-        }
-
-        function resetFilter() {
-            document.getElementById('filter_dari').value = '<?php echo date('Y-m-01'); ?>';
-            document.getElementById('filter_sampai').value = '<?php echo date('Y-m-d'); ?>';
-            document.getElementById('filter_jenis').value = 'ALL';
-            document.getElementById('filter_status').value = 'ALL';
-            document.getElementById('search').value = '';
-
-            const table = document.getElementById('tableData');
-            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-            for (let i = 0; i < rows.length; i++) {
-                rows[i].style.display = '';
-            }
-
-            updateRowNumbers();
-        }
-
-        // Auto number after filter
-        function updateRowNumbers() {
-            const table = document.getElementById('tableData');
-            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-            let visibleNo = 1;
-
-            for (let i = 0; i < rows.length; i++) {
-                if (rows[i].style.display !== 'none') {
-                    rows[i].getElementsByTagName('td')[0].textContent = visibleNo;
-                    visibleNo++;
-                }
-            }
-        }
-    </script>
-
-    </body>
 <?php
+// --- Filter section ---
+print '<div class="mb-3 row m-1">
+<div>Pencarian
+    <select name="by" class="form-select-sm">
+        <option value="1"' . ($by == 1 ? ' selected' : '') . '>No Anggota</option>
+        <option value="2"' . ($by == 2 ? ' selected' : '') . '>No IC</option>
+        <option value="3"' . ($by == 3 ? ' selected' : '') . '>Nama Anggota</option>
+    </select>
+    <input type="text" name="q" value="' . htmlspecialchars($q) . '" maxlength="50" size="20" class="form-control-sm">
+    <input type="submit" class="btn btn-sm btn-secondary" value="Cari">
+</div>
+</div>
+
+<div class="mb-3 row m-1">
+<div>
+    Dari <input type="date" name="filter_dari" value="' . $filter_dari . '" min="' . $minDate . '" max="' . $maxDate . '" class="form-control-sm">
+    Sampai <input type="date" name="filter_sampai" value="' . $filter_sampai . '" min="' . $minDate . '" max="' . $maxDate . '" class="form-control-sm">
+    &nbsp; Status
+    <select name="filter_status" class="form-select-sm" onchange="document.MyForm.submit();">
+        <option value="ALL"' . ($filter_status == "ALL" ? ' selected' : '') . '>Semua</option>
+        <option value="1"' . ($filter_status == "1" ? ' selected' : '') . '>Dalam Proses</option>
+        <option value="3"' . ($filter_status == "3" ? ' selected' : '') . '>Paid</option>
+        <option value="9"' . ($filter_status == "9" ? ' selected' : '') . '>Ditolak</option>
+    </select>
+    &nbsp;&nbsp; Proses
+    <select name="jenis_proses" class="form-select-sm">
+        <option value="3">Paid</option>
+        <option value="9">Tolak</option>
+    </select>
+    <input type="button" class="btn btn-sm btn-primary" value="Proses" onClick="ITRActionButtonClickStatus(\'proses\');">
+</div>
+</div>';
+
+// --- Pagination top ---
+print '
+<div class="table-responsive">
+<table width="100%"><tr>
+    <td class="textFont"><input type="checkbox" onClick="ITRViewSelectAll()" class="form-check-input"> Pilih Semua</td>
+    <td align="right" class="textFont">Tampil
+        <select name="pg" class="form-select-xs" onchange="doListAll();">';
+$pgOptions = array(10, 20, 50, 100);
+foreach ($pgOptions as $p) {
+    print '<option value="' . $p . '"' . ($pg == $p ? ' selected' : '') . '>' . $p . '</option>';
+}
+print '</select> setiap halaman.</td></tr></table>';
+
+// --- Table ---
+if ($TotalRec > 0) {
+    $bil = $StartRec;
+    $cnt = 1;
+    print '
+    <table class="table table-sm table-striped table-bordered" style="font-size: 9pt;">
+        <thead class="table-primary">
+            <tr>
+                <th>&nbsp;</th>
+                <th>Tanggal</th>
+                <th>No Jurnal</th>
+                <th>Nama Anggota</th>
+                <th>Trx ID</th>
+                <th>No Account</th>
+                <th>Jenis Simpanan</th>
+                <th>No IC</th>
+                <th class="text-center">Transaksi</th>
+                <th class="text-end">Amount</th>
+                <th class="text-end">Baki Sebelum</th>
+                <th class="text-end">Baki Selepas</th>
+                <th>Ref1</th>
+                <th>Ref2</th>
+                <th class="text-center">Status</th>
+            </tr>
+        </thead>
+        <tbody>';
+
+    while (!$result->EOF && $cnt <= $pg) {
+        $status = $result->fields['Status'];
+        $statusLabel = '';
+        $statusClass = '';
+        if ($status == 1) { $statusLabel = 'Dalam Proses'; $statusClass = 'badge bg-warning text-dark'; }
+        elseif ($status == 3) { $statusLabel = 'Paid'; $statusClass = 'badge bg-success'; }
+        elseif ($status == 9) { $statusLabel = 'Ditolak'; $statusClass = 'badge bg-danger'; }
+
+        $jenisClass = ($result->fields['JenisTransaksi'] == 'SETOR') ? 'badge bg-success' : 'badge bg-danger';
+        $jenisLabel = ($result->fields['JenisTransaksi'] == 'SETOR') ? 'Masuk' : 'Keluar';
+
+        $canCheck = ($status == 1) ? '' : ' disabled';
+
+        print '<tr>
+            <td class="text-center">' . $bil . '. <input type="checkbox" class="form-check-input" name="pk[]" value="' . $result->fields['ID'] . '"' . $canCheck . '></td>
+            <td nowrap>' . date('d/m/Y H:i', strtotime($result->fields['TanggalTransaksi'])) . '</td>
+            <td nowrap>' . htmlspecialchars($result->fields['NoJurnal']) . '</td>
+            <td>' . htmlspecialchars($result->fields['NamaAnggota']) . '</td>
+            <td>' . $result->fields['ID'] . '</td>
+            <td>' . htmlspecialchars($result->fields['AccountNumber']) . '</td>
+            <td>' . htmlspecialchars($result->fields['NamaAkun']) . '</td>
+            <td>' . htmlspecialchars($result->fields['NIK']) . '</td>
+            <td class="text-center"><span class="' . $jenisClass . '">' . $jenisLabel . '</span></td>
+            <td class="text-end" nowrap><strong>Rp ' . number_format($result->fields['Nominal'], 0, ',', '.') . '</strong></td>
+            <td class="text-end" nowrap>Rp ' . number_format($result->fields['SaldoSebelum'], 0, ',', '.') . '</td>
+            <td class="text-end" nowrap>Rp ' . number_format($result->fields['SaldoSesudah'], 0, ',', '.') . '</td>
+            <td>' . htmlspecialchars($result->fields['Referensi']) . '</td>
+            <td>' . htmlspecialchars($result->fields['Keterangan']) . '</td>
+            <td class="text-center"><span class="' . $statusClass . '">' . $statusLabel . '</span></td>
+        </tr>';
+
+        $cnt++;
+        $bil++;
+        $result->MoveNext();
+    }
+    $result->Close();
+
+    print '</tbody></table>';
+
+    // Pagination
+    if ($TotalRec > $pg) {
+        $numPage = ($TotalRec % $pg == 0) ? $TotalPage : $TotalPage + 1;
+        print '<div class="textFont">Data Dari : ';
+        for ($i = 1; $i <= $numPage; $i++) {
+            print '<a href="' . $sFileName . '&StartRec=' . (($i * $pg) + 1 - $pg) . '&pg=' . $pg . '&q=' . $q . '&by=' . $by . '&filter_status=' . $filter_status . '&filter_dari=' . $filter_dari . '&filter_sampai=' . $filter_sampai . '">';
+            print '<b><u>' . (($i * $pg) - $pg + 1) . '-' . ($i * $pg) . '</u></b></a>&nbsp;&nbsp;';
+        }
+        print '</div>';
+    }
+
+    print '<div class="textFont mt-2">Jumlah Data : <b>' . $TotalRec . '</b></div>';
+} else {
+    if ($q == "") {
+        print '<div class="text-center my-4"><b class="textFont">- Tidak Ada Data Transaksi -</b></div>';
+    } else {
+        print '<div class="text-center my-4"><b class="textFont">- Pencarian "' . htmlspecialchars($q) . '" tidak ditemukan -</b></div>';
+    }
+}
+
+print '</div></form>';
+
 include("footer.php");
-?>
+
+print '
+<script language="JavaScript">
+    var allChecked = false;
+    function ITRViewSelectAll() {
+        e = document.MyForm.elements;
+        allChecked = !allChecked;
+        for (c = 0; c < e.length; c++) {
+            if (e[c].type == "checkbox" && e[c].name != "all" && !e[c].disabled) {
+                e[c].checked = allChecked;
+            }
+        }
+    }
+
+    function ITRActionButtonClickStatus(v) {
+        e = document.MyForm;
+        if (e == null) {
+            alert("Tolong pastikan nama form dibuat.!");
+        } else {
+            count = 0;
+            for (c = 0; c < e.elements.length; c++) {
+                if (e.elements[c].name == "pk[]" && e.elements[c].checked) {
+                    count++;
+                }
+            }
+            if (count == 0) {
+                alert("Tolong pilih data yang mau di" + v + "kan.");
+            } else {
+                var proses = e.jenis_proses.value;
+                var label = (proses == "3") ? "Paid" : "Tolak";
+                if (confirm(count + " data dipilih ingin di-" + label + "kan?")) {
+                    e.action.value = v;
+                    e.submit();
+                }
+            }
+        }
+    }
+
+    function doListAll() {
+        c = document.forms["MyForm"].pg;
+        document.location = "' . $sFileName . '&StartRec=1&pg=" + c.options[c.selectedIndex].value;
+    }
+</script>';

@@ -9,8 +9,8 @@ if (!isset($StartRec))	$StartRec = 1;
 if (!isset($pg))		$pg = 50;
 if (!isset($q))			$q = "";
 if (!isset($by))		$by = "1";
-if (!isset($filter))	$filter = "0";
-//if (!isset($filter))	$filter="0";
+if (!isset($filter))	$filter = "";
+//if (!isset($filter))	$filter="";
 if (!isset($dept))		$dept = "";
 date_default_timezone_set("Asia/Jakarta");
 
@@ -33,19 +33,25 @@ $IDName = get_session("Cookie_userName");
 //--- Begin : proses (bulk status update) -----------------------------------------------------------
 if (isset($_POST['action']) && $_POST['action'] == "proses" && isset($_POST['pk']) && is_array($_POST['pk'])) {
     $newStatus = isset($_POST['jenis_proses']) ? (int)$_POST['jenis_proses'] : null;
-    if ($newStatus !== null && in_array($newStatus, array(1, 2))) {
+    if ($newStatus !== null && in_array($newStatus, array(3, 7, 9, 11))) {
         foreach ($_POST['pk'] as $depositID) {
             $depositID = (int)$depositID;
             if ($depositID > 0) {
                 $sSQL = "UPDATE depositoracc SET status=" . tosql($newStatus, 'Number') .
                         " WHERE id=" . tosql($depositID, 'Number');
                 $conn->Execute($sSQL);
-                $label = ($newStatus == 1) ? 'Setujui' : 'Tolak';
+                if ($newStatus == 3) $label = 'Luluskan';
+                elseif ($newStatus == 7) $label = 'Tolak';
+                elseif ($newStatus == 9) $label = 'Batalkan';
+                elseif ($newStatus == 11) $label = 'Suspend';
                 $strActivity = $label . ' rekening depositor ID - ' . $depositID;
                 activityLog($sSQL, $strActivity, get_session('Cookie_userID'), get_session('Cookie_userName'), 1);
             }
         }
-        $labelMsg = ($newStatus == 1) ? 'disetujui' : 'ditolak';
+        if ($newStatus == 3) $labelMsg = 'diluluskan';
+        elseif ($newStatus == 7) $labelMsg = 'ditolak';
+        elseif ($newStatus == 9) $labelMsg = 'dibatalkan';
+        elseif ($newStatus == 11) $labelMsg = 'di-suspend';
         echo '<script>alert("Status berhasil ' . $labelMsg . '."); window.location.href="' . $sFileName . '";</script>';
         exit;
     }
@@ -193,7 +199,11 @@ if ($dept <> "") {
 }
 
 if ($filter !== "" && $filter !== "ALL") {
-    $sWhere .= " AND c.status = " . tosql($filter, "Number");
+    if ($filter === "aktif") {
+        $sWhere .= " AND c.status = 3 AND c.balance > 0 ";
+    } else {
+        $sWhere .= " AND c.status = " . tosql($filter, "Number");
+    }
 }
 
 if ($q <> "") {
@@ -288,18 +298,24 @@ print '
 </div>';
 
 // Fetch users counts by status
-$dalam_Proses = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE STATUS = 0")->fields['count'];
-$diluluskan = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE STATUS = 1")->fields['count'];
-$ditolak = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE STATUS = 2")->fields['count'];
+$dalam_Proses = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 1")->fields['count'];
+$diluluskan = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 3")->fields['count'];
+$aktif = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 3 AND balance > 0")->fields['count'];
+$ditolak = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 7")->fields['count'];
+$dibatalkan = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 9")->fields['count'];
+$suspended = $conn->Execute("SELECT COUNT(userID) AS count FROM depositoracc WHERE status = 11")->fields['count'];
 
 // Calculate total entries dynamically
-$totalEntries = $dalam_Proses + $diluluskan + $ditolak ;
+$totalEntries = $dalam_Proses + $diluluskan + $aktif + $ditolak + $dibatalkan + $suspended;
 
 // Define the entries array
 $entries = array(
     'Dalam Proses' => array('amount' => $dalam_Proses, 'count' => $dalam_Proses, 'color' => '#2196F3'),
-    'Disetujui'   => array('amount' => $diluluskan, 'count' => $diluluskan, 'color' => '#4caf50'),
+    'Diluluskan'   => array('amount' => $diluluskan, 'count' => $diluluskan, 'color' => '#4caf50'),
+    'Aktif'        => array('amount' => $aktif, 'count' => $aktif, 'color' => '#00bcd4'),
     'Ditolak'      => array('amount' => $ditolak, 'count' => $ditolak, 'color' => '#ff9800'),
+    'Dibatalkan'   => array('amount' => $dibatalkan, 'count' => $dibatalkan, 'color' => '#f44336'),
+    'Suspended'    => array('amount' => $suspended, 'count' => $suspended, 'color' => '#9e9e9e'),
 );
 ?>
 
@@ -356,7 +372,7 @@ $entries = array(
 
             .summary {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 20px;
             }
 
@@ -452,17 +468,21 @@ Filter Status
 			<select name="filter" class="form-select-sm" onchange="document.MyForm.submit();">
 				<option value="">- Semua -</option>';
 
-for ($i = 0; $i <= 2; $i++) {
-    print '<option value="' . $statusVal[$i] . '"';
-    if ((string)$filter === (string)$statusVal[$i]) print ' selected';
-    print '>' . $statusList[$i] . '</option>';
+$simpananStatusList = array('Dalam Proses', 'Diluluskan', 'Aktif', 'Ditolak', 'Dibatalkan', 'Suspended');
+$simpananStatusVal  = array('1', '3', 'aktif', '7', '9', '11');
+for ($i = 0; $i < count($simpananStatusList); $i++) {
+    print '<option value="' . $simpananStatusVal[$i] . '"';
+    if ((string)$filter === (string)$simpananStatusVal[$i]) print ' selected';
+    print '>' . $simpananStatusList[$i] . '</option>';
 }
 
 print '	</select>
 &nbsp;&nbsp;&nbsp; Jenis Proses
 			<select name="jenis_proses" class="form-select-sm">
-				<option value="1">Setujui</option>
-				<option value="2">Tolak</option>
+				<option value="3">Luluskan</option>
+				<option value="7">Tolak</option>
+				<option value="9">Batalkan</option>
+				<option value="11">Suspend</option>
 			</select>&nbsp;
 			<input type="button" class="btn btn-sm btn-primary" value="Proses" onClick="ITRActionButtonClickStatus(\'proses\');"></div>
 </div>';
@@ -517,18 +537,26 @@ if ($GetMember->RowCount() <> 0) {
 						<td nowrap align="center">Status</td>
 						<td nowrap align="center">Tanggal Pengajuan</td>';
     if (($IDName == 'superadmin') or ($IDName == 'admin')) {
-        if ($filter == 0) {
-            print '<td colspan="2" nowrap align="center">&nbsp;</td>';
-        }
+        print '<td nowrap align="center">Aksi</td>';
     }
 
     print '</tr>';
     while (!$GetMember->EOF && $cnt <= $pg) {
         $status = $GetMember->fields(depositor_status);
         $colorStatus = "Data";
-        if ($status == 0) $colorStatus = "text-warning";
-        if ($status == 1) $colorStatus = "text-success";
-        if ($status == 2) $colorStatus = "text-danger";
+        if ($status == 1) $colorStatus = "text-warning";
+        if ($status == 3) $colorStatus = "text-success";
+        if ($status == 7) $colorStatus = "text-danger";
+        if ($status == 9) $colorStatus = "text-secondary";
+        if ($status == 11) $colorStatus = "text-info";
+
+        $statusLabel = '';
+        if ($status == 1) $statusLabel = 'Dalam Proses';
+        if ($status == 3 && $GetMember->fields('balance') > 0) $statusLabel = 'Aktif';
+        elseif ($status == 3) $statusLabel = 'Diluluskan';
+        if ($status == 7) $statusLabel = 'Ditolak';
+        if ($status == 9) $statusLabel = 'Dibatalkan';
+        if ($status == 11) $statusLabel = 'Suspended';
 
         $code = $GetMember->fields['Code_simpanan'];
         $sql  = "SELECT name FROM general WHERE ID = " . tosql($code, "Number");
@@ -556,28 +584,19 @@ if ($GetMember->RowCount() <> 0) {
 						<td class="Data" align="right">Rp ' . $nominalSimpanan . '</td>
 						<td class="Data" align="left">' . $sumberDana . '</td>
 						<td class="Data" align="right">Rp ' . $saldo . '</td>
-						<td class="Data" align="center"><font class="' . $colorStatus . '">' . $statusList[$status] . '</font></td>
+						<td class="Data" align="center"><font class="' . $colorStatus . '">' . $statusLabel . '</font></td>
 						<td class="Data" align="center">' . toDate("d/m/Y", $GetMember->fields(applyDate)) . '</td>';
         if (($IDName == 'superadmin') or ($IDName == 'admin')) {
-            if ($filter == 0) {
-                if ($verified == 1) {
-                    print '<td>						
-								<i class="mdi mdi-account-check text-primary" style="font-size: 25px;" title="Telah Disahkan"></i>
-							</td>';
-                } else {
-                    print '<td>
-						<a href="javascript:void(0);"" onClick="openPopup(this);" title="Verifikasi Anggota" data-pk="' . $GetMember->fields(depositorID) . '">
-								<i class="mdi mdi-account-check text-warning" style="font-size: 25px;"></i>
-							</a>
-							</td>';
-                }
-
-                print '<td>
-							<a href="?vw=deleteloansimpanan&mn=902&ID=' . $GetMember->fields['depositorID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus anggota ini?\')" title="Hapus">
-								<i class="fas fa-trash-alt text-danger" style="font-size: 19px; margin-top: 9px;"></i>
-							</a>
-						</td>';
+            print '<td class="Data" align="center" nowrap>
+                <a href="javascript:void(0);" onClick="openPopup(this);" title="Ubah Status" data-pk="' . $GetMember->fields(depositorID) . '">
+                    <i class="mdi mdi-lead-pencil text-primary" style="font-size: 20px;"></i>
+                </a>';
+            if ($status == 1) {
+                print '&nbsp;<a href="?vw=deleteloansimpanan&mn=902&ID=' . $GetMember->fields['depositorID'] . '" onClick="return confirm(\'Adakah anda pasti untuk hapus data ini?\')" title="Hapus">
+                    <i class="fas fa-trash-alt text-danger" style="font-size: 16px;"></i>
+                </a>';
             }
+            print '</td>';
         }
         print '
 					</tr>';
@@ -633,10 +652,10 @@ print '
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Dalam Proses', 'Disetujui', 'Ditolak'],
+            labels: ['Dalam Proses', 'Diluluskan', 'Aktif', 'Ditolak', 'Dibatalkan', 'Suspended'],
             datasets: [{
-                data: [<?php echo $dalam_Proses; ?>, <?php echo $diluluskan; ?>, <?php echo $ditolak; ?>],
-                backgroundColor: ['#2196F3', '#4caf50', '#ff9800']
+                data: [<?php echo $dalam_Proses; ?>, <?php echo $diluluskan; ?>, <?php echo $aktif; ?>, <?php echo $ditolak; ?>, <?php echo $dibatalkan; ?>, <?php echo $suspended; ?>],
+                backgroundColor: ['#2196F3', '#4caf50', '#00bcd4', '#ff9800', '#f44336', '#9e9e9e']
             }]
         },
         options: {

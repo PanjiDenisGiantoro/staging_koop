@@ -5,16 +5,45 @@ date_default_timezone_set("Asia/Jakarta");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $UserID         = isset($_POST['UserID']) ? trim($_POST['UserID']) : '';
-    $AccountNumber  = isset($_POST['AccountNumber']) ? trim($_POST['AccountNumber']) : '';
     $Code_simpanan  = isset($_POST['Code_simpanan']) ? trim($_POST['Code_simpanan']) : '';
     $nominal_simpanan = isset($_POST['nominal_simpanan']) ? floatval($_POST['nominal_simpanan']) : 0;
     $sumber_dana    = isset($_POST['sumber_dana']) ? trim($_POST['sumber_dana']) : '';
-    $status         = isset($_POST['status']) ? intval($_POST['status']) : 1;
+    $status         = 1;
 
-    if ($UserID != '' && $AccountNumber == '' && $Code_simpanan != '' && $nominal_simpanan > 0 && $sumber_dana != '') {
+    if ($UserID != '' && $Code_simpanan != '' && $nominal_simpanan > 0 && $sumber_dana != '') {
 
-        // Generate AccountNumber otomatis dengan format: 8810tahunbulannourut4digit
-        $prefix = "8810" . date("Ym"); // 8810 + YYYYmm, contoh: 8810202512
+        // Cek apakah sudah ada user dengan kombinasi UserID + Code_simpanan (reject jika sama)
+        $cekSql = "SELECT COUNT(*) as cnt
+               FROM depositoracc
+               WHERE UserID = " . tosql($UserID, "Text") . "
+                 AND Code_simpanan = " . tosql($Code_simpanan, "Text");
+        $rsCek = $conn->Execute($cekSql);
+
+        if ($rsCek && $rsCek->fields['cnt'] > 0) {
+            echo "<script>alert('Permohonan ditolak! User ini sudah memiliki rekening dengan jenis simpanan yang sama.');
+              window.history.back();</script>";
+            exit;
+        }
+
+        // ---- Generate AccountNumber: 8 + lastDigitIC(1) + kodSimpanan(2) + noCoop(4) + auto(5) ----
+        // 1. Last digit IC
+        $newIC = dlookup("userdetails", "newIC", "userID=" . tosql($UserID, "Text"));
+        $lastDigitIC = substr(trim($newIC), -1, 1);
+
+        // 2. Kod simpanan 2 digit (from general.kode_simpanan, extract numeric part)
+        $kodSimpananRaw = dlookup("general", "kode_simpanan", "ID=" . tosql($Code_simpanan, "Number"));
+        $kodNum = preg_replace('/[^0-9]/', '', $kodSimpananRaw);
+        if ($kodNum == '') $kodNum = $Code_simpanan;
+        $kodSimpanan2 = str_pad(substr($kodNum, -2), 2, "0", STR_PAD_LEFT);
+
+        // 3. No Coop 4 digit (from setup.koperasiID)
+        $noCoopRaw = dlookup("setup", "koperasiID", "setupID=1");
+        $noCoop4 = str_pad(substr($noCoopRaw, -4), 4, "0", STR_PAD_LEFT);
+
+        // 4. Build prefix: 8 + lastDigitIC + kodSimpanan2 + noCoop4
+        $prefix = "8" . $lastDigitIC . $kodSimpanan2 . $noCoop4;
+
+        // 5. Auto generate 5 digit (checking uniqueness)
         $cekAcc = "SELECT MAX(AccountNumber) as max_acc
                FROM depositoracc
                WHERE AccountNumber LIKE '" . $prefix . "%'";
@@ -22,23 +51,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $lastNumber = 0;
         if ($rsAcc && $rsAcc->fields['max_acc'] != null) {
-            $lastNumber = intval(substr($rsAcc->fields['max_acc'], 10)); // ambil 4 digit terakhir (setelah 8810YYYYmm)
+            $lastNumber = intval(substr($rsAcc->fields['max_acc'], strlen($prefix)));
         }
-
-        $newNumber = str_pad($lastNumber + 1, 4, "0", STR_PAD_LEFT);
+        $newNumber = str_pad($lastNumber + 1, 5, "0", STR_PAD_LEFT);
         $AccountNumber = $prefix . $newNumber;
 
-        // 🔎 Cek apakah sudah ada user dengan kombinasi UserID + Code_simpanan
-        $cekSql = "SELECT COUNT(*) as cnt 
-               FROM depositoracc 
-               WHERE UserID = " . tosql($UserID, "Text") . " 
-                 AND Code_simpanan = " . tosql($Code_simpanan, "Text");
-        $rsCek = $conn->Execute($cekSql);
-
-        if ($rsCek && $rsCek->fields['cnt'] > 0) {
-            echo "<script>alert('User ini sudah memiliki rekening dengan jenis simpanan tersebut!'); 
-              window.history.back();</script>";
-            exit;
+        // Check primary uniqueness (loop sampai dapat nomor unik)
+        $maxRetry = 100;
+        $retry = 0;
+        while ($retry < $maxRetry) {
+            $cekPrimary = "SELECT COUNT(*) as cnt FROM depositoracc WHERE AccountNumber = " . tosql($AccountNumber, "Text");
+            $rsPrimary = $conn->Execute($cekPrimary);
+            if ($rsPrimary && $rsPrimary->fields['cnt'] == 0) {
+                break;
+            }
+            $lastNumber++;
+            $newNumber = str_pad($lastNumber + 1, 5, "0", STR_PAD_LEFT);
+            $AccountNumber = $prefix . $newNumber;
+            $retry++;
         }
 
         // Lanjut insert
@@ -62,8 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $conn->Execute($sql);
 
-        echo "<script>alert('Rekening Simpanan berhasil ditambahkan'); 
-          window.location.href='?vw=loansimpanan1&mn=946';</script>";
+        echo "<script>alert('Rekening Simpanan berhasil ditambahkan. No Account: " . $AccountNumber . "');
+          window.location.href='?vw=loansimpanan1&mn=902';</script>";
         exit;
     } else {
         echo "<script>alert('Semua field wajib diisi');</script>";
@@ -131,13 +161,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="form-group mb-3">
             <label>Status</label>
-            <select name="status" class="form-control">
-                <option value="0">Dalam Proses</option>
+            <select name="status" class="form-control" disabled>
+                <option value="1" selected>Dalam Proses</option>
             </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="?vw=loansimpanan&mn=946" class="btn btn-secondary">Batal</a>
+        <a href="?vw=loansimpanan1&mn=902" class="btn btn-secondary">Batal</a>
     </form>
 </div>
 

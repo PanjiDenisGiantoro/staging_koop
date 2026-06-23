@@ -7,7 +7,12 @@
  *********************************************************************************/
 session_start();
 if (!isset($sub)) $sub = "0";
-if (!isset($cat)) $cat = "";
+if (!isset($cat) || $cat == "") {
+    if (isset($selCode) && $selCode != "") $cat = $selCode;
+    elseif (isset($_REQUEST['selCode']) && $_REQUEST['selCode'] != "") $cat = $_REQUEST['selCode'];
+    elseif (isset($_REQUEST['cat']) && $_REQUEST['cat'] != "") $cat = $_REQUEST['cat'];
+    else $cat = "";
+}
 
 include("common.php");
 include("koperasiQry.php");
@@ -134,10 +139,12 @@ if ($action == "kemaskini" && $pk <> "") {
     }
     //--- End   : query database for information ---------------------------------------------
 
-    // Load data khusus untuk kategori Y
-    if ($cat == 'Y' && $rs && !$rs->EOF) {
+    // Load data khusus untuk kategori Y (hanya saat render form, bukan saat submit)
+    if ($cat == 'Y' && $rs && !$rs->EOF && $SubmitForm == "") {
         $loanCode = $rs->fields('loanCode');
         $loanName = $rs->fields('loanName');
+        $gl_bank_code = $rs->fields('gl_bank_code');
+        $gl_bank_name = $rs->fields('gl_bank_name');
     }
 }
 //--- End : Load Data untuk mode Kemaskini ---------------------------->
@@ -580,9 +587,11 @@ if ($cat == "Y") {
     // Inisialisasi variabel jika belum ada (mode tambah)
     if (!isset($loanCode)) $loanCode = "";
     if (!isset($loanName)) $loanName = "";
+    if (!isset($gl_bank_code)) $gl_bank_code = "";
+    if (!isset($gl_bank_name)) $gl_bank_name = "";
 
     $a = $a + 1;
-    $FormLabel[$a]    	= "* Kode Master Ledger";
+    $FormLabel[$a]    	= "* Kode Master Ledger Simpanan";
     $FormElement[$a] 	= "loanCode";
     $FormType[$a]     = "custom";
     $FormData[$a]    	= "";
@@ -592,7 +601,7 @@ if ($cat == "Y") {
         <div class='input-group'>
             <span class='input-group-text'>Kode</span>
             <input type='text' name='loanCode' id='loanCode' class='form-control' value='".htmlspecialchars($loanCode)."' readonly>
-            <button type='button' class='btn btn-sm btn-info' onclick=\"window.open('listledger.php','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')\">Pilih</button>
+            <button type='button' class='btn btn-sm btn-info' onclick=\"window.open('listledger.php?target=loan','sel','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')\">Pilih</button>
         </div>
         <div class='input-group mt-2'>
             <span class='input-group-text'>Nama</span>
@@ -602,6 +611,58 @@ if ($cat == "Y") {
     $FormCheck[$a]    	= array(CheckBlank);
     $FormSize[$a]     	= "8";
     $FormLength[$a]   	= "20";
+
+    $a++;
+    $FormLabel[$a]     = "* Kod GL Bank Transaksi";
+    $FormElement[$a]   = "gl_bank_code";
+    $FormType[$a]      = "custom";
+    $FormData[$a]      = "";
+    $FormDataValue[$a] = "";
+    $FormCustomHTML[$a] = "
+    <div class='mb-2'>
+        <div class='input-group'>
+            <span class='input-group-text'>Kode</span>
+            <input type='text' name='gl_bank_code' id='gl_bank_code' class='form-control' value='".htmlspecialchars($gl_bank_code)."' readonly>
+            <button type='button' class='btn btn-sm btn-info' onclick=\"window.open('listledger.php?targetCode=gl_bank_code&targetName=gl_bank_name','sel2','top=10,left=10,width=900,height=600,scrollbars=yes,resizable=yes')\">Pilih</button>
+        </div>
+        <div class='input-group mt-2'>
+            <span class='input-group-text'>Nama</span>
+            <input type='text' name='gl_bank_name' id='gl_bank_name' class='form-control' value='".htmlspecialchars($gl_bank_name)."' readonly>
+        </div>
+    </div>";
+    $FormCheck[$a]     = array(CheckBlank);
+    $FormSize[$a]      = "8";
+    $FormLength[$a]    = "20";
+
+    $a++;
+    $FormLabel[$a]     = "* Jumlah Minimum (RM)";
+    $FormElement[$a]   = "jumlah_minimum";
+    $FormType[$a]      = "text-sm";
+    $FormData[$a]      = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a]     = array(CheckBlank, CheckDecimal);
+    $FormSize[$a]      = "70";
+    $FormLength[$a]    = "15";
+
+    $a++;
+    $FormLabel[$a]     = "* Had Pengeluaran Sehari (RM)";
+    $FormElement[$a]   = "had_pengeluaran_sehari";
+    $FormType[$a]      = "text-sm";
+    $FormData[$a]      = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a]     = array(CheckBlank, CheckDecimal);
+    $FormSize[$a]      = "70";
+    $FormLength[$a]    = "15";
+
+    $a++;
+    $FormLabel[$a]     = "* Had Pengeluaran Per Transaksi (RM)";
+    $FormElement[$a]   = "had_pengeluaran_transaksi";
+    $FormType[$a]      = "text-sm";
+    $FormData[$a]      = "";
+    $FormDataValue[$a] = "";
+    $FormCheck[$a]     = array(CheckBlank, CheckDecimal);
+    $FormSize[$a]      = "70";
+    $FormLength[$a]    = "15";
 
     $a++;
     $FormLabel[$a] = "* Jenis Simpanan";
@@ -814,6 +875,11 @@ if ($SubmitForm <> "") {
                 if ($cat == 'Y'){
                     $sSQL .=
                         "loanCode,".
+                        "gl_bank_code,".
+                        "gl_bank_name,".
+                        "jumlah_minimum,".
+                        "had_pengeluaran_sehari,".
+                        "had_pengeluaran_transaksi,".
                         "jenis_simpanan,".
                         "setoran_simpanan_pokok,".
                         "deskripsi_simpanan,".
@@ -880,6 +946,11 @@ if ($SubmitForm <> "") {
                 if ($cat == 'Y'){
                     $sSQL .=
                         tosql($loanCode, "Text") . "," .
+                        tosql($gl_bank_code, "Text") . "," .
+                        tosql($gl_bank_name, "Text") . "," .
+                        tosql($jumlah_minimum, "Number") . "," .
+                        tosql($had_pengeluaran_sehari, "Number") . "," .
+                        tosql($had_pengeluaran_transaksi, "Number") . "," .
                         tosql($jenis_simpanan, "Text") . "," .
                         tosql($setoran_simpanan_pokok, "Number") . "," .
                         tosql($deskripsi_simpanan, "Text") . "," .
@@ -909,6 +980,7 @@ if ($SubmitForm <> "") {
                     tosql($updatedBy, "Text") . ")";
                 $msg = "Data telah berhasil disimpan !";
                 break;
+            case "perbarui":
             case "kemaskini":
                 $sWhere = "ID=" . tosql($pk, "Number");
                 $sSQL = "UPDATE general SET " .
@@ -961,6 +1033,11 @@ if ($SubmitForm <> "") {
                 if ($cat == 'Y'){
                     $sSQL .=
                         ",loanCode=" . tosql($loanCode, "Text") .
+                        ",gl_bank_code=" . tosql($gl_bank_code, "Text") .
+                        ",gl_bank_name=" . tosql($gl_bank_name, "Text") .
+                        ",jumlah_minimum=" . tosql($jumlah_minimum, "Number") .
+                        ",had_pengeluaran_sehari=" . tosql($had_pengeluaran_sehari, "Number") .
+                        ",had_pengeluaran_transaksi=" . tosql($had_pengeluaran_transaksi, "Number") .
                         ",jenis_simpanan=" . tosql($jenis_simpanan, "Text") .
                         ",setoran_simpanan_pokok=" . tosql($setoran_simpanan_pokok, "Number") .
                         ",deskripsi_simpanan=" . tosql($deskripsi_simpanan, "Text") .
@@ -977,8 +1054,8 @@ if ($SubmitForm <> "") {
 
         $rs = &$conn->Execute($sSQL);
 
-        if ($cat = 'O') {
-            $Section[] = $HTTP_POST_VARS["Section[]"];
+        if ($cat == 'O') {
+            $Section[] = isset($_POST["Section"]) ? $_POST["Section"] : array();
             $sSQL = ' DELETE FROM codegroup WHERE groupNo = ' . tosql($code, "Text");
             $rs = &$conn->Execute($sSQL);
             for ($i = 0; $i < count($Section); $i++) {
@@ -1097,7 +1174,7 @@ for ($i = 1; $i <= count($FormLabel); $i++) {
             if ($i == 3) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
         if ($cat == 'Y') {
-            if ($i == 7) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
+            if ($i == 11) print '<tr class="table-primary"><td colspan=2><h6 class="card-subtitle">Audit Informasi</h6></td></tr>';
         }
     }
     print '<tr valign=top><td class=Data align=right>' . $FormLabel[$i] . '</td>';
