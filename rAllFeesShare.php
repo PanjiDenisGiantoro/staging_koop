@@ -154,9 +154,9 @@ print '<div class="table-responsive">
                         <td nowrap>&nbsp;</td>
                         <td nowrap align="center">Nomor Anggota</td>
                         <td nowrap align="left">Nama Anggota</td>
-                        <td nowrap align="center">Peratusan Wajib (%)</td>
+                        <td nowrap align="center">Persentase Wajib (%)</td>
 					    <td nowrap align="right">Wajib Terkumpul (RP)</td>
-                        <td nowrap align="center">Peratusan syer (%)</td>
+                        <td nowrap align="center">Persentase Pokok (%)</td>
                         <td nowrap align="right">Pokok Terkumpul (RP)</td>
                     </tr>';
 

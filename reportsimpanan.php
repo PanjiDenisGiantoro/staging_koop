@@ -134,6 +134,7 @@ print '
 <input type="hidden" name="action">
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5 class="card-title">' . strtoupper($title) . '</h5>
+    <input type="button" class="btn btn-md btn-primary" value="+ Pengajuan Baru" onClick="window.location.href=\'?vw=loanApplysimpanan&mn=902\'"/>
 </div>';
 ?>
 

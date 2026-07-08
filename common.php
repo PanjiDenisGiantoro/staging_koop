@@ -20,13 +20,13 @@ if ($HTTP_COOKIE_VARS["selDB"] == "") {
     $DB_username = 'root';
     $DB_password = '';
     // $DB_dbname = 'demotri';
-   $DB_dbname = 'apexkoop';
+   $DB_dbname = 'demokoop';
 } else {
     $DB_dbtype = 'mysql';
     $DB_hostname = 'localhost';
     $DB_username = 'root';
     $DB_password = '';
-    $DB_dbname = $HTTP_COOKIE_VARS["apexkoop"];
+    $DB_dbname = $HTTP_COOKIE_VARS["demokoop"];
 }
 
 $conn = &ADONEWConnection($DB_dbtype);
@@ -37,6 +37,10 @@ $conn->Pconnect($DB_hostname, $DB_username, $DB_password, $DB_dbname);
 
 $sSQL = 'SELECT * FROM setup where setupID = 1';
 $rs = &$conn->Execute($sSQL);
+
+if (!$rs) {
+    die($conn->ErrorMsg());
+}
 //--- End   : Get Setup Information ----------------------------------------------------------------
 //--- Begin : Set Application variables ------------------------------------------------------------
 if (!$rs->EOF) {
